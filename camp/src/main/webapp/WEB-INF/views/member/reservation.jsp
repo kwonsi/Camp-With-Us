@@ -8,25 +8,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>캠프보내조</title>
-    <link rel="stylesheet" href="resources/css/main.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/main.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/mypage.css">
     <script src="https://kit.fontawesome.com/a2e8ca0ae3.js" crossorigin="anonymous"></script>
 
 </head>
 <body>
     <jsp:include page="/WEB-INF/views/common/header.jsp" />
 
-    <main>
+    <main class="myPage-content">
         
         <jsp:include page="/WEB-INF/views/member/sideMenu.jsp"/>
-
 
         <section class="myPage-main">
 
             <h1 class="myPage-title">예약 확인</h1>
-            <span class="myPage-explanation">현재 회워님의 예약 정보를 확인할 수 있습니다.</span>
+            
+            <span class="myPage-explanation">현재 회원님의 예약 정보를 확인할 수 있습니다.</span>
+            
         </section>
-
-        <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 
     </main>
 

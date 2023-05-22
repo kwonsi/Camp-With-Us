@@ -29,7 +29,7 @@ header>section:nth-of-type(1) {
 }
 
 #home-logo {
-    width: 50px;
+    width: 150px;
     height: auto;
     /* 이미지는 width/height 둘 중 하나만 지정 시 
     나머지 방향의 크기가 같은 비율로 지정됨 */

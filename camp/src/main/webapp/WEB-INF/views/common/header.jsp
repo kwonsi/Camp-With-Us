@@ -6,7 +6,7 @@
 
 	<section>
 	    <a href="${contextPath}">
-	        <img src="" id="home-logo">
+	        <img src="${contextPath}/resources/images/camp_logo.jpg" id="home-logo">
 			<!-- 로고 교체 예정 -->
 	    </a>
 		<h3 class="title">캠프 보내조</h3>
@@ -33,7 +33,7 @@
 				<h4 id="myPage">마이페이지</h4>
 				
 				<ul class="submenu">
-					<li><a href="/member/myPage/reservation">예약 확인</a></li>
+					<li><a href="${contextPath}/member/myPage/reservation">예약 확인</a></li>
 					<li>내 게시글</li>
 					<li>내 리뷰</li>
 					<li>회원 정보 변경</li>
@@ -69,9 +69,9 @@
 		<script>
 			jQuery(document).ready(function(){
 				$('.menu>li').mouseover(function(){
-					$(this).find('.submenu').stop().slideDown(500);
+					$(this).find('.submenu').stop().slideDown(250);
 				}).mouseout(function(){
-					$(this).find('.submenu').stop().slideUp(500);
+					$(this).find('.submenu').stop().slideUp(250);
 				});
 			});
 		</script>
