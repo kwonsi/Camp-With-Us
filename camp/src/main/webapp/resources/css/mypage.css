@@ -1,8 +1,8 @@
 /* 마이페이지 영역 */
 .myPage-content{
-    width: 1000px;
+    width: 1140px;
     height: 800px;
-    margin: 25px auto;
+    margin: 25px;
 
     display: flex;
 }
