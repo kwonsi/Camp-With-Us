@@ -91,7 +91,7 @@ function categoryChange(e) {
         pageNo: 2,
         MobileOS: "ETC",
         MobileApp: "AppTest",
-        serviceKey: "4k7REi0gs6TKyjakIRV6zHIg3a1NcXwJPRTezijLCYvx0leNrqvtRwayHuc1AslN9pksU9rGRorGGOTZwMEu9Q==",
+        serviceKey: "API 키",
         _type: "json"
       },
       dataType: "json",
