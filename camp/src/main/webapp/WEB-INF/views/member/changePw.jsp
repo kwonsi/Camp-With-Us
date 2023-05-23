@@ -26,6 +26,27 @@
             
             <span class="myPage-explanation">현재 회원님의 비밀번호를 변경할 수 있습니다.</span>
             
+            <form action="changePw" method="POST" name="myPage-form" onsubmit="return changePwValidate()">
+
+                <div class="myPage-row">
+                    <label>현재 비밀번호</label>
+                    <input type="password" name="currentPw" id="currentPw" maxlength="30">              
+                </div>
+
+                <div class="myPage-row">
+                    <label>새 비밀번호</label>
+                    <input type="password" name="newPw" maxlength="30">              
+                </div>
+
+                <div class="myPage-row">
+                    <label>새 비밀번호 확인</label>
+                    <input type="password" name="newPwConfirm" maxlength="30">              
+                </div>
+
+                <button id="info-update-btn">변경하기</button>
+
+            </form>
+
         </section>
 
     </main>
@@ -34,7 +55,7 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
-    <script src="${contextPath}/resources/js/main.js"></script>
+    <script src="${contextPath}/resources/js/mypage.js"></script>
 
 </body>
 </html>

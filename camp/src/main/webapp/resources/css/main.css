@@ -3,6 +3,7 @@
 }
 
 body {
+    height: auto;
     margin: 0;
 }
 
@@ -88,6 +89,7 @@ header .conent1 {
 
 main {
     width: 1140px;
+    height: auto;
     margin: auto;
 }
 
