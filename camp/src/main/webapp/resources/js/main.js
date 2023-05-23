@@ -13,7 +13,7 @@ function selectLoc() {
 
 // 검색 버튼 클릭 시 캠프 리스트 페이지 이동
 function searchCamp() { 
-    location.href="/campList/?loc=" + selLoc.innerText;
+    location.href="${contextPath}/campList/?loc=" + selLoc.innerText;
 }
 
 login.addEventListener("click", function() {
@@ -25,7 +25,7 @@ myPage.addEventListener("click", function() {
     if(loginMember == null) {
         alert("먼저 로그인을 해주세요");
     } else {
-        location.href = "/myPage/" + loginMember.memberNo;
+        location.href = "${contextPath}/myPage/" + loginMember.memberNo;
     }
 
 });
