@@ -54,6 +54,7 @@ function categoryChange(e) {
   } else if (e.value == "제주") {
     add = jeju;
   }
+<<<<<<< HEAD
 
   state.options.length = 1;
   // 군/구 갯수;
@@ -120,6 +121,146 @@ selectCampBtn.addEventListener("click", function () {
         searchVal2_1 = "경남";
       } else {
         searchVal2_1 = "";
+=======
+  
+  
+  const selectCampBtn = document.getElementById("selectCampBtn");  // 검색하기 버튼 
+  const searchBox = document.getElementById("searchBox"); // 검색결과 뽑아내는 section .
+  const searchVal1 = document.getElementById("searchVal1"); // 검색창 inputtext
+  const searchVal2 = document.getElementById("searchVal2"); // 광역시 option
+  const state = document.getElementById("state"); // 시군구 option 
+  const searchVal3 = document.getElementById("searchVal3"); // 테마 option
+  const searchBox2 = document.getElementById("searchBox2");  // 검색결과 뽑아내는 div
+  const searchVal = document.getElementById("searchVal"); // 목록 div
+  
+  selectCampBtn.addEventListener("click", function () {
+  
+    searchBox2.innerHTML="";
+    console.log(searchVal1.value);
+    console.log(searchVal2.value);
+    console.log(state.value);
+    console.log(searchVal3.value);
+  
+    $.ajax({
+      url: "https://apis.data.go.kr/B551011/GoCamping/basedList",
+      data: {
+        numOfRows: 400,
+        pageNo: 2,
+        MobileOS: "ETC",
+        MobileApp: "AppTest",
+        serviceKey: "API 키",
+        _type: "json"
+      },
+      dataType: "json",
+  
+      success: function (result) {
+        console.log("API 호출 성공");
+        console.log(result);
+  
+        var count = 0;
+        let searchVal2_1 = "";
+  
+  
+        if (result.response.body.items) {
+          var items = result.response.body.items.item;
+  
+          if(searchVal2.value == "충청북도") { searchVal2_1 = "충북";}
+          else if(searchVal2.value == "충청남도") { searchVal2_1 = "충남";}
+          else if(searchVal2.value == "전라북도") { searchVal2_1 = "전북";}
+          else if(searchVal2.value == "전라남도") { searchVal2_1 = "전남";}
+          else if(searchVal2.value == "경상북도") { searchVal2_1 = "경북";}
+          else if(searchVal2.value == "경상남도") { searchVal2_1 = "경남";}
+          else searchVal2_1 = "";
+          
+           console.log("searchVal2_1::", searchVal2_1);
+  
+          for (var i = 0; i < items.length; i++) { 
+  
+            if ( (searchVal2.value == "충청북도" || searchVal2.value == "충청남도" || searchVal2.value == "전라북도" ||
+            searchVal2.value == "전라남도" || searchVal2.value == "경상북도" || searchVal2.value == "경상남도") 
+            && (items[i].homepage != ""     // 홈페이지가 null 이 아닌것
+              && items[i].firstImageUrl!= ""   //   이미지가  ''
+              && items[i].tel !=""             //   전화번호가 ''
+              && items[i].lineIntro !=""       //  한줄소개가  '' 
+              && items[i].addr1 != ""          // 주소가 '' 
+              && items[i].facltNm.includes(searchVal1.value) // 캠핑장이름과 일치
+              && (items[i].addr1.includes(searchVal2.value)   // 시,도 일치
+              || items[i].addr1.includes(searchVal2_1) )// 시,도 줄임말 일치
+              && items[i].addr1.includes(state.value)   // 시, 군, 구 일치
+              && items[i].induty.includes(searchVal3.value)
+            )
+              ) {
+              count++;
+  
+              var htmlCode =
+                '<ul>' +
+                '<li>' +
+                '<div class="camp_info_box">' +
+                '<div class="img_box">' +
+                '<img src=' + items[i].firstImageUrl + ' alt="김영진" class="imgSize">' +
+                '</div>' +
+                '<div class="camp_info_text">' +
+                '<h3 class="camp_info01">' +
+                '<a href='+ items[i].homepage +'>' + items[i].facltNm + '</a>' +
+                '</h3>' +
+                '<span class="camp_info02">' + items[i].lineIntro + '</span><br>' +
+                '<span class="camp_info03">' +
+                '<a href="">캠핑장 디테일 소개글이 들어갑니다.</a>' +
+                '</span><br>' +
+                '<span>테마 &nbsp;&nbsp;&nbsp;: '+items[i].induty+'</span><br>'+
+                '<span class="camp_add">주소 &nbsp;&nbsp;&nbsp;: ' +items[i].addr1+ '</span><br>' +
+                '<span class="camp_phone">연락처 : ' + items[i].tel + '</span>' +
+                '</div>' +
+                '</div>' +
+                '</li>' +
+                '</ul><br><hr><br>'
+               
+  
+  
+                searchBox2.innerHTML += htmlCode;
+  
+            }  else if ( (items[i].homepage != ""     // 홈페이지가 null 이 아닌것
+              && items[i].firstImageUrl!= ""   //   이미지가  ''
+              && items[i].tel !=""             //   전화번호가 ''
+              && items[i].lineIntro !=""       //  한줄소개가  '' 
+              && items[i].addr1 != ""          // 주소가 '' 
+              && items[i].facltNm.includes(searchVal1.value) // 캠핑장이름과 일치
+              && items[i].addr1.includes(searchVal2.value)   // 시,도 일치
+              && items[i].addr1.includes(state.value)   // 시, 군, 구 일치
+              && items[i].induty.includes(searchVal3.value)  
+            )
+              ) {
+              count++;
+  
+              var htmlCode =
+                '<ul>' +
+                '<li>' +
+                '<div class="camp_info_box">' +
+                '<div class="img_box">' +
+                '<img src=' + items[i].firstImageUrl + ' alt="김영진" class="imgSize">' +
+                '</div>' +
+                '<div class="camp_info_text">' +
+                '<h3 class="camp_info01">' +
+                '<a href='+ items[i].homepage +'>' + items[i].facltNm + '</a>' +
+                '</h3>' +
+                '<span class="camp_info02">' + items[i].lineIntro + '</span><br>' +
+                '<span class="camp_info03">' +
+                '<a href="">캠핑장 디테일 소개글이 들어갑니다.</a>' +
+                '</span><br>' +
+                '<span>테마 &nbsp;&nbsp;&nbsp;: '+items[i].induty+'</span><br>'+
+                '<span class="camp_add">주소 &nbsp;&nbsp;&nbsp;: ' +items[i].addr1+ '</span><br>' +
+                '<span class="camp_phone">연락처 : ' + items[i].tel + '</span>' +
+                '</div>' +
+                '</div>' +
+                '</li>' +
+                '</ul><br><hr><br>'
+               
+                searchBox2.innerHTML += htmlCode;
+            }
+          }
+          console.log(count);
+        }
+>>>>>>> fc3d572745b9935570d1e39d568d9390b6753729
       }
 
       console.log("searchVal2_1::", searchVal2_1);
@@ -264,5 +405,10 @@ selectCampBtn.addEventListener("click", function () {
       console.log(error);
     }
   });
+<<<<<<< HEAD
 
 });
+=======
+  
+  
+>>>>>>> fc3d572745b9935570d1e39d568d9390b6753729
