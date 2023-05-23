@@ -71,7 +71,7 @@ hr {
     border: 1px solid green;
 }
 
-.pagination-area{
+.pageNation{
     margin-top: 25px;
     margin-bottom: 25px;
    
@@ -160,32 +160,55 @@ hr {
 
 
 
-/* 페이지네이션(Pagination) */
-.pagination{
-    padding: 0;
-    list-style: none;
+/* 페이지네이션 */
 
-    display: flex;
-    justify-content: center;
+.pagination {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.pagination > li{
-    width: 20px;
-    margin: 0 5px;
-    text-align: center;
+.page-button {
+  border: none;
+  background-color: transparent;
+  color: #555;
+  font-size: 16px;
+  padding: 8px 12px;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border-radius: 5px;
 }
 
-.pagination a{
-    width: 100%;
-    height: 100%;
-    display: block;
-    /* letter-spacing : -2px; */
+.page-button.active {
+  background-color: #555;
+  color: #fff;
 }
 
-/* 현재 페이지 번호 */
-.pagination .current{
-    background-color: #455ba8;
-    border-radius: 50%;
-    color: white;
-    font-weight: bold;
+.page-button:hover {
+  background-color: #555;
+  color: #fff;
 }
+
+.pagination-previous,
+.pagination-next {
+  border: none;
+  background-color: #555;
+  color: #fff;
+  font-size: 16px;
+  padding: 8px 12px;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border-radius: 5px;
+}
+
+.pagination-previous:hover,
+.pagination-next:hover {
+  background-color: #333;
+}
+.pagination-previous {
+  order: -1;
+}
+
