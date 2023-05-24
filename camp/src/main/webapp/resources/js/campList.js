@@ -96,7 +96,7 @@ selectCampBtn.addEventListener("click", function () {
       pageNo: 1,
       MobileOS: "ETC",
       MobileApp: "AppTest",
-      serviceKey: "4k7REi0gs6TKyjakIRV6zHIg3a1NcXwJPRTezijLCYvx0leNrqvtRwayHuc1AslN9pksU9rGRorGGOTZwMEu9Q==",
+      serviceKey: "서비스키==",
       _type: "json"
     },
     dataType: "json",
@@ -281,7 +281,7 @@ window.onload = function() {
       pageNo: 1,
       MobileOS: "ETC",
       MobileApp: "AppTest",
-      serviceKey: "4k7REi0gs6TKyjakIRV6zHIg3a1NcXwJPRTezijLCYvx0leNrqvtRwayHuc1AslN9pksU9rGRorGGOTZwMEu9Q==",
+      serviceKey: "서비스키==",
       _type: "json"
     },
     dataType: "json",
