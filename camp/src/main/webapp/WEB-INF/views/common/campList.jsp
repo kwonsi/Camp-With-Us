@@ -25,7 +25,8 @@
 
                 <div class="divv">
                     <h2>
-                        <span class="skip" >검색 레이어박스</span>
+                        <span class="skip" >검색 레이어박스 </span>
+                        
                     </h2>
                 </div>
                 <div class="search_box">
@@ -89,8 +90,10 @@
 
         <div class="searchVal" id="searchVal">
 
-
+            <div><h2>${loc} 지역 총 캠핑장 n 개 검색 되었습니다. 추가부분 </h2></div>
             <section class="searchBox" id ="searchBox" >
+
+               
                 <div class="camp_search_list" id="searchBox2">
                     <ul>
                         <li>
@@ -130,6 +133,13 @@
 
     </main>
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
+
+    <script>
+
+        const loc = "${loc}";
+    </script>
+
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="${contextPath}/resources/js/main.js"></script>
     <script src="${contextPath}/resources/js/campList.js"></script>
