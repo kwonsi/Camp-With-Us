@@ -1,3 +1,6 @@
+
+console.log(loc);
+
 //  시 군 구 option List 
 function categoryChange(e) {
   const state = document.getElementById("state");
@@ -75,6 +78,7 @@ const state = document.getElementById("state"); // 시군구 option
 const searchVal3 = document.getElementById("searchVal3"); // 테마 option
 const searchBox2 = document.getElementById("searchBox2");  // 검색결과 뽑아내는 div
 const searchVal = document.getElementById("searchVal"); // 목록 div
+const campResult = document.getElementById("campResult");  // "위치+갯수" 알려주는 h2태그
 
 selectCampBtn.addEventListener("click", function () {
 
@@ -84,6 +88,7 @@ selectCampBtn.addEventListener("click", function () {
   console.log(state.value);
   console.log(searchVal3.value);
 
+
   $.ajax({
     url: "https://apis.data.go.kr/B551011/GoCamping/basedList",
     data: {
@@ -91,16 +96,16 @@ selectCampBtn.addEventListener("click", function () {
       pageNo: 1,
       MobileOS: "ETC",
       MobileApp: "AppTest",
-      serviceKey: "서비스키",
+      serviceKey: "4k7REi0gs6TKyjakIRV6zHIg3a1NcXwJPRTezijLCYvx0leNrqvtRwayHuc1AslN9pksU9rGRorGGOTZwMEu9Q==",
       _type: "json"
     },
     dataType: "json",
 
+    
     success: function (result) {
       console.log("API 호출 성공");
       console.log(result);
-
-      var count = 0;
+      
       var items = result.response.body.items.item;
       var searchVal2_1 = "";
       var currentPage = 1;
@@ -122,12 +127,10 @@ selectCampBtn.addEventListener("click", function () {
         searchVal2_1 = "";
       }
 
-      console.log("searchVal2_1::", searchVal2_1);
 
       function displayItems(page) {
         var startIndex = (page - 1) * itemsPerPage;
         var endIndex = startIndex + itemsPerPage;
-        //  var totalPages = Math.ceil(items.length / itemsPerPage);
         var filteredItems = items.filter(item => {
           return (
             (searchVal2.value == "충청북도" || searchVal2.value == "충청남도" || searchVal2.value == "전라북도" ||
@@ -157,9 +160,200 @@ selectCampBtn.addEventListener("click", function () {
                 && item.induty.includes(searchVal3.value)
               )
             );
-        }); //.slice(startIndex, endIndex);
+        }); 
+
+        console.log("캠핑장수 : " + filteredItems.length);
+
+        if ( searchVal2.value==""){
+        campResult.innerText= "총 캠핑장 "+filteredItems.length+" 개 검색 되었습니다.";
+        }else {
+        campResult.innerText= searchVal2.value+"지역 총 캠핑장 "+filteredItems.length+" 개 검색 되었습니다.";
+        };
 
 
+        // 데이터 수에 맞게 페이지네이션 생성
+        var totalPages = Math.ceil(filteredItems.length / itemsPerPage);
+        var paginatedItems = filteredItems.slice(startIndex, endIndex);
+
+        searchBox2.innerHTML = "";
+
+        paginatedItems.forEach(item => {
+          var htmlCode =
+            '<ul>' +
+            '<li>' +
+            '<div class="camp_info_box">' +
+            '<div class="img_box">' +
+            '<img src=' + item.firstImageUrl + ' alt="캠핑장 메인사진" class="imgSize">' +
+            '</div>' +
+            '<div class="camp_info_text">' +
+            '<h3 class="camp_info01">' +
+            '<a href=' + item.homepage + ' target="_blank">' + item.facltNm + '</a>' +
+            '</h3>' +
+            '<span class="camp_info02">' + item.lineIntro + '</span><br>' +
+            '<span class="camp_info03">' +
+            '<a href="">캠핑장 디테일 소개' +
+            '글이 들어갑니다.</a>' +
+            '</span><br>' +
+            '<span>테마 &nbsp;&nbsp;&nbsp;: ' + item.induty + '</span><br>' +
+            '<span class="camp_add">주소 &nbsp;&nbsp;&nbsp;: ' + item.addr1 + '</span><br>' +
+            '<span class="camp_phone">연락처 : ' + item.tel + '</span>' +
+            '<a href="${contextPath}/common/reservation" class="reservation_button">예약하기</a>'+
+            '</div>' +
+            '</div>' +
+            '</li>' +
+            '</ul><br><hr><br>';
+
+          searchBox2.innerHTML += htmlCode;
+        });
+
+        // 페이지네이션 부분 
+        var pagination = document.getElementById("pagination");
+        pagination.innerHTML = "";
+
+        var startPage = Math.floor((currentPage - 1) / 5) * 5 + 1;
+        var endPage = Math.min(startPage + 4, totalPages);
+        
+        if (startPage > 1) {
+          var prevButton = document.createElement("button");
+          prevButton.textContent = "이전";
+          prevButton.classList.add("pagination-previous");
+          prevButton.addEventListener("click", function () {
+            currentPage = startPage - 5;
+            displayItems(currentPage);
+
+          });
+          pagination.appendChild(prevButton);
+        }
+        for (var i = startPage; i <= endPage; i++) {
+          var pageButton = document.createElement("button");
+          pageButton.textContent = i;
+          pageButton.classList.add("page-button");
+          if (i === currentPage) {
+            pageButton.classList.add("active");
+          }
+          pageButton.addEventListener("click", function () {
+            currentPage = parseInt(this.textContent);
+            displayItems(currentPage);
+          });
+          pagination.appendChild(pageButton);
+        }
+        if (endPage < totalPages) {
+          var nextButton = document.createElement("button");
+          nextButton.textContent = "다음";
+          nextButton.classList.add("pagination-next");
+          nextButton.addEventListener("click", function () {
+            currentPage = endPage + 1;
+            displayItems(currentPage);
+          });
+          pagination.appendChild(nextButton);
+        }
+        
+      }
+      displayItems(currentPage);
+    },
+    error: function (error) {
+      console.log("API 호출 실패");
+      console.log(error);
+    }
+  });
+
+});
+
+
+  
+  //  메인페이지에서 "loc" 값을 받아왔을때 
+  //  "loc" 지역정보 즉시출력 . onload 
+if(loc != "") {
+window.onload = function() {
+
+  searchBox2.innerHTML = "";
+  console.log(searchVal1.value);
+  console.log(searchVal2.value);
+  console.log(state.value);
+  console.log(searchVal3.value);
+
+  searchVal2.value = loc;
+
+  $.ajax({
+    url: "https://apis.data.go.kr/B551011/GoCamping/basedList",
+    data: {
+      numOfRows: 3000,
+      pageNo: 1,
+      MobileOS: "ETC",
+      MobileApp: "AppTest",
+      serviceKey: "4k7REi0gs6TKyjakIRV6zHIg3a1NcXwJPRTezijLCYvx0leNrqvtRwayHuc1AslN9pksU9rGRorGGOTZwMEu9Q==",
+      _type: "json"
+    },
+    dataType: "json",
+
+    
+    success: function (result) {
+      console.log("API 호출 성공");
+      console.log(result);
+      
+      var items = result.response.body.items.item;
+      var searchVal2_1 = "";
+      var currentPage = 1;
+      var itemsPerPage = 10;
+
+      if (searchVal2.value == "충청북도") {
+        searchVal2_1 = "충북";
+      } else if (searchVal2.value == "충청남도") {
+        searchVal2_1 = "충남";
+      } else if (searchVal2.value == "전라북도") {
+        searchVal2_1 = "전북";
+      } else if (searchVal2.value == "전라남도") {
+        searchVal2_1 = "전남";
+      } else if (searchVal2.value == "경상북도") {
+        searchVal2_1 = "경북";
+      } else if (searchVal2.value == "경상남도") {
+        searchVal2_1 = "경남";
+      } else {
+        searchVal2_1 = "";
+      }
+
+
+      function displayItems(page) {
+        var startIndex = (page - 1) * itemsPerPage;
+        var endIndex = startIndex + itemsPerPage;
+        var filteredItems = items.filter(item => {
+          return (
+            (searchVal2.value == "충청북도" || searchVal2.value == "충청남도" || searchVal2.value == "전라북도" ||
+              searchVal2.value == "전라남도" || searchVal2.value == "경상북도" || searchVal2.value == "경상남도")
+            && (item.homepage != null     // 홈페이지가 null 이 아닌 것
+              && item.firstImageUrl != ""   // 이미지가 ''
+              && item.tel != ""             // 전화번호가 ''
+              && item.lineIntro != ""       // 한줄소개가 ''
+              && item.addr1 != ""          // 주소가 ''
+              && item.facltNm.includes(searchVal1.value) // 캠핑장이름과 일치
+              && (item.addr1.includes(searchVal2.value)   // 시,도 일치
+                || item.addr1.includes(searchVal2_1))     // 시,도 줄임말 일치
+              && item.addr1.includes(state.value)   // 시, 군, 구 일치
+              && item.induty.includes(searchVal3.value)
+            )
+          )
+            ||
+            (
+              (item.homepage != ""     // 홈페이지가 null 이 아닌 것
+                && item.firstImageUrl != ""   // 이미지가 ''
+                && item.tel != ""             // 전화번호가 ''
+                && item.lineIntro != ""       // 한줄소개가 ''
+                && item.addr1 != ""          // 주소가 ''
+                && item.facltNm.includes(searchVal1.value) // 캠핑장이름과 일치
+                && item.addr1.includes(searchVal2.value)   // 시,도 일치
+                && item.addr1.includes(state.value)   // 시, 군, 구 일치
+                && item.induty.includes(searchVal3.value)
+              )
+            );
+        });
+
+        console.log("캠핑장수 : " + filteredItems.length);
+
+        if ( searchVal2.value==""){
+          campResult.innerText= "총 캠핑장 "+filteredItems.length+" 개 검색 되었습니다.";
+          }else {
+          campResult.innerText= searchVal2.value+"지역 총 캠핑장 "+filteredItems.length+" 개 검색 되었습니다.";
+          };
         // 데이터 수에 맞게 페이지네이션 생성
         var totalPages = Math.ceil(filteredItems.length / itemsPerPage);
         var paginatedItems = filteredItems.slice(startIndex, endIndex);
@@ -192,10 +386,7 @@ selectCampBtn.addEventListener("click", function () {
             '</ul><br><hr><br>';
 
           searchBox2.innerHTML += htmlCode;
-          count++;
         });
-        console.log("::: " + count);
-
 
         var pagination = document.getElementById("pagination");
         pagination.innerHTML = "";
@@ -210,7 +401,7 @@ selectCampBtn.addEventListener("click", function () {
           prevButton.addEventListener("click", function () {
             currentPage = startPage - 5;
             displayItems(currentPage);
-     //       updatePagination();
+
           });
           pagination.appendChild(prevButton);
         }
@@ -225,7 +416,7 @@ selectCampBtn.addEventListener("click", function () {
           pageButton.addEventListener("click", function () {
             currentPage = parseInt(this.textContent);
             displayItems(currentPage);
-     //       updatePagination();
+
           });
           pagination.appendChild(pageButton);
         }
@@ -237,24 +428,10 @@ selectCampBtn.addEventListener("click", function () {
           nextButton.addEventListener("click", function () {
             currentPage = endPage + 1;
             displayItems(currentPage);
-   //         updatePagination();
+
           });
           pagination.appendChild(nextButton);
         }
-        
-  /*       function updatePagination() {
-          var currentPageButton = pagination.querySelector(".page-button.active");
-          if (currentPageButton) {
-            currentPageButton.classList.remove("active");
-          }
-          var newCurrentPageButton = pagination.querySelector(
-            ".page-button:nth-child(" + (currentPage - startPage + 1) + ")"
-          );
-          if (newCurrentPageButton) {
-            newCurrentPageButton.classList.add("active");
-          }
-        } */
-        
       }
 
       displayItems(currentPage);
@@ -265,4 +442,5 @@ selectCampBtn.addEventListener("click", function () {
     }
   });
 
-});
+};
+}
