@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/member/myPage")
 public class MyPageController {
 
+
 	@GetMapping("/myReservation")
 	public String reservation() {
 		return "member/myReservation"; 
@@ -33,8 +34,11 @@ public class MyPageController {
 		return "member/changePw"; 
 	}
 	
+	
 	@GetMapping("/secession")
 	public String secession() {
 		return "member/secession"; 
+
 	}
+
 }

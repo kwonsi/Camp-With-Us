@@ -17,4 +17,10 @@ public class MainController {
 	public String popUpLoc() {
 		return "common/selectLoc";
 	}
+
+	@GetMapping("/campList")
+	public String campList() {
+		return "common/campList";
+	}
+
 }

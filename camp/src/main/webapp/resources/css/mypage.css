@@ -1,5 +1,4 @@
 
-
 /* 마이페이지 영역 */
 .myPage-content{
     width: 1140px;
@@ -8,6 +7,13 @@
 
     display: flex;
     
+/* 마이페이지 영역 */
+.myPage-content{
+    width: 1000px;
+    height: 800px;
+    margin: 25px auto;
+
+    display: flex;
 }
 
 /* 왼쪽 사이드 메뉴 */
@@ -216,3 +222,6 @@ form[name="myPage-form"]{
 }
 
 /*******************************************/
+
+}
+
