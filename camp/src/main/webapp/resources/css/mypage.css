@@ -6,15 +6,8 @@
     margin: 25px;
 
     display: flex;
-    
-/* 마이페이지 영역 */
-.myPage-content{
-    width: 1000px;
-    height: 800px;
-    margin: 25px auto;
-
-    display: flex;
 }
+
 
 /* 왼쪽 사이드 메뉴 */
 .left-side{
@@ -222,6 +215,3 @@ form[name="myPage-form"]{
 }
 
 /*******************************************/
-
-}
-

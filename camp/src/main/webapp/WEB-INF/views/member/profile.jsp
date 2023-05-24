@@ -4,8 +4,6 @@
 <%-- 문자열 관련 함수(메서드) 제공 JSTL (EL형식으로 작성) --%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
-<c:set var="confirm" value="${localStorage.confirm}"/>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
