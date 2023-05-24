@@ -91,7 +91,7 @@ selectCampBtn.addEventListener("click", function () {
       pageNo: 1,
       MobileOS: "ETC",
       MobileApp: "AppTest",
-      serviceKey: "서비스키",
+      serviceKey: "서비스키==",
       _type: "json"
     },
     dataType: "json",

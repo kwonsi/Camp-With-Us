@@ -14,8 +14,8 @@ function selectLoc() {
 // 검색 버튼 클릭 시 캠프 리스트 페이지 이동
 function searchCamp() { 
 
-    /* location.href="/campList/?loc=" + selLoc.innerText; */
-    location.href="camp/campList";
+   /*  location.href="/campList/?loc=" + selLoc.innerText; */
+     location.href="camp/campList";
 
 }
 
