@@ -90,7 +90,7 @@
 
         <div class="searchVal" id="searchVal">
 
-            <div><h2>${loc} 지역 총 캠핑장 n 개 검색 되었습니다. 추가부분 </h2></div>
+            <div><h2 id="campResult"></h2></div>
             <section class="searchBox" id ="searchBox" >
 
                
@@ -111,7 +111,7 @@
                                     </span><br>
                                     <span class="camp_add">주소 &nbsp;&nbsp;&nbsp;:  서울광역시 서울구 서울동 서울</span><br>
                                     <span class="camp_phone">연락처 : 010-6857-6333</span>
-                                    <a href="${contextPath}/common/reservation"></a>
+                                    <a href="${contextPath}/common/reservation" class="reservation_button">예약하기</a>
                                 </div>
                             </div>
                         </li>

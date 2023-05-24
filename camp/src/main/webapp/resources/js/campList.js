@@ -78,6 +78,7 @@ const state = document.getElementById("state"); // 시군구 option
 const searchVal3 = document.getElementById("searchVal3"); // 테마 option
 const searchBox2 = document.getElementById("searchBox2");  // 검색결과 뽑아내는 div
 const searchVal = document.getElementById("searchVal"); // 목록 div
+const campResult = document.getElementById("campResult");  // "위치+갯수" 알려주는 h2태그
 
 selectCampBtn.addEventListener("click", function () {
 
@@ -163,6 +164,12 @@ selectCampBtn.addEventListener("click", function () {
 
         console.log("캠핑장수 : " + filteredItems.length);
 
+        if ( searchVal2.value==""){
+        campResult.innerText= "총 캠핑장 "+filteredItems.length+" 개 검색 되었습니다.";
+        }else {
+        campResult.innerText= searchVal2.value+"지역 총 캠핑장 "+filteredItems.length+" 개 검색 되었습니다.";
+        };
+
 
         // 데이터 수에 맞게 페이지네이션 생성
         var totalPages = Math.ceil(filteredItems.length / itemsPerPage);
@@ -190,6 +197,7 @@ selectCampBtn.addEventListener("click", function () {
             '<span>테마 &nbsp;&nbsp;&nbsp;: ' + item.induty + '</span><br>' +
             '<span class="camp_add">주소 &nbsp;&nbsp;&nbsp;: ' + item.addr1 + '</span><br>' +
             '<span class="camp_phone">연락처 : ' + item.tel + '</span>' +
+            '<a href="${contextPath}/common/reservation" class="reservation_button">예약하기</a>'+
             '</div>' +
             '</div>' +
             '</li>' +
@@ -341,6 +349,11 @@ window.onload = function() {
 
         console.log("캠핑장수 : " + filteredItems.length);
 
+        if ( searchVal2.value==""){
+          campResult.innerText= "총 캠핑장 "+filteredItems.length+" 개 검색 되었습니다.";
+          }else {
+          campResult.innerText= searchVal2.value+"지역 총 캠핑장 "+filteredItems.length+" 개 검색 되었습니다.";
+          };
         // 데이터 수에 맞게 페이지네이션 생성
         var totalPages = Math.ceil(filteredItems.length / itemsPerPage);
         var paginatedItems = filteredItems.slice(startIndex, endIndex);
