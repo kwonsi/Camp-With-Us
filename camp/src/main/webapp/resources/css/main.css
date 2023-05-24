@@ -59,10 +59,12 @@ header .menu > li {
     text-align: center;
 }
 
+
 a {
     text-decoration: none;
     color: black;
 }
+
 
 .submenu{
 	display: none; /* 마지막에 적기 */
@@ -89,7 +91,9 @@ header .conent1 {
 
 main {
     width: 1140px;
+
     height: auto;
+
     margin: auto;
 }
 

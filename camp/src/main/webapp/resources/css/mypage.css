@@ -1,5 +1,4 @@
 
-
 /* 마이페이지 영역 */
 .myPage-content{
     width: 1140px;
@@ -7,8 +6,8 @@
     margin: 25px;
 
     display: flex;
-    
 }
+
 
 /* 왼쪽 사이드 메뉴 */
 .left-side{
