@@ -32,7 +32,7 @@
             <!--  지역 넘기기 위함  -->
             <span id="selLoc" type="hidden"></span>
 
-            <button class="" onclick="searchCamp()">검색</button>
+            <button type="button" onclick="searchCamp()">검색</button>
 
             
 

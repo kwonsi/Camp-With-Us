@@ -15,7 +15,7 @@ function selectLoc() {
 function searchCamp() { 
 
     /* location.href="/campList/?loc=" + selLoc.innerText; */
-    location.href="/camp/campList";
+    location.href="camp/campList";
 
 }
 

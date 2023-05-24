@@ -18,9 +18,4 @@ public class MainController {
 		return "common/selectLoc";
 	}
 
-	@GetMapping("/campList")
-	public String campList() {
-		return "common/campList";
-	}
-
 }
