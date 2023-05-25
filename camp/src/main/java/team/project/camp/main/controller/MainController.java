@@ -18,4 +18,8 @@ public class MainController {
 		return "common/selectLoc";
 	}
 
+	@GetMapping("/selectTheme")
+	public String popUpTheme() {
+		return "common/selectTheme";
+	}
 }

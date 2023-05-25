@@ -263,16 +263,24 @@ selectCampBtn.addEventListener("click", function () {
   
   //  메인페이지에서 "loc" 값을 받아왔을때 
   //  "loc" 지역정보 즉시출력 . onload 
-if(loc != "") {
+if( (loc != "" && theme != "") || loc != "" || theme != "") {
 window.onload = function() {
+
+  if( loc != "" && theme != "") {
+    searchVal2.value = loc;
+    searchVal3.value = theme;
+  } else if(loc != "") {
+    searchVal2.value = loc;
+  } else if(theme != "") {
+    searchVal3.value = theme;
+  }
 
   searchBox2.innerHTML = "";
   console.log(searchVal1.value);
   console.log(searchVal2.value);
   console.log(state.value);
   console.log(searchVal3.value);
-
-  searchVal2.value = loc;
+  
 
   $.ajax({
     url: "https://apis.data.go.kr/B551011/GoCamping/basedList",
