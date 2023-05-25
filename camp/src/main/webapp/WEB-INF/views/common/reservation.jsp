@@ -205,7 +205,7 @@ function requestPay() {
                     pg: 'kcp.A52CY',
                     pay_method: 'card',
                     merchant_uid: 'merchant_' + new Date().getTime(),
-                    name: '당근',
+                    name: '캠핑장명',
                     amount: priceValue,
                     buyer_email: 'kwonsoonil8568@gmail.com',
                     buyer_name: '캠핑보내조 기술지원팀',

@@ -1,31 +1,98 @@
-body{ margin : 0; 
+body {
+    margin: 0;
     padding: 0;
     font-size: 20px;
-/*     display: flex;
+    /*     display: flex;
     align-items: center;
     justify-content: center; */
-}  
+}
 
-.div1{
+.div1 {
     border: 2px solid rgb(3, 92, 18);
     margin-top: 10px;
     height: 500px;
- }
-.div2{
+}
+
+.div2 {
     border: 2px solid rgb(3, 92, 18);
     margin-top: 50px;
-    height: 500px;
+    height: 550px;
+    display: flex;
 }
-.div3{
+
+.div3 {
     border: 2px solid rgb(3, 92, 18);
     height: 200px;
     margin-top: 50px;
 }
 
-.imagesection{
-    border: 1px solid blue;
-    width: 200px;
-    height: 200px;
+
+/*00캠핑장 상세페이지 상단 공통*/
+.camp_info_box {
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    clear: both;
 }
 
+.camp_info_box .img_b {
+    width: 55%;
+    height: 550px;
+    float: left;
+    background: #eee;
+    border: 1px solid #dedede;
+    box-sizing: border-box;
+}
+
+.camp_info_box .img_b>img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+/* #img_b{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+
+} */
+.camp_info_box caption{
+    height: 50px;
+    margin-top: 25px;
+}
+
+.camp_info_box .cont_tb {
+    width: 43%;
+    float: right;
+    height: auto;
+    overflow: hidden;
+}
+
+.camp_info_box .cont_tb table {
+    width: 100%;
+    font-size: 14px;
+}
+
+.camp_info_box .cont_tb tbody tr:nth-child(1) th {
+    border-top: 2px solid black;
+}
+
+.camp_info_box .cont_tb tbody tr:nth-child(1) td {
+    border-top: 2px solid green;
+}
+
+.camp_info_box .cont_tb table tr th {
+    padding: 11px 10px;
+    border-bottom: 1px solid #c8c8c8;
+    text-align: left;
+    color: #000;
+    line-height: 25px;
+}
+
+.camp_info_box .cont_tb table tr td {
+    padding: 11px 10px;
+    border-bottom: 1px solid #c8c8c8;
+    line-height: 25px;
+}
 

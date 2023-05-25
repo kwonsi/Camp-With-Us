@@ -10,24 +10,16 @@ span {
     align-items: center;
 }
 
-.container {
+.locContainer {
     margin-top: 5px;
     margin-bottom: 5px;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-areas: 
-    "서울 경기 인천"
-    "강원 충북 충남"
-    "대전 세종 경북"
-    "경남 부산 대구"
-    "울산 전남 광주"
-    "전북 제주";
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-gap: 20px;
-
 }
 
-.container div {
+.content div div {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -37,7 +29,17 @@ span {
     border-radius: 5px;
 }
 
-.container div:hover {
+.content div div:hover {
     box-shadow: 3px 3px 3px #cccccc;
     cursor: pointer;
+}
+
+.themeContainer {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-gap: 20px;
+
 }

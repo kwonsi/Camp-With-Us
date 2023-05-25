@@ -17,9 +17,6 @@
     <main>
         <jsp:include page="/WEB-INF/views/common/header.jsp" />
 
-
-        <div class="header"> HEADER 영역 </div>
-
         <div class="search">
             <section class="layer_search">
 
@@ -77,7 +74,7 @@
                                     <option value="글램핑">글램핑</option>
                                     <option value="카라반">카라반</option>
                                 </select>
-                                <button type="button" class="searchBtn" id="selectCampBtn">검색</button>
+                                <button type="button" class="searchBtn" id="selectCampBtn" onclick="updateQueryString()">검색</button>
 
                             </div>
                         </div>
@@ -126,17 +123,13 @@
 
           </div>
         </div>
-        
-
-        <div class="footer"> FOOTER 영역</div>
-
-
+    
     </main>
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
     <script>
-
         const loc = "${loc}";
+        const theme = "${theme}";
     </script>
 
 
