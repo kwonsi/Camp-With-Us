@@ -22,21 +22,20 @@
 
         <div class="container">
             <div class="loc">서울</div>
-            <div class="loc">경기</div>
-            <div class="loc">인천</div>
-            <div class="loc">강원</div>
-            <div class="loc">충북</div>
-            <div class="loc">충남</div>
-            <div class="loc">대전</div>
-            <div class="loc">세종</div>
-            <div class="loc">경북</div>
-            <div class="loc">경남</div>
             <div class="loc">부산</div>
             <div class="loc">대구</div>
-            <div class="loc">울산</div>
-            <div class="loc">전남</div>
+            <div class="loc">인천</div>
             <div class="loc">광주</div>
-            <div class="loc">전북</div>
+            <div class="loc">대전</div>
+            <div class="loc">울산</div>
+            <div class="loc">경기</div>
+            <div class="loc">강원</div>
+            <div class="loc">충청북도</div>
+            <div class="loc">충청남도</div>
+            <div class="loc">전라북도</div>
+            <div class="loc">전라남도</div>
+            <div class="loc">경상북도</div>
+            <div class="loc">경상남도</div>
             <div class="loc">제주</div>
         </div>
 
