@@ -1,6 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 
+<!-- map에 저장된 값을 각각 변수에 저장 -->
+<c:forEach var="boardName" items="${boardTypeList}">
+	<c:if test="${boardCode == boardType.boardCode}">
+		<c:set var="boardName" value="${boardType.boardName}"/>
+	</c:if>
+</c:forEach>
+
+<%-- <c:set var="boardName" value="${map.boardName}" /> --%>
+
+<c:set var="pagination" value="${map.pagination}" />
+<c:set var="boardList" value="${map.boardList}" />
 
 <!DOCTYPE html>
 <html lang="en">
@@ -8,10 +19,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>공지사항</title>
+    <title>${boardName}</title>
 
-    <link rel="stylesheet" href="${contextPath}resources/css/main.css">
-    <link rel="stylesheet" href="${contextPath}/resources/css/boardList-style.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/main.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/boardList-style2.css">
 
     <script src="https://kit.fontawesome.com/a2e8ca0ae3.js" crossorigin="anonymous"></script>
 </head>

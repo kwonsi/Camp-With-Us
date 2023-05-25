@@ -11,7 +11,7 @@
     <title>캠핑 꿀팁</title>
 
     <link rel="stylesheet" href="${contextPath}/resources/css/main.css">
-    <link rel="stylesheet" href="${contestPath}/resources/css/boareList-style.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/boareList-style.css">
 
 </head>
 <body>

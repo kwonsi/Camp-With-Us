@@ -1,0 +1,109 @@
+/* section, div, form{
+    border : 1px solid black;
+} */
+
+/* a태그 공통 설정 */
+.board a{
+    text-decoration: none;
+    color : black;
+}
+
+.board a:hover{
+    text-decoration: underline;
+}
+
+/* contain */
+.contain{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 1300px;
+    background-color: rgb(244, 255, 246);
+    /* margin-left: 30px; */
+    /* margin: 50px auto; */
+    /* border : 1px solid yellow; */
+}
+
+/* span */
+span{
+    text-align: center;
+}
+
+/* board */
+.board{
+    margin-left: 35px;
+    margin-right: 35px;
+    height: auto;
+    /* width: 1000px; */
+    background-color: rgb(231, 255, 236);
+}
+
+/* 게시판 목록 화면 전체 영역 설정 */
+.board-list{
+    display: flex;
+    width: 1000px;
+    margin: 30px;
+}
+
+/* 게시판 목록 div */
+.board-div{
+    text-align: center;
+    flex-direction: row;
+    width: 20%;
+    height: 200px;
+    border : 1px solid black;
+}
+
+.board-div2-1{
+    text-align: center;
+    flex-direction: row;
+    width: 50%;
+    height: 350px;
+    border : 1px solid black;
+}
+
+.board-div2-2{
+    text-align: center;
+    flex-direction: row;
+    width: 25%;
+    height: 350px;
+    border : 1px solid black;
+}
+
+/* 빈공간 */
+.board-empty{
+    height: 150px;
+}
+
+/* 게시판 이름 */
+.board-name{
+    font-size: 2.5em;
+    margin-left: 30px;
+}
+
+/* 썸네일 관련 스타일 */
+.list-table tr > td:nth-of-type(2){ /* 2번째 td(제목) */
+    position: relative;
+}
+
+.list-thumbnail{ /* 썸네일 이미지 */
+    max-width: 50px;
+    max-height: 30px;
+
+    position: absolute;
+    left : -15px;
+    top : 17px;
+}
+
+/* @keyframes : 
+애니메이션 중간중간의 특정 지점들을 거칠 수 있는 키프레임들을 설정함으로써
+CSS 애니메이션 과정의 중간 절차를 제어할 수 있게 합니다.  */
+@keyframes show {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes hide {
+    from {opacity: 1;}
+    to {opacity: 0;}
+}

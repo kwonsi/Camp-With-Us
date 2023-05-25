@@ -23,7 +23,7 @@
 					<li><a href="${contextPath}/board/list2">캠핑 나눔</a></li>
 					<li><a href="${contextPath}/board/list3?type=3">캠핑 꿀팁</a></li>
 					<li><a href="${contextPath}/board/list4?type=4">공지사항</a></li>
-					<li><a href="${contextPath}/board/list5?type=5">문의사항</a></li>
+					<li><a href="${contextPath}/board/list4?type=5">문의사항</a></li>
 					<!-- <c:forEach var="boardType" items="${boardTypeList}">
 						<li><a href="${contextPath}/board/list/${boardType.boardCode}">${boardType.boardName}</a></li>
 					</c:forEach> -->
