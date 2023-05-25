@@ -96,7 +96,7 @@ selectCampBtn.addEventListener("click", function () {
       pageNo: 1,
       MobileOS: "ETC",
       MobileApp: "AppTest",
-      serviceKey: "서비스키==",
+      serviceKey: "4k7REi0gs6TKyjakIRV6zHIg3a1NcXwJPRTezijLCYvx0leNrqvtRwayHuc1AslN9pksU9rGRorGGOTZwMEu9Q==",
       _type: "json"
     },
     dataType: "json",
@@ -165,9 +165,9 @@ selectCampBtn.addEventListener("click", function () {
         console.log("캠핑장수 : " + filteredItems.length);
 
         if ( searchVal2.value==""){
-        campResult.innerText= "총 캠핑장 "+filteredItems.length+" 개 검색 되었습니다.";
+        campResult.innerText= "캠핑장 "+filteredItems.length+" 개 검색 되었습니다.";
         }else {
-        campResult.innerText= searchVal2.value+"지역 총 캠핑장 "+filteredItems.length+" 개 검색 되었습니다.";
+        campResult.innerText= searchVal2.value+"지역 캠핑장 "+filteredItems.length+" 개 검색 되었습니다.";
         };
 
 
@@ -197,7 +197,7 @@ selectCampBtn.addEventListener("click", function () {
             '<span>테마 &nbsp;&nbsp;&nbsp;: ' + item.induty + '</span><br>' +
             '<span class="camp_add">주소 &nbsp;&nbsp;&nbsp;: ' + item.addr1 + '</span><br>' +
             '<span class="camp_phone">연락처 : ' + item.tel + '</span>' +
-            '<a href="${contextPath}/common/reservation" class="reservation_button">예약하기</a>'+
+            '<a href="/camp/campList/detailList" class="reservation_button">예약하기</a>'+
             '</div>' +
             '</div>' +
             '</li>' +
@@ -281,7 +281,7 @@ window.onload = function() {
       pageNo: 1,
       MobileOS: "ETC",
       MobileApp: "AppTest",
-      serviceKey: "서비스키==",
+      serviceKey: "4k7REi0gs6TKyjakIRV6zHIg3a1NcXwJPRTezijLCYvx0leNrqvtRwayHuc1AslN9pksU9rGRorGGOTZwMEu9Q==",
       _type: "json"
     },
     dataType: "json",
@@ -350,9 +350,9 @@ window.onload = function() {
         console.log("캠핑장수 : " + filteredItems.length);
 
         if ( searchVal2.value==""){
-          campResult.innerText= "총 캠핑장 "+filteredItems.length+" 개 검색 되었습니다.";
+          campResult.innerText= "캠핑장 "+filteredItems.length+" 개 검색 되었습니다.";
           }else {
-          campResult.innerText= searchVal2.value+"지역 총 캠핑장 "+filteredItems.length+" 개 검색 되었습니다.";
+          campResult.innerText= searchVal2.value+"지역 캠핑장 "+filteredItems.length+" 개 검색 되었습니다.";
           };
         // 데이터 수에 맞게 페이지네이션 생성
         var totalPages = Math.ceil(filteredItems.length / itemsPerPage);

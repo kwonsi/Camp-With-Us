@@ -111,7 +111,7 @@
                                     </span><br>
                                     <span class="camp_add">주소 &nbsp;&nbsp;&nbsp;:  서울광역시 서울구 서울동 서울</span><br>
                                     <span class="camp_phone">연락처 : 010-6857-6333</span>
-                                    <a href="${contextPath}/common/reservation" class="reservation_button">예약하기</a>
+                                    <a href="${contextPath}/campDetail/reservation">예약페이지</a>
                                 </div>
                             </div>
                         </li>

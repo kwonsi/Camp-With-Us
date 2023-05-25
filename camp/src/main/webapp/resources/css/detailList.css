@@ -1,0 +1,31 @@
+body{ margin : 0; 
+    padding: 0;
+    font-size: 20px;
+/*     display: flex;
+    align-items: center;
+    justify-content: center; */
+}  
+
+.div1{
+    border: 2px solid rgb(3, 92, 18);
+    margin-top: 10px;
+    height: 500px;
+ }
+.div2{
+    border: 2px solid rgb(3, 92, 18);
+    margin-top: 50px;
+    height: 500px;
+}
+.div3{
+    border: 2px solid rgb(3, 92, 18);
+    height: 200px;
+    margin-top: 50px;
+}
+
+.imagesection{
+    border: 1px solid blue;
+    width: 200px;
+    height: 200px;
+}
+
+
