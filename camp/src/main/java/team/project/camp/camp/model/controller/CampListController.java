@@ -12,11 +12,13 @@ public class CampListController {
 
 	@GetMapping("/campList")
 	public String campList(  
-				@RequestParam(value = "loc", required = false , defaultValue = "") String loc
-			,	Model model
+				@RequestParam(value = "loc", required = false , defaultValue = "") String loc,
+				@RequestParam(value = "theme", required = false , defaultValue = "") String theme,
+				Model model
 			) {
 		
-		model.addAttribute("loc",loc);
+		model.addAttribute("loc", loc);
+		model.addAttribute("theme", theme);
 		
 		return "common/campList";
 	}

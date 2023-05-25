@@ -28,9 +28,11 @@
 
             
 
-            <button id="location" onclick="selectLoc()" type="button">지역선택</button>
-            <!--  지역 넘기기 위함  -->
-            <span id="selLoc" type="hidden"></span>
+            <button id="location" onclick="selectLoc()" type="button">지역 선택</button>
+            <span class="searchOption"></span>
+
+            <button id="theme" onclick="selectTheme()" type="button">테마 선택</button>
+            <span class="searchOption"></span>
 
             <button type="button" onclick="searchCamp()">검색</button>
 

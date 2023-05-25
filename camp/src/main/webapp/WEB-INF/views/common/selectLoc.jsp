@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="${contextPath}/resources/css/selectLoc.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/popUp.css">
 </head>
 <body>
     
@@ -20,7 +20,7 @@
 
     <div class="content">
 
-        <div class="container">
+        <div class="locContainer">
             <div class="loc">서울</div>
             <div class="loc">부산</div>
             <div class="loc">대구</div>
@@ -48,7 +48,7 @@
         for(let i=0; i<loc.length; i++) {
             loc[i].addEventListener("click", function() {
 
-                opener.document.getElementById("selLoc").innerText = loc[i].innerText;
+                opener.document.getElementsByClassName("searchOption")[0].innerText = loc[i].innerText;
 
                 window.close();
 

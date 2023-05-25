@@ -17,9 +17,6 @@
     <main>
         <jsp:include page="/WEB-INF/views/common/header.jsp" />
 
-
-        <div class="header"> HEADER 영역 </div>
-
         <div class="search">
             <section class="layer_search">
 
@@ -126,17 +123,13 @@
 
           </div>
         </div>
-        
-
-        <div class="footer"> FOOTER 영역</div>
-
-
+    
     </main>
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
     <script>
-
         const loc = "${loc}";
+        const theme = "${theme}";
     </script>
 
 
