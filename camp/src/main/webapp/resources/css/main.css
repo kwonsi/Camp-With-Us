@@ -3,10 +3,7 @@
 }
 
 body {
-<<<<<<< HEAD
     height: auto;
-=======
->>>>>>> eunju
     margin: 0;
 }
 
@@ -30,15 +27,12 @@ header>section:nth-of-type(3) {
 /* 로고 */
 header>section:nth-of-type(1) {
     display: flex;
-<<<<<<< HEAD
     justify-content: left;
     align-items: center;
 }
 
 .title {
     text-align: center;
-=======
->>>>>>> eunju
 }
 
 #home-logo {
@@ -65,7 +59,6 @@ header .menu > li {
     text-align: center;
 }
 
-<<<<<<< HEAD
 
 a {
     text-decoration: none;
@@ -73,8 +66,6 @@ a {
 }
 
 
-=======
->>>>>>> eunju
 .submenu{
 	display: none; /* 마지막에 적기 */
     list-style: none;
@@ -100,12 +91,9 @@ header .conent1 {
 
 main {
     width: 1140px;
-<<<<<<< HEAD
 
     height: auto;
 
-=======
->>>>>>> eunju
     margin: auto;
 }
 
@@ -141,11 +129,8 @@ footer a {
 
 footer span {
     padding: 0 10px;
-<<<<<<< HEAD
 }
 
 .searchOption {
     display: none;
-=======
->>>>>>> eunju
 }

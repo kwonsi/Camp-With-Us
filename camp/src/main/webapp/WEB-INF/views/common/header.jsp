@@ -19,33 +19,20 @@
 			<li>
 				<h4 id="board">게시판</h4>
 				<ul class="submenu">
-<<<<<<< HEAD
-					<li>캠핑장 추천</li>
-					<li>캠핑 나눔</li>
-					<li>캠핑 꿀팁</li>
-					<li>공지사항</li>
-					<li>문의사항</li>
-=======
 					<li><a href="${contextPath}/board/list1">캠핑장 추천</a></li>
 					<li><a href="${contextPath}/board/list2">캠핑 나눔</a></li>
 					<li><a href="${contextPath}/board/list3?type=3">캠핑 꿀팁</a></li>
 					<li><a href="${contextPath}/board/list4?type=4">공지사항</a></li>
 					<li><a href="${contextPath}/board/list4?type=5">문의사항</a></li>
->>>>>>> eunju
 					<!-- <c:forEach var="boardType" items="${boardTypeList}">
 						<li><a href="${contextPath}/board/list/${boardType.boardCode}">${boardType.boardName}</a></li>
 					</c:forEach> -->
 				</ul>
 			</li>
-<<<<<<< HEAD
-=======
-
->>>>>>> eunju
 			<li>
 				<h4 id="myPage">마이페이지</h4>
 				
 				<ul class="submenu">
-<<<<<<< HEAD
 					<li><a href="${contextPath}/member/myPage/myReservation">예약 확인</a></li>
 					<li><a href="${contextPath}/member/myPage/myBoard">내 게시글</a></li>
 					<li><a href="${contextPath}/member/myPage/myReview">내 리뷰</a></li>
@@ -55,17 +42,6 @@
 				</ul>
 				
 			</li>
-=======
-					<li><a href="${contextPath}/member/myPage/reservation">예약 확인</a></li>
-					<li>내 게시글</li>
-					<li>내 리뷰</li>
-					<li>회원 정보 변경</li>
-					<li>회원 탈퇴</li>
-				</ul>
-				
-			</li>
-			
->>>>>>> eunju
 			<%-- 로그인이 되어있지 않은 경우 --%>
 			<c:choose>
 			

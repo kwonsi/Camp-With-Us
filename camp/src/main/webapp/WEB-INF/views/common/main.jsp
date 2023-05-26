@@ -13,10 +13,6 @@
 
 </head>
 <body>
-<<<<<<< HEAD
-
-=======
->>>>>>> eunju
     <jsp:include page="/WEB-INF/views/common/header.jsp" />
 
     <main>
@@ -31,7 +27,6 @@
 
             
 
-<<<<<<< HEAD
             <button id="location" onclick="selectLoc()" type="button">지역 선택</button>
             <span class="searchOption"></span>
 
@@ -39,13 +34,6 @@
             <span class="searchOption"></span>
 
             <button type="button" onclick="searchCamp()">검색</button>
-=======
-            <button id="location" onclick="selectLoc()" type="button">지역선택</button>
-            <!--  지역 넘기기 위함  -->
-            <span id="selLoc" type="hidden"></span>
-
-            <button class="" onclick="searchCamp()">검색</button>
->>>>>>> eunju
 
             
 

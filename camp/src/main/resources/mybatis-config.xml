@@ -7,19 +7,11 @@
 	</settings>
 	
 	<typeAliases>
-<<<<<<< HEAD
-	
-	</typeAliases>
-
-	<mappers>
-	
-=======
 		<typeAlias type="team.project.camp.board.model.vo.Board" alias="board"/>
 	</typeAliases>
 
 	<mappers>
 		<mapper resource="/mapper/board-mapper.xml"/>
->>>>>>> eunju
 	</mappers>
 	
 </configuration>

@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/member/myPage")
 public class MyPageController {
 
-<<<<<<< HEAD
+
 
 	@GetMapping("/myReservation")
 	public String reservation() {
@@ -42,10 +42,5 @@ public class MyPageController {
 
 	}
 
-=======
-	@GetMapping("/reservation")
-	public String reservation() {
-		return "member/reservation"; 
-	}
->>>>>>> eunju
+
 }
