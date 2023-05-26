@@ -8,9 +8,11 @@
 	
 	<typeAliases>
 		<typeAlias type="team.project.camp.board.model.vo.Board" alias="board"/>
+		<typeAlias type="team.project.camp.detail.model.vo.Reservation" alias="reservation" />
 	</typeAliases>
 
 	<mappers>
+		<mapper resource="/mappers/reservation-mapper.xml"/>
 		<mapper resource="/mapper/board-mapper.xml"/>
 	</mappers>
 	

@@ -16,47 +16,66 @@ import javax.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-/**
- * Servlet Filter implementation class InitFilter
- */
-@WebFilter(filterName="initFilter", urlPatterns="/*")
+@WebFilter(filterName = "initFilter", urlPatterns = "/*")
+// -> /* :¸ğµç°æ·Î¸¦ ÀÇ¹Ì
 public class InitFilter extends HttpFilter implements Filter {
-	
-	// Logger / Debug Mode ì‚¬ìš©
-	
-	// Logger ê°ì²´ ìƒì„± (í•´ë‹¹ í´ë˜ìŠ¤ì— ëŒ€í•œ logë¥¼ ì¶œë ¥í•˜ëŠ” ê°ì²´)
+	//Logger / Debug Mode »ç¿ëÇÏ±â
+
+	//Logger°´Ã¼ »ı¼º(ÇØ´çÅ¬·¡½º¿¡ ´ëÇÑ log¸¦ Ãâ·ÂÇÏ´Â °´Ã¼)
 	private Logger logger = LoggerFactory.getLogger(InitFilter.class);
-	
-	// í•„í„°ê°€ ìƒì„±ë  ë•Œ ì‹¤í–‰
-    public void init(FilterConfig fConfig) throws ServletException {
-    	// loggerë¥¼ ì´ìš©í•´ì„œ ì¶œë ¥í•˜ëŠ” ë°©ë²•
-    	// trace - debug - info - warning - error
-    	// debug info error ì£¼ë¡œ ì‚¬ìš©
-    	
-    	// debug : ê°œë°œì˜ íë¦„ íŒŒì•…í•  ë•Œ(í•´ë‹¹ ì½”ë“œê°€ ì‹¤í–‰ì´ ë˜ì—ˆëŠ”ì§€, íŒŒë¼ë¯¸í„°ê°€ í˜„ì¬ ë¬´ìŠ¨ ê°’ì¸ì§€ í™•ì¸í•  ë•Œ)
-    	// info : ë©”ì†Œë“œ ì‹¤í–‰ íŒŒì•…
-    	
-    	logger.info("ì´ˆê¸°í™” í•„í„° ìƒì„±");
-	}   
-    
-	// í•„í„°ê°€ íŒŒê´´ë  ë•Œ ì‹¤í–‰(ì„œë²„ëŠ” ì¼œì ¸ìˆëŠ”ë° ë°±ì—”ë“œ ì½”ë“œ ìˆ˜ì •ë˜ì—ˆì„ ë•Œ)
-    public void destroy() {
-    	logger.info("ì´ˆê¸°í™” í•„í„° íŒŒê´´");	
+	// LoggerFactory.getLogger(Å¬·¡½ºÀÌ¸§);
+
+	//ÇÊÅÍ°¡ »ı¼ºµÉ ¶§ »ı¼º
+	@Override
+	public void init(FilterConfig fConfig) throws ServletException {
+		logger.info("ÃÊ±âÈ­ ÇÊÅÍ »ı¼º");
+		//logger¸¦ ÀÌ¿ëÇØ Ãâ·ÂÇÏ´Â ¹æ¹ı
+		//trace-debug-info-warn-error
+		//-> ÁÖ·Î debug, info, error »ç¿ë
+
+		//debug :°³¹ßÀÇ Èå¸§À» ÆÄ¾ÇÇÒ ¶§(ÇØ´çÄÚµå°¡ ½ÇÇà‰ç´ÂÁö, ÆÄ¶ó¹ÌÅÍ°¡ ÇöÀç ¹«½¼°ªÀÎÁö È®ÀÎÇÒ ¶§)
+		//info :¸Ş¼Òµå ½ÇÇà ÆÄ¾Ç
+
 	}
 
+	//ÇÊÅÍ°¡ ÆÄ±«µÉ ¶§ ½ÇÇà(¼­¹ö´Â ÄÑÁ®ÀÖ´Âµ¥ ¹é¿£µå ÄÚµå ¼öÁ¤‰çÀ» ¶§)
+	@Override
+	public void destroy() {
+
+		logger.info("ÃÊ±âÈ­ ÇÊÅÍ ÆÄ±«");
+	}
+
+	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-		
-		// application ë‚´ì¥ ê°ì²´ ì–»ì–´ì˜¤ê¸°
-		ServletContext application = request.getServletContext();
-				
-		// ìµœìƒìœ„ ì£¼ì†Œ ì–»ì–´ì˜¤ê¸°
-		String contextPath =  ( (HttpServletRequest)request ).getContextPath();
-								// ë‹¤ìš´ìºìŠ¤íŒ…
-		// ì„¸íŒ…
-		application.setAttribute("contextPath", contextPath);
-		
+
+		// application ³»Àå °´Ã¼ ¾ò¾î¿À±â
+				ServletContext application = request.getServletContext();
+
+				// ÃÖ»óÀ§ ÁÖ¼Ò ¾ò¾î¿À±â
+				String contextPath =  ( (HttpServletRequest)request ).getContextPath();
+											// ´Ù¿îÄ³½ºÆÃ
+				// ¼¼ÆÃ
+				application.setAttribute("contextPath", contextPath);
+
 		chain.doFilter(request, response);
 	}
 
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
