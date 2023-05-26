@@ -17,13 +17,13 @@ var facltNmMap;
 var homePageMap;
 var indutyMap;
 var addrMap;
-var firstImageUrlMap ;
+var firstImageUrlMap;
 
 let contentId;    //  캠프 이미지 뽑아오기위한 contentId .
 
 window.onload = function () {
 
-      ///////////////  캠핑장 정보 ajax 
+    ///////////////  캠핑장 정보 ajax 
     $.ajax({
         url: "https://apis.data.go.kr/B551011/GoCamping/basedList",
         data: {
@@ -37,7 +37,7 @@ window.onload = function () {
         dataType: "json",
 
         success: function (result) {
-            console.log("캠핑장정보 호출 성공");
+            console.log("캠핑장정보 ajax 성공");
             console.log(result);
 
             var items = result.response.body.items.item;
@@ -53,8 +53,8 @@ window.onload = function () {
                     openDeCl.innerText = items[i].openDeCl;
                     resveCl.innerText = items[i].resveCl;
                     posblFcltyCl.innerText = items[i].posblFcltyCl;
-                    imgB.innerHTML = '<img src="' +  items[i].firstImageUrl + '" alt="대표이미지"  />';
-                    intro.innerText=items[i].intro;
+                    imgB.innerHTML = '<img src="' + items[i].firstImageUrl + '" alt="대표이미지"  />';
+                    intro.innerText = items[i].intro;
 
                     // 이미지가져올 contentId
                     contentId = items[i].contentId;
@@ -70,11 +70,46 @@ window.onload = function () {
                     addrMap = items[i].addr1;
                 }
             }
-
-            if (openDeCl.value == null ){   // 
-                openDeCl.innerText="";
+            if (openDeCl.value == null) {   // 
+                openDeCl.innerText = "";
             }
-             /// 카카오 맵 
+
+            ///////////////  이미지 목록 리스트 ajax
+
+            var contentIdImage = localStorage.getItem("contentId");
+            var boxphoto = document.getElementById("box_photo");   // 이미지 컨테이너
+            console.log(contentIdImage);
+
+            $.ajax({
+                url: "https://apis.data.go.kr/B551011/GoCamping/imageList",
+                data: {
+                    numOfRows: 100,
+                    pageNo: 1,
+                    MobileOS: "ETC",
+                    MobileApp: "AppTest",
+                    serviceKey: "4k7REi0gs6TKyjakIRV6zHIg3a1NcXwJPRTezijLCYvx0leNrqvtRwayHuc1AslN9pksU9rGRorGGOTZwMEu9Q==",
+                    _type: "json",
+                    contentId: contentIdImage
+                },
+                dataType: "json",
+                success: function (result) {
+                    console.log("캠핑장이미지 ajax.ajax 성공");
+                    console.log(result);
+                    var items = result.response.body.items.item;
+                    for (let i = 0; i < items.length; i++) {
+                        boxphoto.innerHTML +=
+                            "<div class='box_photo3'>" +
+                            "<img class='imageSize' src=" + items[i].imageUrl + ">"
+                            + "</div>";
+                    }
+                },
+                error: function (error) {
+                    console.log("API 호출 실패");
+                    console.log(error);
+                }
+            });
+
+            /// 카카오 맵 
             var mapContainer = document.getElementById('map'), // 지도의 중심좌표
                 mapOption = {
                     center: new kakao.maps.LatLng(mapY, mapX), // 지도의 중심좌표
@@ -123,44 +158,7 @@ window.onload = function () {
         }
     });
 
-    ///////////////  이미지 목록 리스트 ajax
 
-    var contentIdImage = localStorage.getItem("contentId");
-    var boxphoto = document.getElementById("box_photo");   // 이미지 컨테이너
-    console.log(contentIdImage);
-
-    $.ajax({
-        url: "https://apis.data.go.kr/B551011/GoCamping/imageList",
-        data: {
-            numOfRows: 3000,
-            pageNo: 1,
-            MobileOS: "ETC",
-            MobileApp: "AppTest",
-            serviceKey: "4k7REi0gs6TKyjakIRV6zHIg3a1NcXwJPRTezijLCYvx0leNrqvtRwayHuc1AslN9pksU9rGRorGGOTZwMEu9Q==",
-            _type: "json",
-            contentId : contentIdImage
-        },
-        dataType: "json",
-
-        success: function (result) {
-            console.log("캠핑장이미지 호출 성공");
-            console.log(result);
-
-            var items = result.response.body.items.item;
-            for (let i =0 ; i< items.length ; i++){
-                boxphoto.innerHTML +=
-                "<div class='box_photo3'>" + 
-                "<img class='imageSize' src="+items[i].imageUrl +">"
-                + "</div>";
- 
-            }
-            
-        },
-        error: function (error) {
-            console.log("API 호출 실패");
-            console.log(error);
-        }
-    });
 };
 
 // 커스텀 오버레이를 닫기 위해 호출되는 함수입니다 

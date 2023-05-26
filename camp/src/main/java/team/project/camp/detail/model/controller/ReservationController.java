@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -45,21 +44,6 @@ public class ReservationController {
 	}
 
 	// 예약정보
-//	@ResponseBody
-//	@PostMapping("/reservationInfo")
-//	public int reservationInfo(@ModelAttribute Reservation reservation) {
-//
-//		int result = service.reservationInfo(reservation);
-//
-//		if(result>0) {
-//			log.info("ajax로 result값 전송 성공");
-//		}else {
-//			log.info("ajax로 result값 전송 실패");
-//		}
-//
-//		return result;
-//	}
-
 	@ResponseBody
 	@PostMapping("/reservationInfo")
 	public int reservationInfo(String campingName, String buyerName, int amount, int people) {
