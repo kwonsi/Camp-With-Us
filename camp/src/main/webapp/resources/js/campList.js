@@ -1,6 +1,4 @@
 
-console.log(loc);
-console.log(theme);
 
 //  시 군 구 option List 
 function categoryChange(e) {
@@ -83,16 +81,11 @@ const campResult = document.getElementById("campResult");  // "위치+갯수" �
 selectCampBtn.addEventListener("click", function () {
 
   searchBox2.innerHTML = "";
-  console.log(searchVal1.value);
-  console.log(searchVal2.value);
-  console.log(state.value);
-  console.log(searchVal3.value);
-
 
   $.ajax({
     url: "https://apis.data.go.kr/B551011/GoCamping/basedList",
     data: {
-      numOfRows: 3000,
+      numOfRows: 4000,
       pageNo: 1,
       MobileOS: "ETC",
       MobileApp: "AppTest",
@@ -100,7 +93,6 @@ selectCampBtn.addEventListener("click", function () {
       _type: "json"
     },
     dataType: "json",
-
     
     success: function (result) {
       console.log("API 호출 성공");
@@ -150,7 +142,6 @@ selectCampBtn.addEventListener("click", function () {
             )
           )
             ||
-
             (
               (item.homepage != ""     // 홈페이지가 null 이 아닌 것
                 && item.firstImageUrl != ""   // 이미지가 ''
@@ -187,7 +178,7 @@ selectCampBtn.addEventListener("click", function () {
             '<li>' +
             '<div class="camp_info_box">' +
             '<div class="img_box">' +
-            '<img src=' + item.firstImageUrl + ' alt="캠핑장 메인사진" class="imgSize">' +
+            '<img src=' + item.firstImageUrl + ' alt="이미지가 존재하지 않습니다." class="imgSize">' +
             '</div>' +
             '<div class="camp_info_text">' +
             '<h3 class="camp_info01">' +
@@ -282,16 +273,11 @@ window.onload = function() {
   }
 
   searchBox2.innerHTML = "";
-  console.log(searchVal1.value);
-  console.log(searchVal2.value);
-  console.log(state.value);
-  console.log(searchVal3.value);
   
-
   $.ajax({
     url: "https://apis.data.go.kr/B551011/GoCamping/basedList",
     data: {
-      numOfRows: 3000,
+      numOfRows: 4000,
       pageNo: 1,
       MobileOS: "ETC",
       MobileApp: "AppTest",
