@@ -13,7 +13,7 @@
 
 	<mappers>
 		<mapper resource="/mappers/reservation-mapper.xml"/>
-		<mapper resource="/mapper/board-mapper.xml"/>
+		<mapper resource="/mappers/board-mapper.xml"/>
 	</mappers>
 	
 </configuration>
