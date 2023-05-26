@@ -12,7 +12,7 @@ public class MainController {
 
 		return "common/main";
 	}
-	
+
 	@GetMapping("/selectLoc")
 	public String popUpLoc() {
 		return "common/selectLoc";

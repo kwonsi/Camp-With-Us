@@ -11,33 +11,33 @@ public class MyPageController {
 
 	@GetMapping("/myReservation")
 	public String reservation() {
-		return "member/myReservation"; 
+		return "member/myReservation";
 	}
-	
+
 	@GetMapping("/myBoard")
 	public String myBoard() {
-		return "member/myBoard"; 
+		return "member/myBoard";
 	}
-	
+
 	@GetMapping("/myReview")
 	public String myReview() {
-		return "member/myReview"; 
+		return "member/myReview";
 	}
-	
+
 	@GetMapping("/profile")
 	public String profile() {
-		return "member/profile"; 
+		return "member/profile";
 	}
-	
+
 	@GetMapping("/changePw")
 	public String changePw() {
-		return "member/changePw"; 
+		return "member/changePw";
 	}
-	
-	
+
+
 	@GetMapping("/secession")
 	public String secession() {
-		return "member/secession"; 
+		return "member/secession";
 
 	}
 
