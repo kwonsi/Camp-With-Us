@@ -7,19 +7,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-@RequestMapping
+@RequestMapping("/campList")
 public class CampListController {
-
-	@GetMapping("/campList")
-	public String campList(  
-				@RequestParam(value = "loc", required = false , defaultValue = "") String loc,
-				@RequestParam(value = "theme", required = false , defaultValue = "") String theme,
+	
+	// campList --> detailList 이동
+	@GetMapping("/detailList")
+	public String detailList( 
+				@RequestParam(value = "campName",required = false,defaultValue = "") String campName,
 				Model model
 			) {
+		model.addAttribute("campName",campName);
 		
-		model.addAttribute("loc", loc);
-		model.addAttribute("theme", theme);
-		
-		return "common/campList";
+		return "common/detailList";
 	}
+	
+	
 }

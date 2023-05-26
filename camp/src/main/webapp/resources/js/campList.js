@@ -1,5 +1,6 @@
 
 console.log(loc);
+console.log(theme);
 
 //  시 군 구 option List 
 function categoryChange(e) {
@@ -69,7 +70,6 @@ function categoryChange(e) {
   }
 }
 
-
 const selectCampBtn = document.getElementById("selectCampBtn");  // 검색하기 버튼 
 const searchBox = document.getElementById("searchBox"); // 검색결과 뽑아내는 section .
 const searchVal1 = document.getElementById("searchVal1"); // 검색창 inputtext
@@ -105,6 +105,8 @@ selectCampBtn.addEventListener("click", function () {
     success: function (result) {
       console.log("API 호출 성공");
       console.log(result);
+
+
       
       var items = result.response.body.items.item;
       var searchVal2_1 = "";
@@ -127,7 +129,6 @@ selectCampBtn.addEventListener("click", function () {
         searchVal2_1 = "";
       }
 
-
       function displayItems(page) {
         var startIndex = (page - 1) * itemsPerPage;
         var endIndex = startIndex + itemsPerPage;
@@ -140,7 +141,8 @@ selectCampBtn.addEventListener("click", function () {
               && item.tel != ""             // 전화번호가 ''
               && item.lineIntro != ""       // 한줄소개가 ''
               && item.addr1 != ""          // 주소가 ''
-              && item.facltNm.includes(searchVal1.value) // 캠핑장이름과 일치
+              && (item.facltNm.replace(" ","").includes(searchVal1.value) // 캠핑장이름과 일치
+              || item.facltNm.includes(searchVal1.value))
               && (item.addr1.includes(searchVal2.value)   // 시,도 일치
                 || item.addr1.includes(searchVal2_1))     // 시,도 줄임말 일치
               && item.addr1.includes(state.value)   // 시, 군, 구 일치
@@ -148,13 +150,15 @@ selectCampBtn.addEventListener("click", function () {
             )
           )
             ||
+
             (
               (item.homepage != ""     // 홈페이지가 null 이 아닌 것
                 && item.firstImageUrl != ""   // 이미지가 ''
                 && item.tel != ""             // 전화번호가 ''
                 && item.lineIntro != ""       // 한줄소개가 ''
                 && item.addr1 != ""          // 주소가 ''
-                && item.facltNm.includes(searchVal1.value) // 캠핑장이름과 일치
+                && (item.facltNm.replace(" ","").includes(searchVal1.value) // 캠핑장이름과 일치
+                || item.facltNm.includes(searchVal1.value))
                 && item.addr1.includes(searchVal2.value)   // 시,도 일치
                 && item.addr1.includes(state.value)   // 시, 군, 구 일치
                 && item.induty.includes(searchVal3.value)
@@ -165,9 +169,9 @@ selectCampBtn.addEventListener("click", function () {
         console.log("캠핑장수 : " + filteredItems.length);
 
         if ( searchVal2.value==""){
-        campResult.innerText= "총 캠핑장 "+filteredItems.length+" 개 검색 되었습니다.";
+        campResult.innerText= "캠핑장 "+filteredItems.length+" 개 검색 되었습니다.";
         }else {
-        campResult.innerText= searchVal2.value+"지역 총 캠핑장 "+filteredItems.length+" 개 검색 되었습니다.";
+        campResult.innerText= searchVal2.value+"지역 캠핑장 "+filteredItems.length+" 개 검색 되었습니다.";
         };
 
 
@@ -197,7 +201,9 @@ selectCampBtn.addEventListener("click", function () {
             '<span>테마 &nbsp;&nbsp;&nbsp;: ' + item.induty + '</span><br>' +
             '<span class="camp_add">주소 &nbsp;&nbsp;&nbsp;: ' + item.addr1 + '</span><br>' +
             '<span class="camp_phone">연락처 : ' + item.tel + '</span>' +
-            '<a href="${contextPath}/common/reservation" class="reservation_button">예약하기</a>'+
+            '<a href="/camp/campList/detailList?campName='+item.facltNm.replaceAll(" ","") +'" class="reservation_button">예약하기</a>'+
+          
+            
             '</div>' +
             '</div>' +
             '</li>' +
@@ -333,7 +339,8 @@ window.onload = function() {
               && item.tel != ""             // 전화번호가 ''
               && item.lineIntro != ""       // 한줄소개가 ''
               && item.addr1 != ""          // 주소가 ''
-              && item.facltNm.includes(searchVal1.value) // 캠핑장이름과 일치
+              && (item.facltNm.replace(" ","").includes(searchVal1.value) // 캠핑장이름과 일치
+              || item.facltNm.includes(searchVal1.value))
               && (item.addr1.includes(searchVal2.value)   // 시,도 일치
                 || item.addr1.includes(searchVal2_1))     // 시,도 줄임말 일치
               && item.addr1.includes(state.value)   // 시, 군, 구 일치
@@ -347,7 +354,8 @@ window.onload = function() {
                 && item.tel != ""             // 전화번호가 ''
                 && item.lineIntro != ""       // 한줄소개가 ''
                 && item.addr1 != ""          // 주소가 ''
-                && item.facltNm.includes(searchVal1.value) // 캠핑장이름과 일치
+                && (item.facltNm.replace(" ","").includes(searchVal1.value) // 캠핑장이름과 일치
+                || item.facltNm.includes(searchVal1.value))
                 && item.addr1.includes(searchVal2.value)   // 시,도 일치
                 && item.addr1.includes(state.value)   // 시, 군, 구 일치
                 && item.induty.includes(searchVal3.value)
@@ -358,9 +366,9 @@ window.onload = function() {
         console.log("캠핑장수 : " + filteredItems.length);
 
         if ( searchVal2.value==""){
-          campResult.innerText= "총 캠핑장 "+filteredItems.length+" 개 검색 되었습니다.";
+          campResult.innerText= "캠핑장 "+filteredItems.length+" 개 검색 되었습니다.";
           }else {
-          campResult.innerText= searchVal2.value+"지역 총 캠핑장 "+filteredItems.length+" 개 검색 되었습니다.";
+          campResult.innerText= searchVal2.value+"지역 캠핑장 "+filteredItems.length+" 개 검색 되었습니다.";
           };
         // 데이터 수에 맞게 페이지네이션 생성
         var totalPages = Math.ceil(filteredItems.length / itemsPerPage);
@@ -388,6 +396,7 @@ window.onload = function() {
             '<span>테마 &nbsp;&nbsp;&nbsp;: ' + item.induty + '</span><br>' +
             '<span class="camp_add">주소 &nbsp;&nbsp;&nbsp;: ' + item.addr1 + '</span><br>' +
             '<span class="camp_phone">연락처 : ' + item.tel + '</span>' +
+            '<a href="/camp/campList/detailList?campName='+item.facltNm.replaceAll(" ","") +'" class="reservation_button">예약하기</a>'+
             '</div>' +
             '</div>' +
             '</li>' +
@@ -452,3 +461,14 @@ window.onload = function() {
 
 };
 }
+
+function updateQueryString() {      //  주소 , 분류 쿼리파라미터 전달 .
+  var inputValue = searchVal2.value;
+  var inputValue2 = searchVal3.value;
+  var queryString 
+  = "?loc=" + encodeURIComponent(inputValue)+"&theme="+ encodeURIComponent(inputValue2);
+
+  // 현재 URL에 쿼리스트링을 추가하거나 변경합니다.
+  history.pushState(null, null, queryString);
+}
+
