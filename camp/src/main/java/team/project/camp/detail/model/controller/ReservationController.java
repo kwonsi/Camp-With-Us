@@ -22,22 +22,19 @@ public class ReservationController {
 	@Autowired
 	private ReservationService service;
 
-	//예약하기 페이지 조회
+	// 예약하기 페이지 조회
 	@GetMapping("/reservation")
 	public String ReservationSelect(
-			@RequestParam(value = "campName", required = false , defaultValue = "") String campName,
-			Model model
-			) {
+			@RequestParam(value = "campName", required = false, defaultValue = "") String campName, Model model) {
 
-		model.addAttribute("campName",campName);
-		
+		model.addAttribute("campName", campName);
+
 		return "common/reservation";
 	}
 
-
-	//가격계산
-	//***@ResponseBody -> (비동기)ajax TYPE="GET"일때
-	//*****(ajax 통신을 위해 JSON 형식의 데이터를 주고는 경우 사용)*****
+	// 가격계산
+	// ***@ResponseBody -> (비동기)ajax TYPE="GET"일때
+	// *****(ajax 통신을 위해 JSON 형식의 데이터를 주고는 경우 사용)*****
 	@ResponseBody
 	@GetMapping("/selectPrice")
 	public int selectPrice() {
@@ -47,8 +44,7 @@ public class ReservationController {
 		return price;
 	}
 
-
-	//예약정보
+	// 예약정보
 //	@ResponseBody
 //	@PostMapping("/reservationInfo")
 //	public int reservationInfo(@ModelAttribute Reservation reservation) {
@@ -64,36 +60,33 @@ public class ReservationController {
 //		return result;
 //	}
 
-	
 	@ResponseBody
 	@PostMapping("/reservationInfo")
-	public int reservationInfo(String campingName, String buyerName,
-								int amount, int people) {
-		
+	public int reservationInfo(String campingName, String buyerName, int amount, int people) {
+
 		Reservation reservation = new Reservation();
-		
+
 		reservation.setCampingName(campingName);
 		reservation.setBuyerName(buyerName);
 		reservation.setAmount(amount);
 		reservation.setPeople(people);
-		
+
 		log.info(buyerName);
 		log.info(campingName);
-		log.info(amount+"");
+		log.info(amount + "");
 		log.info(people + "");
-		
-		
+
 		int result = service.reservationInfo(reservation);
 
-		if(result>0) {
+		if (result > 0) {
 			log.info("ajax로 result값 전송 성공");
-		}else {
+		} else {
 			log.info("ajax로 result값 전송 실패");
 		}
 
 		return result;
 	}
 
-	//예약테이블 조회
-	
+	// 예약테이블 조회
+
 }

@@ -38,7 +38,7 @@ window.onload = function () {
 
         success: function (result) {
             console.log("캠핑장정보 호출 성공");
-            console.log("캠핑장정보:: "+result);
+            console.log(result);
 
             var items = result.response.body.items.item;
 
@@ -144,7 +144,7 @@ window.onload = function () {
 
         success: function (result) {
             console.log("캠핑장이미지 호출 성공");
-            console.log("캠핑장이미지 :: "+result);
+            console.log(result);
 
             var items = result.response.body.items.item;
             for (let i =0 ; i< items.length ; i++){
