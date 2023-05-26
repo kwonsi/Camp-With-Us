@@ -155,6 +155,9 @@
 <script>
     
 let priceValue;
+let people;
+
+
 document.addEventListener("DOMContentLoaded", function() {
             const adultSelect = document.querySelector(".adultSelect");
             const childrenSelect = document.querySelector(".childrenSelect");
@@ -174,10 +177,16 @@ document.addEventListener("DOMContentLoaded", function() {
                         let childrenOptionValue = childrenSelect.options[childrenSelect.selectedIndex].value;
                         let childrenTotalPrice = childrenPrice * childrenOptionValue;
                         
+                        let totalPeople = Number(adultOptionValue) + Number(childrenOptionValue);
                        
                         let totalPrice = adultTotalPrice + childrenTotalPrice;
                         priceElement.textContent = "총 가격: " + totalPrice + "원";
                         priceValue = totalPrice;
+                        people = totalPeople;
+                        
+                        console.log(people);
+                        console.log(adultOptionValue);
+                        console.log(childrenOptionValue);
 
                     },
                     error: function() {
@@ -205,26 +214,54 @@ function requestPay() {
                     pg: 'kcp.A52CY',
                     pay_method: 'card',
                     merchant_uid: 'merchant_' + new Date().getTime(),
-                    name: '캠핑장명',
+                    name: '캠핑장이름',
                     amount: priceValue,
-                    buyer_email: 'kwonsoonil8568@gmail.com',
-                    buyer_name: '캠핑보내조 기술지원팀',
+                    buyer_email: 'CampingBoeNaeJoe@gmail.com',
+                    buyer_name: '구매자이름',
                     buyer_tel: '010-1234-5678',
-                    buyer_addr: '서울특별시 강남구 삼성동',
-                    buyer_postcode: '123-456'
+                    buyer_addr: '구매자 주소 강남구 삼성동',
     
           }, function (rsp) { // callback
+
             console.log(rsp);  
             
             if (rsp.success) {
+
                   console.log("성공");
+                  alert("결제가 완료되었습니다");
+
+                  let campingName = '캠핑장이름';
+
+                 $.ajax({
+                    url: "reservationInfo", 
+                    type: "POST",
+                    data: { "campingName" : campingName,
+                            "buyerName" : rsp.buyer_name,
+                            "amount" : priceValue,
+                            "people" : people},
+
+                    success: function(result) {
+                       
+                        if(result > 0) {
+                            console.log("예약정보 전송완료");
+                        }else {
+                            console.log("예약정보 전송실패");
+                        }
+
+                    },
+                    error: function() {
+                        console.log("예약정보전송 ajax 에러발생");
+                    }
+                });
+
               } else {
                 console.log("실패");
+                alert("결제에 실패하였습니다");
               }
             });
         }
 
-
+//  buyer_postcode: '123-456'
 </script>
    
 

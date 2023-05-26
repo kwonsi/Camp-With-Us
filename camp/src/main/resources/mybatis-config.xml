@@ -7,7 +7,7 @@
 	</settings>
 	
 	<typeAliases>
-	
+		<typeAlias type="team.project.camp.detail.model.vo.Reservation" alias="reservation" />
 	</typeAliases>
 
 	<mappers>

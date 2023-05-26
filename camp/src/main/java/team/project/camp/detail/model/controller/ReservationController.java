@@ -3,12 +3,16 @@ package team.project.camp.detail.model.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import lombok.extern.slf4j.Slf4j;
 import team.project.camp.detail.model.service.ReservationService;
+import team.project.camp.detail.model.vo.Reservation;
 
-
+@Slf4j
 @Controller
 @RequestMapping("/campDetail")
 public class ReservationController {
@@ -37,33 +41,52 @@ public class ReservationController {
 	}
 
 
-	//결제
-	/*  $.ajax({
-        url: "paymentConfirm",
-        type: "POST",
-        dataType: "json",
-        data: {"rsp" : JSON.stringify(rsp)}
-	 */
+	//예약정보
 //	@ResponseBody
-//	@PostMapping("/paymentConfirm")
-//	public int paymentConfirm(HttpServletRequest req) {
+//	@PostMapping("/reservationInfo")
+//	public int reservationInfo(@ModelAttribute Reservation reservation) {
 //
-//		int result = 0;
+//		int result = service.reservationInfo(reservation);
 //
-//		Gson gson = new Gson();
-//
-//		String[] rsp = req.getParameterValues("rsp");
-//
-//		String rsp2 = gson.toJson(rsp);
-//
-//		String[] rsp3 = gson.fromJson(rsp2, String[].class);
-//
-//
+//		if(result>0) {
+//			log.info("ajax로 result값 전송 성공");
+//		}else {
+//			log.info("ajax로 result값 전송 실패");
+//		}
 //
 //		return result;
 //	}
-//
 
+	
+	@ResponseBody
+	@PostMapping("/reservationInfo")
+	public int reservationInfo(String campingName, String buyerName,
+								int amount, int people) {
+		
+		Reservation reservation = new Reservation();
+		
+		reservation.setCampingName(campingName);
+		reservation.setBuyerName(buyerName);
+		reservation.setAmount(amount);
+		reservation.setPeople(people);
+		
+		log.info(buyerName);
+		log.info(campingName);
+		log.info(amount+"");
+		log.info(people + "");
+		
+		
+		int result = service.reservationInfo(reservation);
 
+		if(result>0) {
+			log.info("ajax로 result값 전송 성공");
+		}else {
+			log.info("ajax로 result값 전송 실패");
+		}
 
+		return result;
+	}
+
+	//예약테이블 조회
+	
 }
