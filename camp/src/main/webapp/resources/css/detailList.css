@@ -1,3 +1,6 @@
+
+
+
 body {
     margin: 0;
     padding: 0;
@@ -22,7 +25,7 @@ body {
 
 .div3 {
     border: 2px solid rgb(3, 92, 18);
-    height: 200px;
+    height:600px;
     margin-top: 50px;
 }
 
@@ -96,3 +99,108 @@ body {
     line-height: 25px;
 }
 
+
+
+
+/***********************************************************************************************************************************************************************/
+/* 테이블디자인************************************************************************************************************************************************************/
+
+
+.table_w {
+    position: relative;
+    width: 99.5%;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.table_w .table {
+    position: relative;
+    width: 100%;
+    letter-spacing: 0px;
+    border-left: 1px solid #b3b3b3;
+    border-top: 2px solid #000000;
+}
+
+.table_w .table th {
+    padding: 15px 10px;
+    line-height: 18px;
+    font-weight: bold;
+    font-size: 14px;
+    color: #333;
+    border-bottom: 1px solid #b3b3b3;
+    border-right: 1px solid #b3b3b3;
+    background-color: #f9f9fe;
+    word-break: break-all;
+}
+
+.table_w .table td {
+    padding: 15px 15px;
+    line-height: 18px;
+    font-weight: normal;
+    font-size: 14px;
+    color: #777;
+    border-bottom: 1px solid #b3b3b3;
+    border-right: 1px solid #b3b3b3;
+    word-break: break-all;
+}
+
+
+
+ul.table_ul05 {
+    position: relative;
+    margin: 0;
+}
+
+ul.table_ul05 li {
+    float: left;
+    padding: 0 20px 0 0;
+    font-size: 14px;
+    color: #777;
+    line-height: 20px;
+    font-weight: normal;
+    letter-spacing: -0.5px;
+    word-break: break-all;
+    background: url("/img/2018/sub/dot_ul05.gif") no-repeat left center;
+    padding-left: 20px;
+}
+
+ul.table_ul05 li:first-child {
+    background: none;
+    padding-left: 0;
+    
+}
+
+/*테이블타입 04*/
+.table_w .table_t4 {
+    position: relative;
+    width: 100%;
+    letter-spacing: 0px;
+    border-bottom: 1px solid #b3b3b3;
+    border-top: 2px solid #000000;
+}
+
+.table_w .table_t4 th {
+    padding: 15px 20px;
+    line-height: 18px;
+    font-weight: bold;
+    font-size: 14px;
+    color: #333;
+    background-color: #fff;
+    word-break: break-all;
+    text-align: left;
+}
+
+.table_w .table_t4 td {
+    padding: 15px 15px;
+    line-height: 18px;
+    font-weight: normal;
+    font-size: 14px;
+    color: #777;
+    border-bottom: 1px solid #b3b3b3;
+    word-break: break-all;
+    text-align: left;
+}
+
+.table_w .table_t4 tr:last-child td {
+    border-bottom: 0;
+}

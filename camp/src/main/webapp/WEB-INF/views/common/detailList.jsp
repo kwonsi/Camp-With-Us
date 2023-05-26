@@ -11,7 +11,7 @@
             <title>Document</title>
             <link rel="stylesheet" href="${contextPath}/resources/css/main.css">
             <link rel="stylesheet" href="${contextPath}/resources/css/detailList.css">
-
+            <link rel="stylesheet" href="${contextPath}/resources/css/map.css">
             <script src="https://kit.fontawesome.com/a2e8ca0ae3.js" crossorigin="anonymous"></script>
 
         </head>
@@ -100,7 +100,110 @@
 
 
 
-                <div class="div3">333
+                <div class="div3">
+                    
+                    <section id="table_type03">
+                        <div class="table_w">
+
+                            <table class="table_t4 camp_etc_tb">
+                                <tbody class="t_c">
+                                    <tr>
+                                        <th scope="col">주요시설</th>
+                                        <td>
+                                            <ul class="table_ul05">
+                                                <li>일반야영장(2면)</li>
+                                                <li>글램핑시설(22면)</li>
+                                                <li>카라반(2면)</li>
+                                                </ul>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="col">기타 정보</th>
+                                        <td>
+                                            <ul class="table_ul05">
+                                                <li>
+                                                    반려동물 동반 불가능</li>
+                                            </ul>
+                                            <br/>
+                                            <br/>
+                                            (※ 실제 결과는 현장사정 및 계절에 따라 달라질 수 있으니 캠핑장 사업주에 직접 확인 후 이용바랍니다.)
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                            <th scope="col">바닥형태 (단위:면)</th>
+                                            <td>
+                                                <ul class="table_ul05">
+                                                    <li>테크 (24)</li>
+                                                    </ul>
+                                            </td>
+                                        </tr>
+                                    <tr>
+                                            <th scope="col">사이트 크기</th>
+                                            <td>
+                                                <ul class="table_ul05">
+                                                    <li>4 X 6 : 13개</li>
+                                                    <li>6 X 7 : 11개</li>
+                                                    </ul>
+                                            </td>
+                                        </tr>
+                                    <tr>
+                                            <th scope="col">글램핑 내부시설</th>
+                                            <td>
+                                                <ul class="table_ul05">
+                                                    <li>침대</li>
+                                                        <li>에어컨</li>
+                                                        <li>냉장고</li>
+                                                        <li>유무선인터넷</li>
+                                                        <li>난방기구</li>
+                                                        <li>취사도구</li>
+                                                        <li>내부화장실</li>
+                                                        </ul>
+                                            </td>
+                                        </tr>
+                                    <tr>
+                                            <th scope="col">카라반 내부시설</th>
+                                            <td>
+                                                <ul class="table_ul05">
+                                                    <li>침대</li>
+                                                        <li>TV</li>
+                                                        <li>에어컨</li>
+                                                        <li>냉장고</li>
+                                                        <li>유무선인터넷</li>
+                                                        <li>난방기구</li>
+                                                        <li>취사도구</li>
+                                                        <li>내부화장실</li>
+                                                        </ul>
+                                            </td>
+                                        </tr>
+
+                                    <tr>
+                                        <th scope="col">화로대</th>
+                                        <td class="etc_type">
+                                            <ul class="table_ul05">
+                                                <li>
+                                                    개별
+                                                </li>
+
+                                            </ul>
+                                            
+                                            </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="col">안전시설현황</th>
+                                        <td>
+                                            <ul class="table_ul05">
+                                            <li>소화기 (20)</li>
+                                            <li>방화수 (2)</li>
+                                            <li>방화사 (1)</li>
+                                            <li>화재감지기 (24)</li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+
 
 
                 </div>

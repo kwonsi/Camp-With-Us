@@ -1,30 +1,4 @@
 
-// 맵
-var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-    mapOption = {
-        center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
-        level: 3 // 지도의 확대 레벨
-    };
-
-var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
-
-// 마커가 표시될 위치입니다 
-var markerPosition = new kakao.maps.LatLng(33.450701, 126.570667);
-
-// 마커를 생성합니다
-var marker = new kakao.maps.Marker({
-    position: markerPosition
-});
-// 마커가 지도 위에 표시되도록 설정합니다
-marker.setMap(map);
-
-
-
-
-
-
-
-
 
 
 
@@ -52,9 +26,15 @@ var resveCl1;
 var posblFcltyCl1;
 var firstImageUrl1;
 
+var mapX;
+var mapY;
+var facltNm;
+var homePage;
+
 var contentId;    //  캠프 이미지 뽑아오기위한 contentId .
 
 window.onload = function () {
+
 
     $.ajax({
         url: "https://apis.data.go.kr/B551011/GoCamping/basedList",
@@ -74,7 +54,6 @@ window.onload = function () {
             console.log(result);
 
             var items = result.response.body.items.item;
-            console.log(items.length);
 
             for (let i = 0; i < items.length; i++) {
 
@@ -89,7 +68,13 @@ window.onload = function () {
                     resveCl1 = items[i].resveCl;
                     posblFcltyCl1 = items[i].posblFcltyCl;
                     firstImageUrl1 = items[i].firstImageUrl;
+
                     contentId = items[i].contentId;
+
+                    mapX = items[i].mapX;
+                    mapY = items[i].mapY;
+                    facltNm = items[i].facltNm;
+                    homePage = items[i].homePage;
                 }
             }
             addr.innerText = addr1;
@@ -102,6 +87,56 @@ window.onload = function () {
             posblFcltyCl.innerText = posblFcltyCl1;
             imgB.innerHTML = '<img src="' + firstImageUrl1 + '" alt="대표이미지"  />';
 
+
+
+
+            var mapContainer = document.getElementById('map'), // 지도의 중심좌표
+                mapOption = {
+                    center: new kakao.maps.LatLng(mapY, mapX), // 지도의 중심좌표
+                    level: 3                                    // 지도의 확대 레벨
+                };
+
+            var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+            var marker = new kakao.maps.Marker({                // 지도에 마커를 표시합니다 
+                map: map,
+                position: new kakao.maps.LatLng(mapY, mapX)
+            });
+
+            // 커스텀 오버레이에 표시할 컨텐츠 입니다 
+            var content = '<div class="wrap">' +
+                '    <div class="info">' +
+                '        <div class="title">' +
+                facltNm +
+                '            <div class="close" onclick="closeOverlay()" title="닫기"></div>' +
+                '        </div>' +
+                '        <div class="body">' +
+                '            <div class="img">' +
+                '                <img src=' + firstImageUrl1 + ' width="73" height="70">' +
+                '           </div>' +
+                '            <div class="desc">' +
+                '                <div class="ellipsis">' + addr1 + '</div>' +
+                '                <div class="jibun ellipsis">' + induty1 + '</div>' +
+                '                <div><a href=' + homePage + ' target="_blank" class="link">홈페이지</a></div>' +
+                '            </div>' +
+                '        </div>' +
+                '    </div>' +
+                '</div>';
+
+            // 마커 위에 커스텀오버레이를 표시합니다
+            // 마커를 중심으로 커스텀 오버레이를 표시하기위해 CSS를 이용해 위치를 설정했습니다
+            var overlay = new kakao.maps.CustomOverlay({
+                content: content,
+                map: map,
+                position: marker.getPosition()
+            });
+
+            // 마커를 클릭했을 때 커스텀 오버레이를 표시합니다
+            kakao.maps.event.addListener(marker, 'click', function () {
+                overlay.setMap(map);
+            });
+
+
         },
         error: function (error) {
             console.log("API 호출 실패");
@@ -110,11 +145,11 @@ window.onload = function () {
     });
 };
 
+console.log(mapY);
 
 
 
-
-
-
-
-
+// 커스텀 오버레이를 닫기 위해 호출되는 함수입니다 
+function closeOverlay() {
+    overlay.setMap(null);
+}
