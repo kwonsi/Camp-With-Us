@@ -17,15 +17,13 @@
     <main>
         <jsp:include page="/WEB-INF/views/common/header.jsp" />
 
-
-        <div class="header"> HEADER 영역 </div>
-
         <div class="search">
             <section class="layer_search">
 
                 <div class="divv">
                     <h2>
-                        <span class="skip" >검색 레이어박스</span>
+                        <span class="skip" >검색 레이어박스 </span>
+                        
                     </h2>
                 </div>
                 <div class="search_box">
@@ -76,7 +74,7 @@
                                     <option value="글램핑">글램핑</option>
                                     <option value="카라반">카라반</option>
                                 </select>
-                                <button type="button" class="searchBtn" id="selectCampBtn">검색</button>
+                                <button type="button" class="searchBtn" id="selectCampBtn" onclick="updateQueryString()">검색</button>
 
                             </div>
                         </div>
@@ -89,8 +87,10 @@
 
         <div class="searchVal" id="searchVal">
 
-
+            <div><h2 id="campResult"></h2></div>
             <section class="searchBox" id ="searchBox" >
+
+               
                 <div class="camp_search_list" id="searchBox2">
                     <ul>
                         <li>
@@ -108,7 +108,7 @@
                                     </span><br>
                                     <span class="camp_add">주소 &nbsp;&nbsp;&nbsp;:  서울광역시 서울구 서울동 서울</span><br>
                                     <span class="camp_phone">연락처 : 010-6857-6333</span>
-                                    <a href="${contextPath}/campDetail/reservation">예약페이지</a>
+                                   
                                 </div>
                             </div>
                         </li>
@@ -123,13 +123,16 @@
 
           </div>
         </div>
-        
-
-        <div class="footer"> FOOTER 영역</div>
-
-
+    
     </main>
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
+
+    <script>
+        const loc = "${loc}";
+        const theme = "${theme}";
+    </script>
+
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="${contextPath}/resources/js/main.js"></script>
     <script src="${contextPath}/resources/js/campList.js"></script>

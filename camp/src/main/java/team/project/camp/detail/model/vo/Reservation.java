@@ -11,6 +11,7 @@ import lombok.ToString;
 @ToString
 public class Reservation {
 
+	private String reservNo;
 	private String campingName;
 	private String buyerName;
 	private int amount;

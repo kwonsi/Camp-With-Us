@@ -1,7 +1,10 @@
 package team.project.camp.detail.model.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -41,23 +44,7 @@ public class ReservationController {
 	}
 
 
-	//예약정보
-//	@ResponseBody
-//	@PostMapping("/reservationInfo")
-//	public int reservationInfo(@ModelAttribute Reservation reservation) {
-//
-//		int result = service.reservationInfo(reservation);
-//
-//		if(result>0) {
-//			log.info("ajax로 result값 전송 성공");
-//		}else {
-//			log.info("ajax로 result값 전송 실패");
-//		}
-//
-//		return result;
-//	}
-
-	
+	//예약테이블에 예약정보 삽입
 	@ResponseBody
 	@PostMapping("/reservationInfo")
 	public int reservationInfo(String campingName, String buyerName,
@@ -87,6 +74,6 @@ public class ReservationController {
 		return result;
 	}
 
-	//예약테이블 조회
+	
 	
 }

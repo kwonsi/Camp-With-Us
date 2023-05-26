@@ -153,6 +153,7 @@
     </main>
 
 <script>
+    
 let priceValue;
 let people;
 
