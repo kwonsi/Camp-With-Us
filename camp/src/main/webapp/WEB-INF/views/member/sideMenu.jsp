@@ -5,8 +5,12 @@
     사이드메뉴
 
     <ul class="list-group">
+<<<<<<< HEAD
 
         <li> <a href="${contextPath}/member/myPage/myReservation">예약 확인</a> </li>
+=======
+        <li> <a href="${contextPath}/member/myPage/reservation">예약 확인</a> </li>
+>>>>>>> eunju
 
         <li> <a href="${contextPath}/member/myPage/myBoard">내 게시글</a> </li>
 

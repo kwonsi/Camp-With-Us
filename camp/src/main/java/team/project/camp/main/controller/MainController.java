@@ -17,9 +17,12 @@ public class MainController {
 	public String popUpLoc() {
 		return "common/selectLoc";
 	}
+<<<<<<< HEAD
 
 	@GetMapping("/selectTheme")
 	public String popUpTheme() {
 		return "common/selectTheme";
 	}
+=======
+>>>>>>> eunju
 }
