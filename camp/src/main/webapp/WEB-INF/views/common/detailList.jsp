@@ -38,10 +38,10 @@
 
                     <div class="camp_info_box">
                         <div class="img_b" id="img_b">
-                <!--             <img src="" alt="대표이미지" id="img_b" /> -->
+                            <!--             <img src="" alt="대표이미지" id="img_b" /> -->
                         </div>
-                        
-                        <div class="cont_tb" >
+
+                        <div class="cont_tb">
                             <table class="table">
                                 <caption>캠핑장 기본정보입니다. 주소, 문의처, 캠핑장 환경, 캠핑장 유형, 운영기간, 운영일, 홈페이지, 예약방법, 찾아오시는길로 나뉘어 설명합니다.
                                 </caption>
@@ -91,7 +91,7 @@
                                 </tbody>
                             </table>
                         </div>
-                        
+
 
                     </div>
 
@@ -101,7 +101,7 @@
 
 
                 <div class="div3">
-                    
+
                     <section id="table_type03">
                         <div class="table_w">
 
@@ -114,7 +114,7 @@
                                                 <li>일반야영장(2면)</li>
                                                 <li>글램핑시설(22면)</li>
                                                 <li>카라반(2면)</li>
-                                                </ul>
+                                            </ul>
                                         </td>
                                     </tr>
                                     <tr>
@@ -124,57 +124,57 @@
                                                 <li>
                                                     반려동물 동반 불가능</li>
                                             </ul>
-                                            <br/>
-                                            <br/>
+                                            <br />
+                                            <br />
                                             (※ 실제 결과는 현장사정 및 계절에 따라 달라질 수 있으니 캠핑장 사업주에 직접 확인 후 이용바랍니다.)
                                         </td>
                                     </tr>
                                     <tr>
-                                            <th scope="col">바닥형태 (단위:면)</th>
-                                            <td>
-                                                <ul class="table_ul05">
-                                                    <li>테크 (24)</li>
-                                                    </ul>
-                                            </td>
-                                        </tr>
+                                        <th scope="col">바닥형태 (단위:면)</th>
+                                        <td>
+                                            <ul class="table_ul05">
+                                                <li>테크 (24)</li>
+                                            </ul>
+                                        </td>
+                                    </tr>
                                     <tr>
-                                            <th scope="col">사이트 크기</th>
-                                            <td>
-                                                <ul class="table_ul05">
-                                                    <li>4 X 6 : 13개</li>
-                                                    <li>6 X 7 : 11개</li>
-                                                    </ul>
-                                            </td>
-                                        </tr>
+                                        <th scope="col">사이트 크기</th>
+                                        <td>
+                                            <ul class="table_ul05">
+                                                <li>4 X 6 : 13개</li>
+                                                <li>6 X 7 : 11개</li>
+                                            </ul>
+                                        </td>
+                                    </tr>
                                     <tr>
-                                            <th scope="col">글램핑 내부시설</th>
-                                            <td>
-                                                <ul class="table_ul05">
-                                                    <li>침대</li>
-                                                        <li>에어컨</li>
-                                                        <li>냉장고</li>
-                                                        <li>유무선인터넷</li>
-                                                        <li>난방기구</li>
-                                                        <li>취사도구</li>
-                                                        <li>내부화장실</li>
-                                                        </ul>
-                                            </td>
-                                        </tr>
+                                        <th scope="col">글램핑 내부시설</th>
+                                        <td>
+                                            <ul class="table_ul05">
+                                                <li>침대</li>
+                                                <li>에어컨</li>
+                                                <li>냉장고</li>
+                                                <li>유무선인터넷</li>
+                                                <li>난방기구</li>
+                                                <li>취사도구</li>
+                                                <li>내부화장실</li>
+                                            </ul>
+                                        </td>
+                                    </tr>
                                     <tr>
-                                            <th scope="col">카라반 내부시설</th>
-                                            <td>
-                                                <ul class="table_ul05">
-                                                    <li>침대</li>
-                                                        <li>TV</li>
-                                                        <li>에어컨</li>
-                                                        <li>냉장고</li>
-                                                        <li>유무선인터넷</li>
-                                                        <li>난방기구</li>
-                                                        <li>취사도구</li>
-                                                        <li>내부화장실</li>
-                                                        </ul>
-                                            </td>
-                                        </tr>
+                                        <th scope="col">카라반 내부시설</th>
+                                        <td>
+                                            <ul class="table_ul05">
+                                                <li>침대</li>
+                                                <li>TV</li>
+                                                <li>에어컨</li>
+                                                <li>냉장고</li>
+                                                <li>유무선인터넷</li>
+                                                <li>난방기구</li>
+                                                <li>취사도구</li>
+                                                <li>내부화장실</li>
+                                            </ul>
+                                        </td>
+                                    </tr>
 
                                     <tr>
                                         <th scope="col">화로대</th>
@@ -185,17 +185,17 @@
                                                 </li>
 
                                             </ul>
-                                            
-                                            </td>
+
+                                        </td>
                                     </tr>
                                     <tr>
                                         <th scope="col">안전시설현황</th>
                                         <td>
                                             <ul class="table_ul05">
-                                            <li>소화기 (20)</li>
-                                            <li>방화수 (2)</li>
-                                            <li>방화사 (1)</li>
-                                            <li>화재감지기 (24)</li>
+                                                <li>소화기 (20)</li>
+                                                <li>방화수 (2)</li>
+                                                <li>방화사 (1)</li>
+                                                <li>화재감지기 (24)</li>
                                             </ul>
                                         </td>
                                     </tr>
@@ -217,7 +217,7 @@
 
 
             <script>
-                
+
                 const campName = "${campName}";
             </script>
 
@@ -228,4 +228,5 @@
                 integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
             <script src="${contextPath}/resources/js/detailList.js"></script>
         </body>
-</html>
+
+        </html>

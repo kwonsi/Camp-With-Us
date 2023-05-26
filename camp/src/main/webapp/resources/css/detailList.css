@@ -30,6 +30,7 @@ body {
 }
 
 
+
 /*00캠핑장 상세페이지 상단 공통*/
 .camp_info_box {
     position: relative;
@@ -167,7 +168,6 @@ ul.table_ul05 li {
 ul.table_ul05 li:first-child {
     background: none;
     padding-left: 0;
-    
 }
 
 /*테이블타입 04*/
