@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 
-
-<c:set var="reservationList" value="${map.boardList}" />
+<c:set var="reservationList" value="${reservationList}"/>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -62,11 +61,11 @@
                                 <c:forEach var="reservation" items="${reservationList}">
                                     <tr>
                                         <td>${reservation.reservNo}</td>
-                                        <td>${reservation.reservCamp}</td>
-                                        <td>${reservation.reservName}</td>
+                                        <td>${reservation.campingName}</td>
+                                        <td>${reservation.buyerName}</td>
                                         <td>${reservation.reservDate}</td>
-                                        <td>${reservation.reservPeople}</td>
-                                        <td>${reservation.reservPayment}</td>
+                                        <td>${reservation.people}</td>
+                                        <td>${reservation.amount}</td>
                                     </tr>
                                 </c:forEach>
 
@@ -79,7 +78,7 @@
         </section>
 
     </main>
-
+	
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
