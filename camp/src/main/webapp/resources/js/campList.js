@@ -142,6 +142,7 @@ selectCampBtn.addEventListener("click", function () {
             )
           )
             ||
+
             (
               (item.homepage != ""     // 홈페이지가 null 이 아닌 것
                 && item.firstImageUrl != ""   // 이미지가 ''
@@ -273,7 +274,7 @@ window.onload = function() {
   }
 
   searchBox2.innerHTML = "";
-  
+
   $.ajax({
     url: "https://apis.data.go.kr/B551011/GoCamping/basedList",
     data: {

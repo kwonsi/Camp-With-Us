@@ -12,14 +12,12 @@ public class CampListController {
 
 	// campList --> detailList 이동
 	@GetMapping("/detailList")
-	public String detailList(
+	public String detailList( 
 				@RequestParam(value = "campName",required = false,defaultValue = "") String campName,
 				Model model
 			) {
 		model.addAttribute("campName",campName);
-
 		return "common/detailList";
 	}
-
-
+	
 }

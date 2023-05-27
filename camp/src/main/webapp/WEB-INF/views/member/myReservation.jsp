@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 
 
-<c:set var="reservationList" value="${map.boardList}" />
+<c:set var="reservationList" value="${reservationList}" />
 
 <!DOCTYPE html>
 <html lang="en">
@@ -62,11 +62,11 @@
                                 <c:forEach var="reservation" items="${reservationList}">
                                     <tr>
                                         <td>${reservation.reservNo}</td>
-                                        <td>${reservation.reservCamp}</td>
-                                        <td>${reservation.reservName}</td>
+                                        <td>${reservation.campingName}</td>
+                                        <td>${reservation.buyerName}</td>
                                         <td>${reservation.reservDate}</td>
-                                        <td>${reservation.reservPeople}</td>
-                                        <td>${reservation.reservPayment}</td>
+                                        <td>${reservation.people}</td>
+                                        <td>${reservation.amount}</td>
                                     </tr>
                                 </c:forEach>
 
