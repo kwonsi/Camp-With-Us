@@ -1,16 +1,12 @@
 package team.project.camp.member.model.controller;
 
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import com.google.gson.Gson;
 
 import team.project.camp.detail.model.service.ReservationService;
 import team.project.camp.detail.model.vo.Reservation;
@@ -29,7 +25,6 @@ public class MyPageController {
 		
 		model.addAttribute("reservationList", reservationList);
 		
-		//System.out.println("예약내역 : " + reservationList.get(2));
 		return "member/myReservation";
 	}
 
@@ -59,24 +54,5 @@ public class MyPageController {
 		return "member/secession";
 
 	}
-
-	
-	//-------------------------------------------------------------------------------
-	
-	
-	// 예약내역 조회
-//	@PostMapping("/myReservation")
-//	public String reservationSelect() {
-//		
-//		Map<String, Object> map = null; 
-//		
-//		map = service.reservationSelect();
-//		
-//		//log.info(map.get(campingName));
-//		
-//		return "/myReservation";
-//	}
-	
-	
 	
 }
