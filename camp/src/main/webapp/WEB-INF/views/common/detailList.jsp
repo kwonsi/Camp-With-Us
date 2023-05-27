@@ -36,8 +36,7 @@
 
                 <div class="cont_tb">
                     <table class="table">
-                        <caption> 캠핑장 기본정보입니다. 주소, 문의처, 캠핑장 환경, 캠핑장 유형, 운영기간, 운영일, 홈페이지, 예약방법, 찾아오시는길로 나뉘어
-                            설명합니다.
+                        <caption> ${campName}
                         </caption>
                         <colgroup>
                             <col style="width: 30%;" />
@@ -94,12 +93,15 @@
 
 
 
+        
         <div class="div3">
 
             <section id="table_type03">
                 <div class="table_w">
 
                     <table class="table_t4 camp_etc_tb">
+                        <caption> 기타 주요시설
+                        </caption>
                         <tbody class="t_c">
                             <tr>
                                 <th scope="col">주요시설</th>
@@ -203,6 +205,7 @@
         </div>
 
 
+        <div class="div4_1"> 이 미 지 리 스 트 </div>
         <div class="div4">
 
             <div class="box_photo" id="box_photo">

@@ -30,7 +30,7 @@ body {
 
 .div3 {
     border: 2px solid rgb(3, 92, 18);
-    height: 600px;
+    height: auto;
     margin-top: 50px;
 }
 
@@ -38,17 +38,18 @@ body {
     border: 2px solid rgb(3, 92, 18);
     height: auto;
     display: flex;
-    margin-top: 50px;
 }
 .div5 {
     border: 2px solid rgb(3, 92, 18);
     margin-top: 60px;
-    height: 50px;
+    height: 60px;
     display: flex;
     text-align: center;
     justify-content: center;
     align-items: center;
     padding: auto;
+    font-size: 25px;
+    font-weight: bold;
 }
 .div6 {
     border: 2px solid rgb(3, 92, 18);
@@ -56,6 +57,18 @@ body {
     display: flex;
 }
 
+.div4_1 {
+    border: 2px solid rgb(3, 92, 18);
+    margin-top: 60px;
+    height: 60px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding: auto;
+    font-size: 25px;
+    font-weight: bold;
+}
 
 
 /*00캠핑장 상세페이지 상단 공통*/
@@ -82,15 +95,11 @@ body {
     height: 100%;
 }
 
-/* #img_b{
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-
-} */
 .camp_info_box caption {
     height: 50px;
     margin-top: 25px;
+    font-size: 25px;
+    font-weight: bold;
 }
 
 .camp_info_box .cont_tb {
@@ -133,6 +142,12 @@ body {
 /***********************************************************************************************************************************************************************/
 /* 테이블디자인************************************************************************************************************************************************************/
 
+.table_t4 caption {
+    height: 50px;
+    margin-top: 12px;
+    font-size: 25px;
+    font-weight: bold;
+}
 
 .table_w {
     position: relative;
@@ -173,13 +188,36 @@ body {
 }
 
 
-
 ul.table_ul05 {
+    display: flex;
+    position: relative;
+    margin: 0;
+    padding: 0;
+   
+}
 
+ul.table_ul05 li {
+    font-size: 14px;
+    color: #777;
+    line-height: 20px;
+    font-weight: normal;
+    letter-spacing: -0.5px;
+    word-break: break-all;
+    margin-right: 10px;
+}
+
+ul.table_ul05 li {
+    margin-right: 35px;
+}
+ul.table_ul05 li:first-child {
+    list-style: none;
+}
+
+
+/* ul.table_ul05 {
     position: relative;
     margin: 0;
 }
-
 ul.table_ul05 li {
     float: left;
     padding: 0 20px 0 0;
@@ -189,22 +227,32 @@ ul.table_ul05 li {
     font-weight: normal;
     letter-spacing: -0.5px;
     word-break: break-all;
-    background: url("/img/2018/sub/dot_ul05.gif") no-repeat left center;
+    background: none;
     padding-left: 20px;
-}
+} */
 
 ul.table_ul05 li:first-child {
     background: none;
     padding-left: 0;
 }
 
+
+
 /*테이블타입 04*/
+.table_t4 tbody tr:nth-child(1) th {
+    border-top: 2px solid black;
+}
+
+.table_t4 tbody tr:nth-child(1) td {
+    border-top: 2px solid green;
+}
+
+
 .table_w .table_t4 {
     position: relative;
     width: 100%;
     letter-spacing: 0px;
     border-bottom: 1px solid #b3b3b3;
-    border-top: 2px solid #000000;
 }
 
 .table_w .table_t4 th {
@@ -220,7 +268,7 @@ ul.table_ul05 li:first-child {
 
 .table_w .table_t4 td {
     padding: 15px 15px;
-    line-height: 18px;
+    line-height: 10px;
     font-weight: normal;
     font-size: 14px;
     color: #777;
@@ -234,11 +282,9 @@ ul.table_ul05 li:first-child {
 }
 
 
-
-
-
-
 /* 이미지리스트 출력 */
+
+
 .box_photo {
     max-width: 100%;
     min-width: 150px;
