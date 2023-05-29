@@ -1,8 +1,12 @@
 package team.project.camp.detail.model.service;
 
+<<<<<<< HEAD
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+=======
+import java.util.List;
+>>>>>>> a781cfd01bb173f264eea633926f011cae432ee6
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -42,6 +46,7 @@ public class ReservationServiceImpl implements ReservationService {
 //		dao.reservationSelect();
 //		return map;
 //	}
+<<<<<<< HEAD
 
 	//예약확인 
 	@Override
@@ -49,7 +54,14 @@ public class ReservationServiceImpl implements ReservationService {
 		return dao.reservationSelect();
 	}
 
+=======
+>>>>>>> a781cfd01bb173f264eea633926f011cae432ee6
 
+	//예약확인 
+	@Override
+	public List<Reservation> reservationSelect() {
+		return dao.reservationSelect();
+	}
 
 
 }

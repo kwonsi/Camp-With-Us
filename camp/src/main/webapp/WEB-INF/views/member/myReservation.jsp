@@ -39,9 +39,10 @@
                             <th>예약 번호</th>
                             <th>캠핑장 이름</th>
                             <th>예약자</th>
-                            <th>예약일</th>
+                            <th>결제일</th>
                             <th>예약 인원 수</th>
                             <th>결제 금액</th>
+                            <th>예약일</th>
                         </tr>
                     </thead>
 
@@ -67,6 +68,11 @@
                                         <td>${reservation.reservDate}</td>
                                         <td>${reservation.people}</td>
                                         <td>${reservation.amount}</td>
+<<<<<<< HEAD
+=======
+                                        <td>${reservation.reservSelDate}</td>
+
+>>>>>>> a781cfd01bb173f264eea633926f011cae432ee6
                                     </tr>
                                 </c:forEach>
 

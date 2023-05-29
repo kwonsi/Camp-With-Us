@@ -15,10 +15,12 @@ public class ReservationDAO {
 	@Autowired
 	private SqlSessionTemplate sqlSession;
 
+	// 가격계산
 	public int selectPrice() {
 		return sqlSession.selectOne("reservationMapper.selectPrice");
 	}
 
+	//예약정보
 	public int reservationInfo(Reservation reservation) {
 		return sqlSession.insert("reservationMapper.reservationInfo", reservation);
 	}
@@ -30,8 +32,11 @@ public class ReservationDAO {
 	}
 	
 
+<<<<<<< HEAD
 //	public List<Reservation> reservationSelect() {
 //		return sqlSession.selectList("reservationMapper.reservationSelect");
 //	}
+=======
+>>>>>>> a781cfd01bb173f264eea633926f011cae432ee6
 
 }
