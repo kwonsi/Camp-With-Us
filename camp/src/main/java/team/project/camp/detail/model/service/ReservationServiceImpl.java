@@ -1,5 +1,7 @@
 package team.project.camp.detail.model.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,7 +32,20 @@ public class ReservationServiceImpl implements ReservationService {
 		return dao.reservationInfo(reservation);
 	}
 
+//	@Override
+//	public Map<String, Object> reservationSelect() {
+//
+//		Map<String, Object> map = new HashMap<>();
+//		
+//		dao.reservationSelect();
+//		return map;
+//	}
 
+	//예약확인 
+	@Override
+	public List<Reservation> reservationSelect() {
+		return dao.reservationSelect();
+	}
 
 
 }

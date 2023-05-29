@@ -24,7 +24,6 @@ public class MainController {
 	public String popUpTheme() {
 		return "common/selectTheme";
 	}
-	
 	// main --> campList 이동 .
 	@GetMapping("/campList")
 	public String campList(  

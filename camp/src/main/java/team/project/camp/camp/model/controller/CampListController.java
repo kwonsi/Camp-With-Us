@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 @RequestMapping("/campList")
 public class CampListController {
-	
+
 	// campList --> detailList 이동
 	@GetMapping("/detailList")
 	public String detailList( 
@@ -17,9 +17,7 @@ public class CampListController {
 				Model model
 			) {
 		model.addAttribute("campName",campName);
-		
 		return "common/detailList";
 	}
-	
 	
 }
