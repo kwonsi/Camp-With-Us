@@ -21,7 +21,8 @@ public class ReservationController {
 	@Autowired
 	private ReservationService service;
 
-	// 예약하기 페이지 조회
+	// 예약하기 페이지 조회  detailList--> reservation
+	// href='${contextPath}/campDetail/reservation?campName=${campName}'>예약페이지</a></button>
 	@GetMapping("/reservation")
 	public String ReservationSelect(
 			@RequestParam(value = "campName", required = false, defaultValue = "") String campName, Model model) {

@@ -155,6 +155,7 @@
     
 let priceValue;
 let people;
+var campName = "${campName}";
 
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -213,7 +214,7 @@ function requestPay() {
                     pg: 'kcp.A52CY',
                     pay_method: 'card',
                     merchant_uid: 'merchant_' + new Date().getTime(),
-                    name: '캠핑장이름',
+                    name: campName,
                     amount: priceValue,
                     buyer_email: 'CampingBoeNaeJoe@gmail.com',
                     buyer_name: '구매자이름',
@@ -229,12 +230,12 @@ function requestPay() {
                   console.log("성공");
                   alert("결제가 완료되었습니다");
 
-                  let campingName = '캠핑장이름';
+                 
 
                  $.ajax({
                     url: "reservationInfo", 
                     type: "POST",
-                    data: { "campingName" : campingName,
+                    data: { "campingName" : campName,
                             "buyerName" : rsp.buyer_name,
                             "amount" : priceValue,
                             "people" : people},
