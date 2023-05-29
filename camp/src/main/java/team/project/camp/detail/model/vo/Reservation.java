@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -15,5 +16,6 @@ public class Reservation {
 	private String buyerName;
 	private int amount;
 	private int people;
+	private String selectDate;
 
 }

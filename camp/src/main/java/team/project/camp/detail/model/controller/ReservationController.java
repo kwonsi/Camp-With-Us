@@ -61,7 +61,7 @@ public class ReservationController {
 	@ResponseBody
 	@PostMapping("/reservationInfo")
 	public int reservationInfo(String campingName, String buyerName,
-								int amount, int people) {
+								int amount, int people, String selectDate) {
 		
 		Reservation reservation = new Reservation();
 		
@@ -69,12 +69,13 @@ public class ReservationController {
 		reservation.setBuyerName(buyerName);
 		reservation.setAmount(amount);
 		reservation.setPeople(people);
+		reservation.setSelectDate(selectDate);
 		
 		log.info(buyerName);
 		log.info(campingName);
 		log.info(amount+"");
 		log.info(people + "");
-		
+		log.info(selectDate);
 		
 		int result = service.reservationInfo(reservation);
 

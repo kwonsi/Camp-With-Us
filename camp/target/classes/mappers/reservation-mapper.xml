@@ -17,9 +17,9 @@
 	
 	<insert id="reservationInfo" parameterType="reservation">
 		INSERT INTO RESERVATION(
-		RESERVATION_NO, CAMPING_NM, RESERVATION_P, RESERVATION_NP, PAYMENT) 
+		RESERVATION_NO, CAMPING_NM, RESERVATION_P, RESERVATION_DT, RESERVATION_NP, PAYMENT, SELECTDATE) 
 		VALUES(SEQ_RESERVATION_NO_S.NEXTVAL,
-		#{campingName}, #{buyerName}, #{people}, #{amount})
+		#{campingName}, #{buyerName}, SYSDATE, #{people}, #{amount}, #{selectDate})
 	</insert>
 
 
