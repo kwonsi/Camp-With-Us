@@ -153,7 +153,7 @@ var campName = "${campName}";
 
 //결제금액
 document.addEventListener("DOMContentLoaded", function() {
-            const month = localStorage.getItem("Month");
+            // const month = localStorage.getItem("Month");
             const adultSelect = document.querySelector(".adultSelect");
             const childrenSelect = document.querySelector(".childrenSelect");
             const priceElement = document.getElementById("priceSum");
@@ -162,10 +162,10 @@ document.addEventListener("DOMContentLoaded", function() {
                 $.ajax({
                     url: "selectPrice",
                     type: "GET",
-                    data: {"month" : month},
+                    data: {"month" : Number(selectMonth[0].innerText)},
                     success: function(price) {
                         console.log(price);
-                        console.log("몇월달 ? " + month);
+                        console.log("몇월달 ? " + Number(selectMonth[0].innerText));
                         let childrenPrice = price * 0.5;
                         let adultOptionValue = adultSelect.options[adultSelect.selectedIndex].value;
                         let adultTotalPrice = price * adultOptionValue;
@@ -193,10 +193,8 @@ document.addEventListener("DOMContentLoaded", function() {
                         console.log(people);
                         console.log(adultOptionValue);
                         console.log(childrenOptionValue);
-                        console.log("스토리지" + localStorage.getItem("totalDay"))
-                       
-
-                        
+                        console.log("스토리지jsp" + localStorage.getItem("totalDay"));
+                     
 
                     },
                     error: function() {

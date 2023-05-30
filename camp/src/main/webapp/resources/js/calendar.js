@@ -98,24 +98,26 @@ function initCalendar(){
                 var test = calculateDays();
             
                 dayBetween[0].innerText = test + "박";
-                dayBetween[1].innerText = test+1 + "일";
+                dayBetween[1].innerText = test+ 1 + "일";
             
                 a.innerText = test + "박" + (test+1) + "일";
                 localStorage.clear();
                 localStorage.setItem("totalDay", test);
-                localStorage.setItem("Month", selectMonth[0].innerText)
+                localStorage.setItem("Month", selectMonth[0].innerText);
+
                 console.log(localStorage.getItem("Month"));
+            
                 count = 0;
 
-                // let month = localStorage.getItem("Month");
+                
 
                 $.ajax({
                     url: "selectPrice",
                     type: "GET",
-                    data: {"month" : month},
+                    data: {"month" : Number(selectMonth[0].innerText)},
                     success: function(price) {
                         console.log(price);
-                        console.log("몇월달 ? " + month);
+                        console.log("몇월달 ? " + Number(selectMonth[0].innerText));
                         let childrenPrice = price * 0.5;
                         let adultOptionValue = adultSelect.options[adultSelect.selectedIndex].value;
                         let adultTotalPrice = price * adultOptionValue;
@@ -139,14 +141,12 @@ function initCalendar(){
                         priceElement.textContent = "총 가격: " + totalPrice + "원";
                         priceValue = totalPrice;
                         people = totalPeople;
-                        
-                       
-                        
+                      
                         
                         console.log(people);
                         console.log(adultOptionValue);
                         console.log(childrenOptionValue);
-                        console.log(localStorage.getItem("totalDay"))
+                        console.log("스토리지js" + localStorage.getItem("totalDay"));
                         
 
                     },
@@ -155,16 +155,12 @@ function initCalendar(){
                     }
                 });
 
-                
            }
 
-           
-        
         });
 
-        
     }
-    
+    localStorage.clear();
 };
 
 initCalendar();
@@ -264,6 +260,7 @@ reselect.addEventListener("click", function(){
     console.log(count)
     console.log(localStorage.getItem("totalDay"))
     priceElement.textContent = "총 가격 : 0원"
+    initCalendar();
 });
 var totalDay = calculateDays();
 function calculateDays() {
