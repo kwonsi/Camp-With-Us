@@ -16,9 +16,15 @@ public class ReservationDAO {
 	private SqlSessionTemplate sqlSession;
 
 	// 가격계산
-	public int selectPrice() {
-		return sqlSession.selectOne("reservationMapper.selectPrice");
+	//성수기
+	public int selectPriceP(String month) {
+		return sqlSession.selectOne("reservationMapper.selectPriceP", month);
 	}
+	//비성수기
+	public int selectPriceNp(String month) {
+		return sqlSession.selectOne("reservationMapper.selectPriceNp", month);
+	}
+	
  
 	//예약정보 삽입
 	public int reservationInfo(Reservation reservation) {

@@ -103,16 +103,19 @@ function initCalendar(){
                 a.innerText = test + "박" + (test+1) + "일";
                 localStorage.clear();
                 localStorage.setItem("totalDay", test);
-                console.log(localStorage)
+                localStorage.setItem("Month", selectMonth[0].innerText)
+                console.log(localStorage.getItem("Month"));
                 count = 0;
 
-                
+                // let month = localStorage.getItem("Month");
+
                 $.ajax({
                     url: "selectPrice",
                     type: "GET",
+                    data: {"month" : month},
                     success: function(price) {
                         console.log(price);
-                        
+                        console.log("몇월달 ? " + month);
                         let childrenPrice = price * 0.5;
                         let adultOptionValue = adultSelect.options[adultSelect.selectedIndex].value;
                         let adultTotalPrice = price * adultOptionValue;

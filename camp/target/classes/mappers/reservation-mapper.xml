@@ -16,10 +16,18 @@
 
 
 	<!-- 가격조회 -->
-	<select id="selectPrice" resultType="_int">
+	<!-- 성수기 -->
+	<select id="selectPriceP" resultType="_int">
 	SELECT CAMPING_PR FROM PRICE 
-	WHERE PEAK_SEASON = 'Y'
+	WHERE PEAK_SEASON = 'Y' 
 	</select>
+	
+	<!-- 비성수기 -->
+	<select id="selectPriceNp" resultType="_int">
+	SELECT CAMPING_PR FROM PRICE 
+	WHERE PEAK_SEASON = 'N' 
+	</select>
+	
 	
 	<!-- 예약정보 삽입 -->
 	<insert id="reservationInfo" parameterType="reservation">

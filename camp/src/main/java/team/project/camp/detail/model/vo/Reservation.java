@@ -22,5 +22,5 @@ public class Reservation {
 	private String reservSelDate;
 	private Date reservDate;
 	private char reservSt;
-
+	private String month;
 }

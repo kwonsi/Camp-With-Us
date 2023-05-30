@@ -153,6 +153,7 @@ var campName = "${campName}";
 
 //결제금액
 document.addEventListener("DOMContentLoaded", function() {
+            const month = localStorage.getItem("Month");
             const adultSelect = document.querySelector(".adultSelect");
             const childrenSelect = document.querySelector(".childrenSelect");
             const priceElement = document.getElementById("priceSum");
@@ -161,9 +162,10 @@ document.addEventListener("DOMContentLoaded", function() {
                 $.ajax({
                     url: "selectPrice",
                     type: "GET",
+                    data: {"month" : month},
                     success: function(price) {
                         console.log(price);
-                        
+                        console.log("몇월달 ? " + month);
                         let childrenPrice = price * 0.5;
                         let adultOptionValue = adultSelect.options[adultSelect.selectedIndex].value;
                         let adultTotalPrice = price * adultOptionValue;

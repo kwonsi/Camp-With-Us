@@ -17,9 +17,16 @@ public class ReservationServiceImpl implements ReservationService {
 	private ReservationDAO dao;
 
 	//가격계산
+	//성수기
 	@Override
-	public int selectPrice() {
-		return dao.selectPrice();
+	public int selectPriceP(String month) {
+		return dao.selectPriceP(month);
+	}
+	
+	//비성수기
+	@Override
+	public int selectPriceNp(String month) {
+		return dao.selectPriceNp(month);
 	}
 
 	//예약정보 삽입

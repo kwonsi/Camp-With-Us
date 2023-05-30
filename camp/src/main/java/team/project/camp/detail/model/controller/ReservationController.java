@@ -37,11 +37,20 @@ public class ReservationController {
 	//*****(ajax 통신을 위해 JSON 형식의 데이터를 주고는 경우 사용)*****
 	@ResponseBody
 	@GetMapping("/selectPrice")
-	public int selectPrice() {
-
-		int price = service.selectPrice();
-
+	public int selectPrice(String month) {
+		
+		log.info("몇월 달? " + month);
+		
+		int price = 0;
+		
+		if(month.equals("6") || month.equals("7") || month.equals("8")) {	//성수기인 경우
+			price = service.selectPriceP(month);
+		}else {	//비성수기인 경우
+			price = service.selectPriceNp(month);
+		}
+		
 		return price;
+		
 	}
 
 

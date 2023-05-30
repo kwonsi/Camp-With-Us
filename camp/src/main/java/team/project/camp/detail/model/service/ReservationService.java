@@ -6,7 +6,10 @@ import team.project.camp.detail.model.vo.Reservation;
 public interface ReservationService {
 
 	//가격계산
-	int selectPrice();
+	//성수기
+	int selectPriceP(String month);
+	//비성수기
+	int selectPriceNp(String month);
 
 	//예약정보 삽입
 	int reservationInfo(Reservation reservation);

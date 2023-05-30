@@ -73,15 +73,17 @@
                                         <td>${reservation.reservSelDate}</td>
                                         <c:choose>
                                             <c:when test="${reservation.reservSt == '89'}">
-                                                <td style="color: blue;">예약</td> 
+                                                <td style="color: blue;">예약</td>
+                                                <td><button type="button" onclick="reservCancel('${reservation.reservNo}')">예약취소</button></td>
                                             </c:when>
                                             <c:otherwise>
                                                 <td style="color: red;">취소</td>
+                                                <td></td>
                                             </c:otherwise>
                                         </c:choose>
                                         
                                         
-                                        <td><button type="button" onclick="reservCancel('${reservation.reservNo}')">예약취소</button></td>
+                                        
 
                                     </tr>
 
