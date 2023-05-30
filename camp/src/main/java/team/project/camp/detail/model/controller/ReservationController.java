@@ -45,7 +45,7 @@ public class ReservationController {
 	}
 
 
-	//예약테이블에 예약정보 삽입
+	//예약정보 삽입
 	@ResponseBody
 	@PostMapping("/reservationInfo")
 	public int reservationInfo(String campingName, String buyerName,

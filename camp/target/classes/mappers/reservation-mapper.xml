@@ -15,11 +15,13 @@
 	</resultMap>
 
 
+	<!-- 가격조회 -->
 	<select id="selectPrice" resultType="_int">
 	SELECT CAMPING_PR FROM PRICE 
 	WHERE PEAK_SEASON = 'Y'
 	</select>
 	
+	<!-- 예약정보 삽입 -->
 	<insert id="reservationInfo" parameterType="reservation">
 		INSERT INTO RESERVATION(
 		RESERVATION_NO, CAMPING_NM, RESERVATION_P, RESERVATION_DT, RESERVATION_NP, PAYMENT, SELECTDATE) 
@@ -27,10 +29,12 @@
 		#{campingName}, #{buyerName}, SYSDATE, #{people}, #{amount}, #{reservSelDate})
 	</insert>
 
+	<!-- 예약조회 -->
 	<select id="reservationSelect" resultMap="reservation_rm">
 		SELECT * FROM RESERVATION
 	</select>
 
+	<!-- 예약취소 -->
 	<update id="reservationState" parameterType="reservation">
 		UPDATE RESERVATION  SET RESERVATION_ST  = 'N'
 		WHERE RESERVATION_NO  = #{reservNo}

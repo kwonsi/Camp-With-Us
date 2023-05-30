@@ -176,7 +176,6 @@ document.addEventListener("DOMContentLoaded", function() {
                         let totalPeople = Number(adultOptionValue) + Number(childrenOptionValue);
                         
                         let totalPrice = 0;
-
                        
 
                         if(localStorage.getItem("totalDay") == null) {
@@ -187,8 +186,6 @@ document.addEventListener("DOMContentLoaded", function() {
                         priceElement.textContent = "총 가격: " + totalPrice + "원";
                         priceValue = totalPrice;
                         people = totalPeople;
-                        
-                       
                         
                         
                         console.log(people);

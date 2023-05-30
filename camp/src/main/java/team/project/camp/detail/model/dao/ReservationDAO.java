@@ -19,18 +19,18 @@ public class ReservationDAO {
 	public int selectPrice() {
 		return sqlSession.selectOne("reservationMapper.selectPrice");
 	}
-
-	//예약정보
+ 
+	//예약정보 삽입
 	public int reservationInfo(Reservation reservation) {
 		return sqlSession.insert("reservationMapper.reservationInfo", reservation);
 	}
 
-
-
+	//예약 조회
 	public List<Reservation> reservationSelect() {
 		return sqlSession.selectList("reservationMapper.reservationSelect");
 	}
 
+	//예약취소
 	public int reservationState(int reservNo) {
 		return sqlSession.update("reservationMapper.reservationState", reservNo);
 	}
