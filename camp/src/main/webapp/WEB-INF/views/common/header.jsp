@@ -1,6 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
-
 
 <header>
 
@@ -19,14 +18,14 @@
 			<li>
 				<h4 id="board">게시판</h4>
 				<ul class="submenu">
-					<li><a href="${contextPath}/board/list1">캠핑장 추천</a></li>
-					<li><a href="${contextPath}/board/list2">캠핑 나눔</a></li>
-					<li><a href="${contextPath}/board/list3?type=3">캠핑 꿀팁</a></li>
-					<li><a href="${contextPath}/board/list4?type=4">공지사항</a></li>
-					<li><a href="${contextPath}/board/list4?type=5">문의사항</a></li>
-					<!-- <c:forEach var="boardType" items="${boardTypeList}">
+					<!-- <li><a href="${contextPath}/board/list/1">캠핑장 추천</a></li>
+					<li><a href="${contextPath}/board/list/2">캠핑 나눔</a></li>
+					<li><a href="${contextPath}/board/list/3">캠핑 꿀팁</a></li>
+					<li><a href="${contextPath}/board/list/4">공지사항</a></li>
+					<li><a href="${contextPath}/board/list/5">문의사항</a></li> -->
+					<c:forEach var="boardType" items="${boardTypeList}">
 						<li><a href="${contextPath}/board/list/${boardType.boardCode}">${boardType.boardName}</a></li>
-					</c:forEach> -->
+					</c:forEach>
 				</ul>
 			</li>
 			<li>

@@ -107,3 +107,100 @@ CSS 애니메이션 과정의 중간 절차를 제어할 수 있게 합니다.  
     from {opacity: 1;}
     to {opacity: 0;}
 }
+
+
+
+
+/* 인스타그램관련 css */
+
+#footer .footer-container {font-size: 0;}
+
+/* ----- pc width size ----- */
+.footer-instagram {
+    width: 50%; /* width 값을 조절해주세요 */
+    margin: 0 auto;
+}
+
+.footer-instagram h3 {
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: 400;
+    letter-spacing: 2px;
+    border-bottom: 3px solid;
+    padding-bottom: 20px;
+}
+
+#instafeed {
+    position: relative;
+}
+
+#instafeed .instagram_gallery {
+    list-style: none;
+    padding: 5px 0 20px;
+    margin: 0;
+}
+
+#instafeed .instagram_gallery li {
+    display: inline-block;
+    width: 20%;
+    overflow: hidden;
+}
+
+#instafeed .instagram_gallery li a {
+    display: block;
+    position: relative;
+}
+
+#instafeed .instagram_gallery li a:after {
+    content: '\f16d';
+    font-family: 'Font Awesome 5 Brands';
+    font-weight: 400;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    color: #fff;
+    font-size: 22px;
+    transition: 0.3s;
+}
+
+#instafeed .instagram_gallery li a:hover:after {
+    opacity: 0;
+}
+
+#instafeed .instagram_gallery li a:hover .instagram-caption {
+    opacity: 1
+}
+
+#instafeed .instagram_gallery li a:hover > img {
+    filter: blur(1px);
+}
+
+#instafeed .instagram_gallery li a:hover > .caption-overlay {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+#instafeed .instagram_gallery li a img {
+    width: 100%;
+    padding: 2px;
+    border-radius: 7px;
+}
+
+#instafeed .instagram_gallery li a .caption-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: 0.3s ease;
+}
+
+#instafeed .instagram_gallery li a .instagram-caption {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 12px;
+    color: #fff;
+    opacity: 0;
+}
+

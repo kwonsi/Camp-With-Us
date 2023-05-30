@@ -1,9 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-
-
-<!-- map에 저장된 값을 각각 변수에 저장 -->
 
 <!-- <c:set var="boardName" value="${map.boardName}" /> -->
 
@@ -14,19 +11,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     
+
     <c:forEach var="boardTypeList" items="${boardTypeList}">
         <c:if test="${boardCode == boardTypeList.boardCode}">
             <c:set var="boardName" value="${boardTypeList.boardName}"/>
         </c:if>
     </c:forEach>
-
+   
 
     <title>${boardName}</title>
-    
+
 
     <link rel="stylesheet" href="${contextPath}/resources/css/main.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/boardList-style2.css">
@@ -34,7 +31,6 @@
     <script src="https://kit.fontawesome.com/a2e8ca0ae3.js" crossorigin="anonymous"></script>
 </head>
 <body>
-
     <main>
         
         <jsp:include page="/WEB-INF/views/common/header.jsp"/>
@@ -49,7 +45,6 @@
 
             <h1 class="board-name">${boardName}</h1>
 
-
             <c:if test="${!empty param.key}">
                 <h3 style="margin-left:30px;"> "${param.query}" 검색 결과  </h3>
             </c:if>
@@ -57,9 +52,6 @@
 
 
             <div class="list-wrapper">
-
-                
-
                 <table class="list-table">
                     
                     <thead>
@@ -111,6 +103,7 @@
                     </tbody>
                 </table>
             </div>
+
 
             <div>
                 <button id="insertBtn" onclick="location.href='../write/${boardCode}?mode=insert&cp=${pagination.currentPage}'">글쓰기</button>
@@ -194,7 +187,7 @@
 
     
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
-    
+
     <script src="${contextPath}/resources/js/board/board.js"></script>
 
 </body>
