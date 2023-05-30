@@ -194,10 +194,6 @@
                         </tbody>
                     </table>
                 </div>
-<<<<<<< HEAD
-                
-                
-=======
             </section>
 
 
@@ -219,19 +215,12 @@
         <div class="div5"> 캠 핑 장 소 개 글 </div>
 
         <div class="div6" id="intro"></div>
->>>>>>> a781cfd01bb173f264eea633926f011cae432ee6
-
-                <button type="button" class="reservationButton">
-                    <a href="${contextPath}/campDetail/reservation">예약하기</a>
-                </button>
 
 
 
         <div class="kakaoMap">
             <div id="map" style="width:500px;height:400px;"></div>
         </div>
-
-
 
 
 

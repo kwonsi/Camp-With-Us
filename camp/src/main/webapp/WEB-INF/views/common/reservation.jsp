@@ -151,7 +151,7 @@ let priceValue;
 let people;
 var campName = "${campName}";
 
-
+//결제금액
 document.addEventListener("DOMContentLoaded", function() {
             const adultSelect = document.querySelector(".adultSelect");
             const childrenSelect = document.querySelector(".childrenSelect");
@@ -215,7 +215,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-
+//결제화면
 function requestPay() {
             console.log("requestPay함수 실행");
             
@@ -286,11 +286,9 @@ function requestPay() {
 </script>
    
 
-
  <!-- iamport.payment.js -->
     <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
 	 <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
-
    
     <script src="${contextPath}/resources/js/calendar.js"></script>
 

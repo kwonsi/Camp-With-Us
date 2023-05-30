@@ -3,16 +3,8 @@ main {
     flex-direction: column;
     justify-content: center;
 
-<<<<<<< HEAD
-main{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-=======
 }
 
->>>>>>> a781cfd01bb173f264eea633926f011cae432ee6
 
 body {
     margin: 0;

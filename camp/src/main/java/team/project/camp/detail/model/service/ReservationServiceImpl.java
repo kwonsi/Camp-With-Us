@@ -1,12 +1,6 @@
 package team.project.camp.detail.model.service;
 
-<<<<<<< HEAD
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-=======
-import java.util.List;
->>>>>>> a781cfd01bb173f264eea633926f011cae432ee6
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -42,25 +36,21 @@ public class ReservationServiceImpl implements ReservationService {
 //	public Map<String, Object> reservationSelect() {
 //
 //		Map<String, Object> map = new HashMap<>();
-//		
+//
 //		dao.reservationSelect();
 //		return map;
 //	}
-<<<<<<< HEAD
 
-	//예약확인 
+	//예약확인
 	@Override
 	public List<Reservation> reservationSelect() {
 		return dao.reservationSelect();
 	}
 
-=======
->>>>>>> a781cfd01bb173f264eea633926f011cae432ee6
-
-	//예약확인 
+	//예약취소
 	@Override
-	public List<Reservation> reservationSelect() {
-		return dao.reservationSelect();
+	public int reservationState(int reservNo) {
+		return dao.reservationState(reservNo);
 	}
 
 

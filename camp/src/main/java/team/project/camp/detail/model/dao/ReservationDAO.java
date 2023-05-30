@@ -24,19 +24,17 @@ public class ReservationDAO {
 	public int reservationInfo(Reservation reservation) {
 		return sqlSession.insert("reservationMapper.reservationInfo", reservation);
 	}
-	
-	
-	
+
+
+
 	public List<Reservation> reservationSelect() {
 		return sqlSession.selectList("reservationMapper.reservationSelect");
 	}
-	
 
-<<<<<<< HEAD
-//	public List<Reservation> reservationSelect() {
-//		return sqlSession.selectList("reservationMapper.reservationSelect");
-//	}
-=======
->>>>>>> a781cfd01bb173f264eea633926f011cae432ee6
+	public int reservationState(int reservNo) {
+		return sqlSession.update("reservationMapper.reservationState", reservNo);
+	}
+
+
 
 }

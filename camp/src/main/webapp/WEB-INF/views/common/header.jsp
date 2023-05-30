@@ -71,8 +71,12 @@
 			jQuery(document).ready(function(){
 				$('.menu>li').mouseover(function(){
 					$(this).find('.submenu').stop().slideDown(250);
+					$(this).css('z-index', 1000);
+					$(this).find('li').css('background-color', 'rgba(255, 255, 255, 1)');
 				}).mouseout(function(){
 					$(this).find('.submenu').stop().slideUp(250);
+					$(this).css('z-index', 1000);
+					$(this).find('li').css('background-color', 'rgba(255, 255, 255, 0)');
 				});
 			});
 		</script>

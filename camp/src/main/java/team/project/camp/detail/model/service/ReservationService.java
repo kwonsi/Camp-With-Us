@@ -1,9 +1,5 @@
 package team.project.camp.detail.model.service;
 import java.util.List;
-import java.util.Map;
-
-import java.util.List;
-import java.util.Map;
 
 import team.project.camp.detail.model.vo.Reservation;
 
@@ -18,5 +14,7 @@ public interface ReservationService {
 	//Map<String, Object> reservationSelect();
 
 	List<Reservation> reservationSelect();
+
+	int reservationState(int reservNo);
 
 }
