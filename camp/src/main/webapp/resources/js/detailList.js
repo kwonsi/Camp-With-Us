@@ -169,6 +169,16 @@ window.onload = function () {
 };
 
 
+
+
+
+
+
+
+
+
+
+
 /// 카카오 맵
 items = JSON.parse(localStorage.getItem("item"));
 var mapContainer = document.getElementById('map');

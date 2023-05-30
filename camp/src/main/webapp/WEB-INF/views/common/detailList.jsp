@@ -262,6 +262,8 @@
                         <div id="map" style="width:auto; height:600px;"></div>
                     </div>
 
+                    
+
                 </c:if>
 
 

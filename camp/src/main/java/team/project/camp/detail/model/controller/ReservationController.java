@@ -37,35 +37,43 @@ public class ReservationController {
 	//*****(ajax 통신을 위해 JSON 형식의 데이터를 주고는 경우 사용)*****
 	@ResponseBody
 	@GetMapping("/selectPrice")
-	public int selectPrice() {
-
-		int price = service.selectPrice();
-
+	public int selectPrice(String month) {
+		
+		log.info("몇월 달? " + month);
+		
+		int price = 0;
+		
+		if(month.equals("6") || month.equals("7") || month.equals("8")) {	//성수기인 경우
+			price = service.selectPriceP(month);
+		}else {	//비성수기인 경우
+			price = service.selectPriceNp(month);
+		}
+		
 		return price;
+		
 	}
 
 
-
-	//예약테이블에 예약정보 삽입
+	//예약정보 삽입
 	@ResponseBody
 	@PostMapping("/reservationInfo")
 	public int reservationInfo(String campingName, String buyerName,
 								int amount, int people, String reservSelDate) {
-		
+
 		Reservation reservation = new Reservation();
-		
+
 		reservation.setCampingName(campingName);
 		reservation.setBuyerName(buyerName);
 		reservation.setAmount(amount);
 		reservation.setPeople(people);
 		reservation.setReservSelDate(reservSelDate);
-		
+
 		log.info(buyerName);
 		log.info(campingName);
 		log.info(amount+"");
 		log.info(people + "");
 		log.info(reservSelDate);
-		
+
 		int result = service.reservationInfo(reservation);
 
 		if(result>0) {

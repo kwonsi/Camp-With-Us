@@ -103,16 +103,19 @@ function initCalendar(){
                 a.innerText = test + "박" + (test+1) + "일";
                 localStorage.clear();
                 localStorage.setItem("totalDay", test);
-                console.log(localStorage)
+                localStorage.setItem("Month", selectMonth[0].innerText)
+                console.log("스토리지'Month' :: "+localStorage.getItem("Month"));
                 count = 0;
 
-                
+                /* let monthValue = localStorage.getItem("Month"); */
+
                 $.ajax({
                     url: "selectPrice",
                     type: "GET",
+                    data: {"month" : Number(selectMonth[0].innerText)},
                     success: function(price) {
-                        console.log(price);
-                        
+                  /*       console.log(price); */
+                        console.log("ajax 안 month :: " + Number(selectMonth[0].innerText));
                         let childrenPrice = price * 0.5;
                         let adultOptionValue = adultSelect.options[adultSelect.selectedIndex].value;
                         let adultTotalPrice = price * adultOptionValue;
@@ -136,14 +139,12 @@ function initCalendar(){
                         priceElement.textContent = "총 가격: " + totalPrice + "원";
                         priceValue = totalPrice;
                         people = totalPeople;
+                    
                         
-                       
-                        
-                        
-                        console.log(people);
+/*                         console.log(people);
                         console.log(adultOptionValue);
                         console.log(childrenOptionValue);
-                        console.log(localStorage.getItem("totalDay"))
+                        console.log(localStorage.getItem("totalDay")) */
                         
 
                     },
@@ -257,10 +258,12 @@ reselect.addEventListener("click", function(){
     dateInput.value ="";
     localStorage.clear();
     
-    // initCalendar();
+    
     console.log(count)
     console.log(localStorage.getItem("totalDay"))
     priceElement.textContent = "총 가격 : 0원"
+
+    initCalendar();
 });
 var totalDay = calculateDays();
 function calculateDays() {
