@@ -151,8 +151,9 @@ let priceValue;
 let people;
 var campName = "${campName}";
 
-
+//결제금액
 document.addEventListener("DOMContentLoaded", function() {
+            const month = localStorage.getItem("Month");
             const adultSelect = document.querySelector(".adultSelect");
             const childrenSelect = document.querySelector(".childrenSelect");
             const priceElement = document.getElementById("priceSum");
@@ -161,9 +162,10 @@ document.addEventListener("DOMContentLoaded", function() {
                 $.ajax({
                     url: "selectPrice",
                     type: "GET",
+                    data: {"month" : Number(selectMonth[0].innerText)},
                     success: function(price) {
                         console.log(price);
-                        
+                        console.log("몇월달 ? " + Number(selectMonth[0].innerText));
                         let childrenPrice = price * 0.5;
                         let adultOptionValue = adultSelect.options[adultSelect.selectedIndex].value;
                         let adultTotalPrice = price * adultOptionValue;
@@ -176,7 +178,6 @@ document.addEventListener("DOMContentLoaded", function() {
                         let totalPeople = Number(adultOptionValue) + Number(childrenOptionValue);
                         
                         let totalPrice = 0;
-
                        
 
                         if(localStorage.getItem("totalDay") == null) {
@@ -188,12 +189,10 @@ document.addEventListener("DOMContentLoaded", function() {
                         priceValue = totalPrice;
                         people = totalPeople;
                         
-                       
                         
-                        
-                        console.log(people);
+/*                         console.log(people);
                         console.log(adultOptionValue);
-                        console.log(childrenOptionValue);
+                        console.log(childrenOptionValue); */
                         console.log("스토리지" + localStorage.getItem("totalDay"))
                        
 
@@ -215,7 +214,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-
+//결제화면
 function requestPay() {
             console.log("requestPay함수 실행");
             
@@ -286,11 +285,9 @@ function requestPay() {
 </script>
    
 
-
  <!-- iamport.payment.js -->
     <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
 	 <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
-
    
     <script src="${contextPath}/resources/js/calendar.js"></script>
 
