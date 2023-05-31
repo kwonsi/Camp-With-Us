@@ -183,19 +183,16 @@ selectCampBtn.addEventListener("click", function () {
             '</div>' +
             '<div class="camp_info_text">' +
             '<h3 class="camp_info01">' +
-            '<a href=' + item.homepage + ' target="_blank">' + item.facltNm + '</a>' +
+            '<a href="/camp/campList/detailList?campName='+item.facltNm.replaceAll(" ","")+'&viewType=1">' + item.facltNm + '</a>' +
             '</h3>' +
             '<span class="camp_info02">' + item.lineIntro + '</span><br>' +
             '<span class="camp_info03">' +
-            '<a href="">캠핑장 디테일 소개' +
-            '글이 들어갑니다.</a>' +
+            '<a href="/camp/campList/detailList?campName='+item.facltNm.replaceAll(" ","")+'&viewType=1"">'+(item.intro).substr(0,40)+'.....</a>' +
             '</span><br>' +
             '<span>테마 &nbsp;&nbsp;&nbsp;: ' + item.induty + '</span><br>' +
             '<span class="camp_add">주소 &nbsp;&nbsp;&nbsp;: ' + item.addr1 + '</span><br>' +
             '<span class="camp_phone">연락처 : ' + item.tel + '</span>' +
             '<a href="/camp/campList/detailList?campName='+item.facltNm.replaceAll(" ","")+'&viewType=1" class="reservation_button">예약하기</a>'+
-          
-            
             '</div>' +
             '</div>' +
             '</li>' +
