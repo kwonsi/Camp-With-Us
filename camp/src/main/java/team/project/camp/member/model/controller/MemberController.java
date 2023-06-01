@@ -151,7 +151,7 @@ public class MemberController {
 		
 		ra.addFlashAttribute("message", "회원님의 ID는 " + id + " 입니다");
 		
-		return "member/findIdPw";
+		return "redirect:/member/findIdPw";
 	}
 	
 	
