@@ -11,8 +11,9 @@
     <link rel="stylesheet" href="${contextPath}/resources/css/main.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/reservation.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/calendarStyle.css">
-
+    <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap1.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
     <script src="https://kit.fontawesome.com/a2e8ca0ae3.js" crossorigin="anonymous"></script>
 
 </head>
@@ -25,8 +26,6 @@
 
 
             <div class="subject">${campName} 캠핑장 예약</div>
-    
-
 
 
             <div class="calendar1">달력
@@ -138,7 +137,7 @@
             </div>
             <br>
 
-            <button type="button" class="payment" onclick="requestPay()">결제하기</button>
+            <button type="button" class="btn btn-lg btn-primary" onclick="requestPay()">결제하기</button>
         </form>
 
         <jsp:include page="/WEB-INF/views/common/footer.jsp" />
@@ -190,11 +189,11 @@ document.addEventListener("DOMContentLoaded", function() {
                         people = totalPeople;
                         
                         
-                        console.log(people);
+/*                         console.log(people);
                         console.log(adultOptionValue);
-                        console.log(childrenOptionValue);
-                        console.log("스토리지jsp" + localStorage.getItem("totalDay"));
-                     
+                        console.log(childrenOptionValue); */
+                        console.log("스토리지" + localStorage.getItem("totalDay"))
+                    
 
                     },
                     error: function() {

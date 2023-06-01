@@ -103,13 +103,11 @@ function initCalendar(){
                 a.innerText = test + "박" + (test+1) + "일";
                 localStorage.clear();
                 localStorage.setItem("totalDay", test);
-                localStorage.setItem("Month", selectMonth[0].innerText);
-
-                console.log(localStorage.getItem("Month"));
-            
+                localStorage.setItem("Month", selectMonth[0].innerText)
+                console.log("스토리지'Month' :: "+localStorage.getItem("Month"));
                 count = 0;
 
-                
+                /* let monthValue = localStorage.getItem("Month"); */
 
                 $.ajax({
                     url: "selectPrice",
@@ -256,7 +254,7 @@ reselect.addEventListener("click", function(){
     dateInput.value ="";
     localStorage.clear();
     
-    // initCalendar();
+    
     console.log(count)
     console.log(localStorage.getItem("totalDay"))
     priceElement.textContent = "총 가격 : 0원"

@@ -193,7 +193,7 @@ selectCampBtn.addEventListener("click", function () {
             '<span>테마 &nbsp;&nbsp;&nbsp;: ' + item.induty + '</span><br>' +
             '<span class="camp_add">주소 &nbsp;&nbsp;&nbsp;: ' + item.addr1 + '</span><br>' +
             '<span class="camp_phone">연락처 : ' + item.tel + '</span>' +
-            '<a href="/camp/campList/detailList?campName='+item.facltNm.replaceAll(" ","") +'" class="reservation_button">예약하기</a>'+
+            '<a href="/camp/campList/detailList?campName='+item.facltNm.replaceAll(" ","")+'&viewType=1" class="reservation_button">예약하기</a>'+
           
             
             '</div>' +
@@ -383,7 +383,7 @@ window.onload = function() {
             '<span>테마 &nbsp;&nbsp;&nbsp;: ' + item.induty + '</span><br>' +
             '<span class="camp_add">주소 &nbsp;&nbsp;&nbsp;: ' + item.addr1 + '</span><br>' +
             '<span class="camp_phone">연락처 : ' + item.tel + '</span>' +
-            '<a href="/camp/campList/detailList?campName='+item.facltNm.replaceAll(" ","") +'" class="reservation_button">예약하기</a>'+
+            '<a href="/camp/campList/detailList?campName='+item.facltNm.replaceAll(" ","") +'&viewType=1" class="reservation_button">예약하기</a>'+
             '</div>' +
             '</div>' +
             '</li>' +
