@@ -55,7 +55,7 @@
 									<ul class="submenu">
 										<li><a href="${contextPath}/member/login">로그인</a></li>
 										<li><a href="${contextPath}/member/signUp">회원가입</a></li>
-										<li>아이디/비밀번호<br>찾기</li>
+										<li><a href="${contextPath}/member/findIdPw">아이디/비밀번호<br>찾기</a></li>
 									</ul>
 								</li>
 							</c:when>
@@ -65,7 +65,7 @@
 									<h4>${loginMember.memberNickname}님</h4>
 								</li>
 								<li>
-									<h4 id="logout">로그아웃</h4>
+									<h4 id="logout" onclick="location.href='${contextPath}/member/logout'">로그아웃</h4>
 								</li>
 							</c:otherwise>
 

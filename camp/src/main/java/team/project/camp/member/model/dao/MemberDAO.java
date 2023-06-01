@@ -1,5 +1,7 @@
 package team.project.camp.member.model.dao;
 
+import java.util.Map;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -56,4 +58,26 @@ public class MemberDAO {
 		
 		return sqlSession.insert("memberMapper.signUp", signUpMember);
 	}
+
+
+	/** 아이디 찾기 DAO
+	 * @param memberTel
+	 * @return
+	 */
+	public String findId(String memberTel) {
+		return sqlSession.selectOne("memberMapper.findId" ,memberTel);
+	}
+
+
+	/** 임시 비밀번호 설정 DAO
+	 * @param memberEmail
+	 * @param randomPassword
+	 * @return
+	 */
+	public int setTempPassword(Member member) {
+		return sqlSession.update("memberMapper.setTempPassword", member);
+	}
+	
+	
+	
 }
