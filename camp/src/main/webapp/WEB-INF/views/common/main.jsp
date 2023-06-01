@@ -43,9 +43,10 @@
 
         <hr>
 
-        <section class="content3">
+        <section class="content3" id="sliderContainer">
+            
 
-            <div class = ranBoard>
+            <div class = "ranBoard" aria-hidden="false">
                 <div class=" ranBoard_1" id="ranBoardImg1"> </div>   
                 <div class=" ranBoard_1" id="ranBoardContent1"> 
                     
@@ -80,19 +81,21 @@
                 </div>  
             </div>
 
-            <div class = ranBoard>
+            <div class = "ranBoard">
                 <div class=" ranBoard_1" id="ranBoardImg2"> </div>
                 <div class=" ranBoard_1" id="ranBoardContent2"> </div> 
             </div>
 
-            <div class = ranBoard>
+            <div class = "ranBoard">
                 <div class=" ranBoard_1" id="ranBoardImg3"> </div>
                 <div class=" ranBoard_1" id="ranBoardContent3"> </div> 
             </div>
+           
+            
 
         </section>
 
-
+        <button id="resetBtn"> 작동하길 </button>
 
 
 
