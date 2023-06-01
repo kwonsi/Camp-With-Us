@@ -2,6 +2,10 @@
     border : 1px solid black;
 } */
 
+hr{
+    width: 90%;
+}
+
 /* a태그 공통 설정 */
 .board a{
     text-decoration: none;
@@ -33,46 +37,52 @@ span{
 .board{
     margin-left: 35px;
     margin-right: 35px;
-    height: auto;
+    height: 550px;
     /* width: 1000px; */
     background-color: rgb(231, 255, 236);
+    /* border : 1px solid black; */
 }
+
+.board2{
+    margin-left: 35px;
+    margin-right: 35px;
+    height: 500px;
+    /* width: 1000px; */
+    background-color: rgb(231, 255, 236);
+    /* border : 1px solid black; */
+}
+
 
 /* 게시판 목록 화면 전체 영역 설정 */
 .board-list{
     display: flex;
     width: 1000px;
-    margin: 30px;
+    margin-left: 30px;
+    margin-bottom: 10px;
 }
 
 /* 게시판 목록 div */
 .board-div{
     text-align: center;
     flex-direction: row;
-    width: 20%;
+    width: 33.3%;
     height: 200px;
-    border : 1px solid black;
+    /* border : 1px solid black; */
+    
 }
 
-.board-div2-1{
+.board-div2{
     text-align: center;
     flex-direction: row;
-    width: 50%;
-    height: 350px;
-    border : 1px solid black;
-}
-
-.board-div2-2{
-    text-align: center;
-    flex-direction: row;
-    width: 25%;
-    height: 350px;
+    width: 30%;
+    height: 400px;
     border : 1px solid black;
 }
 
 /* 빈공간 */
 .board-empty{
-    height: 150px;
+    height: 100px;
+    /* border : 1px solid black; */
 }
 
 /* 게시판 이름 */
@@ -81,19 +91,43 @@ span{
     margin-left: 30px;
 }
 
-/* 썸네일 관련 스타일 */
-.list-table tr > td:nth-of-type(2){ /* 2번째 td(제목) */
-    position: relative;
+/* div headline 관련 */
+.headline{
+    text-align: center;
 }
 
-.list-thumbnail{ /* 썸네일 이미지 */
-    max-width: 50px;
-    max-height: 30px;
-
-    position: absolute;
-    left : -15px;
-    top : 17px;
+.headline2{
+    text-align: center;
+    width: 450px;
+    margin-bottom: 5px;
 }
+
+/* 이미지 관련 */
+.recommend-img{
+    width: 90%;
+    height: 200px;
+}
+
+/* 제목 관련 */
+.recommend-title{
+    margin: auto;
+    width: 90%;
+    height: 10%;
+    /* border : 1px solid black; */
+}
+
+/* 내용 관련 */
+.recommend-content{
+    margin: auto;
+    width: 90%;
+    height: 90%;
+    overflow: auto;
+    border : 1px solid black;
+}
+
+
+
+
 
 /* @keyframes : 
 애니메이션 중간중간의 특정 지점들을 거칠 수 있는 키프레임들을 설정함으로써
@@ -108,99 +142,4 @@ CSS 애니메이션 과정의 중간 절차를 제어할 수 있게 합니다.  
     to {opacity: 0;}
 }
 
-
-
-
-/* 인스타그램관련 css */
-
-#footer .footer-container {font-size: 0;}
-
-/* ----- pc width size ----- */
-.footer-instagram {
-    width: 50%; /* width 값을 조절해주세요 */
-    margin: 0 auto;
-}
-
-.footer-instagram h3 {
-    font-size: 18px;
-    text-transform: uppercase;
-    font-weight: 400;
-    letter-spacing: 2px;
-    border-bottom: 3px solid;
-    padding-bottom: 20px;
-}
-
-#instafeed {
-    position: relative;
-}
-
-#instafeed .instagram_gallery {
-    list-style: none;
-    padding: 5px 0 20px;
-    margin: 0;
-}
-
-#instafeed .instagram_gallery li {
-    display: inline-block;
-    width: 20%;
-    overflow: hidden;
-}
-
-#instafeed .instagram_gallery li a {
-    display: block;
-    position: relative;
-}
-
-#instafeed .instagram_gallery li a:after {
-    content: '\f16d';
-    font-family: 'Font Awesome 5 Brands';
-    font-weight: 400;
-    position: absolute;
-    right: 10px;
-    bottom: 10px;
-    color: #fff;
-    font-size: 22px;
-    transition: 0.3s;
-}
-
-#instafeed .instagram_gallery li a:hover:after {
-    opacity: 0;
-}
-
-#instafeed .instagram_gallery li a:hover .instagram-caption {
-    opacity: 1
-}
-
-#instafeed .instagram_gallery li a:hover > img {
-    filter: blur(1px);
-}
-
-#instafeed .instagram_gallery li a:hover > .caption-overlay {
-    background-color: rgba(0, 0, 0, 0.3);
-}
-
-#instafeed .instagram_gallery li a img {
-    width: 100%;
-    padding: 2px;
-    border-radius: 7px;
-}
-
-#instafeed .instagram_gallery li a .caption-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    transition: 0.3s ease;
-}
-
-#instafeed .instagram_gallery li a .instagram-caption {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 12px;
-    color: #fff;
-    opacity: 0;
-}
 

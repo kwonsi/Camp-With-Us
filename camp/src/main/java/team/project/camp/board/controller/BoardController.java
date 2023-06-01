@@ -12,7 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,7 +19,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
 
 import team.project.camp.board.model.service.BoardService;
 import team.project.camp.board.model.service.ReplyService;
@@ -226,87 +224,87 @@ public class BoardController {
 	
 	
 	
-//	// 게시글 작성 (삽입/수정을 한 함수에 같이 하기)
-//	// "/board/write/{boardCode}" -> 서비스 요청 url 주소가 동일함
-//	@PostMapping("/write/{boardCode}")
-//	public String boardWrite( BoardDetail detail, // boardTitle, boardContent, boardNo(수정)
-//							@RequestParam(value="images", required=false) List<MultipartFile> imageList, // 업로드 파일(이미지) 리스트
-//							@PathVariable("boardCode") int boardCode,
-//							String mode,
-////							@ModelAttribute("loginMember") Member loginMember,
-//							RedirectAttributes ra,
-//							HttpServletRequest req, // 이미지 저장 경로 얻어올때 씀
-//							@RequestParam(value="cp", required=false, defaultValue="1") int cp,
-//							@RequestParam(value="deleteList", required=false) String deleteList ) throws IOException { 
-//								
-//		// 1) 로그인 한 회원번호 얻어와서 detail에 세팅해주기
-////		detail.setMemberNo( loginMember.getMemberNo() );
-//		
-//		// 2) 이미지 저장 경로 얻어오기 ( webPath, folderPath )
-//		String webPath = "/resources/images/board/";
-//		String folderPath = req.getSession().getServletContext().getRealPath(webPath);
-//		
-//		// 3) 삽입인지 수정인지 나눠주기
-//		if(mode.equals("insert")) { // 삽입
-//			
-//			// 게시글 부분 삽입 (이미지가 없을때) 제목, 내용, 회원번호, 게시판코드
-//			// -> 삽입 된 게시글의 번호(boardNo) 반환 (왜? 삽입이 끝나면 게시글 상세조회로 리다이렉트할거라서)
-//			
-//			// 게시글에 포함된 이미지 정보 삽입 (0 ~ 5개, 게시글 번호 필요)
-//			// -> 실제 파일로 변환해서 서버에 저장 ( transFer() )
-//			
-//			// 두번의 insert중 한번이라도 실패하면 전체 rollback (트랜잭션 처리)
-//			
-////			int boardNo = service.insertBoard(detail, imageList, webPath, folderPath);
-//			
-//			String path = null;
-//			String message = null;
-//			
-//			if(boardNo > 0) {
-//				// /board/write/1 -> /board/detail/1/1500 으로 이동해야함
-//				
-//				path = "../detail/" + boardCode + "/" + boardNo;
-//				message = "게시글이 등록되었습니다.";
-//				
-//			} else {
-//				path = req.getHeader("referer"); // referer 은 이전페이지의 URL을 기억하고있음
-//				message = "게시글 삽입 실패..";
-//			}
-//			
-//			ra.addFlashAttribute("message", message);
-//			
-//			return "redirect:" + path;
-//			
-//		} else { // 수정
-//			
-//			// 게시글 수정 서비스 호출
-//			// 게시글 번호를 알고있기 때문에 수정 결과만 반환받으면 된다.
-////			int result = service.updateBoard(detail, imageList, webPath, folderPath, deleteList);
-//			
-//			
-//			String path = null;
-//			String message = null;
-//			
-////			if(result > 0) {
-//				// /board/write/1 -> /board/detail/1/1500 으로 이동해야함
-//				
-//				// 현재 : /board/write/{boardCode}
-//				// 목표 : /board/detail/{boardCode}/{boardNo}?cp=10
-//				
-//				path = "../detail/" + boardCode + "/" + detail.getBoardNo() + "?cp=" + cp;
-//				message = "게시글이 수정되었습니다.";
-//				
-////			} else {
-////				path = req.getHeader("referer"); // referer 은 이전페이지의 URL을 기억하고있음
-////				message = "게시글 수정 실패..";
-////			}
-////			
-////			ra.addFlashAttribute("message", message);
-////			
-////			return "redirect:" + path;
-////		}
-////		
-////	}
+	// 게시글 작성 (삽입/수정을 한 함수에 같이 하기)
+	// "/board/write/{boardCode}" -> 서비스 요청 url 주소가 동일함
+	@PostMapping("/write/{boardCode}")
+	public String boardWrite( BoardDetail detail, // boardTitle, boardContent, boardNo(수정)
+							@RequestParam(value="images", required=false) List<MultipartFile> imageList, // 업로드 파일(이미지) 리스트
+							@PathVariable("boardCode") int boardCode,
+							String mode,
+//							@ModelAttribute("loginMember") Member loginMember,
+							RedirectAttributes ra,
+							HttpServletRequest req, // 이미지 저장 경로 얻어올때 씀
+							@RequestParam(value="cp", required=false, defaultValue="1") int cp,
+							@RequestParam(value="deleteList", required=false) String deleteList ) throws IOException { 
+								
+		// 1) 로그인 한 회원번호 얻어와서 detail에 세팅해주기
+//		detail.setMemberNo( loginMember.getMemberNo() );
+		
+		// 2) 이미지 저장 경로 얻어오기 ( webPath, folderPath )
+		String webPath = "/resources/images/board/";
+		String folderPath = req.getSession().getServletContext().getRealPath(webPath);
+		
+		// 3) 삽입인지 수정인지 나눠주기
+		if(mode.equals("insert")) { // 삽입
+			
+			// 게시글 부분 삽입 (이미지가 없을때) 제목, 내용, 회원번호, 게시판코드
+			// -> 삽입 된 게시글의 번호(boardNo) 반환 (왜? 삽입이 끝나면 게시글 상세조회로 리다이렉트할거라서)
+			
+			// 게시글에 포함된 이미지 정보 삽입 (0 ~ 5개, 게시글 번호 필요)
+			// -> 실제 파일로 변환해서 서버에 저장 ( transFer() )
+			
+			// 두번의 insert중 한번이라도 실패하면 전체 rollback (트랜잭션 처리)
+			
+			int boardNo = service.insertBoard(detail, imageList, webPath, folderPath);
+			
+			String path = null;
+			String message = null;
+			
+			if(boardNo > 0) {
+				// /board/write/1 -> /board/detail/1/1500 으로 이동해야함
+				
+				path = "../detail/" + boardCode + "/" + boardNo;
+				message = "게시글이 등록되었습니다.";
+				
+			} else {
+				path = req.getHeader("referer"); // referer 은 이전페이지의 URL을 기억하고있음
+				message = "게시글 삽입 실패..";
+			}
+			
+			ra.addFlashAttribute("message", message);
+			
+			return "redirect:" + path;
+			
+		} else { // 수정
+			
+			// 게시글 수정 서비스 호출
+			// 게시글 번호를 알고있기 때문에 수정 결과만 반환받으면 된다.
+			int result = service.updateBoard(detail, imageList, webPath, folderPath, deleteList);
+			
+			
+			String path = null;
+			String message = null;
+			
+			if(result > 0) {
+				// /board/write/1 -> /board/detail/1/1500 으로 이동해야함
+				
+				// 현재 : /board/write/{boardCode}
+				// 목표 : /board/detail/{boardCode}/{boardNo}?cp=10
+				
+				path = "../detail/" + boardCode + "/" + detail.getBoardNo() + "?cp=" + cp;
+				message = "게시글이 수정되었습니다.";
+				
+			} else {
+				path = req.getHeader("referer"); // referer 은 이전페이지의 URL을 기억하고있음
+				message = "게시글 수정 실패..";
+			}
+			
+			ra.addFlashAttribute("message", message);
+			
+			return "redirect:" + path;
+		}
+		
+	}
 	
 	
 	

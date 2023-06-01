@@ -6,6 +6,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+    <!-- 파비콘 오류 해결 : GET http://localhost:8080/favicon.ico 404 -->
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,97 +29,41 @@
 
     <link rel="stylesheet" href="${contextPath}/resources/css/main.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/boardList-style1.css">
-
-    <script src="https://kit.fontawesome.com/a2e8ca0ae3.js" crossorigin="anonymous"></script>
-
-    <script src="${contextPath}/resources/js/board/board.js"></script>
-
-    <!-- <script>
-        (function(){
-            new InstagramFeed({
-                'tag': '캠핑',
-                'container': document.getElementById("instagram-feed"),
-                'display_profile': true,
-                'display_gallery': true,
-                'items': 15,
-                'items_per_row': 5,
-                'margin': 0.5
-            });
-        })();
-    </script>
-
-    <script>
-        (function() {
-            new InstagramFeed({
-                'username': 'gocamping_official',
-                'container': document.getElementById("instafeed"),
-                'display_profile': false,
-                'display_biography': false,
-                'display_gallery': true,
-                'display_igtv': false,
-                'callback': null,
-                'styling': false,
-                'items': 10, // 표시 개수
-                'lazy_load': true,
-                'on_error': console.error
-            });
-        })();
-    </script>
-
-     
-
-
-    <script>
-        (function(){
-            new InstagramFeed({
-                'tag': '캠핑',
-                'container': document.getElementById("instafeed"),
-                'display_profile': true,
-                'display_gallery': true,
-                'items': 15,
-                'items_per_row': 5,
-                'margin': 0.5
-            });
-        })();
-    </script> -->
+    
 
 
 </head>
 <body>
+
+    <!-- JavaScript용 Facebook SDK 정규식 추가 -->
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous"
+    src="https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v17.0&appId=804019604627586&autoLogAppEvents=1"
+    nonce="g3I9sDPj"></script>
+
+
     <main>
         <jsp:include page="/WEB-INF/views/common/header.jsp"/>
-
-        <section>
-            <h1 class="board-name"></h1>
-        </section>
         
         <section class="contain">
 
             <div class="board">
-                <span>
+                <div class="headline">
                     <h3>${boardName}</h3>
-                </span>
+                </div>
 
                 <div class="board-list">
                     
                     <div class="board-div">
-                        캠핑장 추천 1
+                        <img class="recommend-img" src="${contextPath}/resources/images/board/semiwon.jpg" alt="양평 세미원">
                     </div>
 
                     <div class="board-div">
-                        캠핑장 추천 2
+                        <img class="recommend-img" src="${contextPath}/resources/images/board/semiwon.jpg" alt="양평 세미원">
                     </div>
 
                     <div class="board-div">
-                        캠핑장 추천 3
-                    </div>
-
-                    <div class="board-div">
-                        캠핑장 추천 4
-                    </div>
-
-                    <div class="board-div">
-                        캠핑장 추천 5
+                        <img class="recommend-img" src="${contextPath}/resources/images/board/semiwon.jpg" alt="양평 세미원">
                     </div>
 
                 </div>
@@ -122,23 +72,33 @@
                 <div class="board-list">
 
                     <div class="board-div">
-                        캠핑장 1 설명
+                        <div class="recommend-title">세미원 연꽃여행</div><hr>
+                        <div class="recommend-content">여행지 1 : 양평 양수리에 위치한 물과 꽃의 정원에서 여름을 맞아 연꽃문화제를 개최한다. 6만2천평 야외정원에 홍련, 백련, 페리기념연꽃이 가득 피어나고 기분 좋은 연향이 가득하다.
+                            불교가 이 땅에 정착되면서 불상의 좌대나 광배에 조형된 연꽃 문양을 시작으로 고구려, 백제, 신라인들의 생활 속에 다양하게 자리 잡았습니다. 이후 통일 신라와 고려를 거쳐 조선에 이르기까지 우리 선조들의 생활 속에 화려하게 피어났습니다.
+                        </div>
+                        <button style="margin-top: 15px;" onclick="window.open('https://conlab.visitkorea.or.kr/conlab/search-result/formal?cid=mADJkA&defaultCid=mADJkA&keyword=%EC%97%AC%ED%96%89%EC%A7%80&searchType=Formal&page=2&lang=%ED%95%9C%EA%B5%AD%EC%96%B4&sortDirection=%EC%B5%9C%EC%8B%A0%EC%88%9C');">
+                            자세히보기<i class="xi-marker-plus xi-x xi-fw"></i>
+                        </button>
                     </div>
 
                     <div class="board-div">
-                        캠핑장 2 설명
+                        <div class="recommend-title">세미원 연꽃여행</div><hr>
+                        <div class="recommend-content">여행지 2 : 양평 양수리에 위치한 물과 꽃의 정원에서 여름을 맞아 연꽃문화제를 개최한다. 6만2천평 야외정원에 홍련, 백련, 페리기념연꽃이 가득 피어나고 기분 좋은 연향이 가득하다.
+                            불교가 이 땅에 정착되면서 불상의 좌대나 광배에 조형된 연꽃 문양을 시작으로 고구려, 백제, 신라인들의 생활 속에 다양하게 자리 잡았습니다. 이후 통일 신라와 고려를 거쳐 조선에 이르기까지 우리 선조들의 생활 속에 화려하게 피어났습니다.
+                        </div>
+                        <button style="margin-top: 15px;" onclick="window.open('https://conlab.visitkorea.or.kr/conlab/search-result/formal?cid=mADJkA&defaultCid=mADJkA&keyword=%EC%97%AC%ED%96%89%EC%A7%80&searchType=Formal&page=2&lang=%ED%95%9C%EA%B5%AD%EC%96%B4&sortDirection=%EC%B5%9C%EC%8B%A0%EC%88%9C');">
+                            자세히보기<i class="xi-marker-plus xi-x xi-fw"></i>
+                        </button>
                     </div>
 
                     <div class="board-div">
-                        캠핑장 3 설명
-                    </div>
-
-                    <div class="board-div">
-                        캠핑장 4 설명
-                    </div>
-
-                    <div class="board-div">
-                        캠핑장 5 설명
+                        <div class="recommend-title">세미원 연꽃여행</div><hr>
+                        <div class="recommend-content">여행지 3 : 양평 양수리에 위치한 물과 꽃의 정원에서 여름을 맞아 연꽃문화제를 개최한다. 6만2천평 야외정원에 홍련, 백련, 페리기념연꽃이 가득 피어나고 기분 좋은 연향이 가득하다.
+                            불교가 이 땅에 정착되면서 불상의 좌대나 광배에 조형된 연꽃 문양을 시작으로 고구려, 백제, 신라인들의 생활 속에 다양하게 자리 잡았습니다. 이후 통일 신라와 고려를 거쳐 조선에 이르기까지 우리 선조들의 생활 속에 화려하게 피어났습니다.
+                        </div>
+                        <button style="margin-top: 15px;" onclick="window.open('https://conlab.visitkorea.or.kr/conlab/search-result/formal?cid=mADJkA&defaultCid=mADJkA&keyword=%EC%97%AC%ED%96%89%EC%A7%80&searchType=Formal&page=2&lang=%ED%95%9C%EA%B5%AD%EC%96%B4&sortDirection=%EC%B5%9C%EC%8B%A0%EC%88%9C');">
+                            자세히보기<i class="xi-marker-plus xi-x xi-fw"></i>
+                        </button>
                     </div>
 
                 </div>
@@ -149,37 +109,42 @@
             
             </div>
 
-            <div class="board">
-
+            <div class="board2">
                 <span>
-                    <h3>캠핑장 소식</h3>
+                    <h3>캠핑 소식</h3>
                 </span>
-
+                
                 <div class="board-list">
+                    <div style="border: 1px solid black;">
+                        <div class="headline2">한국 관광공사 facebook 참고</div>
 
-                    <!-- <div class="board-div2-1">
-                        sns 소식창
-                    </div> -->
-
-                    <div class="footer-instagram">
-                        <h3>instagram feed</h3>
-                        <div class="instagram-box">
-                            <div id="instafeed"></div>
+                        <!-- 고캠핑 플러그인 -->
+                        <!-- 페이스북 개발자 로그인 된 상태에서만 화면이 제대로 나옴 -->
+                        <div style="width: 450px;">
+                            <div class="fb-page"
+                            data-href="https://www.facebook.com/go2thecamping/"
+                            data-tabs="timeline"
+                            data-width="450"
+                            data-height="400"
+                            data-small-header="true"
+                            data-adapt-container-width="true"
+                            data-hide-cover="true"
+                            data-show-facepile="true">
+                            <blockquote cite="https://www.facebook.com/go2thecamping/"
+                            class="fb-xfbml-parse-ignore">
+                            <a href="https://www.facebook.com/go2thecamping/">한국관광공사 고캠핑</a>
+                            </blockquote></div>
                         </div>
                     </div>
 
-                    
-
-                    
-
-                    <div class="board-div2-2">
+                    <div class="board-div2">
                         사진 넣고 링크 달기(or 광고)
                     </div>
 
-                    <div class="board-div2-2">
+                    <div class="board-div2">
                         사진 넣고 링크 달기(or 광고)
                     </div>
-
+                    
                 </div>
                 
             </div>
@@ -188,7 +153,15 @@
 
     </main>
     
+    
+    
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
+
+    <script src="https://kit.fontawesome.com/a2e8ca0ae3.js" crossorigin="anonymous"></script>
+
+    <script src="${contextPath}/resources/js/board/board.js"></script>
+
+    
 
 </body>
 

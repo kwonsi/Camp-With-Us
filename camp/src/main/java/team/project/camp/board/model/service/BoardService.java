@@ -1,7 +1,10 @@
 package team.project.camp.board.model.service;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
+
+import org.springframework.web.multipart.MultipartFile;
 
 import team.project.camp.board.model.vo.BoardDetail;
 import team.project.camp.board.model.vo.BoardType;
@@ -32,5 +35,27 @@ public interface BoardService {
 	 * @return detail
 	 */
 	BoardDetail selectBoardDetail(int boardNo);
+
+	/** 게시글 삽입 + 이미지 삽입
+	 * @param detail
+	 * @param imageList
+	 * @param webPath
+	 * @param folderPath
+	 * @return boardNo
+	 * @throws IOException
+	 */
+	int insertBoard(BoardDetail detail, List<MultipartFile> imageList, String webPath, String folderPath) throws IOException;
+
+	/** 게시글 수정 서비스
+	 * @param detail
+	 * @param imageList
+	 * @param webPath
+	 * @param folderPath
+	 * @param deleteList
+	 * @return result
+	 * @throws IOException
+	 */
+	int updateBoard(BoardDetail detail, List<MultipartFile> imageList, String webPath, String folderPath,
+			String deleteList) throws IOException;
 
 }

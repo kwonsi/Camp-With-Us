@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import team.project.camp.board.model.vo.Board;
 import team.project.camp.board.model.vo.BoardDetail;
+import team.project.camp.board.model.vo.BoardImage;
 import team.project.camp.board.model.vo.BoardType;
 import team.project.camp.board.model.vo.Pagination;
 
@@ -87,6 +88,67 @@ public class BoardDAO {
 
 		return sqlSession.selectOne("boardMapper.selectBoardDetail", boardNo);
 	}
+
+	/** 게시글 삽입 DAO
+	 * @param detail
+	 * @return boardNo
+	 */
+	public int insertBoard(BoardDetail detail) {
+		int result = sqlSession.insert("boardMapper.insertBoard", detail); // 0 or 1
+		
+		if( result > 0) result = detail.getBoardNo();
+		
+		// 게시글 삽입 성공 시
+		// <selectKey> 태그를 이용해 세팅된 boardNo 값을 반환함 --> 게시글 번호 사용 가능
+		
+		return result;
+	}
+
+	/** 게시글 이미지 삽입(리스트) DAO
+	 * @param boardImageList
+	 * @return result
+	 */
+	public int insertBoardImageList(List<BoardImage> boardImageList) {
+		
+		return sqlSession.insert("boardMapper.insertBoardImageList", boardImageList);
+	}
+
+	/** 게시글 수정 DAO
+	 * @param detail
+	 * @return result
+	 */
+	public int updateBoard(BoardDetail detail) {
+
+		return sqlSession.update("boardMapper.updateBoard", detail);
+	}
+
+	/** 게시글 이미지 삭제 DAO
+	 * @param map
+	 * @return result
+	 */
+	public int deleteBoardImage(Map<String, Object> map) {
+		
+		return sqlSession.delete("boardMapper.deleteBoardImage", map);
+	}
+
+	/** 게시글 이미지 1개 수정 DAO
+	 * @param img
+	 * @return result
+	 */
+	public int updateBoardImage(BoardImage img) {
+
+		return sqlSession.update("boardMapper.updateBoardImage", img);
+	}
+
+	/** 게시글 이미지 1개 삽입 DAO
+	 * @param img
+	 * @return result
+	 */
+	public int insertBoardImage(BoardImage img) {
+
+		return sqlSession.insert("boardMapper.insertBoardImage", img);
+	}
+
 
 
 
