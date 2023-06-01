@@ -17,7 +17,7 @@ public class CampListController {
 				Model model
 			) {
 		model.addAttribute("campName",campName);
-		return "common/detailList";
+		return " camp/detailList";
 	}
 
 }

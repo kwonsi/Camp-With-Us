@@ -102,10 +102,17 @@
                             캠핑장 소개</a></li>
                         <li class="campListli"><a href='/camp/campList/detailList?campName=${campName}&viewType=2' class="camp_guide">
                             캠핑장 가격</a></li>
+<<<<<<< HEAD:camp/src/main/webapp/WEB-INF/views/common/detailList.jsp
                         <li class="campListli"><a href='/camp/campList/detailList?campName=${campName}&viewType=3' class="camp_map">
+=======
+
+                        <li id="c_map"><a href='/camp/campList/detailList?campName=${campName}&viewType=3' class="camp_map">
+>>>>>>> feeeaec3fb31c6692ab76f28d3ad3e1ddc431e33:camp/src/main/webapp/WEB-INF/views/camp/detailList.jsp
                             위치/주변정보</a></li>
                         <li class="campListli"><a href='/camp/campList/detailList?campName=${campName}&viewType=4' class="camp_review">
                             날씨</a></li>
+                            <li id="c_review"><a href='/camp/campList/detailList?campName=${campName}&viewType=5' class="camp_review">
+                                리뷰</a></li>
                     </ul>
                 </div>
                 <hr>
@@ -269,10 +276,22 @@
                 </c:if>
 
 
+<<<<<<< HEAD:camp/src/main/webapp/WEB-INF/views/common/detailList.jsp
                 <br>
                 <br>
                 
                     <button  type="button" class="btn btn-lg btn-primary"><a
+=======
+                <c:if test="${param.viewType == '5'}">
+
+                <div class="div7">
+                    <jsp:include page="/WEB-INF/views/common/footer.jsp" />
+
+                </div>
+               </c:if>
+
+                <button type="button"><a
+>>>>>>> feeeaec3fb31c6692ab76f28d3ad3e1ddc431e33:camp/src/main/webapp/WEB-INF/views/camp/detailList.jsp
                         href='${contextPath}/campDetail/reservation?campName=${campName}'>예약페이지</a></button>
                 
                 

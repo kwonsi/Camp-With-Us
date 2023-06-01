@@ -105,6 +105,7 @@ body {
     box-sizing: border-box;
 }
 
+
 .camp_info_box .img_b>img {
     object-fit: cover;
     width: 100%;
