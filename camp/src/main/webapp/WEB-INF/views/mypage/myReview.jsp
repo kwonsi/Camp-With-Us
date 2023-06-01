@@ -18,35 +18,14 @@
 
     <main class="myPage-content">
         
-        <jsp:include page="/WEB-INF/views/member/sideMenu.jsp"/>
+        <jsp:include page="/WEB-INF/views/mypage/sideMenu.jsp"/>
 
         <section class="myPage-main">
 
-            <h1 class="myPage-title">비밀번호 변경</h1>
+            <h1 class="myPage-title">내 리뷰 조회</h1>
             
-            <span class="myPage-explanation">현재 회원님의 비밀번호를 변경할 수 있습니다.</span>
+            <span class="myPage-explanation">현재 회원님이 작성한 리뷰를 볼 수 있습니다.</span>
             
-            <form action="changePw" method="POST" name="myPage-form" onsubmit="return changePwValidate()">
-
-                <div class="myPage-row">
-                    <label>현재 비밀번호</label>
-                    <input type="password" name="currentPw" id="currentPw" maxlength="30">              
-                </div>
-
-                <div class="myPage-row">
-                    <label>새 비밀번호</label>
-                    <input type="password" name="newPw" maxlength="30">              
-                </div>
-
-                <div class="myPage-row">
-                    <label>새 비밀번호 확인</label>
-                    <input type="password" name="newPwConfirm" maxlength="30">              
-                </div>
-
-                <button id="info-update-btn">변경하기</button>
-
-            </form>
-
         </section>
 
     </main>

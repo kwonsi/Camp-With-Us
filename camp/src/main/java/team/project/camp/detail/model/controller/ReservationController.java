@@ -28,7 +28,7 @@ public class ReservationController {
 			@RequestParam(value = "campName", required = false, defaultValue = "") String campName, Model model) {
 
 		model.addAttribute("campName", campName);
-		return "common/reservation";
+		return "camp/reservation";
 	}
 
 
