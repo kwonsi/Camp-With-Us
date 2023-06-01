@@ -35,7 +35,7 @@ public class MainController {
 		model.addAttribute("loc", loc);
 		model.addAttribute("theme", theme);
 
-		return "common/campList";
+		return "camp/campList";
 
 	}
 }

@@ -29,33 +29,33 @@ public class MyPageController {
 
 		model.addAttribute("reservationList", reservationList);
 
-		return "member/myReservation";
+		return "mypage/myReservation";
 	}
 
 	@GetMapping("/myBoard")
 	public String myBoard() {
-		return "member/myBoard";
+		return "mypage/myBoard";
 	}
 
 	@GetMapping("/myReview")
 	public String myReview() {
-		return "member/myReview";
+		return "mypage/myReview";
 	}
 
 	@GetMapping("/profile")
 	public String profile() {
-		return "member/profile";
+		return "mypage/profile";
 	}
 
 	@GetMapping("/changePw")
 	public String changePw() {
-		return "member/changePw";
+		return "mypage/changePw";
 	}
 
 
 	@GetMapping("/secession")
 	public String secession() {
-		return "member/secession";
+		return "mypage/secession";
 
 	}
 

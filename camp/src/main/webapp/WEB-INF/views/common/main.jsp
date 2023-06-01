@@ -50,33 +50,6 @@
                 <div class=" ranBoard_1" id="ranBoardImg1"> </div>   
                 <div class=" ranBoard_1" id="ranBoardContent1"> 
                     
-<!--                     <div class="cont_tb">
-                        <table class="table">
-                            <colgroup>
-                                <col style="width: 30%;" />
-                                <col style="width: 70%;" />
-                            </colgroup>
-                            <tbody>
-                                <tr>
-                                    <th scope="col">캠핑장 이름</th>
-                                    <td> </td>
-                                </tr>
-                                <tr class="camp_call_pcVer">
-                                    <th scope="col">주소</th>
-                                    <td> </td>
-                                </tr>
-                                <tr>
-                                    <th scope="col">연락처</th>
-                                    <td > </td>
-                                </tr>
-                                <tr>
-                                    <th scope="col">캠핑장 유형</th>
-                                    <td> </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div> -->
-
 
                 </div>  
             </div>
