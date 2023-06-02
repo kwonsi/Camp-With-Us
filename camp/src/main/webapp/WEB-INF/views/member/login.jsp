@@ -7,7 +7,8 @@
  <head>
      <meta charset="UTF-8">
      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta name="google-signin-client_id" content="103144752601-32m7hdd9ouctdsf1pv80djgbb2a1664k.apps.googleusercontent.com">
+     <script src="https://apis.google.com/js/platform.js" async defer></script>
      <title>로그인</title>
 
      <link rel="stylesheet" href="${contextPath}/resources/css/main.css">
@@ -44,7 +45,8 @@
                  </div>
  
                  <button type="submit" id="login-btn">로그인</button>
- 
+                 <div class="g-signin2" data-onsuccess="onSignIn">구글로그인</div>
+                 <a href="${contextPath}" onclick="signOut();">구글 로그아웃</a>
              </form>
              
          </section>
@@ -59,6 +61,55 @@
 
     <!-- signUp.js 연결 -->
     <script src="${contextPath}/resources/js/signUp.js"></script>
+
+    <script>
+
+        //로그인
+        function onSignIn(googleUser) {
+            var profile = googleUser.getBasicProfile();
+            console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+            console.log('Name: ' + profile.getName());
+            console.log('Image URL: ' + profile.getImageUrl());
+            console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+        
+            var id_token = googleUser.getAuthResponser().id_token;
+            console.log("id_token" + id_token);
+
+            //DB 구글 로그인 정보 데이터 삽입
+            $.ajax({
+                    url: "googleLoginInfo", 
+                    type: "POST",
+                    data: { "id" : profile.getId(),
+                            "memberNickname" : profile.getName(),
+                            "memberEmail" : profile.getEmail(),
+                            "id_token" : id_token
+                        },
+
+                    success: function(result) {
+                       
+                        if(result > 0) {
+                            console.log("구글로그인 정보 DB전송완료");
+                        }else {
+                            console.log("구글로그인 정보 DB전송실패");
+                        }
+                    },
+                    error: function() {
+                        console.log("구글로그인 DB전송 ajax 에러발생");
+                    }
+                });
+
+        };
+
+        //로그아웃
+        function signOut() {
+            var auth2 = gapi.auth2.getAuthInstance();
+            auth2.signOut().then(function () {
+            alert("로그아웃 되었습니다.");
+            console.log('로그아웃');
+            });
+        };
+
+    </script>
 
     
  </body>

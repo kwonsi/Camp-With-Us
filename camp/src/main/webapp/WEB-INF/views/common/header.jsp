@@ -53,14 +53,8 @@
 									<h4 id="login">로그인</h4>
 
 									<ul class="submenu">
-<<<<<<< HEAD
-										<li>로그인</li>
-										<li><a href="/oauth2/authorization/naver"></a>네이버</li>
-										<li>회원가입</li>
-=======
 										<li><a href="${contextPath}/member/login">로그인</a></li>
 										<li><a href="${contextPath}/member/signUp">회원가입</a></li>
->>>>>>> feeeaec3fb31c6692ab76f28d3ad3e1ddc431e33
 										<li>아이디/비밀번호<br>찾기</li>
 									</ul>
 								</li>

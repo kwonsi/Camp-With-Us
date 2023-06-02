@@ -35,13 +35,7 @@
 		사용자가 직접 받을 필요 없이 해당 태그 내에 지정된 형식으로 작성하면 네트워크를 통해 외부 저장소에서 자동으로 얻어와 세팅함. -->
 	<dependencies>
 	
-<<<<<<< HEAD
-		<!-- 네이버로그인 적용위한 OAuth2.0 -->
-		<dependency>
-	    	<groupId>com.github.scribejava</groupId>
-	    	<artifactId>scribejava-core</artifactId>
-	    	<version>8.3.3</version>
-		</dependency>
+	
 	
 		<!-- Json Parsing -->
 		<dependency>
@@ -50,7 +44,6 @@
 		    <version>1.1.1</version>
 		</dependency>
 	
-=======
 	<!-- https://mvnrepository.com/artifact/javax.mail/mail -->
 	<dependency>
 		<groupId>javax.mail</groupId>
@@ -63,7 +56,6 @@
 	    <artifactId>spring-context-support</artifactId>
 	    <version>${org.springframework-version}</version>
 	</dependency>
->>>>>>> feeeaec3fb31c6692ab76f28d3ad3e1ddc431e33
 	
 		<!-- Spring WebSocket -->
 	      <!-- https://mvnrepository.com/artifact/org.springframework/spring-websocket -->
