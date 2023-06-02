@@ -21,7 +21,11 @@ public class MyPageController {
 	@Autowired
 	private ReservationService service;
 
+<<<<<<< HEAD
 	//예약조회
+=======
+
+>>>>>>> eunju2
 	@GetMapping("/myReservation")
 	public String reservation(Model model) {
 
@@ -59,6 +63,7 @@ public class MyPageController {
 
 	}
 
+<<<<<<< HEAD
 	//예약취소
 	@ResponseBody
 	@PostMapping("/reservationState")
@@ -72,5 +77,7 @@ public class MyPageController {
 	}
 
 
+=======
+>>>>>>> eunju2
 
 }

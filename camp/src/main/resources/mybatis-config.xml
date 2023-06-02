@@ -7,11 +7,20 @@
 	</settings>
 	
 	<typeAliases>
+		<typeAlias type="team.project.camp.board.model.vo.Board" alias="board"/>
+		<typeAlias type="team.project.camp.board.model.vo.BoardDetail"  	alias="detail"/>
+		<typeAlias type="team.project.camp.board.model.vo.BoardImage"  	alias="boardImage"/>
+		<typeAlias type="team.project.camp.board.model.vo.BoardType"  	alias="boardType"/>
+		<typeAlias type="team.project.camp.board.model.vo.Reply"  	alias="reply"/>
+		
+		
 		<typeAlias type="team.project.camp.detail.model.vo.Reservation" alias="reservation" />
 	</typeAliases>
 
 	<mappers>
 		<mapper resource="/mappers/reservation-mapper.xml"/>
+		<mapper resource="/mappers/board-mapper.xml"/>
+		<mapper resource="/mappers/reply-mapper.xml"/>
 	</mappers>
 	
 </configuration>
