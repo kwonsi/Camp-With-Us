@@ -51,6 +51,34 @@ public class MemberController {
 		return "member/signUp";
 	}
 	
+	// 아이디/비밀번호 찾기
+	@GetMapping("/findIdPw")
+	public String findIdPw() {
+		return "member/findIdPw";
+	}
+	//----------------------------
+	
+	// 임시 비밀번호 생성 함수
+	public String getRamdomPassword(int len) { 
+		char[] charSet = new char[] { 
+				'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 
+				'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 
+				'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 
+				'U', 'V', 'W', 'X', 'Y', 'Z' 
+				}; 
+		int idx = 0; 
+		StringBuffer sb = new StringBuffer(); 
+		logger.info("charSet.length : "+charSet.length); 
+			
+		for (int i = 0; i < len; i++) { 
+			idx = (int) (charSet.length * Math.random()); 
+			// 36 * 생성된 난수를 Int로 추출 (소숫점제거) 
+			logger.info("idx : "+idx); 
+			sb.append(charSet[idx]); 
+		} 
+		return sb.toString(); 
+	}
+	
 	//----------------------------
 	@PostMapping("/login")
 	public String login( @ModelAttribute Member inputMember 
@@ -110,6 +138,81 @@ public class MemberController {
 		return "redirect:/"; // 메인페이지 리다이렉트
 		
 	}
+	
+	// 아이디 찾기
+	@PostMapping("/findId")
+	public String findId(String memberTel, RedirectAttributes ra) {
+		
+		String id = service.findId(memberTel);
+		
+		logger.info(id);
+		
+		ra.addFlashAttribute("message", "회원님의 ID는 " + id + " 입니다");
+		
+		return "redirect:/member/findIdPw";
+	}
+	
+	
+	// 비밀번호 찾기(임시 비밀번호 설정)
+	@ResponseBody
+	@PostMapping("/findPw")
+	public String findPw(String memberEmail, RedirectAttributes ra) {
+		
+		String randomPassword = getRamdomPassword(8);
+		
+		int result=0;
+		
+	    String subject = "임시 비밀번호가 발급되었습니다."; //제목
+	    String content = 
+	    	"<p>안녕하세요 고객님!<br>발급된 임시 비밀번호는"
+	    	+ randomPassword
+	    	+"입니다.<br>로그인하고 비밀번호를 변경해주세요.</p>"; //본문
+	    String from = "camping@camp.com"; //보내는사람 이메일주소
+	    String to = memberEmail;
+	        
+	    try {
+	        MimeMessage mail = mailSender.createMimeMessage();
+	        MimeMessageHelper mailHelper = new MimeMessageHelper(mail,"UTF-8");
+	            
+	        mailHelper.setFrom(from);
+	        mailHelper.setTo(to);
+	        mailHelper.setSubject(subject);
+	        mailHelper.setText(content, true);
+	        // html태그를 사용하려면 true           
+	        mailSender.send(mail);
+	        
+	        result=1;
+	           
+	    } catch(Exception e) {
+	        e.printStackTrace();
+	    }
+		
+//	    if(result > 0) {
+//	    	
+//	    	Member member = new Member();
+//	    	member.setMemberEmail(memberEmail);
+//	    	member.setMemberPw(randomPassword);
+//	    	
+//	    	result = service.setTempPassword(member);
+//	    	
+//	    	if(result > 0) {
+//	    		ra.addFlashAttribute("message", "가입하신 이메일로 임시 비밀번호가 전송되었습니다."
+//						+ "비밀번호를 변경해주세요");
+//	    		return randomPassword; // 메일 발송 성공 시 임시 비밀번호 반환
+//	    	}
+//	    	else return "임시 비밀번호 설정 오류";
+//	    	
+//	    } else return "메일 발송 오류";
+	    
+	    Member member = new Member();
+    	member.setMemberEmail(memberEmail);
+    	member.setMemberPw(randomPassword);
+    	
+	    ra.addFlashAttribute("message", "가입하신 이메일로 임시 비밀번호가 전송되었습니다."
+				+ "비밀번호를 변경해주세요");
+		return randomPassword; // 메일 발송 성공 시 임시 비밀번호 반환
+	}
+	
 	
 	// 이메일 중복 검사
 	@ResponseBody  // ajax 응답 시 사용!

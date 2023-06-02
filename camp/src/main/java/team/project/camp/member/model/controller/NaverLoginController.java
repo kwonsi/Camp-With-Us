@@ -10,10 +10,9 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import lombok.extern.slf4j.Slf4j;
 import team.project.camp.member.model.service.NaverLoginService;
@@ -59,10 +58,11 @@ public class NaverLoginController {
     }
 
     @GetMapping("/logout")
-    public String logout(HttpSession session) {
+    public String logout(HttpSession session , RedirectAttributes ra ) {
     	
     	session.invalidate();    
     	
+    	ra.addFlashAttribute("message","로그아웃 되었습니다.");
     	log.info("로그아웃실행");
     	
     	return "redirect:/";

@@ -61,4 +61,13 @@
 			DEFAULT, DEFAULT, DEFAULT)	
 	</insert>
 	
+	<!-- 아이디 찾기 -->
+	<select id="findId" parameterType="string" resultType="string">
+		SELECT MEMBER_EMAIL FROM MEMBER_S WHERE MEMBER_TEL = #{memberTel}
+	</select>
+	
+	<update id="setTempPassword" parameterType="member">
+		UPDATE MEMBER_S SET MEMBER_PW = #{memberPw} WHERE MEMBER_EMAIL = #{memberEmail}
+	</update>
+	
 </mapper>

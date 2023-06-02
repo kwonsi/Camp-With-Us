@@ -1,5 +1,7 @@
 package team.project.camp.member.model.service;
 
+import java.util.Map;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,6 +50,11 @@ public class MemberServiceImpl implements MemberService {
 
 	}
 
+	// 아이디 찾기 서비스 구현
+	@Override
+	public String findId(String memberTel) {
+		return dao.findId(memberTel);
+	}
 	
 	// 이메일 중복 검사 서비스 구현
 	@Override
@@ -81,5 +88,15 @@ public class MemberServiceImpl implements MemberService {
 		//    -> dao 하나라도 예외 발생 시 전체 rollback
 		
 		return result;
+	}
+	
+	// 임시 비밀번호 설정 서비스 구현
+	@Override
+	public int setTempPassword(Member member) {
+		
+		// 임시 비밀번호도 암호화
+		member.setMemberPw(bcrypt.encode(member.getMemberPw()) );
+		
+		return dao.setTempPassword(member);
 	}
 }
