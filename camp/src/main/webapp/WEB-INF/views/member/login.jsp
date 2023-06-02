@@ -8,7 +8,6 @@
      <meta charset="UTF-8">
      <meta http-equiv="X-UA-Compatible" content="IE=edge">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <meta name="google-signin-client_id" content="339157095508-t9plchs0o9651362uvistjbc9agh0d4a.apps.googleusercontent.com">
      <title>로그인</title>
 
      <link rel="stylesheet" href="${contextPath}/resources/css/main.css">
@@ -48,62 +47,7 @@
  
              </form>
  
-            <script src="https://accounts.google.com/gsi/client" async defer></script>
-            <div id="g_id_onload"
-                data-client_id="339157095508-t9plchs0o9651362uvistjbc9agh0d4a.apps.googleusercontent.com"
-                data-context="signin"
-                data-ux_mode="popup"
-                data-callback="handleCredentialResponse"
-                data-itp_support="true">
-            </div>
-
-            <div class="g_id_signin"
-                data-type="standard"
-                data-shape="rectangular"
-                data-theme="outline"
-                data-text="signin_with"
-                data-size="large"
-                data-logo_alignment="left">
-            </div>
-
-            <script src="https://apis.google.com/js/platform.js" async defer></script>
-            <a href="#" onclick="signOut();">Sign out</a>
-            
-            <script>
-                function signOut() {
-                    var auth2 = gapi.auth2.getAuthInstance();
-                    auth2.signOut().then(function () {
-                    console.log('User signed out.');
-                    });
-                }
-            </script>
-            
-
-            <script>
-                function parseJwt (token) {
-                    var base64Url = token.split('.')[1];
-                    var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-                    var jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
-                        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-                    }).join(''));
-
-                    return JSON.parse(jsonPayload);
-                };
-
-                function handleCredentialResponse(response) {
-                // decodeJwtResponse() is a custom function defined by you
-                // to decode the credential response.
-                const responsePayload = parseJwt(response.credential);
-                console.log(responsePayload);
-                console.log("ID: " + responsePayload.sub);
-                console.log('Full Name: ' + responsePayload.name);
-                // console.log('Given Name: ' + responsePayload.given_name);
-                // console.log('Family Name: ' + responsePayload.family_name);
-                // console.log("Image URL: " + responsePayload.picture);
-                console.log("Email: " + responsePayload.email);
-                } 
-
-            </script>
+\
          </section>
  
          
