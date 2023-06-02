@@ -86,7 +86,7 @@ window.onload = function () {
             }
 
             // 랜덤하게 선택된 인덱스에 해당하는 항목을 선택합니다.
-            for (let i = 0; i < Math.min(randomIndexes.length, 3); i++) {
+            for (let i = 0; i < Math.min(randomIndexes.length, 9); i++) {
                 const index = randomIndexes[i];
                 randomItems.push(items[index]);
             }

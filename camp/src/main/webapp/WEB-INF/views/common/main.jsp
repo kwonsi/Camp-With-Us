@@ -42,53 +42,50 @@
 
 
         <hr>
+        <button id="resetBtn">버튼</button>
 
         <section class="content3">
 
-            <div class = ranBoard>
+            <div class = "ranBoard">
                 <div class=" ranBoard_1" id="ranBoardImg1"> </div>   
                 <div class=" ranBoard_1" id="ranBoardContent1"> 
-                    
-<!--                     <div class="cont_tb">
-                        <table class="table">
-                            <colgroup>
-                                <col style="width: 30%;" />
-                                <col style="width: 70%;" />
-                            </colgroup>
-                            <tbody>
-                                <tr>
-                                    <th scope="col">캠핑장 이름</th>
-                                    <td> </td>
-                                </tr>
-                                <tr class="camp_call_pcVer">
-                                    <th scope="col">주소</th>
-                                    <td> </td>
-                                </tr>
-                                <tr>
-                                    <th scope="col">연락처</th>
-                                    <td > </td>
-                                </tr>
-                                <tr>
-                                    <th scope="col">캠핑장 유형</th>
-                                    <td> </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div> -->
-
-
                 </div>  
             </div>
 
-            <div class = ranBoard>
+            <div class = "ranBoard">
                 <div class=" ranBoard_1" id="ranBoardImg2"> </div>
                 <div class=" ranBoard_1" id="ranBoardContent2"> </div> 
             </div>
 
-            <div class = ranBoard>
+            <div class = "ranBoard">
                 <div class=" ranBoard_1" id="ranBoardImg3"> </div>
                 <div class=" ranBoard_1" id="ranBoardContent3"> </div> 
             </div>
+            <div class = "ranBoard">
+                <div class=" ranBoard_1" id="ranBoardImg4"> </div>
+                <div class=" ranBoard_1" id="ranBoardContent4"> </div> 
+            </div>
+            <div class = "ranBoard">
+                <div class=" ranBoard_1" id="ranBoardImg5"> </div>
+                <div class=" ranBoard_1" id="ranBoardContent5"> </div> 
+            </div>
+            <div class = "ranBoard">
+                <div class=" ranBoard_1" id="ranBoardImg6"> </div>
+                <div class=" ranBoard_1" id="ranBoardContent6"> </div> 
+            </div>
+            <div class = "ranBoard">
+                <div class=" ranBoard_1" id="ranBoardImg7"> </div>
+                <div class=" ranBoard_1" id="ranBoardContent7"> </div> 
+            </div>
+            <div class = "ranBoard">
+                <div class=" ranBoard_1" id="ranBoardImg8"> </div>
+                <div class=" ranBoard_1" id="ranBoardContent8"> </div> 
+            </div>
+            <div class = "ranBoard">
+                <div class=" ranBoard_1" id="ranBoardImg9"> </div>
+                <div class=" ranBoard_1" id="ranBoardContent9"> </div> 
+            </div>
+
 
         </section>
 
