@@ -15,12 +15,17 @@
 		
 		
 		<typeAlias type="team.project.camp.detail.model.vo.Reservation" alias="reservation" />
+		<typeAlias type="team.project.camp.member.model.vo.Member" alias="member" />
 	</typeAliases>
 
 	<mappers>
 		<mapper resource="/mappers/reservation-mapper.xml"/>
+<<<<<<< HEAD
 		<mapper resource="/mappers/board-mapper.xml"/>
 		<mapper resource="/mappers/reply-mapper.xml"/>
+=======
+		<mapper resource="/mappers/member-mapper.xml"/>
+>>>>>>> origin/jb
 	</mappers>
 	
 </configuration>
