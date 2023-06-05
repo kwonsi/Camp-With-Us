@@ -57,5 +57,17 @@ public interface BoardService {
 	 */
 	int updateBoard(BoardDetail detail, List<MultipartFile> imageList, String webPath, String folderPath,
 			String deleteList) throws IOException;
+	
+	/** 게시글 삭제 서비스
+	 * @param boardNo
+	 * @return result
+	 */
+	int deleteBoard(int boardNo);
+
+	/** 조회수 증가 서비스
+	 * @param boardNo
+	 * @return result
+	 */
+	int updateReadCount(int boardNo);
 
 }

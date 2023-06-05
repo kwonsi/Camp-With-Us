@@ -28,9 +28,11 @@ function searchCamp() {
 
 }
 
+if ( login ) {
 login.addEventListener("click", function () {
     location.href = "/login";
 });
+}
 
 myPage.addEventListener("click", function () {
 

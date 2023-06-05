@@ -274,6 +274,22 @@ public class BoardServiceImpl implements BoardService{
 	}
 
 
+	//게시글 삭제 서비스 구현
+	@Override
+	public int deleteBoard(int boardNo) {
+		
+		return dao.deleteBoard(boardNo);
+	}
+
+
+	// 조회수 증가 서비스 구현
+	@Override
+	public int updateReadCount(int boardNo) {
+
+		return dao.updateReadCount(boardNo);
+	}
+
+
 	
 	
 

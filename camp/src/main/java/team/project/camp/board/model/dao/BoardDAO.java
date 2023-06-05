@@ -150,7 +150,23 @@ public class BoardDAO {
 	}
 
 
+	/** 게시글 삭제 DAO
+	 * @param boardNo
+	 * @return result
+	 */
+	public int deleteBoard(int boardNo) {
+		
+		return sqlSession.update("boardMapper.deleteBoard", boardNo);
+	}
 
+	/** 조회수 증가 DAO
+	 * @param boardNo
+	 * @return result
+	 */
+	public int updateReadCount(int boardNo) {
+
+		return sqlSession.update("boardMapper.updateReadCount", boardNo);
+	}
 
 
 }

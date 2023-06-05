@@ -112,9 +112,6 @@
                 </table>
             </div>
 
-            <div>
-                <button id="insertBtn" onclick="location.href='../write/${boardCode}?mode=insert&cp=${pagination.currentPage}'">글쓰기</button>
-            </div>
             <div class="btn-area">
 
                 <c:if test="${!empty loginMember}">
