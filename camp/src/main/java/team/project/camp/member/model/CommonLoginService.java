@@ -20,7 +20,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public interface CommonLoginService {
    HttpClient getHttpClient();
-   
+
     /**
      * 요청에 대한 응답을 문자열로 변환하여 반환. 응답 상태가 실패({@code 200 != code}일 경우 예외 발생.
      *
@@ -37,7 +37,7 @@ public interface CommonLoginService {
             throw new Exception("응답오류");
         }
     }
-   
+
     /**
      * Access token과 Refresh token을 배열로 반환
      *
@@ -50,7 +50,7 @@ public interface CommonLoginService {
         String[] _tokens;
 
         if (accessToken != null && !accessToken.equals("")) {
-        	
+
             List<String> tempList = new ArrayList<>();
 
             tempList.add(accessToken);
@@ -65,7 +65,7 @@ public interface CommonLoginService {
 
         return _tokens;
     }
-    
+
     /**
      * 문자열에서 root node를 추출하여 반환
      *
@@ -79,7 +79,7 @@ public interface CommonLoginService {
 
         return mapper.readTree(body);
     }
-    
+
     /**
      * 프로필 정보 요청을 하여 해당 결과를 반환. 네이버, 카카오, 페이스북은 공용으로 사용하며 트위터는 overriding 하여 처리함.
      * 트위터의 경우는 반화된 access token이 아닌 app에 등록되어 있는 <strong>oauth_token</strong>과 <strong>oauth_token_secret</strong>을

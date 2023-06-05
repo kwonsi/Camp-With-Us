@@ -52,7 +52,7 @@ public class NaverLoginController {
        } catch(Exception e){
           e.printStackTrace();
           throw e;
-       } 
+       }
     }
     
     @GetMapping("/logout")
@@ -78,7 +78,7 @@ public class NaverLoginController {
     	ra.addFlashAttribute("message","로그아웃 되었습니다.");
     	
     	log.info("로그아웃실행");
-    	
+
     	return "redirect:/";
     }
 }

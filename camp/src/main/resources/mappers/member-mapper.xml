@@ -85,6 +85,33 @@
 	
 	
 	
+	<!-- 구글 첫 로그인 시 DB 삽입 -->
+	<insert id="googleLoginInsert">
+		INSERT INTO MEMBER_S(MEMBER_NO, MEMBER_NICK, MEMBER_EMAIL, SECESSION_FL, LOGIN_ST) VALUES
+		(SEQ_MEMBER_NO_S.NEXTVAL, #{memberNickname}, #{memberEmail}, DEFAULT, 'Y')
+	</insert>
+	
+	<!-- 구글 로그인 회원정보 조회 -->
+	<select id="googleLogin" parameterType="member" resultMap="member_rm">
+		SELECT MEMBER_NO, MEMBER_EMAIL, MEMBER_NICK
+		FROM MEMBER_S
+		WHERE MEMBER_EMAIL = #{memberEmail}
+		AND SECESSION_FL = 'N'
+	</select>
+	
+	<!-- 카카오 첫 로그인 시 DB 삽입 -->
+	<insert id="kakaoLoginInsert">
+		INSERT INTO MEMBER_S(MEMBER_NO, MEMBER_NICK, SECESSION_FL, LOGIN_ST) VALUES
+		(SEQ_MEMBER_NO_S.NEXTVAL, #{memberNickname}, DEFAULT, 'Y')
+	</insert>
+	
+	<!-- 카카오 로그인 회원정보 조회 -->
+	<select id="kakaoLogin" parameterType="member" resultMap="member_rm">
+		SELECT MEMBER_NO, MEMBER_NICK
+		FROM MEMBER_S
+		WHERE MEMBER_NICK = #{memberNickname}
+		AND SECESSION_FL = 'N'
+	</select>
 	
 	
 </mapper>

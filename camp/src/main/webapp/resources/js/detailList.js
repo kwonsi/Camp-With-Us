@@ -180,6 +180,7 @@ window.onload = function () {
 items = JSON.parse(localStorage.getItem("item"));
 var mapContainer = document.getElementById('map');
 
+
 if (mapContainer) {
     mapContainer, // 지도의 중심좌표
         mapOption = {

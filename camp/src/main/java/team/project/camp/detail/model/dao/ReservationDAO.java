@@ -24,8 +24,8 @@ public class ReservationDAO {
 	public int selectPriceNp(String month) {
 		return sqlSession.selectOne("reservationMapper.selectPriceNp", month);
 	}
-	
- 
+
+
 	//예약정보 삽입
 	public int reservationInfo(Reservation reservation) {
 		return sqlSession.insert("reservationMapper.reservationInfo", reservation);

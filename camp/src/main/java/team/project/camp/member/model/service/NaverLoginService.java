@@ -24,11 +24,11 @@ import team.project.camp.member.model.vo.Member;
 @Slf4j
 @Service
 public class NaverLoginService implements CommonLoginService{
-	
+
 	private static CloseableHttpClient httpClient = HttpClientBuilder.create().build();
 
 	   protected final String socialType = "naver";
-	   
+
 	   //clientId, clientSecret ->네이버 개발자 센터에서 발급 받고, 기재
 	   //콜백url와 서비스 url(->여기서 말고, jsp페이지에서 수정해야함)도 수정해야함. 입력한 거 복붙하면됨.
 	   protected final String clientId = "olUvYEgXTwnvQN94ySBM";
@@ -38,19 +38,19 @@ public class NaverLoginService implements CommonLoginService{
 	   protected final String authUri = "https://nid.naver.com/oauth2.0/token?grant_type=authorization_code&client_id=%s&client_secret=%s&redirect_uri=%s&code=%s&state=%s";
 	   protected final String callbackUri = "http://localhost:8080/camp/login/naverLoginSuccess";
 	   protected final String profileUri = "https://openapi.naver.com/v1/nid/me";
-	   
+
 	   public Member doAuth(HttpServletRequest request, HttpServletResponse response) throws Exception {
 	      // 토큰 추출 처리
 	      String[] _tokens = extractTokens(request);
 	      Member loginMember = assignUserData(request, response, _tokens);
-	   
+
 	      return loginMember;
 	   }
-	   
+
 	    public String[] extractTokens(HttpServletRequest request) throws Exception {
 	        CloseableHttpResponse _response = null;
 
-	        
+
 	        try {
 	            String _callbackUri = encodeCallbackUri(callbackUri, request, false);
 	            String _apiUri = String.format(authUri,
@@ -59,7 +59,7 @@ public class NaverLoginService implements CommonLoginService{
 	                                           _callbackUri,
 	                                           request.getParameter("code"),
 	                                           request.getParameter("state"));
-	            
+
 	            String _accessToken, _refreshToken;
 
 	            _response = httpClient.execute(new HttpGet(_apiUri));
@@ -77,18 +77,18 @@ public class NaverLoginService implements CommonLoginService{
 	            HttpClientUtils.closeQuietly(_response);
 	        }
 	    }
-	      
+
 	    public Member assignUserData(HttpServletRequest request, HttpServletResponse response, String[] tokens) throws Exception {
 	    	org.apache.http.HttpResponse _response = null;
 	    	 Member loginMember = new Member();
-	        
+
 	        try {
 	            _response =  executeProfileRequest(request, socialType, profileUri, tokens[0]);
-	            String _body = getResponseBody((org.apache.http.HttpResponse) _response);
+	            String _body = getResponseBody(_response);
 	            JsonNode node = getRootNodeFromResponse(_body);
 
 	            log.info(node+"");
-	            
+
 	            // 일련번호, 닉네임, 이메일 주소 저장
 	            String nickname = node.get("response").get("nickname") == null ? "닉네임 없음" : node.get("response").get("nickname").asText();
 	            String email = node.get("response").get("email")  == null ? "이메일 없음" : node.get("response").get("email").asText();
@@ -102,7 +102,7 @@ public class NaverLoginService implements CommonLoginService{
 	            	loginMember.setMemberEmail(email);
 	            	loginMember.setMemberTel(mobile);
 	            }
-	            
+
 	            return loginMember;
 	        } catch (Exception e) {
 	            throw new Exception();
@@ -116,13 +116,13 @@ public class NaverLoginService implements CommonLoginService{
 			return httpClient;
 		}
 
-		
+
 	   public static String encodeCallbackUri(String callbackUri,HttpServletRequest request, boolean isEncode) throws UnsupportedEncodingException {
 	      String protocol = (request.isSecure())? "https://": "http://";
 	      String host = request.getServerName();
 	      String port = (80 == request.getServerPort() || 443 == request.getServerPort())? "": ":" + request.getServerPort();
 	      String completeCallbackUri = protocol + host + port + callbackUri;
-	      
+
 	      return (isEncode)? UriUtils.encode(completeCallbackUri, StandardCharsets.UTF_8.name()): completeCallbackUri;
 	   }
 }
