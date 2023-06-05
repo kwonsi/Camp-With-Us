@@ -23,7 +23,7 @@
 
     <main class="myPage-content">
         
-        <jsp:include page="/WEB-INF/views/member/sideMenu.jsp"/>
+        <jsp:include page="/WEB-INF/views/mypage/sideMenu.jsp"/>
 
         <section class="myPage-main">
 
@@ -81,10 +81,6 @@
                                                 <td></td>
                                             </c:otherwise>
                                         </c:choose>
-                                        
-                                        
-                                        
-
                                     </tr>
 
                                 </c:forEach>

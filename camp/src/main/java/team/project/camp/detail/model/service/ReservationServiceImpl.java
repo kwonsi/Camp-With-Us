@@ -22,7 +22,7 @@ public class ReservationServiceImpl implements ReservationService {
 	public int selectPriceP(String month) {
 		return dao.selectPriceP(month);
 	}
-	
+
 	//비성수기
 	@Override
 	public int selectPriceNp(String month) {

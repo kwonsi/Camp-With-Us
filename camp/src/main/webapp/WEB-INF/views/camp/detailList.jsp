@@ -12,6 +12,8 @@
             <link rel="stylesheet" href="${contextPath}/resources/css/main.css">
             <link rel="stylesheet" href="${contextPath}/resources/css/detailList.css">
             <link rel="stylesheet" href="${contextPath}/resources/css/map.css">
+            <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap1.css">
+         
             <script src="https://kit.fontawesome.com/a2e8ca0ae3.js" crossorigin="anonymous"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js"></script>
 
@@ -96,14 +98,14 @@
 
                 <div class="layout">
                     <ul class="camp_tab05">
-                        <li><a href='/camp/campList/detailList?campName=${campName}&viewType=1' class="camp_intro">
+                        <li class="campListli"><a href='/camp/campList/detailList?campName=${campName}&viewType=1' class="camp_intro">
                             캠핑장 소개</a></li>
-                        <li class="on"><a href='/camp/campList/detailList?campName=${campName}&viewType=2' class="camp_guide">
+                        <li class="campListli"><a href='/camp/campList/detailList?campName=${campName}&viewType=2' class="camp_guide">
                             캠핑장 가격</a></li>
 
                         <li id="c_map"><a href='/camp/campList/detailList?campName=${campName}&viewType=3' class="camp_map">
                             위치/주변정보</a></li>
-                        <li id="c_review"><a href='/camp/campList/detailList?campName=${campName}&viewType=4' class="camp_review">
+                        <li class="campListli"><a href='/camp/campList/detailList?campName=${campName}&viewType=4' class="camp_review">
                             날씨</a></li>
                             <li id="c_review"><a href='/camp/campList/detailList?campName=${campName}&viewType=5' class="camp_review">
                                 리뷰</a></li>
@@ -253,21 +255,99 @@
                             </tbody>
                         </table>
                     </div>
-
                 </c:if>
 
                 <!-- viewType == 3 일때 -->
                 <c:if test="${param.viewType == '3'}">
-
-
-
                     <div class="kakaoMap">
                         <div id="map" style="width:auto; height:600px;"></div>
                     </div>
-
-                    
-
                 </c:if>
+
+
+
+
+                <!-- viewType == 4 일때 -->
+                <c:if test="${param.viewType == '4'}">
+
+                    <div class="div7" id="doNmVal">
+                        지역 날씨
+                    </div>
+                    <div class="table_w">
+                        <table class="table camp_info_tb">
+                            <colgroup>
+<!--                                 <col style="width: 20%">
+                                <col style="width: 20%">
+                                <col style="width: 20%">
+                                <col style="width: 20%">
+                                <col style="width: 20%"> -->
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th rowspan="2" scope="col">구분</th>
+       
+                                </tr>
+
+                                <tr>
+                                    <th scope="col">1</th>
+                                    <th scope="col">2</th>
+                                    <th scope="col">3</th>
+                                    <th scope="col">4</th>
+                                    <th scope="col">5</th>
+                                    <th scope="col">6</th>
+                                    <th scope="col">7</th>
+                                    <th scope="col">8</th>
+                                    <th scope="col">9</th>
+                                    <th scope="col">10</th>
+                                </tr>
+                            </thead>
+                            <tbody class="t_c">
+                                <tr>
+                                    <th scope="col" height="100px">오전</th>
+                                    <td>맑음</td>
+                                    <td>맑음</td>
+                                    <td>맑음</td>
+                                    <td>맑음</td>
+                                    <td>맑음</td>
+                                    <td>맑음</td>
+                                    <td>맑음</td>
+                                    <td rowspan="2">맑음</td>
+                                    <td rowspan="2">맑음</td>
+                                    <td rowspan="2">맑음</td>
+                                </tr>
+                                <tr>
+                                    <th scope="col" height="100px">오후</th>
+                                    <td>맑음</td>
+                                    <td>맑음</td>
+                                    <td>맑음</td>
+                                    <td>맑음</td>
+                                    <td>맑음</td>
+                                    <td>맑음</td>
+                                    <td>맑음</td>
+                                </tr>
+                                <tr>
+                                    <th scope="col" height="50px">강수량</th>
+                                    <td>강수량</td>
+                                    <td>강수량</td>
+                                    <td>강수량</td>
+                                    <td>강수량</td>
+                                    <td>강수량</td>
+                                    <td>강수량</td>
+                                    <td>강수량</td>
+                                    <td>강수량</td>
+                                    <td>강수량</td>
+                                    <td>강수량</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </c:if>
+
+
+
+
+
+
 
 
                 <c:if test="${param.viewType == '5'}">
@@ -278,8 +358,17 @@
                 </div>
                </c:if>
 
+
+
+
+
+
+
+
                 <button type="button"><a
                         href='${contextPath}/campDetail/reservation?campName=${campName}'>예약페이지</a></button>
+                
+                
 
 
                 <jsp:include page="/WEB-INF/views/common/footer.jsp" />
