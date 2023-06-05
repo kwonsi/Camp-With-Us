@@ -23,7 +23,7 @@ public class CampDetailServiceImpl implements CampDetailService {
 	public int selectPriceP(String month) {
 		return dao.selectPriceP(month);
 	}
-	
+
 	//비성수기
 	@Override
 	public int selectPriceNp(String month) {

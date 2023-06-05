@@ -50,7 +50,9 @@
 
 							<c:when test="${ empty sessionScope.loginMember }">
 								<li>
-									<h4 id="login">로그인</h4>
+									<a href='${contextPath}/member/login'>
+										<h4 id="login">로그인</h4>
+									</a>
 
 									<ul class="submenu">
 										<li><a href="${contextPath}/member/login">로그인</a></li>
@@ -64,8 +66,11 @@
 								<li>
 									<h4>${loginMember.memberNickname}님</h4>
 								</li>
-								<li>
-									<h4 id="logout" onclick="location.href='${contextPath}/member/logout'">로그아웃</h4>
+								<li onclick="naverLogout();">네이버 로그아웃</li>
+									<li>
+									<a href="${contextPath}/login/logout">
+										<span>세션 로그아웃</span>
+									</a>
 								</li>
 							</c:otherwise>
 
@@ -80,8 +85,6 @@
 					function campList() {
 						location.href = "/camp/campList/?loc=&theme=";
 					}
-
-
 					jQuery(document).ready(function () {
 						$('.menu>li').mouseover(function () {
 							$(this).find('.submenu').stop().slideDown(250);
@@ -89,6 +92,24 @@
 							$(this).find('.submenu').stop().slideUp(250);
 						});
 					});
+
+
+
+					// 네이버 로그아웃 
+					var testPopUp;
+					function openPopUp() {
+						testPopUp = window.open("https://nid.naver.com/nidlogin.logout", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,width=450, height=450");
+					}
+					function closePopUp() {
+						testPopUp.close();
+					}
+
+					function naverLogout() {
+						openPopUp();
+						setTimeout(function () {
+							closePopUp();
+						}, 5000);
+					}
 				</script>
 
 			</section>

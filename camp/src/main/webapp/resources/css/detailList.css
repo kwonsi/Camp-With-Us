@@ -338,7 +338,14 @@ ul.table_ul05 li:first-child {
     margin-right: 10px;
 }
 
-.camp_tab05 li a {
+
+
+
+
+
+
+
+/* .camp_tab05 li a {
     display: block;
     padding: 10px;
     background-color: #f2f2f2;
@@ -347,9 +354,9 @@ ul.table_ul05 li:first-child {
     border-radius: 4px;
     transition: background-color 0.3s ease;
     position: relative;
-}
+} */
 
-.camp_tab05 li a:before {
+/* .camp_tab05 li a:before {
     content: "";
     position: absolute;
     top: 0;
@@ -361,9 +368,9 @@ ul.table_ul05 li:first-child {
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.3s ease;
-}
+} */
 
-.camp_tab05 li a:hover:before {
+/* .camp_tab05 li a:hover:before {
     opacity: 1;
     background-color: rgba(0, 0, 0, 0.1);
 }
@@ -376,7 +383,7 @@ ul.table_ul05 li:first-child {
 .camp_tab05 li.active a:before {
     opacity: 1;
     background-color: rgba(255, 255, 255, 0.1);
-}
+} */
 
 
 

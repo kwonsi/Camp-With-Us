@@ -180,6 +180,7 @@ window.onload = function () {
 items = JSON.parse(localStorage.getItem("item"));
 var mapContainer = document.getElementById('map');
 
+
 if (mapContainer) {
     mapContainer, // 지도의 중심좌표
         mapOption = {
@@ -232,7 +233,7 @@ if (mapContainer) {
 var doNm = items.doNm;
 console.log("doNm:: "+doNm);
 
-var doNmval = document.getElementById("doNmVal");  // 날씨제목
-if(doNmval){
-doNmval.innerText = doNm+" 지역 날씨";
+var doNmVal = document.getElementById("doNmVal");  // 날씨제목
+if(doNmVal){
+doNmVal.innerText = doNm+" 지역 날씨";
 };

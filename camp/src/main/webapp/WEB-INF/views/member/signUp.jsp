@@ -12,12 +12,10 @@
 
 
      <link rel="stylesheet" href="${contextPath}/resources/css/main.css">
-     <!-- <link rel="stylesheet" href="${contextPath}/resources/css/signUpPage.css"> -->
      
  </head>
  <body>
      <main>
-        <!-- hedaer include -->
 	 	<jsp:include page="/WEB-INF/views/common/header.jsp" />
 
 

@@ -25,8 +25,8 @@ public class CampDetailDAO {
 	public int selectPriceNp(String month) {
 		return sqlSession.selectOne("campDetailMapper.selectPriceNp", month);
 	}
-	
- 
+
+
 	//예약정보 삽입
 	public int reservationInfo(Reservation reservation) {
 		return sqlSession.insert("campDetailMapper.reservationInfo", reservation);
