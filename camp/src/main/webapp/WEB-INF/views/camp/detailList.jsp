@@ -12,12 +12,8 @@
             <link rel="stylesheet" href="${contextPath}/resources/css/main.css">
             <link rel="stylesheet" href="${contextPath}/resources/css/detailList.css">
             <link rel="stylesheet" href="${contextPath}/resources/css/map.css">
-<<<<<<< HEAD
-            <link rel="stylesheet" href="${contextPath}/resources/css/review.css">
-=======
             <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap1.css">
          
->>>>>>> d637172e428a4de93968a2a9fdc40eb829e0b2c5
             <script src="https://kit.fontawesome.com/a2e8ca0ae3.js" crossorigin="anonymous"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js"></script>
 
