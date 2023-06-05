@@ -7,10 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import team.project.camp.detail.model.vo.Reservation;
+import team.project.camp.detail.model.vo.Review;
 
 
 @Repository
-public class ReservationDAO {
+public class CampDetailDAO {
 
 	@Autowired
 	private SqlSessionTemplate sqlSession;
@@ -18,27 +19,32 @@ public class ReservationDAO {
 	// 가격계산
 	//성수기
 	public int selectPriceP(String month) {
-		return sqlSession.selectOne("reservationMapper.selectPriceP", month);
+		return sqlSession.selectOne("campDetailMapper.selectPriceP", month);
 	}
 	//비성수기
 	public int selectPriceNp(String month) {
-		return sqlSession.selectOne("reservationMapper.selectPriceNp", month);
+		return sqlSession.selectOne("campDetailMapper.selectPriceNp", month);
 	}
 	
  
 	//예약정보 삽입
 	public int reservationInfo(Reservation reservation) {
-		return sqlSession.insert("reservationMapper.reservationInfo", reservation);
+		return sqlSession.insert("campDetailMapper.reservationInfo", reservation);
 	}
 
 	//예약 조회
 	public List<Reservation> reservationSelect() {
-		return sqlSession.selectList("reservationMapper.reservationSelect");
+		return sqlSession.selectList("campDetailMapper.reservationSelect");
 	}
 
 	//예약취소
 	public int reservationState(int reservNo) {
-		return sqlSession.update("reservationMapper.reservationState", reservNo);
+		return sqlSession.update("campDetailMapper.reservationState", reservNo);
+	}
+	
+	// 리뷰 목록 조회
+	public List<Review> selectReplyList(int campNo) {
+		return sqlSession.selectList("campDetailMapper.selectReplyList", campNo);
 	}
 
 

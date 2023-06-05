@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import lombok.extern.slf4j.Slf4j;
-import team.project.camp.detail.model.service.ReservationService;
+import team.project.camp.detail.model.service.CampDetailService;
 import team.project.camp.detail.model.vo.Reservation;
 @Slf4j
 @Controller
@@ -19,7 +19,7 @@ import team.project.camp.detail.model.vo.Reservation;
 public class MyPageController {
 
 	@Autowired
-	private ReservationService service;
+	private CampDetailService service;
 
 	//예약조회
 	@GetMapping("/myReservation")

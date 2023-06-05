@@ -2,8 +2,9 @@ package team.project.camp.detail.model.service;
 import java.util.List;
 
 import team.project.camp.detail.model.vo.Reservation;
+import team.project.camp.detail.model.vo.Review;
 
-public interface ReservationService {
+public interface CampDetailService {
 
 	//가격계산
 	//성수기
@@ -19,5 +20,8 @@ public interface ReservationService {
 
 	//예약취소
 	int reservationState(int reservNo);
+	
+	// 리뷰 목록 조회
+	List<Review> selectReplyList(int campNo);
 
 }

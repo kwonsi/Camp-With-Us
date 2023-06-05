@@ -10,17 +10,18 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import lombok.extern.slf4j.Slf4j;
-import team.project.camp.detail.model.service.ReservationService;
+import team.project.camp.detail.model.service.CampDetailService;
 import team.project.camp.detail.model.vo.Reservation;
 
 @Slf4j
 @Controller
 @RequestMapping("/campDetail")
-public class ReservationController {
+public class CampDetailController {
 
 	@Autowired
-	private ReservationService service;
-
+	private CampDetailService service;
+	
+	
 	// 예약하기 페이지 조회  detailList--> reservation
 	// href='${contextPath}/campDetail/reservation?campName=${campName}'>예약페이지</a></button>
 	@GetMapping("/reservation")
