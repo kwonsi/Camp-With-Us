@@ -81,10 +81,6 @@
                                                 <td></td>
                                             </c:otherwise>
                                         </c:choose>
-                                        
-                                        
-                                        
-
                                     </tr>
 
                                 </c:forEach>

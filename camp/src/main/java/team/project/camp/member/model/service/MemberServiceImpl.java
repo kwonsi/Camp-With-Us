@@ -82,4 +82,36 @@ public class MemberServiceImpl implements MemberService {
 
 		return result;
 	}
+
+
+	//구글 첫 로그인 시 DB 삽입
+	@Override
+	public int googleLoginInsert(Member member) {
+		return dao.googleLoginInsert(member);
+	}
+
+	//구글 로그인 회원정보 조회
+	@Override
+	public Member googleLogin(Member googleMember) {
+		Member googleLoginMember = dao.googleLogin(googleMember);
+		return googleLoginMember;
+	}
+
+	
+	//카카오 첫 로그인 시 DB 삽입
+		@Override
+		public int kakaoLoginInsert(Member member) {
+			return dao.kakaoLoginInsert(member);
+		}
+
+	
+	//카카오 로그인 회원정보 조회
+	@Override	
+	public Member kakaoLogin(Member kakaoMember) {
+		Member kakaoLoginMember = dao.kakaoLogin(kakaoMember);
+		return kakaoLoginMember;
+	}
+
+	
+
 }

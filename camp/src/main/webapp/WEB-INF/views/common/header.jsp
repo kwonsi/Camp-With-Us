@@ -50,7 +50,8 @@
 
 							<c:when test="${ empty sessionScope.loginMember }">
 								<li>
-									<h4 id="login">로그인</h4>
+									<a href='${contextPath}/member/login'>
+										<h4 id="login">로그인</h4></a>
 
 									<ul class="submenu">
 										<li><a href="${contextPath}/member/login">로그인</a></li>
@@ -61,11 +62,11 @@
 							</c:when>
 
 							<c:otherwise>
+								<li><h4>${loginMember.memberNickname}님</h4></li>
 								<li>
-									<h4>${loginMember.memberNickname}님</h4>
-								</li>
-								<li>
-									<h4 id="logout">로그아웃</h4>
+									<a href="${contextPath}/login/logout">
+										<span>로그아웃</span>
+									</a>
 								</li>
 							</c:otherwise>
 
@@ -80,8 +81,6 @@
 					function campList() {
 						location.href = "/camp/campList/?loc=&theme=";
 					}
-
-
 					jQuery(document).ready(function () {
 						$('.menu>li').mouseover(function () {
 							$(this).find('.submenu').stop().slideDown(250);
@@ -89,6 +88,7 @@
 							$(this).find('.submenu').stop().slideUp(250);
 						});
 					});
+
 				</script>
 
 			</section>

@@ -56,4 +56,46 @@ public class MemberDAO {
 
 		return sqlSession.insert("memberMapper.signUp", signUpMember);
 	}
+
+
+	/**구글 첫 로그인 시 DB 삽입
+	 * @param member
+	 * @return
+	 */
+	public int googleLoginInsert(Member member) {
+		return sqlSession.insert("memberMapper.googleLoginInsert", member);
+	}
+
+
+	/**구글 로그인 회원정보 조회
+	 * @param googleMember
+	 * @return
+	 */
+	public Member googleLogin(Member googleMember) {
+
+		Member googleLoginMember = sqlSession.selectOne("memberMapper.googleLogin", googleMember);
+		return googleLoginMember;
+	}
+
+
+	/**카카오 첫 로그인 시 DB삽입
+	 * @param member
+	 * @return
+	 */
+	public int kakaoLoginInsert(Member member) {
+		return sqlSession.insert("memberMapper.kakaoLoginInsert", member);
+	}
+
+
+	/**카카오 로그인 회원정보 조회
+	 * @param kakaoMember
+	 * @return
+	 */
+	public Member kakaoLogin(Member kakaoMember) {
+		Member kakaoLoginMember = sqlSession.selectOne("memberMapper.kakaoLogin", kakaoMember);
+		return kakaoLoginMember;
+	}
+
+
+
 }

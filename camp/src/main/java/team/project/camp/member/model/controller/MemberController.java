@@ -34,7 +34,6 @@ import team.project.camp.member.model.vo.Member;
 									// 해당 값을 session scope 이동시키는 역할*/
 public class MemberController {
 
-
 	Logger logger = LoggerFactory.getLogger(MemberController.class);
 
 	@Autowired // bean으로 등록된 객체 중 타입이 같거나, 상속 관계인 bean을 주입 해주는 역할
@@ -51,7 +50,98 @@ public class MemberController {
 		return "member/signUp";
 	}
 
-	//----------------------------
+
+	//----------------------구글로그인 start----------------------------------
+	@ResponseBody
+	@PostMapping("/googleLoginInfo")
+	
+	public String googleLoginInfo( @ModelAttribute Member googleMember,
+								String memberEmail, String memberNickname,
+								Model model,
+								HttpServletResponse resp,
+								HttpServletRequest req) {
+
+		logger.info("memberEmail : " + memberEmail);
+		logger.info("memberNickname : " + memberNickname);
+
+		Member member = new Member();
+		member.setMemberEmail(memberEmail);
+		member.setMemberNickname(memberNickname);
+
+		System.out.println("googleMember :  " + googleMember);
+
+		// 아이디, 비밀번호가 일치하는 회원 정보를 조회하는 Service 호출 후 결과 반환 받기
+		Member googleLoginMember = service.googleLogin(googleMember);
+
+		System.out.println("googleLoginMember :  " + googleLoginMember);
+
+		if(googleLoginMember != null) { // 로그인 성공 시 (로그인정보 조회 성공 시)
+			model.addAttribute("loginMember", googleLoginMember); // == req.setAttribute("loginMember", loginMember);
+
+		} else {	//로그인정보 조회 실패 시 DB에 구글로그인 정보 삽입(구글아이디로 처음 로그인시)
+
+			int result = service.googleLoginInsert(member);
+			if(result>0) {
+				logger.info("구글 로그인 정보 DB 삽입 성공");
+				Member googleLoginMember2 = service.googleLogin(googleMember);
+				model.addAttribute("loginMember", googleLoginMember2);
+			}else {
+				logger.info("구글 로그인 정보 DB 삽입 실패");
+			}
+		}
+
+		return "구글 로그인 성공";
+
+	}
+
+	//----------------------구글로그인 end----------------------------------
+
+
+
+	//----------------------카카오로그인 start----------------------------------
+	@ResponseBody
+	@PostMapping("/kakaoLoginInfo")
+	public String kakaoLoginInfo(@ModelAttribute Member kakaoMember,
+								String memberNickname,
+								Model model,
+								HttpServletResponse resp,
+								HttpServletRequest req) {
+		logger.info("memberNickname : " + memberNickname);
+
+		Member member = new Member();
+		member.setMemberNickname(memberNickname);
+
+		System.out.println("kakaoMember :  " + kakaoMember);
+
+		// 아이디, 비밀번호가 일치하는 회원 정보를 조회하는 Service 호출 후 결과 반환 받기
+		Member kakaoLoginMember = service.kakaoLogin(kakaoMember);
+
+		System.out.println("googleLoginMember :  " + kakaoLoginMember);
+
+		if(kakaoLoginMember != null) { // 로그인 성공 시 (로그인정보 조회 성공 시)
+			model.addAttribute("loginMember", kakaoLoginMember); // == req.setAttribute("loginMember", loginMember);
+
+		} else {	//로그인정보 조회 실패 시 DB에 구글로그인 정보 삽입(구글아이디로 처음 로그인시)
+
+			int result = service.kakaoLoginInsert(member);
+			if(result>0) {
+				logger.info("구글 로그인 정보 DB 삽입 성공");
+				Member kakaoLoginMember2 = service.kakaoLogin(kakaoMember);
+				model.addAttribute("loginMember", kakaoLoginMember2);
+			}else {
+				logger.info("구글 로그인 정보 DB 삽입 실패");
+			}
+		}
+
+		return "카카오로그인 성공";
+
+	}
+
+	//----------------------카카오로그인 end----------------------------------
+
+
+
+	//----------------------일반로그인 start----------------------------------
 	@PostMapping("/login")
 	public String login( @ModelAttribute Member inputMember
 						, Model model
@@ -95,8 +185,7 @@ public class MemberController {
 
 		return "redirect:/";
 	}
-
-
+	//----------------------일반로그인 end----------------------------------
 
 	// 로그아웃
 	@GetMapping("/logout")

@@ -79,6 +79,8 @@ window.onload = function () {
             homePage.innerHTML =
                 '<a href="' + items.homepage + '" target="_blank" >홈페이지 바로가기</a>';
 
+
+
             if (intro) {   ///  viewType =1,2,3 넘어갈때 오류방지 if조건문 
                 // 기타 주요시설 table 
                 // 주요시설
@@ -178,10 +180,10 @@ window.onload = function () {
 
 
 
-
 /// 카카오 맵
 items = JSON.parse(localStorage.getItem("item"));
 var mapContainer = document.getElementById('map');
+
 
 if (mapContainer) {
     mapContainer, // 지도의 중심좌표
@@ -234,4 +236,7 @@ if (mapContainer) {
 
 
 
+
+var doNm = items.doNm;
+console.log("doNm :: "+ doNm);
 
