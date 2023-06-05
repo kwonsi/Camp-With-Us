@@ -98,7 +98,7 @@ header .content1 {
 
 
 main {
-    width: 1400px;
+    width: 1500px;
 
     height: auto;
 
@@ -188,7 +188,12 @@ footer span {
 
 
 
-
+#divv{
+    width: 100%;
+    height: 800px;
+    display: flex;
+    position: relative;
+}
 
 
 .ranBoard>div:nth-of-type(1) {
@@ -285,10 +290,12 @@ footer span {
     right: 0;
 }
 .slider__dot {
+    display: flex;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
     bottom: 20px;
+    
 }
 .slider__dot .dot {
     width: 20px;

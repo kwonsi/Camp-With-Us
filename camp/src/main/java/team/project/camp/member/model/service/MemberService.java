@@ -44,4 +44,20 @@ public interface MemberService {
 	 */
 	public abstract int setTempPassword(Member member);
 
+	
+	
+	
+	/** 네이버 이메일 중복검사 서비스
+	 * @param memberEmail
+	 * @return
+	 */
+	public abstract int naverEmailDupCheck(String memberEmail);
+
+	
+	
+	/** 네이버 로그인 DB 저장
+	 * @param loginMember
+	 * @return 
+	 */
+	public abstract int naverLoginInsert(Member loginMember); 
 }

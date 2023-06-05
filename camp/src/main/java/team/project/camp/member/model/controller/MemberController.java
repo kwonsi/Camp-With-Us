@@ -254,6 +254,7 @@ public class MemberController {
                 "<br><br>" + 
                 "인증 번호는 " + num + "입니다." + 
                 "<br>" + 
+                
                 "해당 인증번호를 인증번호 확인란에 기입하여 주세요.";
         
         try {

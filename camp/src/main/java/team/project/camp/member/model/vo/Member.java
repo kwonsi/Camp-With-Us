@@ -20,4 +20,5 @@ public class Member {
 	private String profileImage;
 	private String enrollDate;
 	private String secessionFlag;
+	private String loginST;
 }

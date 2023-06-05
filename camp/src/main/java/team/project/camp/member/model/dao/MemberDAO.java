@@ -8,6 +8,10 @@ import org.springframework.stereotype.Repository;
 
 import team.project.camp.member.model.vo.Member;
 
+/**
+ * @author user
+ *
+ */
 @Repository
 public class MemberDAO {
 
@@ -74,6 +78,25 @@ public class MemberDAO {
 	 */
 	public int setTempPassword(Member member) {
 		return sqlSession.update("memberMapper.setTempPassword", member);
+	}
+
+
+	
+	/** 네이버 이메일 중복검사 DAO 
+	 * @param memberEmail
+	 * @return
+	 */
+	public int naverEmailDupCheck(String memberEmail) {
+		return sqlSession.selectOne("memberMapper.naverEmailDupCheck", memberEmail);
+	}
+
+
+	/** 네이버 로그인시 DB 에 정보 저장 
+	 * @param loginMember
+	 * @return
+	 */
+	public int naverLoginInsert(Member loginMember) {
+		return sqlSession.insert("memberMapper.naverLoginInsert", loginMember);
 	}
 	
 	

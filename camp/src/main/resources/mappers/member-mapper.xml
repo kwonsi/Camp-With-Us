@@ -13,23 +13,9 @@
 		<result property="profileImage" 	column="PROFILE_IMG"/>
 		<result property="enrollDate" 		column="ENROLL_DT"/>
 		<result property="secessionFlag" 	column="SECESSION_FL"/>
+		<result property="loginST"          column="LOGIN_ST"/>
 	</resultMap>
 	
-	<select id="test1" resultType="_int">
-		SELECT COUNT(*) FROM MEMBER
-	</select>
-
-	<select id="test2" parameterType="string" resultType="string">
-		SELECT MEMBER_NICK FROM MEMBER
-		WHERE MEMBER_EMAIL = #{memberEmail} AND SECESSION_FL = 'N' 
-	</select>
-	
-	<select id="test3" parameterType="member" resultType="string">
-		SELECT MEMBER_TEL FROM MEMBER_S
-		WHERE MEMBER_EMAIL = #{memberEmail} 
-		AND MEMBER_PW = #{memberPw} AND SECESSION_FL = 'N'
-	</select>
-
 	<select id="login" parameterType="member" resultMap="member_rm">
 		SELECT MEMBER_NO, MEMBER_EMAIL, MEMBER_NICK , MEMBER_TEL,
     	MEMBER_ADDR, PROFILE_IMG, 
@@ -58,7 +44,7 @@
 	<insert id="signUp" parameterType="member">
 		INSERT INTO MEMBER_S VALUES (SEQ_MEMBER_NO_S.NEXTVAL, #{memberEmail}, #{memberPw},
 			#{memberNickname}, #{memberTel}, #{memberAddress},
-			DEFAULT, DEFAULT, DEFAULT)	
+			DEFAULT, DEFAULT, DEFAULT, DEFAULT)	
 	</insert>
 	
 	<!-- 아이디 찾기 -->
@@ -69,5 +55,36 @@
 	<update id="setTempPassword" parameterType="member">
 		UPDATE MEMBER_S SET MEMBER_PW = #{memberPw} WHERE MEMBER_EMAIL = #{memberEmail}
 	</update>
+	
+	
+	
+	
+	
+	
+	
+		<!-- 네이버 이메일 중복 검사 -->
+	<select id="naverEmailDupCheck" parameterType="string" resultType="_int">
+		SELECT COUNT(*) FROM MEMBER_S
+		WHERE MEMBER_EMAIL = #{memberEmail}
+		AND SECESSION_FL = 'N'
+		AND LOGIN_ST = 'Y'
+	</select>
+		<!-- 네이버 회원정보 저장 -->
+	<insert id="naverLoginInsert" parameterType="member">
+		INSERT INTO MEMBER_S VALUES 
+		(SEQ_MEMBER_NO_S.NEXTVAL, #{memberEmail}, NULL ,
+			#{memberNickname}, #{memberTel}, NULL,
+			DEFAULT, DEFAULT, DEFAULT , 'Y')	
+	</insert>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 </mapper>

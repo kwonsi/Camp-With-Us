@@ -24,6 +24,7 @@ var sobangli = document.getElementsByClassName("table_ul05")[6];  // 안전시�
 var sbrsClli = document.getElementsByClassName("table_ul05")[7]; // 부가정보
 
 
+
 // 캠핑장 정보 저장용 변수 ( json데이터 item[]에 복사 )
 let item = {};
 
@@ -78,6 +79,10 @@ window.onload = function () {
             imgB.innerHTML = '<img src="' + items.firstImageUrl + '" alt="대표이미지"  />';
             homePage.innerHTML =
                 '<a href="' + items.homepage + '" target="_blank" >홈페이지 바로가기</a>';
+
+
+            
+
 
             if (intro) {   ///  viewType =1,2,3 넘어갈때 오류방지 if조건문 
                 // 기타 주요시설 table 
@@ -171,14 +176,6 @@ window.onload = function () {
 
 
 
-
-
-
-
-
-
-
-
 /// 카카오 맵
 items = JSON.parse(localStorage.getItem("item"));
 var mapContainer = document.getElementById('map');
@@ -232,6 +229,10 @@ if (mapContainer) {
 }
 
 
+var doNm = items.doNm;
+console.log("doNm:: "+doNm);
 
-
-
+var doNmVal = document.getElementById("doNmVal");  // 날씨제목
+if(doNmVal){
+doNmVal.innerText = doNm+" 지역 날씨";
+};

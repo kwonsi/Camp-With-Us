@@ -44,7 +44,7 @@
 
 
                 <hr>
-
+                <div id = "divv">
                 <section class="content3 slider__wrap">
 
                     <div class="slide slider__img">
@@ -156,8 +156,8 @@
                     </div>
                     <div class="slider__dot"></div>
                 </section>
-
-                <button id="resetBtn"> 작동하길 </button>
+               
+            </div>
 
 
 

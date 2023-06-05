@@ -99,4 +99,21 @@ public class MemberServiceImpl implements MemberService {
 		
 		return dao.setTempPassword(member);
 	}
+	
+	
+	// 네이버 이메일 중복검사 서비스
+	@Override
+	public int naverEmailDupCheck(String memberEmail) {
+		return dao.naverEmailDupCheck(memberEmail);
+	}
+	// 네이버 로그인정보 저장 서비스
+	@Override
+	public int naverLoginInsert(Member loginMember) {
+		return dao.naverLoginInsert(loginMember);
+	}
+	
+	
+	
+	
 }
+

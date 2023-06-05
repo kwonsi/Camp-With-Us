@@ -253,21 +253,99 @@
                             </tbody>
                         </table>
                     </div>
-
                 </c:if>
 
                 <!-- viewType == 3 일때 -->
                 <c:if test="${param.viewType == '3'}">
-
-
-
                     <div class="kakaoMap">
                         <div id="map" style="width:auto; height:600px;"></div>
                     </div>
-
-                    
-
                 </c:if>
+
+
+
+
+                <!-- viewType == 4 일때 -->
+                <c:if test="${param.viewType == '4'}">
+
+                    <div class="div7" id="doNmVal">
+                        지역 날씨
+                    </div>
+                    <div class="table_w">
+                        <table class="table camp_info_tb">
+                            <colgroup>
+<!--                                 <col style="width: 20%">
+                                <col style="width: 20%">
+                                <col style="width: 20%">
+                                <col style="width: 20%">
+                                <col style="width: 20%"> -->
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th rowspan="2" scope="col">구분</th>
+       
+                                </tr>
+
+                                <tr>
+                                    <th scope="col">1</th>
+                                    <th scope="col">2</th>
+                                    <th scope="col">3</th>
+                                    <th scope="col">4</th>
+                                    <th scope="col">5</th>
+                                    <th scope="col">6</th>
+                                    <th scope="col">7</th>
+                                    <th scope="col">8</th>
+                                    <th scope="col">9</th>
+                                    <th scope="col">10</th>
+                                </tr>
+                            </thead>
+                            <tbody class="t_c">
+                                <tr>
+                                    <th scope="col" height="100px">오전</th>
+                                    <td>맑음</td>
+                                    <td>맑음</td>
+                                    <td>맑음</td>
+                                    <td>맑음</td>
+                                    <td>맑음</td>
+                                    <td>맑음</td>
+                                    <td>맑음</td>
+                                    <td rowspan="2">맑음</td>
+                                    <td rowspan="2">맑음</td>
+                                    <td rowspan="2">맑음</td>
+                                </tr>
+                                <tr>
+                                    <th scope="col" height="100px">오후</th>
+                                    <td>맑음</td>
+                                    <td>맑음</td>
+                                    <td>맑음</td>
+                                    <td>맑음</td>
+                                    <td>맑음</td>
+                                    <td>맑음</td>
+                                    <td>맑음</td>
+                                </tr>
+                                <tr>
+                                    <th scope="col" height="50px">강수량</th>
+                                    <td>강수량</td>
+                                    <td>강수량</td>
+                                    <td>강수량</td>
+                                    <td>강수량</td>
+                                    <td>강수량</td>
+                                    <td>강수량</td>
+                                    <td>강수량</td>
+                                    <td>강수량</td>
+                                    <td>강수량</td>
+                                    <td>강수량</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </c:if>
+
+
+
+
+
+
 
 
                 <c:if test="${param.viewType == '5'}">
@@ -277,6 +355,13 @@
 
                 </div>
                </c:if>
+
+
+
+
+
+
+
 
                 <button type="button"><a
                         href='${contextPath}/campDetail/reservation?campName=${campName}'>예약페이지</a></button>

@@ -66,10 +66,10 @@
 								<li>
 									<h4>${loginMember.memberNickname}님</h4>
 								</li>
-								<!-- <li onclick="naverLogout();"> -->
+								<li onclick="naverLogout();">네이버 로그아웃</li>
 									<li>
 									<a href="${contextPath}/login/logout">
-										<span> 로그아웃</span>
+										<span>세션 로그아웃</span>
 									</a>
 								</li>
 							</c:otherwise>
@@ -93,10 +93,12 @@
 						});
 					});
 
+
+
 					// 네이버 로그아웃 
-/* 					var testPopUp;
+					var testPopUp;
 					function openPopUp() {
-						testPopUp = window.open("https://nid.naver.com/nidlogin.logout", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,width=450, height=600");
+						testPopUp = window.open("https://nid.naver.com/nidlogin.logout", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,width=450, height=450");
 					}
 					function closePopUp() {
 						testPopUp.close();
@@ -106,9 +108,8 @@
 						openPopUp();
 						setTimeout(function () {
 							closePopUp();
-						}, 1000);
-
-					} */
+						}, 5000);
+					}
 				</script>
 
 			</section>

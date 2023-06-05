@@ -48,7 +48,7 @@
  
              </form>
  
-             
+\
          </section>
 
          <div class="social-loginbtns">
@@ -61,7 +61,7 @@
             <div></div>
         </div>
  
- 
+         
      </main>
  
 
@@ -76,6 +76,7 @@
 
     <script type="text/javascript">
         const contextPath = "${contextPath}";
+        
         function showLoginPopup(){
             let uri = 'https://nid.naver.com/oauth2.0/authorize?' +
                 'response_type=code' +                  // 인증과정에 대한 내부 구분값 code 로 전공 (고정값)

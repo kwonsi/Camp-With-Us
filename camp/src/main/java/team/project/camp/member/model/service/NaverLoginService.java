@@ -19,7 +19,6 @@ import com.fasterxml.jackson.databind.JsonNode;
 
 import lombok.extern.slf4j.Slf4j;
 import team.project.camp.member.model.CommonLoginService;
-import team.project.camp.member.model.vo.LoginVo;
 import team.project.camp.member.model.vo.Member;
 
 @Slf4j
@@ -91,26 +90,17 @@ public class NaverLoginService implements CommonLoginService{
 	            log.info(node+"");
 	            
 	            // 일련번호, 닉네임, 이메일 주소 저장
-	            //String sequence = node.get("response").get("id").asText();
-//	            String _name = node.get("response").get("name") == null ? _vendorSequence : node.get("response").get("name").asText();
-	            String _nickname = node.get("response").get("nickname") == null ? "닉네임 없음" : node.get("response").get("nickname").asText();
-	            String email = node.get("response").get("email")  == null ? "닉네임 없음" : node.get("response").get("email").asText();
-    			String mobile = node.get("response").get("mobile") == null ? "닉네임 없음" : node.get("response").get("mobile").asText();
-				String name = node.get("response").get("name") == null ? "닉네임 없음" : node.get("response").get("name").asText();
-//	            String _email = node.get("response").get("email") == null ? _vendorSequence + "@naver.com" : node.get("response").get("email").asText();
+	            String nickname = node.get("response").get("nickname") == null ? "닉네임 없음" : node.get("response").get("nickname").asText();
+	            String email = node.get("response").get("email")  == null ? "이메일 없음" : node.get("response").get("email").asText();
+    			String _mobile = node.get("response").get("mobile") == null ? "전화번호 없음" : node.get("response").get("mobile").asText();
+				String name = node.get("response").get("name") == null ? "이름 없음" : node.get("response").get("name").asText();
 
-//	            nickname
-//	            email
-//	            mobile
-//	            name
-	           mobile.replace("-", "");
-	            
-	            if(_nickname != null) {
-	            	loginMember.setMemberNickname("Naver"+_nickname);
+	          String mobile = _mobile.replaceAll("-", "");
+	          
+	            if(nickname != null) {
+	            	loginMember.setMemberNickname(nickname);
 	            	loginMember.setMemberEmail(email);
 	            	loginMember.setMemberTel(mobile);
-//	            	loginMember.setMemberNickname("Naver"+_nickname);
-	            	
 	            }
 	            
 	            return loginMember;
@@ -123,7 +113,6 @@ public class NaverLoginService implements CommonLoginService{
 
 		@Override
 		public HttpClient getHttpClient() {
-			// TODO Auto-generated method stub
 			return httpClient;
 		}
 
