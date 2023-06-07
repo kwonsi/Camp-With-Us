@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import lombok.extern.slf4j.Slf4j;
-import team.project.camp.detail.model.service.ReservationService;
+import team.project.camp.detail.model.service.CampDetailService;
 import team.project.camp.detail.model.vo.Reservation;
 import team.project.camp.member.model.vo.Member;
 @Slf4j
@@ -24,7 +24,7 @@ import team.project.camp.member.model.vo.Member;
 public class MyPageController {
 
 	@Autowired
-	private ReservationService service;
+	private CampDetailService service;
 
 	//예약조회
 	@GetMapping("/myReservation")

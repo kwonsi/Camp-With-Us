@@ -13,6 +13,7 @@
             <link rel="stylesheet" href="${contextPath}/resources/css/detailList.css">
             <link rel="stylesheet" href="${contextPath}/resources/css/map.css">
             <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap1.css">
+            <link rel="stylesheet" href="${contextPath}/resources/css/review.css">
          
             <script src="https://kit.fontawesome.com/a2e8ca0ae3.js" crossorigin="anonymous"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js"></script>
@@ -24,13 +25,7 @@
 
                 <jsp:include page="/WEB-INF/views/common/header.jsp" />
 
-
-
-
-
                 <div class="div2">
-
-
 
                     <div class="camp_info_box">
                         <div class="img_b" id="img_b">
@@ -102,13 +97,12 @@
                             캠핑장 소개</a></li>
                         <li class="campListli"><a href='/camp/campList/detailList?campName=${campName}&viewType=2' class="camp_guide">
                             캠핑장 가격</a></li>
-
                         <li id="c_map"><a href='/camp/campList/detailList?campName=${campName}&viewType=3' class="camp_map">
                             위치/주변정보</a></li>
                         <li class="campListli"><a href='/camp/campList/detailList?campName=${campName}&viewType=4' class="camp_review">
                             날씨</a></li>
-                            <li id="c_review"><a href='/camp/campList/detailList?campName=${campName}&viewType=5' class="camp_review">
-                                리뷰</a></li>
+                        <li id="c_review"><a href='/camp/campList/detailList?campName=${campName}&viewType=5' class="camp_review">
+                            리뷰</a></li>
                     </ul>
                 </div>
                 <hr>
@@ -353,7 +347,8 @@
                 <c:if test="${param.viewType == '5'}">
 
                 <div class="div7">
-                    <jsp:include page="/WEB-INF/views/common/footer.jsp" />
+
+                    <jsp:include page="/WEB-INF/views/camp/campReview.jsp" />
 
                 </div>
                </c:if>
@@ -369,26 +364,29 @@
                 
                 
 
-
-                <jsp:include page="/WEB-INF/views/common/footer.jsp" />
-
             </main>
             
+        <jsp:include page="/WEB-INF/views/common/footer.jsp" />
+
+        <script>
+
+            const campName = "${campName}";
+            // 로그인한 회원 번호
+            const loginMemberNo = "${loginMember.memberNo}";
+            // 최상위 주소
+            const contextPath = "${contextPath}";        
+            // 캠핑장 번호
+            var campItem = JSON.parse(localStorage.getItem("item"));
+            const campNo = campItem.contentId;
+        </script>
 
 
-            <script>
-        /* 
-                const sessionScope = "${sessionScope.loginMember}"; */
-                const campName = "${campName}";
-               
-            </script>
+        <script type="text/javascript"
+            src="//dapi.kakao.com/v2/maps/sdk.js?appkey=eb6841185807d60ca94c27f62bee498c"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script src="${contextPath}/resources/js/detailList.js"></script>
+        <script src="${contextPath}/resources/js/review.js"></script>
+    </body>
 
-
-            <script type="text/javascript"
-                src="//dapi.kakao.com/v2/maps/sdk.js?appkey=eb6841185807d60ca94c27f62bee498c"></script>
-            <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-                integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-            <script src="${contextPath}/resources/js/detailList.js"></script>
-        </body>
-
-        </html>
+</html>

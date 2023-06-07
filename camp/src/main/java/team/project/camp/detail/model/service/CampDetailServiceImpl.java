@@ -6,15 +6,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import lombok.extern.slf4j.Slf4j;
-import team.project.camp.detail.model.dao.ReservationDAO;
+import team.project.camp.detail.model.dao.CampDetailDAO;
 import team.project.camp.detail.model.vo.Reservation;
+import team.project.camp.detail.model.vo.Review;
 
 @Slf4j
 @Service
-public class ReservationServiceImpl implements ReservationService {
+public class CampDetailServiceImpl implements CampDetailService {
 
 	@Autowired
-	private ReservationDAO dao;
+	private CampDetailDAO dao;
 
 	//가격계산
 	//성수기
@@ -37,8 +38,8 @@ public class ReservationServiceImpl implements ReservationService {
 
 	//예약조회
 	@Override
-	public List<Reservation> reservationSelect(String memberNickname) {
-		return dao.reservationSelect(memberNickname);
+	public List<Reservation> reservationSelect(String memberEmail) {
+		return dao.reservationSelect(memberEmail);
 	}
 
 	//예약취소
@@ -48,4 +49,15 @@ public class ReservationServiceImpl implements ReservationService {
 	}
 
 
+	// 리뷰 목록 조회
+	@Override
+	public List<Review> selectReplyList(int campNo) {
+		return dao.selectReplyList(campNo);
+	}
+	
+	// 리뷰 작성
+	@Override
+	public String insetReview(Review review) {
+		return null;
+	}
 }
