@@ -150,7 +150,7 @@ let priceValue;
 let people;
 var campName = "${campName}";
 var memberNickname = "${loginMember.memberNickname}";
-
+var memberEmail = "${loginMember.memberEmail}"
 
 //결제금액
 document.addEventListener("DOMContentLoaded", function() {
@@ -225,7 +225,7 @@ function requestPay() {
                     merchant_uid: 'merchant_' + new Date().getTime(),
                     name: campName,
                     amount: priceValue,
-                    buyer_email: 'CampingBoeNaeJoe@gmail.com',
+                    buyer_email: memberEmail,
                     buyer_name: memberNickname,
                     buyer_tel: '010-1234-5678',
                     buyer_addr: '구매자 주소 강남구 삼성동',
@@ -238,7 +238,7 @@ function requestPay() {
 
                   console.log("성공");
                   alert("결제가 완료되었습니다");
-
+                  window.location.href = '${contextPath}/member/myPage/myReservation';
                   let selectfirstmonth = document.querySelectorAll(".pickMonth")[0].textContent;
                   let selectfirstday = document.querySelectorAll(".pickDay")[0].textContent;
                   let selectlastmonth = document.querySelectorAll(".pickMonth")[1].textContent;

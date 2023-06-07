@@ -14,29 +14,27 @@
 
 	<section></section>
 
-	<section>
-		<ul class="menu">
-			<li>
-				<h4 id="campList" onclick="campList()">캠핑장조회</h4>
-			</li>
-			<li>
-				<h4 id="board">게시판</h4>
+			<section>
+				<ul class="menu">
+					<li>
+						<h4 id="campList" onclick="campList()">캠핑장조회</h4>
+					</li>
+					<li>
+						<h4 id="board">게시판</h4>
+						<ul class="submenu">
+							<!-- <li><a href="${contextPath}/board/list/1">캠핑장 추천</a></li>
+							<li><a href="${contextPath}/board/list/2">캠핑 나눔</a></li>
+							<li><a href="${contextPath}/board/list/3">캠핑 꿀팁</a></li>
+							<li><a href="${contextPath}/board/list/4">공지사항</a></li>
+							<li><a href="${contextPath}/board/list/5">문의사항</a></li> -->
+							<c:forEach var="boardType" items="${boardTypeList}">
+						<li><a href="${contextPath}/board/list/${boardType.boardCode}">${boardType.boardName}</a></li>
+							</c:forEach>
+						</ul>
+					</li>
+					<li class="myPage_1">
+						<h4 id="myPage">마이페이지</h4>
 				<ul class="submenu">
-					<li>캠핑장 추천</li>
-					<li>캠핑 나눔</li>
-					<li>캠핑 꿀팁</li>
-					<li>공지사항</li>
-					<li>문의사항</li>
-					<!-- <c:forEach var="boardType" items="${boardTypeList}">
-				<li><a href="${contextPath}/board/list/${boardType.boardCode}">${boardType.boardName}</a></li>
-			</c:forEach> -->
-				</ul>
-			</li>
-			<li class="myPage_1">
-				<h4 id="myPage">마이페이지
-				</h4>
-				<ul class="submenu">
-
 					<c:choose>
 						<c:when test="${loginMember.loginST=='Y'}">
 							<li><a href="${contextPath}/member/myPage/myReservation">예약 확인</a></li>
@@ -52,10 +50,11 @@
 							<li><a href="${contextPath}/member/myPage/secession">회원 탈퇴</a></li>
 						</c:otherwise>
 					</c:choose>
-
+					</li>
 				</ul>
-			</li>
+			
 			<%-- 로그인이 되어있지 않은 경우 --%>
+				
 				<c:choose>
 
 					<c:when test="${ empty sessionScope.loginMember }">
@@ -92,7 +91,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 		<script>
 
-			var loginMember = "${sessionScope.loginMember}";
+			var loginMember = "${loginMember}";
 
 			// 헤더 캠프목록조회로 이동함수
 			function campList() {

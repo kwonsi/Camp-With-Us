@@ -1,7 +1,7 @@
 
 // ????????????????  
 // detailList.jsp 에서 예약 버튼 눌렀을때
-// 로그인상태면 오류안뜨고
+// 그인상태면 오류안뜨고
 // 로그인상태가 아니면 오류가 뜸.
 // session 의 loginMember.. 때문인데 ..   해결완료 .!!!
 var reservationBtn = document.getElementById("reservationBtn");

@@ -147,7 +147,12 @@ public class MemberServiceImpl implements MemberService {
 		Member kakaoLoginMember = dao.kakaoLogin(kakaoMember);
 		return kakaoLoginMember;
 	}
-
+	
+	//카카오 중복이메일 방지 이메일,닉네임 selece문 
+	@Override
+	public int kakaoEmailCheck(Member kakaoMember) {
+		return dao.kakaoEmailCheck(kakaoMember);
+	}
 	
 
 }

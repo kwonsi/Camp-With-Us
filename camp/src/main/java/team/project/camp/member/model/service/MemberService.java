@@ -97,6 +97,13 @@ public interface MemberService {
 	 */
 	public abstract int kakaoLoginInsert(Member member);
 
+	
+	/** 카카오 중복이메일 방지 이메일,닉네임 selece문 
+	 * @param kakaoMember
+	 * @return
+	 */
+	public abstract int kakaoEmailCheck(Member kakaoMember);
+
 
 
 

@@ -39,7 +39,7 @@
 
                         <div class="cont_tb">
                             <table class="table">
-                                <caption> ${campName}
+                                <caption> ${campName} 
                                 </caption>
                                 <colgroup>
                                     <col style="width: 30%;" />
@@ -377,8 +377,8 @@
 
 
             <script>
-        
-                const sessionScope = "${sesscionScope.loginMember}";
+        /* 
+                const sessionScope = "${sessionScope.loginMember}"; */
                 const campName = "${campName}";
                
             </script>

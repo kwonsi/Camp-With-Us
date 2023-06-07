@@ -146,6 +146,14 @@ public class MemberDAO {
 		return kakaoLoginMember;
 	}
 
+	/** 카카오 중복이메일 방지 이메일,닉네임 selece문 
+	 * @param kakaoMember
+	 * @return
+	 */
+	public int kakaoEmailCheck(Member kakaoMember) {
+		return sqlSession.selectOne("memberMapper.kakaoEmailCheck",kakaoMember);
+	}
+
 
 
 
