@@ -111,8 +111,11 @@ public class MemberServiceImpl implements MemberService {
 	public int naverLoginInsert(Member loginMember) {
 		return dao.naverLoginInsert(loginMember);
 	}
-	
-	
+	// 네이버 회원정보 뽑아오기
+	@Override
+	public Member naverMember(Member loginMember) {
+		return dao.naverMember(loginMember);
+	}
 	
 	
 

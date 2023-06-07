@@ -149,6 +149,8 @@
 let priceValue;
 let people;
 var campName = "${campName}";
+var memberNickname = "${loginMember.memberNickname}";
+
 
 //결제금액
 document.addEventListener("DOMContentLoaded", function() {
@@ -224,7 +226,7 @@ function requestPay() {
                     name: campName,
                     amount: priceValue,
                     buyer_email: 'CampingBoeNaeJoe@gmail.com',
-                    buyer_name: '구매자이름',
+                    buyer_name: memberNickname,
                     buyer_tel: '010-1234-5678',
                     buyer_addr: '구매자 주소 강남구 삼성동',
     

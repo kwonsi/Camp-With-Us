@@ -4,14 +4,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import lombok.extern.slf4j.Slf4j;
 import team.project.camp.detail.model.service.ReservationService;
 import team.project.camp.detail.model.vo.Reservation;
+import team.project.camp.member.model.vo.Member;
 
 @Slf4j
 @Controller
@@ -25,12 +29,13 @@ public class ReservationController {
 	// href='${contextPath}/campDetail/reservation?campName=${campName}'>예약페이지</a></button>
 	@GetMapping("/reservation")
 	public String ReservationSelect(
-			@RequestParam(value = "campName", required = false, defaultValue = "") String campName, Model model) {
-
+			@RequestParam(value = "campName", required = false, defaultValue = "") String campName,
+			RedirectAttributes ra,
+			 Model model) {
+		
 		model.addAttribute("campName", campName);
 		return "camp/reservation";
 	}
-
 
 	//가격계산
 	//***@ResponseBody -> (비동기)ajax TYPE="GET"일때
@@ -68,11 +73,6 @@ public class ReservationController {
 		reservation.setPeople(people);
 		reservation.setReservSelDate(reservSelDate);
 
-		log.info(buyerName);
-		log.info(campingName);
-		log.info(amount+"");
-		log.info(people + "");
-		log.info(reservSelDate);
 
 		int result = service.reservationInfo(reservation);
 

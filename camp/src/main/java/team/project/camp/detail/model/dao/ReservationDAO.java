@@ -32,8 +32,8 @@ public class ReservationDAO {
 	}
 
 	//예약 조회
-	public List<Reservation> reservationSelect() {
-		return sqlSession.selectList("reservationMapper.reservationSelect");
+	public List<Reservation> reservationSelect(String memberNickname) {
+		return sqlSession.selectList("reservationMapper.reservationSelect", memberNickname);
 	}
 
 	//예약취소

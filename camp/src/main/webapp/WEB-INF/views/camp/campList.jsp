@@ -127,6 +127,8 @@
     <script>
         const loc = "${loc}";
         const theme = "${theme}";
+
+        
     </script>
 
 

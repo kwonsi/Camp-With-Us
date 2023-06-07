@@ -253,16 +253,9 @@ footer span {
     width: 33%;
 }
 
-.slider:nth-child(1) {
-    z-index: 5;
-}
-.slider:nth-child(2) {
-    z-index: 4;
-
-}
-.slider:nth-child(3) {
-    z-index: 3;
-
+.submenu{
+    position: absolute;
+    z-index: 9999;
 }
 
 

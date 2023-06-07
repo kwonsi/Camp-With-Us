@@ -98,7 +98,14 @@ public class MemberDAO {
 	public int naverLoginInsert(Member loginMember) {
 		return sqlSession.insert("memberMapper.naverLoginInsert", loginMember);
 	}
-	
+
+	/** 네이버 회원정보 뽑아오기
+	 * @param loginMember
+	 * @return
+	 */
+	public Member naverMember(Member loginMember) {
+		return sqlSession.selectOne("memberMapper.naverMember",loginMember);
+	}
 	
 	
 	/**구글 첫 로그인 시 DB 삽입
@@ -138,6 +145,8 @@ public class MemberDAO {
 		Member kakaoLoginMember = sqlSession.selectOne("memberMapper.kakaoLogin", kakaoMember);
 		return kakaoLoginMember;
 	}
+
+
 
 
 

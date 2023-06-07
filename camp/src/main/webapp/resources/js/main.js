@@ -1,9 +1,8 @@
-const selLoc = document.getElementById("selLoc");
+//const selLoc = document.getElementById("selLoc");
 const login = document.getElementById("login");
 const myPage = document.getElementById("myPage");
 const searchOption = document.getElementsByClassName("searchOption");
 
-var loginMember = sessionStorage.getItem("loginMember");
 
 
 // 지역 선택 팝업창
@@ -25,23 +24,14 @@ function searchCamp() {
 
     location.href = "/camp/campList/?loc=" + searchOption[0].innerHTML + "&theme=" + searchOption[1].innerHTML;
     // location.href="camp/campList";
-
 }
 
-if ( login ) {
-login.addEventListener("click", function () {
-    location.href = "/login";
-});
+
+if (login) {
+    login.addEventListener("click", function () {
+        location.href = "/login";
+    });
 }
-myPage.addEventListener("click", function () {
-
-    if (loginMember == null) {
-        alert("먼저 로그인을 해주세요");
-    } else {
-        location.href = "/myPage/" + loginMember.memberNo;
-    }
-});
-
 
 
 

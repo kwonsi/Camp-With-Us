@@ -38,8 +38,9 @@
 	</insert>
 
 	<!-- 예약조회 -->
-	<select id="reservationSelect" resultMap="reservation_rm">
+	<select id="reservationSelect" resultMap="reservation_rm" parameterType="string">
 		SELECT * FROM RESERVATION
+		WHERE RESERVATION_P = #{memberNickname}
 	</select>
 
 	<!-- 예약취소 -->

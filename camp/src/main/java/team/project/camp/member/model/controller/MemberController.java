@@ -46,6 +46,7 @@ public class MemberController {
 	}
 
 	@GetMapping("/signUp")
+	
 	public String signUpPage() {
 		return "member/signUp";
 	}
@@ -97,6 +98,7 @@ public class MemberController {
 		System.out.println("googleMember :  " + googleMember);
 
 		// 아이디, 비밀번호가 일치하는 회원 정보를 조회하는 Service 호출 후 결과 반환 받기
+		
 		Member googleLoginMember = service.googleLogin(googleMember);
 
 		System.out.println("googleLoginMember :  " + googleLoginMember);

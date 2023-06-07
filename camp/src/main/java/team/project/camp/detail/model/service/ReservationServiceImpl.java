@@ -37,8 +37,8 @@ public class ReservationServiceImpl implements ReservationService {
 
 	//예약조회
 	@Override
-	public List<Reservation> reservationSelect() {
-		return dao.reservationSelect();
+	public List<Reservation> reservationSelect(String memberNickname) {
+		return dao.reservationSelect(memberNickname);
 	}
 
 	//예약취소

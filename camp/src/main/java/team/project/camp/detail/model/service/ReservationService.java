@@ -15,7 +15,7 @@ public interface ReservationService {
 	int reservationInfo(Reservation reservation);
 
 	//예약조회
-	List<Reservation> reservationSelect();
+	List<Reservation> reservationSelect(String memberNickname);
 
 	//예약취소
 	int reservationState(int reservNo);
