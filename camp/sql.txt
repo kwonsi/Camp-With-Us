@@ -1,0 +1,30 @@
+------------------------------------------------------------ 리뷰 테이블------------------------------------------------------------           
+CREATE TABLE "REPLY_C" (
+    "REPLY_NO"   NUMBER      PRIMARY KEY,
+    "REPLY_CONTENT"   VARCHAR2(1000)      NOT NULL,
+    "REPLY_ST"   CHAR(1) DEFAULT 'N' CHECK ("REPLY_ST" IN ('Y','N')),
+    "CREATE_DT"   DATE   DEFAULT SYSDATE   NOT NULL,
+    "MEMBER_NO"   NUMBER   REFERENCES MEMBER_S,
+    "BOARD_NO"   NUMBER, -- 캠핑장 contentId
+	"CAMP_RATE" NUMBER NOT NULL
+);
+
+COMMENT ON COLUMN "REPLY_C"."REPLY_NO" IS '리뷰 번호';
+COMMENT ON COLUMN "REPLY_C"."REPLY_CONTENT" IS '리뷰 내용';
+COMMENT ON COLUMN "REPLY_C"."REPLY_ST" IS '리뷰 상태';   
+COMMENT ON COLUMN "REPLY_C"."CREATE_DT" IS '리뷰 작성일';
+COMMENT ON COLUMN "REPLY_C"."MEMBER_NO" IS '회원 번호';
+COMMENT ON COLUMN "REPLY_C"."BOARD_NO" IS '캠핑장 번호';
+COMMENT ON COLUMN "REPLY_C"."CAMP_RATE" IS '별점';
+
+DROP SEQUENCE SEQ_REPLY_NO_C;
+
+CREATE SEQUENCE SEQ_REPLY_NO_C; -- 댓글 번호 시퀀스
+--CREATE SEQUENCE SEQ_REPLY_REPLY_NO_C; -- 답글 번호 시퀀스
+
+INSERT INTO REPLY_C VALUES(SEQ_REPLY_NO_C.NEXTVAL, '리뷰1', DEFAULT, DEFAULT, 1, 10, 1);
+INSERT INTO REPLY_C VALUES(SEQ_REPLY_NO_C.NEXTVAL, '리뷰2', DEFAULT, DEFAULT, 1, 10, 2);
+INSERT INTO REPLY_C VALUES(SEQ_REPLY_NO_C.NEXTVAL, '리뷰3', DEFAULT, DEFAULT, 1, 10, 3);
+INSERT INTO REPLY_C VALUES(SEQ_REPLY_NO_C.NEXTVAL, '리뷰4', DEFAULT, DEFAULT, 1, 10, 4);
+INSERT INTO REPLY_C VALUES(SEQ_REPLY_NO_C.NEXTVAL, '리뷰5', DEFAULT, DEFAULT, 1, 10, 5);
+-------------------------------------------------------------------------------------------------------------------------------------
