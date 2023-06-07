@@ -14,12 +14,11 @@ import lombok.ToString;
 public class Review {
 
 	private int replyNo;
-	private String replyContent;
+	private String reviewContents;
 	private String createDate;
-	private int boardNo;
+	private int campNo;
 	private int memberNo;
 	private String memberNickname;
 	private String profileImage;
-	private int parentReplyNo;
 	private int campRate;
 }

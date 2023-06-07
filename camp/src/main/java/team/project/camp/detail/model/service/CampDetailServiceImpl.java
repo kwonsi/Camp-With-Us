@@ -49,8 +49,15 @@ public class CampDetailServiceImpl implements CampDetailService {
 	}
 
 
+	// 리뷰 목록 조회
 	@Override
 	public List<Review> selectReplyList(int campNo) {
 		return dao.selectReplyList(campNo);
+	}
+	
+	// 리뷰 작성
+	@Override
+	public String insetReview(Review review) {
+		return null;
 	}
 }

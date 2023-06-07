@@ -1,13 +1,10 @@
-items = JSON.parse(localStorage.getItem("item"));
-
-
 // 댓글 목록 조회(AJAX)
 function selectReplyList(){
-    
+    console.log("목록 조회 ajax");
     // contextPath, boardNo, memberNo 전역 변수 사용
     $.ajax({
         url : contextPath + "/review/selectReplyList",
-        data : {"campNo" : items.contentId},
+        data : {"campNo" : campNo},
         type : "GET",
         dataType : "JSON", // JSON 형태의 문자열 응답 데이터를 JS 객체로 자동 변환
         success : function(rList){
@@ -42,48 +39,63 @@ function selectReplyList(){
                 const memberNickname = document.createElement("span");
                 memberNickname.innerText = reply.memberNickname;
                 
+                // 별점 불러오기
+                //const reviewStar = document.querySelector('input[name="reviewStar"]:checked');
+                //$("input:radio[name=reviewStar][value=" + reply.campRate + "]").attr("checked", true);
+
                 // 작성일
                 const replyDate = document.createElement("span");
                 replyDate.classList.add("reply-date");
                 replyDate.innerText =  "(" + reply.createDate + ")";
 
+                const reviewListStar = document.createElement("span");
+                reviewListStar.classList.add("reviewListStar" + reply.campRate);
+                
+                
+                // for(let i=0; i<star.length; i++) {
+                //     star[i].style.color = "transparent";
+                //     star[i].style.textShadow = "0 0 0 #f0f0f0";
+                // }
+
+                if(reviewListStar.classList.contains('reviewListStar1')) {
+                    reviewListStar.innerHTML = "<span class='rate-in'>★</span>" +
+                    "<span class='rate-out'>★★★★</span>";
+                } else if(reviewListStar.classList.contains('reviewListStar2')) {
+                    reviewListStar.innerHTML = "<span class='rate-in'>★★</span>" +
+                    "<span class='rate-out'>★★★</span>";
+                } else if(reviewListStar.classList.contains('reviewListStar3')) {
+                    reviewListStar.innerHTML = "<span class='rate-in'>★★★</span>" +
+                    "<span class='rate-out'>★★</span>";
+                } else if(reviewListStar.classList.contains('reviewListStar4')) {
+                    reviewListStar.innerHTML = "<span class='rate-in'>★★★★</span>" +
+                    "<span class='rate-out'>★</span>";
+                } else if(reviewListStar.classList.contains('reviewListStar5')) {
+                    reviewListStar.innerHTML = "<span class='rate-in'>★★★★★</span>";
+                }
+                
+
                 // 작성자 영역(p)에 프로필,닉네임,작성일 마지막 자식으로(append) 추가
-                replyWriter.append(profileImage , memberNickname , replyDate);
+                replyWriter.append(profileImage , memberNickname , replyDate, reviewListStar);
 
                 
 
                 // 댓글 내용
-                const replyContent = document.createElement("p");
-                replyContent.classList.add("reply-content");
+                const reviewContents = document.createElement("p");
+                reviewContents.classList.add("reply-content");
 
                 // 왜 innerHTML?  <br> 태그 인식을 위해서
-                replyContent.innerHTML = reply.replyContent;
+                reviewContents.innerHTML = reply.reviewContents;
 
                 // 행에 작성자, 내용 추가
-                replyRow.append(replyWriter, replyContent);
+                replyRow.append(replyWriter, reviewContents);
 
-                // 로그인이 되어있는 경우 답글 버튼 추가
+
+
+                // 로그인이 되어있는 경우 수정, 삭제 버튼 추가
                 if(loginMemberNo != ""){
                     // 버튼 영역
                     const replyBtnArea = document.createElement("div");
                     replyBtnArea.classList.add("reply-btn-area");
-
-                    // 답글 버튼
-                    const childReplyBtn = document.createElement("button");
-                    childReplyBtn.setAttribute("onclick", "showInsertReply("+reply.replyNo+", this)");
-                    childReplyBtn.innerText = "답글";
-
-                    // 버튼 영역에 답글 버튼 추가
-                    replyBtnArea.append(childReplyBtn);
-
-                    // 로그인이 되어있는 경우 답글 버튼 추가
-                if(loginMemberNo != ""){
-                    // 버튼 영역
-                    const replyBtnArea = document.createElement("div");
-                    replyBtnArea.classList.add("reply-btn-area");
-
-                    // 버튼 영역에 답글 버튼 추가
-                    replyBtnArea.append(childReplyBtn);
 
                     // 로그인한 회원번호와 댓글 작성자의 회원번호가 같을 때만 버튼 추가
                     if( loginMemberNo == reply.memberNo   ){
@@ -112,23 +124,23 @@ function selectReplyList(){
 
                 // 댓글 목록(ul)에 행(li)추가
                 replyList.append(replyRow);
-            	}
+            	
 			}
         },
         error : function(req, status, error){
             console.log("에러 발생");
-            console.log(req.responseText);
+            console.log("code:"+req.status+"\n"+"message:"+req.responseText+"\n"+"error:"+error);
         }
     });
 }
-
-
+selectReplyList();
 //-------------------------------------------------------------------------------------------------
 
 
 // 댓글 등록
 const addReply = document.getElementById("addReply");
-const replyContent = document.getElementById("replyContent");
+const reviewContents = document.getElementById("reviewContents");
+const reviewStar = document.querySelector('input[name="reviewStar"]:checked');
 
 addReply.addEventListener("click", function(){ // 댓글 등록 버튼이 클릭이 되었을 때
 
@@ -139,27 +151,28 @@ addReply.addEventListener("click", function(){ // 댓글 등록 버튼이 클릭
     }
 
     // 2) 댓글 내용이 작성되어있나?
-    if(replyContent.value.trim().length == 0){ // 미작성인 경우
+    if(reviewContents.value.trim().length == 0){ // 미작성인 경우
         alert("댓글을 작성한 후 버튼을 클릭해주세요.");
 
-        replyContent.value = ""; // 띄어쓰기, 개행문자 제거
-        replyContent.focus();
+        reviewContents.value = ""; // 띄어쓰기, 개행문자 제거
+        reviewContents.focus();
         return;
     }
 
     // 3) AJAX를 이용해서 댓글 내용 DB에 저장(INSERT)
     $.ajax({
-        url : contextPath + "/reply/insert",
-        data : {"replyContent" : replyContent.value,
+        url : "/review/insertReview",
+        data : {"reviewContents" : reviewContents.value,
                 "memberNo" : loginMemberNo,
-                "boardNo" : boardNo },
+                "campNo" : campNo,
+                "campRate" : reviewStar.value},
         type : "post",
         success : function(result){
 
             if(result > 0){ // 등록 성공
                 alert("댓글이 등록되었습니다.");
 
-                replyContent.value = ""; // 작성했던 댓글 삭제
+                reviewContents.value = ""; // 작성했던 댓글 삭제
 
                 selectReplyList(); // 비동기 댓글 목록 조회 함수 호출
                 // -> 새로운 댓글이 추가되어짐

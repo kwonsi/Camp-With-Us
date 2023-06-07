@@ -23,5 +23,8 @@ public interface CampDetailService {
 	
 	// 리뷰 목록 조회
 	List<Review> selectReplyList(int campNo);
+	
+	// 리뷰 작성
+	String insetReview(Review review);
 
 }
