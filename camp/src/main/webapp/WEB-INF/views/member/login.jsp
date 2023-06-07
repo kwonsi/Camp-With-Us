@@ -206,18 +206,27 @@
                     Kakao.API.request({
                         url: '/v2/user/me',
                         success: function (response) {
+                            
                             console.log(response)
                             console.log("properties : " + response.properties);
                             console.log(response.properties);
 
                             const prop = response.properties;
+                            const account = response.kakao_account;
                             console.log("prop.nickname : " + prop.nickname);
                             $.ajax({
                                 url: "kakaoLoginInfo",
                                 type: "POST",
-                                data: { "memberNickname": prop.nickname },
+                                data: { "memberNickname": prop.nickname ,
+                                        "memberEmail" : account.email            
+                            },
 
-                                success: function () {
+                                success: function (result) {
+
+                                    if ( result > 0 ) {
+                                        alert("이미 가입된 아이디입니다.");
+                                        window.location.href = '${contextPath}/member/login';
+                                    }
                                     window.location.href = '${contextPath}';
 
                                     if (Kakao.Auth.getAccessToken()) {

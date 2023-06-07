@@ -46,6 +46,7 @@ public class MemberController {
 	}
 
 	@GetMapping("/signUp")
+	
 	public String signUpPage() {
 		return "member/signUp";
 	}
@@ -97,6 +98,7 @@ public class MemberController {
 		System.out.println("googleMember :  " + googleMember);
 
 		// 아이디, 비밀번호가 일치하는 회원 정보를 조회하는 Service 호출 후 결과 반환 받기
+		
 		Member googleLoginMember = service.googleLogin(googleMember);
 
 		System.out.println("googleLoginMember :  " + googleLoginMember);
@@ -127,15 +129,18 @@ public class MemberController {
 	//----------------------카카오로그인 start----------------------------------
 	@ResponseBody
 	@PostMapping("/kakaoLoginInfo")
-	public String kakaoLoginInfo(@ModelAttribute Member kakaoMember,
+	public int kakaoLoginInfo(@ModelAttribute Member kakaoMember,
+								String memberEmail,
 								String memberNickname,
 								Model model,
+								 RedirectAttributes ra,
 								HttpServletResponse resp,
 								HttpServletRequest req) {
 		logger.info("memberNickname : " + memberNickname);
 
 		Member member = new Member();
 		member.setMemberNickname(memberNickname);
+		member.setMemberEmail(memberEmail);
 
 		System.out.println("kakaoMember :  " + kakaoMember);
 
@@ -144,23 +149,35 @@ public class MemberController {
 
 		System.out.println("googleLoginMember :  " + kakaoLoginMember);
 
-		if(kakaoLoginMember != null) { // 로그인 성공 시 (로그인정보 조회 성공 시)
-			model.addAttribute("loginMember", kakaoLoginMember); // == req.setAttribute("loginMember", loginMember);
 
-		} else {	//로그인정보 조회 실패 시 DB에 구글로그인 정보 삽입(구글아이디로 처음 로그인시)
-
+		int loginCheck = 0;
+		if ( kakaoLoginMember == null ) {
 			int result = service.kakaoLoginInsert(member);
 			if(result>0) {
-				logger.info("구글 로그인 정보 DB 삽입 성공");
+				logger.info("카카오 로그인 정보 DB 삽입 성공");
 				Member kakaoLoginMember2 = service.kakaoLogin(kakaoMember);
 				model.addAttribute("loginMember", kakaoLoginMember2);
+				loginCheck = 0;
+				return loginCheck;
 			}else {
-				logger.info("구글 로그인 정보 DB 삽입 실패");
+				logger.info("카카오 로그인 정보 DB 삽입 실패");
+			}
+		} else {  // 안에 같은이메일이 존재할때. 
+			int result = service.kakaoEmailCheck(kakaoMember);  // 이메일,닉네임값으로 select 다시돌린다.
+			
+			if ( result > 0 ) {   // 이메일,닉네임값으로 select 성공시
+				
+				logger.info("기존 로그인 실행 ");
+				model.addAttribute("loginMember", kakaoLoginMember);
+				loginCheck = 0;
+				return loginCheck;
+			} else {  
+				logger.info("중복회원입니다.");
+				loginCheck = 1;
+				return loginCheck;
 			}
 		}
-
-		return "카카오로그인 성공";
-
+		return loginCheck;
 	}
 
 	//----------------------카카오로그인 end----------------------------------

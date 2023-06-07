@@ -170,6 +170,11 @@
 
             <script src="${contextPath}/resources/js/main.js"></script>
 
+            <script>
+
+
+            </script>
+
         </body>
 
         </html>

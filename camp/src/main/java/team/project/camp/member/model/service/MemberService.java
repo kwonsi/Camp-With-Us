@@ -60,6 +60,14 @@ public interface MemberService {
 	 * @return 
 	 */
 	public abstract int naverLoginInsert(Member loginMember); 
+	
+	
+	/** 네이버 로그인 회원정보 뽑아오기
+	 * @param loginMember
+	 * @return
+	 */
+	public abstract Member naverMember(Member loginMember);
+	
 
 	/**구글 첫 로그인 시 DB 삽입
 	 * @param member
@@ -88,6 +96,15 @@ public interface MemberService {
 	 * @return
 	 */
 	public abstract int kakaoLoginInsert(Member member);
+
+	
+	/** 카카오 중복이메일 방지 이메일,닉네임 selece문 
+	 * @param kakaoMember
+	 * @return
+	 */
+	public abstract int kakaoEmailCheck(Member kakaoMember);
+
+
 
 
 
