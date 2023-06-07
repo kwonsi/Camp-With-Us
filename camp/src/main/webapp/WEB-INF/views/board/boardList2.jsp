@@ -10,6 +10,7 @@
 
 <c:set var="pagination" value="${map.pagination}" />
 <c:set var="boardList" value="${map.boardList}" />
+<c:set var="board" value="${board}" />
 
 
 <!DOCTYPE html>
@@ -48,27 +49,13 @@
 
 
 
-            <div class="list-wrapper">
-                <table class="list-table">
-                    
-                    <thead>
-                        <tr>
-                            <th>글번호</th>
-                            <th>제목</th>
-                            <th>작성자</th>
-                            <th>작성일</th>
-                            <th>조회수</th>
-                        </tr>
-                    </thead>
-
-                    <tbody>
-
+            <div class="list-wrapper">         
                         <c:choose>
                             <c:when test="${empty boardList}">
                                 <!-- 게시글 목록 조회 결과가 비어있다면 -->
-                                <tr>
+                                <div class="list1-2">
                                     <th colspan="5">게시글이 존재하지 않습니다.</th>
-                                </tr>
+                                </div>
                             </c:when>
 
                             <c:otherwise>
@@ -76,29 +63,36 @@
 
                                 <!-- 향상된 for문처럼 사용 -->
                                 <c:forEach var="board" items="${boardList}">
-                                    <tr>
-                                        <td>${board.boardNo}</td>
-                                        <td> 
+                                    <div class="list1">
+                                        <div class="list1-1"> 
                                             <c:if test="${!empty board.thumbnail}">
                                                 <img class="list-thumbnail" src="${contextPath}${board.thumbnail}">
-                                            </c:if>  
+                                            </c:if>
+                                        </div>
 
-                                            <a href="../detail/${boardCode}/${board.boardNo}?cp=${pagination.currentPage}${sURL}">${board.boardTitle}</a>                           
-                                       		<%-- detail?no=${board.boardNo}&cp=${pagination.currentPage}&type=${param.type}${sURL} --%>
-                                       		<%-- 현재 페이지 주소 : /board/list/1?cp=1
-                                        		상세 조회 주소   : /board/detail/1/300?cp= --%>
+                                        <div class="list1-2">
+                                            <div class="list1-3">
+                                                <p>${board.boardNo}번째 게시글</p>
+                                                <a href="../detail/${boardCode}/${board.boardNo}?cp=${pagination.currentPage}${sURL}">${board.boardTitle}</a>
+                                            </div>
+
+                                            <div class="list1-4">
+                                                <p>작성자 : ${board.memberNickname} &nbsp;|&nbsp; 작성일 : ${board.createDate} &nbsp;|&nbsp; 조회수 : ${board.readCount}</p>
+                                                <a href="../detail/${boardCode}/${board.boardNo}?cp=${pagination.currentPage}${sURL}">${boardList.boardContent}</a>                        
+                                                <%-- detail?no=${board.boardNo}&cp=${pagination.currentPage}&type=${param.type}${sURL} --%>
+                                                <%-- 현재 페이지 주소 : /board/list/1?cp=1
+                                                상세 조회 주소   : /board/detail/1/300?cp= --%>
+                                            </div>
+
+                                        </div>
                                         
-                                        </td>
-                                        <td>${board.memberNickname}</td>
-                                        <td>${board.createDate}</td>
-                                        <td>${board.readCount}</td>
-                                    </tr>
+
+                                    </div>
                                 </c:forEach>
 
                             </c:otherwise>
                         </c:choose>
-                    </tbody>
-                </table>
+             
             </div>
 
             <div class="btn-area">

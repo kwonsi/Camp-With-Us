@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
+import lombok.extern.slf4j.Slf4j;
 import team.project.camp.board.model.dao.BoardDAO;
 import team.project.camp.board.model.exception.InsertFailException;
 import team.project.camp.board.model.vo.Board;
@@ -21,6 +22,7 @@ import team.project.camp.board.model.vo.BoardType;
 import team.project.camp.board.model.vo.Pagination;
 import team.project.camp.common.Util;
 
+@Slf4j
 @Service
 public class BoardServiceImpl implements BoardService{
 	
@@ -28,6 +30,8 @@ public class BoardServiceImpl implements BoardService{
 	private BoardDAO dao;
 
 	
+
+
 	// 게시판 코드, 이름 조회
 	@Override
 	public List<BoardType> selectBoardType() {
@@ -38,7 +42,7 @@ public class BoardServiceImpl implements BoardService{
 	
 	// 게시글 목록 조회 서비스 구현
 	@Override
-	public Map<String, Object> selectBoardList(int cp, int boardCode) {
+	public Map<String, Object> selectBoardList(int cp, int boardCode, Map<String, Object> boardMap, String boardContent) {
 
 		// 1) 게시판 이름 조회 -> 인터셉터 application에 올려둔 boardTypeList 쓸 수 있을듯 하다
 
@@ -53,12 +57,17 @@ public class BoardServiceImpl implements BoardService{
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("pagination", pagination);
 		map.put("boardList", boardList);
-		map.put("boardCode", boardCode);
+		map.put("boardCode", boardMap);
+//		map.put("boardContent", boardContent);
+		
+		
+		log.info("Service map : " + map);
+		log.info("Service boardContent : " + boardContent);
 		
 		return map;
 	}
 
-	
+
 	// 검색 게시글 목록 조회 서비스 구현
 	@Override
 	public Map<String, Object> searchBoardList(Map<String, Object> paramMap) {

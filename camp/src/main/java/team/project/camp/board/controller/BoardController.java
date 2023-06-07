@@ -27,6 +27,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import lombok.extern.slf4j.Slf4j;
 import team.project.camp.board.model.service.BoardService;
 import team.project.camp.board.model.service.ReplyService;
+import team.project.camp.board.model.vo.Board;
 import team.project.camp.board.model.vo.BoardDetail;
 import team.project.camp.board.model.vo.Reply;
 import team.project.camp.common.Util;
@@ -55,7 +56,9 @@ public class BoardController {
 	@GetMapping("/list/{boardCode}")
 	public String boardList( @PathVariable("boardCode") int boardCode,
 							@RequestParam(value="cp", required= false, defaultValue="1") int cp,
+							@RequestParam(value="boardContent", required= false) String boardContent,
 							Model model,
+							@RequestParam Map<String, Object> boardMap,
 							@RequestParam Map<String, Object> paramMap) {
 							// 검색 요청인 경우 : key, query, cp(있거나 없거나)
 		
@@ -64,12 +67,20 @@ public class BoardController {
 		// 2) 페이지네이션 객체 생성(listCount)
 		// 3) 게시글 목록 조회
 		
+		
 		Map<String, Object> map = null;
 		
+		
 		if(paramMap.get("key") == null) { // 검색이 아닌 경우의 게시글 목록조회
-			map = service.selectBoardList(cp, boardCode);
+			map = service.selectBoardList(cp, boardCode, boardMap, boardContent);
 			
-			//map.put("boardCode", boardCode);
+			log.info("Controller boardContent :" + boardContent);
+			log.info("Controller map :" +  map.get(boardContent));
+			log.info("Controller paramMap : " + paramMap);
+
+			boardMap.put("boardContent", boardContent);
+			
+			
 			
 		}else { // 검색인 경우
 			
@@ -84,9 +95,15 @@ public class BoardController {
 		}
 	
 		model.addAttribute("map" ,map);
+		model.addAttribute("boardMap" ,boardMap);
+		
+		log.info("Controller map2 :" +  map);
+		log.info("Controller boardContent :" +  boardContent);
+		log.info("Controller model :" +  model);
 		
 		return "board/boardList"+ boardCode;
 	}
+	
 	
 	
 	
@@ -103,6 +120,8 @@ public class BoardController {
 		
 		// 게시글 상세 조회 서비스 호출
 		BoardDetail detail = service.selectBoardDetail(boardNo);
+		
+		log.info("detail : " + detail.getBoardContent());
 		
 		// @ModelAttribute("loginMember") Member loginMember  (사용불가)
 		// @ModelAttribute는 별도의 required 속성이 없어서 무조건 필수 조건임!

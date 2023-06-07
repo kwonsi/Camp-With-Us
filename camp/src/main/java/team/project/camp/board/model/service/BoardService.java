@@ -22,7 +22,7 @@ public interface BoardService {
 	 * @param boardCode
 	 * @return map
 	 */
-	Map<String, Object> selectBoardList(int cp, int boardCode);
+	Map<String, Object> selectBoardList(int cp, int boardCode, Map<String, Object> boardMap, String boardContent);
 
 	/** 검색 게시글 목록 조회 서비스
 	 * @param paramMap

@@ -40,6 +40,9 @@ public class BoardDAO {
 	/** 게시판 목록 조회 DAO
 	 * @param pagination
 	 * @param boardCode
+	 * @param boardMap 
+	 * @param boardMap 
+	 * @param boardNo 
 	 * @return boardList
 	 */
 	public List<Board> selectBoardList(Pagination pagination, int boardCode) {
@@ -50,7 +53,6 @@ public class BoardDAO {
 		int offset = ( pagination.getCurrentPage() - 1 ) * pagination.getLimit();
 		
 		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
-		
 		
 		return sqlSession.selectList("boardMapper.selectBoardList", boardCode, rowBounds);
 	}
