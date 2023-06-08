@@ -377,7 +377,7 @@
             const contextPath = "${contextPath}";        
             // 캠핑장 번호
             var campItem = JSON.parse(localStorage.getItem("item"));
-            const campNo = campItem.contentId;
+            var campNo = parseInt(campItem.contentId);
         </script>
 
 
