@@ -1,4 +1,6 @@
-// 댓글 목록 조회(AJAX)
+console.log(campNo);
+
+// 리뷰 목록 조회(AJAX)
 function selectReplyList(){
     console.log("목록 조회 ajax");
     // contextPath, boardNo, memberNo 전역 변수 사용
@@ -8,10 +10,10 @@ function selectReplyList(){
         type : "GET",
         dataType : "JSON", // JSON 형태의 문자열 응답 데이터를 JS 객체로 자동 변환
         success : function(rList){
-            // rList : 반환 받은 댓글 목록 
+            // rList : 반환 받은 리뷰 목록 
             console.log(rList);
 
-            // 화면에 출력되어 있는 댓글 목록 삭제
+            // 화면에 출력되어 있는 리뷰 목록 삭제
             const replyList = document.getElementById("reply-list"); // ul태그
             replyList.innerHTML = "";
 
@@ -79,7 +81,7 @@ function selectReplyList(){
 
                 
 
-                // 댓글 내용
+                // 리뷰 내용
                 const reviewContents = document.createElement("p");
                 reviewContents.classList.add("reply-content");
 
@@ -97,7 +99,7 @@ function selectReplyList(){
                     const replyBtnArea = document.createElement("div");
                     replyBtnArea.classList.add("reply-btn-area");
 
-                    // 로그인한 회원번호와 댓글 작성자의 회원번호가 같을 때만 버튼 추가
+                    // 로그인한 회원번호와 리뷰 작성자의 회원번호가 같을 때만 버튼 추가
                     if( loginMemberNo == reply.memberNo   ){
 
 	                    // 수정 버튼
@@ -122,7 +124,7 @@ function selectReplyList(){
                     replyRow.append(replyBtnArea); 
                 }
 
-                // 댓글 목록(ul)에 행(li)추가
+                // 리뷰 목록(ul)에 행(li)추가
                 replyList.append(replyRow);
             	
 			}
@@ -137,12 +139,12 @@ selectReplyList();
 //-------------------------------------------------------------------------------------------------
 
 
-// 댓글 등록
+// 리뷰 등록
 const addReply = document.getElementById("addReply");
 const reviewContents = document.getElementById("reviewContents");
-const reviewStar = document.querySelector('input[name="reviewStar"]:checked');
-
-addReply.addEventListener("click", function(){ // 댓글 등록 버튼이 클릭이 되었을 때
+const reviewStar = document.getElementsByName("reviewStar");
+var campRate = 0; // 별점 저장용 변수
+addReply.addEventListener("click", function(){ // 리뷰 등록 버튼이 클릭이 되었을 때
 
     // 1) 로그인이 되어있나? -> 전역변수 loginMemberNo 이용
     if(loginMemberNo == ""){ // 로그인 X
@@ -150,41 +152,49 @@ addReply.addEventListener("click", function(){ // 댓글 등록 버튼이 클릭
         return;
     }
 
-    // 2) 댓글 내용이 작성되어있나?
+    // 2) 리뷰 내용이 작성되어있나?
     if(reviewContents.value.trim().length == 0){ // 미작성인 경우
-        alert("댓글을 작성한 후 버튼을 클릭해주세요.");
+        alert("리뷰을 작성한 후 버튼을 클릭해주세요.");
 
         reviewContents.value = ""; // 띄어쓰기, 개행문자 제거
         reviewContents.focus();
         return;
     }
 
-    // 3) AJAX를 이용해서 댓글 내용 DB에 저장(INSERT)
+    // 선택한 별점 받아오기
+    for(let i=0; i<reviewStar.length; i++) {
+        if(reviewStar[i].checked) {
+            campRate = Number(reviewStar[i].value);
+            console.log(campRate);
+        }
+    }
+
+    // 3) AJAX를 이용해서 리뷰 내용 DB에 저장(INSERT)
     $.ajax({
-        url : "/review/insertReview",
+        url : contextPath + "/review/insert",
         data : {"reviewContents" : reviewContents.value,
                 "memberNo" : loginMemberNo,
                 "campNo" : campNo,
-                "campRate" : reviewStar.value},
-        type : "post",
+                "campRate" : campRate},
+        type : "POST",
         success : function(result){
 
             if(result > 0){ // 등록 성공
-                alert("댓글이 등록되었습니다.");
+                alert("리뷰이 등록되었습니다.");
 
-                reviewContents.value = ""; // 작성했던 댓글 삭제
+                reviewContents.value = ""; // 작성했던 리뷰 삭제
 
-                selectReplyList(); // 비동기 댓글 목록 조회 함수 호출
-                // -> 새로운 댓글이 추가되어짐
+                selectReplyList(); // 비동기 리뷰 목록 조회 함수 호출
+                // -> 새로운 리뷰이 추가되어짐
 
             } else { // 실패
-                alert("댓글 등록에 실패했습니다...");
+                alert("리뷰 등록에 실패했습니다...");
             }
 
         },
 
         error : function(req, status, error){
-            console.log("댓글 등록 실패")
+            console.log("리뷰 등록 실패")
             console.log(req.responseText);
         }
     });
@@ -193,7 +203,7 @@ addReply.addEventListener("click", function(){ // 댓글 등록 버튼이 클릭
 
 
 // -----------------------------------------------------------------------------------
-// 댓글 삭제
+// 리뷰 삭제
 function deleteReply(replyNo){
 
     if( confirm("정말로 삭제 하시겠습니까?") ){
@@ -202,16 +212,16 @@ function deleteReply(replyNo){
         // 파라미터 : key : "replyNo",  value : 매개변수 replyNo
         // 전달 방식 : "GET"
         // success : 삭제 성공 시 -> "삭제되었습니다"   alert로 출력
-        //                           댓글 목록 조회 함수 호출
+        //                           리뷰 목록 조회 함수 호출
 
         //           삭제 실패 시 -> "삭제 실패"        alert로 출력
 
         // error : 앞 error 코드 참고
 
-        // DB에서 댓글 삭제 ==>   REPLY_ST = 'Y' 변경
+        // DB에서 리뷰 삭제 ==>   REPLY_ST = 'Y' 변경
 
         $.ajax({
-            url : contextPath + "/reply/delete",
+            url : contextPath + "/review/delete",
             data : {"replyNo" : replyNo},
             type : "GET",
             success: function(result){
@@ -224,7 +234,7 @@ function deleteReply(replyNo){
             },
 
             error : function(req, status, error){
-                console.log("댓글 삭제 실패")
+                console.log("리뷰 삭제 실패")
                 console.log(req.responseText);
             }
 
@@ -234,23 +244,23 @@ function deleteReply(replyNo){
 
 
 // ------------------------------------------------------------------------------------------
-// 댓글 수정 화면 전환 
+// 리뷰 수정 화면 전환 
 
 let beforeReplyRow; // 수정 전 원래 행의 상태를 저장할 변수
 
 
 function showUpdateReply(replyNo, btn){
-                     // 댓글번호, 이벤트발생요소(수정버튼)
+                     // 리뷰번호, 이벤트발생요소(수정버튼)
 
-    // ** 댓글 수정이 한 개만 열릴 수 있도록 만들기 **
+    // ** 리뷰 수정이 한 개만 열릴 수 있도록 만들기 **
     const temp = document.getElementsByClassName("update-textarea");  
     
     if(temp.length > 0){ // 수정이 한 개 이상 열려 있는 경우
 
-        if(confirm("다른 댓글이 수정 중입니다. 현재 댓글을 수정 하시겠습니까?")){ // 확인
+        if(confirm("다른 리뷰이 수정 중입니다. 현재 리뷰을 수정 하시겠습니까?")){ // 확인
 
             temp[0].parentElement.innerHTML = beforeReplyRow;
-            // reply-row                       // 백업한 댓글
+            // reply-row                       // 백업한 리뷰
             // 백업 내용으로 덮어 씌워 지면서 textarea 사라짐
        
         }else{ // 취소
@@ -259,7 +269,7 @@ function showUpdateReply(replyNo, btn){
     }
 
 
-    // 1. 댓글 수정이 클릭된 행을 선택
+    // 리뷰 수정이 클릭된 행을 선택
     const replyRow = btn.parentElement.parentElement; // 수정 버튼의 부모의 부모
 
     // 2. 행 내용 삭제 전 현재 상태를 저장(백업) (문자열)
@@ -270,7 +280,7 @@ function showUpdateReply(replyNo, btn){
     //replyRow.innerHTML = beforeReplyRow;
 
 
-    // 3. 댓글에 작성되어 있던 내용만 얻어오기 -> 새롭게 생성된 textarea 추가될 예정
+    // 3. 리뷰에 작성되어 있던 내용만 얻어오기 -> 새롭게 생성된 textarea 추가될 예정
     
     //console.log(replyRow.children[1].innerHTML); // <br> 태그 유지를 위해서 innerHTML 사용
     let beforeContent = replyRow.children[1].innerHTML;
@@ -279,12 +289,36 @@ function showUpdateReply(replyNo, btn){
     //let beforeContent = btn.parentElement.previousElementSibling.innerHTML;
 
 
-    // 4. 댓글 행 내부 내용을 모두 삭제
+    // 4. 리뷰 행 내부 내용을 모두 삭제
     replyRow.innerHTML = "";
 
     // 5. textarea 요소 생성 + 클래스 추가  +  **내용 추가**
     const textarea = document.createElement("textarea");
     textarea.classList.add("update-textarea");
+    
+    // 리뷰 수정 별점 요소 저장용 변수
+    let updateRate = document.createElement("div");
+
+    // 별점 수정 요소 생성
+    for(let i=5; i>0; i--) {
+        
+        let updateStar = document.createElement("input");
+        let updateStarLabel = document.createElement("label");
+
+        updateRate.classList.add("updateRate");
+
+        updateStar.setAttribute("type", "radio");
+        updateStar.setAttribute("name", "updateStar");
+        updateStar.setAttribute("id", "uRate" + i);
+        updateStar.setAttribute("value", i);
+
+        updateStarLabel.setAttribute("for", "uRate" + i);
+        updateStarLabel.innerText = "★";
+
+        updateRate.append(updateStar);
+        updateRate.append(updateStarLabel);
+    }
+    
 
     // ******************************************
     // XSS 방지 처리 해제
@@ -300,6 +334,7 @@ function showUpdateReply(replyNo, btn){
     textarea.value = beforeContent; // 내용 추가
 
     // 6. replyRow에 생성된 textarea 추가
+    replyRow.append(updateRate);
     replyRow.append(textarea);
 
 
@@ -307,7 +342,7 @@ function showUpdateReply(replyNo, btn){
     const replyBtnArea = document.createElement("div");
     replyBtnArea.classList.add("reply-btn-area");
     
-
+    // 리뷰 수정 AJAX 실행( updateReply() )
     const updateBtn = document.createElement("button");
     updateBtn.innerText = "수정";
     updateBtn.setAttribute("onclick", "updateReply("+replyNo+", this)");
@@ -327,151 +362,53 @@ function showUpdateReply(replyNo, btn){
 
 
 // -----------------------------------------------------------------------------------
-// 댓글 수정 취소
+// 리뷰 수정 취소
 function updateCancel(btn){
     // 매개변수 btn : 클릭된 취소 버튼
-    // 전역변수 beforeReplyRow : 수정 전 원래 행(댓글)을 저장한 변수
+    // 전역변수 beforeReplyRow : 수정 전 원래 행(리뷰)을 저장한 변수
 
-    if(confirm("댓글 수정을 취소하시겠습니까?")){
+    if(confirm("리뷰 수정을 취소하시겠습니까?")){
         btn.parentElement.parentElement.innerHTML = beforeReplyRow;
     }
 }
 
 // -----------------------------------------------------------------------------------
-// 댓글 수정(AJAX)
+
+const updateStar = document.getElementsByName("updateStar");
+var updateStarRate = 0; // 리뷰 수정 할 때 별점 저장용 변수
+
+// 리뷰 수정(AJAX)
 function updateReply(replyNo, btn){
 
-    // 새로 작성된 댓글 내용 얻어오기
+    // 새로 작성된 리뷰 내용 얻어오기
     const replyContent = btn.parentElement.previousElementSibling.value;
 
+    for(let i=0; i<updateStar.length; i++) {
+        if(updateStar[i].checked) {
+            updateStarRate = Number(updateStar[i].value);
+            console.log(updateStarRate);
+        }
+    }
+
     $.ajax({
-        url : contextPath + "/reply/update",
+        url : contextPath + "/review/update",
         data : {"replyNo" : replyNo,
-                "replyContent" : replyContent},
+                "reviewContents" : replyContent,
+                "campRate" : updateStarRate},
         type : "POST",
         success : function(result){
             if(result > 0){
-                alert("댓글이 수정되었습니다.");
+                alert("리뷰이 수정되었습니다.");
                 selectReplyList();
             }else{
-                alert("댓글 수정 실패");
+                alert("리뷰 수정 실패");
             }
         },
         error : function(req, status, error){
-            console.log("댓글 수정 실패");
+            console.log("리뷰 수정 실패");
             console.log(req.responseText);
         }
     });
 }
 
 // -------------------------------------------------------------------------------
-// -------------------------------------------------------------------------------
-
-// 답글 작성 화면 추가 
-// -> 답글 작성 화면은 전체 화면에 1개만 존재 해야한다!
-
-function showInsertReply(parentReplyNo, btn){
-                        // 부모 댓글 번호, 클릭한 답글 버튼
-
-
-    const temp = document.getElementsByClassName("replyInsertContent");
-
-    if(temp.length > 0){ // 답글 작성 textara가 이미 화면에 존재하는 경우
-
-        if(confirm("다른 답글을 작성 중입니다. 현재 댓글에 답글을 작성 하시겠습니까?")){
-            temp[0].nextElementSibling.remove(); // 버튼 영역부터 삭제
-            temp[0].remove(); // textara 삭제 (기준점은 마지막에 삭제해야 된다!)
-        
-        } else{
-            return; // 함수를 종료시켜 답글이 생성되지 않게함.
-        }
-    }
-    
-    // 답글을 작성할 textarea 요소 생성
-    const textarea = document.createElement("textarea");
-    textarea.classList.add("replyInsertContent");
-    
-    // 답글 버튼의 부모의 뒤쪽에 textarea 추가
-    // after(요소) : 뒤쪽에 추가
-    btn.parentElement.after(textarea);
-
-
-    // 답글 버튼 영역 + 등록/취소 버튼 생성 및 추가
-    const replyBtnArea = document.createElement("div");
-    replyBtnArea.classList.add("reply-btn-area");
-
-
-    const insertBtn = document.createElement("button");
-    insertBtn.innerText = "등록";
-    insertBtn.setAttribute("onclick", "insertChildReply("+parentReplyNo+", this)");
-
-
-    const cancelBtn = document.createElement("button");
-    cancelBtn.innerText = "취소";
-    cancelBtn.setAttribute("onclick", "insertCancel(this)");
-
-    // 답글 버튼 영역의 자식으로 등록/취소 버튼 추가
-    replyBtnArea.append(insertBtn, cancelBtn);
-
-    // 답글 버튼 영역을 화면에 추가된 textarea 뒤쪽에 추가
-    textarea.after(replyBtnArea);
-
-}
-
-
-// 답글 취소
-function insertCancel(btn){
-                    // 취소
-    btn.parentElement.previousElementSibling.remove(); // 취소의 부모의 이전 요소(textarea) 제거
-    btn.parentElement.remove(); // 취소의 부모 요소(reply-btn-area) 제거
-}
-
-
-// 답글 등록
-function insertChildReply(parentReplyNo, btn){
-                        // 부모 댓글 번호, 답글 등록 버튼
-
-    // 누가?                로그인한 회원의 memberNo ==> loginMemberNo (전역변수)
-    // 어떤 내용?           textarea에 작성된 내용
-    // 몇번 게시글?         현재 게시글 boardNo ==> boardNo (전역변수)
-    // 부모 댓글은 누구?    parentReplyNo (매개변수)
-
-    // 답글 내용
-    const replyContent = btn.parentElement.previousElementSibling.value;
-
-    // 답글 내용이 작성되지 않은 경우
-    if(replyContent.trim().length == 0){
-        alert("답글 작성 후 등록 버튼을 클릭해주세요.");
-        btn.parentElement.previousElementSibling.value = "";
-        btn.parentElement.previousElementSibling.focus();
-        return;
-    }
-
-
-    // 위 if문이 실행 안됨 == 답글이 작성됨 -> ajax 답글 삽입
-    // "{K:V, K:V, K:V}" -> JSON
-
-    $.ajax({
-        url : contextPath + "/reply/insert",
-
-        data : {"memberNo" : loginMemberNo,
-                "boardNo" : boardNo,
-                "parentReplyNo" : parentReplyNo,
-                "replyContent" : replyContent},
-
-        type : "POST",
-
-        success : function(r){
-            if(r > 0){
-                alert("답글이 등록되었습니다.");
-                selectReplyList(); // 댓글 목록 조회
-            }else{
-                alert("답글 등록 실패");
-            }
-        },
-        error : function(){
-            console.log("답글 등록 중 오류 발생");
-        }
-    });
-
-}

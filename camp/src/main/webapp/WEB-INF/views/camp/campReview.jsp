@@ -5,7 +5,7 @@
 
     <!-- 리뷰 작성 부분 -->
     <div class="reply-write-area">
-        <form class="mb-3" name="campReview_form" id="campReview_form" method="post">
+        <form class="mb-3" name="campReview_form" id="campReview_form">
 			<fieldset>
 				<span>별점을 선택해주세요</span>
 				<input type="radio" name="reviewStar" value="5" id="rate1"><label
@@ -22,7 +22,7 @@
 			<div>
 				<textarea class="col-auto form-control" type="text" id="reviewContents"
 						  placeholder="리뷰를 작성해주세요."></textarea>
-                <button id="addReply">
+                <button id="addReply" type="button">
                     리뷰<br>
                     등록
                 </button>
