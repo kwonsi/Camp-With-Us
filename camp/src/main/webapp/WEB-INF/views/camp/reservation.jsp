@@ -239,7 +239,8 @@ function requestPay() {
 
                   console.log("성공");
                   alert("결제가 완료되었습니다");
-                  window.location.href = '${contextPath}/member/myPage/myReservation';
+ 
+
                   let selectfirstmonth = document.querySelectorAll(".pickMonth")[0].textContent;
                   let selectfirstday = document.querySelectorAll(".pickDay")[0].textContent;
                   let selectlastmonth = document.querySelectorAll(".pickMonth")[1].textContent;
@@ -265,6 +266,9 @@ function requestPay() {
                        
                         if(result > 0) {
                             console.log("예약정보 전송완료");
+                            window.location.href = '${contextPath}/member/myPage/myReservation';
+
+
                         }else {
                             console.log("예약정보 전송실패");
                         }

@@ -33,7 +33,7 @@ if (login) {
     });
 }
 
-
+/* 
 
 window.onload = function () {
 
@@ -135,7 +135,7 @@ window.onload = function () {
 };
 
 
-
+ */
 
 
 
