@@ -158,3 +158,30 @@
     color: transparent;
     text-shadow: 0 0 0 #f0f0f0;
 }
+
+.updateRate {
+    width: auto;
+    height: auto;
+    display: inline-block;
+    justify-content: left;
+    direction: rtl;
+}
+
+.updateRate input[type=radio]{
+    display: none;
+}
+
+.updateRate label{
+    font-size: 1.2em;
+    color: transparent;
+    text-shadow: 0 0 0 #f0f0f0;
+}
+.updateRate label:hover{
+    text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
+}
+.updateRate label:hover ~ label{
+    text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
+}
+.updateRate input[type=radio]:checked ~ label{
+    text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
+}

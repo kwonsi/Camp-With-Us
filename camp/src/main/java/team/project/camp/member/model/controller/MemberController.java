@@ -220,13 +220,17 @@ public class MemberController {
 
 			// 쿠키를 응답 시 클라이언트에게 전달
 			resp.addCookie(cookie);
+			
+			return "redirect:/";
 
 		} else {
 
 			ra.addFlashAttribute("message", "아이디 또는 비밀번호가 일치하지 않습니다.");
+			
+			return "member/login";
 		}
 
-		return "redirect:/";
+		
 	}
 	//----------------------일반로그인 end----------------------------------
 
