@@ -34,8 +34,8 @@ public class MyPageController {
 			) {
 		
 		if ( loginMember != null ) {   // 로그인이 됐을때. 목록뽑기  . 
-			String memberNickname = loginMember.getMemberNickname();
-			List<Reservation> reservationList = service.reservationSelect(memberNickname);
+			int memberNo = loginMember.getMemberNo();
+			List<Reservation> reservationList = service.reservationSelect(memberNo);
 			
 		model.addAttribute("reservationList", reservationList);
 

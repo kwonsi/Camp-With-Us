@@ -57,7 +57,7 @@
 				
 				<c:choose>
 
-					<c:when test="${ empty sessionScope.loginMember }">
+					<c:when test="${ empty sessionScope.loginMember}">
 						<li>
 							<a href='${contextPath}/member/login'>
 								<h4 id="login">로그인</h4>

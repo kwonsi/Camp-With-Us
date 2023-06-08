@@ -150,7 +150,8 @@ let priceValue;
 let people;
 var campName = "${campName}";
 var memberNickname = "${loginMember.memberNickname}";
-var memberEmail = "${loginMember.memberEmail}"
+var memberEmail = "${loginMember.memberEmail}";
+var memberNo = "${loginMember.memberNo}";
 
 //결제금액
 document.addEventListener("DOMContentLoaded", function() {
@@ -257,7 +258,8 @@ function requestPay() {
                             "reservSelDate" : selectDate,
                             "buyerName" : rsp.buyer_name,
                             "amount" : priceValue,
-                            "people" : people},
+                            "people" : people,
+                            "memberNo" : memberNo },
 
                     success: function(result) {
                        
