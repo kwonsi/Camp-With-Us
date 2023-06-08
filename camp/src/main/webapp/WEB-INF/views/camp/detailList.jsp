@@ -283,54 +283,54 @@
                                 </tr>
 
                                 <tr>
-                                    <th scope="col">1</th>
-                                    <th scope="col">2</th>
-                                    <th scope="col">3</th>
-                                    <th scope="col">4</th>
-                                    <th scope="col">5</th>
-                                    <th scope="col">6</th>
-                                    <th scope="col">7</th>
-                                    <th scope="col">8</th>
-                                    <th scope="col">9</th>
-                                    <th scope="col">10</th>
+                                    <th scope="col" class="date">1</th>
+                                    <th scope="col" class="date">2</th>
+                                    <th scope="col" class="date">3</th>
+                                    <th scope="col" class="date">4</th>
+                                    <th scope="col" class="date">5</th>
+                                    <th scope="col" class="date">6</th>
+                                    <th scope="col" class="date">7</th>
+                                    <th scope="col" class="date">8</th>
+                                    <th scope="col" class="date">9</th>
+                                    <th scope="col" class="date">10</th>
                                 </tr>
                             </thead>
                             <tbody class="t_c">
                                 <tr>
                                     <th scope="col" height="100px">오전</th>
-                                    <td>맑음</td>
-                                    <td>맑음</td>
-                                    <td>맑음</td>
-                                    <td>맑음</td>
-                                    <td>맑음</td>
-                                    <td>맑음</td>
-                                    <td>맑음</td>
-                                    <td rowspan="2">맑음</td>
-                                    <td rowspan="2">맑음</td>
-                                    <td rowspan="2">맑음</td>
+                                    <td class="AM">맑음</td>
+                                    <td class="AM">맑음</td>
+                                    <td class="AM">맑음</td>
+                                    <td class="AM">맑음</td>
+                                    <td class="AM">맑음</td>
+                                    <td class="AM">맑음</td>
+                                    <td class="AM">맑음</td>
+                                    <td rowspan="2" class="AM">맑음</td>
+                                    <td rowspan="2" class="AM">맑음</td>
+                                    <td rowspan="2" class="AM">맑음</td>
                                 </tr>
                                 <tr>
                                     <th scope="col" height="100px">오후</th>
-                                    <td>맑음</td>
-                                    <td>맑음</td>
-                                    <td>맑음</td>
-                                    <td>맑음</td>
-                                    <td>맑음</td>
-                                    <td>맑음</td>
-                                    <td>맑음</td>
+                                    <td class="PM">맑음</td>
+                                    <td class="PM">맑음</td>
+                                    <td class="PM">맑음</td>
+                                    <td class="PM" >맑음</td>
+                                    <td class="PM">맑음</td>
+                                    <td class="PM">맑음</td>
+                                    <td class="PM">맑음</td>
                                 </tr>
                                 <tr>
                                     <th scope="col" height="50px">강수량</th>
-                                    <td>강수량</td>
-                                    <td>강수량</td>
-                                    <td>강수량</td>
-                                    <td>강수량</td>
-                                    <td>강수량</td>
-                                    <td>강수량</td>
-                                    <td>강수량</td>
-                                    <td>강수량</td>
-                                    <td>강수량</td>
-                                    <td>강수량</td>
+                                    <td class="rp">강수량</td>
+                                    <td class="rp">강수량</td>
+                                    <td class="rp">강수량</td>
+                                    <td class="rp">강수량</td>
+                                    <td class="rp">강수량</td>
+                                    <td class="rp">강수량</td>
+                                    <td class="rp">강수량</td>
+                                    <td class="rp">강수량</td>
+                                    <td class="rp">강수량</td>
+                                    <td class="rp">강수량</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -387,6 +387,8 @@
             integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
         <script src="${contextPath}/resources/js/detailList.js"></script>
         <script src="${contextPath}/resources/js/review.js"></script>
+        <script src="${contextPath}/resources/js/weather.js"></script>
+        <script src="${contextPath}/resources/js/weather2.js"></script>
     </body>
 
 </html>
