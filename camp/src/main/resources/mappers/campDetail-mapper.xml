@@ -69,4 +69,22 @@
 
 	</select>
 	
+	<!-- 리뷰 작성 -->
+	<insert id="insertReview" parameterType="review">
+		INSERT INTO REPLY_C(REPLY_NO, REPLY_CONTENT, MEMBER_NO, BOARD_NO, CAMP_RATE)
+		VALUES(SEQ_REPLY_NO_C.NEXTVAL, #{reviewContents}, #{memberNo}, #{campNo}, #{campRate} )
+	</insert>
+	
+	<!-- 리뷰 삭제 -->
+	<update id="deleteReview" parameterType="_int">
+		UPDATE REPLY_C SET REPLY_ST = 'Y' WHERE REPLY_NO = #{replyNo}
+	</update>
+	
+	<!-- 리뷰 수정 -->
+	<update id="updateReview">
+		UPDATE REPLY_C SET REPLY_CONTENT = #{reviewContents},
+		CAMP_RATE = #{campRate}
+		WHERE REPLY_NO = #{replyNo}
+	</update>
+	
 </mapper>

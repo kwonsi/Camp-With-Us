@@ -1,6 +1,7 @@
 package team.project.camp.detail.model.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,7 +47,21 @@ public class CampDetailDAO {
 	public List<Review> selectReplyList(int campNo) {
 		return sqlSession.selectList("campDetailMapper.selectReplyList", campNo);
 	}
-
+	
+	// 리뷰 작성
+	public int insertReview(Review review) {
+		return sqlSession.insert("campDetailMapper.insertReview", review);
+	}
+	
+	// 리뷰 삭제
+	public int deleteReview(int replyNo) {
+		return sqlSession.update("campDetailMapper.deleteReview", replyNo);
+	}
+	
+	// 리뷰 수정
+	public int updateReview(Map<String, Object> map) {
+		return sqlSession.update("campDetailMapper.updateReview", map);
+	}
 
 
 }

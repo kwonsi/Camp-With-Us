@@ -1,5 +1,6 @@
 package team.project.camp.detail.model.service;
 import java.util.List;
+import java.util.Map;
 
 import team.project.camp.detail.model.vo.Reservation;
 import team.project.camp.detail.model.vo.Review;
@@ -25,6 +26,12 @@ public interface CampDetailService {
 	List<Review> selectReplyList(int campNo);
 	
 	// 리뷰 작성
-	String insetReview(Review review);
+	int insetReview(Review review);
+	
+	// 리뷰 삭제
+	int deleteReview(int replyNo);
+	
+	// 리뷰 수정
+	int updateReview(Map<String, Object> map);
 
 }
