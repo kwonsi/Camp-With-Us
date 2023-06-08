@@ -23,4 +23,5 @@ public class Reservation {
 	private Date reservDate;
 	private char reservSt;
 	private String month;
+	private int memberNo;
 }

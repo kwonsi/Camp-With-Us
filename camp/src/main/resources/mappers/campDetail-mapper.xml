@@ -12,6 +12,7 @@
 		<result property="reservDate" column="RESERVATION_DT" />
 		<result property="reservSelDate" column="SELECTDATE" />
 		<result property="reservSt" column="RESERVATION_ST" />
+		<result property="memberNo" column="MEMBER_NO"/>
 	</resultMap>
 
 	<resultMap type="review" id="review_rm">
@@ -42,15 +43,15 @@
 	<!-- 예약정보 삽입 -->
 	<insert id="reservationInfo" parameterType="reservation">
 		INSERT INTO RESERVATION(
-		RESERVATION_NO, CAMPING_NM, RESERVATION_P, RESERVATION_DT, RESERVATION_NP, PAYMENT, SELECTDATE) 
+		RESERVATION_NO, CAMPING_NM, RESERVATION_P, RESERVATION_DT, RESERVATION_NP, PAYMENT, SELECTDATE,MEMBER_NO) 
 		VALUES(SEQ_RESERVATION_NO_S.NEXTVAL,
-		#{campingName}, #{buyerName}, SYSDATE, #{people}, #{amount}, #{reservSelDate})
+		#{campingName}, #{buyerName}, SYSDATE, #{people}, #{amount}, #{reservSelDate},#{memberNo})
 	</insert>
 
 	<!-- 예약조회 -->
-	<select id="reservationSelect" resultMap="reservation_rm" parameterType="string">
+	<select id="reservationSelect" resultMap="reservation_rm" parameterType="_int">
 		SELECT * FROM RESERVATION
-		WHERE RESERVATION_P = #{memberEmail}
+		WHERE MEMBER_NO = #{memberNo}
 	</select>
 
 	<!-- 예약취소 -->

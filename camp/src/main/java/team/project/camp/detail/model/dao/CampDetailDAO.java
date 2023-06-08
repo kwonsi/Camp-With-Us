@@ -33,8 +33,8 @@ public class CampDetailDAO {
 	}
 
 	//예약 조회
-	public List<Reservation> reservationSelect(String memberEmail) {
-		return sqlSession.selectList("campDetailMapper.reservationSelect",memberEmail);
+	public List<Reservation> reservationSelect(int memberNo) {
+		return sqlSession.selectList("campDetailMapper.reservationSelect",memberNo);
 	}
 
 	//예약취소

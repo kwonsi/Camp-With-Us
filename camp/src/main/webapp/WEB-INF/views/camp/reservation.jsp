@@ -150,7 +150,8 @@ let priceValue;
 let people;
 var campName = "${campName}";
 var memberNickname = "${loginMember.memberNickname}";
-var memberEmail = "${loginMember.memberEmail}"
+var memberEmail = "${loginMember.memberEmail}";
+var memberNo = "${loginMember.memberNo}";
 
 //결제금액
 document.addEventListener("DOMContentLoaded", function() {
@@ -238,7 +239,8 @@ function requestPay() {
 
                   console.log("성공");
                   alert("결제가 완료되었습니다");
-                  window.location.href = '${contextPath}/member/myPage/myReservation';
+ 
+
                   let selectfirstmonth = document.querySelectorAll(".pickMonth")[0].textContent;
                   let selectfirstday = document.querySelectorAll(".pickDay")[0].textContent;
                   let selectlastmonth = document.querySelectorAll(".pickMonth")[1].textContent;
@@ -257,12 +259,16 @@ function requestPay() {
                             "reservSelDate" : selectDate,
                             "buyerName" : rsp.buyer_name,
                             "amount" : priceValue,
-                            "people" : people},
+                            "people" : people,
+                            "memberNo" : memberNo },
 
                     success: function(result) {
                        
                         if(result > 0) {
                             console.log("예약정보 전송완료");
+                            window.location.href = '${contextPath}/member/myPage/myReservation';
+
+
                         }else {
                             console.log("예약정보 전송실패");
                         }

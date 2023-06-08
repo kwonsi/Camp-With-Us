@@ -33,7 +33,7 @@ if (login) {
     });
 }
 
-
+/* 
 
 window.onload = function () {
 
@@ -83,7 +83,7 @@ window.onload = function () {
             }
 
             // 랜덤하게 선택된 항목에 대해 InnerHtml 값을 할당합니다.
-            for (let i = 0; i < randomItems.length; i++) {
+            for (let i = 0; i < randomItems.length++; i) {
                 const randomItem = randomItems[i];
                 const ranBoardImg = 'ranBoardImg' + (i + 1);
                 const ranBoardContent = 'ranBoardContent' + (i + 1);
@@ -135,7 +135,7 @@ window.onload = function () {
 };
 
 
-
+ */
 
 
 
