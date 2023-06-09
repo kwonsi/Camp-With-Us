@@ -22,7 +22,7 @@ hr{
     justify-content: center;
     flex-direction: column;
     height: 1300px;
-    background-color: rgb(244, 255, 246);
+    background-color: rgb(240, 244, 241);
     /* margin-left: 30px; */
     /* margin: 50px auto; */
     /* border : 1px solid yellow; */
@@ -39,7 +39,7 @@ span{
     margin-right: 35px;
     height: 550px;
     /* width: 1000px; */
-    background-color: rgb(231, 255, 236);
+    background-color: rgb(237, 235, 235);
     /* border : 1px solid black; */
 }
 
@@ -48,7 +48,7 @@ span{
     margin-right: 35px;
     height: 500px;
     /* width: 1000px; */
-    background-color: rgb(231, 255, 236);
+    background-color: rgb(237, 235, 235);
     /* border : 1px solid black; */
 }
 
@@ -56,16 +56,21 @@ span{
 /* 게시판 목록 화면 전체 영역 설정 */
 .board-list{
     display: flex;
-    width: 1000px;
-    margin-left: 30px;
+    /* width: 1200px; */
+    /* margin-left: 30px; */
     margin-bottom: 10px;
+    justify-content: space-evenly;
+    /* border : 1px solid green; */
 }
+
 
 /* 게시판 목록 div */
 .board-div{
+    /* justify-content: center;
+    align-items: center; */
     text-align: center;
-    flex-direction: row;
-    width: 33.3%;
+    /* flex-direction: row; */
+    width: 25%;
     height: 200px;
     /* border : 1px solid black; */
     
@@ -73,8 +78,8 @@ span{
 
 .board-div2{
     text-align: center;
-    flex-direction: row;
-    width: 30%;
+    /* flex-direction: row; */
+    width: 20%;
     height: 400px;
     border : 1px solid black;
 }
@@ -126,7 +131,38 @@ span{
 }
 
 
-
+/* 슬라이드박스 */
+.slide_div{
+	padding: 20px 0 20px 0;
+    background: #e6e9f6;
+}
+.multiple-items img{
+    border-radius: 5%;
+	max-width: 80%;
+    height: 250px;
+    display: block;
+	margin: auto;
+}
+.slide-text{
+    text-align: center;
+    margin: auto;
+    width: 90%;
+    height: 10%;
+    /* border : 1px solid black; */
+}
+.slide-content{
+    width: 100%;
+    height: 100px;
+    overflow: auto;
+    /* border : 1px solid black; */
+}
+.slide-btn{
+    width: 25%;
+    height: 30px;
+    margin-left: 160px;
+    justify-content: center;
+    align-items: center;
+}
 
 
 /* @keyframes : 

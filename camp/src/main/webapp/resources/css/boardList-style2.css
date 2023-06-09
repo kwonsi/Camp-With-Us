@@ -1,21 +1,23 @@
-section, div, form{
+/* section, div, form{
     border : 1px solid black;
-}
+} */
 
-p, a{
+
+/* a 태그 */
+.boardTitle{
     font-weight: bold;
-}
-
-/* a태그 공통 설정 */
-.board-list a{
-    text-decoration: none;
-    color : black;
-}
-
-.board-list a:hover{
-    /* text-decoration: underline; */
     cursor: pointer;
 }
+
+.boardTitle:hover{
+    color: lightgreen;
+}
+
+.boardContent{
+    color: #acacaf;
+    cursor: pointer;
+}
+
 
 /* 게시판 목록 화면 전체 영역 설정 */
 .board-list{
@@ -23,11 +25,13 @@ p, a{
     margin: 50px auto;
 }
 
+
 /* 게시판 이름 */
 .board-name{
     font-size: 2.5em;
     margin-left: 30px;
 }
+
 
 /* 게시글 목록 영역 */
 .list-wrapper{
@@ -39,28 +43,47 @@ p, a{
     display: flex;
     width: 100%;
     height: 300px;
+    border : 1px solid black;
 }
 
 .list1-1{
     width: 30%;
+    border-right : 1px solid black;
 }
 
 .list1-2{
     flex-direction: row;
     width: 70%;
+    margin-left: 30px;
 }
 
 .list1-3{
-    
     height: 30%;
+    margin: auto;
+    /* border : 1px solid black; */
 }
 
 .list1-4{
-    
     height: 70%;
+    /* border : 1px solid black; */
 }
 
+.list1-5{
+    /* display: flex; */
+    width: 100%;
+    height: 50px;
+    /* border : 1px solid black; */
+}
 
+.list1-6{
+    /* display: flex; */
+    width: 100%;
+    height: 100px;
+    text-align: center;
+    font-size: 18px;
+    margin-top: 50px;
+    /* border : 1px solid black; */
+}
 
 /* 목록 출력 테이블 */
 .list-table{
@@ -111,6 +134,7 @@ p, a{
     align-items: center;
 }
 
+
 /* 글쓰기 버튼 */
 #insertBtn{
     margin-right: 50px;
@@ -151,6 +175,7 @@ p, a{
     /* letter-spacing : -2px; */
 }
 
+
 /* 현재 페이지 번호 */
 .pagination .current{
     background-color: #455ba8;
@@ -170,6 +195,7 @@ p, a{
 
     margin: 30px auto;
 }
+
 
 /* 검색 영역 공통 스타일 */
 #boardSearch *{
@@ -208,8 +234,8 @@ p, a{
 .list-thumbnail{ /* 썸네일 이미지 */
     /* max-width: 50px;
     max-height: 30px; */
-    width: auto;
-    height: auto;
+    width: 290px;
+    height: 297px;
     cursor: pointer;
     /* position: absolute; */
     left : -15px;
@@ -254,6 +280,7 @@ p, a{
     max-height: 100%;
 }
 
+
 /* 닫기 버튼 */
 #modal-close {
     position: absolute;
@@ -271,7 +298,6 @@ p, a{
 #modal-close:hover{
     transform: scale(1.2);
 }
-
 
 
 /* @keyframes : 
