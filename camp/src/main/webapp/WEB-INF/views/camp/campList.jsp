@@ -40,7 +40,7 @@
 
 
                             <div class="form1_2">
-                                <p class="tt">지역별</p>
+                                
                                 <label class="skip">지역별 검색</label>
                                  <select onchange="categoryChange(this)" class="select_01"  id="searchVal2" title="검색할 지역을 선택하세요.">
                                     <option value="">전체/도</option>
@@ -67,7 +67,7 @@
                                 </select>
                             </div>
                             <div class="form1_2">
-                                <p class="tt">테마별</p>
+                                
                                 <label class="skip" for="searchLctCl">테마별 검색</label>
                                 <select class="select_03" id="searchVal3" title="검색할 테마를 선택하세요.">
                                     <option value="">분류</option>
