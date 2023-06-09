@@ -96,7 +96,7 @@ public class NaverLoginService implements CommonLoginService{
 				String name = node.get("response").get("name") == null ? "이름 없음" : node.get("response").get("name").asText();
 
 	          String mobile = _mobile.replaceAll("-", "");
-	          
+
 	            if(nickname != null) {
 	            	loginMember.setMemberNickname(nickname);
 	            	loginMember.setMemberEmail(email);

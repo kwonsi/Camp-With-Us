@@ -16,7 +16,7 @@ public interface BoardService {
 	 * @return boardTypeList
 	 */
 	List<BoardType> selectBoardType();
-	
+
 	/** 게시글 목록 조회 서비스
 	 * @param cp
 	 * @param boardCode
@@ -57,7 +57,7 @@ public interface BoardService {
 	 */
 	int updateBoard(BoardDetail detail, List<MultipartFile> imageList, String webPath, String folderPath,
 			String deleteList) throws IOException;
-	
+
 	/** 게시글 삭제 서비스
 	 * @param boardNo
 	 * @return result

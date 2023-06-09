@@ -32,17 +32,17 @@ public class MyPageController {
 				@ModelAttribute("loginMember") Member loginMember ,
 				RedirectAttributes ra
 			) {
-		
-		if ( loginMember != null ) {   // 로그인이 됐을때. 목록뽑기  . 
+
+		if ( loginMember != null ) {   // 로그인이 됐을때. 목록뽑기  .
 			int memberNo = loginMember.getMemberNo();
 			List<Reservation> reservationList = service.reservationSelect(memberNo);
-			
+
 		model.addAttribute("reservationList", reservationList);
 
-		return "mypage/myReservation"; 
-		
-		}else { 		// 로그인이 안됐을때 . 
-			
+		return "mypage/myReservation";
+
+		}else { 		// 로그인이 안됐을때 .
+
 			ra.addFlashAttribute("message","로그인을 해주세요. ");
 			return "redirect:/";
 		}

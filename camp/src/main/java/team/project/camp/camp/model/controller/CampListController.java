@@ -19,7 +19,7 @@ public class CampListController {
 				@RequestParam(value = "campName",required = false,defaultValue = "") String campName,
 				Model model
 			) {
-		
+
 		model.addAttribute("campName",campName);
 		return "camp/detailList";
 	}

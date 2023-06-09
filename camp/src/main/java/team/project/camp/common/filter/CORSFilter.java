@@ -2,7 +2,7 @@
 
 //package team.project.camp.common.filter;
 //
-////cross domain 설정 
+////cross domain 설정
 //import java.io.IOException;
 //
 //import javax.servlet.Filter;
@@ -19,17 +19,17 @@
 //public void init(FilterConfig filterConfig) throws ServletException {}
 //
 //@Override
-//public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException { 
+//public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException {
 //	HttpServletResponse response = (HttpServletResponse) res;
 //
-//	response.setHeader("Access-Control-Allow-Origin", "http://localhost:8080"); 
-//	response.setHeader("Access-Control-Allow-Method","POST,GET,OPTIONS,DELETE, PUT"); 
-//	response.setHeader("Access-Control-Max-Age","3600"); 
+//	response.setHeader("Access-Control-Allow-Origin", "http://localhost:8080");
+//	response.setHeader("Access-Control-Allow-Method","POST,GET,OPTIONS,DELETE, PUT");
+//	response.setHeader("Access-Control-Max-Age","3600");
 //	response.setHeader("Access-Control-Allow-Headers","Content-Type,x-requested-with,Authorization,Axxess-Control-Allow-Origin");
 //
 //	chain.doFilter(req, res);
 //}
 //
-//@Override 
-//public void destroy() {} 
+//@Override
+//public void destroy() {}
 //}

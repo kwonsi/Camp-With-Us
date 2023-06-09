@@ -34,25 +34,25 @@
 					</li>
 					<li class="myPage_1">
 						<h4 id="myPage">마이페이지</h4>
-				<ul class="submenu">
-					<c:choose>
-						<c:when test="${loginMember.loginST=='Y'}">
-							<li><a href="${contextPath}/member/myPage/myReservation">예약 확인</a></li>
-							<li><a href="${contextPath}/member/myPage/myBoard">내 게시글</a></li>
-							<li><a href="${contextPath}/member/myPage/myReview">내 리뷰</a></li>
-						</c:when>
-						<c:otherwise>
-							<li><a href="${contextPath}/member/myPage/myReservation">예약 확인</a></li>
-							<li><a href="${contextPath}/member/myPage/myBoard">내 게시글</a></li>
-							<li><a href="${contextPath}/member/myPage/myReview">내 리뷰</a></li>
-							<li><a href="${contextPath}/member/myPage/profile">회원 정보 변경</a></li>
-							<li><a href="${contextPath}/member/myPage/changePw">비밀번호 변경</a></li>
-							<li><a href="${contextPath}/member/myPage/secession">회원 탈퇴</a></li>
-						</c:otherwise>
-					</c:choose>
+					<ul class="submenu">
+						<c:choose>
+							<c:when test="${loginMember.loginST=='Y'}">
+								<li><a href="${contextPath}/member/myPage/myReservation">예약 확인</a></li>
+								<li><a href="${contextPath}/member/myPage/myBoard">내 게시글</a></li>
+								<li><a href="${contextPath}/member/myPage/myReview">내 리뷰</a></li>
+							</c:when>
+							<c:otherwise>
+								<li><a href="${contextPath}/member/myPage/myReservation">예약 확인</a></li>
+								<li><a href="${contextPath}/member/myPage/myBoard">내 게시글</a></li>
+								<li><a href="${contextPath}/member/myPage/myReview">내 리뷰</a></li>
+								<li><a href="${contextPath}/member/myPage/profile">회원 정보 변경</a></li>
+								<li><a href="${contextPath}/member/myPage/changePw">비밀번호 변경</a></li>
+								<li><a href="${contextPath}/member/myPage/secession">회원 탈퇴</a></li>
+							</c:otherwise>
+						</c:choose>
 					</li>
+					</ul>
 				</ul>
-			
 			<%-- 로그인이 되어있지 않은 경우 --%>
 				
 				<c:choose>
@@ -85,7 +85,7 @@
 
 				</c:choose>
 
-		</ul>
+		
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 		<script>

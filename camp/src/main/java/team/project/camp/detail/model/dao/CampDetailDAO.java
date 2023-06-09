@@ -42,22 +42,22 @@ public class CampDetailDAO {
 	public int reservationState(int reservNo) {
 		return sqlSession.update("campDetailMapper.reservationState", reservNo);
 	}
-	
+
 	// 리뷰 목록 조회
 	public List<Review> selectReplyList(int campNo) {
 		return sqlSession.selectList("campDetailMapper.selectReplyList", campNo);
 	}
-	
+
 	// 리뷰 작성
 	public int insertReview(Review review) {
 		return sqlSession.insert("campDetailMapper.insertReview", review);
 	}
-	
+
 	// 리뷰 삭제
 	public int deleteReview(int replyNo) {
 		return sqlSession.update("campDetailMapper.deleteReview", replyNo);
 	}
-	
+
 	// 리뷰 수정
 	public int updateReview(Map<String, Object> map) {
 		return sqlSession.update("campDetailMapper.updateReview", map);
