@@ -30,7 +30,7 @@
             <span class="myPage-explanation">현재 회원님의 프로필을 변경할 수 있습니다.</span>
             
 
-            <form action="updateProfile" method="POST" name="myPage-form" 
+            <form action="profileImage" method="POST" name="myPage-form" 
                     enctype="multipart/form-data" onsubmit="return profileValidate()">
 
 
@@ -49,14 +49,18 @@
 
                 </div>
 
-
                 <div class="profile-btn-area">
                     <label for="input-image">이미지 선택</label>
                     <input type="file" name="uploadImage" id="input-image" accept="image/*">
                     <button type="submit">변경하기</button>
                 </div>
 
+                <!-- 삭제버튼(x)이 눌러짐을 기록하는 숨겨진 input 태그 -->
+                <!-- 0 : 안눌러짐   /   1: 눌러짐 -->
+                <input type="hidden" name="delete" id="delete" value="0">
+            </form>
 
+            <form action="info" method="POST" name="myPage-form" onsubmit="return infoValidate()">
                 <div class="myPage-row">
                     <label>이메일</label>
                     <span>${loginMember.memberEmail}</span>
@@ -102,9 +106,6 @@
 
                 <button id="info-update-btn">수정하기</button>
 
-                <!-- 삭제버튼(x)이 눌러짐을 기록하는 숨겨진 input 태그 -->
-                <!-- 0 : 안눌러짐   /   1: 눌러짐 -->
-                <input type="hidden" name="delete" id="delete" value="0">
             </form>
 
         </section>

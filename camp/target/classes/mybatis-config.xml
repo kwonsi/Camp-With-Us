@@ -25,6 +25,7 @@
 		<mapper resource="/mappers/reply-mapper.xml"/>
 		<mapper resource="/mappers/campDetail-mapper.xml"/>
 		<mapper resource="/mappers/member-mapper.xml"/>
+		<mapper resource="/mappers/myPage-mapper.xml"/>
 	</mappers>
 	
 </configuration>
