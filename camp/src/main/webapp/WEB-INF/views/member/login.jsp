@@ -233,8 +233,10 @@
                                     if ( result > 0 ) {
                                         alert("이미 가입된 아이디입니다.");
                                         window.location.href = '${contextPath}/member/login';
+                                    }else {
+                                        window.location.href = '${contextPath}';
                                     }
-                                    window.location.href = '${contextPath}';
+                                    
 
                                     if (Kakao.Auth.getAccessToken()) {
                                         Kakao.API.request({
