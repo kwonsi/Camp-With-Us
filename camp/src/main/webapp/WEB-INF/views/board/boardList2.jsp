@@ -29,9 +29,11 @@
 
 </head>
 <body>
+
+    <jsp:include page="/WEB-INF/views/common/header.jsp"/>
     <main>
         
-        <jsp:include page="/WEB-INF/views/common/header.jsp"/>
+       
         
         <%-- 검색을 진행한 경우 key, query를 쿼리스트링 형태로 저장한 변수 생성 --%>
         <c:if test="${!empty param.key}">

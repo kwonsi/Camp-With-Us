@@ -44,9 +44,9 @@
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v17.0&appId=804019604627586&autoLogAppEvents=1" nonce="tSPzCaKu"></script>
 
 
-
+<jsp:include page="/WEB-INF/views/common/header.jsp"/>
     <main>
-        <jsp:include page="/WEB-INF/views/common/header.jsp"/>
+       
         
         <section class="contain">
 

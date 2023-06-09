@@ -19,9 +19,11 @@
     </head>
 
     <body>
+
+                    <!-- hedaer include -->
+                    <jsp:include page="/WEB-INF/views/common/header.jsp" />
         <main>
-            <!-- hedaer include -->
-            <jsp:include page="/WEB-INF/views/common/header.jsp" />
+
 
 
             <!-- 회원가입  -->

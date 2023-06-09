@@ -18,9 +18,11 @@
 
 </head>
 <body>
+
+    <jsp:include page="/WEB-INF/views/common/header.jsp" />
     <main>
 		
-		<jsp:include page="/WEB-INF/views/common/header.jsp" />
+		
 
         <form class="formsize">            
 

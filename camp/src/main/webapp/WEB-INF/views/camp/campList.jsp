@@ -14,8 +14,10 @@
 </head>
 
 <body>
+
+    <jsp:include page="/WEB-INF/views/common/header.jsp" />
     <main>
-        <jsp:include page="/WEB-INF/views/common/header.jsp" />
+       
 
         <div class="search">
             <section class="layer_search">
