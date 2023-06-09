@@ -54,9 +54,9 @@ header>section:nth-of-type(3) {
 header .menu {
     display: flex;
     justify-content: center;
-    align-items: center;
+    /* align-items: center; */
     list-style-type: none;
-    
+    flex-direction: row;
 }
 
 header .menu > li {
@@ -64,11 +64,15 @@ header .menu > li {
     width: 150px;
 	height: 60px;
     text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    /* display: flex; 
+    justify-content: center; 
+    align-items: center; */
 }
 
+h4{
+    margin-top: 0;
+    margin-bottom: 10px;
+}
 
 a {
     text-decoration: none;
