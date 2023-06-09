@@ -9,88 +9,139 @@ body {
   /*   background-size: 100% 100%; */
 }
 
-header {
+#header {
+
     height: 100px;
+    transition: all 0.5s;
+    transition: all 0.5s;
+    background: #fff;
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  #header .logo h1 {
+    font-size: 30px;
+    margin: 0;
+    font-weight: 400;
+    letter-spacing: 2px;
+    color: #7a6960;
+  }
+  
+  #header .logo img {
+    padding: 0;
+    margin: 0;
+    max-height: 90px;
+  }
+
+  .navbar {
+    padding: 0;
+  }
+  
+  .navbar ul {
+    margin: 0;
+    padding: 0;
     display: flex;
-}
-
-header>section:nth-of-type(1) {
-    flex-basis: 30%;
-}
-
-header>section:nth-of-type(2) {
-    flex-basis: 40%;
-}
-
-header>section:nth-of-type(3) {
-    flex-basis: 30%;
-}
-
-/* 로고 */
-header>section:nth-of-type(1) {
-    display: flex;
-    justify-content: left;
+    list-style: none;
     align-items: center;
-}
-
-.title {
-    text-align: center;
-}
-
-#home-logo {
-    width: 150px;
-    height: auto;
-    /* 이미지는 width/height 둘 중 하나만 지정 시 
-    나머지 방향의 크기가 같은 비율로 지정됨 */
-}
-
-header>section:nth-of-type(3) {
+  }
+  
+  .navbar li {
+    position: relative;
+  }
+  
+  .navbar a,
+  .navbar a:focus {
+    text-decoration: none;
     display: flex;
-    flex-direction: row-reverse;
-}
-
-header .menu {
-    display: flex;
-    list-style-type: none;
-    
-}
-
-header .menu > li {
-    width: 150px;
-	height: 60px;
-    text-align: center;
-}
-
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0 10px 30px;
+    font-size: 15px;
+    color: #4e4039;
+    white-space: nowrap;
+    transition: 0.3s;
+  }
+  
+  .navbar a i,
+  .navbar a:focus i {
+    font-size: 12px;
+    line-height: 0;
+    margin-left: 5px;
+  }
+  
+  .navbar a:hover,
+  .navbar .active,
+  .navbar .active:focus,
+  .navbar li:hover>a {
+    color: #eb5d1e;
+  }
+  
+  .navbar .getstarted,
+  .navbar .getstarted:focus {
+    background: #eb5d1e;
+    color: #fff;
+    padding: 10px 25px;
+    margin-left: 30px;
+    border-radius: 50px;
+  }
+  
+  .navbar .getstarted:hover,
+  .navbar .getstarted:focus:hover {
+    color: #fff;
+    background: #ee7843;
+  }
+  
+  .navbar .dropdown ul {
+    display: block;
+    position: absolute;
+    left: 14px;
+    top: calc(100% + 30px);
+    margin: 0;
+    padding: 10px 0;
+    z-index: 99;
+    opacity: 0;
+    visibility: hidden;
+    background: #fff;
+    box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
+    transition: 0.3s;
+  }
+  
+  .navbar .dropdown ul li {
+    min-width: 200px;
+  }
+  
+  .navbar .dropdown ul a {
+    padding: 10px 20px;
+    font-size: 15px;
+    text-transform: none;
+  }
+  
+  .navbar .dropdown ul a i {
+    font-size: 12px;
+  }
+  
+  .navbar .dropdown ul a:hover,
+  .navbar .dropdown ul .active:hover,
+  .navbar .dropdown ul li:hover>a {
+    color: #eb5d1e;
+  }
+  
+  .navbar .dropdown:hover>ul {
+    opacity: 1;
+    top: 100%;
+    visibility: visible;
+  }
 
 a {
+  color: #eb5d1e;
+  text-decoration: none;
+}
+
+a:hover {
+    color: #ef7f4d;
     text-decoration: none;
-    color: black;
 }
 
 
-.submenu{
-	display: none; /* 마지막에 적기 */
-    list-style: none;
-    padding-left: 0;
-}
-.submenu > li{
-	width: 150px;
-	height: 40px;
-    z-index: 2;
-}
-.submenu>li:hover>a{
-	text-decoration: underline;
-}
-
-
-header .mainImg {
-    width: 100%;
-    height: auto;
-}
-
-header .content1 {
-    width: 100%;
-}
 
 #campList{
     cursor: pointer;
@@ -304,3 +355,33 @@ footer span {
 .slider__dot .dot.active {
     background: rgba(255,255,255,0.9);
 }
+
+
+.back-to-top {
+    position: fixed;
+    opacity: 1;
+    right: 15px;
+    bottom: 15px;
+    z-index: 99999;
+    background: #eb5d1e;
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    transition: all 0.4s;
+  }
+  
+  .back-to-top i {
+    font-size: 24px;
+    color: #fff;
+    line-height: 0;
+  }
+  
+  .back-to-top:hover {
+    background: #ee7843;
+    color: #fff;
+  }
+  
+  .back-to-top.active {
+    visibility: visible;
+    opacity: 1;
+  }
