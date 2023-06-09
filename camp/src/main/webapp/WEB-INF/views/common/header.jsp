@@ -28,13 +28,10 @@
 						<li><a href="${contextPath}/board/list/4">공지사항</a></li>
 						<li><a href="${contextPath}/board/list/5">문의사항</a></li> -->
 						<c:forEach var="boardType" items="${boardTypeList}">
-							<li><a
-									href="${contextPath}/board/list/${boardType.boardCode}">${boardType.boardName}</a>
-							</li>
+							<li><a href="${contextPath}/board/list/${boardType.boardCode}">${boardType.boardName}</a></li>
 						</c:forEach>
 					</ul>
 				</li>
-
 				<li class="myPage_1">
 					<h4 id="myPage">마이페이지</h4>
 					<ul class="submenu">
@@ -53,19 +50,16 @@
 								<li><a href="${contextPath}/member/myPage/secession">회원 탈퇴</a></li>
 							</c:otherwise>
 						</c:choose>
+							
 					</ul>
 				</li>
+				<%-- 로그인이 되어있지 않은 경우 --%>
 			
-
-			<%-- 로그인이 되어있지 않은 경우 --%>
-
 				<c:choose>
 
 					<c:when test="${ empty sessionScope.loginMember}">
 						<li>
-							<a href='${contextPath}/member/login'>
-								<h4 id="login">로그인</h4>
-							</a>
+							<a href='${contextPath}/member/login'>로그인</a>
 
 							<ul class="submenu">
 								<li><a href="${contextPath}/member/login">로그인</a></li>
