@@ -156,8 +156,15 @@
                     "memberEmail": responsePayload.email
                 },
 
-                success: function () {
-                    window.location.href = '${contextPath}';
+                success: function (result) {
+                    if ( result > 0 ) {
+                        alert("이미 가입된 아이디입니다.");
+                        window.location.href = '${contextPath}/member/login';
+                    }else{
+                        window.location.href = '${contextPath}';
+                    }
+                    
+
                 },
                 error: function () {
 
