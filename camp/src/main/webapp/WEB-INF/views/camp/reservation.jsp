@@ -282,7 +282,7 @@ function requestPay() {
 
               } else {
                 console.log("실패");
-                alert("결제에 실패하였습니다");
+                alert("날짜/인원을 선택해주세요.");
               }
             });
         }
