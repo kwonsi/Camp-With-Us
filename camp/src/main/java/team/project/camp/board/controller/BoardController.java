@@ -1,6 +1,7 @@
 package team.project.camp.board.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -56,10 +57,10 @@ public class BoardController {
 	@GetMapping("/list/{boardCode}")
 	public String boardList( @PathVariable("boardCode") int boardCode,
 							@RequestParam(value="cp", required= false, defaultValue="1") int cp,
-							@RequestParam(value="boardContent", required= false) String boardContent,
+//							@RequestParam(value="boardContent", required= false) String boardContent,
 							Model model,
-							@RequestParam Map<String, Object> boardMap,
-							@RequestParam Map<String, Object> paramMap) {
+							@RequestParam Map<String, Object> paramMap,
+							Board board) {
 							// 검색 요청인 경우 : key, query, cp(있거나 없거나)
 		
 		// 게시글 목록 조회 서비스 호출
@@ -72,13 +73,11 @@ public class BoardController {
 		
 		
 		if(paramMap.get("key") == null) { // 검색이 아닌 경우의 게시글 목록조회
-			map = service.selectBoardList(cp, boardCode, boardMap, boardContent);
 			
-			log.info("Controller boardContent :" + boardContent);
-			log.info("Controller map :" +  map.get(boardContent));
-			log.info("Controller paramMap : " + paramMap);
+			map = service.selectBoardList(cp, boardCode);
 
-			boardMap.put("boardContent", boardContent);
+			log.info("Controller map.get(\"boardList\") : " + map.get("boardList"));
+
 			
 			
 			
@@ -92,14 +91,16 @@ public class BoardController {
 			
 			map = service.searchBoardList(paramMap);
 			
+			
 		}
 	
-		model.addAttribute("map" ,map);
-		model.addAttribute("boardMap" ,boardMap);
+		model.addAttribute("map", map);
+//		model.add
 		
-		log.info("Controller map2 :" +  map);
-		log.info("Controller boardContent :" +  boardContent);
+		log.info("Controller map :" +  map);
+//		log.info("Controller boardContent :" +  boardContent);
 		log.info("Controller model :" +  model);
+
 		
 		return "board/boardList"+ boardCode;
 	}

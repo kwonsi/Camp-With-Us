@@ -46,7 +46,9 @@
             <h1 class="board-name">${boardName}</h1>
 
             <c:if test="${!empty param.key}">
-                <h3 style="margin-left:30px;"> "${param.query}" 검색 결과  </h3>
+                <div class="list1-5">
+                    <h3 style="margin-left:30px;"> "${param.query}" 검색 결과  </h3>
+                </div>
             </c:if>
 
 
@@ -55,9 +57,7 @@
                         <c:choose>
                             <c:when test="${empty boardList}">
                                 <!-- 게시글 목록 조회 결과가 비어있다면 -->
-                                <div class="list1-2">
-                                    <th colspan="5">게시글이 존재하지 않습니다.</th>
-                                </div>
+                                <div class="list1-6">게시글이 존재하지 않습니다.</div>
                             </c:when>
 
                             <c:otherwise>
@@ -74,13 +74,14 @@
 
                                         <div class="list1-2">
                                             <div class="list1-3">
-                                                <p>${board.boardNo}번째 게시글</p>
-                                                <a href="../detail/${boardCode}/${board.boardNo}?cp=${pagination.currentPage}${sURL}">${board.boardTitle}</a>
+                                                <p>${board.boardNo} &nbsp;|&nbsp; </p><a href="../detail/${boardCode}/${board.boardNo}?cp=${pagination.currentPage}${sURL}" class="boardTitle"><p>${board.boardTitle}</p></a>
                                             </div>
+
+                                            <hr>
 
                                             <div class="list1-4">
                                                 <p>작성자 : ${board.memberNickname} &nbsp;|&nbsp; 작성일 : ${board.createDate} &nbsp;|&nbsp; 조회수 : ${board.readCount}</p>
-                                                <a href="../detail/${boardCode}/${board.boardNo}?cp=${pagination.currentPage}${sURL}">${boardList.boardContent}</a>                        
+                                                <a href="../detail/${boardCode}/${board.boardNo}?cp=${pagination.currentPage}${sURL}" class="boardContent"><p>${board.boardContent}</p></a>                        
                                                 <%-- detail?no=${board.boardNo}&cp=${pagination.currentPage}&type=${param.type}${sURL} --%>
                                                 <%-- 현재 페이지 주소 : /board/list/1?cp=1
                                                 상세 조회 주소   : /board/detail/1/300?cp= --%>

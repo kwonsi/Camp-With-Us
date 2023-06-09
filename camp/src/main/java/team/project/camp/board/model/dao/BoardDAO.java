@@ -40,7 +40,7 @@ public class BoardDAO {
 	/** 게시판 목록 조회 DAO
 	 * @param pagination
 	 * @param boardCode
-	 * @param boardMap 
+	 * @param boardMap
 	 * @param boardMap 
 	 * @param boardNo 
 	 * @return boardList

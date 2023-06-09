@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.springframework.web.multipart.MultipartFile;
 
+import team.project.camp.board.model.vo.Board;
 import team.project.camp.board.model.vo.BoardDetail;
 import team.project.camp.board.model.vo.BoardType;
 
@@ -22,7 +23,7 @@ public interface BoardService {
 	 * @param boardCode
 	 * @return map
 	 */
-	Map<String, Object> selectBoardList(int cp, int boardCode, Map<String, Object> boardMap, String boardContent);
+	Map<String, Object> selectBoardList(int cp, int boardCode);
 
 	/** 검색 게시글 목록 조회 서비스
 	 * @param paramMap

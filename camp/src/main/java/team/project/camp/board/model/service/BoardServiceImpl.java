@@ -42,7 +42,7 @@ public class BoardServiceImpl implements BoardService{
 	
 	// 게시글 목록 조회 서비스 구현
 	@Override
-	public Map<String, Object> selectBoardList(int cp, int boardCode, Map<String, Object> boardMap, String boardContent) {
+	public Map<String, Object> selectBoardList(int cp, int boardCode) {
 
 		// 1) 게시판 이름 조회 -> 인터셉터 application에 올려둔 boardTypeList 쓸 수 있을듯 하다
 
@@ -52,17 +52,16 @@ public class BoardServiceImpl implements BoardService{
 		
 		// 3) 게시글 목록 조회
 		List<Board> boardList = dao.selectBoardList(pagination, boardCode);
+//		List<>
 		
 		// map 만들어서 담기
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("pagination", pagination);
 		map.put("boardList", boardList);
-		map.put("boardCode", boardMap);
-//		map.put("boardContent", boardContent);
+		map.put("boardCode", boardCode);
 		
 		
 		log.info("Service map : " + map);
-		log.info("Service boardContent : " + boardContent);
 		
 		return map;
 	}
