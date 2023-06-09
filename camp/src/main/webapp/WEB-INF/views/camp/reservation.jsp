@@ -18,12 +18,11 @@
 
 </head>
 <body>
+    
+    <jsp:include page="/WEB-INF/views/common/header.jsp" />
 
-   
     <main>
 		
-		<jsp:include page="/WEB-INF/views/common/header.jsp" />
-
         <form class="formsize">            
 
 
@@ -142,10 +141,10 @@
             <button type="button" class="btn btn-lg btn-primary" onclick="requestPay()">결제하기</button>
         </form>
 
-        <jsp:include page="/WEB-INF/views/common/footer.jsp" />
+    
         
     </main>
-
+    <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 <script>
     
 let priceValue;
