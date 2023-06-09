@@ -27,11 +27,6 @@ function searchCamp() {
 }
 
 
-if (login) {
-    login.addEventListener("click", function () {
-        location.href = "/login";
-    });
-}
 
 
 
@@ -202,3 +197,9 @@ document.querySelectorAll(".slider__dot .dot").forEach((dot, index) => {
     })
 })
 
+
+if (login) {
+    login.addEventListener("click", function () {
+        location.href = "/login";
+    });
+}
