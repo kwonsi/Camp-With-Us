@@ -1,26 +1,49 @@
 package team.project.camp.member.model.controller;
 
+import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import lombok.extern.slf4j.Slf4j;
 import team.project.camp.detail.model.service.CampDetailService;
 import team.project.camp.detail.model.vo.Reservation;
+import team.project.camp.member.model.service.MyPageService;
+import team.project.camp.member.model.vo.Member;
 @Slf4j
 @Controller
+@SessionAttributes({"loginMember"})
 @RequestMapping("/member/myPage")
 public class MyPageController {
 
 	@Autowired
 	private CampDetailService service;
 
+	@Autowired
+	private MyPageService myPageService;
+	
+	@Autowired
+	private BCryptPasswordEncoder bcrypt;
+	
 	//예약조회
 	@GetMapping("/myReservation")
 	public String reservation(Model model) {
@@ -71,6 +94,147 @@ public class MyPageController {
 		return result;
 	}
 
+	// 회원 정보 수정
+	@PostMapping("/info")
+	public String updateInfo(@ModelAttribute("loginMember") Member loginMember,
+							 @RequestParam Map<String, Object> paramMap,
+							// 요청 시 전달된 파라미터를 구분하지 않고 모두 Map에 담아서 얻어옴
+							 String[] updateAddress,
+							 RedirectAttributes ra) {
+		
+		
+		// 파라미터를 저장한 paramMap 에 회원 번호, 주소를 추가
+		String memberAddress = String.join(",,", updateAddress);
+		
+		// 주소가 미입력 되었을 때
+		if(memberAddress.equals(",,,,")) memberAddress = null;
+		
+		paramMap.put("memberNo", loginMember.getMemberNo());
+		paramMap.put("memberAddress", memberAddress);
+		
+		// 회원 정보 수정 서비스 호출
+		int result = myPageService.updateInfo(paramMap);
+		
+		String message = null;
 
+		if(result > 0) {
+			message = "회원 정보가 수정되었습니다.";
+			
+			// DB - Session 의 회원 정보 동기화
+			loginMember.setMemberNickname( (String)paramMap.get("updateNickname") );
+			loginMember.setMemberTel( (String)paramMap.get("updateTel") );
+			loginMember.setMemberAddress( (String)paramMap.get("memberAddress") );
+			
+		} else {
+			message = "회원 정보 수정 실패";
+		}
+		
+		ra.addFlashAttribute("message", message);
+		
+		return "redirect:profile";
+	}
+	
+	// 비밀번호 변경 (암호화)
+	@PostMapping("/changePw")
+	public String changePw(@ModelAttribute("loginMember") Member loginMember,
+							@RequestParam Map<String, Object> paramMap,
+			 				RedirectAttributes ra) {
+		
+		paramMap.put("memberNo", loginMember.getMemberNo());
+		
+		String message = null;
+		
+			
+		int result = myPageService.changePw(paramMap);
+		
+		if(result > 0) {
+			
+			message = "비밀번호가 변경되었습니다";
+			
+			loginMember.setMemberPw(bcrypt.encode( (String)paramMap.get("newPw") ));
+			
+		} else message = "현재 비밀번호가 일치하지 않습니다.";
+			
+		
+		ra.addFlashAttribute("message", message);
+		
+		return "redirect:changePw";
+	}
 
+	
+	// 회원 탈퇴 (세션, 쿠키 무효화)
+	@PostMapping("/secession")
+	public String doSecession(@ModelAttribute("loginMember") Member loginMember,
+								RedirectAttributes ra,
+								SessionStatus status,
+							  	HttpServletRequest req,
+							  	HttpServletResponse resp) {
+		
+		String path = null;
+		String message = null;
+		
+		int result = myPageService.doSecession(loginMember);
+		
+		if(result > 0 ) { // 회원 탈퇴 성공 시 
+			
+			path = "/";
+			message = "회원 탈퇴되었습니다";
+
+			// 세션 초기화
+			status.setComplete();			
+			
+			// 쿠키 없애기
+			Cookie cookie = new Cookie("saveId", "");
+			cookie.setMaxAge(0);
+			cookie.setPath(req.getContextPath());
+			resp.addCookie(cookie);
+			
+		} else { // 회원 탈퇴 실패 시
+			path = "secession";
+			message = "비밀번호가 일치하지 않습니다.";
+		}
+		
+		ra.addFlashAttribute("message", message);
+		
+		return "redirect:" + path;
+	}
+	
+	// 프로필 이미지 수정
+	@PostMapping("/profileImage")
+	public String updateProfile(@ModelAttribute("loginMember") Member loginMember,
+								@RequestParam("uploadImage") MultipartFile uploadImage, /* 업로드 파일 */ 
+								@RequestParam Map<String, Object> map, /* delete 담겨있음(삭제 버튼) */
+								HttpServletRequest req, /* 파일 저장 경로 탐색용 */
+								RedirectAttributes ra) throws IOException {
+
+		// 경로 작성하기
+		
+		// 1) 웹 접근 경로 ( /comm/resources/images/memberProfile/ )
+		String webPath = "/resources/images/memberProfile/";
+		
+		// 2) 서버 저장 폴더 경로
+		// C:\workspace\7_Framework\comm\src\main\webapp\resources\images\memberProfile
+		String folderPath = req.getSession().getServletContext().getRealPath(webPath);
+		
+		// map 에 경로 2개, uploadImage, delete, 회원번호 담기
+		map.put("webPath", webPath);
+		map.put("folderPath", folderPath);
+		map.put("uploadImage", uploadImage);
+		map.put("memberNo", loginMember.getMemberNo());
+		
+		int result = myPageService.updateProfile(map);
+		
+		String message = null;
+		
+		if(result > 0) {
+			message = "프로필 이미지가 변경되었습니다";
+			loginMember.setProfileImage( (String)map.get("profileImage") );
+		} else {
+			message = "프로필 이미지 변경 실패";
+		}
+		
+		ra.addFlashAttribute("message", message);
+		
+		return "redirect:profile";
+	}
 }

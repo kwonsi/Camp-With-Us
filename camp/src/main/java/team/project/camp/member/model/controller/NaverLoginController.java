@@ -1,7 +1,6 @@
 package team.project.camp.member.model.controller;
 
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -11,8 +10,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
-import org.springframework.web.bind.support.SessionStatus;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import lombok.extern.slf4j.Slf4j;
 import team.project.camp.member.model.service.MemberService;
@@ -55,30 +52,4 @@ public class NaverLoginController {
        }
     }
     
-    @GetMapping("/logout")
-    public String logout(SessionStatus status , RedirectAttributes ra, HttpServletRequest req) {
-    	
-    	status.setComplete();
-    	
-//    	Cookie cookies[] = req.getCookies();
-//    	
-//    	for(int i=0; i<cookies.length; i++) {
-//    		log.info("로그인 쿠키 : " + cookies[i]);
-//    		cookies[i].setMaxAge(0);
-//    	}
-//    	for(int i=0; i<cookies.length; i++) {
-//    		log.info("로그인 쿠키22 : " + cookies[i]);
-//    		cookies[i].setMaxAge(0);
-//    	}
-    	
-    
-    	
-    	
-    	
-    	ra.addFlashAttribute("message","로그아웃 되었습니다.");
-    	
-    	log.info("로그아웃실행");
-
-    	return "redirect:/";
-    }
 }

@@ -47,7 +47,13 @@
 	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
-	 
+	
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		 <property name="maxUploadSize" value="104857600"/>
+		 <property name="maxUploadSizePerFile" value="104857600"/>
+		 <property name="maxInMemorySize" value="104857600"/>
+	</bean>
+	
 	 <!-- username은 메일계정(예. xxxx@gmail.com), password는 메일 계정 키값) -->
 	<bean id="mailSender"
 		class="org.springframework.mail.javamail.JavaMailSenderImpl">
