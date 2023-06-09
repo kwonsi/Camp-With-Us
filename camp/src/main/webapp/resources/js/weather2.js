@@ -1,54 +1,54 @@
 
 const AM = document.querySelectorAll(".AM");
 const PM = document.querySelectorAll(".PM");
-
+let loca2 = JSON.parse(localStorage.getItem("loca"));
 const loc5 = loc4();
 function loc4(){
   let locate;
   let positionX;
   let positionY;
 
-  let doNm = JSON.parse(localStorage.getItem("doNm"));
-  if(doNm == '강원도' || doNm=== '강원'){
+  
+  if(loca2 == '강원도' || loca2=== '강원'){
     locate = "11D20000"
     positionX = '37.8';
     positionY = '128.2';
-  }else if(doNm == '서울시' || doNm ==='경기도' || doNm === '인천시' || doNm == '서울시'){
+  }else if(loca2 == '서울시' || loca2 ==='경기도' || loca2 === '인천시' || loca2 == '서울시'){
     locate = "11B00000"
     positionX = '37.5683';
     positionY = '126.9778';
 
-  } else if(doNm === '대전시' || doNm ==='세종' || doNm ==='충청남도'){
+  } else if(loca2 === '대전시' || loca2 ==='세종' || loca2 ==='충청남도'){
     locate = "11C20000"
     positionX = '36.3333'
     positionY = '127.4167'
   
-  } else if(doNm === '충청북도'){
+  } else if(loca2 === '충청북도'){
     locate = "11C10000"
     positionX='36.9706'
     positionY='127.9322'
  
-  } else if(doNm === "광주시" || doNm ==="전라남도"){
+  } else if(loca2 === "광주시" || loca2 ==="전라남도"){
     locate = "11F20000"
     positionX='35.1547'
     positionY='126.9156'
 
-  } else if(doNm ==='전라북도'){
+  } else if(loca2 ==='전라북도'){
     locate = "11F10000"
     positionX='35.8219'
     positionY='127.1489'
   
-  } else if(doNm ==='대구시' || doNm ==="경상북도"){
+  } else if(loca2 ==='대구시' || loca2 ==="경상북도"){
     locate = "11H10000"
     positionX='35.8'
     positionY='128.55'
   
-  } else if(doNm === '부산시' || doNm ==='울산시' || doNm ==="경상남도"){
+  } else if(loca2 === '부산시' || loca2 ==='울산시' || loca2 ==="경상남도"){
     locate = "11H20000"
     positionX='35.1028'
     positionY='129.0403'
    
-  } else if(doNm === "제주도"){
+  } else if(loca2 === "제주도"){
     locate = "11G00000"
     positionX='33.5097'
     positionY='126.5219'
@@ -76,48 +76,48 @@ function loc6(){
 
   let positionNY
   let positionNX
-  let doNm = JSON.parse(localStorage.getItem("doNm"));
-  if(doNm == '강원도' || doNm=== '강원'){
+ 
+  if(loca2 == '강원도' || loca2=== '강원'){
     locate = "11D20000"
     
     positionNX = '73'
     positionNY = '134'
-  }else if(doNm == '서울' || doNm ==='경기도' || doNm === '인천시'){
+  }else if(loca2 == '서울' || loca2 ==='경기도' || loca2 === '인천시'){
     locate = "11B00000"
  
     positionNX = '60'
     positionNY = '126'
-  } else if(doNm === '대전시' || doNm ==='세종' || doNm ==='충청남도'){
+  } else if(loca2 === '대전시' || loca2 ==='세종' || loca2 ==='충청남도'){
     locate = "11C20000"
 
     positionNX = '67'
     positionNY = '100'
-  } else if(doNm === '충청북도'){
+  } else if(loca2 === '충청북도'){
     locate = "11C10000"
 
     positionNX = '69'
     positionNY = '107'
-  } else if(doNm === "광주시" || doNm ==="전라남도"){
+  } else if(loca2 === "광주시" || loca2 ==="전라남도"){
     locate = "11F20000"
 
     positionNX = '51'
     positionNY = '67'
-  } else if(doNm ==='전라북도'){
+  } else if(loca2 ==='전라북도'){
     locate = "11F10000"
 
     positionNX = '63'
     positionNY = '89'
-  } else if(doNm ==='대구시' || doNm ==="경상북도"){
+  } else if(loca2 ==='대구시' || loca2 ==="경상북도"){
     locate = "11H10000"
 
     positionNX = '89'
     positionNY = '90'
-  } else if(doNm === '부산시' || doNm ==='울산시' || doNm ==="경상남도"){
+  } else if(loca2 === '부산시' || loca2 ==='울산시' || loca2 ==="경상남도"){
     locate = "11H20000"
 
     positionNX = '98'
     positionNY = '76'
-  } else if(doNm === "제주도"){
+  } else if(loca2 === "제주도"){
     locate = "11G00000"
 
     positionNX = '52'
@@ -236,7 +236,7 @@ $.getJSON('http://api.openweathermap.org/data/2.5/forecast?lat='+loc5[0]+'&lon='
 
 // 다음날 다다음날 강수확률
 const rp2 = document.querySelectorAll(".rp");
-$.getJSON('https://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst?serviceKey=jsLvGH%2Bb1syQWRRY0c2N5F%2FcD%2FwCpP81UAeg5oSlnbCS53y8grp2iAkZRGCIRSajwn%2F%2FFIpN5BCIIbK1u8Jajw%3D%3D&pageNo=1&numOfRows=1000&dataType=JSON&base_date='+formattedDate+'&base_time=0500&nx=55&ny=127',function(result){
+$.getJSON('https://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst?serviceKey=jsLvGH%2Bb1syQWRRY0c2N5F%2FcD%2FwCpP81UAeg5oSlnbCS53y8grp2iAkZRGCIRSajwn%2F%2FFIpN5BCIIbK1u8Jajw%3D%3D&pageNo=1&numOfRows=1000&dataType=JSON&base_date='+formattedDate+'&base_time=0500&nx='+loc7[0]+'&ny='+loc7[1],function(result){
   let rpAM = [];
   let rpPM = [];
   let fcstValue = 'fcstValue'

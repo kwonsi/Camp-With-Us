@@ -1,53 +1,37 @@
 
 
-function getFormattedDate() {
-    const date = new Date();
-    const year = date.getFullYear();
-    let month = date.getMonth() + 1;
-    let day = date.getDate();
-  
-    // 월과 일이 한 자리 수인 경우 앞에 0을 추가합니다.
-    if (month < 10) {
-      month = '0' + month;
-    }
-  
-    if (day < 10) {
-      day = '0' + day;
-    }
-  
-    return year + month + day;
-}
 
 function loc2(){
   let locate;
-  let doNm = JSON.parse(localStorage.getItem("doNm"));
-  if(doNm == '강원도' || doNm=== '강원'){
+  let loca = JSON.parse(localStorage.getItem("loca"));
+
+  if(loca == '강원도' || loca=== '강원'){
     locate = "11D20000"
-  }else if(doNm == '서울시' || doNm ==='경기도' || doNm === '인천시' || doNm == '서울'){
+  }else if(loca == '서울시' || loca ==='경기도' || loca === '인천시' || loca == '서울'){
     locate = "11B00000"
-  } else if(doNm === '대전시' || doNm ==='세종' || doNm ==='충청남도'){
+  } else if(loca === '대전시' || loca ==='세종' || loca ==='충청남도'){
     locate = "11C20000"
-  } else if(doNm === '충청북도'){
+  } else if(loca === '충청북도'){
     locate = "11C10000"
-  } else if(doNm === "광주시" || doNm ==="전라남도"){
+  } else if(loca === "광주시" || loca ==="전라남도"){
     locate = "11F20000"
-  } else if(doNm ==='전라북도'){
+  } else if(loca ==='전라북도'){
     locate = "11F10000"
-  } else if(doNm ==='대구시' || doNm ==="경상북도"){
+  } else if(loca ==='대구시' || loca ==="경상북도"){
     locate = "11H10000"
-  } else if(doNm === '부산시' || doNm ==='울산시' || doNm ==="경상남도"){
+  } else if(loca === '부산시' || loca ==='울산시' || loca ==="경상남도"){
     locate = "11H20000"
-  } else if(doNm === "제주도"){
+  } else if(loca === "제주도"){
     locate = "11G00000"
   }
   return locate
 }
 
+const loc3 = loc2();
+
 var day = [];
 const formattedDate = getFormattedDate();
-const loc3 = loc2();
-console.log(loc3)
-console.log(doNm)
+
 const DATE = document.querySelectorAll(".date");
 const info1 = document.querySelectorAll(".AM");
 const info2 = document.querySelectorAll(".PM");
@@ -60,6 +44,8 @@ const rp = document.querySelectorAll(".rp");
                   }
 console.log(formattedDate)
 
+console.log(loc3)
+console.log(doNm)
 $.getJSON(
           "https://apis.data.go.kr/1360000/MidFcstInfoService/getMidLandFcst?serviceKey="
           +"jsLvGH%2Bb1syQWRRY0c2N5F%2FcD%2FwCpP81UAeg5oSlnbCS53y8grp2iAkZRGCIRSajwn%2F%2FFIpN5BCIIbK1u8Jajw%3D%3D&pageNo=1"
@@ -228,6 +214,26 @@ $.getJSON(
 
 });
 
+
+
+function getFormattedDate() {
+  const date = new Date();
+  const year = date.getFullYear();
+  let month = date.getMonth() + 1;
+  let day = date.getDate();
+
+  // 월과 일이 한 자리 수인 경우 앞에 0을 추가합니다.
+  if (month < 10) {
+    month = '0' + month;
+  }
+
+  if (day < 10) {
+    day = '0' + day;
+  }
+
+  return year + month + day;
+}
+
 function getDates() {
   var today = new Date(); // 현재 날짜를 가져옴
   var dates = [];
@@ -242,5 +248,6 @@ function getDates() {
 
   return dates;
 }
+
 
               

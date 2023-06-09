@@ -252,12 +252,13 @@ if (mapContainer) {
 }
 
 
-
+ 
 
 
 var doNmVal = document.getElementById("doNmVal");  // 날씨제목
 if(doNmVal){
     var doNm = items.doNm;
+    localStorage.setItem("loca", JSON.stringify(doNm))
 doNmVal.innerText = doNm+" 지역 날씨";
 };
 
