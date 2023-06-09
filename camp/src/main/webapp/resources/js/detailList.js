@@ -10,7 +10,7 @@ reservationBtn.addEventListener("click", function (e) {
 
     if (loginMember == null || loginMember=="" ) {
         alert("먼저 로그인을 해주세요");
-
+        window.location.href = '/camp/member/login';
         e.preventDefault();
         
     } else {
@@ -252,12 +252,13 @@ if (mapContainer) {
 }
 
 
-
+ 
 
 
 var doNmVal = document.getElementById("doNmVal");  // 날씨제목
 if(doNmVal){
     var doNm = items.doNm;
+    localStorage.setItem("loca", JSON.stringify(doNm))
 doNmVal.innerText = doNm+" 지역 날씨";
 };
 

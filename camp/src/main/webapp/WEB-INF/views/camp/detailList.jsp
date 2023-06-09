@@ -110,243 +110,249 @@
             <hr>
 
 
-            <!-- viewType == 1 일때 -->
-            <c:if test="${param.viewType == '1'}">
+         
 
-                <div class="div3">
+                <!-- viewType == 1 일때 -->
+                <c:if test="${param.viewType == '1'}">
 
-                    <section id="table_type03">
-                        <div class="table_w">
+                    <div class="div3">
 
-                            <table class="table_t4 camp_etc_tb">
-                                <caption> 기타 주요시설 
-                                </caption>
-                                <tbody class="t_c">
-                                    <tr>
-                                        <th scope="col">주요시설</th>
+                        <section id="table_type03">
+                            <div class="table_w">
+
+                                <table class="table_t4 camp_etc_tb">
+                                    <caption> 기타 주요시설 
+                                    </caption>
+                                    <tbody class="t_c">
+                                        <tr>
+                                            <th scope="col">주요시설</th>
+                                            <td>
+                                                <ul class="table_ul05">
+                                                    <!--                                        <li>일반야영장(2면)</li>-->
+
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="col">기타 정보</th>
+                                            <td>
+                                                <ul class="table_ul05">
+                                                    <!--                                         <li> 반려동물 동반 불가능</li> -->
+                                                </ul>
+                                                <br />
+                                                <br />
+                                                (※ 실제 결과는 현장사정 및 계절에 따라 달라질 수 있으니 캠핑장 사업주에 직접 확인 후 이용바랍니다.)
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="col">사이트 크기</th>
+                                            <td>
+                                                <ul class="table_ul05">
+                                                    <!--                                         <li>4 X 6 : 13개</li> -->
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="col">글램핑 내부시설</th>
+                                            <td>
+                                                <ul class="table_ul05">
+                                                    <!--                               <li>침대</li> -->
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="col">카라반 내부시설</th>
+                                            <td>
+                                                <ul class="table_ul05">
+                                                    <!--                                         <li>침대</li> -->
+                                                </ul>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <th scope="col">화로대</th>
+                                            <td class="etc_type">
+                                                <ul class="table_ul05">
+                                                    <!--                                         <li> 개별</li> -->
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="col">안전시설현황</th>
+                                            <td>
+                                                <ul class="table_ul05">
+                                                    <!--                                         <li>소화기 (20)</li>-->
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <th scope="col">부가 정보</th>
                                         <td>
                                             <ul class="table_ul05">
-                                                <!--                                        <li>일반야영장(2면)</li>-->
-
                                             </ul>
                                         </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="col">기타 정보</th>
-                                        <td>
-                                            <ul class="table_ul05">
-                                                <!--                                         <li> 반려동물 동반 불가능</li> -->
-                                            </ul>
-                                            <br />
-                                            <br />
-                                            (※ 실제 결과는 현장사정 및 계절에 따라 달라질 수 있으니 캠핑장 사업주에 직접 확인 후 이용바랍니다.)
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="col">사이트 크기</th>
-                                        <td>
-                                            <ul class="table_ul05">
-                                                <!--                                         <li>4 X 6 : 13개</li> -->
-                                            </ul>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="col">글램핑 내부시설</th>
-                                        <td>
-                                            <ul class="table_ul05">
-                                                <!--                               <li>침대</li> -->
-                                            </ul>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="col">카라반 내부시설</th>
-                                        <td>
-                                            <ul class="table_ul05">
-                                                <!--                                         <li>침대</li> -->
-                                            </ul>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <th scope="col">화로대</th>
-                                        <td class="etc_type">
-                                            <ul class="table_ul05">
-                                                <!--                                         <li> 개별</li> -->
-                                            </ul>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="col">안전시설현황</th>
-                                        <td>
-                                            <ul class="table_ul05">
-                                                <!--                                         <li>소화기 (20)</li>-->
-                                            </ul>
-                                        </td>
-                                    </tr>
-                                    <th scope="col">부가 정보</th>
-                                    <td>
-                                        <ul class="table_ul05">
-                                        </ul>
-                                    </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </section>
-                </div>
-
-
-                <div class="div4_1"> 캠 핑 장 이 미 지 </div>
-
-                <div class="div4">
-                    <div class="box_photo" id="box_photo">
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </section>
                     </div>
-                </div>
+
+
+                    <div class="div4_1"> 캠 핑 장 이 미 지 </div>
+
+                    <div class="div4">
+                        <div class="box_photo" id="box_photo">
+                        </div>
+                    </div>
 
 
 
-                <div class="div5"> 캠 핑 장 소 개 글 </div>
-                <div class="div6" id="intro"></div>
+                    <div class="div5"> 캠 핑 장 소 개 글 </div>
+                    <div class="div6" id="intro"></div>
 
-            </c:if>
-
-
-            <!-- viewType == 2 일때 -->
-            <c:if test="${param.viewType == '2'}">
-
-                <div class="div7">
-                    ${campName} 이용 요금
-                </div>
-                <div class="table_w">
-                    <table class="table camp_info_tb">
-                        <colgroup>
-                            <col style="width: 20%">
-                            <col style="width: 20%">
-                            <col style="width: 20%">
-                            <col style="width: 20%">
-                            <col style="width: 20%">
-                        </colgroup>
-                        <thead>
-                            <tr>
-                                <th rowspan="2" scope="col">구분</th>
-                                <th colspan="2" scope="colgroup">평상시</th>
-                                <th colspan="2" scope="colgroup">성수기</th>
-                            </tr>
-
-                            <tr>
-                                <th scope="col">주중</th>
-                                <th scope="col">주말</th>
-                                <th scope="col">주중</th>
-                                <th scope="col">주말</th>
-                            </tr>
-                        </thead>
-                        <tbody class="t_c">
-                            <tr>
-                                <th scope="col">${campName}</th>
-                                <td>30,000</td>
-                                <td>40,000</td>
-                                <td>30,000</td>
-                                <td>40,000</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </c:if>
-
-            <!-- viewType == 3 일때 -->
-            <c:if test="${param.viewType == '3'}">
-                <div class="kakaoMap">
-                    <div id="map" style="width:auto; height:600px;"></div>
-                </div>
-            </c:if>
+                </c:if>
 
 
+                <!-- viewType == 2 일때 -->
+                <c:if test="${param.viewType == '2'}">
+
+                    <div class="div7">
+                        ${campName} 이용 요금
+                    </div>
+                    <div class="table_w">
+                        <table class="table camp_info_tb">
+                            <colgroup>
+                                <col style="width: 20%">
+                                <col style="width: 20%">
+                                <col style="width: 20%">
+                                <col style="width: 20%">
+                                <col style="width: 20%">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th rowspan="2" scope="col">구분</th>
+                                    <th colspan="2" scope="colgroup">평상시</th>
+                                    <th colspan="2" scope="colgroup">성수기</th>
+                                </tr>
+
+                                <tr>
+                                    <th scope="col">주중</th>
+                                    <th scope="col">주말</th>
+                                    <th scope="col">주중</th>
+                                    <th scope="col">주말</th>
+                                </tr>
+                            </thead>
+                            <tbody class="t_c">
+                                <tr>
+                                    <th scope="col">${campName}</th>
+                                    <td>30,000</td>
+                                    <td>40,000</td>
+                                    <td>30,000</td>
+                                    <td>40,000</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </c:if>
+
+                <!-- viewType == 3 일때 -->
+                <c:if test="${param.viewType == '3'}">
+                    <div class="kakaoMap">
+                        <div id="map" style="width:auto; height:600px;"></div>
+                    </div>
+                </c:if>
 
 
-            <!-- viewType == 4 일때 -->
-            <c:if test="${param.viewType == '4'}">
 
-                <div class="div7" id="doNmVal">
-                    지역 날씨
-                </div>
-                <div class="table_w">
-                    <table class="table camp_info_tb">
-                        <colgroup>
+
+                <!-- viewType == 4 일때 -->
+                <c:if test="${param.viewType == '4'}">
+
+                    <div class="div7" id="doNmVal">
+                        지역 날씨
+                    </div>
+                    <div class="table_w">
+                        <table class="table camp_info_tb">
+                            <colgroup>
 <!--                                 <col style="width: 20%">
-                            <col style="width: 20%">
-                            <col style="width: 20%">
-                            <col style="width: 20%">
-                            <col style="width: 20%"> -->
-                        </colgroup>
-                        <thead>
-                            <tr>
-                                <th rowspan="2" scope="col">구분</th>
-    
-                            </tr>
+                                <col style="width: 20%">
+                                <col style="width: 20%">
+                                <col style="width: 20%">
+                                <col style="width: 20%"> -->
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th rowspan="2" scope="col">구분</th>
+       
+                                </tr>
 
-                            <tr>
-                                <th scope="col">1</th>
-                                <th scope="col">2</th>
-                                <th scope="col">3</th>
-                                <th scope="col">4</th>
-                                <th scope="col">5</th>
-                                <th scope="col">6</th>
-                                <th scope="col">7</th>
-                                <th scope="col">8</th>
-                                <th scope="col">9</th>
-                                <th scope="col">10</th>
-                            </tr>
-                        </thead>
-                        <tbody class="t_c">
-                            <tr>
-                                <th scope="col" height="100px">오전</th>
-                                <td>맑음</td>
-                                <td>맑음</td>
-                                <td>맑음</td>
-                                <td>맑음</td>
-                                <td>맑음</td>
-                                <td>맑음</td>
-                                <td>맑음</td>
-                                <td rowspan="2">맑음</td>
-                                <td rowspan="2">맑음</td>
-                                <td rowspan="2">맑음</td>
-                            </tr>
-                            <tr>
-                                <th scope="col" height="100px">오후</th>
-                                <td>맑음</td>
-                                <td>맑음</td>
-                                <td>맑음</td>
-                                <td>맑음</td>
-                                <td>맑음</td>
-                                <td>맑음</td>
-                                <td>맑음</td>
-                            </tr>
-                            <tr>
-                                <th scope="col" height="50px">강수량</th>
-                                <td>강수량</td>
-                                <td>강수량</td>
-                                <td>강수량</td>
-                                <td>강수량</td>
-                                <td>강수량</td>
-                                <td>강수량</td>
-                                <td>강수량</td>
-                                <td>강수량</td>
-                                <td>강수량</td>
-                                <td>강수량</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </c:if>
-
-
+                                <tr>
+                                    <th scope="col" class="date">1</th>
+                                    <th scope="col" class="date">2</th>
+                                    <th scope="col" class="date">3</th>
+                                    <th scope="col" class="date">4</th>
+                                    <th scope="col" class="date">5</th>
+                                    <th scope="col" class="date">6</th>
+                                    <th scope="col" class="date">7</th>
+                                    <th scope="col" class="date">8</th>
+                                    <th scope="col" class="date">9</th>
+                                    <th scope="col" class="date">10</th>
+                                </tr>
+                            </thead>
+                            <tbody class="t_c">
+                                <tr>
+                                    <th scope="col" height="100px">오전</th>
+                                    <td class="AM">맑음</td>
+                                    <td class="AM">맑음</td>
+                                    <td class="AM">맑음</td>
+                                    <td class="AM">맑음</td>
+                                    <td class="AM">맑음</td>
+                                    <td class="AM">맑음</td>
+                                    <td class="AM">맑음</td>
+                                    <td rowspan="2" class="AM">맑음</td>
+                                    <td rowspan="2" class="AM">맑음</td>
+                                    <td rowspan="2" class="AM">맑음</td>
+                                </tr>
+                                <tr>
+                                    <th scope="col" height="100px">오후</th>
+                                    <td class="PM">맑음</td>
+                                    <td class="PM">맑음</td>
+                                    <td class="PM">맑음</td>
+                                    <td class="PM" >맑음</td>
+                                    <td class="PM">맑음</td>
+                                    <td class="PM">맑음</td>
+                                    <td class="PM">맑음</td>
+                                </tr>
+                                <tr>
+                                    <th scope="col" height="50px">강수량</th>
+                                    <td class="rp">강수량</td>
+                                    <td class="rp">강수량</td>
+                                    <td class="rp">강수량</td>
+                                    <td class="rp">강수량</td>
+                                    <td class="rp">강수량</td>
+                                    <td class="rp">강수량</td>
+                                    <td class="rp">강수량</td>
+                                    <td class="rp">강수량</td>
+                                    <td class="rp">강수량</td>
+                                    <td class="rp">강수량</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </c:if>
 
 
 
 
 
 
-            <c:if test="${param.viewType == '5'}">
+
+
+                <c:if test="${param.viewType == '5'}">
+
+
+
+
 
             <div class="div7">
 
@@ -383,12 +389,14 @@
     </script>
 
 
-    <script type="text/javascript"
-        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=eb6841185807d60ca94c27f62bee498c"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="${contextPath}/resources/js/detailList.js"></script>
-    <script src="${contextPath}/resources/js/review.js"></script>
-</body>
+        <script type="text/javascript"
+            src="//dapi.kakao.com/v2/maps/sdk.js?appkey=eb6841185807d60ca94c27f62bee498c"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script src="${contextPath}/resources/js/detailList.js"></script>
+        <script src="${contextPath}/resources/js/review.js"></script>
+        <script src="${contextPath}/resources/js/weather.js"></script>
+        <script src="${contextPath}/resources/js/weather2.js"></script>
+    </body>
 
 </html>

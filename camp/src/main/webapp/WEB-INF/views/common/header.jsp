@@ -75,11 +75,11 @@
 						<li>
 							<h4>${loginMember.memberNickname}님</h4>
 						</li>
-						<li onclick="naverLogout();">네이버 로그아웃
-						</li>
+<!-- 						<li onclick="naverLogout();">네이버 로그아웃
+						</li> -->
 						<li>
 							<a href="${contextPath}/login/logout">
-								<span>세션 로그아웃</span>
+								<h4>로그아웃</h4>
 							</a>
 						</li>
 					</c:otherwise>
@@ -107,7 +107,7 @@
 			});
 
 			// 네이버 로그아웃 
-			var testPopUp;
+/* 			var testPopUp;
 			function openPopUp() {
 				testPopUp = window.open("https://nid.naver.com/nidlogin.logout", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,width=450, height=450");
 			}
@@ -121,7 +121,7 @@
 					closePopUp();
 				}, 5000);
 			}
-
+ */
 
 			myPage.addEventListener("click", function () {
 				console.log(loginMember);

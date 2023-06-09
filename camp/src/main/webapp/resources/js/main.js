@@ -34,7 +34,7 @@ if (login) {
 }
 
 
-
+var count = 0;
 window.onload = function () {
 
     $.ajax({
@@ -60,12 +60,12 @@ window.onload = function () {
 
             // 랜덤한 인덱스 선택
             for (let i = 0; i < items.length; i++) {
-                if (items[i].homepage != null &&
+                if (items[i].homepage != "" &&
                     items[i].firstImageUrl != "" &&
                     items[i].tel != "" &&
                     items[i].lineIntro != "" &&
                     items[i].addr1 != "") {
-
+                        count++;
                     randomIndexes.push(i); // 조건문을 통과한 인덱스 저장
                 }
             }
@@ -125,6 +125,7 @@ window.onload = function () {
 
                 }
             }
+            console.log(count);
 
         },
         error: function (error) {

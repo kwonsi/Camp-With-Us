@@ -85,7 +85,7 @@ selectCampBtn.addEventListener("click", function () {
   $.ajax({
     url: "https://apis.data.go.kr/B551011/GoCamping/basedList",
     data: {
-      numOfRows: 4000,
+      numOfRows: 3467,
       pageNo: 1,
       MobileOS: "ETC",
       MobileApp: "AppTest",
@@ -128,7 +128,7 @@ selectCampBtn.addEventListener("click", function () {
           return (
             (searchVal2.value == "충청북도" || searchVal2.value == "충청남도" || searchVal2.value == "전라북도" ||
               searchVal2.value == "전라남도" || searchVal2.value == "경상북도" || searchVal2.value == "경상남도")
-            && (item.homepage != null     // 홈페이지가 null 이 아닌 것
+            && (item.homepage != ""     // 홈페이지가 null 이 아닌 것
               && item.firstImageUrl != ""   // 이미지가 ''
               && item.tel != ""             // 전화번호가 ''
               && item.lineIntro != ""       // 한줄소개가 ''
@@ -275,7 +275,7 @@ window.onload = function() {
   $.ajax({
     url: "https://apis.data.go.kr/B551011/GoCamping/basedList",
     data: {
-      numOfRows: 4000,
+      numOfRows: 3467,
       pageNo: 1,
       MobileOS: "ETC",
       MobileApp: "AppTest",
@@ -318,7 +318,7 @@ window.onload = function() {
           return (
             (searchVal2.value == "충청북도" || searchVal2.value == "충청남도" || searchVal2.value == "전라북도" ||
               searchVal2.value == "전라남도" || searchVal2.value == "경상북도" || searchVal2.value == "경상남도")
-            && (item.homepage != null     // 홈페이지가 null 이 아닌 것
+            && (item.homepage != ""     // 홈페이지가 null 이 아닌 것
               && item.firstImageUrl != ""   // 이미지가 ''
               && item.tel != ""             // 전화번호가 ''
               && item.lineIntro != ""       // 한줄소개가 ''
@@ -366,7 +366,7 @@ window.onload = function() {
             '<li>' +
             '<div class="camp_info_box">' +
             '<div class="img_box">' +
-            '<img src=' + item.firstImageUrl + ' alt="캠핑장 메인사진" class="imgSize">' +
+            '<img src=' + item.firstImageUrl + ' alt="이미지가 존재하지 않습니다." class="imgSize">' +
             '</div>' +
             '<div class="camp_info_text">' +
             '<h3 class="camp_info01">' +
