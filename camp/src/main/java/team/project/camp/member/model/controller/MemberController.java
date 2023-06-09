@@ -82,7 +82,7 @@ public class MemberController {
 	//----------------------구글로그인 start----------------------------------
 	@ResponseBody
 	@PostMapping("/googleLoginInfo")
-	public String googleLoginInfo( @ModelAttribute Member googleMember,
+	public int googleLoginInfo( @ModelAttribute Member googleKakaoMember,
 								String memberEmail, String memberNickname,
 								Model model,
 								HttpServletResponse resp,
@@ -95,33 +95,50 @@ public class MemberController {
 		member.setMemberEmail(memberEmail);
 		member.setMemberNickname(memberNickname);
 
-		System.out.println("googleMember :  " + googleMember);
+		System.out.println("googleMember :  " + googleKakaoMember);
 
 		// 아이디, 비밀번호가 일치하는 회원 정보를 조회하는 Service 호출 후 결과 반환 받기
 		
-		Member googleLoginMember = service.googleLogin(googleMember);
+		Member googleLoginMember = service.googleKakaoLogin(googleKakaoMember);
 
 		System.out.println("googleLoginMember :  " + googleLoginMember);
 
-		if(googleLoginMember != null) { // 로그인 성공 시 (로그인정보 조회 성공 시)
-			model.addAttribute("loginMember", googleLoginMember); // == req.setAttribute("loginMember", loginMember);
-
-		} else {	//로그인정보 조회 실패 시 DB에 구글로그인 정보 삽입(구글아이디로 처음 로그인시)
-
-			int result = service.googleLoginInsert(member);
+		int loginCheck = 0;
+		
+		if(googleLoginMember == null) { // 로그인 성공 시 (로그인정보 조회 성공 시)
+			
+			int result = service.googleKakaoInsert(member);
 			if(result>0) {
 				logger.info("구글 로그인 정보 DB 삽입 성공");
-				Member googleLoginMember2 = service.googleLogin(googleMember);
+				Member googleLoginMember2 = service.googleKakaoLogin(googleKakaoMember);
 				model.addAttribute("loginMember", googleLoginMember2);
 			}else {
 				logger.info("구글 로그인 정보 DB 삽입 실패");
 			}
+			
+
+		} else {	//로그인정보 조회 실패 시 DB에 구글로그인 정보 삽입(구글아이디로 처음 로그인시)
+
+			int result = service.googleKakaoEmailCheck(googleKakaoMember);  // 이메일,닉네임값으로 select 다시돌린다.
+				
+			if ( result > 0 ) {   // 이메일,닉네임값으로 select 성공시
+				
+				logger.info("기존 로그인 실행 ");
+				
+				model.addAttribute("loginMember", googleLoginMember); // == req.setAttribute("loginMember", loginMember);
+				
+				loginCheck = 0;
+				return loginCheck;
+			} else {  
+				logger.info("중복회원입니다.");
+				loginCheck = 1;
+				return loginCheck;
+			}
 		}
 
-		return "구글 로그인 성공";
+		return loginCheck;
 
 	}
-
 	//----------------------구글로그인 end----------------------------------
 
 
@@ -129,7 +146,7 @@ public class MemberController {
 	//----------------------카카오로그인 start----------------------------------
 	@ResponseBody
 	@PostMapping("/kakaoLoginInfo")
-	public int kakaoLoginInfo(@ModelAttribute Member kakaoMember,
+	public int kakaoLoginInfo(@ModelAttribute Member googleKakaoMember,
 								String memberEmail,
 								String memberNickname,
 								Model model,
@@ -142,20 +159,20 @@ public class MemberController {
 		member.setMemberNickname(memberNickname);
 		member.setMemberEmail(memberEmail);
 
-		System.out.println("kakaoMember :  " + kakaoMember);
+		System.out.println("kakaoMember :  " + googleKakaoMember);
 
 		// 아이디, 비밀번호가 일치하는 회원 정보를 조회하는 Service 호출 후 결과 반환 받기
-		Member kakaoLoginMember = service.kakaoLogin(kakaoMember);
+		Member kakaoLoginMember = service.googleKakaoLogin(googleKakaoMember);
 
-		System.out.println("googleLoginMember :  " + kakaoLoginMember);
+		System.out.println("kakaoLoginMember :  " + kakaoLoginMember);
 
 
 		int loginCheck = 0;
 		if ( kakaoLoginMember == null ) {
-			int result = service.kakaoLoginInsert(member);
+			int result = service.googleKakaoInsert(member);
 			if(result>0) {
 				logger.info("카카오 로그인 정보 DB 삽입 성공");
-				Member kakaoLoginMember2 = service.kakaoLogin(kakaoMember);
+				Member kakaoLoginMember2 = service.googleKakaoLogin(googleKakaoMember);
 				model.addAttribute("loginMember", kakaoLoginMember2);
 				loginCheck = 0;
 				return loginCheck;
@@ -163,7 +180,7 @@ public class MemberController {
 				logger.info("카카오 로그인 정보 DB 삽입 실패");
 			}
 		} else {  // 안에 같은이메일이 존재할때. 
-			int result = service.kakaoEmailCheck(kakaoMember);  // 이메일,닉네임값으로 select 다시돌린다.
+			int result = service.googleKakaoEmailCheck(googleKakaoMember);  // 이메일,닉네임값으로 select 다시돌린다.
 			
 			if ( result > 0 ) {   // 이메일,닉네임값으로 select 성공시
 				

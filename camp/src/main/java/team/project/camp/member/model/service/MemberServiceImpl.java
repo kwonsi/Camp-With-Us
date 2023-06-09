@@ -119,39 +119,24 @@ public class MemberServiceImpl implements MemberService {
 	
 	
 
-
-	//구글 첫 로그인 시 DB 삽입
-	@Override
-	public int googleLoginInsert(Member member) {
-		return dao.googleLoginInsert(member);
-	}
-
 	//구글 로그인 회원정보 조회
 	@Override
-	public Member googleLogin(Member googleMember) {
-		Member googleLoginMember = dao.googleLogin(googleMember);
+	public Member googleKakaoLogin(Member googleKakaoMember) {
+		Member googleLoginMember = dao.googleKakaoLogin(googleKakaoMember);
 		return googleLoginMember;
 	}
 
-	
-	//카카오 첫 로그인 시 DB 삽입
-		@Override
-		public int kakaoLoginInsert(Member member) {
-			return dao.kakaoLoginInsert(member);
-		}
+	//구글 첫 로그인 시 DB 삽입
+	@Override
+	public int googleKakaoInsert(Member member) {
+		return dao.googleKakaoInsert(member);
+	}
 
 	
-	//카카오 로그인 회원정보 조회
-	@Override	
-	public Member kakaoLogin(Member kakaoMember) {
-		Member kakaoLoginMember = dao.kakaoLogin(kakaoMember);
-		return kakaoLoginMember;
-	}
-	
-	//카카오 중복이메일 방지 이메일,닉네임 selece문 
+	//구글 카카오 중복이메일 방지 이메일,닉네임 selece문 
 	@Override
-	public int kakaoEmailCheck(Member kakaoMember) {
-		return dao.kakaoEmailCheck(kakaoMember);
+	public int googleKakaoEmailCheck(Member googleKakaoMember) {
+		return dao.googleKakaoEmailCheck(googleKakaoMember);
 	}
 	
 
