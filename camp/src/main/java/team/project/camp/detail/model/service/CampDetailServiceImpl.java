@@ -40,8 +40,8 @@ public class CampDetailServiceImpl implements CampDetailService {
 
 	//예약조회
 	@Override
-	public List<Reservation> reservationSelect() {
-		return dao.reservationSelect();
+	public List<Reservation> reservationSelect(int memberNo) {
+		return dao.reservationSelect(memberNo);
 	}
 
 	//예약취소

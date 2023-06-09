@@ -41,7 +41,11 @@ public class NaverLoginController {
           if ( result == 0 ) {                                // DB 저장된 값이 없을때 .
         	 result = service.naverLoginInsert(loginMember);  // DB 에 저장.
           }
-          model.addAttribute("loginMember",loginMember);   // session 에 올림. 
+          
+          Member naverMember = service.naverMember(loginMember);
+          
+          
+          model.addAttribute("loginMember",naverMember);   // session 에 올림. 
           
           System.out.println("-------------------- naverLogin - end --------------------");
           

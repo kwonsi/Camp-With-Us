@@ -17,7 +17,7 @@ public interface CampDetailService {
 	int reservationInfo(Reservation reservation);
 
 	//예약조회
-	List<Reservation> reservationSelect();
+	List<Reservation> reservationSelect(int memberNo);
 
 	//예약취소
 	int reservationState(int reservNo);

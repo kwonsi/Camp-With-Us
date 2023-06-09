@@ -31,8 +31,8 @@ import team.project.camp.member.model.service.MyPageService;
 import team.project.camp.member.model.vo.Member;
 @Slf4j
 @Controller
-@SessionAttributes({"loginMember"})
 @RequestMapping("/member/myPage")
+@SessionAttributes({"loginMember"})   // memberController의 loginMember 를 가져옴.
 public class MyPageController {
 
 	@Autowired
@@ -46,13 +46,24 @@ public class MyPageController {
 	
 	//예약조회
 	@GetMapping("/myReservation")
-	public String reservation(Model model) {
-
-		List<Reservation> reservationList = service.reservationSelect();
-
+	public String reservation(Model model,
+				@ModelAttribute("loginMember") Member loginMember ,
+				RedirectAttributes ra
+			) {
+		
+		if ( loginMember != null ) {   // 로그인이 됐을때. 목록뽑기  . 
+			int memberNo = loginMember.getMemberNo();
+			List<Reservation> reservationList = service.reservationSelect(memberNo);
+			
 		model.addAttribute("reservationList", reservationList);
 
-		return "mypage/myReservation";
+		return "mypage/myReservation"; 
+		
+		}else { 		// 로그인이 안됐을때 . 
+			
+			ra.addFlashAttribute("message","로그인을 해주세요. ");
+			return "redirect:/";
+		}
 	}
 
 	@GetMapping("/myBoard")

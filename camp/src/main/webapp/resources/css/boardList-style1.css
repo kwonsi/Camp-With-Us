@@ -1,0 +1,145 @@
+/* section, div, form{
+    border : 1px solid black;
+} */
+
+hr{
+    width: 90%;
+}
+
+/* a태그 공통 설정 */
+.board a{
+    text-decoration: none;
+    color : black;
+}
+
+.board a:hover{
+    text-decoration: underline;
+}
+
+/* contain */
+.contain{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 1300px;
+    background-color: rgb(244, 255, 246);
+    /* margin-left: 30px; */
+    /* margin: 50px auto; */
+    /* border : 1px solid yellow; */
+}
+
+/* span */
+span{
+    text-align: center;
+}
+
+/* board */
+.board{
+    margin-left: 35px;
+    margin-right: 35px;
+    height: 550px;
+    /* width: 1000px; */
+    background-color: rgb(231, 255, 236);
+    /* border : 1px solid black; */
+}
+
+.board2{
+    margin-left: 35px;
+    margin-right: 35px;
+    height: 500px;
+    /* width: 1000px; */
+    background-color: rgb(231, 255, 236);
+    /* border : 1px solid black; */
+}
+
+
+/* 게시판 목록 화면 전체 영역 설정 */
+.board-list{
+    display: flex;
+    width: 1000px;
+    margin-left: 30px;
+    margin-bottom: 10px;
+}
+
+/* 게시판 목록 div */
+.board-div{
+    text-align: center;
+    flex-direction: row;
+    width: 33.3%;
+    height: 200px;
+    /* border : 1px solid black; */
+    
+}
+
+.board-div2{
+    text-align: center;
+    flex-direction: row;
+    width: 30%;
+    height: 400px;
+    border : 1px solid black;
+}
+
+/* 빈공간 */
+.board-empty{
+    height: 100px;
+    /* border : 1px solid black; */
+}
+
+/* 게시판 이름 */
+.board-name{
+    font-size: 2.5em;
+    margin-left: 30px;
+}
+
+/* div headline 관련 */
+.headline{
+    text-align: center;
+}
+
+.headline2{
+    text-align: center;
+    width: 450px;
+    margin-bottom: 5px;
+}
+
+/* 이미지 관련 */
+.recommend-img{
+    width: 90%;
+    height: 200px;
+}
+
+/* 제목 관련 */
+.recommend-title{
+    margin: auto;
+    width: 90%;
+    height: 10%;
+    /* border : 1px solid black; */
+}
+
+/* 내용 관련 */
+.recommend-content{
+    margin: auto;
+    width: 90%;
+    height: 90%;
+    overflow: auto;
+    border : 1px solid black;
+}
+
+
+
+
+
+/* @keyframes : 
+애니메이션 중간중간의 특정 지점들을 거칠 수 있는 키프레임들을 설정함으로써
+CSS 애니메이션 과정의 중간 절차를 제어할 수 있게 합니다.  */
+@keyframes show {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes hide {
+    from {opacity: 1;}
+    to {opacity: 0;}
+}
+
+

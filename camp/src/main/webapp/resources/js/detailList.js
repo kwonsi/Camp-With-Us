@@ -1,4 +1,26 @@
 
+// ????????????????  
+// detailList.jsp 에서 예약 버튼 눌렀을때
+// 그인상태면 오류안뜨고
+// 로그인상태가 아니면 오류가 뜸.
+// session 의 loginMember.. 때문인데 ..   해결완료 .!!!
+var reservationBtn = document.getElementById("reservationBtn");
+
+reservationBtn.addEventListener("click", function (e) {
+
+    if (loginMember == null || loginMember=="" ) {
+        alert("먼저 로그인을 해주세요");
+
+        e.preventDefault();
+        
+    } else {
+        location.href = "/camp/campDetail/reservation?campName="+campName;
+    }
+});
+
+
+
+
 // 캠핑장정보 table
 var addr = document.getElementById("addr");              // 주소
 var tel = document.getElementById("tel");               // 문의처 (전화번호)
@@ -230,10 +252,14 @@ if (mapContainer) {
 }
 
 
-var doNm = items.doNm;
-console.log("doNm:: "+doNm);
+
+
 
 var doNmVal = document.getElementById("doNmVal");  // 날씨제목
 if(doNmVal){
+    var doNm = items.doNm;
 doNmVal.innerText = doNm+" 지역 날씨";
 };
+
+
+

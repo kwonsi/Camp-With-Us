@@ -98,47 +98,43 @@ public class MemberDAO {
 	public int naverLoginInsert(Member loginMember) {
 		return sqlSession.insert("memberMapper.naverLoginInsert", loginMember);
 	}
-	
-	
-	
-	/**구글 첫 로그인 시 DB 삽입
-	 * @param member
+
+	/** 네이버 회원정보 뽑아오기
+	 * @param loginMember
 	 * @return
 	 */
-	public int googleLoginInsert(Member member) {
-		return sqlSession.insert("memberMapper.googleLoginInsert", member);
+	public Member naverMember(Member loginMember) {
+		return sqlSession.selectOne("memberMapper.naverMember",loginMember);
 	}
-
-
-	/**구글 로그인 회원정보 조회
+	
+	
+	
+	/**구글 카카오 로그인 회원정보 조회
 	 * @param googleMember
 	 * @return
 	 */
-	public Member googleLogin(Member googleMember) {
+	public Member googleKakaoLogin(Member googleKakaoMember) {
 
-		Member googleLoginMember = sqlSession.selectOne("memberMapper.googleLogin", googleMember);
-		return googleLoginMember;
+		Member googleKakaoLoginMember = sqlSession.selectOne("memberMapper.googleKakaoLogin", googleKakaoMember);
+		return googleKakaoLoginMember;
 	}
-
-
-	/**카카오 첫 로그인 시 DB삽입
+	
+	/**구글 카카오 첫 로그인 시 DB 삽입
 	 * @param member
 	 * @return
 	 */
-	public int kakaoLoginInsert(Member member) {
-		return sqlSession.insert("memberMapper.kakaoLoginInsert", member);
+	public int googleKakaoInsert(Member member) {
+		return sqlSession.insert("memberMapper.googleKakaoInsert", member);
 	}
 
 
-	/**카카오 로그인 회원정보 조회
+	/** 구글 카카오 중복이메일 방지 이메일,닉네임 selece문 
 	 * @param kakaoMember
 	 * @return
 	 */
-	public Member kakaoLogin(Member kakaoMember) {
-		Member kakaoLoginMember = sqlSession.selectOne("memberMapper.kakaoLogin", kakaoMember);
-		return kakaoLoginMember;
+	public int googleKakaoEmailCheck(Member googleKakaoMember) {
+		return sqlSession.selectOne("memberMapper.googleKakaoEmailCheck", googleKakaoMember);
 	}
-
 
 
 }

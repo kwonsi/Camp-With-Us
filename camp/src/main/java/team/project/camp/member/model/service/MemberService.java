@@ -60,34 +60,37 @@ public interface MemberService {
 	 * @return 
 	 */
 	public abstract int naverLoginInsert(Member loginMember); 
-
-	/**구글 첫 로그인 시 DB 삽입
-	 * @param member
-	 * @return result
+	
+	
+	/** 네이버 로그인 회원정보 뽑아오기
+	 * @param loginMember
+	 * @return
 	 */
-	public abstract int googleLoginInsert(Member member);
+	public abstract Member naverMember(Member loginMember);
+	
 
-
-	/**구글 로그인
+	
+	/**구글 카카오 로그인
 	 * @param googleMember
 	 * @return googleLoginMember
 	 */
-	public abstract Member googleLogin(Member googleMember);
+	public abstract Member googleKakaoLogin(Member googleKakaoMember);
 
 	
+	/**구글 카카오 첫 로그인 시 DB 삽입
+	 * @param member
+	 * @return result
+	 */
+	public abstract int googleKakaoInsert(Member member);
+
 	
-	/**카카오 로그인
+	/** 구글 카카오 중복이메일 방지 이메일,닉네임 selece문 
 	 * @param kakaoMember
 	 * @return
 	 */
-	public abstract Member kakaoLogin(Member kakaoMember);
+	public abstract int googleKakaoEmailCheck(Member googleKakaoMember);
 
-	
-	/**카카오 첫 로그인 시 DB삽입
-	 * @param member
-	 * @return
-	 */
-	public abstract int kakaoLoginInsert(Member member);
+
 
 
 

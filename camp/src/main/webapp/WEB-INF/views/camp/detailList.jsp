@@ -34,7 +34,7 @@
 
                         <div class="cont_tb">
                             <table class="table">
-                                <caption> ${campName}
+                                <caption> ${campName} 
                                 </caption>
                                 <colgroup>
                                     <col style="width: 30%;" />
@@ -117,7 +117,7 @@
                             <div class="table_w">
 
                                 <table class="table_t4 camp_etc_tb">
-                                    <caption> 기타 주요시설
+                                    <caption> 기타 주요시설 
                                     </caption>
                                     <tbody class="t_c">
                                         <tr>
@@ -360,8 +360,7 @@
 
 
 
-                <button type="button"><a
-                        href='${contextPath}/campDetail/reservation?campName=${campName}'>예약페이지</a></button>
+                <button type="button" id="reservationBtn"><a>예약페이지</a></button>
                 
                 
 
