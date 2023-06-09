@@ -43,7 +43,7 @@
                     <input type="password" name="newPwConfirm" maxlength="30">              
                 </div>
 
-                <button id="info-update-btn">변경하기</button>
+                <button id="info-update-btn" type="submit">변경하기</button>
 
             </form>
 
