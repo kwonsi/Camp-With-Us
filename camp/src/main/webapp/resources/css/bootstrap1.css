@@ -286,14 +286,14 @@ sup {
     top: -.5em
 }
 
-a {
+/* a {
     color: rgb(0, 0, 0);
     
 } 
 
 a:hover {
     color: white
-}
+} */
 
 /*
 a:not([href]):not([class]),

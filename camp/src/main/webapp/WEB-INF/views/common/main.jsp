@@ -10,6 +10,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>캠프보내조</title>
     <link rel="stylesheet" href="resources/css/main.css">
+    <link rel="stylesheet" href="resources/css/main-style.css">
+    <link rel="stylesheet" href="resources/css/main-bootstrap.css">
     <script src="https://kit.fontawesome.com/a2e8ca0ae3.js" crossorigin="anonymous"></script>
 
 </head>
@@ -37,7 +39,64 @@
 
         </section>
 
+        <section class="search_bar">
 
+            <section class="section-transform-top">
+                <div class="container">
+                  <div class="box-booking">
+                    <form class="rd-form rd-mailform booking-form">
+                      <div>
+                        <p class="booking-title">지역 선택</p>
+                        <div class="form-wrap">
+                            <select>
+                                <option label="지역"></option>
+                                <option>강원</option>
+                                <option>서울</option>
+                                <option>경기</option>
+                                <option>인천</option>
+                                <option>충청북도</option>
+                                <option>충청남도</option>
+                                <option>대전</option>
+                                <option>대구</option>
+                                <option>전라북도</option>
+                                <option>전라남도</option>
+                                <option>경상북도</option>
+                                <option>경상남도</option>
+                                <option>광주</option>
+                                <option>울산</option>
+                                <option>부산</option>
+                                <option>제주</option>
+                            </select>
+                        </div>
+                      </div>
+                      <div>
+                        <p class="booking-title">테마 선택</p>
+                        <div class="form-wrap">
+                            <select>
+                                <option label="테마"></option>
+                                <option>일반 야영장</option>
+                                <option>자동차 야영장</option>
+                                <option>글램핑</option>
+                                <option>카라반</option>
+                              </select>
+                        </div>
+                      </div>
+                      <div>
+                        <p class="booking-title">캠핑장 이름</p>
+                        <div class="form-wrap">
+                            <input class="form-input" id="booking-name" type="text" name="name" data-constraints="@Required">
+                            <label class="form-label" for="booking-name">캠핑장 이름</label>
+                          </div>
+                      </div>
+                      <div>
+                        <button class="button button-lg button-gray-600" type="submit">Check availability</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </section>
+
+        </section>
 
         <hr>
 
@@ -174,10 +233,6 @@
 
     <script src="${contextPath}/resources/js/main.js"></script>
 
-    <script>
-
-
-    </script>
 
 </body>
 
