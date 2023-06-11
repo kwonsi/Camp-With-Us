@@ -11,6 +11,8 @@
      <title>아이디/비밀번호 찾기</title>
 
      <link rel="stylesheet" href="${contextPath}/resources/css/main.css">
+     <link rel="stylesheet" href="resources/css/bootstrap-icons.css">
+     <link rel="stylesheet" href="resources/css/bootstrap_main_header.css">
      <!-- <link rel="stylesheet" href="${contextPath}/resources/css/signUpPage.css"> -->
      
  </head>
