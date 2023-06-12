@@ -131,8 +131,7 @@
     <script>
         const loc = "${loc}";
         const theme = "${theme}";
-
-        
+        const campName = "${campName}";
     </script>
 
 

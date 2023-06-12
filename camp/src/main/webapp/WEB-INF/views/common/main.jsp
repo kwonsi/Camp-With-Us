@@ -23,81 +23,67 @@
     <jsp:include page="/WEB-INF/views/common/header.jsp" />
 
     <main>
-
-
-
         <section class="content2">
-
-
-
-            <button id="location" onclick="selectLoc()" type="button">지역 선택</button>
-            <span class="searchOption"></span>
-
-            <button id="theme" onclick="selectTheme()" type="button">테마 선택</button>
-            <span class="searchOption"></span>
-
-            <button type="button" onclick="searchCamp()">검색</button>
-
-
-        </section>
 
         <section class="search_bar">
 
-            <section class="section-transform-top">
-                <div class="container">
-                  <div class="box-booking">
-                    <form class="rd-form rd-mailform booking-form">
-                      <div>
-                        <p class="booking-title">지역 선택</p>
-                        <div class="form-wrap">
-                            <select>
-                                <option label="지역"></option>
-                                <option>강원</option>
-                                <option>서울</option>
-                                <option>경기</option>
-                                <option>인천</option>
-                                <option>충청북도</option>
-                                <option>충청남도</option>
-                                <option>대전</option>
-                                <option>대구</option>
-                                <option>전라북도</option>
-                                <option>전라남도</option>
-                                <option>경상북도</option>
-                                <option>경상남도</option>
-                                <option>광주</option>
-                                <option>울산</option>
-                                <option>부산</option>
-                                <option>제주</option>
-                            </select>
+                <section class="section-transform-top">
+                    <div class="container">
+                    <div class="box-booking">
+                        <form class="rd-form rd-mailform booking-form">
+                        <div>
+                            <p class="booking-title">지역 선택</p>
+                            <div class="form-wrap">
+                                <select id="loc">
+                                    <option label="지역"></option>
+                                    <option value="강원">강원</option>
+                                    <option value="서울">서울</option>
+                                    <option value="경기">경기</option>
+                                    <option value="인천">인천</option>
+                                    <option value="충청북도">충청북도</option>
+                                    <option value="충청남도">충청남도</option>
+                                    <option value="대전">대전</option>
+                                    <option value="대구">대구</option>
+                                    <option value="전라북도">전라북도</option>
+                                    <option value="전라남도">전라남도</option>
+                                    <option value="경상북도">경상북도</option>
+                                    <option value="경상남도">경상남도</option>
+                                    <option value="광주">광주</option>
+                                    <option value="울산">울산</option>
+                                    <option value="부산">부산</option>
+                                    <option value="제주">제주</option>
+                                </select>
+                            </div>
                         </div>
-                      </div>
-                      <div>
-                        <p class="booking-title">테마 선택</p>
-                        <div class="form-wrap">
-                            <select>
-                                <option label="테마"></option>
-                                <option>일반 야영장</option>
-                                <option>자동차 야영장</option>
-                                <option>글램핑</option>
-                                <option>카라반</option>
-                              </select>
+                        <div>
+                            <p class="booking-title">테마 선택</p>
+                            <div class="form-wrap">
+                                <select id="theme">
+                                    <option label="테마"></option>
+                                    <option value="일반야영장">일반 야영장</option>
+                                    <option value="자동차야영장">자동차 야영장</option>
+                                    <option value="글램핑">글램핑</option>
+                                    <option value="카라반">카라반</option>
+                                </select>
+                            </div>
                         </div>
-                      </div>
-                      <div>
-                        <p class="booking-title">캠핑장 이름</p>
-                        <div class="form-wrap">
-                            <input class="form-input" id="booking-name" type="text" name="name" data-constraints="@Required">
-                            <label class="form-label" for="booking-name">캠핑장 이름</label>
-                          </div>
-                      </div>
-                      <div>
-                        <button class="button button-lg button-gray-600" type="submit">캠핑장 검색</button>
-                      </div>
-                    </form>
-                  </div>
-                </div>
-              </section>
+                        <div>
+                            <p class="booking-title">캠핑장 이름</p>
+                            <div class="form-wrap">
+                                <input class="form-input" id="booking-name" type="text" name="campName">
+                                <label class="form-label" for="booking-name">캠핑장 이름</label>
+                            </div>
+                        </div>
+                        <div>
+                            <button class="button button-lg button-gray-600" type="button" onclick="searchCamp()">캠핑장 검색</button>
+                        </div>
+                        </form>
 
+                    </div>
+                    </div>
+                </section>
+
+            </section>
         </section>
 
         <hr>

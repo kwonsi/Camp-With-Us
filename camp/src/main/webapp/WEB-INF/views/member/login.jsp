@@ -14,6 +14,8 @@
 
         <link rel="stylesheet" href="${contextPath}/resources/css/main.css">
         <link rel="stylesheet" href="${contextPath}/resources/css/login.css">
+        <link rel="stylesheet" href="resources/css/main-style.css">
+        <link rel="stylesheet" href="resources/css/main-bootstrap.css">
         <link rel="stylesheet" href="resources/css/bootstrap-icons.css">
         <link rel="stylesheet" href="resources/css/bootstrap_main_header.css">
         <!-- <link rel="stylesheet" href="${contextPath}/resources/css/signUpPage.css"> -->
@@ -22,11 +24,10 @@
 
     <body>
 
-                    <!-- hedaer include -->
-                    <jsp:include page="/WEB-INF/views/common/header.jsp" />
+        <!-- hedaer include -->
+        <jsp:include page="/WEB-INF/views/common/header.jsp" />
+
         <main>
-
-
 
             <!-- 회원가입  -->
             <section class="signUp-content">

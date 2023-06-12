@@ -258,16 +258,28 @@ selectCampBtn.addEventListener("click", function () {
   
   //  메인페이지에서 "loc" 값을 받아왔을때 
   //  "loc" 지역정보 즉시출력 . onload 
-if( (loc != "" && theme != "") || loc != "" || theme != "") {
+if( (loc != "" && theme != "" && campName != "") || loc != "" || theme != "" || campName != "") {
 window.onload = function() {
 
-  if( loc != "" && theme != "") {
+  if( loc != "" && theme != "" && campName != "") {
+    searchVal1.value = campName;
     searchVal2.value = loc;
     searchVal3.value = theme;
+  } else if( loc != "" && theme != "") {
+    searchVal2.value = loc;
+    searchVal3.value = theme;
+  } else if( theme != "" && campName != "") {
+    searchVal1.value = campName;
+    searchVal3.value = theme;
+  } else if ( loc != "" && campName != "") {
+    searchVal1.value = campName;
+    searchVal2.value = loc;
   } else if(loc != "") {
     searchVal2.value = loc;
   } else if(theme != "") {
     searchVal3.value = theme;
+  } else if(campName != "") {
+    searchVal1.value = campName;
   }
 
   searchBox2.innerHTML = "";

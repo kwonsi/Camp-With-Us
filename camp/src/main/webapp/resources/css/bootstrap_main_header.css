@@ -424,7 +424,7 @@ th {
   text-align: inherit;
   text-align: -webkit-match-parent;
 }
-
+/* 
 thead,
 tbody,
 tfoot,
@@ -434,7 +434,7 @@ th {
   border-color: inherit;
   border-style: solid;
   border-width: 0;
-}
+} */
 
 label {
   display: inline-block;
@@ -744,6 +744,8 @@ progress {
   padding-left: calc(var(--bs-gutter-x) * 0.5);
   margin-right: auto;
   margin-left: auto;
+  display: flex;
+  justify-content: center;
 }
 
 @media (min-width: 576px) {
@@ -7375,9 +7377,9 @@ textarea.form-control-lg {
   display: table-cell !important;
 }
 
-.d-flex {
+/* .d-flex {
   display: flex !important;
-}
+} */
 
 .d-inline-flex {
   display: inline-flex !important;
@@ -8543,10 +8545,10 @@ textarea.form-control-lg {
   color: rgba(var(--bs-danger-rgb), var(--bs-text-opacity)) !important;
 }
 
-.text-light {
+/* .text-light {
   --bs-text-opacity: 1;
   color: rgba(var(--bs-light-rgb), var(--bs-text-opacity)) !important;
-}
+} */
 
 .text-dark {
   --bs-text-opacity: 1;

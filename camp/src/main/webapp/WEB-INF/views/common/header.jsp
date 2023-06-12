@@ -3,7 +3,7 @@
 
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top d-flex align-items-center">
-    <div class="container d-flex align-items-center justify-content-between">
+    <div class="container justify-content-between">
 
       <div class="logo">
         <a href="${contextPath}"><img src="${contextPath}/resources/images/camp_logo.jpg" id="home-logo"></a>
@@ -20,7 +20,7 @@
 			  </c:forEach>	
             </ul>
           </li>
-          <li class="dropdown"><a class="nav-link scrollto" id="myPage">마이페이지</a>
+          <li class="dropdown myPage1"><a class="nav-link scrollto" id="myPage">마이페이지</a>
             <ul>
               <c:choose>
                 <c:when test="${loginMember.loginST=='Y'}">
@@ -112,7 +112,8 @@
 							location.href = "/camp/member/myPage/myReservation";
 						}
 					});
-					var liList = document.querySelectorAll(".myPage_1 .submenu li");
+
+					var liList = document.querySelectorAll(".myPage1 ul li");
 
 					for (var i = 0; i < liList.length; i++) {         /// header 마이페이지 list클릭시
 						liList[i].addEventListener("click", function (e) {

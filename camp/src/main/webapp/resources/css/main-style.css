@@ -3639,6 +3639,7 @@ textarea.form-input {
 
 .box-booking {
 	position: relative;
+	width: 66%;
 	padding: 20px 15px;
 	color: rgba(0, 0, 0, 0.8);
 	background: #ffffff;
@@ -3648,7 +3649,7 @@ textarea.form-input {
 .box-booking::before {
 	position: absolute;
 	content: '';
-	top: 12%;
+	top: 30%;
 	right: 3.4%;
 	bottom: -9%;
 	left: 3.4%;
@@ -3685,7 +3686,7 @@ textarea.form-input {
 }
 
 .booking-form > div:last-child::before {
-	display: hidden;
+	display: none;
 }
 
 .booking-form .form-wrap.has-error .form-input {
@@ -3757,12 +3758,12 @@ textarea.form-input {
 		max-width: 50%;
 	}
 	.booking-form > div:nth-child(2) {
-		flex: 0 0 50%;
-		max-width: 50%;
+		flex: 0 0 30%;
+		max-width: 30%;
 	}
 	.booking-form > div:nth-child(3) {
-		flex: 0 0 50%;
-		max-width: 50%;
+		flex: 0 0 40%;
+		max-width: 40%;
 	}
 	.booking-form > div:nth-child(4) {
 		flex: 0 0 50%;
@@ -3799,8 +3800,8 @@ textarea.form-input {
 		max-width: 30%;
 	}
 	.booking-form > div:nth-child(3) {
-		flex: 0 0 22%;
-		max-width: 22%;
+		flex: 0 0 30%;
+		max-width: 30%;
 	}
 	.booking-form > div:nth-child(4) {
 		flex: 0 0 20%;
@@ -3810,6 +3811,9 @@ textarea.form-input {
 
 @media (min-width: 992px) {
 	.box-booking {
+		margin-top: 85em;
+		margin-left: auto;
+		margin-right: auto;
 		padding-top: 40px;
 		padding-bottom: 40px;
 	}
@@ -3825,8 +3829,8 @@ textarea.form-input {
 		max-width: 25%;
 	}
 	.booking-form > div:nth-child(3) {
-		flex: 0 0 17%;
-		max-width: 17%;
+		flex: 0 0 30%;
+		max-width: 30%;
 	}
 	.booking-form > div:nth-child(4) {
 		flex: 0 0 15%;
@@ -3840,6 +3844,9 @@ textarea.form-input {
 
 @media (min-width: 1200px) {
 	.box-booking {
+		margin-top: 85em;
+		margin-left: auto;
+		margin-right: auto;
 		padding: 66px 40px;
 	}
 	.booking-form {
