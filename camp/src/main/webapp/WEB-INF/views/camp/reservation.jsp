@@ -12,8 +12,8 @@
     <link rel="stylesheet" href="${contextPath}/resources/css/reservation.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/calendarStyle.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap1.css">
-    <link rel="stylesheet" href="resources/css/bootstrap-icons.css">
-    <link rel="stylesheet" href="resources/css/bootstrap_main_header.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap-icons.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap_main_header.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
     <script src="https://kit.fontawesome.com/a2e8ca0ae3.js" crossorigin="anonymous"></script>

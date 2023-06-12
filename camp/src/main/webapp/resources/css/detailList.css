@@ -1,3 +1,45 @@
+.s_title2 {
+    width: 100%;
+    margin-top: 70px;
+    z-index: 3;
+    text-align: left;
+    color: #fff;
+    top: 75px;
+    text-shadow: 2px 2px 3px rgb(0,0,0);
+    background: url("/img/2018/sub/line50p.png") repeat-x 0 bottom;
+    padding-bottom: 20px;
+}
+
+.s_title2 p {
+    display: block;
+}
+
+.s_title2 > .camp_name {
+    font-size: 35px;
+    font-family: BM_dh;
+    line-height: 40px;
+    color: #fff !important;
+}
+
+.s_title2 .camp_s_tt {
+    font-size: 20px;
+    clear: both;
+    margin: 0;
+    letter-spacing: -2px;
+    color: #fff;
+    padding: 5px 0 0 0;
+}
+
+.s_title2 .camp_s_location {
+    display: none;
+}
+
+
+
+
+
+
+
 
 
 

@@ -1,124 +1,151 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-    <!DOCTYPE html>
-    <html lang="en">
+        <!DOCTYPE html>
+        <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-        <link rel="stylesheet" href="${contextPath}/resources/css/main.css">
-        <link rel="stylesheet" href="${contextPath}/resources/css/detailList.css">
-        <link rel="stylesheet" href="${contextPath}/resources/css/map.css">
-        <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap1.css">
-        <link rel="stylesheet" href="${contextPath}/resources/css/review.css">
-        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
-        <link rel="stylesheet" href="resources/css/bootstrap-icons.css">
-        <link rel="stylesheet" href="resources/css/bootstrap_main_header.css">
+        <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Document</title>
+            <link rel="stylesheet" href="${contextPath}/resources/css/main.css">
+            <link rel="stylesheet" href="${contextPath}/resources/css/detailList.css">
+            <link rel="stylesheet" href="${contextPath}/resources/css/map.css">
+            <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap1.css">
+            <link rel="stylesheet" href="${contextPath}/resources/css/review.css">
+            <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+            <link rel="stylesheet" type="text/css"
+                href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+            <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap-icons.css">
+            <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap_main_header.css">
 
-        <script src="https://kit.fontawesome.com/a2e8ca0ae3.js" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js"></script>
+            <script src="https://kit.fontawesome.com/a2e8ca0ae3.js" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js"></script>
 
-    </head>
+        </head>
 
-    <body>
+        <body>
 
-        <jsp:include page="/WEB-INF/views/common/header.jsp" />
-        <main>
+            <jsp:include page="/WEB-INF/views/common/header.jsp" />
+            <main>
 
-            <div id = "detailMain">
+                <div id="detailMain">
 
-                
-            </div>
-            
+                    <div id="sub_title_wrap2">
 
-            <div class="div2">
+                        <div class="layout">
+                            <h2>
+                                <span class="skip">충주카누캠핑장</span>
+                            </h2>
+                            <!--타이틀-->
+                            <div class="s_title2">
+                                <p class="camp_s_tt">
+                                    아름다운 충주호가 눈앞에 펼쳐지는 오토캠핑장 </p>
 
-                <div class="camp_info_box">
-                    <div class="img_b" id="img_b">
-                        <!--             <img src="" alt="대표이미지" id="img_b" /> -->
+                            </div>
+                        </div>
+                        <div class="sub_bg_w">
+                            <div class="camp_bg_03"></div>
+                        </div>
                     </div>
 
-                    <div class="cont_tb">
-                        <table class="table">
-                            <caption> ${campName} 
-                            </caption>
-                            <colgroup>
-                                <col style="width: 30%;" />
-                                <col style="width: 70%;" />
-                            </colgroup>
-                            <tbody>
-                                <tr>
-                                    <th scope="col">주소</th>
-                                    <td id="addr"> </td>
-                                </tr>
-                                <tr class="camp_call_pcVer">
-                                    <th scope="col">문의처</th>
-                                    <td id="tel"> </td>
-                                </tr>
-                                <tr>
-                                    <th scope="col">캠핑장 환경</th>
-                                    <td id="lctCl"> </td>
-                                </tr>
-                                <tr>
-                                    <th scope="col">캠핑장 유형</th>
-                                    <td id="induty"> </td>
-                                </tr>
-                                <tr>
-                                    <th scope="col">운영기간</th>
-                                    <td id="operPdCl"> </td>
-                                </tr>
-                                <tr>
-                                    <th scope="col">운영일</th>
-                                    <td id="operDeCl"> </td>
-                                </tr>
-                                <tr>
-                                    <th scope="col">홈페이지</th>
-                                    <td id="homePage">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="col">예약방법</th>
-                                    <td id="resveCl"></td>
-                                </tr>
-                                <tr>
-                                    <th scope="col">주변이용가능시설</th>
-                                    <td id="posblFcltyCl"> </td>
-                                </tr>
-                            </tbody>
-                        </table>
+
+
+
+
+                </div>
+
+
+                <div class="div2">
+
+                    <div class="camp_info_box">
+                        <div class="img_b" id="img_b">
+                            <!--             <img src="" alt="대표이미지" id="img_b" /> -->
+                        </div>
+
+                        <div class="cont_tb">
+                            <table class="table">
+                                <caption> ${campName}
+                                </caption>
+                                <colgroup>
+                                    <col style="width: 30%;" />
+                                    <col style="width: 70%;" />
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <th scope="col">주소</th>
+                                        <td id="addr"> </td>
+                                    </tr>
+                                    <tr class="camp_call_pcVer">
+                                        <th scope="col">문의처</th>
+                                        <td id="tel"> </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="col">캠핑장 환경</th>
+                                        <td id="lctCl"> </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="col">캠핑장 유형</th>
+                                        <td id="induty"> </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="col">운영기간</th>
+                                        <td id="operPdCl"> </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="col">운영일</th>
+                                        <td id="operDeCl"> </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="col">홈페이지</th>
+                                        <td id="homePage">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="col">예약방법</th>
+                                        <td id="resveCl"></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="col">주변이용가능시설</th>
+                                        <td id="posblFcltyCl"> </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+
                     </div>
 
 
                 </div>
 
 
-            </div>
+
+
+                <div class="layout">
+                    <ul class="camp_tab05">
+                        <li class="campListli"><a href='/camp/campList/detailList?campName=${campName}&viewType=1'
+                                class="camp_intro">
+                                캠핑장 소개</a></li>
+                        <li class="campListli"><a href='/camp/campList/detailList?campName=${campName}&viewType=2'
+                                class="camp_guide">
+                                캠핑장 가격</a></li>
+                        <li id="c_map"><a href='/camp/campList/detailList?campName=${campName}&viewType=3'
+                                class="camp_map">
+                                위치/주변정보</a></li>
+                        <li class="campListli"><a href='/camp/campList/detailList?campName=${campName}&viewType=4'
+                                class="camp_review">
+                                날씨</a></li>
+                        <li id="c_review"><a href='/camp/campList/detailList?campName=${campName}&viewType=5'
+                                class="camp_review">
+                                리뷰</a></li>
+                    </ul>
+                </div>
+                <hr>
 
 
 
-
-            <div class="layout">
-                <ul class="camp_tab05">
-                    <li class="campListli"><a href='/camp/campList/detailList?campName=${campName}&viewType=1' class="camp_intro">
-                        캠핑장 소개</a></li>
-                    <li class="campListli"><a href='/camp/campList/detailList?campName=${campName}&viewType=2' class="camp_guide">
-                        캠핑장 가격</a></li>
-                    <li id="c_map"><a href='/camp/campList/detailList?campName=${campName}&viewType=3' class="camp_map">
-                        위치/주변정보</a></li>
-                    <li class="campListli"><a href='/camp/campList/detailList?campName=${campName}&viewType=4' class="camp_review">
-                        날씨</a></li>
-                    <li id="c_review"><a href='/camp/campList/detailList?campName=${campName}&viewType=5' class="camp_review">
-                        리뷰</a></li>
-                </ul>
-            </div>
-            <hr>
-
-
-         
 
                 <!-- viewType == 1 일때 -->
                 <c:if test="${param.viewType == '1'}">
@@ -129,7 +156,7 @@
                             <div class="table_w">
 
                                 <table class="table_t4 camp_etc_tb">
-                                    <caption> 기타 주요시설 
+                                    <caption> 기타 주요시설
                                     </caption>
                                     <tbody class="t_c">
                                         <tr>
@@ -209,7 +236,7 @@
                     <div class="div4_1"> 캠 핑 장 이 미 지 </div>
 
                     <div class="div4">
-                        
+
                         <div class="post-slider">
                             <div class="post-wrapper">
 
@@ -286,7 +313,7 @@
                     <div class="table_w">
                         <table class="table camp_info_tb">
                             <colgroup>
-<!--                                 <col style="width: 20%">
+                                <!--                                 <col style="width: 20%">
                                 <col style="width: 20%">
                                 <col style="width: 20%">
                                 <col style="width: 20%">
@@ -295,7 +322,7 @@
                             <thead>
                                 <tr>
                                     <th rowspan="2" scope="col">구분</th>
-       
+
                                 </tr>
 
                                 <tr>
@@ -363,51 +390,52 @@
                 <c:if test="${param.viewType == '5'}">
 
 
-            <div class="div7">
+                    <div class="div7">
 
-                <jsp:include page="/WEB-INF/views/camp/campReview.jsp" />
+                        <jsp:include page="/WEB-INF/views/camp/campReview.jsp" />
 
-            </div>
-            </c:if>
-
-
+                    </div>
+                </c:if>
 
 
 
 
 
 
-            <button type="button" id="reservationBtn"><a>예약페이지</a></button>
-            
-            
-
-        </main>
-        
-    <jsp:include page="/WEB-INF/views/common/footer.jsp" />
-
-  <script>
-        const campName = "${campName}";
-        // 로그인한 회원 번호
-        const loginMemberNo = "${loginMember.memberNo}";
-        // 최상위 주소
-        const contextPath = "${contextPath}";        
-        // 캠핑장 번호
-        var campItem = JSON.parse(localStorage.getItem("item"));
-        var campNo = parseInt(campItem.contentId);
-    </script>
 
 
-        <script type="text/javascript"
-            src="//dapi.kakao.com/v2/maps/sdk.js?appkey=eb6841185807d60ca94c27f62bee498c"></script>
+                <button type="button" id="reservationBtn"><a>예약페이지</a></button>
 
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-            <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script> 
-        <script src="${contextPath}/resources/js/detailList.js"></script>
-        <script src="${contextPath}/resources/js/review.js"></script>
-        <script src="${contextPath}/resources/js/weather.js"></script>
-        <script src="${contextPath}/resources/js/weather2.js"></script>
 
-    </body>
 
-</html>
+            </main>
+
+            <jsp:include page="/WEB-INF/views/common/footer.jsp" />
+
+            <script>
+                const campName = "${campName}";
+                // 로그인한 회원 번호
+                const loginMemberNo = "${loginMember.memberNo}";
+                // 최상위 주소
+                const contextPath = "${contextPath}";
+                // 캠핑장 번호
+                var campItem = JSON.parse(localStorage.getItem("item"));
+                var campNo = parseInt(campItem.contentId);
+            </script>
+
+
+            <script type="text/javascript"
+                src="//dapi.kakao.com/v2/maps/sdk.js?appkey=eb6841185807d60ca94c27f62bee498c"></script>
+
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+                integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+            <script type="text/javascript"
+                src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+            <script src="${contextPath}/resources/js/detailList.js"></script>
+            <script src="${contextPath}/resources/js/review.js"></script>
+            <script src="${contextPath}/resources/js/weather.js"></script>
+            <script src="${contextPath}/resources/js/weather2.js"></script>
+
+        </body>
+
+        </html>

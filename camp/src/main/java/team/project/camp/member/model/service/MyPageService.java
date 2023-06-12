@@ -1,8 +1,10 @@
 package team.project.camp.member.model.service;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 
+import team.project.camp.detail.model.vo.Review;
 import team.project.camp.member.model.vo.Member;
 
 public interface MyPageService {
@@ -31,5 +33,12 @@ public interface MyPageService {
 	 * @return result
 	 */
 	int updateProfile(Map<String, Object> map) throws IOException;
+
+	
+	/** 내 리뷰 조회
+	 * @param memberNo
+	 * @return
+	 */
+	List<Review> selectMyReplyList(int memberNo);
 	
 }

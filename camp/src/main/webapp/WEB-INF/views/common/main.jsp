@@ -24,7 +24,7 @@
 
     <main>
         <section class="content2">
-
+        <div class="backdrop">
         <section class="search_bar">
 
                 <section class="section-transform-top">
@@ -34,7 +34,7 @@
                         <div>
                             <p class="booking-title">지역 선택</p>
                             <div class="form-wrap">
-                                <select id="loc">
+                                <select id="loc" class="form-select">
                                     <option label="지역"></option>
                                     <option value="강원">강원</option>
                                     <option value="서울">서울</option>
@@ -58,7 +58,7 @@
                         <div>
                             <p class="booking-title">테마 선택</p>
                             <div class="form-wrap">
-                                <select id="theme">
+                                <select id="theme" class="form-select">
                                     <option label="테마"></option>
                                     <option value="일반야영장">일반 야영장</option>
                                     <option value="자동차야영장">자동차 야영장</option>
@@ -70,7 +70,7 @@
                         <div>
                             <p class="booking-title">캠핑장 이름</p>
                             <div class="form-wrap">
-                                <input class="form-input" id="booking-name" type="text" name="campName">
+                                <input class="form-control" id="booking-name" type="text" name="campName">
                                 <label class="form-label" for="booking-name">캠핑장 이름</label>
                             </div>
                         </div>
@@ -84,6 +84,7 @@
                 </section>
 
             </section>
+            </div>
         </section>
 
         <hr>
@@ -216,7 +217,7 @@
 
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>

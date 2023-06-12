@@ -24,9 +24,12 @@ import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.google.gson.Gson;
+
 import lombok.extern.slf4j.Slf4j;
 import team.project.camp.detail.model.service.CampDetailService;
 import team.project.camp.detail.model.vo.Reservation;
+import team.project.camp.detail.model.vo.Review;
 import team.project.camp.member.model.service.MyPageService;
 import team.project.camp.member.model.vo.Member;
 @Slf4j
@@ -72,7 +75,13 @@ public class MyPageController {
 	}
 
 	@GetMapping("/myReview")
-	public String myReview() {
+	public String myReview(Model model,
+							@ModelAttribute("loginMember") Member loginMember) {
+		
+		List<Review> rList = myPageService.selectMyReplyList(loginMember.getMemberNo());
+		
+		model.addAttribute("rList", rList);
+		
 		return "mypage/myReview";
 	}
 

@@ -3,11 +3,11 @@
 
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top d-flex align-items-center">
-    <div class="container justify-content-between">
+    <div class="header-container justify-content-between">
 
       <div class="logo">
         <a href="${contextPath}"><img src="${contextPath}/resources/images/camp_logo.jpg" id="home-logo"></a>
-        <h1 class="text-light">캠핑보내조</h1>
+        <h1>캠핑보내조</h1>
       </div>
 
       <nav id="navbar" class="navbar">

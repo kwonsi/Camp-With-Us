@@ -1,5 +1,3 @@
-console.log(campNo);
-
 // 리뷰 목록 조회(AJAX)
 function selectReplyList(){
     console.log("목록 조회 ajax");
@@ -248,7 +246,7 @@ function deleteReply(replyNo){
 // ------------------------------------------------------------------------------------------
 // 리뷰 수정 화면 전환 
 
-let beforeReplyRow; // 수정 전 원래 행의 상태를 저장할 변수
+var beforeReplyRow; // 수정 전 원래 행의 상태를 저장할 변수
 
 
 function showUpdateReply(replyNo, btn){
@@ -376,12 +374,12 @@ function updateCancel(btn){
 
 // -----------------------------------------------------------------------------------
 
-const updateStar = document.getElementsByName("updateStar");
-var updateStarRate = 0; // 리뷰 수정 할 때 별점 저장용 변수
 
 // 리뷰 수정(AJAX)
 function updateReply(replyNo, btn){
-
+    
+    const updateStar = document.getElementsByName("updateStar");
+    var updateStarRate = 0; // 리뷰 수정 할 때 별점 저장용 변수
     // 새로 작성된 리뷰 내용 얻어오기
     const replyContent = btn.parentElement.previousElementSibling.value;
 
