@@ -29,11 +29,13 @@ public class MainController {
 	public String campList(
 				@RequestParam(value = "loc", required = false , defaultValue = "") String loc,
 				@RequestParam(value = "theme", required = false , defaultValue = "") String theme,
+				@RequestParam(value = "campName", required = false , defaultValue = "") String campName,
 				Model model
 			) {
 
 		model.addAttribute("loc", loc);
 		model.addAttribute("theme", theme);
+		model.addAttribute("campName", campName);
 
 		return "camp/campList";
 

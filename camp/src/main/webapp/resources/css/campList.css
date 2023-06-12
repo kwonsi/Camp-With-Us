@@ -1,3 +1,7 @@
+
+
+
+
 body{
     box-sizing: border-box;
     margin: 0px;
@@ -11,30 +15,30 @@ main{
     justify-content: center;
     flex-direction:column ;
 }
-.header{
+/* .header{
     height: 100px;
     border: 1px solid black;
 }
 .footer{
     height: 100px;
     border: 1px solid black;
-}
+} */
 
 h3{
-    margin-top: 10px;
-    margin-bottom: 20px;
+    margin-top: 0px;
+    margin-bottom: 10px;
 }
 li {
     list-style: none;
 }
 
 div > .camp_info_text > span {
-    font-size: 17px;
-    color: rgb(49, 49, 49);
+    font-size: 15px;
+    color: rgb(79, 79, 79);
 }
 h5{
   margin-top: 0px;
-  margin-bottom: 5px;
+  margin-bottom: 0px;
 }
 hr {
     margin-top: 0px;
@@ -57,16 +61,24 @@ hr {
     align-items: center;
     height: 600px;
     border: 1px solid black;
+    background-image: url('../images/test1.jpg'); 
+    background-size: 100% 100%; 
 }
+
+
+
+
+
 
 
 /* 검색 레이어박스 스타일 */
 .search_box_form {
-    background-color: #4caf50;
-    padding: 20px;
-    border-radius: 20px;
-    width: 1200px;
-    height: 400px;
+    /* background-color: #4caf50; */
+    background-color: rgba(39, 168, 39, 0.724);
+    padding: 40px;
+    border-radius: 5px;
+    width: 800px;
+    height: 350px;
     display: grid;
     justify-content: center;
     align-content: space-around;
@@ -99,7 +111,9 @@ hr {
     background-color:black;
 }
   
-
+.campResult{
+  display: inline;
+}
 
 
 
@@ -147,6 +161,7 @@ hr {
   text-decoration: none;
   border-radius: 4px;
   transition: background-color 0.3s ease;
+  font-size: 16px;
  
 }
 
@@ -168,7 +183,7 @@ hr {
     justify-content: center;
     align-items: center;
     height: auto;
-    border: 1px solid black;
+  /*   border: 1px solid black; */
     margin-top: 10px;
     background-color: #eee;
 }
@@ -217,18 +232,22 @@ hr {
 .camp_info_box {
     display: flex;
     align-items: center;
-    width: 1600px;
+    width: 1400px;
     border: 1px solid rgb(210, 210, 210);
-    height: 350px;
-    font-size: 23px;
+    height: 320px;
+    font-size: 21px;
     background-color: white;
     padding: 15px;
     border-radius: 10px;
+    padding-left: 30px;
+    
 }
 
 .img_box {
-    /* margin-right: 20px; */
-    padding: 30px;
+
+
+    width: 400px;
+    height: 250px;
     overflow: hidden;
 
 }
@@ -242,7 +261,7 @@ hr {
 
 .camp_info_text {
     flex: 1;
-    margin-left: 20px;
+    margin-left: 40px;
 }
 
 

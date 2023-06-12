@@ -16,6 +16,9 @@
         <link rel="stylesheet" href="${contextPath}/resources/css/review.css">
         <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
         <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+        <link rel="stylesheet" href="resources/css/bootstrap-icons.css">
+        <link rel="stylesheet" href="resources/css/bootstrap_main_header.css">
+
         <script src="https://kit.fontawesome.com/a2e8ca0ae3.js" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js"></script>
 
@@ -26,6 +29,10 @@
         <jsp:include page="/WEB-INF/views/common/header.jsp" />
         <main>
 
+            <div id = "detailMain">
+
+                
+            </div>
             
 
             <div class="div2">

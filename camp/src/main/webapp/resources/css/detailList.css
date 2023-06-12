@@ -14,9 +14,16 @@ body {
     margin: 0;
     padding: 0;
     font-size: 20px;
+    margin-top: 120px;
     /*     display: flex;
     align-items: center;
     justify-content: center; */
+}
+
+#detailMain{
+    width: 100%;
+    height: 300px;
+    border: 1px solid green;
 }
 
 .div1 {

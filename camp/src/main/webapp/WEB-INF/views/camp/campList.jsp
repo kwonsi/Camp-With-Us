@@ -10,6 +10,8 @@
     <title>Document</title>
     <link rel="stylesheet" href="${contextPath}/resources/css/main.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/campList.css">
+    <link rel="stylesheet" href="resources/css/bootstrap-icons.css">
+    <link rel="stylesheet" href="resources/css/bootstrap_main_header.css">
     <script src="https://kit.fontawesome.com/a2e8ca0ae3.js" crossorigin="anonymous"></script>
 </head>
 
@@ -20,6 +22,10 @@
        
 
         <div class="search">
+
+
+
+
             <section class="layer_search">
 
                 <div class="divv">
@@ -89,32 +95,14 @@
 
         <div class="searchVal" id="searchVal" >
 
-            <div><h2 id="campResult"></h2></div>
+            <br>
+            <div class="campResult"><h2 id="campResult"> <br>캠핑장을 검색해주세요.</h2></div>
             <section class="searchBox" id ="searchBox" >
 
                
                 <div class="camp_search_list" id="searchBox2">
-                    <h2>캠핑장을 검색해주세요.</h2>
-<!--                     <ul>
-                        <li>
-                            <div class="camp_info_box">
-                                <div class="img_box">
-                                    <img src="" alt="김영진" class="imgSize">
-                                </div>
-                                <div class="camp_info_text">
-                                    <h3 class="camp_info01">
-                                      <h3> <a href="">캠핑장 이름이 들어갑니다.</a></h3>
-                                    </h3>
-                                    <span class="camp_info02">캠핑장 소개글이 들어갑니다.</span><br>
-                                    <span class="camp_info03">
-                                        <a href="">캠핑장 디테일 소개글이 들어갑니다.</a>
-                                    </span><br>
-                                    <span class="camp_add">주소 &nbsp;&nbsp;&nbsp;:  서울광역시 서울구 서울동 서울</span><br>
-                                    <span class="camp_phone">연락처 : 010-6857-6333</span>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>  -->      
+                    
+                    
                 </div>
             </section>
 
@@ -129,8 +117,7 @@
     <script>
         const loc = "${loc}";
         const theme = "${theme}";
-
-        
+        const campName = "${campName}";
     </script>
 
 
