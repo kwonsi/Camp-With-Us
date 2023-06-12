@@ -179,24 +179,26 @@ selectCampBtn.addEventListener("click", function () {
             '<li>' +
             '<div class="camp_info_box">' +
             '<div class="img_box">' +
-            '<img src=' + item.firstImageUrl + ' alt="이미지가 존재하지 않습니다." class="imgSize">' +
+            '<a href="/camp/campList/detailList?campName='+item.facltNm.replaceAll(" ","")+'&viewType=1">'+
+            '<img src=' + item.firstImageUrl + ' alt="이미지가 존재하지 않습니다." class="imgSize"></a>' +
             '</div>' +
             '<div class="camp_info_text">' +
             '<h3 class="camp_info01">' +
             '<a href="/camp/campList/detailList?campName='+item.facltNm.replaceAll(" ","")+'&viewType=1">' + item.facltNm + '</a>' +
             '</h3>' +
-            '<span class="camp_info02">' + item.lineIntro + '</span><br>' +
+            '<h5 id="lineIntro">' + item.lineIntro + '</h5>' +
             '<span class="camp_info03">' +
-            '<a href="/camp/campList/detailList?campName='+item.facltNm.replaceAll(" ","")+'&viewType=1"">'+(item.intro).substr(0,40)+'.....</a>' +
+            '<a href="/camp/campList/detailList?campName='+item.facltNm.replaceAll(" ","")+'&viewType=1"">'+(item.intro).substr(0,60)+'.....</a>' +
             '</span><br>' +
-            '<span>테마 &nbsp;&nbsp;&nbsp;: ' + item.induty + '</span><br>' +
-            '<span class="camp_add">주소 &nbsp;&nbsp;&nbsp;: ' + item.addr1 + '</span><br>' +
-            '<span class="camp_phone">연락처 : ' + item.tel + '</span>' +
+            '<span>테마 &nbsp;&nbsp;&nbsp;&nbsp;: ' + item.induty + '</span><br>' +
+            '<span class="camp_add">주소 &nbsp;&nbsp;&nbsp;&nbsp;: ' + item.addr1 + '</span><br>' +
+            '<span class="camp_phone">연락처 &nbsp;: ' + item.tel + '</span><br>' +
+            '<span class="camp_reserve">예약방법 : ' + item.resveCl + '</span>' +
             '<a href="/camp/campList/detailList?campName='+item.facltNm.replaceAll(" ","")+'&viewType=1" class="reservation_button">예약하기</a>'+
             '</div>' +
             '</div>' +
             '</li>' +
-            '</ul><br><hr><br>';
+            '</ul><br><br>';
 
           searchBox2.innerHTML += htmlCode;
         });
@@ -215,6 +217,7 @@ selectCampBtn.addEventListener("click", function () {
           prevButton.addEventListener("click", function () {
             currentPage = startPage - 5;
             displayItems(currentPage);
+            window.scrollTo(0, 0);
 
           });
           pagination.appendChild(prevButton);
@@ -229,6 +232,7 @@ selectCampBtn.addEventListener("click", function () {
           pageButton.addEventListener("click", function () {
             currentPage = parseInt(this.textContent);
             displayItems(currentPage);
+            window.scrollTo(0, 0);
           });
           pagination.appendChild(pageButton);
         }
@@ -239,6 +243,7 @@ selectCampBtn.addEventListener("click", function () {
           nextButton.addEventListener("click", function () {
             currentPage = endPage + 1;
             displayItems(currentPage);
+            window.scrollTo(0, 0);
           });
           pagination.appendChild(nextButton);
         }
@@ -362,29 +367,30 @@ window.onload = function() {
 
         paginatedItems.forEach(item => {
           var htmlCode =
-            '<ul>' +
-            '<li>' +
-            '<div class="camp_info_box">' +
-            '<div class="img_box">' +
-            '<img src=' + item.firstImageUrl + ' alt="이미지가 존재하지 않습니다." class="imgSize">' +
-            '</div>' +
-            '<div class="camp_info_text">' +
-            '<h3 class="camp_info01">' +
-            '<a href="/camp/campList/detailList?campName='+item.facltNm.replaceAll(" ","")+'&viewType=1">' + item.facltNm + '</a>' +
-            '</h3>' +
-            '<span class="camp_info02">' + item.lineIntro + '</span><br>' +
-            '<span class="camp_info03">' +
-            '<span class="camp_info03">' +
-            '<a href="/camp/campList/detailList?campName='+item.facltNm.replaceAll(" ","")+'&viewType=1"">'+(item.intro).substr(0,40)+'.....</a>' +
-            '</span><br>' +
-            '<span>테마 &nbsp;&nbsp;&nbsp;: ' + item.induty + '</span><br>' +
-            '<span class="camp_add">주소 &nbsp;&nbsp;&nbsp;: ' + item.addr1 + '</span><br>' +
-            '<span class="camp_phone">연락처 : ' + item.tel + '</span>' +
-            '<a href="/camp/campList/detailList?campName='+item.facltNm.replaceAll(" ","") +'&viewType=1" class="reservation_button">예약하기</a>'+
-            '</div>' +
-            '</div>' +
-            '</li>' +
-            '</ul><br><hr><br>';
+          '<ul>' +
+          '<li>' +
+          '<div class="camp_info_box">' +
+          '<div class="img_box">' +
+          '<a href="/camp/campList/detailList?campName='+item.facltNm.replaceAll(" ","")+'&viewType=1">'+
+          '<img src=' + item.firstImageUrl + ' alt="이미지가 존재하지 않습니다." class="imgSize"></a>' +
+          '</div>' +
+          '<div class="camp_info_text">' +
+          '<h3 class="camp_info01">' +
+          '<a href="/camp/campList/detailList?campName='+item.facltNm.replaceAll(" ","")+'&viewType=1">' + item.facltNm + '</a>' +
+          '</h3>' +
+          '<h5 id="lineIntro">' + item.lineIntro + '</h5>' +
+          '<span class="camp_info03">' +
+          '<a href="/camp/campList/detailList?campName='+item.facltNm.replaceAll(" ","")+'&viewType=1"">'+(item.intro).substr(0,60)+'.....</a>' +
+          '</span><br>' +
+          '<span>테마 &nbsp;&nbsp;&nbsp;&nbsp;: ' + item.induty + '</span><br>' +
+          '<span class="camp_add">주소 &nbsp;&nbsp;&nbsp;&nbsp;: ' + item.addr1 + '</span><br>' +
+          '<span class="camp_phone">연락처 &nbsp;: ' + item.tel + '</span><br>' +
+          '<span class="camp_reserve">예약방법 : ' + item.resveCl + '</span>' +
+          '<a href="/camp/campList/detailList?campName='+item.facltNm.replaceAll(" ","")+'&viewType=1" class="reservation_button">예약하기</a>'+
+          '</div>' +
+          '</div>' +
+          '</li>' +
+          '</ul><br><hr><br>';
 
           searchBox2.innerHTML += htmlCode;
         });

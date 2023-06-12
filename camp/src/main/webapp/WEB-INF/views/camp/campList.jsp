@@ -34,14 +34,14 @@
                         <!--검색박스-->
                         <div class="search_box_form">
                             <div class="keywordDiv">
-                                <p class="tt">캠핑장이름 검색</p>
+                                <span class="tt">캠핑장이름 검색</span>  
                                 <input type="text" id="searchVal1"  class="keyword2" title="검색어를 입력하세요.">
                             </div>
 
 
                             <div class="form1_2">
                                 
-                                <label class="skip">지역별 검색</label>
+                                <span class="skip">지역별 검색</span>
                                  <select onchange="categoryChange(this)" class="select_01"  id="searchVal2" title="검색할 지역을 선택하세요.">
                                     <option value="">전체/도</option>
                                     <option value="서울">서울시</option>
@@ -61,14 +61,14 @@
                                     <option value="경상남도">경상남도</option>  <!-- 경상남도/경남-->  
                                     <option value="제주">제주도</option>
                                 </select> 
-                                <label class="skip">시군별 검색</label> 
+                               
                                 <select class="select_02" id="state" title="검색할 지역을 선택하세요.">
                                     <option value="">전체/시/군</option>
                                 </select>
                             </div>
                             <div class="form1_2">
                                 
-                                <label class="skip" for="searchLctCl">테마별 검색</label>
+                                <span class="skip" for="searchLctCl">테마별 검색</span>
                                 <select class="select_03" id="searchVal3" title="검색할 테마를 선택하세요.">
                                     <option value="">분류</option>
                                     <option value="일반야영장">일반야영장</option>
@@ -87,7 +87,7 @@
         </div> <!-- 검색영역 끝 -->
 
 
-        <div class="searchVal" id="searchVal">
+        <div class="searchVal" id="searchVal" >
 
             <div><h2 id="campResult"></h2></div>
             <section class="searchBox" id ="searchBox" >

@@ -33,7 +33,8 @@ var posblFcltyCl = document.getElementById("posblFcltyCl");    // 주변이용�
 var imgB = document.getElementById("img_b");
 var intro = document.getElementById("intro");  // intro div 
 var homePage = document.getElementById("homePage"); // 홈페이지
-var boxphoto = document.getElementById("box_photo");   // 이미지 컨테이너
+var postWrapper = document.getElementsByClassName("post-wrapper")[0];
+
 
 //기타주요시설 table 
 var indutyli = document.getElementsByClassName("table_ul05")[0]; // 주요시설
@@ -172,13 +173,29 @@ window.onload = function () {
                     console.log("이미지정보 ajax->ajax 성공");
                     imageUrlItem = result.response.body.items.item;
 
-                    if (boxphoto) {
+                    
+
+                    if (postWrapper) {
                         for (let i = 0; i < imageUrlItem.length; i++) {
-                            boxphoto.innerHTML +=
-                                "<div class='box_photo3'>" +
-                                "<img class='lazyload' data-src=" + imageUrlItem[i].imageUrl + " width=226 height=220>"
+                            postWrapper.innerHTML +=
+                                '<div class="post">' +
+                                "<img src=" + imageUrlItem[i].imageUrl + ">"
                                 + "</div>";
                         }
+
+                        $(document).ready(function() {
+                            // 슬라이더 초기화 코드
+                            $('.post-wrapper').slick({
+                                arrows: true,
+                               /*  prevArrow: '<button class="slide-arrow prev-arrow"><</button>',
+                                nextArrow: '<button class="slide-arrow next-arrow">></button>', */
+                              slidesToShow: 4,
+                              slidesToScroll: 4,
+                              autoplay: true,
+                              autoplaySpeed: 3000
+                              
+                            });
+                          });
                     }
                 },
                 error: function (error) {
@@ -196,6 +213,7 @@ window.onload = function () {
 };
 
 
+  
 
 
 /// 카카오 맵

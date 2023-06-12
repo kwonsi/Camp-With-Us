@@ -15,8 +15,9 @@ function selectReplyList(){
 
             // 화면에 출력되어 있는 리뷰 목록 삭제
             const replyList = document.getElementById("reply-list"); // ul태그
+            if ( replyList) { 
             replyList.innerHTML = "";
-
+            }
             // rList에 저장된 요소를 하나씩 접근
             for(let reply of rList){
 
@@ -144,6 +145,7 @@ const addReply = document.getElementById("addReply");
 const reviewContents = document.getElementById("reviewContents");
 const reviewStar = document.getElementsByName("reviewStar");
 var campRate = 0; // 별점 저장용 변수
+if ( addReply) {
 addReply.addEventListener("click", function(){ // 리뷰 등록 버튼이 클릭이 되었을 때
 
     // 1) 로그인이 되어있나? -> 전역변수 loginMemberNo 이용
@@ -200,7 +202,7 @@ addReply.addEventListener("click", function(){ // 리뷰 등록 버튼이 클릭
     });
 
 });
-
+}
 
 // -----------------------------------------------------------------------------------
 // 리뷰 삭제

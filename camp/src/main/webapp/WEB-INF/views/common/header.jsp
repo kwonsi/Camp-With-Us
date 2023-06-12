@@ -76,7 +76,7 @@
 						<!-- 						<li onclick="naverLogout();">네이버 로그아웃
 					</li> -->
 						<li>
-							<a href="${contextPath}/login/logout">
+							<a href="${contextPath}/member/logout">
 								<h4>로그아웃</h4>
 							</a>
 						</li>

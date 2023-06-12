@@ -21,15 +21,20 @@ main{
 }
 
 h3{
-    margin-top: 0px;
-    margin-bottom: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
 }
 li {
     list-style: none;
 }
 
 div > .camp_info_text > span {
-    font-size: 13px;
+    font-size: 17px;
+    color: rgb(49, 49, 49);
+}
+h5{
+  margin-top: 0px;
+  margin-bottom: 5px;
 }
 hr {
     margin-top: 0px;
@@ -42,7 +47,7 @@ hr {
     display: flex;
     width: 1500px;
     height: 500px;
-    border: 1px solid green;
+  /*   border: 1px solid green; */
     flex-direction: column;
     align-items: center;
 }
@@ -57,13 +62,47 @@ hr {
 
 /* 검색 레이어박스 스타일 */
 .search_box_form {
-    background-color: #f0f0f0;
+    background-color: #4caf50;
     padding: 20px;
-    border-radius: 5px;
-    width: 1000px;
+    border-radius: 20px;
+    width: 1200px;
     height: 400px;
+    display: grid;
+    justify-content: center;
+    align-content: space-around;
   }
+  .search_box_form > div {
+    font-size: 20px;
+    color: white;
+  }
+  .search_box_form > div input {
+    width: 450px;
+    height: 50px;
+    border-radius: 5px;
+  }
+  .search_box_form > div select {
+    width: 250px;
+    height: 50px;
+    border-radius: 5px;
+  }
+  .search_box_form > .form1_2 > .select_03{
+    width: 350px;
+  }
+  .search_box_form > div > button {
+    background-color: rgb(56, 56, 56);
+    width: 150px;
+    height: 50px;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+  }
+  .search_box_form > div > button:hover {
+    background-color:black;
+}
   
+
+
+
+
   /* 텍스트 입력 상자 스타일 */
   .keyword2 {
     width: 200px;
@@ -87,7 +126,6 @@ hr {
   /* 검색 버튼 스타일 */
   .searchBtn {
     padding: 10px 20px;
-    background-color: #4caf50;
     color: #fff;
     border: none;
     border-radius: 3px;
@@ -96,6 +134,25 @@ hr {
   }
   
 
+/* 에약하기 버튼 스타일*/
+
+.reservation_button {
+  float: right;
+/*   display: inline-block; */
+  margin-right: 50px;
+  padding: 8px 16px;
+  background-color: green;
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+ 
+}
+
+.reservation_button:hover {
+  background-color: rgb(1, 82, 1);
+}
 
 
 
@@ -110,9 +167,10 @@ hr {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 1000px;
+    height: auto;
     border: 1px solid black;
     margin-top: 10px;
+    background-color: #eee;
 }
 
 
@@ -120,10 +178,11 @@ hr {
     justify-content: center; 
     display: flex; 
     /* flex-direction: column; */
-    margin-top: 30px;
-    width: 1000px;
-    height: 700px;
-    border: 1px solid green;
+    margin-top: 20px;
+    width: 1600px;
+    height: auto;
+    /* border: 1px solid green; */
+
 }
 
 .pageNation{
@@ -135,7 +194,13 @@ hr {
 
 /* 리스트 js 목록 스크롤로 표시 */
 .camp_search_list{
-    overflow-y: auto;   
+  /*   overflow-y: auto;   */
+    width: auto; 
+
+}
+.camp_search_list > ul {
+  margin : 0px ;
+  padding: 10px;
 }
 
 
@@ -144,22 +209,40 @@ hr {
 
 /*   이미지 / 리스트 정렬  */
 .imgSize{
-    width : 240px ;
-    height : 170px ;
+    width : 400px ;
+    height : 250px ;
+    border-radius: 5px;
 }
+
 .camp_info_box {
     display: flex;
     align-items: center;
-    width: 800px;
-    border: 1px solid blue;
+    width: 1600px;
+    border: 1px solid rgb(210, 210, 210);
+    height: 350px;
+    font-size: 23px;
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
 }
 
 .img_box {
-    margin-right: 20px;
+    /* margin-right: 20px; */
+    padding: 30px;
+    overflow: hidden;
+
+}
+
+.img_box > a img{
+  transition: all 0.4s ease-in-out;
+}
+.img_box > a:hover img {
+  transform: scale(1.4);
 }
 
 .camp_info_text {
     flex: 1;
+    margin-left: 20px;
 }
 
 
@@ -216,4 +299,7 @@ hr {
 .pagination-previous {
   order: -1;
 }
+
+
+
 
