@@ -4,21 +4,6 @@
     <!DOCTYPE html>
     <html lang="en">
 
-<<<<<<< HEAD
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-        <link rel="stylesheet" href="${contextPath}/resources/css/main.css">
-        <link rel="stylesheet" href="${contextPath}/resources/css/detailList.css">
-        <link rel="stylesheet" href="${contextPath}/resources/css/map.css">
-        <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap1.css">
-        <link rel="stylesheet" href="${contextPath}/resources/css/review.css">
-        
-        <script src="https://kit.fontawesome.com/a2e8ca0ae3.js" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js"></script>
-=======
         <head>
             <meta charset="UTF-8">
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -29,12 +14,11 @@
             <link rel="stylesheet" href="${contextPath}/resources/css/map.css">
             <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap1.css">
             <link rel="stylesheet" href="${contextPath}/resources/css/review.css">
-            <link rel="stylesheet" href="resources/css/bootstrap-icons.css">
-            <link rel="stylesheet" href="resources/css/bootstrap_main_header.css">
+            <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap-icons.css">
+            <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap_main_header.css">
          
             <script src="https://kit.fontawesome.com/a2e8ca0ae3.js" crossorigin="anonymous"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js"></script>
->>>>>>> e314f21e24e5be81ff57114819d5be5d4d455eb6
 
     </head>
 

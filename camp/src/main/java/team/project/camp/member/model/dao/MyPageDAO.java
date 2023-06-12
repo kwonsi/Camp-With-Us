@@ -1,10 +1,13 @@
 package team.project.camp.member.model.dao;
 
+import java.util.List;
 import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
+import team.project.camp.detail.model.vo.Review;
 
 @Repository
 public class MyPageDAO {
@@ -53,5 +56,14 @@ public class MyPageDAO {
 	 */
 	public int updateProfile(Map<String, Object> map) {
 		return sqlSession.update("myPageMapper.updateProfile", map);
+	}
+
+
+	/** 내 리뷰 조회 DAO
+	 * @param memberNo
+	 * @return
+	 */
+	public List<Review> selectMyReplyList(int memberNo) {
+		return sqlSession.selectList("myPageMapper.selectMyReplyList", memberNo);
 	}
 }

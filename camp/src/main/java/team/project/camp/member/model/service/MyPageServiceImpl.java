@@ -2,6 +2,7 @@ package team.project.camp.member.model.service;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import team.project.camp.common.Util;
+import team.project.camp.detail.model.vo.Review;
 import team.project.camp.member.model.dao.MyPageDAO;
 import team.project.camp.member.model.vo.Member;
 
@@ -107,4 +109,9 @@ public class MyPageServiceImpl implements MyPageService {
 		return result;
 	}
 	
+	// 내 리뷰 조회 서비스 구현
+	@Override
+	public List<Review> selectMyReplyList(int memberNo) {
+		return dao.selectMyReplyList(memberNo);
+	}
 }
