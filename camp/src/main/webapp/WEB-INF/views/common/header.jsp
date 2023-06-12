@@ -3,7 +3,7 @@
 
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top d-flex align-items-center">
-    <div class="container justify-content-between">
+    <div class="header-container justify-content-between">
 
       <div class="logo">
         <a href="${contextPath}"><img src="${contextPath}/resources/images/camp_logo.jpg" id="home-logo"></a>

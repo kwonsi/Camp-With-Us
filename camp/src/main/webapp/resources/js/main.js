@@ -16,6 +16,10 @@ function searchCamp() {
 
     location.href = "/camp/campList/?loc=" + selLoc.value + "&theme=" + selTheme.value + "&campName=" + inputCampName.value;
     // location.href="camp/campList";
+
+    selLoc.value = "";
+    selTheme.value = "";
+    inputCampName.value = "";
 }
 
 

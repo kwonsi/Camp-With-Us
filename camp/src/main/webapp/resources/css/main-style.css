@@ -3228,8 +3228,8 @@ textarea.form-input {
 
 .form-label {
 	position: absolute;
-	top: 30px;
-	left: 0;
+	top: 20px;
+	left: 13px;
 	right: 0;
 	padding-left: 25px;
 	padding-right: 25px;
