@@ -17,10 +17,10 @@
             <ul>
               <c:forEach var="boardType" items="${boardTypeList}">
 							  <li><a href="${contextPath}/board/list/${boardType.boardCode}">${boardType.boardName}</a></li>
-			  </c:forEach>	
+			        </c:forEach>	
             </ul>
           </li>
-          <li class="dropdown myPage1"><a class="nav-link scrollto" id="myPage">마이페이지</a>
+          <li class="dropdown myPage1"><a id="myPage">마이페이지</a>
             <ul>
               <c:choose>
                 <c:when test="${loginMember.loginST=='Y'}">
