@@ -1,33 +1,3 @@
-@charset "UTF-8";
-
-
-.findSignupBtn {
-  margin: 20px 0 0 460px;
-  display: flex;
-}
-.findIdPwBtn {
-  color: #6e6e6e;
-  font-family: var(--bs-btn-font-family);
-  font-size: var(--bs-btn-font-size);
-  font-weight: bold;
-}
-.signUpBtn {
-  color: #6e6e6e;
-  font-family: var(--bs-btn-font-family);
-  font-size: var(--bs-btn-font-size);
-  font-weight: bold;
-}
-a:hover{
-  color: #000000;
-}
-
-.socialLogin{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 30px;
-}
-
 
 * {
     box-sizing: border-box;
@@ -36,18 +6,20 @@ a:hover{
 body {
     height: auto;
     margin: 0;
-/*     margin-top: 120px */
+   /*  margin-top: 120px */
 /*     background-image: url('../images/test1.jpg'); 
      background-size: 100% 100%;  */
 }
 
-
 main {
     width: 950px;
-    height: 800px;
+    height: 900px;
     margin: auto;
 }
 
+
+
+/* -----------------header------------------- */
 
 #header {
   display: flex;
@@ -207,24 +179,34 @@ a:hover {
 
 
 
-/* --------------------------------------------------------------------------------- */
+/* -----------------content------------------- */
+
+.msg {
+    font-size: 20px;
+    
+}
+
+.idPw-input-area {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
 .px-5 {
     padding-right: 3rem !important;
     padding-left: 3rem !important;
   }
 
-  /* background-color: rgba(var(--bs-light-rgb), var(--bs-bg-opacity)) !important; */
   .bg-light {
+    width: 80%;
+    margin-top: 20px;
     --bs-bg-opacity: 1;
-    height: 85%;
-    background-color:rgba(var(--bs-light-rgb), var(--bs-bg-opacity)) !important;
-    margin-top: 5rem;
+    background-color: rgba(var(--bs-light-rgb), var(--bs-bg-opacity)) !important;
     padding-top: 3rem !important;
     padding-bottom: 3rem !important;
     padding-right: 1.5rem !important;
     padding-left: 1.5rem !important;
-    border: 2px solid rgb(202, 202, 202);
-    box-shadow: 8px 8px#c9c8c8;
+   border: 1px solid rgb(202, 202, 202);
+    box-shadow: 5px 5px#c9c8c8;
     border-radius: var(--bs-border-radius-xl) !important;
   }
   .px-md-5 {
@@ -232,14 +214,13 @@ a:hover {
     padding-left: 3rem !important;
   }
   .mb-5 {
-    margin-bottom: 3rem !important;
-    text-align: center !important;
+    margin-bottom: 2rem !important;
+    /* text-align: center !important; */
    
   }
 
   .fw-bolder {
     font-weight: bolder !important;
-    font-size: 60px;
   }
     
 
@@ -248,8 +229,7 @@ a:hover {
     --bs-gutter-y: 0;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 70px;
+    margin-top: calc(-1 * var(--bs-gutter-y));
     margin-right: calc(-0.5 * var(--bs-gutter-x));
     margin-left: calc(-0.5 * var(--bs-gutter-x));
   }
@@ -267,19 +247,19 @@ a:hover {
     --bs-gutter-x: 3rem;
   }
 
-  .justify-content-center {
-    justify-content: center !important;
-  }
+
   .col-lg-6 {
     flex: 0 0 auto;
     width: 50%;
-    
   }
   .col-lg-8 {
     flex: 0 0 auto;
     width: 66.66666667%;
   }
-
+  .col-xl-6 {
+    flex: 0 0 auto;
+    width: 70%;
+  }
   .form-floating {
     position: relative;
   }
@@ -304,7 +284,7 @@ a:hover {
   .form-floating > .form-control,
   .form-floating > .form-control-plaintext,
   .form-floating > .form-select {
-    height: calc(3.5rem + 10px);
+    height: calc(3.5rem + 2px);
     line-height: 1.25;
   }
   .form-floating > label {
@@ -322,7 +302,6 @@ a:hover {
     border: 1px solid transparent;
     transform-origin: 0 0;
     transition: opacity 0.1s ease-in-out, transform 0.1s ease-in-out;
-    font-size: 20px;
   }
   @media (prefers-reduced-motion: reduce) {
     .form-floating > label {
@@ -383,9 +362,8 @@ a:hover {
   .form-control {
     display: block;
     width: 100%;
-    margin-bottom: 30px;
     padding: 0.375rem 0.75rem;
-    font-size: 2rem;
+    font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
     color: #212529;
@@ -595,8 +573,8 @@ a:hover {
 
   .btn-primary {
     --bs-btn-color: #ffffff;
-    --bs-btn-bg: #373738;
-    --bs-btn-border-color: #373738;
+    --bs-btn-bg: #5b5b5c;
+    --bs-btn-border-color: #5b5b5c;
     --bs-btn-hover-color: #f8fcca;
     --bs-btn-hover-bg: #070707;
     --bs-btn-hover-border-color: #070707;
@@ -707,16 +685,19 @@ a:hover {
   }
 }
 
-.kakaoLg {
-    list-style: none;
+
+hr {
+  margin: 1rem 0;
+  color: inherit;
+  border: 0;
+  border-top: 1px solid;
+  opacity: 0.25;
 }
 
 
 
 
-/* ---------------------------------------------------------------------------------------- */
-
-/* footer */
+/* -----------------footer------------------- */
 
 footer {
     height: 200px;
@@ -746,5 +727,3 @@ footer a {
 footer span {
     padding: 0 10px;
 }
-
-

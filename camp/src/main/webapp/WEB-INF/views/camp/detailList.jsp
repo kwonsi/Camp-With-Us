@@ -33,27 +33,14 @@
                 <div id="detailMain">
 
                     <div id="sub_title_wrap2">
-
-                        <div class="layout">
-                            <h2>
-                                <span class="skip">충주카누캠핑장</span>
-                            </h2>
-                            <!--타이틀-->
-                            <div class="s_title2">
-                                <p class="camp_s_tt">
-                                    아름다운 충주호가 눈앞에 펼쳐지는 오토캠핑장 </p>
-
-                            </div>
-                        </div>
-                        <div class="sub_bg_w">
-                            <div class="camp_bg_03"></div>
+                        <h1>
+                            <span class="lineIntro1"></span>
+                        </h1>
+                        <!--타이틀-->
+                        <div class="s_title2">
+                            <p class="camp_s_tt"></p>
                         </div>
                     </div>
-
-
-
-
-
                 </div>
 
 
@@ -66,11 +53,11 @@
 
                         <div class="cont_tb">
                             <table class="table">
-                                <caption> ${campName}
+                                <caption class="lineIntro1">
                                 </caption>
                                 <colgroup>
-                                    <col style="width: 30%;" />
-                                    <col style="width: 70%;" />
+                                    <col style="width: 25%;" />
+                                    <col style="width: 75%;" />
                                 </colgroup>
                                 <tbody>
                                     <tr>
@@ -120,29 +107,33 @@
 
                 </div>
 
-
-
+                <br>
+                <hr>
 
                 <div class="layout">
-                    <ul class="camp_tab05">
-                        <li class="campListli"><a href='/camp/campList/detailList?campName=${campName}&viewType=1'
-                                class="camp_intro">
-                                캠핑장 소개</a></li>
-                        <li class="campListli"><a href='/camp/campList/detailList?campName=${campName}&viewType=2'
-                                class="camp_guide">
-                                캠핑장 가격</a></li>
-                        <li id="c_map"><a href='/camp/campList/detailList?campName=${campName}&viewType=3'
-                                class="camp_map">
-                                위치/주변정보</a></li>
-                        <li class="campListli"><a href='/camp/campList/detailList?campName=${campName}&viewType=4'
-                                class="camp_review">
-                                날씨</a></li>
-                        <li id="c_review"><a href='/camp/campList/detailList?campName=${campName}&viewType=5'
-                                class="camp_review">
-                                리뷰</a></li>
-                    </ul>
+
+                    <div class="camp_cont_w">
+                        <ul class="camp_tab05">
+
+                            <li class="campListli"><a href='/camp/campList/detailList?campName=${campName}&viewType=1' 
+                                onclick="changeBackgroundColor(event)">
+                                    캠핑장 소개</a></li>
+                            <li class="campListli"><a href='/camp/campList/detailList?campName=${campName}&viewType=2'
+                                 onclick="changeBackgroundColor(event)">
+                                    캠핑장 가격</a></li>
+                            <li class="campListli"><a href='/camp/campList/detailList?campName=${campName}&viewType=3'
+                                onclick="changeBackgroundColor(event)">
+                                    위치/주변정보</a></li>
+                            <li class="campListli"><a href='/camp/campList/detailList?campName=${campName}&viewType=4'
+                                onclick="changeBackgroundColor(event)">
+                                    날씨</a></li>
+                            <li class="campListli"><a href='/camp/campList/detailList?campName=${campName}&viewType=5'
+                                onclick="changeBackgroundColor(event)">
+                                    리뷰</a></li>
+                        </ul>
+                    </div>
                 </div>
-                <hr>
+
 
 
 

@@ -1,6 +1,5 @@
 //const selLoc = document.getElementById("selLoc");
 const login = document.getElementById("login");
-const myPage = document.getElementById("myPage");
 var selLoc = document.getElementById("loc");
 var selTheme = document.getElementById("theme");
 var inputCampName = document.getElementsByName("campName")[0];
@@ -123,6 +122,37 @@ function attachFormValidator(elements) {
     ];
 
 
+/**
+ * @desc Initialize Bootstrap tooltip with required placement
+ * @param {string} tooltipPlacement
+ */
+function initBootstrapTooltip(tooltipPlacement) {
+    plugins.bootstrapTooltip.tooltip('dispose');
+
+    if (window.innerWidth < 576) {
+        plugins.bootstrapTooltip.tooltip({placement: 'bottom'});
+    } else {
+        plugins.bootstrapTooltip.tooltip({placement: tooltipPlacement});
+    }
+}
+
+// Bootstrap Tooltips
+if (plugins.bootstrapTooltip.length) {
+    var tooltipPlacement = plugins.bootstrapTooltip.attr('data-placement');
+    initBootstrapTooltip(tooltipPlacement);
+
+    $window.on('resize orientationchange', function () {
+        initBootstrapTooltip(tooltipPlacement);
+    })
+}
+
+
+
+// RD Input Label
+if (plugins.rdInputLabel.length) {
+    plugins.rdInputLabel.RDInputLabel();
+}
+
     for (var i = 0; i < regularConstraintsMessages.length; i++) {
         var regularConstraint = regularConstraintsMessages[i];
 
@@ -172,7 +202,7 @@ window.onload = function () {
             pageNo: 1,
             MobileOS: "ETC",
             MobileApp: "AppTest",
-            serviceKey: "4k7REi0gs6TKyjakIRV6zHIg3a1NcXwJPRTezijLCYvx0leNrqvtRwayHuc1AslN9pksU9rGRorGGOTZwMEu9Q==",
+            serviceKey: "I9du70n72b4HG+Y4EFuyTYoNlJ3tOZycxGZluxxxoKxLFP4nPc5cjB4iha+XbuTyZ2Krp2X/cqRs22JpoB3dnw==",
             _type: "json"
         },
         dataType: "json",

@@ -87,8 +87,7 @@
             </div>
         </section>
 
-        <hr>
-
+        <br>
 
 
         <div id="divv">
@@ -98,7 +97,7 @@
                 <div class="slide slider__img">
 
                     <div class="slider__inner">
-                        <div class="slide1 slider">
+                        <div class="slide3 slider">
                             <div class="ranBoard">
                                 <div class=" ranBoard_1" id="ranBoardImg1"> </div>
                                 <div class=" ranBoard_1" id="ranBoardContent1"></div>
@@ -119,7 +118,7 @@
 
 
                     <div class="slider__inner">
-                        <div class="slide2 slider">
+                        <div class="slide3 slider">
                             <div class="ranBoard">
                                 <div class=" ranBoard_1" id="ranBoardImg4"> </div>
                                 <div class=" ranBoard_1" id="ranBoardContent4"> </div>

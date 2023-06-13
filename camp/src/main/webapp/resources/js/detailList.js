@@ -20,6 +20,10 @@ reservationBtn.addEventListener("click", function (e) {
 
 
 
+// 맨뒤 캠핑장 이름 / 소개글
+var introCampName = document.getElementsByClassName("lineIntro1")[0];
+var introLine = document.getElementsByClassName("camp_s_tt")[0];
+var introLine2 = document.getElementsByClassName("lineIntro1")[1];
 
 // 캠핑장정보 table
 var addr = document.getElementById("addr");              // 주소
@@ -70,7 +74,7 @@ window.onload = function () {
             pageNo: 1,
             MobileOS: "ETC",
             MobileApp: "AppTest",
-            serviceKey: "4k7REi0gs6TKyjakIRV6zHIg3a1NcXwJPRTezijLCYvx0leNrqvtRwayHuc1AslN9pksU9rGRorGGOTZwMEu9Q==",
+            serviceKey: "I9du70n72b4HG+Y4EFuyTYoNlJ3tOZycxGZluxxxoKxLFP4nPc5cjB4iha+XbuTyZ2Krp2X/cqRs22JpoB3dnw==",
             _type: "json"
         },
         dataType: "json",
@@ -89,6 +93,12 @@ window.onload = function () {
             localStorage.setItem("item", JSON.stringify(item)); // 캠핑장 정보 페이지 로컬에 저장
             items = JSON.parse(localStorage.getItem("item"));
             contentId = items.contentId;
+
+
+
+            introCampName.innerText = items.facltNm;
+            introLine.innerText = items.lineIntro;
+            introLine2.innerText = items.facltNm;
 
             /* ************** 캠핑장 정보 출력 ************** */
             addr.innerText = items.addr1;               // 주소
@@ -164,7 +174,7 @@ window.onload = function () {
                     pageNo: 1,
                     MobileOS: "ETC",
                     MobileApp: "AppTest",
-                    serviceKey: "4k7REi0gs6TKyjakIRV6zHIg3a1NcXwJPRTezijLCYvx0leNrqvtRwayHuc1AslN9pksU9rGRorGGOTZwMEu9Q==",
+                    serviceKey: "I9du70n72b4HG+Y4EFuyTYoNlJ3tOZycxGZluxxxoKxLFP4nPc5cjB4iha+XbuTyZ2Krp2X/cqRs22JpoB3dnw==",
                     _type: "json",
                     contentId: contentId
                 },
@@ -192,7 +202,8 @@ window.onload = function () {
                               slidesToShow: 4,
                               slidesToScroll: 4,
                               autoplay: true,
-                              autoplaySpeed: 3000
+                              autoplaySpeed: 3000,
+                              
                               
                             });
                           });
@@ -282,3 +293,51 @@ doNmVal.innerText = doNm+" 지역 날씨";
 
 
 
+
+
+///  목록 (li) 누를때 , li 배경색 유지 .
+
+function changeBackgroundColor(event) {
+    // 이벤트 발생한 요소의 부모 요소인 li 선택
+    var liElement = event.target.parentNode;
+
+    // 모든 li 요소의 클래스 제거
+    var liElements = document.getElementsByClassName("campListli");
+    for (var i = 0; i < liElements.length; i++) {
+        liElements[i].classList.remove("selected");
+    }
+
+    // 클릭한 li 요소에 선택된 클래스 추가
+    liElement.classList.add("selected");
+
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    // 현재 페이지 URL에서 viewType 파라미터 값 추출
+    var viewType = getParameterByName("viewType");
+
+    // viewType에 해당하는 li 요소에 selected 클래스 추가
+    var liElements = document.getElementsByClassName("campListli");
+    for (var i = 0; i < liElements.length; i++) {
+        var link = liElements[i].getElementsByTagName("a")[0];
+        var linkViewType = getParameterByName("viewType", link.href);
+        if (linkViewType === viewType) {
+            liElements[i].classList.remove("campListA");
+            liElements[i].classList.add("selected");
+           
+            break;
+        }
+    }
+});
+
+function getParameterByName(name, url) {
+    if (!url) {
+        url = window.location.href;
+    }
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return "";
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}

@@ -10,11 +10,11 @@
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <title>아이디/비밀번호 찾기</title>
 
-     <link rel="stylesheet" href="${contextPath}/resources/css/main.css">
-     <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap-icons.css">
-     <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap_main_header.css">
-     <!-- <link rel="stylesheet" href="${contextPath}/resources/css/signUpPage.css"> -->
      
+<!--      <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap-icons.css">
+     <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap_main_header.css"> -->
+     <!-- <link rel="stylesheet" href="${contextPath}/resources/css/signUpPage.css"> -->
+     <link rel="stylesheet" href="${contextPath}/resources/css/findIdPw.css">
  </head>
  <body>
 
@@ -23,56 +23,73 @@
 
      <main>
         
-         <!-- 아이디 찾기  -->
-         <section class="find-content">
-            <form action="findId" method="POST" name="findId-form" onsubmit="return findIdInvalidate()">
- 
-                <label for="memberTel">
-                    <span class="required">*</span> 전화번호
-                </label>
-                
-                <div class="signUp-input-area">
-                    <input type="text" id="memberTel" name="memberTel"
-                            placeholder="(- 없이 숫자만 입력)" maxlength="11">
-                </div>
- 
-                 <button type="submit" id="findId-btn">아이디 찾기</button>
- 
-             </form>
+        <!-- 아이디 찾기  -->
+         <div class="find-content bg-light px-md-5">
+            
+            <div class="mb-5">                    
+                <h1 class="fw-bolder">아이디(이메일) 찾기</h1>
+            </div>
              
-         </section>
-         
-         <section></section>
+            <div class="gx-5 ">
 
-          <!-- 비밀번호 찾기  -->
-          <section class="find-content">
-            <form action="findPw" method="POST" name="findPw-form" onsubmit="return findPwInvalidate()">
+                <form class="col-lg-8 col-xl-6" action="findId" method="POST" name="findId-form" onsubmit="return findIdValidate()">
  
-                <label for="memberEmail">
-                    <span class="required">*</span> 아이디(이메일)
-                </label>
-                
-                <div class="signUp-input-area">
-                    <input type="text" id="memberEmail" name="memberEmail"
-                            placeholder="아이디(이메일)" maxlength="50"
-                            autocomplete="off" required>
-                </div>
- 
-                <label for="memberTel">
-                    <span class="required">*</span> 전화번호
-                </label>
-                
-                <div class="signUp-input-area">
-                    <input type="text" id="memberTel" name="memberTel"
-                            placeholder="(- 없이 숫자만 입력)" maxlength="11">
-                </div>
+                    
+                    <span class="msg">해당 아이디에 등록된 전화번호를 입력해 주세요.<br>(' - ' 없이 숫자만 입력)</span> 
+                    
+                    
+                    <div class="idPw-input-area form-floating mb-3">
+                        <input type="text" class="form-control" id="memberTel" name="memberTel" type="text"
+                          maxlength="11">
+                        <label for="memberTel">Tel</label>
+                    </div>
+     
+                     <button type="submit" id="findId-btn" class="btn btn-primary btn-lg">아이디(이메일) 찾기</button>
+     
+                 </form>
 
-                <button type="submit" id="findPw-btn">비밀번호 찾기</button>
+            </div>
+        </div>   
+
+            
+
+            <!-- 비밀번호 찾기  -->
+        <div class="find-content bg-light px-md-5">
+            <div class="mb-5">                    
+                <h1 class="fw-bolder">비밀번호 찾기</h1>
+            </div>
+
+            <div class="pwDiv">
+
+                <form class="col-lg-8 col-xl-6" action="findPw" method="POST" name="findPw-form" onsubmit="return findPwInvalidate()">
  
-             </form>
-             
-         </section>
- 
+                    
+                    <span class="msg">가입된 아이디를 입력해 주세요.</span> 
+                   
+                    <div class="idPw-input-area form-floating mb-3">
+                        <input type="text" class="form-control" id="memberEmail" name="memberEmail"
+                        maxlength="50">
+                        <label for="memberEmail">Id(Email)</label>
+                    </div>
+                   
+                    <span class="msg">해당 아이디에 등록된 전화번호를 입력해 주세요.<br>(' - ' 없이 숫자만 입력)</span> 
+                 
+                    <div class="idPw-input-area form-floating mb-3">
+                        <input type="text" class="form-control" id="memberTel" name="memberTel"
+                         maxlength="11"autocomplete="off">
+                        <label for="memberTel">Tel</label>
+                    </div>
+                    
+    
+                    <button type="submit" id="findPw-btn" class="btn btn-primary btn-lg">비밀번호 찾기</button>
+     
+                 </form>
+
+            </div>
+        </div>
+
+
+
      </main>
  
     <!-- footer include -->

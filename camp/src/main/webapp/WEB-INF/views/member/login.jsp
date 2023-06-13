@@ -12,12 +12,11 @@
 
         <title>로그인</title>
 
-        <link rel="stylesheet" href="${contextPath}/resources/css/main.css">
         <link rel="stylesheet" href="${contextPath}/resources/css/login.css">
-        <link rel="stylesheet" href="${contextPath}/resources/css/main-style.css">
-        <link rel="stylesheet" href="${contextPath}/resources/css/main-bootstrap.css">
+
+<!--         <link rel="stylesheet" href="${contextPath}/resources/css/main-bootstrap.css">
         <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap-icons.css">
-        <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap_main_header.css">
+        <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap_main_header.css"> -->
         <!-- <link rel="stylesheet" href="${contextPath}/resources/css/signUpPage.css"> -->
 
     </head>
@@ -30,28 +29,52 @@
         <main>
 
             <!-- 회원가입  -->
-            <section class="signUp-content">
-                <form action="login" method="POST" name="login-form" onsubmit="return loginValidate()">
 
-                    <label for="memberEmail">
-                        <span class="required">*</span> 아이디(이메일)
-                    </label>
+          
+            <div class="signUp-content bg-light px-md-5">
 
-                    <div class="signUp-input-area">
-                        <input type="text" id="memberEmail" name="memberEmail" placeholder="아이디(이메일)"
-                            maxlength="50" autocomplete="off" required>
-                    </div>
 
-                    <label for="memberPw">
-                        <span class="required">*</span> 비밀번호
-                    </label>
+                <div class="mb-5">                    
+                    <h1 class="fw-bolder">LOGIN</h1>
+                </div>
 
-                    <div class="signUp-input-area">
-                        <input type="text" id="memberPw" name="memberPw" placeholder="비밀번호" maxlength="30">
-                    </div>
 
-                    <button type="submit" id="login-btn">로그인</button>
+                <div class="row gx-5 justify-content-center">
+                    <form class="col-lg-8 col-xl-6" action="login" method="POST" name="login-form" onsubmit="return loginValidate()">
+                        
 
+                                <!-- id input-->
+                                <div class="signUp-input-area form-floating mb-3">
+                                    <input class="form-control" id="memberEmail" type="email" name="memberEmail" 
+                                     maxlength="50" autocomplete="off" />
+                                    <label for="memberEmail">ID(Email)</label>
+                                </div>
+
+
+                                <!-- password input-->
+                                <div class="signUp-input-area form-floating mb-3">
+                                    <input class="form-control" id="memberPw" type="password" name="memberPw"
+                                   maxlength="30"/>
+                                    <label for="memberPw">PassWord</label>
+                                </div>
+                                
+                                <!-- Submit Button-->
+                                <div class="d-grid"><button type="submit" id="login-btn" class="btn btn-primary btn-lg">로그인</button></div>
+                        
+                        
+                    </form>
+                    
+                </div>
+
+
+                <div class="findSignupBtn">
+                    <a class="signUpBtn" href="${contextPath}/member/signUp">회원가입</a>
+                    &ensp;|&ensp;
+                    <a class="findIdPwBtn" href="${contextPath}/member/findIdPw">아이디/비밀번호 찾기</a>
+                </div>
+
+
+                <div class="socialLogin">
 
                     <!-- 네이버 로그인 -->
                     <div>
@@ -59,38 +82,40 @@
                             <img width="200" src="${contextPath}/resources/images/Nbtn.png"></a>
                     </div>
 
-                </form>
+                    &ensp;&ensp;&ensp;&ensp;&ensp;
+
+                    <!-- 구글 로그인 -->
+                    <div id="g_id_onload"
+                        data-client_id="286178066358-saj0enkggrgfqm5mafdipok8ml0te2o1.apps.googleusercontent.com"
+                        data-callback="handleCredentialResponse" data-context="signin" data-ux_mode="popup"
+                        data-login_uri="http://localhost:8080/camp/member/login" data-auto_prompt="false">
+                    </div>
+                    
+                    <div class="g_id_signin" data-type="standard" data-shape="rectangular" data-theme="outline"
+                        data-text="signin_with" data-size="large" data-logo_alignment="right">
+                    </div>
 
 
-                <!-- 구글 로그인 -->
-                <div id="g_id_onload"
-                    data-client_id="286178066358-saj0enkggrgfqm5mafdipok8ml0te2o1.apps.googleusercontent.com"
-                    data-callback="handleCredentialResponse" data-context="signin" data-ux_mode="popup"
-                    data-login_uri="http://localhost:8080/camp/member/login" data-auto_prompt="false">
+                    <!-- 카카오 로그인 -->
+                    <ul>
+                        <li class="kakaoLg" onclick="kakaoLogin();">
+                            <a href="javascript:void(0)">
+                                <img src="https://k.kakaocdn.net/14/dn/btroDszwNrM/I6efHub1SN5KCJqLm1Ovx1/o.jpg"
+                                    width="222" alt="카카오 로그인 버튼" />
+                            </a>
+                        </li>
+                    </ul>
+
                 </div>
 
-                <div class="g_id_signin" data-type="standard" data-shape="rectangular" data-theme="outline"
-                    data-text="signin_with" data-size="large" data-logo_alignment="left">
-                </div>
+                 
 
-
-                <!-- 카카오 로그인 -->
-                <ul>
-                    <li onclick="kakaoLogin();">
-                        <a href="javascript:void(0)">
-                            <img src="https://k.kakaocdn.net/14/dn/btroDszwNrM/I6efHub1SN5KCJqLm1Ovx1/o.jpg"
-                                width="222" alt="카카오 로그인 버튼" />
-                        </a>
-                    </li>
-                </ul>
-
-
-            </section>
-
-            <div class="social-loginbtns">
 
 
             </div>
+
+
+            </section>
 
 
         </main>

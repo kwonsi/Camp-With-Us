@@ -1,5 +1,3 @@
-
-
 function loc2(){
   let locate;
   let loca = JSON.parse(localStorage.getItem("loca"));

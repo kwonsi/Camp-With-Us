@@ -15,6 +15,7 @@
     <script src="https://kit.fontawesome.com/a2e8ca0ae3.js" crossorigin="anonymous"></script>
 </head>
 
+
 <body>
 
     <jsp:include page="/WEB-INF/views/common/header.jsp" />
@@ -22,9 +23,6 @@
        
 
         <div class="search">
-
-
-
 
             <section class="layer_search">
 

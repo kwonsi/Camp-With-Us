@@ -4,18 +4,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import lombok.extern.slf4j.Slf4j;
 import team.project.camp.detail.model.service.CampDetailService;
 import team.project.camp.detail.model.vo.Reservation;
-import team.project.camp.member.model.vo.Member;
 
 @Slf4j
 @Controller
@@ -24,8 +21,8 @@ public class CampDetailController {
 
 	@Autowired
 	private CampDetailService service;
-	
-	
+
+
 	// 예약하기 페이지 조회  detailList--> reservation
 	// href='${contextPath}/campDetail/reservation?campName=${campName}'>예약페이지</a></button>
 	@GetMapping("/reservation")
@@ -33,7 +30,7 @@ public class CampDetailController {
 			@RequestParam(value = "campName", required = false, defaultValue = "") String campName,
 			RedirectAttributes ra,
 			 Model model) {
-		
+
 		model.addAttribute("campName", campName);
 		return "camp/reservation";
 	}
