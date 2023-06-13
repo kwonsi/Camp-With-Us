@@ -26,13 +26,11 @@
         <form class="formsize">            
 
 
-            <div class="subject">${campName} 캠핑장 예약</div>
+            <div class="subject">${campName}</div>
 
-
-            <div class="calendar1">달력
-
-                <div class="container">
-                    <div class="left">
+            <section class="info">
+            <section class="calendar1">
+                <div class="containerCal card-1">
                         <div class="calendar">
                             <div class="month">
                                 <i class="fa fa-angle-left prev"></i>
@@ -60,82 +58,104 @@
                                 <button class="today-btn" type="button">today</button>
                             </div>
                         </div>
-                    </div>
+                </div>
+            </section>
             
-            
-                    <div class="right">
+            <section class="reverInfo">
+                    <div class="SELECTDATE card-2">
                         <div class="today-date">
                             <div class="event-day">선택한 날짜</div>
                         </div>
-                        <div class="checkIn">
-                            <div class="checkin">CheckIn</div>
-                            <div class="first-day">
-                                <div class="pickMonth"></div>월 <div class="pickDay"></div>일
-                            </div>
+                        <div class="check">
+                            <!-- <div class="first-day"> -->
+                                <input type="text" class="pickMonth" readonly><input type="text" class="mon" readonly><input type="text" class="pickDay" readonly><input type="text" class="dat" readonly>
+                                <input type="text" class="dat2" readonly>
+                            <!-- </div> -->
+                            <input type="text" class="wave" readonly>
+                            <!-- <div class="last-day"> -->
+                                <input type="text" class="pickMonth" readonly><input type="text" class="mon" readonly><input type="text" class="pickDay" readonly><input type="text" class="dat" readonly>
+                                <input type="text" class="dat2" readonly>
+                            <!-- </div> -->
                         </div>
-                        <div class="checkOut">
-                            <div class="checkout">CheckOut</div>
-                            <div class="last-day">
-                                <span class="pickMonth"></span>월 <span class="pickDay"></span>일
-                            </div>
-                        </div>
+                        
                         <div class="TOTAL">
                             <div class="total">총 기간</div>
                             <div class="total-days"> <div class="dayBetween"></div><div class="dayBetween"></div></div>
                         </div>
                     </div>
-                </div>
-               
-
-
-
-
-            </div>
-    
-
-
-
-            <div class="peopleNumber">인원선택 
+                     
+                        <div class="peopleNumber card-2">인원선택 
                 
-                <div class="popleNumberch">
-
-                    성인
-                    <select class="adultSelect">
-                        <option value="0">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                    </select>
-                    명
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    아이
-                    <select class="childrenSelect">
-                        <option value="0">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                    </select>
-                    명
+                            <div class="popleNumberch">
+                                <div class="count">
+                                성인
+                                <input type="button" onclick="countAdult('minus')" value="-" class="minus card-1">
+                                <div class="adultSelectContain">
+                                    <input type="text" id="adultSelect" class="adultSelect" value="0" readonly>
+                                </div>
+                                <input type="button" onclick="countAdult('plus')" value="+" class="plus card-1">
+                                </div>
+                                <!-- <select class="adultSelect card-1">
+                                    <option value="0">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                </select>
+                                명 -->
+                                
+                                <div class="count">
+                                영/유아
+                                <input type="button" onclick="countChild('minus')" value="-" class="minus card-1">
+                                <div class="childSelectContain">
+                                    <input type="text"  id="childSelect" class="childSelect" value="0" readonly>
+                                </div>
+                                <input type="button" onclick="countChild('plus')" value="+" class="plus card-1">
+                                </div>
+                                <!-- <select class="childrenSelect card-1">
+                                    <option value="0">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                </select>
+                                명 -->
+                            </div>
+                           
+                        </div>
+                        <div class="priceInformation card-2">성수기 정보
+                            <br>
+                            <br>성수기(6~8월) 가격: 1인 기준 성인 30000, 아이 15000
+                            <br>비성수기(6~8월 제외한 달) 기본가격: 1인 기준 성인 20000, 아이 10000
+                            <br>총 숙박기간 : <span class="a"></span>
+                            <br><br>	
+                                <div id="priceSum"></div>
+                        </div>
+            </section>
+            <section class="MemberInfo card-2">
+                <div class="MemberInfoInput">
+                예약자 이름<br><br><input type="text" class="name card-1">
                 </div>
-               
+                <div class="MemberInfoInput">
+                예약자 이메일<br><br><input type="text" class="name card-1">
+                </div>
+                <div class="MemberInfoInput">
+                예약자 전화번호<br><br><input type="tel" class="name card-1">
+                </div>
+                <div class="MemberInfoInput">
+                예약자 주소<br><br><input type="text" class="name card-1">
+                </div>
+                
+            </section>
+            </section>
 
 
-            </div>
     
-            <div class="priceInformation">가격정보
-            <br>
-            <br>성수기(6~8월) 가격: 1인 기준 성인 30000, 아이 15000
-            <br>비성수기(6~8월 제외한 달) 기본가격: 1인 기준 성인 20000, 아이 10000
-            <br>총 숙박기간 : <span class="a"></span>
-            <br><br>	
-            	<div id="priceSum"></div>
-            </div>
+            
             <br>
 
             <button type="button" class="btn btn-lg btn-primary" onclick="requestPay()">결제하기</button>
@@ -144,9 +164,46 @@
     
         
     </main>
-    <jsp:include page="/WEB-INF/views/common/footer.jsp" />
+<jsp:include page="/WEB-INF/views/common/footer.jsp" />
+
 <script>
-    
+
+function countAdult(type)  {
+  // 결과를 표시할 element
+const adultElement = document.getElementById('adultSelect');
+  
+  // 현재 화면에 표시된 값
+let numberAdult = adultElement.value;
+  
+  // 더하기/빼기
+if(type == 'plus') {
+    numberAdult = parseInt(numberAdult) + 1;
+  }else if(type == 'minus' && Number(numberAdult) > 0)  {
+    numberAdult = parseInt(numberAdult) - 1;
+}
+  
+  // 결과 출력
+  adultElement.value = numberAdult;
+}
+
+function countChild(type)  {
+  // 결과를 표시할 element
+const childElement = document.getElementById('childSelect');
+  
+  // 현재 화면에 표시된 값
+let numberChild = childElement.value;
+  
+  // 더하기/빼기
+if(type == 'plus') {
+    numberChild = parseInt(numberChild) + 1;
+  }else if(type == 'minus' && Number(numberChild) > 0)  {
+    numberChild = parseInt(numberChild) - 1;
+}
+  
+  // 결과 출력
+  childElement.value = numberChild;
+}
+
 let priceValue;
 let people;
 var campName = "${campName}";
@@ -154,34 +211,48 @@ var memberNickname = "${loginMember.memberNickname}";
 var memberEmail = "${loginMember.memberEmail}";
 var memberNo = "${loginMember.memberNo}";
 
+const Mkey = document.querySelectorAll(".minus");
+const Pkey = document.querySelectorAll(".plus");
 //결제금액
 document.addEventListener("DOMContentLoaded", function() {
-            // const month = localStorage.getItem("Month");
-            const adultSelect = document.querySelector(".adultSelect");
-            const childrenSelect = document.querySelector(".childrenSelect");
+    
+            const month = localStorage.getItem("Month");
+           
+            Pkey.forEach((element) => {
+                element.addEventListener("click", calculatePrice);
+                });
+            Mkey.forEach((element) => {
+                element.addEventListener("click", calculatePrice);
+                });
+            const adultSelect = document.getElementById("adultSelect");
+            const childSelect = document.getElementById("childSelect");
             const priceElement = document.getElementById("priceSum");
-            const totalday = localStorage.getItem("totalDay");
+            
             function calculatePrice() {
+                console.log("calculator loaded")
                 $.ajax({
                     url: "selectPrice",
                     type: "GET",
-                    data: {"month" : Number(selectMonth[0].innerText)},
+                    data: {"month" : Number(selectMonth[0].value)},
                     success: function(price) {
                         console.log(price);
-                        console.log("몇월달 ? " + Number(selectMonth[0].innerText));
-                        let childrenPrice = price * 0.5;
-                        let adultOptionValue = adultSelect.options[adultSelect.selectedIndex].value;
+                        console.log("몇월달 ? " + Number(selectMonth[0].value));
+                        let childPrice = price * 0.5;
+                        let adultOptionValue = adultSelect.value;
                         let adultTotalPrice = price * adultOptionValue;
                         
                         
+                        const totalday = localStorage.getItem("totalDay");
 
-                        let childrenOptionValue = childrenSelect.options[childrenSelect.selectedIndex].value;
-                        let childrenTotalPrice = childrenPrice * childrenOptionValue;
+                        let childrenOptionValue = childSelect.value;
+                        let childrenTotalPrice = childPrice * childrenOptionValue;
                         
                         let totalPeople = Number(adultOptionValue) + Number(childrenOptionValue);
                         
                         let totalPrice = 0;
-                       
+                        console.log(people);
+                        console.log(adultOptionValue);
+                        console.log(childrenOptionValue);
 
                         if(localStorage.getItem("totalDay") == null) {
                             totalPrice = (adultTotalPrice + childrenTotalPrice)*0;
@@ -192,10 +263,6 @@ document.addEventListener("DOMContentLoaded", function() {
                         priceValue = totalPrice;
                         people = totalPeople;
                         
-                        
-/*                         console.log(people);
-                        console.log(adultOptionValue);
-                        console.log(childrenOptionValue); */
                         console.log("스토리지" + localStorage.getItem("totalDay"))
                     
 
@@ -205,10 +272,10 @@ document.addEventListener("DOMContentLoaded", function() {
                     }
                 });
             }
-    
-            adultSelect.addEventListener("change", calculatePrice);
-            childrenSelect.addEventListener("change", calculatePrice);
-    
+            
+            
+            adultSelect.addEventListener("input", calculatePrice);
+            childSelect.addEventListener("input", calculatePrice);
             calculatePrice();
     
         });
@@ -285,7 +352,8 @@ function requestPay() {
                 alert("날짜/인원을 선택해주세요.");
               }
             });
-        }
+}
+
 
 //  buyer_postcode: '123-456'
 </script>
