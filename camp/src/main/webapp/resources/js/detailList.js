@@ -202,7 +202,8 @@ window.onload = function () {
                               slidesToShow: 4,
                               slidesToScroll: 4,
                               autoplay: true,
-                              autoplaySpeed: 3000
+                              autoplaySpeed: 3000,
+                              
                               
                             });
                           });
@@ -294,6 +295,8 @@ doNmVal.innerText = doNm+" 지역 날씨";
 
 
 
+///  목록 (li) 누를때 , li 배경색 유지 .
+
 function changeBackgroundColor(event) {
     // 이벤트 발생한 요소의 부모 요소인 li 선택
     var liElement = event.target.parentNode;
@@ -306,4 +309,35 @@ function changeBackgroundColor(event) {
 
     // 클릭한 li 요소에 선택된 클래스 추가
     liElement.classList.add("selected");
+
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    // 현재 페이지 URL에서 viewType 파라미터 값 추출
+    var viewType = getParameterByName("viewType");
+
+    // viewType에 해당하는 li 요소에 selected 클래스 추가
+    var liElements = document.getElementsByClassName("campListli");
+    for (var i = 0; i < liElements.length; i++) {
+        var link = liElements[i].getElementsByTagName("a")[0];
+        var linkViewType = getParameterByName("viewType", link.href);
+        if (linkViewType === viewType) {
+            liElements[i].classList.remove("campListA");
+            liElements[i].classList.add("selected");
+           
+            break;
+        }
+    }
+});
+
+function getParameterByName(name, url) {
+    if (!url) {
+        url = window.location.href;
+    }
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return "";
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
 }

@@ -5,7 +5,7 @@ var selLoc = document.getElementById("loc");
 var selTheme = document.getElementById("theme");
 var inputCampName = document.getElementsByName("campName")[0];
 
-plugins = {
+var plugins = {
     bootstrapTooltip: $("[data-toggle='tooltip']"),
     rdInputLabel: $(".form-label"),
 };
@@ -123,6 +123,37 @@ function attachFormValidator(elements) {
     ];
 
 
+/**
+ * @desc Initialize Bootstrap tooltip with required placement
+ * @param {string} tooltipPlacement
+ */
+function initBootstrapTooltip(tooltipPlacement) {
+    plugins.bootstrapTooltip.tooltip('dispose');
+
+    if (window.innerWidth < 576) {
+        plugins.bootstrapTooltip.tooltip({placement: 'bottom'});
+    } else {
+        plugins.bootstrapTooltip.tooltip({placement: tooltipPlacement});
+    }
+}
+
+// Bootstrap Tooltips
+if (plugins.bootstrapTooltip.length) {
+    var tooltipPlacement = plugins.bootstrapTooltip.attr('data-placement');
+    initBootstrapTooltip(tooltipPlacement);
+
+    $window.on('resize orientationchange', function () {
+        initBootstrapTooltip(tooltipPlacement);
+    })
+}
+
+
+
+// RD Input Label
+if (plugins.rdInputLabel.length) {
+    plugins.rdInputLabel.RDInputLabel();
+}
+
     for (var i = 0; i < regularConstraintsMessages.length; i++) {
         var regularConstraint = regularConstraintsMessages[i];
 
@@ -157,13 +188,10 @@ if (plugins.bootstrapTooltip.length) {
     })
 }
 
-
-
 // RD Input Label
 if (plugins.rdInputLabel.length) {
     plugins.rdInputLabel.RDInputLabel();
 }
-
 
 var count = 0;
 window.onload = function () {

@@ -115,15 +115,20 @@
                     <div class="camp_cont_w">
                         <ul class="camp_tab05">
 
-                            <li class="campListli"><a href='/camp/campList/detailList?campName=${campName}&viewType=1'>
+                            <li class="campListli"><a href='/camp/campList/detailList?campName=${campName}&viewType=1' 
+                                onclick="changeBackgroundColor(event)">
                                     캠핑장 소개</a></li>
-                            <li class="campListli"><a href='/camp/campList/detailList?campName=${campName}&viewType=2'>
+                            <li class="campListli"><a href='/camp/campList/detailList?campName=${campName}&viewType=2'
+                                 onclick="changeBackgroundColor(event)">
                                     캠핑장 가격</a></li>
-                            <li class="campListli"><a href='/camp/campList/detailList?campName=${campName}&viewType=3'>
+                            <li class="campListli"><a href='/camp/campList/detailList?campName=${campName}&viewType=3'
+                                onclick="changeBackgroundColor(event)">
                                     위치/주변정보</a></li>
-                            <li class="campListli"><a href='/camp/campList/detailList?campName=${campName}&viewType=4'>
+                            <li class="campListli"><a href='/camp/campList/detailList?campName=${campName}&viewType=4'
+                                onclick="changeBackgroundColor(event)">
                                     날씨</a></li>
-                            <li class="campListli"><a href='/camp/campList/detailList?campName=${campName}&viewType=5'>
+                            <li class="campListli"><a href='/camp/campList/detailList?campName=${campName}&viewType=5'
+                                onclick="changeBackgroundColor(event)">
                                     리뷰</a></li>
                         </ul>
                     </div>

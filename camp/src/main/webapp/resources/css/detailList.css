@@ -22,7 +22,7 @@ body {
 #sub_title_wrap2 {
     color: #fff;
     padding: 30px;
-    margin-left: 30px;
+    margin-left: 70px;
     margin-top: 50px;
     text-shadow: 2px 2px 3px rgb(0, 0, 0);
 }
@@ -363,7 +363,6 @@ ul.table_ul05 li:first-child {
     justify-content: center;
     width: 100%;
     height: 75px;
-    border: 1px solid red;
     margin: 0;
     padding: 0;
     width: 1600px;
@@ -376,6 +375,7 @@ ul.table_ul05 li:first-child {
     justify-content: center;
     padding-left: 150px;
     padding-right: 150px;
+    margin: 22px;
 }
 
 .camp_tab05 li {
@@ -393,37 +393,24 @@ ul.table_ul05 li:first-child {
     clear: both;
 }
 
-.camp_cont_w .line_100 {
-    position: absolute;
-    top: 52px;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background: #8d8d8d;
-}
 
-.camp_cont_w ul.camp_tab05 {
+/* .camp_cont_w ul.camp_tab05 {
     width: 100%;
     height: 53px;
-/*     margin-bottom: 36px; */
     display: flex;
     margin-bottom: 0px;
-}
+} */
 
 .camp_cont_w ul.camp_tab05 li {
     float: left;
     width: 20%;
     height: 53px;
-    background: #8d8d8d url("/img/2018/sub/dot_fff.gif") repeat-y left 0;
+   /*  background: #8d8d8d; */
     text-align: center;
 }
 
-.camp_cont_w ul.camp_tab05 li:first-child {
-    background: #8d8d8d;
-}
-
 .camp_cont_w ul.camp_tab05 li a {
-    color: #fff;
+    color: white;
     line-height: 53px;
     font-size: 15px;
     letter-spacing: -0.08em;
@@ -437,10 +424,27 @@ ul.table_ul05 li:first-child {
     height: 51px;
 }
 
+.campListli{
+    border: 1px solid rgb(210, 210, 210);
+    border-bottom: white;
 
-.selected {
-    background-color: white; /* 흰색으로 변경하고자 하는 배경색 */
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+
+    background-color: #6f6f6f;
+    transition: background-color 0.3s ease;
 }
+.campListli:hover{
+    background-color: #b1afaf;
+}
+
+
+.selected a {
+    background-color: white; /* 흰색으로 변경하고자 하는 배경색 */
+    color:#6b6b6b !important;
+}
+
+
 
 
 
