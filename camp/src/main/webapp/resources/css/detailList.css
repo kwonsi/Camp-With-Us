@@ -1,53 +1,10 @@
-.s_title2 {
-    width: 100%;
-    margin-top: 70px;
-    z-index: 3;
-    text-align: left;
-    color: #fff;
-    top: 75px;
-    text-shadow: 2px 2px 3px rgb(0,0,0);
-    background: url("/img/2018/sub/line50p.png") repeat-x 0 bottom;
-    padding-bottom: 20px;
-}
-
-.s_title2 p {
-    display: block;
-}
-
-.s_title2 > .camp_name {
-    font-size: 35px;
-    font-family: BM_dh;
-    line-height: 40px;
-    color: #fff !important;
-}
-
-.s_title2 .camp_s_tt {
-    font-size: 20px;
-    clear: both;
-    margin: 0;
-    letter-spacing: -2px;
-    color: #fff;
-    padding: 5px 0 0 0;
-}
-
-.s_title2 .camp_s_location {
-    display: none;
-}
-
-
-
-
-
-
-
-
-
-
 main {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 1500px;
+    width: auto;
+    align-items: center;
+    background-color: #eee;
 
 }
 
@@ -56,43 +13,90 @@ body {
     margin: 0;
     padding: 0;
     font-size: 20px;
-    margin-top: 120px;
-    /*     display: flex;
-    align-items: center;
-    justify-content: center; */
+    margin-top: 115px;
+
 }
 
-#detailMain{
+
+
+#sub_title_wrap2 {
+    color: #fff;
+    padding: 30px;
+    margin-left: 30px;
+    margin-top: 50px;
+    text-shadow: 2px 2px 3px rgb(0, 0, 0);
+}
+
+#sub_title_wrap2>h1 {
+    font-size: 50px;
+    margin: 0px;
+}
+
+.s_title2 {
+    width: 100%;
+    margin-top: 40px;
+    text-align: left;
+    color: #fff;
+    /* text-shadow: 2px 2px 3px rgb(0,0,0); */
+}
+
+
+.s_title2 .camp_s_tt {
+    font-size: 20px;
+    margin: 0;
+    color: #fff;
+    padding: 5px 0 0 0;
+}
+
+
+
+
+#detailMain {
     width: 100%;
     height: 300px;
     border: 1px solid green;
+    background-image: url('../images/test1.jpg');
+    background-size: 100% auto;
 }
+
+
+
+
 
 .div1 {
     border: 2px solid rgb(3, 92, 18);
     margin-top: 10px;
     height: 500px;
+    width: 1600px;
 }
 
 .div2 {
-    border: 2px solid rgb(3, 92, 18);
+    border: 1px solid rgb(210, 210, 210);
+    background-color: white;
+    border-radius: 10px;
     margin-top: 50px;
     height: 550px;
     display: flex;
+    width: 1600px;
 }
 
 .div3 {
-    border: 2px solid rgb(3, 92, 18);
+    border: 1px solid rgb(210, 210, 210);
+    background-color: white;
+    border-radius: 10px;
     height: auto;
-    margin-top: 50px;
+    margin-top: 0px;
+    width: 1600px;
 }
 
 .div4 {
     border: 2px solid rgb(3, 92, 18);
     height: 500px;
-/*     height: auto;
+    width: 1600px;
+    /*     height: auto;
     display: flex; */
 }
+
 .div5 {
     border: 2px solid rgb(3, 92, 18);
     margin-top: 60px;
@@ -104,12 +108,16 @@ body {
     padding: auto;
     font-size: 25px;
     font-weight: bold;
+    width: 1600px;
 }
+
 .div6 {
     border: 2px solid rgb(3, 92, 18);
     height: 300px;
     display: flex;
+    width: 1600px;
 }
+
 .div7 {
     border: 2px solid rgb(3, 92, 18);
     margin-top: 60px;
@@ -121,6 +129,7 @@ body {
     padding: auto;
     font-size: 25px;
     font-weight: bold;
+    width: 1600px;
 }
 
 .div4_1 {
@@ -134,10 +143,13 @@ body {
     padding: auto;
     font-size: 25px;
     font-weight: bold;
+    width: 1600px;
 }
-.kakaoMap{
+
+.kakaoMap {
     margin-top: 60px;
     height: 600px;
+    width: 1600px;
 }
 
 
@@ -157,6 +169,7 @@ body {
     background: #eee;
     border: 1px solid #dedede;
     box-sizing: border-box;
+    border-radius: 10px;
 }
 
 
@@ -164,13 +177,14 @@ body {
     object-fit: cover;
     width: 100%;
     height: 100%;
+    border-radius: 10px;
 }
 
 .camp_info_box caption {
-    height: 50px;
-    margin-top: 25px;
+    padding: 20px;
     font-size: 25px;
     font-weight: bold;
+    text-align: center;
 }
 
 .camp_info_box .cont_tb {
@@ -194,7 +208,7 @@ body {
 }
 
 .camp_info_box .cont_tb table tr th {
-    padding: 11px 10px;
+    padding: 11px 20px;
     border-bottom: 1px solid #c8c8c8;
     text-align: left;
     color: #000;
@@ -209,7 +223,7 @@ body {
 
 
 .reservationButton {
-    
+
     margin-top: 10px;
 }
 
@@ -217,15 +231,15 @@ body {
 /* 테이블디자인************************************************************************************************************************************************************/
 
 .table_t4 caption {
-    height: 50px;
-    margin-top: 12px;
     font-size: 25px;
     font-weight: bold;
+    text-align: center;
+    padding: 20px
 }
 
 .table_w {
     position: relative;
-    width: 99.5%;
+    width: 1600px;
     margin-top: 0px;
     margin-bottom: 20px;
 }
@@ -267,7 +281,7 @@ ul.table_ul05 {
     position: relative;
     margin: 0;
     padding: 0;
-   
+
 }
 
 ul.table_ul05 li {
@@ -283,6 +297,7 @@ ul.table_ul05 li {
 ul.table_ul05 li {
     margin-right: 35px;
 }
+
 ul.table_ul05 li:first-child {
     list-style: none;
 }
@@ -338,11 +353,6 @@ ul.table_ul05 li:first-child {
 }
 
 
-/* 이미지리스트 출력 */
-
-
-
-
 
 
 
@@ -351,18 +361,85 @@ ul.table_ul05 li:first-child {
 .layout {
     display: flex;
     justify-content: center;
+    width: 100%;
+    height: 75px;
+    border: 1px solid red;
+    margin: 0;
+    padding: 0;
+    width: 1600px;
 }
 
 .camp_tab05 {
     list-style: none;
-    padding: 0;
-    margin: 0;
+
     display: flex;
     justify-content: center;
+    padding-left: 150px;
+    padding-right: 150px;
 }
 
 .camp_tab05 li {
-    margin-right: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+
+
+
+.camp_cont_w {
+    width: 100%;
+    position: relative;
+    height: auto;
+    clear: both;
+}
+
+.camp_cont_w .line_100 {
+    position: absolute;
+    top: 52px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: #8d8d8d;
+}
+
+.camp_cont_w ul.camp_tab05 {
+    width: 100%;
+    height: 53px;
+/*     margin-bottom: 36px; */
+    display: flex;
+    margin-bottom: 0px;
+}
+
+.camp_cont_w ul.camp_tab05 li {
+    float: left;
+    width: 20%;
+    height: 53px;
+    background: #8d8d8d url("/img/2018/sub/dot_fff.gif") repeat-y left 0;
+    text-align: center;
+}
+
+.camp_cont_w ul.camp_tab05 li:first-child {
+    background: #8d8d8d;
+}
+
+.camp_cont_w ul.camp_tab05 li a {
+    color: #fff;
+    line-height: 53px;
+    font-size: 15px;
+    letter-spacing: -0.08em;
+    text-decoration: none;
+    display: block;
+}
+
+.camp_cont_w ul.camp_tab05 li.on {
+    background: #fff;
+    border-top: 2px solid #000;
+    height: 51px;
+}
+
+
+.selected {
+    background-color: white; /* 흰색으로 변경하고자 하는 배경색 */
 }
 
 
@@ -372,47 +449,51 @@ ul.table_ul05 li:first-child {
 
 
 /* ----------- 이미지 슬라이더 ---------  */
-.post-slider{
-    border:1px solid red;
+.post-slider {
+    border: 1px solid red;
     height: 450px;
-  }
-  .post-slider .post-wrapper{
-    width:95%;
-    height:400px;
-    margin:0px auto;
-    border:1px dashed red;
-  }
-  .post-slider .post-wrapper .post{
-    width:350px;
-    height:350px;
-    display:inline-block;
-    background:gray;
+}
+
+.post-slider .post-wrapper {
+    width: 95%;
+    height: 400px;
+    margin: 0px auto;
+    border: 1px dashed red;
+}
+
+.post-slider .post-wrapper .post {
+    width: 350px;
+    height: 350px;
+    display: inline-block;
+    background: gray;
     margin: 10px;
     border-radius: 5%;
 
-  }
+}
 
- .div4 img {
+.div4 img {
     border-radius: 5%;
     width: 100%;
     height: 100%;
-  }
-
-     
+}
 
 
-  .slick-prev:before, .slick-next:before{
+
+
+.slick-prev:before,
+.slick-next:before {
     color: green !important;
-    opacity: 1 ; 
+    opacity: 1;
     font-size: 70px !important;
-  }
-  /* 화살표 위치 변경 */
-  .slick-prev{
-    z-index: 9 ;
-  }
-  .slick-next{
- 
-    right: 20px !important ;
-    z-index: 9 ;  
-  }
+}
 
+/* 화살표 위치 변경 */
+.slick-prev {
+    z-index: 9;
+}
+
+.slick-next {
+
+    right: 20px !important;
+    z-index: 9;
+}

@@ -21,7 +21,7 @@ body {
 }
 
 .header-container {
-  width: 100%;
+  width: 95%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -392,6 +392,7 @@ footer span {
 
 
 .back-to-top {
+    display: flex;
     position: fixed;
     opacity: 1;
     right: 15px;
@@ -402,6 +403,7 @@ footer span {
     height: 40px;
     border-radius: 4px;
     transition: all 0.4s;
+    
   }
   
   .back-to-top i {
@@ -418,9 +420,7 @@ footer span {
   .back-to-top.active {
     visibility: visible;
     opacity: 1;
+    
   }
 
-  .back-to-top{
-    justify-content: center !important;
-    align-items: center !important;
-  }
+ 
