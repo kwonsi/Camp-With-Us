@@ -1,7 +1,5 @@
 package team.project.camp.member.model.service;
 
-import java.util.Map;
-
 import team.project.camp.member.model.vo.Member;
 
 public interface MemberService {
@@ -31,7 +29,7 @@ public interface MemberService {
 	 */
 	public abstract int signUp(Member inputMember);
 
-	
+
 	/** 아이디 찾기 서비스
 	 * @param memberTel
 	 * @return
@@ -44,47 +42,47 @@ public interface MemberService {
 	 */
 	public abstract int setTempPassword(Member member);
 
-	
-	
-	
+
+
+
 	/** 네이버 이메일 중복검사 서비스
 	 * @param memberEmail
 	 * @return
 	 */
 	public abstract int naverEmailDupCheck(String memberEmail);
 
-	
-	
+
+
 	/** 네이버 로그인 DB 저장
 	 * @param loginMember
-	 * @return 
+	 * @return
 	 */
-	public abstract int naverLoginInsert(Member loginMember); 
-	
-	
+	public abstract int naverLoginInsert(Member loginMember);
+
+
 	/** 네이버 로그인 회원정보 뽑아오기
 	 * @param loginMember
 	 * @return
 	 */
 	public abstract Member naverMember(Member loginMember);
-	
 
-	
+
+
 	/**구글 카카오 로그인
 	 * @param googleMember
 	 * @return googleLoginMember
 	 */
 	public abstract Member googleKakaoLogin(Member googleKakaoMember);
 
-	
+
 	/**구글 카카오 첫 로그인 시 DB 삽입
 	 * @param member
 	 * @return result
 	 */
 	public abstract int googleKakaoInsert(Member member);
 
-	
-	/** 구글 카카오 중복이메일 방지 이메일,닉네임 selece문 
+
+	/** 구글 카카오 중복이메일 방지 이메일,닉네임 selece문
 	 * @param kakaoMember
 	 * @return
 	 */

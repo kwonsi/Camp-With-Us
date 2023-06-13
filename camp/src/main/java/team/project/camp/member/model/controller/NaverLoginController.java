@@ -29,31 +29,31 @@ public class NaverLoginController {
 
     @GetMapping("/naverLoginSuccess")
     public String oauth( HttpServletRequest request,  HttpServletResponse response, Model model) throws Exception {
-    	
+
        Member loginMember = new Member();
 
        try {
           System.out.println("-------------------- naverLogin - start --------------------");
           loginMember = naverService.doAuth(request, response);  // 네이버 로그인정보 loginMember로 넣어오기.
-          
+
           int result = service.naverEmailDupCheck(loginMember.getMemberEmail());   // DB에 네이버이메일 저장되어있나 체크
-          
+
           if ( result == 0 ) {                                // DB 저장된 값이 없을때 .
         	 result = service.naverLoginInsert(loginMember);  // DB 에 저장.
           }
-          
+
           Member naverMember = service.naverMember(loginMember);
-          
-          
-          model.addAttribute("loginMember",naverMember);   // session 에 올림. 
-          
+
+
+          model.addAttribute("loginMember",naverMember);   // session 에 올림.
+
           System.out.println("-------------------- naverLogin - end --------------------");
-          
+
           return "redirect:/";
        } catch(Exception e){
           e.printStackTrace();
           throw e;
        }
     }
-    
+
 }

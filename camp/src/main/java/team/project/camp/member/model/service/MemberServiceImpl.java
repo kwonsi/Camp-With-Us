@@ -1,7 +1,5 @@
 package team.project.camp.member.model.service;
 
-import java.util.Map;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,7 +53,7 @@ public class MemberServiceImpl implements MemberService {
 	public String findId(String memberTel) {
 		return dao.findId(memberTel);
 	}
-	
+
 	// 이메일 중복 검사 서비스 구현
 	@Override
 	public int emailDupCheck(String memberEmail) {
@@ -89,18 +87,18 @@ public class MemberServiceImpl implements MemberService {
 
 		return result;
 	}
-	
+
 	// 임시 비밀번호 설정 서비스 구현
 	@Override
 	public int setTempPassword(Member member) {
-		
+
 		// 임시 비밀번호도 암호화
 		member.setMemberPw(bcrypt.encode(member.getMemberPw()) );
-		
+
 		return dao.setTempPassword(member);
 	}
-	
-	
+
+
 	// 네이버 이메일 중복검사 서비스
 	@Override
 	public int naverEmailDupCheck(String memberEmail) {
@@ -116,8 +114,8 @@ public class MemberServiceImpl implements MemberService {
 	public Member naverMember(Member loginMember) {
 		return dao.naverMember(loginMember);
 	}
-	
-	
+
+
 
 	//구글 로그인 회원정보 조회
 	@Override
@@ -132,13 +130,13 @@ public class MemberServiceImpl implements MemberService {
 		return dao.googleKakaoInsert(member);
 	}
 
-	
-	//구글 카카오 중복이메일 방지 이메일,닉네임 selece문 
+
+	//구글 카카오 중복이메일 방지 이메일,닉네임 selece문
 	@Override
 	public int googleKakaoEmailCheck(Member googleKakaoMember) {
 		return dao.googleKakaoEmailCheck(googleKakaoMember);
 	}
-	
+
 
 }
 

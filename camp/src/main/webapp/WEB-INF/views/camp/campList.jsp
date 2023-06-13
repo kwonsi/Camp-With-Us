@@ -24,9 +24,6 @@
 
         <div class="search">
 
-
-
-
             <section class="layer_search">
 
                 <div class="divv">

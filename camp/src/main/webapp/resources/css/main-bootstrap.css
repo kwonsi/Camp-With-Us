@@ -2239,7 +2239,7 @@ textarea.form-control {
 		margin-bottom: 0;
 	}
 }
-
+/* 
 .btn {
 	display: inline-block;
 	font-weight: 600;
@@ -2329,7 +2329,7 @@ fieldset:disabled a.btn {
 .btn-block + .btn-block {
 	margin-top: 0.5rem;
 }
-
+ */
 input[type="submit"].btn-block,
 input[type="reset"].btn-block,
 input[type="button"].btn-block {
