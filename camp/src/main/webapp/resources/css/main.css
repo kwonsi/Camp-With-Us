@@ -285,6 +285,7 @@ footer span {
     height: 65%;
 }
 .ranBoard>div:nth-of-type(2) {
+    margin-top: 10px;
     height: 35%;
 }
 .ranBoard_1{
@@ -318,7 +319,7 @@ footer span {
     position: relative;
     display: flex;
     flex-wrap: wrap;
-    width: 5600px;
+    width: 8400px;
     height: 700px;
 }
 .slider {
@@ -338,12 +339,6 @@ footer span {
     width: 33%;
 }
 
-.submenu{
-    position: absolute;
-    z-index: 9999;
-}
-
-
 
 .slider__btn a {
     position: absolute;
@@ -351,22 +346,28 @@ footer span {
     transform: translateY(-50%);
     width: 50px;
     height: 50px;
-    background: rgba(0, 0, 0, 0.4);
+    background: rgb(118, 153, 90);
+    opacity: 0.8;
     text-align: center;
     line-height: 50px;
     transition: all 0.2s;
     display: block;
     color: #fff;
+    border-radius: 50%;
 }
 .slider__btn a:hover {
-    background: rgb(118, 153, 90);
+    background: #eb5d1e;
 }
 .slider__btn a.prev {
-    left: 0;
+    font-size: 20px;
+    left: 190px;
 }
 .slider__btn a.next {
-    right: 0;
+    font-size: 20px;
+    right: 200px;
 }
+
+
 .slider__dot {
     display: flex;
     position: absolute;
@@ -387,7 +388,7 @@ footer span {
     margin: 2px;
 }
 .slider__dot .dot.active {
-    background: rgba(255,255,255,0.9);
+    background: rgba(118, 153, 90, 0.4);
 }
 
 
@@ -421,6 +422,7 @@ footer span {
   }
 
   .back-to-top{
+    display: flex;
     justify-content: center !important;
     align-items: center !important;
   }
