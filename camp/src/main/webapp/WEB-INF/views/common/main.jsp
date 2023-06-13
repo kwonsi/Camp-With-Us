@@ -98,7 +98,7 @@
                 <div class="slide slider__img">
 
                     <div class="slider__inner">
-                        <div class="slide1 slider">
+                        <div class="slide3 slider">
                             <div class="ranBoard">
                                 <div class=" ranBoard_1" id="ranBoardImg1"> </div>
                                 <div class=" ranBoard_1" id="ranBoardContent1"></div>
@@ -119,7 +119,7 @@
 
 
                     <div class="slider__inner">
-                        <div class="slide2 slider">
+                        <div class="slide3 slider">
                             <div class="ranBoard">
                                 <div class=" ranBoard_1" id="ranBoardImg4"> </div>
                                 <div class=" ranBoard_1" id="ranBoardContent4"> </div>
@@ -203,8 +203,8 @@
                 </div>
 
                 <div class="slider__btn">
-                    <a class="prev">prev</a>
-                    <a class="next">next</a>
+                    <a class="prev"><i class="fa-solid fa-chevron-left"></i></a>
+                    <a class="next"><i class="fa-solid fa-chevron-right"></i></a>
                 </div>
                 <div class="slider__dot"></div>
             </section>

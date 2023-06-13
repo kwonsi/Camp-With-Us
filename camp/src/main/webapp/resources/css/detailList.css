@@ -82,16 +82,22 @@ body {
 
 .div3 {
     border: 1px solid rgb(210, 210, 210);
+    border-bottom: 0px;
     background-color: white;
-    border-radius: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    
     height: auto;
     margin-top: 0px;
     width: 1600px;
 }
 
 .div4 {
-    border: 2px solid rgb(3, 92, 18);
-    height: 500px;
+    border: 1px solid rgb(210, 210, 210);
+    border-top: 0px;
+    border-bottom: 0px;
+    background-color: white;
+    height: 450px;
     width: 1600px;
     /*     height: auto;
     display: flex; */
@@ -133,8 +139,8 @@ body {
 }
 
 .div4_1 {
-    border: 2px solid rgb(3, 92, 18);
-    margin-top: 60px;
+    border: 1px solid rgb(210, 210, 210);
+    border-top: 0px;
     height: 60px;
     display: flex;
     text-align: center;
@@ -144,6 +150,7 @@ body {
     font-size: 25px;
     font-weight: bold;
     width: 1600px;
+    background-color: white;
 }
 
 .kakaoMap {
@@ -206,6 +213,7 @@ body {
 .camp_info_box .cont_tb tbody tr:nth-child(1) td {
     border-top: 2px solid green;
 }
+
 
 .camp_info_box .cont_tb table tr th {
     padding: 11px 20px;
@@ -454,12 +462,16 @@ ul.table_ul05 li:first-child {
 
 /* ----------- 이미지 슬라이더 ---------  */
 .post-slider {
-    border: 1px solid red;
+    border: 1px solid rgb(210, 210, 210);
+    border-top: 0px;
+    border-bottom: 0px;
     height: 450px;
+    display: flex;
+    align-items: center;
 }
 
 .post-slider .post-wrapper {
-    width: 95%;
+    width: 88%;
     height: 400px;
     margin: 0px auto;
     border: 1px dashed red;
