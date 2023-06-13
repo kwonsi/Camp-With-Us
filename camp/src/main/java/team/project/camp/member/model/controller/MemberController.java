@@ -6,7 +6,6 @@ import javax.mail.internet.MimeMessage;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -244,7 +243,7 @@ public class MemberController {
 		} else {
 
 			ra.addFlashAttribute("message", "아이디 또는 비밀번호가 일치하지 않습니다.");
-			
+
 			return "redirect:/member/login";
 		}
 
@@ -270,8 +269,8 @@ public class MemberController {
 
 		String id = service.findId(memberTel);
 
-		logger.info(id);
-
+		logger.info("id : " + id);
+		
 		ra.addFlashAttribute("message", "회원님의 ID는 " + id + " 입니다");
 
 		return "redirect:/member/findIdPw";
@@ -322,7 +321,7 @@ public class MemberController {
 //	    	if(result > 0) {
 //	    		ra.addFlashAttribute("message", "가입하신 이메일로 임시 비밀번호가 전송되었습니다."
 //						+ "비밀번호를 변경해주세요");
-//	    		return randomPassword; // 메일 발송 성공 시 임시 비밀번호 반환
+//
 //	    	}
 //	    	else return "임시 비밀번호 설정 오류";
 //
@@ -331,14 +330,15 @@ public class MemberController {
 	    Member member = new Member();
     	member.setMemberEmail(memberEmail);
     	member.setMemberPw(randomPassword);
-    	
+
     	result = service.setTempPassword(member);
-    	
-    	if(result > 0) logger.info("임시 비밀번호 : " + randomPassword);
-    	
-	    ra.addFlashAttribute("message", "가입하신 이메일로 임시 비밀번호가 전송되었습니다."
+
+    	if(result > 0) {
+    		logger.info("임시 비밀번호 : " + randomPassword);
+
+    		ra.addFlashAttribute("message", "가입하신 이메일로 임시 비밀번호가 전송되었습니다."
 				+ "비밀번호를 변경해주세요");
-	    
+    	}
 		return "redirect:/member/login"; // 메일 발송 성공 시 임시 비밀번호 반환
 	}
 

@@ -15,8 +15,10 @@
      
  </head>
  <body>
+
+    <jsp:include page="/WEB-INF/views/common/header.jsp" />
      <main>
-	 	<jsp:include page="/WEB-INF/views/common/header.jsp" />
+	 	
 
 
          <!-- 회원가입  -->

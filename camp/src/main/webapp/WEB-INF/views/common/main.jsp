@@ -20,11 +20,7 @@
 
     <main>
 
-        <section class="content1">
 
-            <img class="mainImg" src="${contextPath}/resources/images/testMain1.jpg" alt="테스트 이미지">
-
-        </section>
 
         <section class="content2">
 

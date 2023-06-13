@@ -11,7 +11,7 @@ public class MyPageDAO {
 
 	@Autowired
 	private SqlSessionTemplate sqlSession;
-	
+
 	/** 회원 정보 수정 DAO
 	 * @param paramMap
 	 * @return
@@ -20,9 +20,9 @@ public class MyPageDAO {
 		return sqlSession.update("myPageMapper.updateInfo", paramMap);
 	}
 
-	
+
 	/** 비밀번호 변경 (현재 비밀번호 조회) DAO
-	 * 
+	 *
 	 */
 	public String checkPw(int memberNo) {
 		return sqlSession.selectOne("myPageMapper.checkPw", memberNo);

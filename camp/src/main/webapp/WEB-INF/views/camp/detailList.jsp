@@ -1,115 +1,116 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-        <!DOCTYPE html>
-        <html lang="en">
+    <!DOCTYPE html>
+    <html lang="en">
 
-        <head>
-            <meta charset="UTF-8">
-            <meta http-equiv="X-UA-Compatible" content="IE=edge">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Document</title>
-            <link rel="stylesheet" href="${contextPath}/resources/css/main.css">
-            <link rel="stylesheet" href="${contextPath}/resources/css/detailList.css">
-            <link rel="stylesheet" href="${contextPath}/resources/css/map.css">
-            <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap1.css">
-            <link rel="stylesheet" href="${contextPath}/resources/css/review.css">
-         
-            <script src="https://kit.fontawesome.com/a2e8ca0ae3.js" crossorigin="anonymous"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js"></script>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="${contextPath}/resources/css/main.css">
+        <link rel="stylesheet" href="${contextPath}/resources/css/detailList.css">
+        <link rel="stylesheet" href="${contextPath}/resources/css/map.css">
+        <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap1.css">
+        <link rel="stylesheet" href="${contextPath}/resources/css/review.css">
+        
+        <script src="https://kit.fontawesome.com/a2e8ca0ae3.js" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js"></script>
 
-        </head>
+    </head>
 
-        <body>
+    <body>
+
+        <jsp:include page="/WEB-INF/views/common/header.jsp" />
+        <main>
+
             
-            <jsp:include page="/WEB-INF/views/common/header.jsp" />
 
-            <main>
+            <div class="div2">
 
-               
+                <div class="camp_info_box">
+                    <div class="img_b" id="img_b">
+                        <!--             <img src="" alt="대표이미지" id="img_b" /> -->
+                    </div>
 
-                <div class="div2">
-
-                    <div class="camp_info_box">
-                        <div class="img_b" id="img_b">
-                            <!--             <img src="" alt="대표이미지" id="img_b" /> -->
-                        </div>
-
-                        <div class="cont_tb">
-                            <table class="table">
-                                <caption> ${campName} 
-                                </caption>
-                                <colgroup>
-                                    <col style="width: 30%;" />
-                                    <col style="width: 70%;" />
-                                </colgroup>
-                                <tbody>
-                                    <tr>
-                                        <th scope="col">주소</th>
-                                        <td id="addr"> </td>
-                                    </tr>
-                                    <tr class="camp_call_pcVer">
-                                        <th scope="col">문의처</th>
-                                        <td id="tel"> </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="col">캠핑장 환경</th>
-                                        <td id="lctCl"> </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="col">캠핑장 유형</th>
-                                        <td id="induty"> </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="col">운영기간</th>
-                                        <td id="operPdCl"> </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="col">운영일</th>
-                                        <td id="operDeCl"> </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="col">홈페이지</th>
-                                        <td id="homePage">
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="col">예약방법</th>
-                                        <td id="resveCl"></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="col">주변이용가능시설</th>
-                                        <td id="posblFcltyCl"> </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-
-
+                    <div class="cont_tb">
+                        <table class="table">
+                            <caption> ${campName} 
+                            </caption>
+                            <colgroup>
+                                <col style="width: 30%;" />
+                                <col style="width: 70%;" />
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <th scope="col">주소</th>
+                                    <td id="addr"> </td>
+                                </tr>
+                                <tr class="camp_call_pcVer">
+                                    <th scope="col">문의처</th>
+                                    <td id="tel"> </td>
+                                </tr>
+                                <tr>
+                                    <th scope="col">캠핑장 환경</th>
+                                    <td id="lctCl"> </td>
+                                </tr>
+                                <tr>
+                                    <th scope="col">캠핑장 유형</th>
+                                    <td id="induty"> </td>
+                                </tr>
+                                <tr>
+                                    <th scope="col">운영기간</th>
+                                    <td id="operPdCl"> </td>
+                                </tr>
+                                <tr>
+                                    <th scope="col">운영일</th>
+                                    <td id="operDeCl"> </td>
+                                </tr>
+                                <tr>
+                                    <th scope="col">홈페이지</th>
+                                    <td id="homePage">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="col">예약방법</th>
+                                    <td id="resveCl"></td>
+                                </tr>
+                                <tr>
+                                    <th scope="col">주변이용가능시설</th>
+                                    <td id="posblFcltyCl"> </td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
 
 
                 </div>
 
 
+            </div>
 
 
-                <div class="layout">
-                    <ul class="camp_tab05">
-                        <li class="campListli"><a href='/camp/campList/detailList?campName=${campName}&viewType=1' class="camp_intro">
-                            캠핑장 소개</a></li>
-                        <li class="campListli"><a href='/camp/campList/detailList?campName=${campName}&viewType=2' class="camp_guide">
-                            캠핑장 가격</a></li>
-                        <li id="c_map"><a href='/camp/campList/detailList?campName=${campName}&viewType=3' class="camp_map">
-                            위치/주변정보</a></li>
-                        <li class="campListli"><a href='/camp/campList/detailList?campName=${campName}&viewType=4' class="camp_review">
-                            날씨</a></li>
-                        <li id="c_review"><a href='/camp/campList/detailList?campName=${campName}&viewType=5' class="camp_review">
-                            리뷰</a></li>
-                    </ul>
-                </div>
-                <hr>
 
+
+            <div class="layout">
+                <ul class="camp_tab05">
+                    <li class="campListli"><a href='/camp/campList/detailList?campName=${campName}&viewType=1' class="camp_intro">
+                        캠핑장 소개</a></li>
+                    <li class="campListli"><a href='/camp/campList/detailList?campName=${campName}&viewType=2' class="camp_guide">
+                        캠핑장 가격</a></li>
+                    <li id="c_map"><a href='/camp/campList/detailList?campName=${campName}&viewType=3' class="camp_map">
+                        위치/주변정보</a></li>
+                    <li class="campListli"><a href='/camp/campList/detailList?campName=${campName}&viewType=4' class="camp_review">
+                        날씨</a></li>
+                    <li id="c_review"><a href='/camp/campList/detailList?campName=${campName}&viewType=5' class="camp_review">
+                        리뷰</a></li>
+                </ul>
+            </div>
+            <hr>
+
+
+         
 
                 <!-- viewType == 1 일때 -->
                 <c:if test="${param.viewType == '1'}">
@@ -286,54 +287,54 @@
                                 </tr>
 
                                 <tr>
-                                    <th scope="col">1</th>
-                                    <th scope="col">2</th>
-                                    <th scope="col">3</th>
-                                    <th scope="col">4</th>
-                                    <th scope="col">5</th>
-                                    <th scope="col">6</th>
-                                    <th scope="col">7</th>
-                                    <th scope="col">8</th>
-                                    <th scope="col">9</th>
-                                    <th scope="col">10</th>
+                                    <th scope="col" class="date">1</th>
+                                    <th scope="col" class="date">2</th>
+                                    <th scope="col" class="date">3</th>
+                                    <th scope="col" class="date">4</th>
+                                    <th scope="col" class="date">5</th>
+                                    <th scope="col" class="date">6</th>
+                                    <th scope="col" class="date">7</th>
+                                    <th scope="col" class="date">8</th>
+                                    <th scope="col" class="date">9</th>
+                                    <th scope="col" class="date">10</th>
                                 </tr>
                             </thead>
                             <tbody class="t_c">
                                 <tr>
                                     <th scope="col" height="100px">오전</th>
-                                    <td>맑음</td>
-                                    <td>맑음</td>
-                                    <td>맑음</td>
-                                    <td>맑음</td>
-                                    <td>맑음</td>
-                                    <td>맑음</td>
-                                    <td>맑음</td>
-                                    <td rowspan="2">맑음</td>
-                                    <td rowspan="2">맑음</td>
-                                    <td rowspan="2">맑음</td>
+                                    <td class="AM">맑음</td>
+                                    <td class="AM">맑음</td>
+                                    <td class="AM">맑음</td>
+                                    <td class="AM">맑음</td>
+                                    <td class="AM">맑음</td>
+                                    <td class="AM">맑음</td>
+                                    <td class="AM">맑음</td>
+                                    <td rowspan="2" class="AM">맑음</td>
+                                    <td rowspan="2" class="AM">맑음</td>
+                                    <td rowspan="2" class="AM">맑음</td>
                                 </tr>
                                 <tr>
                                     <th scope="col" height="100px">오후</th>
-                                    <td>맑음</td>
-                                    <td>맑음</td>
-                                    <td>맑음</td>
-                                    <td>맑음</td>
-                                    <td>맑음</td>
-                                    <td>맑음</td>
-                                    <td>맑음</td>
+                                    <td class="PM">맑음</td>
+                                    <td class="PM">맑음</td>
+                                    <td class="PM">맑음</td>
+                                    <td class="PM" >맑음</td>
+                                    <td class="PM">맑음</td>
+                                    <td class="PM">맑음</td>
+                                    <td class="PM">맑음</td>
                                 </tr>
                                 <tr>
                                     <th scope="col" height="50px">강수량</th>
-                                    <td>강수량</td>
-                                    <td>강수량</td>
-                                    <td>강수량</td>
-                                    <td>강수량</td>
-                                    <td>강수량</td>
-                                    <td>강수량</td>
-                                    <td>강수량</td>
-                                    <td>강수량</td>
-                                    <td>강수량</td>
-                                    <td>강수량</td>
+                                    <td class="rp">강수량</td>
+                                    <td class="rp">강수량</td>
+                                    <td class="rp">강수량</td>
+                                    <td class="rp">강수량</td>
+                                    <td class="rp">강수량</td>
+                                    <td class="rp">강수량</td>
+                                    <td class="rp">강수량</td>
+                                    <td class="rp">강수량</td>
+                                    <td class="rp">강수량</td>
+                                    <td class="rp">강수량</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -349,39 +350,43 @@
 
                 <c:if test="${param.viewType == '5'}">
 
-                <div class="div7">
-
-                    <jsp:include page="/WEB-INF/views/camp/campReview.jsp" />
-
-                </div>
-               </c:if>
 
 
 
 
+            <div class="div7">
+
+                <jsp:include page="/WEB-INF/views/camp/campReview.jsp" />
+
+            </div>
+            </c:if>
 
 
 
 
-                <button type="button" id="reservationBtn"><a>예약페이지</a></button>
-                
-                
 
-            </main>
+
+
+
+            <button type="button" id="reservationBtn"><a>예약페이지</a></button>
             
-        <jsp:include page="/WEB-INF/views/common/footer.jsp" />
+            
 
-        <script>
+        </main>
+        
+    <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
-            const campName = "${campName}";
-            // 로그인한 회원 번호
-            const loginMemberNo = "${loginMember.memberNo}";
-            // 최상위 주소
-            const contextPath = "${contextPath}";        
-            // 캠핑장 번호
-            var campItem = JSON.parse(localStorage.getItem("item"));
-            var campNo = parseInt(campItem.contentId);
-        </script>
+    <script>
+
+        const campName = "${campName}";
+        // 로그인한 회원 번호
+        const loginMemberNo = "${loginMember.memberNo}";
+        // 최상위 주소
+        const contextPath = "${contextPath}";        
+        // 캠핑장 번호
+        var campItem = JSON.parse(localStorage.getItem("item"));
+        var campNo = parseInt(campItem.contentId);
+    </script>
 
 
         <script type="text/javascript"
@@ -390,6 +395,8 @@
             integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
         <script src="${contextPath}/resources/js/detailList.js"></script>
         <script src="${contextPath}/resources/js/review.js"></script>
+        <script src="${contextPath}/resources/js/weather.js"></script>
+        <script src="${contextPath}/resources/js/weather2.js"></script>
     </body>
 
 </html>

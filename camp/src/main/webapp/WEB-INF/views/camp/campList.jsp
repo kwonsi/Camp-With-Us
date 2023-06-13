@@ -14,15 +14,17 @@
 </head>
 
 <body>
+
+    <jsp:include page="/WEB-INF/views/common/header.jsp" />
     <main>
-        <jsp:include page="/WEB-INF/views/common/header.jsp" />
+       
 
         <div class="search">
             <section class="layer_search">
 
                 <div class="divv">
                     <h2>
-                        <span class="skip" >검색 레이어박스 </span>
+                        <span class="skip" >캠핑장을 찾아보세요 !  </span>
                         
                     </h2>
                 </div>

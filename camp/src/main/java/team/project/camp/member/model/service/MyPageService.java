@@ -31,5 +31,5 @@ public interface MyPageService {
 	 * @return result
 	 */
 	int updateProfile(Map<String, Object> map) throws IOException;
-	
+
 }

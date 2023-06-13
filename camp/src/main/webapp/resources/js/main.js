@@ -34,7 +34,7 @@ if (login) {
 }
 
 
-
+var count = 0;
 window.onload = function () {
 
     $.ajax({
@@ -44,7 +44,7 @@ window.onload = function () {
             pageNo: 1,
             MobileOS: "ETC",
             MobileApp: "AppTest",
-            serviceKey: "4k7REi0gs6TKyjakIRV6zHIg3a1NcXwJPRTezijLCYvx0leNrqvtRwayHuc1AslN9pksU9rGRorGGOTZwMEu9Q==",
+            serviceKey: "I9du70n72b4HG+Y4EFuyTYoNlJ3tOZycxGZluxxxoKxLFP4nPc5cjB4iha+XbuTyZ2Krp2X/cqRs22JpoB3dnw==",
             _type: "json"
         },
         dataType: "json",
@@ -60,12 +60,12 @@ window.onload = function () {
 
             // 랜덤한 인덱스 선택
             for (let i = 0; i < items.length; i++) {
-                if (items[i].homepage != null &&
+                if (items[i].homepage != "" &&
                     items[i].firstImageUrl != "" &&
                     items[i].tel != "" &&
                     items[i].lineIntro != "" &&
                     items[i].addr1 != "") {
-
+                        count++;
                     randomIndexes.push(i); // 조건문을 통과한 인덱스 저장
                 }
             }
@@ -125,6 +125,7 @@ window.onload = function () {
 
                 }
             }
+            console.log(count);
 
         },
         error: function (error) {
