@@ -197,12 +197,14 @@ window.onload = function () {
                             // 슬라이더 초기화 코드
                             $('.post-wrapper').slick({
                                 arrows: true,
-                               /*  prevArrow: '<button class="slide-arrow prev-arrow"><</button>',
-                                nextArrow: '<button class="slide-arrow next-arrow">></button>', */
+                                // prevArrow: '<button class="slide-arrow prev-arrow"><</button>',
+                                // nextArrow: '<button class="slide-arrow next-arrow">></button>',
                               slidesToShow: 4,
                               slidesToScroll: 4,
                               autoplay: true,
                               autoplaySpeed: 3000,
+                              draggable : true,
+                              dots:true,
                               
                               
                             });

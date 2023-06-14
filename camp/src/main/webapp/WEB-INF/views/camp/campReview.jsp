@@ -9,7 +9,7 @@
             <div class="reply-write-area">
                 <form class="mb-3" name="campReview_form" id="campReview_form">
                     <fieldset>
-                        <span>별점을 선택해주세요</span>
+                       
                         <input type="radio" name="reviewStar" value="5" id="rate1"><label
                             for="rate1">★</label>
                         <input type="radio" name="reviewStar" value="4" id="rate2"><label
@@ -20,6 +20,7 @@
                             for="rate4">★</label>
                         <input type="radio" name="reviewStar" value="1" id="rate5"><label
                             for="rate5">★</label>
+                            <span id = "starspan">별점을 선택해주세요</span>
                     </fieldset>
                     <div>
                         <textarea class="col-auto form-control" type="text" id="reviewContents"
