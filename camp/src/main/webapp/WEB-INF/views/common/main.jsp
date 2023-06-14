@@ -87,8 +87,7 @@
             </div>
         </section>
 
-        <hr>
-
+        <br>
 
 
         <div id="divv">

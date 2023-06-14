@@ -20,7 +20,7 @@
 			        </c:forEach>	
             </ul>
           </li>
-          <li class="dropdown myPage1"><a id="myPage">마이페이지</a>
+          <li class="dropdown myPage1"><a id="myPage" href="#">마이페이지</a>
             <ul>
               <c:choose>
                 <c:when test="${loginMember.loginST=='Y'}">

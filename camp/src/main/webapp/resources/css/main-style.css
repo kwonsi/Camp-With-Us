@@ -2592,7 +2592,7 @@ hr {
 	border: 1px solid;
 	border-radius: 0;
 	font-family: "Poppins", sans-serif;
-	font-weight: 600;
+	font-weight: 550;
 	letter-spacing: 0;
 	text-transform: uppercase;
 	white-space: nowrap;
@@ -3642,14 +3642,14 @@ textarea.form-input {
 	width: 100%;
 	padding: 20px 15px;
 	color: rgba(0, 0, 0, 0.8);
-	background: #ffffff;
+	background: rgba(255, 255, 255, 0.6);
 	border-radius: 7px;
 }
 
 .box-booking::before {
 	position: absolute;
 	content: '';
-	top: 30%;
+	/* top: 30%; */
 	right: 3.4%;
 	bottom: -9%;
 	left: 3.4%;
@@ -3743,11 +3743,12 @@ textarea.form-input {
 .booking-form .button {
 	min-height: auto;
 	padding: 14px 15px;
-	font-size: 13px;
+	font-size: 17px;
 	line-height: 1.5;
 }
 
 .booking-title {
+	font-size: 20px;
 	font-weight: 400;
 	text-transform: uppercase;
 }
@@ -3844,7 +3845,7 @@ textarea.form-input {
 
 @media (min-width: 1200px) {
 	.box-booking {
-		margin-top: 85em;
+		margin-top: 100em;
 		margin-left: auto;
 		margin-right: auto;
 		padding: 66px 40px;
@@ -3867,8 +3868,8 @@ textarea.form-input {
 		padding-right: 40px;
 	}
 	.booking-form .button {
-		padding: 30px 50px;
-		font-size: 15px;
+		padding: 30px 45px;
+		font-size: 21px;
 	}
 	.booking-title {
 		letter-spacing: 0.05em;

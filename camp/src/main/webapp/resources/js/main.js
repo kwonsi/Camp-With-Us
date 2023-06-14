@@ -1,6 +1,5 @@
 //const selLoc = document.getElementById("selLoc");
 const login = document.getElementById("login");
-const myPage = document.getElementById("myPage");
 var selLoc = document.getElementById("loc");
 var selTheme = document.getElementById("theme");
 var inputCampName = document.getElementsByName("campName")[0];
