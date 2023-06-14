@@ -274,11 +274,18 @@
                             </thead>
                             <tbody class="t_c">
                                 <tr>
-                                    <th scope="col">${campName}</th>
+                                    <th scope="col"> 성인 </th>
                                     <td>20,000</td>
                                     <td>20,000</td>
                                     <td>30,000</td>
                                     <td id ="last3">30,000</td>
+                                </tr>
+                                <tr>
+                                    <th scope="col"> 영유아 </th>
+                                    <td>10,000</td>
+                                    <td>10,000</td>
+                                    <td>15,000</td>
+                                    <td id ="last3">15,000</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -331,7 +338,7 @@
                             </thead>
                             <tbody class="t_c">
                                 <tr>
-                                    <th scope="col" height="100px">오전</th>
+                                    <th scope="col" height="100px" class="date2">오전</th>
                                     <td class="AM"></td>
                                     <td class="AM"></td>
                                     <td class="AM"></td>
@@ -344,7 +351,7 @@
                                     <td rowspan="2" class="AM"></td>
                                 </tr>
                                 <tr>
-                                    <th scope="col" height="100px">오후</th>
+                                    <th scope="col" height="100px" class="date2">오후</th>
                                     <td class="PM"></td>
                                     <td class="PM"></td>
                                     <td class="PM"></td>
@@ -354,7 +361,7 @@
                                     <td class="PM"></td>
                                 </tr>
                                 <tr>
-                                    <th scope="col" height="50px">강수량</th>
+                                    <th scope="col" height="50px" class="date2">강수량</th>
                                     <td class="rp"></td>
                                     <td class="rp"></td>
                                     <td class="rp"></td>

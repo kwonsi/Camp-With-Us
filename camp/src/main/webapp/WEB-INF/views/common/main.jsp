@@ -87,7 +87,10 @@
             </div>
         </section>
 
-        <br>
+       
+
+
+        <div id ="introduce"> <span>이 달의 캠핑장을 소개합니다. </span> </div>
 
 
         <div id="divv">

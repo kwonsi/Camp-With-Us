@@ -26,12 +26,6 @@
 
             <section class="layer_search">
 
-                <div class="divv">
-                    <h2>
-                        <span class="skip" >캠핑장을 찾아보세요 !  </span>
-                        
-                    </h2>
-                </div>
                 <div class="search_box">
 
                     <form id="campSearchForm" action="" method="get">
