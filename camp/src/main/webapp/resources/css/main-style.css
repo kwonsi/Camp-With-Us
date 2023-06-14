@@ -2602,6 +2602,7 @@ hr {
 	vertical-align: middle;
 	user-select: none;
 	transition: 250ms all ease-in-out;
+	border-radius: 10px;
 }
 
 .button-block {
@@ -2649,8 +2650,8 @@ hr {
 
 .button-gray-600:hover, .button-gray-600:active {
 	color: #ffffff;
-	background-color: #41A451;
-	border-color: #41A451;
+	background-color: rgb(249, 190, 81);
+	border-color: rgb(249, 190, 81);
 }
 
 .button-gray-600.button-ujarak::before {
@@ -3641,8 +3642,8 @@ textarea.form-input {
 	position: relative;
 	width: 100%;
 	padding: 20px 15px;
-	color: rgba(0, 0, 0, 0.8);
-	background: rgba(255, 255, 255, 0.6);
+	color: white;
+	background: #0000007a;
 	border-radius: 7px;
 }
 
@@ -3683,6 +3684,10 @@ textarea.form-input {
 	height: 60px;
 	border-left: 1px solid #E7E7E7;
 	transform: translateY(-50%);
+	margin-left: 7px;
+}
+.booking-form > div:first-child::before {
+	display: none;
 }
 
 .booking-form > div:last-child::before {

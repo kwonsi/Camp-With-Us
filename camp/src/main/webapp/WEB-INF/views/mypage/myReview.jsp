@@ -29,17 +29,28 @@
             
             <span class="myPage-explanation">현재 회원님이 작성한 리뷰를 볼 수 있습니다.</span>
             
-            <jsp:include page="/WEB-INF/views/camp/campReview.jsp" />
+            <div class="reply-list-area">
+        
+                <ul id="reply-list">
+        
+
+                    
+                </ul>
+            </div>
         </section>
 
     </main>
 
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
+    <script>
+        const contextPath = "${contextPath}";
+        const loginMemberNo = "${loginMember.memberNo}";
+    </script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
     <script src="${contextPath}/resources/js/mypage.js"></script>
-    <script src="${contextPath}/resources/js/review.js"></script>
+    <!-- <script src="${contextPath}/resources/js/review.js"></script> -->
 
 </body>
 </html>

@@ -13,10 +13,11 @@ body {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    height: 100px;
+    height: 90px;
     transition: all 0.5s;
     transition: all 0.5s;
-    background: #fff;
+    background: #000000e0;
+    
     box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
 }
 
@@ -38,7 +39,7 @@ body {
   margin: 0;
   font-weight: 400;
   letter-spacing: 2px;
-  color: #7a6960;
+  color: #ffffff;
 }
 
 #header .logo img {
@@ -61,6 +62,8 @@ body {
 
 .navbar li {
   position: relative;
+  font-size: 18px;
+  color: white;
 }
 
 .navbar a,
@@ -71,7 +74,7 @@ body {
   justify-content: space-between;
   padding: 10px 0 10px 30px;
   font-size: 15px;
-  color: #4e4039;
+  color: #ffffff;
   white-space: nowrap;
   transition: 0.3s;
 }
@@ -115,16 +118,18 @@ body {
   z-index: 99;
   opacity: 0;
   visibility: hidden;
-  background: #fff;
+  background: #000;
   box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
   transition: 0.3s;
 }
 
 .navbar .dropdown ul li {
+  font-size: 18px;
   min-width: 200px;
 }
 
 .navbar .dropdown ul a {
+  color: #ffffff;
   padding: 10px 20px;
   font-size: 15px;
   text-transform: none;
@@ -193,6 +198,14 @@ main {
   backdrop-filter: blur(10px);
 }
 
+
+.section-title {
+  display: flex;
+  background-color: #eee;
+  height: 200px;
+  align-items: flex-end;
+  justify-content: center;
+}
 
 
 
@@ -272,18 +285,6 @@ footer span {
 }
 
 
-
-
-
-#introduce{
-  width: 100%;
-  height: 100px;
-  border: 1px solid red;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #eee;
-}
 
 
 #divv{
@@ -369,7 +370,7 @@ footer span {
     transform: translateY(-50%);
     width: 50px;
     height: 50px;
-    background: rgb(118, 153, 90);
+    background: black;
     opacity: 0.8;
     text-align: center;
     line-height: 50px;

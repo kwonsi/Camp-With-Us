@@ -74,13 +74,7 @@ public class MyPageController {
 	}
 
 	@GetMapping("/myReview")
-	public String myReview(Model model,
-							@ModelAttribute("loginMember") Member loginMember) {
-		
-		List<Review> rList = myPageService.selectMyReplyList(loginMember.getMemberNo());
-		
-		model.addAttribute("rList", rList);
-		
+	public String myReview() {
 		return "mypage/myReview";
 	}
 
@@ -100,7 +94,17 @@ public class MyPageController {
 		return "mypage/secession";
 
 	}
-
+	
+	@ResponseBody
+	@GetMapping("/selectMyReview")
+	public String myReview(Model model,
+							@ModelAttribute("loginMember") Member loginMember) {
+		
+		List<Review> rList = myPageService.selectMyReplyList(loginMember.getMemberNo());
+		
+		return new Gson().toJson(rList);
+	}
+	
 	//예약취소
 	@ResponseBody
 	@PostMapping("/reservationState")
