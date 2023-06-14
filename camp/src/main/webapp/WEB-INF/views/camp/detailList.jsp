@@ -212,7 +212,7 @@
                                             </td>
                                         </tr>
                                         <th scope="col">부가 정보</th>
-                                        <td>
+                                        <td id = "last4">
                                             <ul class="table_ul05">
                                             </ul>
                                         </td>
@@ -224,7 +224,7 @@
                     </div>
 
 
-                    <div class="div4_1"> 캠 핑 장 이 미 지 </div>
+                    <div class="div4_1"> 캠핑장 이미지 </div>
 
                     <div class="div4">
 
@@ -237,7 +237,7 @@
 
 
 
-                    <div class="div5"> 캠 핑 장 소 개 글 </div>
+                    <div class="div5"> 캠핑장 소개글 </div>
                     <div class="div6" id="intro"></div>
 
                 </c:if>
@@ -249,7 +249,7 @@
                     <div class="div7">
                         ${campName} 이용 요금
                     </div>
-                    <div class="table_w">
+                    <div class="table_w2">
                         <table class="table camp_info_tb">
                             <colgroup>
                                 <col style="width: 20%">
@@ -260,16 +260,16 @@
                             </colgroup>
                             <thead>
                                 <tr>
-                                    <th rowspan="2" scope="col">구분</th>
+                                    <th  rowspan="2" scope="col">구분</th>
                                     <th colspan="2" scope="colgroup">평상시</th>
-                                    <th colspan="2" scope="colgroup">성수기</th>
+                                    <th id="last1" colspan="2" scope="colgroup">성수기</th>
                                 </tr>
 
                                 <tr>
                                     <th scope="col">주중</th>
                                     <th scope="col">주말</th>
                                     <th scope="col">주중</th>
-                                    <th scope="col">주말</th>
+                                    <th id="last2" scope="col">주말</th>
                                 </tr>
                             </thead>
                             <tbody class="t_c">
@@ -278,7 +278,7 @@
                                     <td>20,000</td>
                                     <td>20,000</td>
                                     <td>30,000</td>
-                                    <td>30,000</td>
+                                    <td id ="last3">30,000</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -301,7 +301,7 @@
                     <div class="div7" id="doNmVal">
                         지역 날씨
                     </div>
-                    <div class="table_w">
+                    <div class="table_w3">
                         <table class="table camp_info_tb">
                             <colgroup>
                                 <!--                                 <col style="width: 20%">
@@ -381,7 +381,7 @@
                 <c:if test="${param.viewType == '5'}">
 
 
-                    <div class="div7">
+                    <div class="div8">
 
                         <jsp:include page="/WEB-INF/views/camp/campReview.jsp" />
 
@@ -394,8 +394,8 @@
 
 
 
-
-                <button type="button" id="reservationBtn"><a>예약페이지</a></button>
+                
+                <button type="button" id="reservationBtn"><a>예약하기</a></button>
 
 
 

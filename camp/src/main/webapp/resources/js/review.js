@@ -180,7 +180,7 @@ addReply.addEventListener("click", function(){ // 리뷰 등록 버튼이 클릭
         success : function(result){
 
             if(result > 0){ // 등록 성공
-                alert("리뷰이 등록되었습니다.");
+                alert("리뷰가 등록되었습니다.");
 
                 reviewContents.value = ""; // 작성했던 리뷰 삭제
 
@@ -257,7 +257,7 @@ function showUpdateReply(replyNo, btn){
     
     if(temp.length > 0){ // 수정이 한 개 이상 열려 있는 경우
 
-        if(confirm("다른 리뷰이 수정 중입니다. 현재 리뷰을 수정 하시겠습니까?")){ // 확인
+        if(confirm("다른 리뷰가 수정 중입니다. 현재 리뷰을 수정 하시겠습니까?")){ // 확인
 
             temp[0].parentElement.innerHTML = beforeReplyRow;
             // reply-row                       // 백업한 리뷰
@@ -398,7 +398,7 @@ function updateReply(replyNo, btn){
         type : "POST",
         success : function(result){
             if(result > 0){
-                alert("리뷰이 수정되었습니다.");
+                alert("리뷰가 수정되었습니다.");
                 selectReplyList();
             }else{
                 alert("리뷰 수정 실패");

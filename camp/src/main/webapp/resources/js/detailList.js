@@ -203,6 +203,8 @@ window.onload = function () {
                               slidesToScroll: 4,
                               autoplay: true,
                               autoplaySpeed: 3000,
+                              draggable : true,
+                              dots:true,
                               
                               
                             });
