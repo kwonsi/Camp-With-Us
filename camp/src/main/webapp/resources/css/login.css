@@ -281,24 +281,6 @@ cursor: pointer;
   }
     
 
-  .row {
-    --bs-gutter-x: 1.5rem;
-    --bs-gutter-y: 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 70px;
-    margin-right: calc(-0.5 * var(--bs-gutter-x));
-    margin-left: calc(-0.5 * var(--bs-gutter-x));
-  }
-  .row > * {
-    flex-shrink: 0;
-    width: 100%;
-    max-width: 100%;
-    padding-right: calc(var(--bs-gutter-x) * 0.5);
-    padding-left: calc(var(--bs-gutter-x) * 0.5);
-    margin-top: var(--bs-gutter-y);
-  }
 
   .g-5,
   .gx-5 {
@@ -315,7 +297,7 @@ cursor: pointer;
   }
   .col-lg-8 {
     flex: 0 0 auto;
-    width: 66.66666667%;
+    width: 66.66666667% !important;
   }
 
   .form-floating {
@@ -346,6 +328,7 @@ cursor: pointer;
   margin-left: auto;
   display: flex;
   justify-content: center;
+ /*  padding: 24px 0 0 12px; */
 }
 
 .col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col,
@@ -787,15 +770,19 @@ cursor: pointer;
 --------------------------------------------------------------*/
 #footer {
   background: #fff;
-  padding: 0 0 30px 0;
+  padding: 0 0 20px 0;
   color: #212529;
-  font-size: 14px;
+  font-size: 18px;
   background: #fef8f5;
 }
 
+
 #footer .footer-top {
-  padding: 60px 0 30px 0;
+ /*  padding: 60px 0 30px 0; */
   background: #fff;
+  padding-top: 30px;
+  padding-bottom: 20px;
+  background-color: #eee !important;
 }
 
 #footer .footer-top .footer-contact {
@@ -827,7 +814,7 @@ cursor: pointer;
 }
 
 #footer .footer-top .footer-links {
-  margin-bottom: 30px;
+  /* margin-bottom: 30px; */
 }
 
 #footer .footer-top .footer-links ul {
@@ -894,7 +881,7 @@ cursor: pointer;
 #footer .credits {
   float: right;
   text-align: center;
-  font-size: 13px;
+  font-size: 18px;
   color: #212529;
 }
 
@@ -912,5 +899,48 @@ cursor: pointer;
     padding: 3px 0;
   }
 }
+.credits > a > i {
+  font-size: 25px;
+}
+
+.container > .row {
+  margin-top: 0px !important;
+}
+#footer > .py-4 {
+  padding: 24px 12px !important;
+}
+#footer{
+  background-color: #eee;
+}
+.footer-top{
+  background-color: #eee;
+}
 
 
+/*    footer 끝   */
+
+
+#footer > .footer-top > .container >.row{
+  width: 700px !important;
+}
+
+.row {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  display: flex;
+ /*  flex-wrap: wrap; */
+  justify-content: center;
+  margin-top: 70px;
+  margin-right: calc(-0.5 * var(--bs-gutter-x));
+  margin-left: calc(-0.5 * var(--bs-gutter-x));
+
+}
+
+.row > * {
+  flex-shrink: 1;
+  width: 100%;
+  max-width: 100%;
+  padding-right: calc(var(--bs-gutter-x) * 0.5);
+  padding-left: calc(var(--bs-gutter-x) * 0.5);
+  margin-top: var(--bs-gutter-y);
+}

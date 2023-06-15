@@ -12,8 +12,8 @@
 
      <link rel="stylesheet" href="${contextPath}/resources/css/signUp.css">
     
-<!--      <link rel="stylesheet" href="${contextPath}/resources/css/boxicons.css">
-     <link rel="stylesheet" href="${contextPath}/resources/css/main.css">
+     <link rel="stylesheet" href="${contextPath}/resources/css/boxicons.css">
+<!--      <link rel="stylesheet" href="${contextPath}/resources/css/main.css">
      <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap-icons.css">
      <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap_main_header.css">
       -->
