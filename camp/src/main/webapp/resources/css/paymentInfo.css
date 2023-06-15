@@ -1,0 +1,52 @@
+h1{
+    text-align: center;
+    margin-bottom: 50px;
+}
+.payment{
+    width: 1000px;
+    height: 1000px;
+    margin: auto;
+}
+.paymentInfo{
+    width: 600px;
+    height: 800px;
+    border: 1px solid black;
+    margin: auto;
+    margin-top: 70px;
+}
+input{
+    margin: 10px 0 30px 0 ;
+    width: 500px;
+    height: 40px;
+}
+.peopleAdult, .peopleChild{
+    width: 30px;
+    height: 30px;
+    margin: 0 10px 0 10px;
+}
+.reverName, .reverEmail, .reverTel, .reverAddress{
+    margin-left: 20px;
+}
+.reverPeople{
+   text-align: center;
+}
+.peopleSum{
+    display: flex;
+    justify-content: space-between;
+    width: 300px;
+    margin: auto;
+}
+.price{
+    width: 300px;
+    height: 100px;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    margin: auto;
+    margin-top: 50px;
+    justify-content: center;
+}
+.price2{
+    width: 100px;
+    margin: 0;
+}

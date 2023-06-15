@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -37,6 +38,23 @@ public class CampDetailController {
 		model.addAttribute("campName", campName);
 		return "camp/reservation";
 	}
+	// 결제페이지
+	@PostMapping("/payment/{campName}")
+	public String PaymentInfo( @PathVariable("campName") String campName,
+//								@ModelAttribute Member loginMember,
+							   Member member,
+//							   int memberNo,
+							   Model model) {
+		
+		model.addAttribute("campName", campName);
+		log.info("캠핌장 " + campName);
+		log.info("예약정보 " + member);
+//		member.setMemberNo(loginMember.getMemberNo());
+		model.addAttribute("member", member);
+		
+		
+		return "camp/payment";
+	}
 
 	//가격계산
 	//***@ResponseBody -> (비동기)ajax TYPE="GET"일때
@@ -62,22 +80,11 @@ public class CampDetailController {
 
 	//예약정보 삽입
 	@ResponseBody
-	@PostMapping("/reservationInfo")
-	public int reservationInfo(String campingName, String buyerName,
-								int amount, int people, String reservSelDate,
-								int memberNo
-			) {
+	@PostMapping("/payment/reservationInfo")
+	public int reservationInfo(Reservation reservation) {
 
-		Reservation reservation = new Reservation();
-
-		reservation.setCampingName(campingName);
-		reservation.setBuyerName(buyerName);
-		reservation.setAmount(amount);
-		reservation.setPeople(people);
-		reservation.setReservSelDate(reservSelDate);
-		reservation.setMemberNo(memberNo);
-
-
+		log.info("예약 DB 삽입 " + reservation);
+		
 		int result = service.reservationInfo(reservation);
 
 		if(result>0) {
@@ -88,4 +95,5 @@ public class CampDetailController {
 
 		return result;
 	}
+
 }

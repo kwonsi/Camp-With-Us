@@ -3391,7 +3391,7 @@ fieldset:disabled .btn {
 }
 
 .btn-primary {
-    color: #000;
+    color: #fff;
     --bs-btn-color: #fff;
     --bs-btn-bg: #3d5e3a;
     --bs-btn-border-color: #3d5e3a;
@@ -3711,14 +3711,17 @@ fieldset:disabled .btn {
     --bs-btn-padding-y: 0.5rem;
     --bs-btn-padding-x: 1rem;
     --bs-btn-font-size: calc(1.2625rem + 0.15vw);
-    --bs-btn-border-radius: 2.688em
+    --bs-btn-border-radius: 2.688em;
+    width: 120px;
+    margin: auto;
+    
 }
 
-@media (min-width:1200px) {
+@media (min-width:200px) {
 
     .btn-group-lg>.btn,
     .btn-lg {
-        --bs-btn-font-size: 1.375rem
+        --bs-btn-font-size: 1.2rem
     }
 }
 

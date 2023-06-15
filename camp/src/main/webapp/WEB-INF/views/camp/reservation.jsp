@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 
+<c:set var="campName" value="${campName}"/>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,10 +24,10 @@
 
     <main>
 		
-        <form class="formsize">            
+        <form class="formsize" action="payment/${campName}" method="post">            
 
 
-            <div class="subject">${campName}</div>
+            <div>${campName}</div>
 
             <section class="info">
             <section class="calendar1">
@@ -138,16 +139,30 @@
             </section>
             <section class="MemberInfo card-2">
                 <div class="MemberInfoInput">
-                예약자 이름<br><br><input type="text" class="name card-1">
+                예약자 이름<br><br><input type="text" name="memberNickname" class="name card-1" value="${loginMember.memberNickname}">
                 </div>
                 <div class="MemberInfoInput">
-                예약자 이메일<br><br><input type="text" class="name card-1">
+                예약자 이메일<br><br><input type="text" name="memberEmail" class="name card-1" value="${loginMember.memberEmail}">
                 </div>
                 <div class="MemberInfoInput">
-                예약자 전화번호<br><br><input type="tel" class="name card-1">
+                예약자 전화번호<br><br><input type="tel" name="memberTel" class="name card-1" value="${loginMember.memberTel}">
                 </div>
                 <div class="MemberInfoInput">
-                예약자 주소<br><br><input type="text" class="name card-1">
+                예약자 주소<br><br>
+                <div class="signUp-input-area">
+                    <input type="text" id="sample4_postcode" name="memberAddress"
+                            placeholder="우편번호" maxlength="6">
+                    
+                    <button type="button" onclick="sample4_execDaumPostcode()">검색</button>
+                </div>
+
+                <div class="signUp-input-area">
+                    <input type="text" id="sample4_roadAddress" name="memberAddress" placeholder="도로명주소">
+                </div>
+
+                <div class="signUp-input-area">
+                    <input type="text" id="sample4_detailAddress" name="memberAddress" placeholder="상세주소">
+                </div>
                 </div>
                 
             </section>
@@ -157,8 +172,8 @@
     
             
             <br>
-
-            <button type="button" class="btn btn-lg btn-primary" onclick="requestPay()">결제하기</button>
+            <button>결제</button>
+            
         </form>
 
     
@@ -167,6 +182,24 @@
 <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
 <script>
+function sample4_execDaumPostcode() {
+    new daum.Postcode({
+        oncomplete: function(data) {
+            // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+
+            // 도로명 주소의 노출 규칙에 따라 주소를 표시한다.
+            // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+            var roadAddr = data.roadAddress; // 도로명 주소 변수
+           
+
+            // 우편번호와 주소 정보를 해당 필드에 넣는다.
+            document.getElementById('sample4_postcode').value = data.zonecode;
+            document.getElementById("sample4_roadAddress").value = roadAddr;
+
+        }
+    }).open();
+}
+
 
 function countAdult(type)  {
   // 결과를 표시할 element
@@ -215,7 +248,7 @@ const Mkey = document.querySelectorAll(".minus");
 const Pkey = document.querySelectorAll(".plus");
 //결제금액
 document.addEventListener("DOMContentLoaded", function() {
-    
+            
             const month = localStorage.getItem("Month");
            
             Pkey.forEach((element) => {
@@ -248,7 +281,8 @@ document.addEventListener("DOMContentLoaded", function() {
                         let childrenTotalPrice = childPrice * childrenOptionValue;
                         
                         let totalPeople = Number(adultOptionValue) + Number(childrenOptionValue);
-                        
+                        localStorage.setItem("totalPeople", JSON.stringify(totalPeople));
+
                         let totalPrice = 0;
                         console.log(people);
                         console.log(adultOptionValue);
@@ -259,7 +293,8 @@ document.addEventListener("DOMContentLoaded", function() {
                         } else {
                             totalPrice = (adultTotalPrice + childrenTotalPrice)*localStorage.getItem("totalDay");
                         }
-                        priceElement.textContent = "총 가격: " + totalPrice + "원";
+                        localStorage.setItem("totalPrice", JSON.stringify(totalPrice));
+                        console.log(localStorage.getItem("totalPrice"))
                         priceValue = totalPrice;
                         people = totalPeople;
                         
@@ -278,81 +313,81 @@ document.addEventListener("DOMContentLoaded", function() {
             childSelect.addEventListener("input", calculatePrice);
             calculatePrice();
     
-        });
+ });
 
 
 
 //결제화면
-function requestPay() {
-            console.log("requestPay함수 실행");
+// function requestPay() {
+//             console.log("requestPay함수 실행");
             
-                var IMP = window.IMP;
-                IMP.init("imp66352643");
-                IMP.request_pay({
-                    pg: 'kcp.A52CY',
-                    pay_method: 'card',
-                    merchant_uid: 'merchant_' + new Date().getTime(),
-                    name: campName,
-                    amount: priceValue,
-                    buyer_email: memberEmail,
-                    buyer_name: memberNickname,
-                    buyer_tel: '010-1234-5678',
-                    buyer_addr: '구매자 주소 강남구 삼성동',
+//                 var IMP = window.IMP;
+//                 IMP.init("imp66352643");
+//                 IMP.request_pay({
+//                     pg: 'kcp.A52CY',
+//                     pay_method: 'card',
+//                     merchant_uid: 'merchant_' + new Date().getTime(),
+//                     name: campName,
+//                     amount: priceValue,
+//                     buyer_email: memberEmail,
+//                     buyer_name: memberNickname,
+//                     buyer_tel: '010-1234-5678',
+//                     buyer_addr: '구매자 주소 강남구 삼성동',
     
-          }, function (rsp) { // callback
+//           }, function (rsp) { // callback
 
-            console.log(rsp);  
+//             console.log(rsp);  
             
-            if (rsp.success) {
+//             if (rsp.success) {
 
-                  console.log("성공");
-                  alert("결제가 완료되었습니다");
+//                   console.log("성공");
+//                   alert("결제가 완료되었습니다");
                  
 
-                  let selectfirstmonth = document.querySelectorAll(".pickMonth")[0].textContent;
-                  let selectfirstday = document.querySelectorAll(".pickDay")[0].textContent;
-                  let selectlastmonth = document.querySelectorAll(".pickMonth")[1].textContent;
-                  let selectlastday = document.querySelectorAll(".pickDay")[1].textContent;
-                  console.log(selectfirstmonth);
-                  console.log(selectfirstday);
-                  console.log(selectlastmonth);
-                  console.log(selectlastday);
-                  let selectDate = selectfirstmonth + '월 ' + selectfirstday +'일 - ' + selectlastmonth +'월 ' + selectlastday + '일'
-                  console.log(selectDate)
+//                   let selectfirstmonth = document.querySelectorAll(".pickMonth")[0].textContent;
+//                   let selectfirstday = document.querySelectorAll(".pickDay")[0].textContent;
+//                   let selectlastmonth = document.querySelectorAll(".pickMonth")[1].textContent;
+//                   let selectlastday = document.querySelectorAll(".pickDay")[1].textContent;
+//                   console.log(selectfirstmonth);
+//                   console.log(selectfirstday);
+//                   console.log(selectlastmonth);
+//                   console.log(selectlastday);
+//                   let selectDate = selectfirstmonth + '월 ' + selectfirstday +'일 - ' + selectlastmonth +'월 ' + selectlastday + '일'
+//                   console.log(selectDate)
 
-                 $.ajax({
-                    url: "reservationInfo", 
-                    type: "POST",
-                    data: { "campingName" : campName,
-                            "reservSelDate" : selectDate,
-                            "buyerName" : rsp.buyer_name,
-                            "amount" : priceValue,
-                            "people" : people,
-                            "memberNo" : memberNo },
+//                  $.ajax({
+//                     url: "reservationInfo", 
+//                     type: "POST",
+//                     data: { "campingName" : campName,
+//                             "reservSelDate" : selectDate,
+//                             "buyerName" : rsp.buyer_name,
+//                             "amount" : priceValue,
+//                             "people" : people,
+//                             "memberNo" : memberNo },
 
-                    success: function(result) {
+//                     success: function(result) {
                        
-                        if(result > 0) {
-                            console.log("예약정보 전송완료");
-                            window.location.href = '${contextPath}/member/myPage/myReservation';
+//                         if(result > 0) {
+//                             console.log("예약정보 전송완료");
+//                             window.location.href = '${contextPath}/member/myPage/myReservation';
 
 
-                        }else {
-                            console.log("예약정보 전송실패");
-                        }
+//                         }else {
+//                             console.log("예약정보 전송실패");
+//                         }
 
-                    },
-                    error: function() {
-                        console.log("예약정보전송 ajax 에러발생");
-                    }
-                });
+//                     },
+//                     error: function() {
+//                         console.log("예약정보전송 ajax 에러발생");
+//                     }
+//                 });
 
-              } else {
-                console.log("실패");
-                alert("날짜/인원을 선택해주세요.");
-              }
-            });
-}
+//               } else {
+//                 console.log("실패");
+//                 alert("날짜/인원을 선택해주세요.");
+//               }
+//             });
+// }
 
 
 //  buyer_postcode: '123-456'
@@ -366,7 +401,8 @@ function requestPay() {
     <script src="${contextPath}/resources/js/calendar.js"></script>
 
  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-
+    <!-- 다음 주소 API -->
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 
 </body>
 </html>

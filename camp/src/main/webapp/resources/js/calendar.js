@@ -25,9 +25,10 @@ let dat = document.querySelectorAll(".dat");
 let wave = document.querySelector(".wave");
 let dat2 = document.querySelectorAll(".dat2");
 const check = document.querySelector(".check")
-
+const total_days = document.querySelector(".total-days");
 var datePick = document.getElementsByClassName("day");
 var dayBetween = document.getElementsByClassName("dayBetween");
+
 
 const months = [
     "January",
@@ -120,6 +121,7 @@ function initCalendar(){
                 dayBetween[1].innerText = test+ 1 + "일";
                 
                 check.classList.add("sel");
+                total_days.classList.add("sel");
                 
 
                 a.innerText = test + "박" + (test+1) + "일";
@@ -158,7 +160,8 @@ function initCalendar(){
                         } else {
                             totalPrice = (adultTotalPrice + childrenTotalPrice)*localStorage.getItem("totalDay");
                         }
-                        priceElement.textContent = "총 가격: " + totalPrice + "원";
+                        localStorage.setItem("totalPrice", JSON.stringify(totalPrice));
+                        console.log(localStorage.getItem("totalPrice"))
                         priceValue = totalPrice;
                         people = totalPeople;
                       
@@ -174,7 +177,13 @@ function initCalendar(){
                         console.log("에러 발생");
                     }
                 });
-
+                let datePicker = {
+                    sel1 : selectMonth[0].value + mon[0].value + selectDay[0].value + dat[0].value,
+                   
+                    selmon2 : selectMonth[1].value + mon[1].value + selectDay[1].value + dat[1].value
+                    }
+                localStorage.setItem('datePicker', JSON.stringify(datePicker))
+                console.log(localStorage.getItem('datePicker'))
            }
 
         });
