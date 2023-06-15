@@ -19,6 +19,7 @@
                 href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
             <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap-icons.css">
             <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap_main_header.css">
+            <link rel="stylesheet" href="${contextPath}/resources/css/boxicons.css">
 
             <script src="https://kit.fontawesome.com/a2e8ca0ae3.js" crossorigin="anonymous"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js"></script>
@@ -147,7 +148,7 @@
                             <div class="table_w">
 
                                 <table class="table_t4 camp_etc_tb">
-                                    <caption> 기타 주요시설
+                                    <caption> <i class="fa-solid fa-chevron-right"></i>  기타 주요시설
                                     </caption>
                                     <tbody class="t_c">
                                         <tr>
@@ -224,7 +225,7 @@
                     </div>
 
 
-                    <div class="div4_1"> 캠핑장 이미지 </div>
+                    <div class="div4_1"> <i class="fa-solid fa-chevron-right"></i> &nbsp; 캠핑장 이미지 </div>
 
                     <div class="div4">
 
@@ -237,8 +238,8 @@
 
 
 
-                    <div class="div5"> 캠핑장 소개글 </div>
-                    <div class="div6" id="intro"> </div>
+                    <div class="div5"> <i class="fa-solid fa-chevron-right"></i> &nbsp; 캠핑장 소개글 </div>
+                    <div class="div6" id="intro"></div>
 
                 </c:if>
 

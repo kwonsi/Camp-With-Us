@@ -86,7 +86,7 @@ body {
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     
-    height: 530px;
+    height: 520px;
     margin-top: 0px;
     width: 1600px;
 }
@@ -108,10 +108,10 @@ body {
     border-bottom: 0px;
     height: 60px;
     display: flex;
-    text-align: center;
-    justify-content: center;
+    text-align: left;
+    /* justify-content: center; */
     align-items: center;
-    padding: auto;
+    padding: 20px;
     font-size: 25px;
     font-weight: bold;
     width: 1600px;
@@ -128,7 +128,7 @@ body {
     width: 1600px;
     padding: 20px;
     letter-spacing: 0.1mm;
-    line-height: 8mm;
+    line-height: 9mm;
     color: #333;
     opacity: 0.75;
 }
@@ -155,10 +155,10 @@ body {
     border-top: 0px;
     height: 60px;
     display: flex;
-    text-align: center;
-    justify-content: center;
+    text-align: left;
+    /* justify-content: center; */
     align-items: center;
-    padding: auto;
+    padding: 20px;
     font-size: 25px;
     font-weight: bold;
     width: 1600px;
@@ -284,7 +284,7 @@ body {
 .table_t4 caption {
     font-size: 25px;
     font-weight: bold;
-    text-align: center;
+    text-align: left;
     padding: 20px;
     color: #616161;
 }

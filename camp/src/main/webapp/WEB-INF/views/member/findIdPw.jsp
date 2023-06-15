@@ -15,6 +15,7 @@
      <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap_main_header.css"> -->
      <!-- <link rel="stylesheet" href="${contextPath}/resources/css/signUpPage.css"> -->
      <link rel="stylesheet" href="${contextPath}/resources/css/findIdPw.css">
+     <link rel="stylesheet" href="${contextPath}/resources/css/boxicons.css">
  </head>
  <body>
 
