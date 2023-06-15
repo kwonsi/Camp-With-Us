@@ -193,7 +193,7 @@ main {
   z-index: 10000;
   width: 100%;
   height: 998px;
-  background-color: rgba(255,255,255, 0.1);
+  /* background-color: rgba(255,255,255, 0.1); */
   /* box-shadow: 2px 7px 15px 8px rgba(0,0,0,0.3); */
   backdrop-filter: blur(10px);
 }
@@ -305,12 +305,20 @@ footer span {
 }
 .ranBoard_1{
    /*  border: 1px solid green; */
+   overflow: hidden;
+   border-radius: 20px;
 }
 .ranBoard_1 > a > img {
     width: 100%;
     height: 100%;
     border-radius: 20px;
+    transition: all 0.5s ease-in-out;
 }
+.ranBoard_1 > a:hover img {
+  transform: scale(1.2);
+}
+
+
 
 
 

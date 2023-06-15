@@ -88,7 +88,7 @@
         <div class="searchVal" id="searchVal" >
 
             <br>
-            <div class="campResult"><h2 id="campResult"> <br>캠핑장을 검색해주세요.</h2></div>
+            <div class="campResult"><h2 id="campResult"> <br>캠핑장을 검색중입니다.</h2></div>
             <section class="searchBox" id ="searchBox" >
 
                

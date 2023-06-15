@@ -50,7 +50,8 @@ var brazierClli = document.getElementsByClassName("table_ul05")[5]; // 화로대
 var sobangli = document.getElementsByClassName("table_ul05")[6];  // 안전시설
 var sbrsClli = document.getElementsByClassName("table_ul05")[7]; // 부가정보
 
-
+// 캠핑장 가격테이블에 캠핑장이름 넣어주기
+var campNamePrice = document.getElementById("campNamePrice"); 
 
 // 캠핑장 정보 저장용 변수 ( json데이터 item[]에 복사 )
 let item = {};
@@ -99,7 +100,9 @@ window.onload = function () {
             introCampName.innerText = items.facltNm;
             introLine.innerText = items.lineIntro;
             introLine2.innerText = items.facltNm;
-
+            if(campNamePrice){
+            campNamePrice.innerText = items.facltNm+" 이용 요금";
+            }
             /* ************** 캠핑장 정보 출력 ************** */
             addr.innerText = items.addr1;               // 주소
             tel.innerText = items.tel;                  //문의처

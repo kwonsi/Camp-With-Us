@@ -246,7 +246,7 @@ hr {
 
 .img_box {
 
-
+    border-radius: 10px;
     width: 400px;
     height: 250px;
     overflow: hidden;
@@ -254,10 +254,10 @@ hr {
 }
 
 .img_box > a img{
-  transition: all 0.4s ease-in-out;
+  transition: all 0.6s ease-in-out;
 }
 .img_box > a:hover img {
-  transform: scale(1.4);
+  transform: scale(1.15);
 }
 
 .camp_info_text {

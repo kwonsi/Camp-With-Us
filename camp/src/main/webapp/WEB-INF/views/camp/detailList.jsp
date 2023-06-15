@@ -246,8 +246,8 @@
                 <!-- viewType == 2 일때 -->
                 <c:if test="${param.viewType == '2'}">
 
-                    <div class="div7">
-                        ${campName} 이용 요금
+                    <div class="div7" id="campNamePrice">
+                        <!-- ${campName} 이용 요금 -->
                     </div>
                     <div class="table_w2">
                         <table class="table camp_info_tb">
@@ -262,7 +262,7 @@
                                 <tr>
                                     <th  rowspan="2" scope="col">구분</th>
                                     <th colspan="2" scope="colgroup">평상시</th>
-                                    <th id="last1" colspan="2" scope="colgroup">성수기</th>
+                                    <th id="last1" colspan="2" scope="colgroup">성수기 (6월~8월)</th>
                                 </tr>
 
                                 <tr>
