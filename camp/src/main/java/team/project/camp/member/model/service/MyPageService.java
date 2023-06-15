@@ -34,11 +34,11 @@ public interface MyPageService {
 	 */
 	int updateProfile(Map<String, Object> map) throws IOException;
 
-	
+
 	/** 내 리뷰 조회
 	 * @param memberNo
 	 * @return
 	 */
 	List<Review> selectMyReplyList(int memberNo);
-	
+
 }

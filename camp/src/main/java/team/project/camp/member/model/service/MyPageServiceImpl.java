@@ -108,7 +108,7 @@ public class MyPageServiceImpl implements MyPageService {
 
 		return result;
 	}
-	
+
 	// 내 리뷰 조회 서비스 구현
 	@Override
 	public List<Review> selectMyReplyList(int memberNo) {

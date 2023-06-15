@@ -33,5 +33,5 @@ public interface CampDetailService {
 
 	// 리뷰 수정
 	int updateReview(Map<String, Object> map);
-	
+
 }

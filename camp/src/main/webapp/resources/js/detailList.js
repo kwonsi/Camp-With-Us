@@ -166,7 +166,11 @@ window.onload = function () {
                         '<li>' + sbrsCl[i] + '</li>';
                 }
                 // 소개글
+                if ( items.intro == null || items.intro ==""){
+                    intro.innerText = "정보가 없습니다.";
+                }else{
                 intro.innerText = items.intro;
+                }
             }
 
             /* ************** 캠핑장 이미지 출력 ************** */

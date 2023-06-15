@@ -238,7 +238,7 @@
 
 
                     <div class="div5"> 캠핑장 소개글 </div>
-                    <div class="div6" id="intro"> 정보가 없습니다. </div>
+                    <div class="div6" id="intro"> </div>
 
                 </c:if>
 

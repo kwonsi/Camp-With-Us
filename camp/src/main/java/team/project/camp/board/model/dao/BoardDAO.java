@@ -41,8 +41,8 @@ public class BoardDAO {
 	 * @param pagination
 	 * @param boardCode
 	 * @param boardMap
-	 * @param boardMap 
-	 * @param boardNo 
+	 * @param boardMap
+	 * @param boardNo
 	 * @return boardList
 	 */
 	public List<Board> selectBoardList(Pagination pagination, int boardCode) {

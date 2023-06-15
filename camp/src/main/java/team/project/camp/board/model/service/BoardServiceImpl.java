@@ -53,16 +53,16 @@ public class BoardServiceImpl implements BoardService{
 		// 3) 게시글 목록 조회
 		List<Board> boardList = dao.selectBoardList(pagination, boardCode);
 //		List<>
-		
+
 		// map 만들어서 담기
 		Map<String, Object> map = new HashMap<>();
 		map.put("pagination", pagination);
 		map.put("boardList", boardList);
 		map.put("boardCode", boardCode);
-		
-		
+
+
 		log.info("Service map : " + map);
-		
+
 		return map;
 	}
 
