@@ -29,7 +29,7 @@
             <div class="mb-5">                    
                 <h1 class="fw-bolder">아이디(이메일) 찾기</h1>
             </div>
-             
+            
             <div class="gx-5 ">
 
                 <form class="col-lg-8 col-xl-6" action="findId" method="POST" name="findId-form" onsubmit="return findIdValidate()">
@@ -64,7 +64,7 @@
                 <form class="col-lg-8 col-xl-6" action="findPw" method="POST" name="findPw-form" onsubmit="return findPwInvalidate()">
  
                     
-                    <span class="msg">가입된 아이디를 입력해 주세요.</span> 
+                    <span class="msg">가입된 아이디(이메일)를 입력해 주세요.</span> 
                    
                     <div class="idPw-input-area form-floating mb-3">
                         <input type="text" class="form-control" id="memberEmail" name="memberEmail"

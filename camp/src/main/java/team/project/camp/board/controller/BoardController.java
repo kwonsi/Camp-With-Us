@@ -72,14 +72,14 @@ public class BoardController {
 
 
 		if(paramMap.get("key") == null) { // 검색이 아닌 경우의 게시글 목록조회
-			
+
 			map = service.selectBoardList(cp, boardCode);
 
 			log.info("Controller map.get(\"boardList\") : " + map.get("boardList"));
 
-			
-			
-			
+
+
+
 		}else { // 검색인 경우
 
 			// 검색에 필요한 데이터를 paramMap에 모두 담아서 서비스 호출
@@ -89,18 +89,18 @@ public class BoardController {
 			paramMap.put("boardCode", boardCode);
 
 			map = service.searchBoardList(paramMap);
-			
-			
+
+
 		}
-	
+
 		model.addAttribute("map", map);
 //		model.add
-		
+
 		log.info("Controller map :" +  map);
 //		log.info("Controller boardContent :" +  boardContent);
 		log.info("Controller model :" +  model);
 
-		
+
 		return "board/boardList"+ boardCode;
 	}
 
