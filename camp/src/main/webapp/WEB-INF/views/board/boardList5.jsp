@@ -24,7 +24,7 @@
 
     <title>${boardName}</title>
 
-
+    <link rel="stylesheet" href="${contextPath}/resources/css/boxicons.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/main.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/boardList-style3.css">
 

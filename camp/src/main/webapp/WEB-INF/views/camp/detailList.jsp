@@ -19,6 +19,7 @@
                 href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
             <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap-icons.css">
             <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap_main_header.css">
+            <link rel="stylesheet" href="${contextPath}/resources/css/boxicons.css">
 
             <script src="https://kit.fontawesome.com/a2e8ca0ae3.js" crossorigin="anonymous"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js"></script>
@@ -147,7 +148,7 @@
                             <div class="table_w">
 
                                 <table class="table_t4 camp_etc_tb">
-                                    <caption> 기타 주요시설
+                                    <caption> <i class="fa-solid fa-chevron-right"></i>  기타 주요시설
                                     </caption>
                                     <tbody class="t_c">
                                         <tr>
@@ -224,7 +225,7 @@
                     </div>
 
 
-                    <div class="div4_1"> 캠핑장 이미지 </div>
+                    <div class="div4_1"> <i class="fa-solid fa-chevron-right"></i> &nbsp; 캠핑장 이미지 </div>
 
                     <div class="div4">
 
@@ -237,7 +238,7 @@
 
 
 
-                    <div class="div5"> 캠핑장 소개글 </div>
+                    <div class="div5"> <i class="fa-solid fa-chevron-right"></i> &nbsp; 캠핑장 소개글 </div>
                     <div class="div6" id="intro"></div>
 
                 </c:if>
@@ -246,8 +247,8 @@
                 <!-- viewType == 2 일때 -->
                 <c:if test="${param.viewType == '2'}">
 
-                    <div class="div7">
-                        ${campName} 이용 요금
+                    <div class="div7" id="campNamePrice">
+                        <!-- ${campName} 이용 요금 -->
                     </div>
                     <div class="table_w2">
                         <table class="table camp_info_tb">
@@ -262,7 +263,7 @@
                                 <tr>
                                     <th  rowspan="2" scope="col">구분</th>
                                     <th colspan="2" scope="colgroup">평상시</th>
-                                    <th id="last1" colspan="2" scope="colgroup">성수기</th>
+                                    <th id="last1" colspan="2" scope="colgroup">성수기 (6월~8월)</th>
                                 </tr>
 
                                 <tr>
@@ -274,11 +275,18 @@
                             </thead>
                             <tbody class="t_c">
                                 <tr>
-                                    <th scope="col">${campName}</th>
+                                    <th scope="col"> 성인 </th>
                                     <td>20,000</td>
                                     <td>20,000</td>
                                     <td>30,000</td>
                                     <td id ="last3">30,000</td>
+                                </tr>
+                                <tr>
+                                    <th scope="col"> 영유아 </th>
+                                    <td>10,000</td>
+                                    <td>10,000</td>
+                                    <td>15,000</td>
+                                    <td id ="last3">15,000</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -331,7 +339,7 @@
                             </thead>
                             <tbody class="t_c">
                                 <tr>
-                                    <th scope="col" height="100px">오전</th>
+                                    <th scope="col" height="100px" class="date2">오전</th>
                                     <td class="AM"></td>
                                     <td class="AM"></td>
                                     <td class="AM"></td>
@@ -344,7 +352,7 @@
                                     <td rowspan="2" class="AM"></td>
                                 </tr>
                                 <tr>
-                                    <th scope="col" height="100px">오후</th>
+                                    <th scope="col" height="100px" class="date2">오후</th>
                                     <td class="PM"></td>
                                     <td class="PM"></td>
                                     <td class="PM"></td>
@@ -354,7 +362,7 @@
                                     <td class="PM"></td>
                                 </tr>
                                 <tr>
-                                    <th scope="col" height="50px">강수량</th>
+                                    <th scope="col" height="50px" class="date2">강수량</th>
                                     <td class="rp"></td>
                                     <td class="rp"></td>
                                     <td class="rp"></td>

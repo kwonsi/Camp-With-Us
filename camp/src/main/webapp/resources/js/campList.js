@@ -265,7 +265,9 @@ selectCampBtn.addEventListener("click", function () {
   
   //  메인페이지에서 "loc" 값을 받아왔을때 
   //  "loc" 지역정보 즉시출력 . onload 
-if( (loc != "" && theme != "" && campName != "") || loc != "" || theme != "" || campName != "") {
+if( (loc != "" && theme != "" && campName != "") || (loc != "" || theme != "" || campName != "" ) 
+          || ( loc == "" &&  theme == "" && campName == "") 
+) {
 window.onload = function() {
 
   if( loc != "" && theme != "" && campName != "") {
@@ -422,6 +424,7 @@ window.onload = function() {
           prevButton.addEventListener("click", function () {
             currentPage = startPage - 5;
             displayItems(currentPage);
+            window.scrollTo(0, 0);
 
           });
           pagination.appendChild(prevButton);
@@ -437,6 +440,7 @@ window.onload = function() {
           pageButton.addEventListener("click", function () {
             currentPage = parseInt(this.textContent);
             displayItems(currentPage);
+            window.scrollTo(0, 0);
 
           });
           pagination.appendChild(pageButton);
@@ -449,6 +453,7 @@ window.onload = function() {
           nextButton.addEventListener("click", function () {
             currentPage = endPage + 1;
             displayItems(currentPage);
+            window.scrollTo(0, 0);
 
           });
           pagination.appendChild(nextButton);

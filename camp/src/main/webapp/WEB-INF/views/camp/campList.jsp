@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="${contextPath}/resources/css/campList.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap-icons.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap_main_header.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/boxicons.css">
     <script src="https://kit.fontawesome.com/a2e8ca0ae3.js" crossorigin="anonymous"></script>
 </head>
 
@@ -26,12 +27,6 @@
 
             <section class="layer_search">
 
-                <div class="divv">
-                    <h2>
-                        <span class="skip" >캠핑장을 찾아보세요 !  </span>
-                        
-                    </h2>
-                </div>
                 <div class="search_box">
 
                     <form id="campSearchForm" action="" method="get">
@@ -94,7 +89,7 @@
         <div class="searchVal" id="searchVal" >
 
             <br>
-            <div class="campResult"><h2 id="campResult"> <br>캠핑장을 검색해주세요.</h2></div>
+            <div class="campResult"><h2 id="campResult"> <br>캠핑장을 검색중입니다.</h2></div>
             <section class="searchBox" id ="searchBox" >
 
                

@@ -10,7 +10,7 @@
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <title>회원가입</title>
 
-
+     <link rel="stylesheet" href="${contextPath}/resources/css/boxicons.css">
      <link rel="stylesheet" href="${contextPath}/resources/css/main.css">
      <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap-icons.css">
      <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap_main_header.css">

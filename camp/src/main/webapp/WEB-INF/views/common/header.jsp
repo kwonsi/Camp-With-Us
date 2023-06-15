@@ -12,7 +12,7 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a href = "/camp/campList/?loc=&theme=">캠핑장조회</a></li>
+          <li><a href = "/camp/campList/?loc=&theme=&campName=">캠핑장조회</a></li>
           <li class="dropdown"><a href="#">게시판</a>
             <ul>
               <c:forEach var="boardType" items="${boardTypeList}">
