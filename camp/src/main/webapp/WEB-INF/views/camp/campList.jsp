@@ -110,6 +110,7 @@
         const loc = "${loc}";
         const theme = "${theme}";
         const campName = "${campName}";
+        const contextPath = "${contextPath}";
     </script>
 
 

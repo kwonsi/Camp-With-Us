@@ -368,6 +368,9 @@ window.onload = function() {
             );
         });
 
+ 
+
+
         console.log("캠핑장수 : " + filteredItems.length);
 
         if ( searchVal2.value==""){
@@ -381,7 +384,14 @@ window.onload = function() {
 
         searchBox2.innerHTML = "";
 
+
         paginatedItems.forEach(item => {
+
+          // 전체데이터 뽑는대신, 이미지없으면 기본이미지 넣어주기.
+  /*         if ( item.firstImageUrl == "" || item.firstImageUrl==null){
+            item.firstImageUrl = contextPath+"/resources/images/cloud.jpg";
+          } */
+
           var htmlCode =
           '<ul>' +
           '<li>' +
@@ -407,8 +417,9 @@ window.onload = function() {
           '</div>' +
           '</li>' +
           '</ul><br><br>';
-
+          
           searchBox2.innerHTML += htmlCode;
+          
         });
 
         var pagination = document.getElementById("pagination");
