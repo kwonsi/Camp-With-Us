@@ -185,6 +185,12 @@ addReply.addEventListener("click", function(){ // 리뷰 등록 버튼이 클릭
             if(result > 0){ // 등록 성공
                 alert("리뷰가 등록되었습니다.");
 
+                for(let i=0; i<reviewStar.length; i++) {
+                    reviewStar[i].checked = false;
+                }
+
+
+
                 reviewContents.value = ""; // 작성했던 리뷰 삭제
 
                 selectReplyList(); // 비동기 리뷰 목록 조회 함수 호출
