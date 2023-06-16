@@ -148,6 +148,7 @@ var campRate = 0; // 별점 저장용 변수
 if (addReply) {
 addReply.addEventListener("click", function(){ // 리뷰 등록 버튼이 클릭이 되었을 때
 
+
     // 1) 로그인이 되어있나? -> 전역변수 loginMemberNo 이용
     if(loginMemberNo == ""){ // 로그인 X
         alert("로그인 후 이용해주세요.");

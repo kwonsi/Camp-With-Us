@@ -5,7 +5,7 @@
 body {
     height: auto;
     margin: 0;
-    margin-top: 90px;
+   /*  margin-top: 90px; */
 /*     background-image: url('../images/test1.jpg'); 
      background-size: 100% 100%;  */
 }
@@ -171,7 +171,7 @@ transition: background-color 5000s;
 }
 
 a {
-  color: #22c730;
+  color: #0b9d18;
   text-decoration: none;
 }
 

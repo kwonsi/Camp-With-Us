@@ -15,7 +15,6 @@ public class Board {
 	private String createDate;
 	private int readCount;
 	private String thumbnail;
-
 	private String boardContent;
 
 }
