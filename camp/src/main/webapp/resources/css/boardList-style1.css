@@ -11,12 +11,11 @@ hr{
     text-decoration: none;
     color : black;
 }
-
 .board a:hover{
     text-decoration: underline;
 }
 
-/* contain */
+/* section */
 .contain{
     display: flex;
     justify-content: center;
@@ -33,8 +32,8 @@ span{
     text-align: center;
 }
 
-/* board */
-.board{
+/* board 위, 아래 */
+.board1{
     margin-left: 35px;
     margin-right: 35px;
     height: 550px;
@@ -42,7 +41,6 @@ span{
     background-color: rgb(237, 235, 235);
     /* border : 1px solid black; */
 }
-
 .board2{
     margin-left: 35px;
     margin-right: 35px;
@@ -53,7 +51,7 @@ span{
 }
 
 
-/* 게시판 목록 화면 전체 영역 설정 */
+/* board 아래 영역 설정 */
 .board-list{
     display: flex;
     /* width: 1200px; */
@@ -64,64 +62,35 @@ span{
 }
 
 
-/* 게시판 목록 div */
-.board-div{
-    /* justify-content: center;
-    align-items: center; */
-    text-align: center;
-    /* flex-direction: row; */
-    width: 25%;
-    height: 200px;
-    /* border : 1px solid black; */
-    
-}
-
-.board-div2{
-    text-align: center;
-    /* flex-direction: row; */
-    width: 20%;
-    height: 400px;
-    border : 1px solid black;
-}
-
-/* 빈공간 */
+/* board 위 아래를 나누는 빈공간 */
 .board-empty{
     height: 100px;
     /* border : 1px solid black; */
 }
 
-/* 게시판 이름 */
-.board-name{
-    font-size: 2.5em;
-    margin-left: 30px;
-}
 
 /* div headline 관련 */
 .headline{
     text-align: center;
 }
-
 .headline2{
     text-align: center;
     width: 450px;
     margin-bottom: 5px;
 }
 
-/* 이미지 관련 */
+
+/* 여행지 추천 */
 .recommend-img{
     width: 90%;
     height: 200px;
 }
-
-/* 제목 관련 */
 .recommend-title{
     margin: auto;
     width: 90%;
     height: 10%;
     /* border : 1px solid black; */
 }
-
-/* 내용 관련 */
 .recommend-content{
     margin: auto;
     width: 90%;
@@ -131,7 +100,13 @@ span{
 }
 
 
-/* 슬라이드박스 */
+/* 페이스북 */
+.board2-1{
+    border: 1px solid black;
+}
+
+
+/* 슬라이드박스(여행지 추천) */
 .slide_div{
 	padding: 20px 0 20px 0;
     background: #e6e9f6;
@@ -163,6 +138,30 @@ span{
     justify-content: center;
     align-items: center;
 }
+
+
+/* 슬라이드박스(광고) */
+.slide_div2{
+    /* text-align: center; */
+    /* flex-direction: row; */
+    margin-left: 70px;
+    width: 55%;
+    height: 400px;
+    /* border : 1px solid red; */
+}
+.multiple-items2 img{
+    border-radius: 5%;
+	width: 350px;
+    height: 400px;
+    /* margin-left: 40px; */
+    display: block;
+	margin: auto;
+}
+.slide-content2{
+    /* border : 1px solid black; */
+}
+
+
 
 
 /* @keyframes : 

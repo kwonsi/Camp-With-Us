@@ -6,16 +6,14 @@
 /* a 태그 */
 .boardTitle{
     font-weight: bold;
-    cursor: pointer;
 }
 
 .boardTitle:hover{
     color: lightgreen;
 }
 
-.boardContent{
+.board_Content{
     color: #acacaf;
-    cursor: pointer;
 }
 
 

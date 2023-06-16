@@ -32,7 +32,7 @@
 
 /* 이미지 영역 */
 .img-box{
-    display: flex;
+    /* display: flex; */
     justify-content: space-between;
 }
 
@@ -90,7 +90,7 @@
 .board-content{
     padding: 30px 0;
     margin: 30px 0;
-    border-top : 3px solid #ccc;
+    /* border-top : 3px solid #ccc; */
     border-bottom : 3px solid #ccc;
 }
 
@@ -124,6 +124,22 @@
     background-color: white;
     color : #455ba8;
     border: 2px solid #455ba8;
+}
+
+
+
+
+#att_zone {
+    width: 660px;
+    min-height: 200px;
+    padding: 10px;
+    border: 1px dotted #999;
+}
+  
+#att_zone:empty:before {
+content: attr(data-placeholder);
+color: #999;
+font-size: .9em;
 }
 
 .container,

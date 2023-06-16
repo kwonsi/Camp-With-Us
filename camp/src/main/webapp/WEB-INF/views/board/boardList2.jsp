@@ -10,7 +10,6 @@
 
 <c:set var="pagination" value="${map.pagination}" />
 <c:set var="boardList" value="${map.boardList}" />
-<c:set var="board" value="${board}" />
 
 
 <!DOCTYPE html>
@@ -66,6 +65,7 @@
 
                                 <!-- 향상된 for문처럼 사용 -->
                                 <c:forEach var="board" items="${boardList}">
+
                                     <div class="list1">
                                         <div class="list1-1"> 
                                             <c:if test="${!empty board.thumbnail}">
@@ -82,7 +82,7 @@
 
                                             <div class="list1-4">
                                                 <p>작성자 : ${board.memberNickname} &nbsp;|&nbsp; 작성일 : ${board.createDate} &nbsp;|&nbsp; 조회수 : ${board.readCount}</p>
-                                                <a href="../detail/${boardCode}/${board.boardNo}?cp=${pagination.currentPage}${sURL}" class="boardContent"><p>${board.boardContent}</p></a>                        
+                                                <a href="../detail/${boardCode}/${board.boardNo}?cp=${pagination.currentPage}${sURL}" class="board_Content"><p class="boardContent">${board.boardContent}</p></a>                        
                                                 <%-- detail?no=${board.boardNo}&cp=${pagination.currentPage}&type=${param.type}${sURL} --%>
                                                 <%-- 현재 페이지 주소 : /board/list/1?cp=1
                                                 상세 조회 주소   : /board/detail/1/300?cp= --%>
@@ -181,6 +181,8 @@
 
     <script src="${contextPath}/resources/js/board/board.js"></script>
     
-
+    <script>
+        const boardList = "${boardList}";
+    </script>
 </body>
 </html>

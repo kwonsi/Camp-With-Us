@@ -18,6 +18,9 @@
 
 
     <script src="https://kit.fontawesome.com/a2e8ca0ae3.js" crossorigin="anonymous"></script>
+
+
+
 </head>
 <body>
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
@@ -58,6 +61,18 @@
                     <p> <span>조회수</span>         ${detail.readCount} </p>                    
                 </div>
             </div>
+
+
+            
+            <!-- 내용 -->
+            <div class="board-content">
+                ${detail.boardContent}
+            </div>
+            <!-- <div class="container board-content">
+                <div id="summernote" name="boardContent">${detail.boardContent}</div>
+            </div> -->
+
+
 
             <!-- 이미지가 있을 경우 -->
             <c:if test="${!empty detail.imageList}">
@@ -110,11 +125,6 @@
                 </c:if>        
 
             </c:if>
-
-            <!-- 내용 -->
-            <div class="board-content">
-                ${detail.boardContent}
-            </div>
 
 
             <!-- 버튼 영역-->
@@ -190,6 +200,8 @@
 
     <script src="${contextPath}/resources/js/board/reply.js"></script>
 
+
+    
 
 
 </body>
