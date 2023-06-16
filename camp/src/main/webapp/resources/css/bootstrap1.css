@@ -3713,7 +3713,10 @@ fieldset:disabled .btn {
     --bs-btn-font-size: calc(1.2625rem + 0.15vw);
     --bs-btn-border-radius: 2.688em;
     width: 120px;
-    margin: auto;
+    margin: 20px;
+    border: none;
+    outline: none;
+   
     
 }
 

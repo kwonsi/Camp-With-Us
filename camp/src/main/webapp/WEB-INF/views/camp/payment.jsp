@@ -10,6 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
+    <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap1.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/main.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/paymentInfo.css">
     <script src="https://kit.fontawesome.com/a2e8ca0ae3.js" crossorigin="anonymous"></script>
@@ -21,53 +22,58 @@
     <form class="payment">
         <div class="paymentInfo">
             <h1>예약 정보</h1>
-            <span id="campN">${campName}</span>
+            <div class="campDiv">
+            <span id="campN" class="campN">${campName}</span>
+            </div>
             <div class="reverDate">
-                선택한 날짜<br><span class="datePick"></span>
+                선택한 날짜<br><br><span class="datePick"></span>
             </div>
             <div class="reverName">
-                예약자 이름<br><input type="text" id="name" class="name" value="${member.memberNickname}">
+                예약자 이름<br><input type="text" id="name" class="name" value="${member.memberNickname}" readonly>
             </div>
             <div class="reverEmail">
-                예약자 이메일<br><input type="email" id="email" class="email" value="${member.memberEmail}">
+                예약자 이메일<br><input type="email" id="email" class="email" value="${member.memberEmail}" readonly>
             </div>
             <div class="reverTel">
-                예약자 전화번호<br><input type="tel" id="tel" class="tel" value="${member.memberTel}">
+                예약자 전화번호<br><input type="tel" id="tel" class="tel" value="${member.memberTel}" readonly>
             </div>
             <c:set var="addr"  value="${fn:split(member.memberAddress, ',,')}"  /> 
             <div class="reverAddress">
                 예약자 주소<br>
                 <div class="myPage-row info-address">
-                    <input type="text" name="updateAddress" id="postcode" value="${addr[0]}"  maxlength="6">
+                    <input type="text" name="updateAddress" id="postcode" value="${addr[0]}"  maxlength="6" readonly>
                 </div>
 
                 <div class="myPage-row info-address">
-                    <input type="text" name="updateAddress" id="address" value="${addr[1]}">
+                    <input type="text" name="updateAddress" id="address" value="${addr[1]}" readonly>
                 </div>
                 
                 <div class="myPage-row info-address">
-                    <input type="text" name="updateAddress" id="detailAddress" value="${addr[2]}">
+                    <input type="text" name="updateAddress" id="detailAddress" value="${addr[2]}" readonly>
                 </div>
             </div>
             <div class="reverPeople">
                 선택한 인원<br><br>
                 <div class="peopleSum">
                     <div class="adul">
-                성인&nbsp;<input type="text" id="peopleAdult" class="peopleAdult">명
+                성인&nbsp;<span id="peopleAdult" class="peopleAdult"></span>
                     </div>
                     <div class="chil">
-                영/유아&nbsp;<input type="text" id="peopleChild" class="peopleChild">명
+                영/유아&nbsp;<span id="peopleChild" class="peopleChild"></span>
                     </div>
                 </div>
             </div>
-            <div class="price">
-                결제할 금액&nbsp;:&nbsp;<input type="text" id="price2" class="price2">
-            </div>
-            
-            <button type="button" class="btn btn-lg btn-primary" onclick="requestPay()">예약하기</button>
-
+        </div>
+        <div class="price">
+            결제할 금액&nbsp;:&nbsp;<input type="text" id="price2" class="price2">
+        </div>
+        <div class="buttons">
+        <button type="button" class="btn btn-lg btn-primary" onclick="requestPay()">결제하기</button>
+        <button type="button" class="btn btn-lg btn-primary" onclick="historyBack()">돌아가기</button>
         </div>
     </form>
+
+    <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
     <script>
 let priceValue
@@ -86,9 +92,16 @@ let priceValue
 
             let price = JSON.parse(localStorage.getItem("totalPrice"));
             const price2 = document.querySelector(".price2");
-            price2.value = price;
+            price2.value = price + " 원";
             priceValue = price;
-           
+
+            let totalPeopleValue = JSON.parse(localStorage.getItem("totalPeopleValue"))
+           console.log(totalPeopleValue)
+           let peopleAdult = document.querySelector(".peopleAdult");
+           let peopleChild = document.querySelector(".peopleChild");
+           peopleAdult.innerHTML = totalPeopleValue['adultOption'] + " 명";
+           peopleChild.innerHTML = totalPeopleValue['childOption'] + " 명";
+
         }
         window.onload = datePicker;
         
@@ -128,8 +141,7 @@ var memberTel = document.querySelector(".tel").value;
             if (rsp.success) {
 
                   console.log("성공");
-                  alert("결제가 완료되었습니다");
-                 
+                  
                   let selectDate = document.querySelector(".datePick").textContent;
                   let people = JSON.parse(localStorage.getItem("totalPeople"))
                  $.ajax({
@@ -146,8 +158,9 @@ var memberTel = document.querySelector(".tel").value;
                        console.log(campName, selectDate, rsp.buyer_name, priceValue, people,memberNo)
                         if(result > 0) {
                             console.log("예약정보 전송완료");
-                            window.location.href = '${contextPath}/member/myPage/myReservation';
-
+                            // window.location.href = '${contextPath}/member/myPage/myReservation';
+                            window.location.href = '${contextPath}/reservationComplete';
+                            localStorage.clear();
 
                         }else {
                             console.log("예약정보 전송실패");
@@ -163,11 +176,13 @@ var memberTel = document.querySelector(".tel").value;
 
               } else {
                 console.log("실패");
-                alert("날짜/인원을 선택해주세요.");
+                alert("결제가 취소되었습니다.");
               }
             });
 }
-
+function historyBack(){
+    history.back();
+}
     </script>
     <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>

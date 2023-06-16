@@ -299,3 +299,7 @@ a{
 .name:focus{
     box-shadow: 0 0 8px rgba(237, 157, 7, 0.978);
 }
+.buttons{
+    display: flex;
+    justify-content: center;
+}

@@ -172,8 +172,9 @@
     
             
             <br>
-            <button>결제</button>
-            
+            <div class="buttons">
+            <button class="btn btn-lg btn-primary">예약하기</button>
+            </div>
         </form>
 
     
@@ -283,7 +284,12 @@ document.addEventListener("DOMContentLoaded", function() {
                         let totalPeople = Number(adultOptionValue) + Number(childrenOptionValue);
                         localStorage.setItem("totalPeople", JSON.stringify(totalPeople));
 
+                        let totalPeopleValue = {adultOption : adultOptionValue,
+                                                childOption : childrenOptionValue}
+                        localStorage.setItem("totalPeopleValue", JSON.stringify(totalPeopleValue))
+
                         let totalPrice = 0;
+                        
                         console.log(people);
                         console.log(adultOptionValue);
                         console.log(childrenOptionValue);
@@ -313,81 +319,7 @@ document.addEventListener("DOMContentLoaded", function() {
             childSelect.addEventListener("input", calculatePrice);
             calculatePrice();
     
- });
-
-
-
-//결제화면
-// function requestPay() {
-//             console.log("requestPay함수 실행");
-            
-//                 var IMP = window.IMP;
-//                 IMP.init("imp66352643");
-//                 IMP.request_pay({
-//                     pg: 'kcp.A52CY',
-//                     pay_method: 'card',
-//                     merchant_uid: 'merchant_' + new Date().getTime(),
-//                     name: campName,
-//                     amount: priceValue,
-//                     buyer_email: memberEmail,
-//                     buyer_name: memberNickname,
-//                     buyer_tel: '010-1234-5678',
-//                     buyer_addr: '구매자 주소 강남구 삼성동',
-    
-//           }, function (rsp) { // callback
-
-//             console.log(rsp);  
-            
-//             if (rsp.success) {
-
-//                   console.log("성공");
-//                   alert("결제가 완료되었습니다");
-                 
-
-//                   let selectfirstmonth = document.querySelectorAll(".pickMonth")[0].textContent;
-//                   let selectfirstday = document.querySelectorAll(".pickDay")[0].textContent;
-//                   let selectlastmonth = document.querySelectorAll(".pickMonth")[1].textContent;
-//                   let selectlastday = document.querySelectorAll(".pickDay")[1].textContent;
-//                   console.log(selectfirstmonth);
-//                   console.log(selectfirstday);
-//                   console.log(selectlastmonth);
-//                   console.log(selectlastday);
-//                   let selectDate = selectfirstmonth + '월 ' + selectfirstday +'일 - ' + selectlastmonth +'월 ' + selectlastday + '일'
-//                   console.log(selectDate)
-
-//                  $.ajax({
-//                     url: "reservationInfo", 
-//                     type: "POST",
-//                     data: { "campingName" : campName,
-//                             "reservSelDate" : selectDate,
-//                             "buyerName" : rsp.buyer_name,
-//                             "amount" : priceValue,
-//                             "people" : people,
-//                             "memberNo" : memberNo },
-
-//                     success: function(result) {
-                       
-//                         if(result > 0) {
-//                             console.log("예약정보 전송완료");
-//                             window.location.href = '${contextPath}/member/myPage/myReservation';
-
-
-//                         }else {
-//                             console.log("예약정보 전송실패");
-//                         }
-
-//                     },
-//                     error: function() {
-//                         console.log("예약정보전송 ajax 에러발생");
-//                     }
-//                 });
-
-//               } else {
-//                 console.log("실패");
-//                 alert("날짜/인원을 선택해주세요.");
-//               }
-//             });
-// }
+});
 
 
 //  buyer_postcode: '123-456'

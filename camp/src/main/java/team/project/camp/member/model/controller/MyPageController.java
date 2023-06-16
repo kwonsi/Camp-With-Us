@@ -25,7 +25,8 @@ public class MyPageController {
 
 	@Autowired
 	private CampDetailService service;
-
+	
+	
 	//예약조회
 	@GetMapping("/myReservation")
 	public String reservation(Model model,
