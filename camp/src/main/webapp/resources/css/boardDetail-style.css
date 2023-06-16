@@ -112,6 +112,13 @@
     font-size: 18px;
 }
 
+.board-content > textarea{
+    width: 100%;
+    height: 400px;
+    resize: none;
+    font-size: 18px;
+}
+
 /* 버튼 영역 */
 .board-btn-area{
     text-align: right;

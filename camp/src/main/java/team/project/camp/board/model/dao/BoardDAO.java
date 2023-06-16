@@ -13,6 +13,8 @@ import team.project.camp.board.model.vo.BoardDetail;
 import team.project.camp.board.model.vo.BoardImage;
 import team.project.camp.board.model.vo.BoardType;
 import team.project.camp.board.model.vo.Pagination;
+import team.project.camp.board.model.vo.PlaceRecommend;
+
 
 @Repository
 public class BoardDAO {
@@ -40,7 +42,7 @@ public class BoardDAO {
 	/** 게시판 목록 조회 DAO
 	 * @param pagination
 	 * @param boardCode
-	 * @param boardMap 
+	 * @param boardMap
 	 * @param boardMap 
 	 * @param boardNo 
 	 * @return boardList
@@ -168,6 +170,15 @@ public class BoardDAO {
 	public int updateReadCount(int boardNo) {
 
 		return sqlSession.update("boardMapper.updateReadCount", boardNo);
+	}
+
+	
+	/** 여행지 추천 목록 조회 DAO
+	 * @return result
+	 */
+	public List<PlaceRecommend> selectrdList() {
+		
+		return sqlSession.selectList("boardMapper.selectrdList");
 	}
 
 

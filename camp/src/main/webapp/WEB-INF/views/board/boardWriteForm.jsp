@@ -14,6 +14,12 @@
     <link rel="stylesheet" href="${contextPath}/resources/css/boardWriteForm-style.css">
     <script src="https://kit.fontawesome.com/a2e8ca0ae3.js" crossorigin="anonymous"></script>
 
+
+    <!-- 서머노트를 위해 추가해야할 부분 -->
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/summernote/summernote-lite.css">	
+
+
 </head>
 <body>
     <main>
@@ -57,7 +63,10 @@
 
 
 
+            
+            
 
+            
             <!-- 썸네일 -->
             <h5>썸네일</h5>
             <div class="img-box">
@@ -67,7 +76,6 @@
                     </label>
                     <input type="file" class="inputImage" id="img0" name="images" accept="image/*">
                     <span class="delete-image">&times;</span>
-                    <!-- &times;  :  x 모양의 문자 -->
                 </div>
             </div>
 
@@ -102,25 +110,35 @@
                 <div class="boardImg">
                     <label for="img4">
                         <img class="preview" src="${img4}">
-                    </label>
+                    </label> 
                     <input type="file" class="inputImage" id="img4" name="images" accept="image/*">
                     <span class="delete-image">&times;</span>
                 </div>
-           
+            
             </div>
 
             <!-- 내용 -->
-            <div class="board-content">
-
-                <!-- 
-                    XSS 처리로 인해서 &lt; 과 같은 형태로 변한 문자들은
-                    HTML 문서에 출력 될 때 &lt; 가 아닌 해석된 형태 "<" 로 출력이 된다.
-                    -> 이 특징을 이용하면 별도로 XSS 처리를 해제하는 코드를 작성할 필요가 없다!
-
-                    하지만 개행문자 <br> -> \n으로 변경하는 코드는 필요하다!
-                -->
-                <textarea name="boardContent">${detail.boardContent}</textarea>
+            <div class="container board-content">
+                <textarea class="summernote" name="boardContent">${detail.boardContent}</textarea>
             </div>
+
+
+            <!-- 사진파일 추가 -->
+            <!-- <div class="img-box" id="image_preview">
+                <button id="btn-upload" type="button" style="border: 1px solid #ddd; outline: none; margin-bottom: 2px;">파일 선택</button>
+                <input type="file" id="btnAtt" multiple="multiple" name="images" style="display:none;" />
+                <div id="att_zone"
+                  data-placeholder="사진을 첨부 하려면 파일 선택 버튼을 클릭하거나 파일을 드래그앤드롭 하세요"></div>
+            </div> -->
+            <div class="img-box" id="image_preview">
+                <button id="btn-upload" type="button" style="border: 1px solid #ddd; outline: none; margin-bottom: 2px;">파일 선택</button>
+                <input type="file" id="btnAtt" multiple="multiple" name="images" style="display:none;" />
+                <div id="att_zone"
+                  data-placeholder="사진을 첨부 하려면 파일 선택 버튼을 클릭하거나 파일을 드래그앤드롭 하세요"></div>
+            </div>
+
+           
+            
 
             <!-- 버튼 영역 -->
             <div class="board-btn-area">
@@ -158,20 +176,25 @@
             <input type="hidden" name="deleteList" id="deleteList" value="">
 
         </form>
+
         
     </main>
 
-    <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
-    
-    
-    <script>
-    	const boardCode = "${boardCode}"; // 게시판코드를 전역변수로 생성해주기
-    </script>
-    
-    
 
-    <script src="${contextPath}/resources/js/board/board.js"></script>
-    <script src="${contextPath}/resources/js/board/boardWriteForm.js"></script>
+        <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
+
+        <script src="${pageContext.request.contextPath}/resources/summernote/summernote-lite.js"></script>
+        <script src="${pageContext.request.contextPath}/resources/summernote/lang/summernote-ko-KR.js"></script>
+
+
+
+        <script>
+            const boardCode = "${boardCode}"; // 게시판코드를 전역변수로 생성해주기
+        </script>
+    
+     
+        <script src="${contextPath}/resources/js/board/board.js"></script>
+        <script src="${contextPath}/resources/js/board/boardWriteForm.js"></script>
 
 
 </body>

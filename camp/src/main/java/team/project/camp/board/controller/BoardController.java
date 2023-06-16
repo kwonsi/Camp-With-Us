@@ -29,6 +29,7 @@ import team.project.camp.board.model.service.BoardService;
 import team.project.camp.board.model.service.ReplyService;
 import team.project.camp.board.model.vo.Board;
 import team.project.camp.board.model.vo.BoardDetail;
+import team.project.camp.board.model.vo.PlaceRecommend;
 import team.project.camp.board.model.vo.Reply;
 import team.project.camp.common.Util;
 import team.project.camp.member.model.vo.Member;
@@ -56,10 +57,15 @@ public class BoardController {
 	@GetMapping("/list/{boardCode}")
 	public String boardList( @PathVariable("boardCode") int boardCode,
 							@RequestParam(value="cp", required= false, defaultValue="1") int cp,
-							@RequestParam(value="boardContent", required= false) String boardContent,
-							Model model,
-							@RequestParam Map<String, Object> boardMap,
-							@RequestParam Map<String, Object> paramMap) {
+//							@RequestParam(value="boardContent", required= false) String boardContent,
+							Model model, 
+							@RequestParam Map<String, Object> paramMap,
+//							PlaceRecommend placeRecommend,
+//							=> 이걸 쓰면 model에
+//							placeRecommend=team.project.camp.board.model.vo.PlaceRecommend@736da7e8, org.springframework.validation.BindingResult.placeRecommend=org.springframework.validation.BeanPropertyBindingResult: 0 errors
+//							가 담김
+//							=> 여기에 적는 의미가 뭐지? 무조건 model에 값을 담는건가? -> 그건 아님! 그치만 저렇게 뜨는 이유는 모르겠군,,
+							Board board) {
 							// 검색 요청인 경우 : key, query, cp(있거나 없거나)
 		
 		// 게시글 목록 조회 서비스 호출
@@ -70,16 +76,18 @@ public class BoardController {
 		
 		Map<String, Object> map = null;
 		
+		List<PlaceRecommend> list =null;
 		
 		if(paramMap.get("key") == null) { // 검색이 아닌 경우의 게시글 목록조회
-			map = service.selectBoardList(cp, boardCode, boardMap, boardContent);
 			
-			log.info("Controller boardContent :" + boardContent);
-			log.info("Controller map :" +  map.get(boardContent));
-			log.info("Controller paramMap : " + paramMap);
+			map = service.selectBoardList(cp, boardCode);
 
-			boardMap.put("boardContent", boardContent);
+			list = service.selectrdList();
 			
+			model.addAttribute(list);
+			
+			
+			log.info("Controller list : " +  list);
 			
 			
 		}else { // 검색인 경우
@@ -93,13 +101,14 @@ public class BoardController {
 			map = service.searchBoardList(paramMap);
 			
 		}
-	
-		model.addAttribute("map" ,map);
-		model.addAttribute("boardMap" ,boardMap);
 		
-		log.info("Controller map2 :" +  map);
-		log.info("Controller boardContent :" +  boardContent);
+	
+		model.addAttribute("map", map);
+		
+		
+		log.info("Controller map :" +  map);
 		log.info("Controller model :" +  model);
+
 		
 		return "board/boardList"+ boardCode;
 	}
@@ -121,7 +130,10 @@ public class BoardController {
 		// 게시글 상세 조회 서비스 호출
 		BoardDetail detail = service.selectBoardDetail(boardNo);
 		
-		log.info("detail : " + detail.getBoardContent());
+		// BoardContent만 XSS 방지 처리 해제
+		detail.setBoardContent(Util.XSSClear( detail.getBoardContent() ));
+		
+		log.info("Controller detail.getBoardContent : " + detail.getBoardContent());
 		
 		// @ModelAttribute("loginMember") Member loginMember  (사용불가)
 		// @ModelAttribute는 별도의 required 속성이 없어서 무조건 필수 조건임!
@@ -243,6 +255,7 @@ public class BoardController {
 			// -> 개행문자가 <br> 태그로 되어있는 상태임 -> textarea 출력 예정이기 때문에  \n으로 변경해야함
 			detail.setBoardContent( Util.newLineClear( detail.getBoardContent() ) );
 			
+			
 			model.addAttribute("detail", detail);
 		}
 		
@@ -257,6 +270,7 @@ public class BoardController {
 	public String boardWrite( BoardDetail detail, // boardTitle, boardContent, boardNo(수정)
 							@RequestParam(value="images", required=false) List<MultipartFile> imageList, // 업로드 파일(이미지) 리스트
 							@PathVariable("boardCode") int boardCode,
+							Model model,
 							String mode,
 							@ModelAttribute("loginMember") Member loginMember,
 							RedirectAttributes ra,
@@ -273,10 +287,16 @@ public class BoardController {
 		String webPath = "/resources/images/board/";
 		String folderPath = req.getSession().getServletContext().getRealPath(webPath);
 		
-		log.info("mode : "+ mode);
+		model.addAttribute(imageList);
+		
+		log.info("Controller model22sssda22 : "+ model);
+		log.info("Controller mode : "+ mode);
 		
 		// 3) 삽입인지 수정인지 나눠주기
 		if(mode.equals("insert")) { // 삽입
+			
+			// BoardContent만 XSS 방지 처리 해제
+			detail.setBoardContent(Util.XSSClear( detail.getBoardContent() ));
 			
 			// 게시글 부분 삽입 (이미지가 없을때) 제목, 내용, 회원번호, 게시판코드
 			// -> 삽입 된 게시글의 번호(boardNo) 반환 (왜? 삽입이 끝나면 게시글 상세조회로 리다이렉트할거라서)
@@ -288,7 +308,7 @@ public class BoardController {
 			
 			int boardNo = service.insertBoard(detail, imageList, webPath, folderPath);
 			
-			log.info("imageList : "+imageList);
+			log.info("Controller imageList : "+imageList);
 			
 			String path = null;
 			String message = null;
@@ -309,6 +329,9 @@ public class BoardController {
 			return "redirect:" + path;
 			
 		} else { // 수정
+			
+			// BoardContent만 XSS 방지 처리 해제
+			detail.setBoardContent(Util.XSSClear( detail.getBoardContent() ));
 			
 			// 게시글 수정 서비스 호출
 			// 게시글 번호를 알고있기 때문에 수정 결과만 반환받으면 된다.
@@ -367,10 +390,6 @@ public class BoardController {
 		
 		return "redirect:" + path;
 	}
-	
-	
-	
-	
 	
 	
 	
