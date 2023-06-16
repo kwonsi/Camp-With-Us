@@ -1,5 +1,7 @@
 package team.project.camp.member.model.service;
 
+import java.util.List;
+
 import team.project.camp.member.model.vo.Member;
 
 public interface MemberService {
@@ -34,7 +36,7 @@ public interface MemberService {
 	 * @param memberTel
 	 * @return
 	 */
-	public abstract String findId(String memberTel);
+	public abstract List<String> findId(String memberTel);
 
 	/** 임시 비밀번호 설정 서비스
 	 * @param memberEmail

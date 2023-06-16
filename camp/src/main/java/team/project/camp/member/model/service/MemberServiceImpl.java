@@ -1,5 +1,7 @@
 package team.project.camp.member.model.service;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,7 +52,7 @@ public class MemberServiceImpl implements MemberService {
 
 	// 아이디 찾기 서비스 구현
 	@Override
-	public String findId(String memberTel) {
+	public List<String> findId(String memberTel) {
 		return dao.findId(memberTel);
 	}
 

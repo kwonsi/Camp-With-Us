@@ -1,5 +1,6 @@
 package team.project.camp.member.model.controller;
 
+import java.util.List;
 import java.util.Random;
 
 import javax.mail.internet.MimeMessage;
@@ -267,10 +268,19 @@ public class MemberController {
 	@PostMapping("/findId")
 	public String findId(String memberTel, RedirectAttributes ra) {
 
-		String id = service.findId(memberTel);
+		List<String> idList = service.findId(memberTel);
 
-		logger.info("id : " + id);
-
+		logger.info("id : " + idList);
+		
+		String id = "";
+		
+		for(int i=0; i<idList.size(); i++) {
+			
+			if( i == idList.size() - 1 ) id += idList.get(i);
+			else id += idList.get(i) + " / ";
+			
+		}
+		
 		ra.addFlashAttribute("message", "회원님의 ID는 " + id + " 입니다");
 
 		return "redirect:/member/findIdPw";

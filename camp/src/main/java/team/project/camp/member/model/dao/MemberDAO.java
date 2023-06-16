@@ -1,5 +1,7 @@
 package team.project.camp.member.model.dao;
 
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -66,8 +68,8 @@ public class MemberDAO {
 	 * @param memberTel
 	 * @return
 	 */
-	public String findId(String memberTel) {
-		return sqlSession.selectOne("memberMapper.findId" ,memberTel);
+	public List<String> findId(String memberTel) {
+		return sqlSession.selectList("memberMapper.findId" ,memberTel);
 	}
 
 
