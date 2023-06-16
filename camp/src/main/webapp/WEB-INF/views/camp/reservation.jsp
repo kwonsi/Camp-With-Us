@@ -144,7 +144,6 @@
             <button type="button" class="btn btn-lg btn-primary" onclick="requestPay()">결제하기</button>
         </form>
 
-    
         
     </main>
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
