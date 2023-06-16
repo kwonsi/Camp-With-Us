@@ -253,10 +253,13 @@ public class MemberController {
 
 	// 로그아웃
 	@GetMapping("/logout")
-	public String logout(SessionStatus status) {
+	public String logout(SessionStatus status,
+			RedirectAttributes ra
+			) {
 
 		logger.info("로그아웃 수행됨");
 
+		ra.addFlashAttribute("message","로그아웃 되었습니다.");
 		status.setComplete(); // 세센이 할 일이 완료됨 -> 없앰
 
 		return "redirect:/"; // 메인페이지 리다이렉트

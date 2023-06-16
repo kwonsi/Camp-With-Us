@@ -7,7 +7,7 @@
 
       <div class="logo">
         <a href="${contextPath}"><img src="${contextPath}/resources/images/camp_logo.jpg" id="home-logo"></a>
-        <h1>캠핑보내조</h1>
+        &nbsp;<h1>W</h1><h4>orld</h4> <h1>&nbsp;C</h1><h4>amp</h4> <h1>&nbsp;T</h1><h4>ogether</h4>
       </div>
 
       <nav id="navbar" class="navbar">
