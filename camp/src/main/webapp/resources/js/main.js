@@ -209,7 +209,7 @@ window.onload = function () {
 
         success: function (result) {
             console.log("API 호출 성공");
-            console.log(result);
+            
 
             var items = result.response.body.items.item;
 
@@ -286,9 +286,10 @@ window.onload = function () {
             console.log(count);
 
         },
-        error: function (error) {
+        error: function (request, status, error) {
             console.log("API 호출 실패");
-            console.log(error);
+            console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+            
         }
     });
 };
