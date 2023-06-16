@@ -47,7 +47,7 @@
                 <ul>
                   <li><a href="${contextPath}/member/login">로그인</a></li>
                   <li><a href="${contextPath}/member/signUp">회원가입</a></li>
-                  <li><a href="${contextPath}/member/findIdPw">아이디/비밀번호<br>찾기</a></li>
+                  <li><a href="${contextPath}/member/findIdPw?findType=id">아이디/비밀번호<br>찾기</a></li>
                 </ul>
               </li>
             </c:when>
