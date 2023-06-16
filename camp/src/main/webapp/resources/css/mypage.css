@@ -68,6 +68,7 @@
     letter-spacing: -1px;
 }
 
+
 .myPage-row{
     width: 500px;
     height: 50px;
@@ -75,7 +76,11 @@
 
     display: flex;
     align-items: center;
-    border-bottom : 2px solid #ddd;
+    /* border-bottom : 2px solid #ddd; */
+}
+
+#form-profileImage .myPage-row {
+    height: 200px;
 }
 
 .myPage-row > *{
@@ -84,8 +89,8 @@
 }
 
 .myPage-row > label{
-    width: 30%;
-    color : #455ba8;
+    width: 150px;
+    color : black;
 }
 
 .myPage-row > span{
@@ -93,7 +98,7 @@
 }
 
 .myPage-row > input{
-    width: 100%;
+    width: 70%;
     height: 100%;
     border : 0;
     outline: 0;
@@ -101,7 +106,7 @@
 }
 
 .myPage-row:focus-within{
-    border-bottom: 2px solid #455ba8;
+    border-bottom: 2px solid #ee7843;
 }
 
 form[name="myPage-form"]{
@@ -138,7 +143,9 @@ form[name="myPage-form"]{
 /* 프로필 버튼 영역 */
 .profile-btn-area{
     width: 230px;
-    margin: 20px 0;
+    position: relative;
+    left: -20px;
+    margin: 10px 0;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -164,9 +171,13 @@ form[name="myPage-form"]{
 
 /* 변경하기 버튼 */
 .profile-btn-area > button{
-    background-color: #455ba8;
+    background-color: #ee7843;
     color : white;
     border: 0;
+}
+
+.profile-btn-area > button:hover{
+    background-color: #ef7f4d;
 }
 
 /* 프로필 이미지 삭제 버튼 */
@@ -178,7 +189,7 @@ form[name="myPage-form"]{
 }
 
 .info-title{
-    color : #455ba8;
+    color : black;
     border : 0;
 }
 
@@ -191,22 +202,30 @@ form[name="myPage-form"]{
 
     font-size: 14px;
     font-weight: normal;
-
-    background-color: white;
+    color: white;
+    background-color: #eb5d1e;
     border : 1px solid gray;
     cursor: pointer;
 }
 
 #info-update-btn {
-    width: 100%;
+    width: 50%;
     padding: 10px;
     margin: 50px 0;
     border: none;
     font-size: 20px;
     font-weight: bold;
-    background-color: #455ba8;
+    background-color: #ee7843;
     color: white;
     cursor: pointer;
+}
+
+#info-address-btn:hover {
+    background-color: #ef7f4d;
+}
+
+#info-update-btn:hover {
+    background-color: #ef7f4d;
 }
 
 /* 비밀번호 변경 */

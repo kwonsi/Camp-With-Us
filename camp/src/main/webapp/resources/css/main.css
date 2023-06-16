@@ -71,6 +71,7 @@ transition: background-color 5000s;
 
 .navbar li {
   position: relative;
+  display: flex;
   font-size: 18px;
   color: white;
 }
@@ -170,7 +171,15 @@ a:hover {
     text-decoration: none;
 }
 
+#member-profile {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
 
+#memberId {
+  padding: 10px 0 10px 10px !important;
+}
 
 /* #myPage {
   cursor: pointer;
