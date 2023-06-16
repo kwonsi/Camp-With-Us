@@ -6,7 +6,7 @@
 
     <div class="footer-top">
         <div class="container">
-        <div class="row">
+            <div class="row">
 
 <!--             <div class="col-lg-3 col-md-6 footer-contact">
             <h3>캠핑보내조</h3>
@@ -64,7 +64,7 @@
             </ul>
             </div>
 
-        </div>
+            </div>
         </div>
     </div>
 
