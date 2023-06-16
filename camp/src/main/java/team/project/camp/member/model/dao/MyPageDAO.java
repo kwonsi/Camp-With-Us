@@ -7,6 +7,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import team.project.camp.board.model.vo.Board;
 import team.project.camp.detail.model.vo.Review;
 
 @Repository
@@ -66,4 +67,15 @@ public class MyPageDAO {
 	public List<Review> selectMyReplyList(int memberNo) {
 		return sqlSession.selectList("myPageMapper.selectMyReplyList", memberNo);
 	}
+
+
+	/** 내 게시글 조회 DAO
+	 * @param memberNo
+	 * @return
+	 */
+	public List<Board> selectMyBoard(int memberNo) {
+		return sqlSession.selectList("myPageMapper.selectMyBoard", memberNo);
+	}
+	
+
 }

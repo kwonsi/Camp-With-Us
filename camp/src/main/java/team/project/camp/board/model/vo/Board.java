@@ -16,5 +16,5 @@ public class Board {
 	private int readCount;
 	private String thumbnail;
 	private String boardContent;
-
+	private int boardCode;
 }

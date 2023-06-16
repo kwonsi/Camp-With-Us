@@ -14,6 +14,7 @@
 
         <link rel="stylesheet" href="${contextPath}/resources/css/login.css">
         <link rel="stylesheet" href="${contextPath}/resources/css/boxicons.css">
+        <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap-icons.css">
 <!--         <link rel="stylesheet" href="${contextPath}/resources/css/main-bootstrap.css">
         <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap-icons.css">
         <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap_main_header.css"> -->
@@ -70,7 +71,7 @@
                 <div class="findSignupBtn">
                     <a class="signUpBtn" href="${contextPath}/member/signUp">회원가입</a>
                     &ensp;|&ensp;
-                    <a class="findIdPwBtn" href="${contextPath}/member/findIdPw">아이디/비밀번호 찾기</a>
+                    <a class="findIdPwBtn" href="${contextPath}/member/findIdPw?findType=id">아이디/비밀번호 찾기</a>
                 </div>
 
 
