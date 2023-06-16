@@ -70,7 +70,7 @@
                 <div class="findSignupBtn">
                     <a class="signUpBtn" href="${contextPath}/member/signUp">회원가입</a>
                     &ensp;|&ensp;
-                    <a class="findIdPwBtn" href="${contextPath}/member/findIdPw">아이디/비밀번호 찾기</a>
+                    <a class="findIdPwBtn" href="${contextPath}/member/findIdPw?findType=id">아이디/비밀번호 찾기</a>
                 </div>
 
 
