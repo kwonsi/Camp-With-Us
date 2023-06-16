@@ -1,3 +1,7 @@
+
+
+
+
 body{
     box-sizing: border-box;
     margin: 0px;
@@ -5,20 +9,20 @@ body{
    
 }
 main{
-    width: 1200px;
+    width: auto;
     margin:auto;
     display: flex;
     justify-content: center;
     flex-direction:column ;
 }
-.header{
+/* .header{
     height: 100px;
     border: 1px solid black;
 }
 .footer{
     height: 100px;
     border: 1px solid black;
-}
+} */
 
 h3{
     margin-top: 0px;
@@ -29,7 +33,12 @@ li {
 }
 
 div > .camp_info_text > span {
-    font-size: 13px;
+    font-size: 15px;
+    color: rgb(79, 79, 79);
+}
+h5{
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 hr {
     margin-top: 0px;
@@ -40,17 +49,133 @@ hr {
 .layer_search{
     justify-content: center;
     display: flex;
-    width: 800px;
-    height: 300px;
-    border: 1px solid green;
+    width: 1500px;
+    height: 500px;
+  /*   border: 1px solid green; */
+    flex-direction: column;
+    align-items: center;
 }
 .search{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 400px;
+    height: 600px;
     border: 1px solid black;
+    background-image: url('../images/main4.gif'); 
+    background-size: 100% 100%; 
 }
+
+
+
+
+
+
+
+/* 검색 레이어박스 스타일 */
+.search_box_form {
+    /* background-color: #4caf50; */
+    background-color: #00000061;
+    padding: 40px;
+    border-radius: 5px;
+    width: 800px;
+    height: 350px;
+    display: grid;
+    justify-content: center;
+    align-content: space-around;
+    margin-top: 100px;
+  }
+  .search_box_form > div {
+    font-size: 20px;
+    color: white;
+  }
+  .search_box_form > div input {
+    width: 450px;
+    height: 50px;
+    border-radius: 5px;
+  }
+  .search_box_form > div select {
+    width: 250px;
+    height: 50px;
+    border-radius: 5px;
+  }
+  .search_box_form > .form1_2 > .select_03{
+    width: 350px;
+  }
+  .search_box_form > div > button {
+    background-color: rgb(56, 56, 56);
+    width: 150px;
+    height: 50px;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+  }
+  .search_box_form > div > button:hover {
+    background-color:black;
+}
+  
+.campResult{
+  display: inline;
+}
+
+
+
+  /* 텍스트 입력 상자 스타일 */
+  .keyword2 {
+    width: 200px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 16px;
+  }
+  
+  /* 셀렉트 박스 스타일 */
+  .select_01, .select_02, .select_03 {
+    width: 200px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 16px;
+    background-color: #fff;
+    color: #333;
+  }
+  
+  /* 검색 버튼 스타일 */
+  .searchBtn {
+    padding: 10px 20px;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+
+/* 에약하기 버튼 스타일*/
+
+.reservation_button {
+  float: right;
+/*   display: inline-block; */
+  margin-right: 50px;
+  padding: 8px 16px;
+  background-color: orange;
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  font-size: 16px;
+ 
+}
+
+.reservation_button:hover {
+  background-color: rgb(249, 190, 81);
+}
+
+
+
+
+
+
+
 
 
 .searchVal{
@@ -58,19 +183,22 @@ hr {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 1000px;
-    border: 1px solid black;
-    margin-top: 10px;
+    height: auto;
+  /*   border: 1px solid black; */
+    background-color: #eee;
+    padding-bottom: 150px;
 }
+
 
 .searchBox{
     justify-content: center; 
     display: flex; 
     /* flex-direction: column; */
-    margin-top: 30px;
-    width: 1000px;
-    height: 700px;
-    border: 1px solid green;
+    margin-top: 20px;
+    width: 1600px;
+    height: auto;
+    /* border: 1px solid green; */
+
 }
 
 .pageNation{
@@ -82,81 +210,59 @@ hr {
 
 /* 리스트 js 목록 스크롤로 표시 */
 .camp_search_list{
-    overflow-y: auto;   
+  /*   overflow-y: auto;   */
+    width: auto; 
+
+}
+.camp_search_list > ul {
+  margin : 0px ;
+  padding: 10px;
 }
 
-/* 검색 레이어박스 스타일 */
-.search_box {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-}
-
-.search_box_form {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    align-items: center;
-}
-
-.keywordDiv {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.keyword2 {
-    width: 200px;
-    padding: 5px;
-    border: 1px solid #ccc;
-}
-
-.form1_2 {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.tt {
-    font-weight: bold;
-}
-
-.select_01,
-.select_02,
-.select_03 {
-    padding: 5px;
-    border: 1px solid #ccc;
-}
-
-.searchBtn {
-    padding: 5px 10px;
-    background-color: #337ab7;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-}
 
 
 
 
 /*   이미지 / 리스트 정렬  */
 .imgSize{
-    width : 240px ;
-    height : 170px ;
+    width : 400px ;
+    height : 250px ;
+    border-radius: 5px;
 }
+
 .camp_info_box {
     display: flex;
     align-items: center;
-    width: 800px;
-    border: 1px solid blue;
+    width: 1400px;
+    border: 1px solid rgb(210, 210, 210);
+    height: 320px;
+    font-size: 21px;
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+    padding-left: 30px;
+    
 }
 
 .img_box {
-    margin-right: 20px;
+
+    border-radius: 10px;
+    width: 400px;
+    height: 250px;
+    overflow: hidden;
+
+}
+
+.img_box > a img{
+  transition: all 0.6s ease-in-out;
+}
+.img_box > a:hover img {
+  transform: scale(1.15);
 }
 
 .camp_info_text {
     flex: 1;
+    margin-left: 40px;
 }
 
 
@@ -213,4 +319,7 @@ hr {
 .pagination-previous {
   order: -1;
 }
+
+
+
 

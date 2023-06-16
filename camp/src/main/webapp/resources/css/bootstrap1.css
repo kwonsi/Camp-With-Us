@@ -286,14 +286,14 @@ sup {
     top: -.5em
 }
 
-a {
+/* a {
     color: rgb(0, 0, 0);
     
 } 
 
 a:hover {
     color: white
-}
+} */
 
 /*
 a:not([href]):not([class]),
@@ -2072,7 +2072,7 @@ progress {
     width: 100%;
     margin-bottom: 1rem;
     color: var(--bs-table-color);
-    vertical-align: top;
+ /*    vertical-align: top; */
     border-color: var(--bs-table-border-color)
 }
 
@@ -2083,13 +2083,13 @@ progress {
     box-shadow: inset 0 0 0 9999px var(--bs-table-accent-bg)
 }
 
-.table>tbody {
+/* .table>tbody {A
     vertical-align: inherit
-}
+} */
 
-.table>thead {
+/* .table>thead {
     vertical-align: bottom
-}
+} */
 
 .table-group-divider {
     border-top: 2px solid currentcolor
@@ -2252,7 +2252,7 @@ progress {
 }
 
 .table-responsive {
-    overflow-x: auto;
+/*     overflow-x: auto; */
     -webkit-overflow-scrolling: touch
 }
 
@@ -8126,10 +8126,10 @@ fieldset:disabled .btn {
     display: table-row !important
 }
 
-.d-table-cell {
+/* .d-table-cell {
     display: table-cell !important
 }
-
+ */
 .d-flex {
     display: flex !important
 }
@@ -9441,9 +9441,9 @@ fieldset:disabled .btn {
         display: table-row !important
     }
 
-    .d-sm-table-cell {
+/*     .d-sm-table-cell {
         display: table-cell !important
-    }
+    } */
 
     .d-sm-flex {
         display: flex !important
@@ -10093,9 +10093,9 @@ fieldset:disabled .btn {
         display: table-row !important
     }
 
-    .d-md-table-cell {
+/*     .d-md-table-cell {
         display: table-cell !important
-    }
+    } */
 
     .d-md-flex {
         display: flex !important
@@ -10745,9 +10745,9 @@ fieldset:disabled .btn {
         display: table-row !important
     }
 
-    .d-lg-table-cell {
+/*     .d-lg-table-cell {
         display: table-cell !important
-    }
+    } */
 
     .d-lg-flex {
         display: flex !important
@@ -11397,10 +11397,10 @@ fieldset:disabled .btn {
         display: table-row !important
     }
 
-    .d-xl-table-cell {
+/*     .d-xl-table-cell {
         display: table-cell !important
     }
-
+ */
     .d-xl-flex {
         display: flex !important
     }
@@ -12049,9 +12049,9 @@ fieldset:disabled .btn {
         display: table-row !important
     }
 
-    .d-xxl-table-cell {
+/*     .d-xxl-table-cell {
         display: table-cell !important
-    }
+    } */
 
     .d-xxl-flex {
         display: flex !important
@@ -12711,9 +12711,9 @@ fieldset:disabled .btn {
         display: table-row !important
     }
 
-    .d-print-table-cell {
+/*     .d-print-table-cell {
         display: table-cell !important
-    }
+    } */
 
     .d-print-flex {
         display: flex !important

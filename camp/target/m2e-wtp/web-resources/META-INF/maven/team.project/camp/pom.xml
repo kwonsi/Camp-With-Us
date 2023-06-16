@@ -35,6 +35,46 @@
 	<!-- dependencies : Maven 프로젝트는 외부 저장소와 의존 관계를 맺고 있어 프로젝트에 필요한 파일을(라이브러리) 
 		사용자가 직접 받을 필요 없이 해당 태그 내에 지정된 형식으로 작성하면 네트워크를 통해 외부 저장소에서 자동으로 얻어와 세팅함. -->
 	<dependencies>
+	
+	
+	
+		<!-- Gson 추가 -->
+		<!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
+		<dependency>
+		    <groupId>com.google.code.gson</groupId>
+		    <artifactId>gson</artifactId>
+		    <version>2.9.0</version>
+		</dependency>
+	
+	
+		<!-- commons-fileupload (메이븐에서 추가 1.4 버전)-->
+		<!-- multipart등을 사용할수 있음 -->
+		<!-- https://mvnrepository.com/artifact/commons-fileupload/commons-fileupload -->
+		<dependency>
+		    <groupId>commons-fileupload</groupId>
+		    <artifactId>commons-fileupload</artifactId>
+		    <version>1.4</version>
+		</dependency>
+	
+	
+		<!-- 서머노트 -->
+		<!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
+        <!-- 대용량 파일 처리 -->
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.6</version>
+        </dependency>
+	
+	
+		<!-- jackson bind -->
+		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+		<dependency>
+		   <groupId>com.fasterxml.jackson.core</groupId>
+		   <artifactId>jackson-databind</artifactId>
+		   <version>2.9.8</version>
+		</dependency>
+	
 
 		<!-- https://mvnrepository.com/artifact/javax.mail/mail -->
 		<dependency>

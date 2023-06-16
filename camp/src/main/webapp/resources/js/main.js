@@ -1,29 +1,24 @@
 //const selLoc = document.getElementById("selLoc");
 const login = document.getElementById("login");
-const myPage = document.getElementById("myPage");
-const searchOption = document.getElementsByClassName("searchOption");
+var selLoc = document.getElementById("loc");
+var selTheme = document.getElementById("theme");
+var inputCampName = document.getElementsByName("campName")[0];
 
+var plugins = {
+    bootstrapTooltip: $("[data-toggle='tooltip']"),
+    rdInputLabel: $(".form-label"),
+};
 
-
-// 지역 선택 팝업창
-function selectLoc() {
-    const options = "width=480, height=600, top=50, left=400";
-
-    window.open("selectLoc", "지역 선택", options);
-}
-
-// 테마 선택 팝업창
-function selectTheme() {
-    const options = "width=480, height=600, top=50, left=400";
-
-    window.open("selectTheme", "테마 선택", options);
-}
 
 // 검색 버튼 클릭 시 캠프 리스트 페이지 이동
 function searchCamp() {
 
-    location.href = "/camp/campList/?loc=" + searchOption[0].innerHTML + "&theme=" + searchOption[1].innerHTML;
+    location.href = "/camp/campList/?loc=" + selLoc.value + "&theme=" + selTheme.value + "&campName=" + inputCampName.value;
     // location.href="camp/campList";
+
+    selLoc.value = "";
+    selTheme.value = "";
+    inputCampName.value = "";
 }
 
 
@@ -33,8 +28,171 @@ if (login) {
     });
 }
 
+/**
+ * @module       RDInputLabel
+ * @author       Evgeniy Gusarov
+ * @license      MIT
+ */
+(function() {
+    ! function(t, e, i) {
+        var s, n;
+        return n = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent), isWebkit = /safari|chrome/i.test(navigator.userAgent), s = function() {
+            function s(s, n) {
+                this.options = t.extend(!0, {}, this.Defaults, n), this.$element = t(s).addClass("rd-input-label"), this.$target = t("#" + this.$element.attr("for")), this.$win = t(i), this.$doc = t(e), this.initialize()
+            }
+            return s.prototype.Defaults = {
+                callbacks: null
+            }, s.prototype.initialize = function() {
+                return this.$target.on("input", t.proxy(this.change, this)).on("focus", t.proxy(this.focus, this)).on("blur", t.proxy(this.blur, this)).on("hover", t.proxy(this.hover, this)).parents("form").on("reset", t.proxy(this.reset, this)), this.change(), this.hover(), this
+            }, s.prototype.hover = function() {
+                return isWebkit && (this.$target.is(":-webkit-autofill") ? this.$element.addClass("auto-fill") : this.$element.removeClass("auto-fill")), this
+            }, s.prototype.change = function() {
+                return isWebkit && (this.$target.is(":-webkit-autofill") ? this.$element.addClass("auto-fill") : this.$element.removeClass("auto-fill")), "" !== this.$target.val() ? (this.$element.hasClass("focus") || this.focus(), this.$element.addClass("not-empty")) : this.$element.removeClass("not-empty"), this
+            }, s.prototype.focus = function() {
+                return this.$element.addClass("focus"), this
+            }, s.prototype.reset = function() {
+                return setTimeout(t.proxy(this.blur, this)), this
+            }, s.prototype.blur = function(t) {
+                return "" === this.$target.val() && this.$element.removeClass("focus").removeClass("not-empty"), this
+            }, s
+        }(), t.fn.extend({
+            RDInputLabel: function(e) {
+                return this.each(function() {
+                    var i;
+                    return i = t(this), i.data("RDInputLabel") ? void 0 : i.data("RDInputLabel", new s(this, e))
+                })
+            }
+        }), i.RDInputLabel = s
+    }(window.jQuery, document, window), "undefined" != typeof module && null !== module ? module.exports = window.RDInputLabel : "function" == typeof define && define.amd && define(["jquery"], function() {
+        "use strict";
+        return window.RDInputLabel
+    })
+}).call(this);
+
+function attachFormValidator(elements) {
+    // Custom validator - phone number
+    regula.custom({
+        name: 'PhoneNumber',
+        defaultMessage: 'Invalid phone number format',
+        validator: function() {
+            if ( this.value === '' ) return true;
+            else return /^(\+\d)?[0-9\-\(\) ]{5,}$/i.test( this.value );
+        }
+    });
+
+    for (var i = 0; i < elements.length; i++) {
+        var o = $(elements[i]), v;
+        o.addClass("form-control-has-validation").after("<span class='form-validation'></span>");
+        v = o.parent().find(".form-validation");
+        if (v.is(":last-child")) o.addClass("form-control-last-child");
+    }
+
+    elements.on('input change propertychange blur', function (e) {
+        var $this = $(this), results;
+
+        if (e.type !== "blur") if (!$this.parent().hasClass("has-error")) return;
+        if ($this.parents('.rd-mailform').hasClass('success')) return;
+
+        if (( results = $this.regula('validate') ).length) {
+            for (i = 0; i < results.length; i++) {
+                $this.siblings(".form-validation").text(results[i].message).parent().addClass("has-error");
+            }
+        } else {
+            $this.siblings(".form-validation").text("").parent().removeClass("has-error")
+        }
+    }).regula('bind');
+
+    var regularConstraintsMessages = [
+        {
+            type: regula.Constraint.Required,
+            newMessage: "The text field is required."
+        },
+        {
+            type: regula.Constraint.Email,
+            newMessage: "The email is not a valid email."
+        },
+        {
+            type: regula.Constraint.Numeric,
+            newMessage: "Only numbers are required"
+        },
+        {
+            type: regula.Constraint.Selected,
+            newMessage: "Please choose an option."
+        }
+    ];
 
 
+/**
+ * @desc Initialize Bootstrap tooltip with required placement
+ * @param {string} tooltipPlacement
+ */
+function initBootstrapTooltip(tooltipPlacement) {
+    plugins.bootstrapTooltip.tooltip('dispose');
+
+    if (window.innerWidth < 576) {
+        plugins.bootstrapTooltip.tooltip({placement: 'bottom'});
+    } else {
+        plugins.bootstrapTooltip.tooltip({placement: tooltipPlacement});
+    }
+}
+
+// Bootstrap Tooltips
+if (plugins.bootstrapTooltip.length) {
+    var tooltipPlacement = plugins.bootstrapTooltip.attr('data-placement');
+    initBootstrapTooltip(tooltipPlacement);
+
+    $window.on('resize orientationchange', function () {
+        initBootstrapTooltip(tooltipPlacement);
+    })
+}
+
+
+
+// RD Input Label
+if (plugins.rdInputLabel.length) {
+    plugins.rdInputLabel.RDInputLabel();
+}
+
+    for (var i = 0; i < regularConstraintsMessages.length; i++) {
+        var regularConstraint = regularConstraintsMessages[i];
+
+        regula.override({
+            constraintType: regularConstraint.type,
+            defaultMessage: regularConstraint.newMessage
+        });
+    }
+}
+
+/**
+ * @desc Initialize Bootstrap tooltip with required placement
+ * @param {string} tooltipPlacement
+ */
+function initBootstrapTooltip(tooltipPlacement) {
+    plugins.bootstrapTooltip.tooltip('dispose');
+
+    if (window.innerWidth < 576) {
+        plugins.bootstrapTooltip.tooltip({placement: 'bottom'});
+    } else {
+        plugins.bootstrapTooltip.tooltip({placement: tooltipPlacement});
+    }
+}
+
+// Bootstrap Tooltips
+if (plugins.bootstrapTooltip.length) {
+    var tooltipPlacement = plugins.bootstrapTooltip.attr('data-placement');
+    initBootstrapTooltip(tooltipPlacement);
+
+    $window.on('resize orientationchange', function () {
+        initBootstrapTooltip(tooltipPlacement);
+    })
+}
+
+// RD Input Label
+if (plugins.rdInputLabel.length) {
+    plugins.rdInputLabel.RDInputLabel();
+}
+
+var count = 0;
 window.onload = function () {
 
     $.ajax({
@@ -44,7 +202,7 @@ window.onload = function () {
             pageNo: 1,
             MobileOS: "ETC",
             MobileApp: "AppTest",
-            serviceKey: "4k7REi0gs6TKyjakIRV6zHIg3a1NcXwJPRTezijLCYvx0leNrqvtRwayHuc1AslN9pksU9rGRorGGOTZwMEu9Q==",
+            serviceKey: "I9du70n72b4HG+Y4EFuyTYoNlJ3tOZycxGZluxxxoKxLFP4nPc5cjB4iha+XbuTyZ2Krp2X/cqRs22JpoB3dnw==",
             _type: "json"
         },
         dataType: "json",
@@ -60,12 +218,12 @@ window.onload = function () {
 
             // 랜덤한 인덱스 선택
             for (let i = 0; i < items.length; i++) {
-                if (items[i].homepage != null &&
+                if (items[i].homepage != "" &&
                     items[i].firstImageUrl != "" &&
                     items[i].tel != "" &&
                     items[i].lineIntro != "" &&
                     items[i].addr1 != "") {
-
+                        count++;
                     randomIndexes.push(i); // 조건문을 통과한 인덱스 저장
                 }
             }
@@ -125,6 +283,7 @@ window.onload = function () {
 
                 }
             }
+            console.log(count);
 
         },
         error: function (error) {

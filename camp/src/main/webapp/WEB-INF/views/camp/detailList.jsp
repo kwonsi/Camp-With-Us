@@ -14,16 +14,36 @@
             <link rel="stylesheet" href="${contextPath}/resources/css/map.css">
             <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap1.css">
             <link rel="stylesheet" href="${contextPath}/resources/css/review.css">
-         
+            <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+            <link rel="stylesheet" type="text/css"
+                href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+            <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap-icons.css">
+            <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap_main_header.css">
+            <link rel="stylesheet" href="${contextPath}/resources/css/boxicons.css">
+
             <script src="https://kit.fontawesome.com/a2e8ca0ae3.js" crossorigin="anonymous"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js"></script>
 
         </head>
 
         <body>
+
+            <jsp:include page="/WEB-INF/views/common/header.jsp" />
             <main>
 
-                <jsp:include page="/WEB-INF/views/common/header.jsp" />
+                <div id="detailMain">
+
+                    <div id="sub_title_wrap2">
+                        <h1>
+                            <span class="lineIntro1"></span>
+                        </h1>
+                        <!--타이틀-->
+                        <div class="s_title2">
+                            <p class="camp_s_tt"></p>
+                        </div>
+                    </div>
+                </div>
+
 
                 <div class="div2">
 
@@ -34,11 +54,11 @@
 
                         <div class="cont_tb">
                             <table class="table">
-                                <caption> ${campName} 
+                                <caption class="lineIntro1">
                                 </caption>
                                 <colgroup>
-                                    <col style="width: 30%;" />
-                                    <col style="width: 70%;" />
+                                    <col style="width: 25%;" />
+                                    <col style="width: 75%;" />
                                 </colgroup>
                                 <tbody>
                                     <tr>
@@ -88,24 +108,35 @@
 
                 </div>
 
-
-
+                <br>
+                <hr>
 
                 <div class="layout">
-                    <ul class="camp_tab05">
-                        <li class="campListli"><a href='/camp/campList/detailList?campName=${campName}&viewType=1' class="camp_intro">
-                            캠핑장 소개</a></li>
-                        <li class="campListli"><a href='/camp/campList/detailList?campName=${campName}&viewType=2' class="camp_guide">
-                            캠핑장 가격</a></li>
-                        <li id="c_map"><a href='/camp/campList/detailList?campName=${campName}&viewType=3' class="camp_map">
-                            위치/주변정보</a></li>
-                        <li class="campListli"><a href='/camp/campList/detailList?campName=${campName}&viewType=4' class="camp_review">
-                            날씨</a></li>
-                        <li id="c_review"><a href='/camp/campList/detailList?campName=${campName}&viewType=5' class="camp_review">
-                            리뷰</a></li>
-                    </ul>
+
+                    <div class="camp_cont_w">
+                        <ul class="camp_tab05">
+
+                            <li class="campListli"><a href='/camp/campList/detailList?campName=${campName}&viewType=1' 
+                                onclick="changeBackgroundColor(event)">
+                                    캠핑장 소개</a></li>
+                            <li class="campListli"><a href='/camp/campList/detailList?campName=${campName}&viewType=2'
+                                 onclick="changeBackgroundColor(event)">
+                                    캠핑장 가격</a></li>
+                            <li class="campListli"><a href='/camp/campList/detailList?campName=${campName}&viewType=3'
+                                onclick="changeBackgroundColor(event)">
+                                    위치/주변정보</a></li>
+                            <li class="campListli"><a href='/camp/campList/detailList?campName=${campName}&viewType=4'
+                                onclick="changeBackgroundColor(event)">
+                                    날씨</a></li>
+                            <li class="campListli"><a href='/camp/campList/detailList?campName=${campName}&viewType=5'
+                                onclick="changeBackgroundColor(event)">
+                                    리뷰</a></li>
+                        </ul>
+                    </div>
                 </div>
-                <hr>
+
+
+
 
 
                 <!-- viewType == 1 일때 -->
@@ -117,7 +148,7 @@
                             <div class="table_w">
 
                                 <table class="table_t4 camp_etc_tb">
-                                    <caption> 기타 주요시설 
+                                    <caption> <i class="fa-solid fa-chevron-right"></i> &nbsp; 기타 주요시설
                                     </caption>
                                     <tbody class="t_c">
                                         <tr>
@@ -182,7 +213,7 @@
                                             </td>
                                         </tr>
                                         <th scope="col">부가 정보</th>
-                                        <td>
+                                        <td id = "last4">
                                             <ul class="table_ul05">
                                             </ul>
                                         </td>
@@ -194,16 +225,20 @@
                     </div>
 
 
-                    <div class="div4_1"> 캠 핑 장 이 미 지 </div>
+                    <div class="div4_1"> <span> <i class="fa-solid fa-chevron-right"></i> &nbsp; 캠핑장 이미지 </span> </div>
 
                     <div class="div4">
-                        <div class="box_photo" id="box_photo">
+
+                        <div class="post-slider">
+                            <div class="post-wrapper">
+
+                            </div>
                         </div>
                     </div>
 
 
 
-                    <div class="div5"> 캠 핑 장 소 개 글 </div>
+                    <div class="div5"><span>  <i class="fa-solid fa-chevron-right"></i> &nbsp; 캠핑장 소개글  </span></div>
                     <div class="div6" id="intro"></div>
 
                 </c:if>
@@ -212,10 +247,10 @@
                 <!-- viewType == 2 일때 -->
                 <c:if test="${param.viewType == '2'}">
 
-                    <div class="div7">
-                        ${campName} 이용 요금
+                    <div class="div7" id="campNamePrice">
+                        <!-- ${campName} 이용 요금 -->
                     </div>
-                    <div class="table_w">
+                    <div class="table_w2">
                         <table class="table camp_info_tb">
                             <colgroup>
                                 <col style="width: 20%">
@@ -226,25 +261,32 @@
                             </colgroup>
                             <thead>
                                 <tr>
-                                    <th rowspan="2" scope="col">구분</th>
-                                    <th colspan="2" scope="colgroup">평상시</th>
-                                    <th colspan="2" scope="colgroup">성수기</th>
+                                    <th  rowspan="2" scope="col">구분</th>
+                                    <th colspan="2" scope="colgroup">비성수기</th>
+                                    <th id="last1" colspan="2" scope="colgroup">성수기 (6월~8월)</th>
                                 </tr>
 
                                 <tr>
                                     <th scope="col">주중</th>
                                     <th scope="col">주말</th>
                                     <th scope="col">주중</th>
-                                    <th scope="col">주말</th>
+                                    <th id="last2" scope="col">주말</th>
                                 </tr>
                             </thead>
                             <tbody class="t_c">
                                 <tr>
-                                    <th scope="col">${campName}</th>
+                                    <th scope="col"> 성인 </th>
+                                    <td>20,000</td>
+                                    <td>20,000</td>
                                     <td>30,000</td>
-                                    <td>40,000</td>
-                                    <td>30,000</td>
-                                    <td>40,000</td>
+                                    <td id ="last3">30,000</td>
+                                </tr>
+                                <tr>
+                                    <th scope="col"> 영유아 </th>
+                                    <td>10,000</td>
+                                    <td>10,000</td>
+                                    <td>15,000</td>
+                                    <td id ="last3">15,000</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -265,12 +307,12 @@
                 <c:if test="${param.viewType == '4'}">
 
                     <div class="div7" id="doNmVal">
-                        지역 날씨
+                       <span> 지역 날씨 </span> 
                     </div>
-                    <div class="table_w">
+                    <div class="table_w3">
                         <table class="table camp_info_tb">
                             <colgroup>
-<!--                                 <col style="width: 20%">
+                                <!--                                 <col style="width: 20%">
                                 <col style="width: 20%">
                                 <col style="width: 20%">
                                 <col style="width: 20%">
@@ -279,58 +321,58 @@
                             <thead>
                                 <tr>
                                     <th rowspan="2" scope="col">구분</th>
-       
+
                                 </tr>
 
                                 <tr>
-                                    <th scope="col">1</th>
-                                    <th scope="col">2</th>
-                                    <th scope="col">3</th>
-                                    <th scope="col">4</th>
-                                    <th scope="col">5</th>
-                                    <th scope="col">6</th>
-                                    <th scope="col">7</th>
-                                    <th scope="col">8</th>
-                                    <th scope="col">9</th>
-                                    <th scope="col">10</th>
+                                    <th scope="col" class="date"></th>
+                                    <th scope="col" class="date"></th>
+                                    <th scope="col" class="date"></th>
+                                    <th scope="col" class="date"></th>
+                                    <th scope="col" class="date"></th>
+                                    <th scope="col" class="date"></th>
+                                    <th scope="col" class="date"></th>
+                                    <th scope="col" class="date"></th>
+                                    <th scope="col" class="date"></th>
+                                    <th scope="col" class="date"></th>
                                 </tr>
                             </thead>
                             <tbody class="t_c">
                                 <tr>
-                                    <th scope="col" height="100px">오전</th>
-                                    <td>맑음</td>
-                                    <td>맑음</td>
-                                    <td>맑음</td>
-                                    <td>맑음</td>
-                                    <td>맑음</td>
-                                    <td>맑음</td>
-                                    <td>맑음</td>
-                                    <td rowspan="2">맑음</td>
-                                    <td rowspan="2">맑음</td>
-                                    <td rowspan="2">맑음</td>
+                                    <th scope="col" height="100px" class="date2">오전</th>
+                                    <td class="AM"></td>
+                                    <td class="AM"></td>
+                                    <td class="AM"></td>
+                                    <td class="AM"></td>
+                                    <td class="AM"></td>
+                                    <td class="AM"></td>
+                                    <td class="AM"></td>
+                                    <td rowspan="2" class="AM"></td>
+                                    <td rowspan="2" class="AM"></td>
+                                    <td rowspan="2" class="AM"></td>
                                 </tr>
                                 <tr>
-                                    <th scope="col" height="100px">오후</th>
-                                    <td>맑음</td>
-                                    <td>맑음</td>
-                                    <td>맑음</td>
-                                    <td>맑음</td>
-                                    <td>맑음</td>
-                                    <td>맑음</td>
-                                    <td>맑음</td>
+                                    <th scope="col" height="100px" class="date2">오후</th>
+                                    <td class="PM"></td>
+                                    <td class="PM"></td>
+                                    <td class="PM"></td>
+                                    <td class="PM"></td>
+                                    <td class="PM"></td>
+                                    <td class="PM"></td>
+                                    <td class="PM"></td>
                                 </tr>
                                 <tr>
-                                    <th scope="col" height="50px">강수량</th>
-                                    <td>강수량</td>
-                                    <td>강수량</td>
-                                    <td>강수량</td>
-                                    <td>강수량</td>
-                                    <td>강수량</td>
-                                    <td>강수량</td>
-                                    <td>강수량</td>
-                                    <td>강수량</td>
-                                    <td>강수량</td>
-                                    <td>강수량</td>
+                                    <th scope="col" height="50px" class="date2">강수량</th>
+                                    <td class="rp"></td>
+                                    <td class="rp"></td>
+                                    <td class="rp"></td>
+                                    <td class="rp"></td>
+                                    <td class="rp"></td>
+                                    <td class="rp"></td>
+                                    <td class="rp"></td>
+                                    <td class="rp"></td>
+                                    <td class="rp"></td>
+                                    <td class="rp"></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -346,47 +388,53 @@
 
                 <c:if test="${param.viewType == '5'}">
 
-                <div class="div7">
 
-                    <jsp:include page="/WEB-INF/views/camp/campReview.jsp" />
+                    <div class="div8">
 
-                </div>
-               </c:if>
+                        <jsp:include page="/WEB-INF/views/camp/campReview.jsp" />
 
-
-
+                    </div>
+                </c:if>
 
 
 
 
 
-                <button type="button" id="reservationBtn"><a>예약페이지</a></button>
+
+
                 
-                
+                <button type="button" id="reservationBtn"><a>예약하기</a></button>
+
+
 
             </main>
-            
-        <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
-        <script>
+            <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
-            const campName = "${campName}";
-            // 로그인한 회원 번호
-            const loginMemberNo = "${loginMember.memberNo}";
-            // 최상위 주소
-            const contextPath = "${contextPath}";        
-            // 캠핑장 번호
-            var campItem = JSON.parse(localStorage.getItem("item"));
-            var campNo = parseInt(campItem.contentId);
-        </script>
+            <script>
+                const campName = "${campName}";
+                // 로그인한 회원 번호
+                const loginMemberNo = "${loginMember.memberNo}";
+                // 최상위 주소
+                const contextPath = "${contextPath}";
+                // 캠핑장 번호
+                var campItem = JSON.parse(localStorage.getItem("item"));
+                var campNo = parseInt(campItem.contentId);
+            </script>
 
 
-        <script type="text/javascript"
-            src="//dapi.kakao.com/v2/maps/sdk.js?appkey=eb6841185807d60ca94c27f62bee498c"></script>
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-        <script src="${contextPath}/resources/js/detailList.js"></script>
-        <script src="${contextPath}/resources/js/review.js"></script>
-    </body>
+            <script type="text/javascript"
+                src="//dapi.kakao.com/v2/maps/sdk.js?appkey=eb6841185807d60ca94c27f62bee498c"></script>
 
-</html>
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+                integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+            <script type="text/javascript"
+                src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+            <script src="${contextPath}/resources/js/detailList.js"></script>
+            <script src="${contextPath}/resources/js/review.js"></script>
+            <script src="${contextPath}/resources/js/weather.js"></script>
+            <script src="${contextPath}/resources/js/weather2.js"></script>
+
+        </body>
+
+        </html>

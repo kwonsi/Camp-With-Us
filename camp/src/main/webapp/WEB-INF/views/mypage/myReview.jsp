@@ -10,6 +10,10 @@
     <title>캠프보내조</title>
     <link rel="stylesheet" href="${contextPath}/resources/css/main.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/mypage.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap-icons.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap_main_header.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/review.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/boxicons.css">
     <script src="https://kit.fontawesome.com/a2e8ca0ae3.js" crossorigin="anonymous"></script>
 
 </head>
@@ -26,15 +30,28 @@
             
             <span class="myPage-explanation">현재 회원님이 작성한 리뷰를 볼 수 있습니다.</span>
             
+            <div class="reply-list-area">
+        
+                <ul id="reply-list">
+        
+
+                    
+                </ul>
+            </div>
         </section>
 
     </main>
 
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
+    <script>
+        const contextPath = "${contextPath}";
+        const loginMemberNo = "${loginMember.memberNo}";
+    </script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
     <script src="${contextPath}/resources/js/mypage.js"></script>
+    <!-- <script src="${contextPath}/resources/js/review.js"></script> -->
 
 </body>
 </html>

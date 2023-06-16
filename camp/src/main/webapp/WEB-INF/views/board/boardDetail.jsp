@@ -13,7 +13,7 @@
 
     <link rel="stylesheet" href="${contextPath}/resources/css/main.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/boardDetail-style.css">
-
+    <link rel="stylesheet" href="${contextPath}/resources/css/boxicons.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/reply-style.css">
 
 
@@ -23,8 +23,9 @@
 
 </head>
 <body>
+    <jsp:include page="/WEB-INF/views/common/header.jsp"/>
     <main>
-        <jsp:include page="/WEB-INF/views/common/header.jsp"/>
+       
 
         <section class="board-detail">  
 

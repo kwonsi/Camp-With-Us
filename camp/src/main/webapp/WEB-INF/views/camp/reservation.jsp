@@ -12,16 +12,20 @@
     <link rel="stylesheet" href="${contextPath}/resources/css/reservation.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/calendarStyle.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap1.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap-icons.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap_main_header.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="${contextPath}/resources/css/boxicons.css">
     
     <script src="https://kit.fontawesome.com/a2e8ca0ae3.js" crossorigin="anonymous"></script>
 
 </head>
 <body>
+    
+    <jsp:include page="/WEB-INF/views/common/header.jsp" />
+
     <main>
 		
-		<jsp:include page="/WEB-INF/views/common/header.jsp" />
-
         <form class="formsize">            
 
 
@@ -140,10 +144,10 @@
             <button type="button" class="btn btn-lg btn-primary" onclick="requestPay()">결제하기</button>
         </form>
 
-        <jsp:include page="/WEB-INF/views/common/footer.jsp" />
+    
         
     </main>
-
+    <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 <script>
     
 let priceValue;
@@ -239,7 +243,7 @@ function requestPay() {
 
                   console.log("성공");
                   alert("결제가 완료되었습니다");
-                  /* window.location.href = '${contextPath}/member/myPage/myReservation'; */
+                 
 
                   let selectfirstmonth = document.querySelectorAll(".pickMonth")[0].textContent;
                   let selectfirstday = document.querySelectorAll(".pickDay")[0].textContent;
@@ -266,7 +270,7 @@ function requestPay() {
                        
                         if(result > 0) {
                             console.log("예약정보 전송완료");
-                           
+                            window.location.href = '${contextPath}/member/myPage/myReservation';
 
 
                         }else {
@@ -281,7 +285,7 @@ function requestPay() {
 
               } else {
                 console.log("실패");
-                alert("결제에 실패하였습니다");
+                alert("날짜/인원을 선택해주세요.");
               }
             });
         }

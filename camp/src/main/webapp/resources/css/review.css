@@ -12,6 +12,16 @@
 .reply-row{
     padding: 15px 30px;
     border-top : 1px solid #ccc;
+    margin-left: 150px;
+    margin-right: 150px;
+    padding-top: 0px;
+}
+.mypage-reply-row{
+    margin-left: 10px !important; 
+}
+.reply-content{
+    margin-left: 40px;
+    margin-bottom: 0px;
 }
 
 /* 리뷰 목록 - 작성자 영역*/
@@ -106,13 +116,15 @@
     justify-content: left;
     direction: rtl;
     border:0;
+    margin-left: 20px;
+    font-size: 17px;
 }
 #campReview_form fieldset legend{
     text-align: right;
 }
 #campReview_form fieldset span{
     font-weight: normal;
-    font-size: 22px;
+    font-size: 17px;
 }
 
 #campReview_form div {
@@ -126,7 +138,7 @@
 #campReview_form label{
     font-size: 1.5em;
     color: transparent;
-    text-shadow: 0 0 0 #f0f0f0;
+    text-shadow: 0 0 0 rgb(178, 176, 176);
 }
 #campReview_form label:hover{
     text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
@@ -138,13 +150,13 @@
     text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
 }
 #reviewContents {
-    width: 500px;
-    height: 150px;
+    width: 700px;
+    height: 100px;
     padding: 10px;
     box-sizing: border-box;
     border: solid 1.5px #D3D3D3;
     border-radius: 5px;
-    font-size: 13px;
+    font-size: 17px;
     resize: none;
     margin-right: 5px;
 }
@@ -153,10 +165,14 @@
     color: transparent;
     text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
 }
+#starspan{
+    color: #aaa;
+}
+
 
 .rate-out {
     color: transparent;
-    text-shadow: 0 0 0 #f0f0f0;
+    text-shadow: 0 0 0 rgb(178, 176, 176);
 }
 
 .updateRate {
@@ -174,7 +190,7 @@
 .updateRate label{
     font-size: 1.2em;
     color: transparent;
-    text-shadow: 0 0 0 #f0f0f0;
+    text-shadow: 0 0 0 rgb(178, 176, 176);
 }
 .updateRate label:hover{
     text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);

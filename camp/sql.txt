@@ -51,7 +51,7 @@ ALTER TABLE MEMBER_S ADD LOGIN_ST CHAR(1) DEFAULT 'N' NOT NULL;   --- LOGIN_ST �
 
 
 
---DROP TABLE "RESERVATION";                          --<< 예약정보 테이블입니다.  DROP 하시고 새로 CREATE 하세요.
+--DROP TABLE "RESERVATION";                                --<< 예약정보 테이블입니다.  DROP 하시고 새로 CREATE 하세요.
 --예약정보테이블 입니다.
 --기존 테이블에서 MEMBER_NO 를 추가하였습니다.
 --앞으로 조회시 MEMBER_NO 로 조회해주세요,

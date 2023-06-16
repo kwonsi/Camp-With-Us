@@ -28,9 +28,10 @@
     
     <title>${boardName}</title>
     
-
+    <link rel="stylesheet" href="${contextPath}/resources/css/boxicons.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/main.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/boardList-style1.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap-icons.css">
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
 
@@ -191,6 +192,25 @@
         });
     </script>
     
+    <!-- 슬라이더를 초기화 -->
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $(".slide").slick();
+        });
+
+        $('.multiple-items').slick({
+        infinite: true,
+        dots: true,
+        adaptiveHeight: 300,
+        focusOnSelect: true,
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        autoplay: true,
+        autoplaySpeed: 3000,
+        arrows: false
+        });
+      </script>
+
 
 </body>
 

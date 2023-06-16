@@ -56,28 +56,28 @@ public class CampDetailServiceImpl implements CampDetailService {
 	public List<Review> selectReplyList(int campNo) {
 		return dao.selectReplyList(campNo);
 	}
-	
+
 	// 리뷰 작성
 	@Override
 	public int insetReview(Review review) {
-		
+
 		// XSS, 개행문자 처리
 		review.setReviewContents( Util.XSSHandling( review.getReviewContents()) );
 		review.setReviewContents( Util.newLineHandling( review.getReviewContents()) );
-				
+
 		return dao.insertReview(review);
 	}
-	
+
 	// 리뷰 삭제
 	@Override
 	public int deleteReview(int replyNo) {
 		return dao.deleteReview(replyNo);
 	}
-	
+
 	// 리뷰 수정
 	@Override
 	public int updateReview(Map<String, Object> map) {
 		return dao.updateReview(map);
 	}
-	
+
 }

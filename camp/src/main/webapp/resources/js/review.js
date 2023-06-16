@@ -1,4 +1,3 @@
-console.log(campNo);
 
 // 리뷰 목록 조회(AJAX)
 function selectReplyList(){
@@ -15,15 +14,16 @@ function selectReplyList(){
 
             // 화면에 출력되어 있는 리뷰 목록 삭제
             const replyList = document.getElementById("reply-list"); // ul태그
+            if ( replyList) { 
             replyList.innerHTML = "";
-
+            }
             // rList에 저장된 요소를 하나씩 접근
             for(let reply of rList){
 
                 // 행
                 const replyRow = document.createElement("li");
                 replyRow.classList.add("reply-row");
-				
+                
                 // 작성자
                 const replyWriter = document.createElement("p");
                 replyWriter.classList.add("reply-writer");
@@ -36,7 +36,7 @@ function selectReplyList(){
                 }else{ // 없을 경우 == 기본이미지
                     profileImage.setAttribute("src", contextPath + "/resources/images/user.png");
                 }
-  
+    
                 // 작성자 닉네임
                 const memberNickname = document.createElement("span");
                 memberNickname.innerText = reply.memberNickname;
@@ -102,21 +102,21 @@ function selectReplyList(){
                     // 로그인한 회원번호와 리뷰 작성자의 회원번호가 같을 때만 버튼 추가
                     if( loginMemberNo == reply.memberNo   ){
 
-	                    // 수정 버튼
-	                    const updateBtn = document.createElement("button");
-	                    updateBtn.innerText = "수정";
-	
-	                    // 수정 버튼에 onclick 이벤트 속성 추가
-	                    updateBtn.setAttribute("onclick", "showUpdateReply("+reply.replyNo+", this)");                        
-	
-	                    // 삭제 버튼
-	                    const deleteBtn = document.createElement("button");
-	                    deleteBtn.innerText = "삭제";
-	                    // 삭제 버튼에 onclick 이벤트 속성 추가
-	                    deleteBtn.setAttribute("onclick", "deleteReply("+reply.replyNo+")");                       
-	
-	                    // 버튼 영역 마지막 자식으로 수정/삭제 버튼 추가
-	                    replyBtnArea.append(updateBtn, deleteBtn);
+                        // 수정 버튼
+                        const updateBtn = document.createElement("button");
+                        updateBtn.innerText = "수정";
+    
+                        // 수정 버튼에 onclick 이벤트 속성 추가
+                        updateBtn.setAttribute("onclick", "showUpdateReply("+reply.replyNo+", this)");                        
+    
+                        // 삭제 버튼
+                        const deleteBtn = document.createElement("button");
+                        deleteBtn.innerText = "삭제";
+                        // 삭제 버튼에 onclick 이벤트 속성 추가
+                        deleteBtn.setAttribute("onclick", "deleteReply("+reply.replyNo+")");                       
+    
+                        // 버튼 영역 마지막 자식으로 수정/삭제 버튼 추가
+                        replyBtnArea.append(updateBtn, deleteBtn);
 
                     } // if 끝
                     
@@ -126,8 +126,8 @@ function selectReplyList(){
 
                 // 리뷰 목록(ul)에 행(li)추가
                 replyList.append(replyRow);
-            	
-			}
+                
+            }
         },
         error : function(req, status, error){
             console.log("에러 발생");
@@ -136,6 +136,7 @@ function selectReplyList(){
     });
 }
 selectReplyList();
+
 //-------------------------------------------------------------------------------------------------
 
 
@@ -144,6 +145,7 @@ const addReply = document.getElementById("addReply");
 const reviewContents = document.getElementById("reviewContents");
 const reviewStar = document.getElementsByName("reviewStar");
 var campRate = 0; // 별점 저장용 변수
+if (addReply) {
 addReply.addEventListener("click", function(){ // 리뷰 등록 버튼이 클릭이 되었을 때
 
     // 1) 로그인이 되어있나? -> 전역변수 loginMemberNo 이용
@@ -180,7 +182,7 @@ addReply.addEventListener("click", function(){ // 리뷰 등록 버튼이 클릭
         success : function(result){
 
             if(result > 0){ // 등록 성공
-                alert("리뷰이 등록되었습니다.");
+                alert("리뷰가 등록되었습니다.");
 
                 reviewContents.value = ""; // 작성했던 리뷰 삭제
 
@@ -200,7 +202,7 @@ addReply.addEventListener("click", function(){ // 리뷰 등록 버튼이 클릭
     });
 
 });
-
+}
 
 // -----------------------------------------------------------------------------------
 // 리뷰 삭제
@@ -246,7 +248,7 @@ function deleteReply(replyNo){
 // ------------------------------------------------------------------------------------------
 // 리뷰 수정 화면 전환 
 
-let beforeReplyRow; // 수정 전 원래 행의 상태를 저장할 변수
+var beforeReplyRow; // 수정 전 원래 행의 상태를 저장할 변수
 
 
 function showUpdateReply(replyNo, btn){
@@ -257,7 +259,7 @@ function showUpdateReply(replyNo, btn){
     
     if(temp.length > 0){ // 수정이 한 개 이상 열려 있는 경우
 
-        if(confirm("다른 리뷰이 수정 중입니다. 현재 리뷰을 수정 하시겠습니까?")){ // 확인
+        if(confirm("다른 리뷰가 수정 중입니다. 현재 리뷰을 수정 하시겠습니까?")){ // 확인
 
             temp[0].parentElement.innerHTML = beforeReplyRow;
             // reply-row                       // 백업한 리뷰
@@ -374,12 +376,12 @@ function updateCancel(btn){
 
 // -----------------------------------------------------------------------------------
 
-const updateStar = document.getElementsByName("updateStar");
-var updateStarRate = 0; // 리뷰 수정 할 때 별점 저장용 변수
 
 // 리뷰 수정(AJAX)
 function updateReply(replyNo, btn){
-
+    
+    const updateStar = document.getElementsByName("updateStar");
+    var updateStarRate = 0; // 리뷰 수정 할 때 별점 저장용 변수
     // 새로 작성된 리뷰 내용 얻어오기
     const replyContent = btn.parentElement.previousElementSibling.value;
 
@@ -398,7 +400,7 @@ function updateReply(replyNo, btn){
         type : "POST",
         success : function(result){
             if(result > 0){
-                alert("리뷰이 수정되었습니다.");
+                alert("리뷰가 수정되었습니다.");
                 selectReplyList();
             }else{
                 alert("리뷰 수정 실패");

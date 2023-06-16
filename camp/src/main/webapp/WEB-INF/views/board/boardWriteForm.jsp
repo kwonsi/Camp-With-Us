@@ -9,7 +9,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>게시글 등록</title>
-
+    
+    <link rel="stylesheet" href="${contextPath}/resources/css/boxicons.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/main.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/boardWriteForm-style.css">
     <script src="https://kit.fontawesome.com/a2e8ca0ae3.js" crossorigin="anonymous"></script>
@@ -22,8 +23,10 @@
 
 </head>
 <body>
+
+    <jsp:include page="/WEB-INF/views/common/header.jsp"/>
     <main>
-        <jsp:include page="/WEB-INF/views/common/header.jsp"/>
+       
 
         <form action="${boardCode}" enctype="multipart/form-data" method="POST" class="board-write"
             onsubmit="return writeValidate()">

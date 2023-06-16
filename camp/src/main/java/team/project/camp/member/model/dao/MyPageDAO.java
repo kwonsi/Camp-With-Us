@@ -1,17 +1,20 @@
 package team.project.camp.member.model.dao;
 
+import java.util.List;
 import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import team.project.camp.detail.model.vo.Review;
+
 @Repository
 public class MyPageDAO {
 
 	@Autowired
 	private SqlSessionTemplate sqlSession;
-	
+
 	/** 회원 정보 수정 DAO
 	 * @param paramMap
 	 * @return
@@ -20,9 +23,9 @@ public class MyPageDAO {
 		return sqlSession.update("myPageMapper.updateInfo", paramMap);
 	}
 
-	
+
 	/** 비밀번호 변경 (현재 비밀번호 조회) DAO
-	 * 
+	 *
 	 */
 	public String checkPw(int memberNo) {
 		return sqlSession.selectOne("myPageMapper.checkPw", memberNo);
@@ -53,5 +56,14 @@ public class MyPageDAO {
 	 */
 	public int updateProfile(Map<String, Object> map) {
 		return sqlSession.update("myPageMapper.updateProfile", map);
+	}
+
+
+	/** 내 리뷰 조회 DAO
+	 * @param memberNo
+	 * @return
+	 */
+	public List<Review> selectMyReplyList(int memberNo) {
+		return sqlSession.selectList("myPageMapper.selectMyReplyList", memberNo);
 	}
 }
