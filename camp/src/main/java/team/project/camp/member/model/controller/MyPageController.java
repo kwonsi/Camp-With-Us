@@ -26,6 +26,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.google.gson.Gson;
 
 import lombok.extern.slf4j.Slf4j;
+import team.project.camp.board.model.vo.Board;
 import team.project.camp.detail.model.service.CampDetailService;
 import team.project.camp.detail.model.vo.Reservation;
 import team.project.camp.detail.model.vo.Review;
@@ -69,7 +70,13 @@ public class MyPageController {
 	}
 
 	@GetMapping("/myBoard")
-	public String myBoard() {
+	public String myBoard(Model model,
+						  @ModelAttribute("loginMember") Member loginMember) {
+		
+		List<Board> boardList = myPageService.selectMyBoard(loginMember.getMemberNo());
+		
+		model.addAttribute("boardList", boardList);
+		
 		return "mypage/myBoard";
 	}
 

@@ -258,7 +258,9 @@ body {
     border-bottom: 1px solid #c8c8c8;
     line-height: 25px;
 }
-
+#homePage > a {
+    color: #eb5d1e;
+}
 
 #reservationBtn {
     border: 1px solid #c8c8c8;

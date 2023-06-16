@@ -163,9 +163,9 @@ selectCampBtn.addEventListener("click", function () {
         console.log("캠핑장수 : " + filteredItems.length);
 
         if ( searchVal2.value==""){
-          campResult.innerHTML= "캠핑장 총 <span style='color:#eb5d1e;'>" + filteredItems.length + "</span>개 검색 되었습니다.<hr>";
+          campResult.innerHTML= "캠핑장 총 <span style='color:#22c730;'>" + filteredItems.length + "</span>개 검색 되었습니다.<hr>";
           }else {
-          campResult.innerHTML= "<span style='color:#eb5d1e;'>" + searchVal2.value + "</span>지역 캠핑장 총 <span style='color:#eb5d1e;'>" + filteredItems.length + "</span>개 검색 되었습니다.<hr>";
+          campResult.innerHTML= "<span style='color:#22c730;'>" + searchVal2.value + "</span>지역 캠핑장 총 <span style='color:#22c730;'>" + filteredItems.length + "</span>개 검색 되었습니다.<hr>";
           };
 
 
@@ -374,9 +374,9 @@ window.onload = function() {
         console.log("캠핑장수 : " + filteredItems.length);
 
         if ( searchVal2.value==""){
-          campResult.innerHTML= "캠핑장 총 <span style='color:#eb5d1e;'>" + filteredItems.length + "</span>개 검색 되었습니다.<hr>";
+          campResult.innerHTML= "캠핑장 총 <span style='color:#22c730;'>" + filteredItems.length + "</span>개 검색 되었습니다.<hr>";
           }else {
-          campResult.innerHTML= "<span style='color: #eb5d1e;'>" + searchVal2.value + "</span>지역 캠핑장 총 <span style='color:#eb5d1e;'>" + filteredItems.length + "</span>개 검색 되었습니다.<hr>";
+          campResult.innerHTML= "<span style='color: #22c730;'>" + searchVal2.value + "</span>지역 캠핑장 총 <span style='color:#22c730;'>" + filteredItems.length + "</span>개 검색 되었습니다.<hr>";
           };
         // 데이터 수에 맞게 페이지네이션 생성
         var totalPages = Math.ceil(filteredItems.length / itemsPerPage);

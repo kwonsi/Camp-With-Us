@@ -371,6 +371,7 @@ pre {
   margin-bottom: 1rem;
   overflow: auto;
   font-size: 0.875em;
+  padding: 20px 0px;
 }
 pre code {
   font-size: inherit;

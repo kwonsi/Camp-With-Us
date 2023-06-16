@@ -20,6 +20,7 @@ import team.project.camp.board.model.vo.BoardDetail;
 import team.project.camp.board.model.vo.BoardImage;
 import team.project.camp.board.model.vo.BoardType;
 import team.project.camp.board.model.vo.Pagination;
+import team.project.camp.board.model.vo.PlaceRecommend;
 import team.project.camp.common.Util;
 
 @Slf4j
@@ -59,10 +60,8 @@ public class BoardServiceImpl implements BoardService{
 		map.put("pagination", pagination);
 		map.put("boardList", boardList);
 		map.put("boardCode", boardCode);
-
-
-		log.info("Service map : " + map);
-
+		
+		
 		return map;
 	}
 
@@ -93,7 +92,7 @@ public class BoardServiceImpl implements BoardService{
 	// 게시글 상세 조회 서비스 구현
 	@Override
 	public BoardDetail selectBoardDetail(int boardNo) {
-
+		
 		return dao.selectBoardDetail(boardNo);
 	}
 
@@ -126,9 +125,10 @@ public class BoardServiceImpl implements BoardService{
 			// imageList : 실제 이미지 파일이 담겨있는 리스트
 			// boardImageList : DB에 삽입할 이미지 정보만 담겨있는 리스트
 			// reNameList : 변경된 파일명이 담겨있는 리스트
+			
+			List<BoardImage> boardImageList = new ArrayList<BoardImage>();
+			List<String> reNameList = new ArrayList<String>();
 
-			List<BoardImage> boardImageList = new ArrayList<>();
-			List<String> reNameList = new ArrayList<>();
 
 			// imageList에 담겨있는 파일 정보 중 실제 업로드된 파일만 분류하는 작업
 			for(int i=0; i < imageList.size(); i++) {
@@ -295,6 +295,14 @@ public class BoardServiceImpl implements BoardService{
 	public int updateReadCount(int boardNo) {
 
 		return dao.updateReadCount(boardNo);
+	}
+
+	
+	// 여행지 추천 목록 조회 서비스 구현
+	@Override
+	public List<PlaceRecommend> selectrdList() {
+		
+		return dao.selectrdList();
 	}
 
 

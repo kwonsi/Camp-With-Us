@@ -7,7 +7,7 @@
 
       <div class="logo">
         <a href="${contextPath}"><img src="${contextPath}/resources/images/camp_logo.jpg" id="home-logo"></a>
-        <h1>캠핑보내조</h1>
+        &nbsp;<h1>W</h1><h4>orld</h4> <h1>&nbsp;C</h1><h4>amp</h4> <h1>&nbsp;T</h1><h4>ogether</h4>
       </div>
 
       <nav id="navbar" class="navbar">
@@ -54,7 +54,19 @@
             
             <c:otherwise>
               <li>
-                <a href="${contextPath}/member/myPage/profile">${loginMember.memberNickname}님</a>
+                <!-- 회원 프로필 이미지 -->
+                <a href="${contextPath}/member/myPage/profile">
+                                
+                  <c:if test="${empty loginMember.profileImage}">
+                      <img src="${contextPath}/resources/images/user.png" id="member-profile">
+                  </c:if>
+
+                  <c:if test="${!empty loginMember.profileImage}">
+                      <img src="${contextPath}${loginMember.profileImage}" id="member-profile">
+                  </c:if>
+
+                </a>
+                <a href="${contextPath}/member/myPage/profile" id="memberId">${loginMember.memberNickname}님</a>
               </li>
               <li>
                 <a href="${contextPath}/member/logout"><span>로그아웃</span></a>

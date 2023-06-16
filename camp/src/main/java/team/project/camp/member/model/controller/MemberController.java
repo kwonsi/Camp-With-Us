@@ -1,5 +1,6 @@
 package team.project.camp.member.model.controller;
 
+import java.util.List;
 import java.util.Random;
 
 import javax.mail.internet.MimeMessage;
@@ -253,10 +254,13 @@ public class MemberController {
 
 	// 로그아웃
 	@GetMapping("/logout")
-	public String logout(SessionStatus status) {
+	public String logout(SessionStatus status,
+			RedirectAttributes ra
+			) {
 
 		logger.info("로그아웃 수행됨");
 
+		ra.addFlashAttribute("message","로그아웃 되었습니다.");
 		status.setComplete(); // 세센이 할 일이 완료됨 -> 없앰
 
 		return "redirect:/"; // 메인페이지 리다이렉트
@@ -267,10 +271,19 @@ public class MemberController {
 	@PostMapping("/findId")
 	public String findId(String memberTel, RedirectAttributes ra) {
 
-		String id = service.findId(memberTel);
+		List<String> idList = service.findId(memberTel);
 
-		logger.info("id : " + id);
-
+		logger.info("id : " + idList);
+		
+		String id = "";
+		
+		for(int i=0; i<idList.size(); i++) {
+			
+			if( i == idList.size() - 1 ) id += idList.get(i);
+			else id += idList.get(i) + " / ";
+			
+		}
+		
 		ra.addFlashAttribute("message", "회원님의 ID는 " + id + " 입니다");
 
 		return "redirect:/member/login";

@@ -40,4 +40,9 @@ public class MainController {
 		return "camp/campList";
 
 	}
+	@GetMapping("/reservationComplete")
+	public String reservationComplete() {
+		
+		return "camp/reservationComplete";
+	}
 }

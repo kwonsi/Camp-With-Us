@@ -2,6 +2,7 @@ package team.project.camp.member.model.service;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -10,6 +11,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import team.project.camp.board.model.vo.Board;
+import team.project.camp.board.model.vo.Pagination;
 import team.project.camp.common.Util;
 import team.project.camp.detail.model.vo.Review;
 import team.project.camp.member.model.dao.MyPageDAO;
@@ -113,5 +116,11 @@ public class MyPageServiceImpl implements MyPageService {
 	@Override
 	public List<Review> selectMyReplyList(int memberNo) {
 		return dao.selectMyReplyList(memberNo);
+	}
+	
+	// 내 게시글 조회 서비스 구현
+	@Override
+	public List<Board> selectMyBoard(int memberNo) {
+		return dao.selectMyBoard(memberNo);
 	}
 }

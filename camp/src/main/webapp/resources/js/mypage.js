@@ -237,6 +237,98 @@ function reservCancel(reservNo) {
                             
 }
 
+// 내 게시글 조회 페이지네이션
+var currentPage = 1;
+var itemsPerPage = 10;
+var myBoardList = document.getElementById("myBoardList");
+
+function displayItems(page) {
+    var startIndex = (page - 1) * itemsPerPage;
+    var endIndex = startIndex + itemsPerPage;
+    // var filteredItems = ; // -> boardList
+
+    console.log(boardList);
+    var myBoard = JSON.stringify(boardList);
+
+    var totalPages = Math.ceil(boardList.length / itemsPerPage);
+    var paginatedItems = myBoard.slice(startIndex, endIndex);
+    if(paginatedItems.length = 0) {
+        paginatedItems.innerHTML = 
+        "<tr>" +
+        "<th colspan='5'>게시글이 존재하지 않습니다.</th>" +
+        "</tr>";
+    } else {
+       paginatedItems.forEach(item => {
+
+            if(myBoard.thumbnail != null) {
+                var htmlCode =
+                    '<tr>' +
+                        '<td>' + item.boardNo +'</td>' +
+                        '<td>'+
+                            "<img class='list-thumbnail' src='${contextPath}'" + item.thumbnail + ">" + 
+                        
+                            "<a href='../detail/'" + item.boardCode + "/" + item.boardNo + "?cp=" + currentPage + ">" + item.boardTitle + "</a>" +                                                             
+                        '</td>' + 
+                        '<td>' + item.memberNickname + '</td>' + 
+                        '<td>' + item.createDate + '</td>' + 
+                        '<td>' + item.readCount + '</td>' + 
+                    '</tr>';
+    
+                myBoardList.innerHTML += htmlCode;
+            }
+
+        }); 
+    }
+    
+
+    // 페이지네이션 부분 
+    var pagination = document.getElementById("pagination");
+    pagination.innerHTML = "";
+
+    var startPage = Math.floor((currentPage - 1) / 5) * 5 + 1;
+    var endPage = Math.min(startPage + 4, totalPages);
+    
+    if (startPage > 1) {
+      var prevButton = document.createElement("button");
+      prevButton.textContent = "이전";
+      prevButton.classList.add("pagination-previous");
+      prevButton.addEventListener("click", function () {
+        currentPage = startPage - 5;
+        displayItems(currentPage);
+        window.scrollTo(0, 0);
+
+      });
+      pagination.appendChild(prevButton);
+    }
+    for (var i = startPage; i <= endPage; i++) {
+      var pageButton = document.createElement("button");
+      pageButton.textContent = i;
+      pageButton.classList.add("page-button");
+      if (i === currentPage) {
+        pageButton.classList.add("active");
+      }
+      pageButton.addEventListener("click", function () {
+        currentPage = parseInt(this.textContent);
+        displayItems(currentPage);
+        window.scrollTo(0, 0);
+      });
+      pagination.appendChild(pageButton);
+    }
+    if (endPage < totalPages) {
+      var nextButton = document.createElement("button");
+      nextButton.textContent = "다음";
+      nextButton.classList.add("pagination-next");
+      nextButton.addEventListener("click", function () {
+        currentPage = endPage + 1;
+        displayItems(currentPage);
+        window.scrollTo(0, 0);
+      });
+      pagination.appendChild(nextButton);
+    }
+}
+
+displayItems(currentPage);
+
 
    
 // 리뷰 목록 조회(AJAX)
@@ -372,3 +464,5 @@ function selectMyReplyList() {
     });
 }
 selectMyReplyList();
+
+

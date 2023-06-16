@@ -60,7 +60,7 @@
     height: 30px;
     margin-left: 10px;
     color: white;
-    background-color: #aaa;
+    background-color: #ee7843;
     border: 0;
     border-radius: 3px;
     font-size: 14px;
@@ -69,8 +69,8 @@
 
 /* 버튼 hover */
 .reply-btn-area > button:hover{
-    background-color: white;
-    border: 2px solid #455ba8;
+    background-color: #eb5d1e;
+    border: 1px solid #eee;
     color: #fff;
 }
 
@@ -91,13 +91,13 @@
     /* flex-basis: 15%; */
     width: 100px;
     color: white;
-    background-color: #ccc;
+    background-color: #ee7843;
     border: 0;
     cursor: pointer;
 }
 
 #addReply:hover{
-    background-color: #aaa;
+    background-color: #eb5d1e;
     color: #fff;
     border: 2px solid #eee;
 }
