@@ -161,6 +161,7 @@ selectCampBtn.addEventListener("click", function () {
         }); 
 
         console.log("캠핑장수 : " + filteredItems.length);
+        console.log("필터링" + filteredItems);
 
         if ( searchVal2.value==""){
           campResult.innerHTML= "캠핑장 총 <span style='color:#22c730;'>" + filteredItems.length + "</span>개 검색 되었습니다.<hr>";
@@ -176,6 +177,8 @@ selectCampBtn.addEventListener("click", function () {
         searchBox2.innerHTML = "";
 
         paginatedItems.forEach(item => {
+          console.log("아이템" + item);
+
           var htmlCode =
             '<ul>' +
             '<li>' +
@@ -308,7 +311,7 @@ window.onload = function() {
     
     success: function (result) {
       console.log("API 호출 성공");
-      console.log(result);
+      // console.log(result);
       
       var items = result.response.body.items.item;
       var searchVal2_1 = "";
@@ -371,7 +374,7 @@ window.onload = function() {
  
 
 
-        console.log("캠핑장수 : " + filteredItems.length);
+        console.log("캠핑장 : " + filteredItems);
 
         if ( searchVal2.value==""){
           campResult.innerHTML= "캠핑장 총 <span style='color:#22c730;'>" + filteredItems.length + "</span>개 검색 되었습니다.<hr>";
@@ -387,6 +390,7 @@ window.onload = function() {
 
         paginatedItems.forEach(item => {
 
+          console.log(item);
           // 전체데이터 뽑는대신, 이미지없으면 기본이미지 넣어주기.
   /*         if ( item.firstImageUrl == "" || item.firstImageUrl==null){
             item.firstImageUrl = contextPath+"/resources/images/cloud.jpg";

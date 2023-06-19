@@ -46,19 +46,12 @@
                     </thead>
 
                     <tbody id="myBoardList">
-
-                        <c:choose>
-                            <c:when test="${empty boardList}">
-                                <!-- 게시글 목록 조회 결과가 비어있다면 -->
-                                <tr>
-                                    <th colspan="5">게시글이 존재하지 않습니다.</th>
-                                </tr>
-                            </c:when>
-                        </c:choose>
-
                     </tbody>
+
                 </table>
 
+                <div id="pagination" class="pagination">
+                </div>
             </div>
 
             
@@ -67,7 +60,8 @@
     </main>
     
     <script>
-        const boardList = "${boardList}";
+        const boardList = '${boardList}';
+        const contextPath = "${contextPath}";
     </script>
 
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
