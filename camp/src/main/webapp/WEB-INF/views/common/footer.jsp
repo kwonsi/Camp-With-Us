@@ -70,7 +70,7 @@
     </div>
 
 
-    <div id = "projectBy"> <span id="projectBySpan">Project By 순일ㅣ진복ㅣ은주ㅣ규동ㅣ영진 </span> </div>
+    <div id = "projectBy"> <span id="projectBySpan">Project By </span>&nbsp; 순일ㅣ진복ㅣ은주ㅣ규동ㅣ영진</div>
     <div class="container py-4">
         
         <div class="copyright">

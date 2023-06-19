@@ -234,3 +234,60 @@ form[name="myPage-form"]{
 }
 
 /*******************************************/
+
+
+
+/* 페이지네이션 */
+
+.pagination {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .page-button {
+    border: none;
+    background-color: transparent;
+    color: #555;
+    font-size: 16px;
+    padding: 8px 12px;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-radius: 5px;
+  }
+  
+  .page-button.active {
+    background-color: #555;
+    color: #fff;
+  }
+  
+  .page-button:hover {
+    background-color: #555;
+    color: #fff;
+  }
+  
+  .pagination-previous,
+  .pagination-next {
+    border: none;
+    background-color: #555;
+    color: #fff;
+    font-size: 16px;
+    padding: 8px 12px;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-radius: 5px;
+  }
+  
+  .pagination-previous:hover,
+  .pagination-next:hover {
+    background-color: #333;
+  }
+  .pagination-previous {
+    order: -1;
+  }
+  
+  
+  

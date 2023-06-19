@@ -1011,6 +1011,7 @@ hr {
 }
 #footer > .py-4 {
   padding: 24px 12px !important;
+  padding-top: 15px !important;
 }
 #footer{
   background-color: #eee;
@@ -1019,6 +1020,17 @@ hr {
   background-color: #eee;
 }
 
+
+#projectBy {
+  display: flex;
+  justify-content: center;
+  color: #686262;
+  font-size: 16px;
+}
+#projectBySpan{
+  color: #212529;
+  font-size: 17px;
+}
 
 /*    footer 끝   */
 
