@@ -390,7 +390,7 @@ window.onload = function() {
 
         paginatedItems.forEach(item => {
 
-          console.log(item);
+          // console.log(item);
           // 전체데이터 뽑는대신, 이미지없으면 기본이미지 넣어주기.
   /*         if ( item.firstImageUrl == "" || item.firstImageUrl==null){
             item.firstImageUrl = contextPath+"/resources/images/cloud.jpg";

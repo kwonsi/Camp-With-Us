@@ -12,7 +12,7 @@
 /* 왼쪽 사이드 메뉴 */
 .left-side{
     position: sticky;
-    top : 20px;
+    top : 90px;
     width: 15%;
     
     /* border-right : 2px solid gray; */
@@ -22,7 +22,7 @@
 
 .list-group{
     width: 100%;
-    padding: 0 20px 0 0;
+    padding: 0 5px 0 5;
            /*상 우  하 좌  */
 }
 
@@ -42,7 +42,7 @@
     justify-content: center;
     align-items: center;
 
-    border-bottom : 2px solid #ddd;
+    /* border-bottom : 2px solid #ddd; */
 }
 
 .list-group  li:hover{
@@ -58,13 +58,13 @@
 }
 
 .myPage-title{
-    margin : 0 0 10px 0;
+    margin : 0 0 20px 0;
     font-size: 30px;
 }
 
 .myPage-explanation{
     display: block;
-    margin-bottom: 30px;   
+    margin-bottom: 20px;   
     font-size: 14px;
     letter-spacing: -1px;
 }
@@ -104,11 +104,12 @@
     border : 0;
     outline: 0;
     font-weight: normal;
+    border: 1px solid #ddd;
 }
 
-.myPage-row:focus-within{
+/* .myPage-row:focus-within{
     border-bottom: 2px solid #ee7843;
-}
+} */
 
 form[name="myPage-form"]{
     display: flex;
@@ -194,13 +195,13 @@ form[name="myPage-form"]{
     border : 0;
 }
 
-.info-address{ margin : 0; }
+.info-address{ margin : 0 0 5px 0; }
 
 /* 검색버튼 */
 #info-address-btn{
-    width: 30%;
+    width: 20%;
     height: 70%;
-
+    margin-left: 10px;
     font-size: 14px;
     font-weight: normal;
     color: white;

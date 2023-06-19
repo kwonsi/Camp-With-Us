@@ -5,7 +5,8 @@ function selectReplyList(){
     // contextPath, boardNo, memberNo 전역 변수 사용
     $.ajax({
         url : contextPath + "/review/selectReplyList",
-        data : {"campNo" : campNo},
+        data : {"campNo" : campNo
+                },
         type : "GET",
         dataType : "JSON", // JSON 형태의 문자열 응답 데이터를 JS 객체로 자동 변환
         success : function(rList){
@@ -178,7 +179,9 @@ addReply.addEventListener("click", function(){ // 리뷰 등록 버튼이 클릭
         data : {"reviewContents" : reviewContents.value,
                 "memberNo" : loginMemberNo,
                 "campNo" : campNo,
-                "campRate" : campRate},
+                "campRate" : campRate,
+                "campName" : campName
+            },
         type : "POST",
         success : function(result){
 

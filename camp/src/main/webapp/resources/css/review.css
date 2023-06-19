@@ -48,6 +48,13 @@
     color : #aaa;
 }
 
+.reply-campName {
+    display: flex;
+    flex-direction: row-reverse;
+    text-align: right;
+    font-weight: bold;
+}
+
 /* 버튼 영역 */
 .reply-btn-area{
     display: flex;

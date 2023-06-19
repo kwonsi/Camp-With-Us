@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-    <!-- 왼쪽 사이드 메뉴 -->
-    <section class="left-side">
-        사이드메뉴
 
-        <ul class="list-group">
 
+       
+<!-- 왼쪽 사이드 메뉴 -->
+<section class="left-side">
+    <h3>MENU</h3>
+    <ul class="list-group">
             <c:choose>
                 <c:when test="${loginMember.loginST=='Y'}">
                     <li><a href="${contextPath}/member/myPage/myReservation">예약 확인</a></li>

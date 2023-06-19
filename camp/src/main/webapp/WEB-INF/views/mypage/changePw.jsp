@@ -33,17 +33,17 @@
 
                 <div class="myPage-row">
                     <label>현재 비밀번호</label>
-                    <input type="password" name="currentPw" id="currentPw" maxlength="30">              
+                    <input type="password" name="currentPw" id="currentPw" maxlength="30" class="form-control">              
                 </div>
 
                 <div class="myPage-row">
                     <label>새 비밀번호</label>
-                    <input type="password" name="newPw" maxlength="30">              
+                    <input type="password" name="newPw" maxlength="30" class="form-control">              
                 </div>
 
                 <div class="myPage-row">
                     <label>새 비밀번호 확인</label>
-                    <input type="password" name="newPwConfirm" maxlength="30">              
+                    <input type="password" name="newPwConfirm" maxlength="30" class="form-control">              
                 </div>
 
                 <button id="info-update-btn" type="submit">변경하기</button>
