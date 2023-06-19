@@ -75,7 +75,7 @@ public class MyPageController {
 		
 		List<Board> boardList = myPageService.selectMyBoard(loginMember.getMemberNo());
 		
-		model.addAttribute("boardList", boardList);
+		model.addAttribute("boardList", new Gson().toJson(boardList));
 		
 		return "mypage/myBoard";
 	}
