@@ -27,7 +27,7 @@
 
     
     <title>${boardName}</title>
-    
+    <link rel="stylesheet" href="${contextPath}/resources/css/boardSideMenu.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/boxicons.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/main.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/boardList-style1.css">
@@ -53,8 +53,10 @@
         <jsp:include page="/WEB-INF/views/common/header.jsp"/>
         
         <section class="contain">
+            
 
             <div class="board1">
+                
                 
                 <div class="headline">
                     <h3>${boardName}</h3>
