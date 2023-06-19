@@ -51,7 +51,7 @@ ALTER TABLE MEMBER_S ADD LOGIN_ST CHAR(1) DEFAULT 'N' NOT NULL;   --- LOGIN_ST �
 
 
 
---DROP TABLE "RESERVATION";                          --<< 예약정보 테이블입니다.  DROP 하시고 새로 CREATE 하세요.
+--DROP TABLE "RESERVATION";                                --<< 예약정보 테이블입니다.  DROP 하시고 새로 CREATE 하세요.
 --예약정보테이블 입니다.
 --기존 테이블에서 MEMBER_NO 를 추가하였습니다.
 --앞으로 조회시 MEMBER_NO 로 조회해주세요,
@@ -78,6 +78,12 @@ CREATE TABLE "PRICE" (
 "PEAK_SEASON" CHAR(1) NOT NULL
 )
 
+CREATE SEQUENCE SEQ_CAMPING_CD_S NOCACHE;
+
+INSERT INTO PRICE VALUES(SEQ_CAMPING_CD_S.NEXTVAL,
+30000, 'Y');
+INSERT INTO PRICE VALUES(SEQ_CAMPING_CD_S.NEXTVAL,
+20000, 'N');
 
 ---------------------------------------------게시판 테이블 입니다, 위에서부터 순서대로 진행하세요--------------------------------------------------------------------------------------------------
 
@@ -264,13 +270,57 @@ AND BOARD_ST = 'N';
 
 
 
+-----------------------------------------PLACE_RECOMMEND ---테이블(여행지 추천 테이블) 입니다.    ------------
+
+
+-- PLACE_RECOMMEND 테이블(여행지 추천 테이블)
+-- 여행지 번호, 제목, 내용, 이미지, 홈페이지링크
+CREATE TABLE "PLACE_RECOMMEND"(
+   "RECOMMEND_NO" NUMBER PRIMARY KEY,
+   "RECOMMEND_TITLE" VARCHAR2(150) NOT NULL,
+   "RECOMMEND_CONTENT" VARCHAR2(4000) NOT NULL,
+   "RECOMMEND_IMG" VARCHAR2(200) NOT NULL,
+   "RECOMMEND_HOMEPG" VARCHAR2(50) NOT NULL
+);
+
+
+COMMENT ON COLUMN "PLACE_RECOMMEND"."RECOMMEND_NO" IS '여행지 번호(시퀀스)';
+COMMENT ON COLUMN "PLACE_RECOMMEND"."RECOMMEND_TITLE" IS '제목';
+COMMENT ON COLUMN "PLACE_RECOMMEND"."RECOMMEND_CONTENT" IS '내용';
+COMMENT ON COLUMN "PLACE_RECOMMEND"."RECOMMEND_IMG" IS '이미지';
+COMMENT ON COLUMN "PLACE_RECOMMEND"."RECOMMEND_HOMEPG" IS '홈페이지';
 
 
 
+-- RECOMMEND_NO용 시퀀스
+-- DROP SEQUENCE SEQ_RECOMMEND_NO;
+
+CREATE SEQUENCE SEQ_RECOMMEND_NO;
+
+
+-- PLACE_RECOMMEND 테이블 샘플 데이터 삽입(PL/SQL)
+-- 샘플 데이터 얻어 온 링크
+-- https://conlab.visitkorea.or.kr/conlab/search-result/formal?cid=mADJkA&defaultCid=mADJkA&keyword=%EC%97%AC%ED%96%89%EC%A7%80&searchType=Formal&page=2&lang=%ED%95%9C%EA%B5%AD%EC%96%B4&sortDirection=%EC%B5%9C%EC%8B%A0%EC%88%9C
+BEGIN
+   FOR I IN 1..15 LOOP
+      INSERT INTO PLACE_RECOMMEND 
+      VALUES( SEQ_RECOMMEND_NO.NEXTVAL,
+              SEQ_RECOMMEND_NO.CURRVAL || '번째 제목',
+              SEQ_RECOMMEND_NO.CURRVAL || '번째 내용 입니다.',
+              '/resources/images/board/semiwon.jpg', 'http://www.semiwon.or.kr/'
+      );
+   END LOOP;
+END;
+/
+
+
+-- 혹시 , "INSERT INTO BOARD VALUES" 오류나시는분은 , 
+-- ALTER TABLE COMMUNITY.BOARD DROP CONSTRAINT FK_BOARD_MEMBER;
+-- 실행하세요 , MEMBER_S 테이블의 NO 와 MEMBER 테이블의 NO 가 외래키로 중복됩니다.   YJdawn.
 
 
 
-
+------------------------------------------------------------------------------
 
 
 

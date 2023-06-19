@@ -2,8 +2,8 @@ package team.project.camp.board.model.vo;
 
 
 import lombok.Getter;
-import lombok.Setter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Getter
 @Setter

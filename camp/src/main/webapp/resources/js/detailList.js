@@ -10,7 +10,7 @@ reservationBtn.addEventListener("click", function (e) {
 
     if (loginMember == null || loginMember=="" ) {
         alert("먼저 로그인을 해주세요");
-
+        window.location.href = '/camp/member/login';
         e.preventDefault();
         
     } else {
@@ -20,6 +20,10 @@ reservationBtn.addEventListener("click", function (e) {
 
 
 
+// 맨뒤 캠핑장 이름 / 소개글
+var introCampName = document.getElementsByClassName("lineIntro1")[0];
+var introLine = document.getElementsByClassName("camp_s_tt")[0];
+var introLine2 = document.getElementsByClassName("lineIntro1")[1];
 
 // 캠핑장정보 table
 var addr = document.getElementById("addr");              // 주소
@@ -33,7 +37,8 @@ var posblFcltyCl = document.getElementById("posblFcltyCl");    // 주변이용�
 var imgB = document.getElementById("img_b");
 var intro = document.getElementById("intro");  // intro div 
 var homePage = document.getElementById("homePage"); // 홈페이지
-var boxphoto = document.getElementById("box_photo");   // 이미지 컨테이너
+var postWrapper = document.getElementsByClassName("post-wrapper")[0];
+
 
 //기타주요시설 table 
 var indutyli = document.getElementsByClassName("table_ul05")[0]; // 주요시설
@@ -45,7 +50,8 @@ var brazierClli = document.getElementsByClassName("table_ul05")[5]; // 화로대
 var sobangli = document.getElementsByClassName("table_ul05")[6];  // 안전시설
 var sbrsClli = document.getElementsByClassName("table_ul05")[7]; // 부가정보
 
-
+// 캠핑장 가격테이블에 캠핑장이름 넣어주기
+var campNamePrice = document.getElementById("campNamePrice"); 
 
 // 캠핑장 정보 저장용 변수 ( json데이터 item[]에 복사 )
 let item = {};
@@ -89,6 +95,14 @@ window.onload = function () {
             items = JSON.parse(localStorage.getItem("item"));
             contentId = items.contentId;
 
+
+
+            introCampName.innerText = items.facltNm;
+            introLine.innerText = items.lineIntro;
+            introLine2.innerText = items.facltNm;
+            if(campNamePrice){
+            campNamePrice.innerText = items.facltNm+" 이용 요금";
+            }
             /* ************** 캠핑장 정보 출력 ************** */
             addr.innerText = items.addr1;               // 주소
             tel.innerText = items.tel;                  //문의처
@@ -152,7 +166,11 @@ window.onload = function () {
                         '<li>' + sbrsCl[i] + '</li>';
                 }
                 // 소개글
+                if ( items.intro == null || items.intro ==""){
+                    intro.innerText = "정보가 없습니다.";
+                }else{
                 intro.innerText = items.intro;
+                }
             }
 
             /* ************** 캠핑장 이미지 출력 ************** */
@@ -172,13 +190,32 @@ window.onload = function () {
                     console.log("이미지정보 ajax->ajax 성공");
                     imageUrlItem = result.response.body.items.item;
 
-                    if (boxphoto) {
+                    
+
+                    if (postWrapper) {
                         for (let i = 0; i < imageUrlItem.length; i++) {
-                            boxphoto.innerHTML +=
-                                "<div class='box_photo3'>" +
-                                "<img class='lazyload' data-src=" + imageUrlItem[i].imageUrl + " width=226 height=220>"
+                            postWrapper.innerHTML +=
+                                '<div class="post">' +
+                                "<img src=" + imageUrlItem[i].imageUrl + ">"
                                 + "</div>";
                         }
+
+                        $(document).ready(function() {
+                            // 슬라이더 초기화 코드
+                            $('.post-wrapper').slick({
+                                arrows: true,
+                                // prevArrow: '<button class="slide-arrow prev-arrow"><</button>',
+                                // nextArrow: '<button class="slide-arrow next-arrow">></button>',
+                              slidesToShow: 4,
+                              slidesToScroll: 4,
+                              autoplay: true,
+                              autoplaySpeed: 3000,
+                              draggable : true,
+                              dots:true,
+                              
+                              
+                            });
+                          });
                     }
                 },
                 error: function (error) {
@@ -196,6 +233,7 @@ window.onload = function () {
 };
 
 
+  
 
 
 /// 카카오 맵
@@ -252,14 +290,63 @@ if (mapContainer) {
 }
 
 
-
+ 
 
 
 var doNmVal = document.getElementById("doNmVal");  // 날씨제목
 if(doNmVal){
     var doNm = items.doNm;
+    localStorage.setItem("loca", JSON.stringify(doNm))
 doNmVal.innerText = doNm+" 지역 날씨";
 };
 
 
 
+
+
+///  목록 (li) 누를때 , li 배경색 유지 .
+
+function changeBackgroundColor(event) {
+    // 이벤트 발생한 요소의 부모 요소인 li 선택
+    var liElement = event.target.parentNode;
+
+    // 모든 li 요소의 클래스 제거
+    var liElements = document.getElementsByClassName("campListli");
+    for (var i = 0; i < liElements.length; i++) {
+        liElements[i].classList.remove("selected");
+    }
+
+    // 클릭한 li 요소에 선택된 클래스 추가
+    liElement.classList.add("selected");
+
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    // 현재 페이지 URL에서 viewType 파라미터 값 추출
+    var viewType = getParameterByName("viewType");
+
+    // viewType에 해당하는 li 요소에 selected 클래스 추가
+    var liElements = document.getElementsByClassName("campListli");
+    for (var i = 0; i < liElements.length; i++) {
+        var link = liElements[i].getElementsByTagName("a")[0];
+        var linkViewType = getParameterByName("viewType", link.href);
+        if (linkViewType === viewType) {
+            liElements[i].classList.remove("campListA");
+            liElements[i].classList.add("selected");
+           
+            break;
+        }
+    }
+});
+
+function getParameterByName(name, url) {
+    if (!url) {
+        url = window.location.href;
+    }
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return "";
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}

@@ -1,5 +1,7 @@
 package team.project.camp.member.model.dao;
 
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -66,8 +68,8 @@ public class MemberDAO {
 	 * @param memberTel
 	 * @return
 	 */
-	public String findId(String memberTel) {
-		return sqlSession.selectOne("memberMapper.findId" ,memberTel);
+	public List<String> findId(String memberTel) {
+		return sqlSession.selectList("memberMapper.findId" ,memberTel);
 	}
 
 
@@ -81,8 +83,8 @@ public class MemberDAO {
 	}
 
 
-	
-	/** 네이버 이메일 중복검사 DAO 
+
+	/** 네이버 이메일 중복검사 DAO
 	 * @param memberEmail
 	 * @return
 	 */
@@ -91,7 +93,7 @@ public class MemberDAO {
 	}
 
 
-	/** 네이버 로그인시 DB 에 정보 저장 
+	/** 네이버 로그인시 DB 에 정보 저장
 	 * @param loginMember
 	 * @return
 	 */
@@ -106,9 +108,9 @@ public class MemberDAO {
 	public Member naverMember(Member loginMember) {
 		return sqlSession.selectOne("memberMapper.naverMember",loginMember);
 	}
-	
-	
-	
+
+
+
 	/**구글 카카오 로그인 회원정보 조회
 	 * @param googleMember
 	 * @return
@@ -118,7 +120,7 @@ public class MemberDAO {
 		Member googleKakaoLoginMember = sqlSession.selectOne("memberMapper.googleKakaoLogin", googleKakaoMember);
 		return googleKakaoLoginMember;
 	}
-	
+
 	/**구글 카카오 첫 로그인 시 DB 삽입
 	 * @param member
 	 * @return
@@ -128,7 +130,7 @@ public class MemberDAO {
 	}
 
 
-	/** 구글 카카오 중복이메일 방지 이메일,닉네임 selece문 
+	/** 구글 카카오 중복이메일 방지 이메일,닉네임 selece문
 	 * @param kakaoMember
 	 * @return
 	 */

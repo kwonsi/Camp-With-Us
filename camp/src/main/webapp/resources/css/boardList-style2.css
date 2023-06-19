@@ -1,33 +1,36 @@
-section, div, form{
+/* section, div, form{
     border : 1px solid black;
-}
+} */
 
-p, a{
+
+/* a 태그 */
+.boardTitle{
     font-weight: bold;
 }
 
-/* a태그 공통 설정 */
-.board-list a{
-    text-decoration: none;
-    color : black;
+.boardTitle:hover{
+    color: lightgreen;
 }
 
-.board-list a:hover{
-    /* text-decoration: underline; */
-    cursor: pointer;
+.board_Content{
+    color: #acacaf;
 }
+
 
 /* 게시판 목록 화면 전체 영역 설정 */
 .board-list{
     width: 1000px;
     margin: 50px auto;
+    margin-top: 150px;
 }
+
 
 /* 게시판 이름 */
 .board-name{
     font-size: 2.5em;
     margin-left: 30px;
 }
+
 
 /* 게시글 목록 영역 */
 .list-wrapper{
@@ -39,28 +42,47 @@ p, a{
     display: flex;
     width: 100%;
     height: 300px;
+    border : 1px solid black;
 }
 
 .list1-1{
     width: 30%;
+    border-right : 1px solid black;
 }
 
 .list1-2{
     flex-direction: row;
     width: 70%;
+    margin-left: 30px;
 }
 
 .list1-3{
-    
     height: 30%;
+    margin: auto;
+    /* border : 1px solid black; */
 }
 
 .list1-4{
-    
     height: 70%;
+    /* border : 1px solid black; */
 }
 
+.list1-5{
+    /* display: flex; */
+    width: 100%;
+    height: 50px;
+    /* border : 1px solid black; */
+}
 
+.list1-6{
+    /* display: flex; */
+    width: 100%;
+    height: 100px;
+    text-align: center;
+    font-size: 18px;
+    margin-top: 50px;
+    /* border : 1px solid black; */
+}
 
 /* 목록 출력 테이블 */
 .list-table{
@@ -111,6 +133,7 @@ p, a{
     align-items: center;
 }
 
+
 /* 글쓰기 버튼 */
 #insertBtn{
     margin-right: 50px;
@@ -151,6 +174,7 @@ p, a{
     /* letter-spacing : -2px; */
 }
 
+
 /* 현재 페이지 번호 */
 .pagination .current{
     background-color: #455ba8;
@@ -170,6 +194,7 @@ p, a{
 
     margin: 30px auto;
 }
+
 
 /* 검색 영역 공통 스타일 */
 #boardSearch *{
@@ -208,8 +233,8 @@ p, a{
 .list-thumbnail{ /* 썸네일 이미지 */
     /* max-width: 50px;
     max-height: 30px; */
-    width: auto;
-    height: auto;
+    width: 290px;
+    height: 297px;
     cursor: pointer;
     /* position: absolute; */
     left : -15px;
@@ -254,6 +279,7 @@ p, a{
     max-height: 100%;
 }
 
+
 /* 닫기 버튼 */
 #modal-close {
     position: absolute;
@@ -273,7 +299,6 @@ p, a{
 }
 
 
-
 /* @keyframes : 
 애니메이션 중간중간의 특정 지점들을 거칠 수 있는 키프레임들을 설정함으로써
 CSS 애니메이션 과정의 중간 절차를 제어할 수 있게 합니다.  */
@@ -285,4 +310,36 @@ CSS 애니메이션 과정의 중간 절차를 제어할 수 있게 합니다.  
 @keyframes hide {
     from {opacity: 1;}
     to {opacity: 0;}
+}
+
+.container,
+.container-fluid,
+.container-xxl,
+.container-xl,
+.container-lg,
+.container-md,
+.container-sm {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  width: 100%;
+  padding-right: calc(var(--bs-gutter-x) * 0.5);
+  padding-left: calc(var(--bs-gutter-x) * 0.5);
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col,
+.col-auto, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm,
+.col-sm-auto, .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12, .col-md,
+.col-md-auto, .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg,
+.col-lg-auto, .col-xl-1, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl,
+.col-xl-auto, .col-xxl-1, .col-xxl-2, .col-xxl-3, .col-xxl-4, .col-xxl-5, .col-xxl-6, .col-xxl-7, .col-xxl-8, .col-xxl-9, .col-xxl-10, .col-xxl-11, .col-xxl-12, .col-xxl,
+.col-xxl-auto {
+	position: relative;
+	width: 100%;
+	min-height: 1px;
+	padding-right: 15px;
+	padding-left: 15px;
 }

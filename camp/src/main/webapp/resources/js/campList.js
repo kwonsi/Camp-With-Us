@@ -1,5 +1,7 @@
 
 
+
+
 //  시 군 구 option List 
 function categoryChange(e) {
   const state = document.getElementById("state");
@@ -85,7 +87,7 @@ selectCampBtn.addEventListener("click", function () {
   $.ajax({
     url: "https://apis.data.go.kr/B551011/GoCamping/basedList",
     data: {
-      numOfRows: 4000,
+      numOfRows: 3467,
       pageNo: 1,
       MobileOS: "ETC",
       MobileApp: "AppTest",
@@ -128,7 +130,7 @@ selectCampBtn.addEventListener("click", function () {
           return (
             (searchVal2.value == "충청북도" || searchVal2.value == "충청남도" || searchVal2.value == "전라북도" ||
               searchVal2.value == "전라남도" || searchVal2.value == "경상북도" || searchVal2.value == "경상남도")
-            && (item.homepage != null     // 홈페이지가 null 이 아닌 것
+            && (item.homepage != ""     // 홈페이지가 null 이 아닌 것
               && item.firstImageUrl != ""   // 이미지가 ''
               && item.tel != ""             // 전화번호가 ''
               && item.lineIntro != ""       // 한줄소개가 ''
@@ -159,12 +161,13 @@ selectCampBtn.addEventListener("click", function () {
         }); 
 
         console.log("캠핑장수 : " + filteredItems.length);
+        console.log("필터링" + filteredItems);
 
         if ( searchVal2.value==""){
-        campResult.innerText= "캠핑장 "+filteredItems.length+" 개 검색 되었습니다.";
-        }else {
-        campResult.innerText= searchVal2.value+"지역 캠핑장 "+filteredItems.length+" 개 검색 되었습니다.";
-        };
+          campResult.innerHTML= "캠핑장 총 <span style='color:#22c730;'>" + filteredItems.length + "</span>개 검색 되었습니다.<hr>";
+          }else {
+          campResult.innerHTML= "<span style='color:#22c730;'>" + searchVal2.value + "</span>지역 캠핑장 총 <span style='color:#22c730;'>" + filteredItems.length + "</span>개 검색 되었습니다.<hr>";
+          };
 
 
         // 데이터 수에 맞게 페이지네이션 생성
@@ -174,29 +177,33 @@ selectCampBtn.addEventListener("click", function () {
         searchBox2.innerHTML = "";
 
         paginatedItems.forEach(item => {
+          console.log("아이템" + item);
+
           var htmlCode =
             '<ul>' +
             '<li>' +
             '<div class="camp_info_box">' +
             '<div class="img_box">' +
-            '<img src=' + item.firstImageUrl + ' alt="이미지가 존재하지 않습니다." class="imgSize">' +
+            '<a href="/camp/campList/detailList?campName='+item.facltNm.replaceAll(" ","")+'&viewType=1">'+
+            '<img src=' + item.firstImageUrl + ' alt="이미지가 존재하지 않습니다." class="imgSize"></a>' +
             '</div>' +
             '<div class="camp_info_text">' +
             '<h3 class="camp_info01">' +
             '<a href="/camp/campList/detailList?campName='+item.facltNm.replaceAll(" ","")+'&viewType=1">' + item.facltNm + '</a>' +
             '</h3>' +
-            '<span class="camp_info02">' + item.lineIntro + '</span><br>' +
+            '<h5 id="lineIntro">' + item.lineIntro + '</h5>' +
             '<span class="camp_info03">' +
-            '<a href="/camp/campList/detailList?campName='+item.facltNm.replaceAll(" ","")+'&viewType=1"">'+(item.intro).substr(0,40)+'.....</a>' +
+            '<a href="/camp/campList/detailList?campName='+item.facltNm.replaceAll(" ","")+'&viewType=1"">'+(item.intro).substr(0,60)+'.....</a>' +
             '</span><br>' +
-            '<span>테마 &nbsp;&nbsp;&nbsp;: ' + item.induty + '</span><br>' +
-            '<span class="camp_add">주소 &nbsp;&nbsp;&nbsp;: ' + item.addr1 + '</span><br>' +
-            '<span class="camp_phone">연락처 : ' + item.tel + '</span>' +
-            '<a href="/camp/campList/detailList?campName='+item.facltNm.replaceAll(" ","")+'&viewType=1" class="reservation_button">예약하기</a>'+
+            '<span>테마 &nbsp;&nbsp;&nbsp;&nbsp;: ' + item.induty + '</span><br>' +
+            '<span class="camp_add">주소 &nbsp;&nbsp;&nbsp;&nbsp;: ' + item.addr1 + '</span><br>' +
+            '<span class="camp_phone">연락처 &nbsp;: ' + item.tel + '</span><br>' +
+            '<span class="camp_reserve">예약방법 : ' + item.resveCl + '</span>' +
+            '<a href="/camp/campList/detailList?campName='+item.facltNm.replaceAll(" ","")+'&viewType=1" class="reservation_button">상세보기</a>'+
             '</div>' +
             '</div>' +
             '</li>' +
-            '</ul><br><hr><br>';
+            '</ul><br><br>';
 
           searchBox2.innerHTML += htmlCode;
         });
@@ -215,6 +222,7 @@ selectCampBtn.addEventListener("click", function () {
           prevButton.addEventListener("click", function () {
             currentPage = startPage - 5;
             displayItems(currentPage);
+            window.scrollTo(0, 0);
 
           });
           pagination.appendChild(prevButton);
@@ -229,6 +237,7 @@ selectCampBtn.addEventListener("click", function () {
           pageButton.addEventListener("click", function () {
             currentPage = parseInt(this.textContent);
             displayItems(currentPage);
+            window.scrollTo(0, 0);
           });
           pagination.appendChild(pageButton);
         }
@@ -239,6 +248,7 @@ selectCampBtn.addEventListener("click", function () {
           nextButton.addEventListener("click", function () {
             currentPage = endPage + 1;
             displayItems(currentPage);
+            window.scrollTo(0, 0);
           });
           pagination.appendChild(nextButton);
         }
@@ -258,16 +268,30 @@ selectCampBtn.addEventListener("click", function () {
   
   //  메인페이지에서 "loc" 값을 받아왔을때 
   //  "loc" 지역정보 즉시출력 . onload 
-if( (loc != "" && theme != "") || loc != "" || theme != "") {
+if( (loc != "" && theme != "" && campName != "") || (loc != "" || theme != "" || campName != "" ) 
+          || ( loc == "" &&  theme == "" && campName == "") 
+) {
 window.onload = function() {
 
-  if( loc != "" && theme != "") {
+  if( loc != "" && theme != "" && campName != "") {
+    searchVal1.value = campName;
     searchVal2.value = loc;
     searchVal3.value = theme;
+  } else if( loc != "" && theme != "") {
+    searchVal2.value = loc;
+    searchVal3.value = theme;
+  } else if( theme != "" && campName != "") {
+    searchVal1.value = campName;
+    searchVal3.value = theme;
+  } else if ( loc != "" && campName != "") {
+    searchVal1.value = campName;
+    searchVal2.value = loc;
   } else if(loc != "") {
     searchVal2.value = loc;
   } else if(theme != "") {
     searchVal3.value = theme;
+  } else if(campName != "") {
+    searchVal1.value = campName;
   }
 
   searchBox2.innerHTML = "";
@@ -275,7 +299,7 @@ window.onload = function() {
   $.ajax({
     url: "https://apis.data.go.kr/B551011/GoCamping/basedList",
     data: {
-      numOfRows: 4000,
+      numOfRows: 3467,
       pageNo: 1,
       MobileOS: "ETC",
       MobileApp: "AppTest",
@@ -287,7 +311,7 @@ window.onload = function() {
     
     success: function (result) {
       console.log("API 호출 성공");
-      console.log(result);
+      // console.log(result);
       
       var items = result.response.body.items.item;
       var searchVal2_1 = "";
@@ -318,7 +342,7 @@ window.onload = function() {
           return (
             (searchVal2.value == "충청북도" || searchVal2.value == "충청남도" || searchVal2.value == "전라북도" ||
               searchVal2.value == "전라남도" || searchVal2.value == "경상북도" || searchVal2.value == "경상남도")
-            && (item.homepage != null     // 홈페이지가 null 이 아닌 것
+            && (item.homepage != ""     // 홈페이지가 null 이 아닌 것
               && item.firstImageUrl != ""   // 이미지가 ''
               && item.tel != ""             // 전화번호가 ''
               && item.lineIntro != ""       // 한줄소개가 ''
@@ -347,12 +371,15 @@ window.onload = function() {
             );
         });
 
-        console.log("캠핑장수 : " + filteredItems.length);
+ 
+
+
+        console.log("캠핑장 : " + filteredItems);
 
         if ( searchVal2.value==""){
-          campResult.innerText= "캠핑장 "+filteredItems.length+" 개 검색 되었습니다.";
+          campResult.innerHTML= "캠핑장 총 <span style='color:#22c730;'>" + filteredItems.length + "</span>개 검색 되었습니다.<hr>";
           }else {
-          campResult.innerText= searchVal2.value+"지역 캠핑장 "+filteredItems.length+" 개 검색 되었습니다.";
+          campResult.innerHTML= "<span style='color: #22c730;'>" + searchVal2.value + "</span>지역 캠핑장 총 <span style='color:#22c730;'>" + filteredItems.length + "</span>개 검색 되었습니다.<hr>";
           };
         // 데이터 수에 맞게 페이지네이션 생성
         var totalPages = Math.ceil(filteredItems.length / itemsPerPage);
@@ -360,33 +387,43 @@ window.onload = function() {
 
         searchBox2.innerHTML = "";
 
-        paginatedItems.forEach(item => {
-          var htmlCode =
-            '<ul>' +
-            '<li>' +
-            '<div class="camp_info_box">' +
-            '<div class="img_box">' +
-            '<img src=' + item.firstImageUrl + ' alt="캠핑장 메인사진" class="imgSize">' +
-            '</div>' +
-            '<div class="camp_info_text">' +
-            '<h3 class="camp_info01">' +
-            '<a href="/camp/campList/detailList?campName='+item.facltNm.replaceAll(" ","")+'&viewType=1">' + item.facltNm + '</a>' +
-            '</h3>' +
-            '<span class="camp_info02">' + item.lineIntro + '</span><br>' +
-            '<span class="camp_info03">' +
-            '<span class="camp_info03">' +
-            '<a href="/camp/campList/detailList?campName='+item.facltNm.replaceAll(" ","")+'&viewType=1"">'+(item.intro).substr(0,40)+'.....</a>' +
-            '</span><br>' +
-            '<span>테마 &nbsp;&nbsp;&nbsp;: ' + item.induty + '</span><br>' +
-            '<span class="camp_add">주소 &nbsp;&nbsp;&nbsp;: ' + item.addr1 + '</span><br>' +
-            '<span class="camp_phone">연락처 : ' + item.tel + '</span>' +
-            '<a href="/camp/campList/detailList?campName='+item.facltNm.replaceAll(" ","") +'&viewType=1" class="reservation_button">예약하기</a>'+
-            '</div>' +
-            '</div>' +
-            '</li>' +
-            '</ul><br><hr><br>';
 
+        paginatedItems.forEach(item => {
+
+          console.log(item);
+          // 전체데이터 뽑는대신, 이미지없으면 기본이미지 넣어주기.
+  /*         if ( item.firstImageUrl == "" || item.firstImageUrl==null){
+            item.firstImageUrl = contextPath+"/resources/images/cloud.jpg";
+          } */
+
+          var htmlCode =
+          '<ul>' +
+          '<li>' +
+          '<div class="camp_info_box">' +
+          '<div class="img_box">' +
+          '<a href="/camp/campList/detailList?campName='+item.facltNm.replaceAll(" ","")+'&viewType=1">'+
+          '<img src=' + item.firstImageUrl + ' alt="이미지가 존재하지 않습니다." class="imgSize"></a>' +
+          '</div>' +
+          '<div class="camp_info_text">' +
+          '<h3 class="camp_info01">' +
+          '<a href="/camp/campList/detailList?campName='+item.facltNm.replaceAll(" ","")+'&viewType=1">' + item.facltNm + '</a>' +
+          '</h3>' +
+          '<h5 id="lineIntro">' + item.lineIntro + '</h5>' +
+          '<span class="camp_info03">' +
+          '<a href="/camp/campList/detailList?campName='+item.facltNm.replaceAll(" ","")+'&viewType=1"">'+(item.intro).substr(0,60)+'.....</a>' +
+          '</span><br>' +
+          '<span>테마 &nbsp;&nbsp;&nbsp;&nbsp;: ' + item.induty + '</span><br>' +
+          '<span class="camp_add">주소 &nbsp;&nbsp;&nbsp;&nbsp;: ' + item.addr1 + '</span><br>' +
+          '<span class="camp_phone">연락처 &nbsp;: ' + item.tel + '</span><br>' +
+          '<span class="camp_reserve">예약방법 : ' + item.resveCl + '</span>' +
+          '<a href="/camp/campList/detailList?campName='+item.facltNm.replaceAll(" ","")+'&viewType=1" class="reservation_button">상세보기</a>'+
+          '</div>' +
+          '</div>' +
+          '</li>' +
+          '</ul><br><br>';
+          
           searchBox2.innerHTML += htmlCode;
+          
         });
 
         var pagination = document.getElementById("pagination");
@@ -402,6 +439,7 @@ window.onload = function() {
           prevButton.addEventListener("click", function () {
             currentPage = startPage - 5;
             displayItems(currentPage);
+            window.scrollTo(0, 0);
 
           });
           pagination.appendChild(prevButton);
@@ -417,6 +455,7 @@ window.onload = function() {
           pageButton.addEventListener("click", function () {
             currentPage = parseInt(this.textContent);
             displayItems(currentPage);
+            window.scrollTo(0, 0);
 
           });
           pagination.appendChild(pageButton);
@@ -429,6 +468,7 @@ window.onload = function() {
           nextButton.addEventListener("click", function () {
             currentPage = endPage + 1;
             displayItems(currentPage);
+            window.scrollTo(0, 0);
 
           });
           pagination.appendChild(nextButton);
@@ -449,8 +489,10 @@ window.onload = function() {
 function updateQueryString() {      //  주소 , 분류 쿼리파라미터 전달 .
   var inputValue = searchVal2.value;
   var inputValue2 = searchVal3.value;
+  var inputValue1 = searchVal1.value;
   var queryString 
-  = "?loc=" + encodeURIComponent(inputValue)+"&theme="+ encodeURIComponent(inputValue2);
+  = "?loc=" + encodeURIComponent(inputValue)+"&theme="+ encodeURIComponent(inputValue2) 
+    + "&campName="+encodeURIComponent(inputValue1);
 
   // 현재 URL에 쿼리스트링을 추가하거나 변경합니다.
   history.pushState(null, null, queryString);

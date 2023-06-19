@@ -6,8 +6,10 @@ import java.util.Map;
 
 import org.springframework.web.multipart.MultipartFile;
 
+import team.project.camp.board.model.vo.Board;
 import team.project.camp.board.model.vo.BoardDetail;
 import team.project.camp.board.model.vo.BoardType;
+import team.project.camp.board.model.vo.PlaceRecommend;
 
 
 public interface BoardService {
@@ -16,13 +18,13 @@ public interface BoardService {
 	 * @return boardTypeList
 	 */
 	List<BoardType> selectBoardType();
-	
+
 	/** 게시글 목록 조회 서비스
 	 * @param cp
 	 * @param boardCode
 	 * @return map
 	 */
-	Map<String, Object> selectBoardList(int cp, int boardCode, Map<String, Object> boardMap, String boardContent);
+	Map<String, Object> selectBoardList(int cp, int boardCode);
 
 	/** 검색 게시글 목록 조회 서비스
 	 * @param paramMap
@@ -57,7 +59,7 @@ public interface BoardService {
 	 */
 	int updateBoard(BoardDetail detail, List<MultipartFile> imageList, String webPath, String folderPath,
 			String deleteList) throws IOException;
-	
+
 	/** 게시글 삭제 서비스
 	 * @param boardNo
 	 * @return result
@@ -69,5 +71,12 @@ public interface BoardService {
 	 * @return result
 	 */
 	int updateReadCount(int boardNo);
+
+	
+	
+	/** 여행지 추천 목록 조회 서비스
+	 * @return rdList
+	 */
+	List<PlaceRecommend> selectrdList();
 
 }

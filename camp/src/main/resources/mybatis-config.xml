@@ -12,6 +12,7 @@
 		<typeAlias type="team.project.camp.board.model.vo.BoardImage"  	alias="boardImage"/>
 		<typeAlias type="team.project.camp.board.model.vo.BoardType"  	alias="boardType"/>
 		<typeAlias type="team.project.camp.board.model.vo.Reply"  	alias="reply"/>
+		<typeAlias type="team.project.camp.board.model.vo.PlaceRecommend"  	alias="placeRecommend"/>
 		
 		
 		<typeAlias type="team.project.camp.detail.model.vo.Reservation" alias="reservation" />

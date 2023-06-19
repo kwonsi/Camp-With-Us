@@ -10,6 +10,9 @@
     <title>캠프보내조</title>
     <link rel="stylesheet" href="${contextPath}/resources/css/main.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/mypage.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap-icons.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap_main_header.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/boxicons.css">
     <script src="https://kit.fontawesome.com/a2e8ca0ae3.js" crossorigin="anonymous"></script>
 
 </head>
@@ -40,27 +43,27 @@
 
                 <pre id="secession-terms">
 제1조
-이 약관은 샘플 약관입니다.
+  이 약관은 샘플 약관입니다.
 
-① 약관 내용 1
+    ① 약관 내용 1
 
-② 약관 내용 2
+    ② 약관 내용 2
 
-③ 약관 내용 3
+    ③ 약관 내용 3
 
-④ 약관 내용 4
+    ④ 약관 내용 4
 
 
 제2조
-이 약관은 샘플 약관입니다.
+  이 약관은 샘플 약관입니다.
 
-① 약관 내용 1
+    ① 약관 내용 1
 
-② 약관 내용 2
+    ② 약관 내용 2
 
-③ 약관 내용 3
+    ③ 약관 내용 3
 
-④ 약관 내용 4
+    ④ 약관 내용 4
 
                 </pre>
 

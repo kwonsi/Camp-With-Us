@@ -21,16 +21,16 @@ public interface CampDetailService {
 
 	//예약취소
 	int reservationState(int reservNo);
-	
+
 	// 리뷰 목록 조회
 	List<Review> selectReplyList(int campNo);
-	
+
 	// 리뷰 작성
 	int insetReview(Review review);
-	
+
 	// 리뷰 삭제
 	int deleteReview(int replyNo);
-	
+
 	// 리뷰 수정
 	int updateReview(Map<String, Object> map);
 

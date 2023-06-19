@@ -13,6 +13,9 @@
     <title>캠프보내조</title>
     <link rel="stylesheet" href="${contextPath}/resources/css/main.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/mypage.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap-icons.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap_main_header.css">
+    
     <script src="https://kit.fontawesome.com/a2e8ca0ae3.js" crossorigin="anonymous"></script>
 
 </head>
@@ -30,25 +33,26 @@
             <span class="myPage-explanation">현재 회원님의 프로필을 변경할 수 있습니다.</span>
             
 
-            <form action="profileImage" method="POST" name="myPage-form" 
+            <form action="profileImage" method="POST" name="myPage-form" id="form-profileImage"
                     enctype="multipart/form-data" onsubmit="return profileValidate()">
+                <div class="myPage-row">
+                    <label>프로필 이미지</label>
+                    
+                    <div class="profile-image-area">
 
+                        <c:if test="${empty loginMember.profileImage}">
+                            <img src="${contextPath}/resources/images/user.png" id="profile-image">
+                        </c:if>
 
-                <div class="profile-image-area">
+                        <c:if test="${!empty loginMember.profileImage}">
+                            <img src="${contextPath}${loginMember.profileImage}" id="profile-image">
+                        </c:if>
 
-                    <c:if test="${empty loginMember.profileImage}">
-                        <img src="${contextPath}/resources/images/user.png" id="profile-image">
-                    </c:if>
+                        <!-- 프로필 이미지 삭제 버튼 -->
+                        <span id="delete-image">x</span>
 
-                    <c:if test="${!empty loginMember.profileImage}">
-                        <img src="${contextPath}${loginMember.profileImage}" id="profile-image">
-                    </c:if>
-
-                    <!-- 프로필 이미지 삭제 버튼 -->
-                    <span id="delete-image">x</span>
-
+                    </div>
                 </div>
-
                 <div class="profile-btn-area">
                     <label for="input-image">이미지 선택</label>
                     <input type="file" name="uploadImage" id="input-image" accept="image/*">
@@ -122,6 +126,9 @@
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 
     <script>
+
+        const contextPath = "${contextPath}"; // 최상위 경로를 JS 전역변수로 선언
+
         // 다음 주소 API
 
         // 우편번호 찾기 화면을 넣을 element

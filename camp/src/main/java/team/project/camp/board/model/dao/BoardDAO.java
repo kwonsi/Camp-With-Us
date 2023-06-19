@@ -13,10 +13,12 @@ import team.project.camp.board.model.vo.BoardDetail;
 import team.project.camp.board.model.vo.BoardImage;
 import team.project.camp.board.model.vo.BoardType;
 import team.project.camp.board.model.vo.Pagination;
+import team.project.camp.board.model.vo.PlaceRecommend;
+
 
 @Repository
 public class BoardDAO {
-	
+
 	@Autowired
 	private SqlSession sqlSession;
 
@@ -40,20 +42,20 @@ public class BoardDAO {
 	/** 게시판 목록 조회 DAO
 	 * @param pagination
 	 * @param boardCode
-	 * @param boardMap 
+	 * @param boardMap
 	 * @param boardMap 
 	 * @param boardNo 
 	 * @return boardList
 	 */
 	public List<Board> selectBoardList(Pagination pagination, int boardCode) {
-		
+
 		// RowBounds 객체(마이바티스에서 제공)
 		// - 전체 조회 결과에서 몇 개의 행을 건너 뛰고(offset)
-		//	그 다음 몇 개의 행만 조회(limit)할 것인지를 지정함		
+		//	그 다음 몇 개의 행만 조회(limit)할 것인지를 지정함
 		int offset = ( pagination.getCurrentPage() - 1 ) * pagination.getLimit();
-		
+
 		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
-		
+
 		return sqlSession.selectList("boardMapper.selectBoardList", boardCode, rowBounds);
 	}
 
@@ -76,9 +78,9 @@ public class BoardDAO {
 		// offset : 몇개의 행을 건너뛸 것인가
 		// limit : 건너 뛴 후 몇개의 행을 조회할 것인가
 		int offset = ( pagination.getCurrentPage() - 1 ) * pagination.getLimit();
-		
+
 		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
-		
+
 		return sqlSession.selectList("boardMapper.searchBoardList", paramMap, rowBounds);
 	}
 
@@ -97,12 +99,12 @@ public class BoardDAO {
 	 */
 	public int insertBoard(BoardDetail detail) {
 		int result = sqlSession.insert("boardMapper.insertBoard", detail); // 0 or 1
-		
+
 		if( result > 0) result = detail.getBoardNo();
-		
+
 		// 게시글 삽입 성공 시
 		// <selectKey> 태그를 이용해 세팅된 boardNo 값을 반환함 --> 게시글 번호 사용 가능
-		
+
 		return result;
 	}
 
@@ -111,7 +113,7 @@ public class BoardDAO {
 	 * @return result
 	 */
 	public int insertBoardImageList(List<BoardImage> boardImageList) {
-		
+
 		return sqlSession.insert("boardMapper.insertBoardImageList", boardImageList);
 	}
 
@@ -129,7 +131,7 @@ public class BoardDAO {
 	 * @return result
 	 */
 	public int deleteBoardImage(Map<String, Object> map) {
-		
+
 		return sqlSession.delete("boardMapper.deleteBoardImage", map);
 	}
 
@@ -157,7 +159,7 @@ public class BoardDAO {
 	 * @return result
 	 */
 	public int deleteBoard(int boardNo) {
-		
+
 		return sqlSession.update("boardMapper.deleteBoard", boardNo);
 	}
 
@@ -168,6 +170,15 @@ public class BoardDAO {
 	public int updateReadCount(int boardNo) {
 
 		return sqlSession.update("boardMapper.updateReadCount", boardNo);
+	}
+
+	
+	/** 여행지 추천 목록 조회 DAO
+	 * @return result
+	 */
+	public List<PlaceRecommend> selectrdList() {
+		
+		return sqlSession.selectList("boardMapper.selectrdList");
 	}
 
 

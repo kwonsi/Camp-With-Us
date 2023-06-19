@@ -1,22 +1,100 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
-<%-- JSTL은 사용되는 JSP 파일마다 작성되어야 한다 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
+<!-- ======= Footer ======= -->
+<footer id="footer">
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
-<footer>
-    <p>Copyright &copy; KH Information Educational Institute A10 Class Team 4</p>
+    <div class="footer-top">
+        <div class="container">
+            <div class="row">
 
-    <article>
-        <a href="#">프로젝트 소개</a>
-        <span>|</span>
-        <a href="#">이용약관</a>
-        <span>|</span>
-        <a href="#">개인정보처리방침</a>
-        <span>|</span>
-        <a href="#">고객센터</a>
-    </article>
-</footer>
+<!--             <div class="col-lg-3 col-md-6 footer-contact">
+            <h3>캠핑보내조</h3>
+            <p>
+                A108 Adam Street <br>
+                New York, NY 535022<br>
+                United States <br><br>
+                <strong>Phone:</strong> 010 0000 0000<br>
+                <strong>Email:</strong> camp@camp.com<br>
+            </p>
+            </div> -->
+
+            <div class="col-lg-3 col-md-6 footer-links">
+                <h4>CampWithUs</h4>
+                <ul>
+                    <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+                    <!-- <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li> -->
+<!--                     <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
+                    <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
+                    <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li> -->
+                </ul>
+                </div>
+
+
+            <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Our Links</h4>
+            <ul>
+                <li><i class="bx bx-chevron-right"></i> <a href="https://github.com/jbjeon2/Final_Camp">github</a></li>
+             <!--    <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li> -->
+<!--                 <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
+                <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
+                <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li> -->
+            </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Our Services</h4>
+            <ul>
+                <li><i class="bx bx-chevron-right"></i> <a href="${contextPath}/campList/?loc=&theme=&campName=">캠핑장 조회</a></li>
+                <li><i class="bx bx-chevron-right"></i> <a href="${contextPath}/board/list/1">여행지 추천</a></li>
+<!--                 <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
+                <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
+                <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li> -->
+            </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Our Social </h4>
+            <ul>
+                <li><i class="bx bx-chevron-right"></i> <a href="${contextPath}/member/login">로그인</a></li>
+                <li><i class="bx bx-chevron-right"></i> <a href="${contextPath}/member/signUp">회원가입</a></li>
+<!--                 <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
+                <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
+                <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li> -->
+            </ul>
+            </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div id = "projectBy"> <span id="projectBySpan">Project By </span>&nbsp; 순일ㅣ진복ㅣ은주ㅣ규동ㅣ영진</div>
+    <div class="container py-4">
+        
+        <div class="copyright">
+        &copy; Copyright <strong><span>CWU</span></strong>. All Rights Reserved Designed by <a href="#"> Camp With Us</a>
+        &nbsp; &nbsp;
+        </div>
+        <div class="credits">
+<!--         All the links in the footer should remain intact.
+        You can delete the links only if you purchased the pro version.
+        Licensing information: https://bootstrapmade.com/license/
+        Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/ninestars-free-bootstrap-3-theme-for-creative/
+        Designed by <a href="https://bootstrapmade.com/"> BootstrapMade</a>
+        &nbsp; &nbsp; -->
+        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a> 
+        </div>
+    </div>
+
+</footer><!-- End Footer -->
+
+
 
 <%-- session에 message 속성이 존재하는 경우 alert창으로 해당 내용을 출력 --%>
 <c:if test="${ !empty message }">
