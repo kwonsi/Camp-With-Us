@@ -9,7 +9,7 @@ const calendar = document.querySelector(".calendar"),
     reselect = document.querySelector(".reselect"),
     selectDays = document.querySelector(".selectDays"),
     adultSelect = document.querySelector(".adultSelect"),
-    childrenSelect = document.querySelector(".childrenSelect"),
+    childSelect = document.querySelector(".childSelect"),
     priceElement = document.getElementById("priceSum"),
     totalday = localStorage.getItem("totalDay");
 
@@ -20,9 +20,15 @@ let month = today.getMonth();
 let year = today.getFullYear();
 let selectMonth = document.querySelectorAll(".pickMonth");
 let selectDay = document.querySelectorAll(".pickDay");
-
+let mon = document.querySelectorAll(".mon");
+let dat = document.querySelectorAll(".dat");
+let wave = document.querySelector(".wave");
+let dat2 = document.querySelectorAll(".dat2");
+const check = document.querySelector(".check")
+const total_days = document.querySelector(".total-days");
 var datePick = document.getElementsByClassName("day");
 var dayBetween = document.getElementsByClassName("dayBetween");
+
 
 const months = [
     "January",
@@ -48,7 +54,7 @@ function initCalendar(){
     const prevLastDay = new Date(year, month, 0);
     const prevDays = prevLastDay.getDate();
     const lastDate = lastDay.getDate();
-    const day = firstDay.getDate();
+    const day = firstDay.getDay();
     const nextDays = 7 - lastDay.getDay() - 1;
 
     // 달력 위쪽 년/월 업데이트
@@ -89,21 +95,39 @@ function initCalendar(){
     for(let i=0; i<datePick.length; i++) {
         datePick[i].addEventListener("click", (e) => {
             if(count == 0) {
-                selectMonth[0].innerText = (month+1);
-                selectDay[0].innerText = e.target.innerText;
+                
+                selectMonth[0].value = (month+1);
+                selectDay[0].value = e.target.innerText;
+                mon[0].value ="월";
+                dat[0].value ="일";
+                const selectedDayOfWeek = getSelectedDayOfWeek();
+                console.log("요일"+selectedDayOfWeek)
+                dat2[0].value = '\u00A0'+"("+selectedDayOfWeek+")"
+                
+
+                wave.value = "~"
                 count++;
             } else if(count == 1) {
-                selectMonth[1].innerText = (month+1);
-                selectDay[1].innerText = e.target.innerText;
+                selectMonth[1].value = (month+1);
+                selectDay[1].value = e.target.innerText;
+                mon[1].value ="월";
+                dat[1].value ="일";
+                const selectedDayOfWeek2 = getSelectedDayOfWeek2();
+                
+                dat2[1].value = '\u00A0'+"("+selectedDayOfWeek2+")"
                 var test = calculateDays();
             
                 dayBetween[0].innerText = test + "박";
                 dayBetween[1].innerText = test+ 1 + "일";
-            
+                
+                check.classList.add("sel");
+                total_days.classList.add("sel");
+                
+
                 a.innerText = test + "박" + (test+1) + "일";
                 localStorage.clear();
                 localStorage.setItem("totalDay", test);
-                localStorage.setItem("Month", selectMonth[0].innerText)
+                localStorage.setItem("Month", selectMonth[0].value)
                 console.log("스토리지'Month' :: "+localStorage.getItem("Month"));
                 count = 0;
 
@@ -112,17 +136,17 @@ function initCalendar(){
                 $.ajax({
                     url: "selectPrice",
                     type: "GET",
-                    data: {"month" : Number(selectMonth[0].innerText)},
+                    data: {"month" : Number(selectMonth[0].value)},
                     success: function(price) {
                         console.log(price);
-                        console.log("몇월달 ? " + Number(selectMonth[0].innerText));
+                        console.log("몇월달 ? " + Number(selectMonth[0].value));
                         let childrenPrice = price * 0.5;
-                        let adultOptionValue = adultSelect.options[adultSelect.selectedIndex].value;
+                        let adultOptionValue = adultSelect.value;
                         let adultTotalPrice = price * adultOptionValue;
                         
                         
 
-                        let childrenOptionValue = childrenSelect.options[childrenSelect.selectedIndex].value;
+                        let childrenOptionValue = childSelect.value;
                         let childrenTotalPrice = childrenPrice * childrenOptionValue;
                         
                         let totalPeople = Number(adultOptionValue) + Number(childrenOptionValue);
@@ -136,7 +160,8 @@ function initCalendar(){
                         } else {
                             totalPrice = (adultTotalPrice + childrenTotalPrice)*localStorage.getItem("totalDay");
                         }
-                        priceElement.textContent = "총 가격: " + totalPrice + "원";
+                        localStorage.setItem("totalPrice", JSON.stringify(totalPrice));
+                        console.log(localStorage.getItem("totalPrice"))
                         priceValue = totalPrice;
                         people = totalPeople;
                       
@@ -152,7 +177,13 @@ function initCalendar(){
                         console.log("에러 발생");
                     }
                 });
-
+                let datePicker = {
+                    sel1 : selectMonth[0].value + mon[0].value + selectDay[0].value + dat[0].value,
+                   
+                    selmon2 : selectMonth[1].value + mon[1].value + selectDay[1].value + dat[1].value
+                    }
+                localStorage.setItem('datePicker', JSON.stringify(datePicker))
+                console.log(localStorage.getItem('datePicker'))
            }
 
         });
@@ -240,12 +271,19 @@ var count = 0;
 
 reselect.addEventListener("click", function(){
 
-    selectMonth[0].innerText ="";
-    selectDay[0].innerText ="";
-    selectMonth[1].innerText ="";
-    selectDay[1].innerText ="";
+    selectMonth[0].value ="";
+    selectDay[0].value ="";
+    selectMonth[1].value ="";
+    selectDay[1].value ="";
     dayBetween[0].innerText = "";
     dayBetween[1].innerText = "";
+    mon[0].value ="";
+    mon[1].value ="";
+    dat[0].value="";
+    dat[1].value="";
+    dat2[0].value ="";
+    dat2[1].value ="";
+    wave.value="";
     count = 0;
     today = new Date();
     month = today.getMonth();
@@ -253,6 +291,8 @@ reselect.addEventListener("click", function(){
     
     dateInput.value ="";
     localStorage.clear();
+    
+    check.classList.remove("sel")
     
     
     console.log(count)
@@ -262,18 +302,51 @@ reselect.addEventListener("click", function(){
 });
 var totalDay = calculateDays();
 function calculateDays() {
-    const startDate = new Date(year, selectMonth[0].innerText, selectDay[0].innerText);
-    const endDate = new Date(year, selectMonth[1].innerText, selectDay[1].innerText);
+    const startDate = new Date(year, selectMonth[0].value, selectDay[0].value);
+    const endDate = new Date(year, selectMonth[1].value, selectDay[1].value);
     
     // 24시간(ms) * 60분 * 60초 * 1000을 통해 1일을 나타내는 밀리초 단위의 값을 구합니다.
     const oneDay = 24 * 60 * 60 * 1000;
   
     // 시작 날짜와 종료 날짜 사이의 일수를 계산합니다.
     const diffDays = Math.round(Math.abs((startDate - endDate) / oneDay));
-    //console.log(diffDays);
+    
 
     return diffDays;
+}
+
+function getSelectedDayOfWeek() {
+    const daysOfWeek = ["일", "월", "화", "수", "목", "금", "토"];
+
+    const selectedMonth = selectMonth[0].value -1;
+    const selectedDay = selectDay[0].value;
+    const selectedYear = year;
+  
+    const selectedDate = new Date(selectedYear,selectedMonth,selectedDay).getDay();
+    
+    const dayOfWeek = daysOfWeek[selectedDate];
+  
+    return dayOfWeek;
   }
+
+  function getSelectedDayOfWeek2() {
+    const daysOfWeek = ["일", "월", "화", "수", "목", "금", "토"];
+
+    const selectedMonth = selectMonth[1].value -1;
+    const selectedDay = selectDay[1].value;
+    const selectedYear = year;
+  
+    const selectedDate = new Date(selectedYear,selectedMonth,selectedDay).getDay();
+    
+    const dayOfWeek = daysOfWeek[selectedDate];
+  
+    return dayOfWeek;
+  }
+  
+  
+  
+
+  
   
 //   var daysBetween = calculateDays();
 //   console.log(daysBetween);  // 예상 결과: 21

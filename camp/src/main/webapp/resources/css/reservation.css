@@ -37,29 +37,75 @@ a{
 
 .subject{
     border: 2px solid rgb(3, 92, 18);
-    margin-top: 10px;
+    background-color: white;
+    
+    margin-bottom: 20px;
+    margin: auto;
     height: 50px;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+
+    
+    font-family: "Poppins", sans-serif;
+
+  
  }
 
 .calendar1{
-    border: 2px solid rgb(3, 92, 18);
-    margin-top: 50px;
-    height: 650px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-}
 
+    height: 500px;
+    width: 650;
+    display: flex;
+    margin: 20px;
+   
+}
+.reverInfo{
+    height: 400px;
+    width: 30%;
+    margin-right: 20px;
+}
 .peopleNumber{
-    border: 2px solid rgb(3, 92, 18);
-    margin-top: 50px;
+    /* box-shadow: 5px 5px 5px 5px lightgrey; */
+    margin-top: 20px;
     height: 130px;
+    border-radius: 15px;
     
 }
 
 
 .popleNumberch{
     margin-top: 30px;  
+    display: flex;
+    justify-content: space-between;
+}
+.plus, .minus{
+    width: 30px;
+    height: 30px;
+    /* border-radius: 50%; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 5px 0 5px;
+    border: none;
+    font-weight: lighter;
+    
+}
+.plus:hover, .minus:hover{
+    background-color: coral;
+}
+.childSelect, .adultSelect{
+    border: none;
+    text-align: center;
+    outline: none;
+}
+.count{
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
@@ -76,9 +122,11 @@ a{
 }
 
 .priceInformation{
-    border: 2px solid rgb(3, 92, 18);
+    box-shadow: 5px 5px 5px 5px lightgrey;
+    border-radius: 15px;
     height: 200px;
-    margin-top: 50px;
+    margin: 20px 0 20px 0;
+    width: 440px;
 }
 
 .payment{
@@ -87,5 +135,169 @@ a{
     font-size: 20px;
     cursor: pointer;
 }
+.info{
+    width: 100%;
+    height: 600px;
+    border: 1px solid black;
+    display: flex;
+    flex-wrap: nowrap;
+    margin-top: 50px;
+    justify-content: center;
+    /* justify-content: space-between; */
+}
+.SELECTDATE{
+    width: 440px;
+    height: 150px;
+    border-radius: 15px;
+    /* box-shadow: 5px 5px 5px 5px lightgrey; */
+    margin-top: 20px;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: rgb(69, 69, 69);
+    font-family: DotumChe, sans-serif;
+    
+}
+.wave{
+   width: 100px;
+   height: 30px;
+   outline: none;
+   border: none;
+   text-align: center;
+}
+.sel{
+    transition: box-shadow 0.2s ease-in-out;
+    border-radius: 0.375rem;
+    box-shadow: 0 0 8px rgba(237, 157, 7, 0.978);
 
+}
+.today-date{
+    display: flex;
+    justify-content: center;
+    margin: 5px 0 5px 0;
+    
+}
+.effect6 {
+    position:relative;
+    -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+       -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+            box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+.effect6:before, .effect6:after {
+    content:"";
+    position:absolute;
+    z-index:-1;
+    -webkit-box-shadow:0 0 20px rgba(0,0,0,0.8);
+    -moz-box-shadow:0 0 20px rgba(0,0,0,0.8);
+    box-shadow:0 0 20px rgba(0,0,0,0.8);
+    top:50%;
+    bottom:0;
+    left:10px;
+    right:10px;
+    -moz-border-radius:100px / 10px;
+    border-radius:100px / 10px;
+}
+.effect6:after {
+    right:10px;
+    left:auto;
+    -webkit-transform:skew(8deg) rotate(3deg);
+       -moz-transform:skew(8deg) rotate(3deg);
+        -ms-transform:skew(8deg) rotate(3deg);
+         -o-transform:skew(8deg) rotate(3deg);
+            transform:skew(8deg) rotate(3deg);
+}
 
+.effect2 {
+    position: relative;
+  }
+  .effect2:before, .effect2:after {
+    z-index: -2;
+    position: absolute;
+    content: "";
+    bottom: 15px;
+    left: 10px;
+    width: 50%;
+    top: 80%;
+    max-width:300px;
+    background: #777;
+    -webkit-box-shadow: 0 15px 10px #777;
+    -moz-box-shadow: 0 15px 10px #777;
+    box-shadow: 0 15px 10px #777;
+    -webkit-transform: rotate(-3deg);
+    -moz-transform: rotate(-3deg);
+    -o-transform: rotate(-3deg);
+    -ms-transform: rotate(-3deg);
+    transform: rotate(-3deg);
+  }
+  .effect2:after
+  {
+    -webkit-transform: rotate(3deg);
+    -moz-transform: rotate(3deg);
+    -o-transform: rotate(3deg);
+    -ms-transform: rotate(3deg);
+    transform: rotate(3deg);
+    right: 10px;
+    left: auto;
+  }
+
+.card-1 {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+.card-2{
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+  
+.card-1:hover {
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+.adultSelect, .childSelect{
+    width: 20px;
+}
+.pickMonth, .pickDay, .mon, .dat{
+    width: 25px;
+    height: 30px;
+    text-align: center;
+    border: none;
+    outline: none;
+}
+.dat2{
+    width: 40px;
+    height: 30px;
+    text-align: center;
+    border: none;
+    outline: none;
+}
+.MemberInfo{
+    width: 450px;
+    height: 500px;
+    margin-top: 20px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    
+}
+.MemberInfoInput{
+    margin: 20px 20px 0 20px;
+    text-align: start;
+}
+.name{
+    width: 390px;
+    height: 40px;
+    border: none;
+    outline: none;
+    transition: box-shadow 0.2s ease-in-out;
+    border-radius: 0.375rem;
+   
+
+}
+.name:focus{
+    box-shadow: 0 0 8px rgba(237, 157, 7, 0.978);
+}
+.buttons{
+    display: flex;
+    justify-content: center;
+}

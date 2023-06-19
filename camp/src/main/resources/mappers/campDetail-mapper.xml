@@ -15,6 +15,7 @@
 		<result property="memberNo" column="MEMBER_NO"/>
 	</resultMap>
 
+	<!-- 리뷰 result map -->
 	<resultMap type="review" id="review_rm">
 		<id property="replyNo" column="REPLY_NO" />
 		<result property="reviewContents" column="REPLY_CONTENT" />
@@ -24,6 +25,7 @@
 		<result property="memberNickname" column="MEMBER_NICK" />
 		<result property="profileImage" column="PROFILE_IMG" />
 		<result property="campRate" column="CAMP_RATE" />
+		<result property="campName" column="CAMP_NAME" />
 	</resultMap>
 
 	<!-- 가격조회 -->
@@ -65,7 +67,7 @@
 
 		SELECT REPLY_NO, REPLY_CONTENT,
 	    TO_CHAR(CREATE_DT, 'YYYY"년" MM"월" DD"일" HH24"시" MI"분" SS"초"') CREATE_DT,
-	    BOARD_NO, MEMBER_NO, MEMBER_NICK, PROFILE_IMG, REPLY_ST, CAMP_RATE
+	    BOARD_NO, MEMBER_NO, MEMBER_NICK, PROFILE_IMG, REPLY_ST, CAMP_RATE, CAMP_NAME
 		FROM REPLY_C JOIN MEMBER_S USING(MEMBER_NO)
 		WHERE BOARD_NO = #{campNo} AND REPLY_ST = 'N'
 		ORDER BY CREATE_DT DESC
@@ -74,8 +76,8 @@
 	
 	<!-- 리뷰 작성 -->
 	<insert id="insertReview" parameterType="review">
-		INSERT INTO REPLY_C(REPLY_NO, REPLY_CONTENT, MEMBER_NO, BOARD_NO, CAMP_RATE)
-		VALUES(SEQ_REPLY_NO_C.NEXTVAL, #{reviewContents}, #{memberNo}, #{campNo}, #{campRate} )
+		INSERT INTO REPLY_C(REPLY_NO, REPLY_CONTENT, MEMBER_NO, BOARD_NO, CAMP_RATE, CAMP_NAME)
+		VALUES(SEQ_REPLY_NO_C.NEXTVAL, #{reviewContents}, #{memberNo}, #{campNo}, #{campRate}, #{campName} )
 	</insert>
 	
 	<!-- 리뷰 삭제 -->

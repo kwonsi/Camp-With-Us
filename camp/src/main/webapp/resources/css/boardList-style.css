@@ -51,9 +51,9 @@
     height: 60px;
 }
 
-.list-table > tbody > tr{
+/* .list-table > tbody > tr{
     border-bottom : 1px solid gray;
-}
+} */
 
 .list-table tr > *{
     text-align: center;

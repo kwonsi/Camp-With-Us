@@ -2650,8 +2650,8 @@ hr {
 
 .button-gray-600:hover, .button-gray-600:active {
 	color: #ffffff;
-	background-color: rgb(249, 190, 81);
-	border-color: rgb(249, 190, 81);
+	background-color: #22c730;
+	border-color: #22c730;
 }
 
 .button-gray-600.button-ujarak::before {

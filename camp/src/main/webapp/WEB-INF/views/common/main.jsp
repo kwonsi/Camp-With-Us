@@ -91,9 +91,21 @@
         </section>
 
 
+        <div id ="middleLine">
+
+            <div id ="middleLineDiv"><span id="middleLineSpan">There are a total of <span class ="titleCount" id="titleCount">0</span> campsites <br>
+                on <span class="titleColor">C</span>amp <span class="titleColor">W</span>ith <span class="titleColor">U</span>s.</span></div>
+
+
+        </div>
+
+
+        <div id = "main-image">
+
+
 
         <div class="section-title">
-            <h1>오늘의 추천 캠핑장!!</h1>
+            <h1>오늘의 추천 캠핑장</h1>
         </div>
 
         <div id="divv">
@@ -216,7 +228,10 @@
 
         </div>
 
+        <div id = "lastDiv">
+        </div>
 
+    </div>
 
     </main>
 

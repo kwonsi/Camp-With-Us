@@ -148,7 +148,7 @@
                             <div class="table_w">
 
                                 <table class="table_t4 camp_etc_tb">
-                                    <caption> <i class="fa-solid fa-chevron-right"></i>  기타 주요시설
+                                    <caption> <i class="fa-solid fa-chevron-right"></i> &nbsp; 기타 주요시설
                                     </caption>
                                     <tbody class="t_c">
                                         <tr>
@@ -225,7 +225,7 @@
                     </div>
 
 
-                    <div class="div4_1"> <i class="fa-solid fa-chevron-right"></i> &nbsp; 캠핑장 이미지 </div>
+                    <div class="div4_1"> <span> <i class="fa-solid fa-chevron-right"></i> &nbsp; 캠핑장 이미지 </span> </div>
 
                     <div class="div4">
 
@@ -238,7 +238,7 @@
 
 
 
-                    <div class="div5"> <i class="fa-solid fa-chevron-right"></i> &nbsp; 캠핑장 소개글 </div>
+                    <div class="div5"><span>  <i class="fa-solid fa-chevron-right"></i> &nbsp; 캠핑장 소개글  </span></div>
                     <div class="div6" id="intro"></div>
 
                 </c:if>
@@ -262,7 +262,7 @@
                             <thead>
                                 <tr>
                                     <th  rowspan="2" scope="col">구분</th>
-                                    <th colspan="2" scope="colgroup">평상시</th>
+                                    <th colspan="2" scope="colgroup">비성수기</th>
                                     <th id="last1" colspan="2" scope="colgroup">성수기 (6월~8월)</th>
                                 </tr>
 
@@ -307,7 +307,7 @@
                 <c:if test="${param.viewType == '4'}">
 
                     <div class="div7" id="doNmVal">
-                        지역 날씨
+                       <span> 지역 날씨 </span> 
                     </div>
                     <div class="table_w3">
                         <table class="table camp_info_tb">

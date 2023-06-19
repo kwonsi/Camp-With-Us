@@ -5,7 +5,8 @@ function selectReplyList(){
     // contextPath, boardNo, memberNo 전역 변수 사용
     $.ajax({
         url : contextPath + "/review/selectReplyList",
-        data : {"campNo" : campNo},
+        data : {"campNo" : campNo,
+                "campName" : campName},
         type : "GET",
         dataType : "JSON", // JSON 형태의 문자열 응답 데이터를 JS 객체로 자동 변환
         success : function(rList){
@@ -148,6 +149,7 @@ var campRate = 0; // 별점 저장용 변수
 if (addReply) {
 addReply.addEventListener("click", function(){ // 리뷰 등록 버튼이 클릭이 되었을 때
 
+
     // 1) 로그인이 되어있나? -> 전역변수 loginMemberNo 이용
     if(loginMemberNo == ""){ // 로그인 X
         alert("로그인 후 이용해주세요.");
@@ -183,6 +185,12 @@ addReply.addEventListener("click", function(){ // 리뷰 등록 버튼이 클릭
 
             if(result > 0){ // 등록 성공
                 alert("리뷰가 등록되었습니다.");
+
+                for(let i=0; i<reviewStar.length; i++) {
+                    reviewStar[i].checked = false;
+                }
+
+
 
                 reviewContents.value = ""; // 작성했던 리뷰 삭제
 
