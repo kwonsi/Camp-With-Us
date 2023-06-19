@@ -6,8 +6,8 @@
 body {
   height: auto;
   margin: 0;
-/*     background-image: url('../images/test1.jpg'); 
-   background-size: 100% 100%;  */
+  background-image: url("../images/signUpBg3.jpg");
+  background-size: 100% 100%;
 }
 
 
@@ -16,7 +16,7 @@ input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
 transition: background-color 5000s;
--webkit-text-fill-color: #000 !important;
+-webkit-text-fill-color: #000 !important; 
 }
 
 
@@ -266,7 +266,7 @@ cursor: pointer;
     --bs-bg-opacity: 1;
     height: 85%;
     background-color:rgba(var(--bs-light-rgb), var(--bs-bg-opacity)) !important;
-    margin-top: 5rem;
+    margin-top: 12rem;
     padding-top: 3rem !important;
     padding-bottom: 3rem !important;
     padding-right: 1.5rem !important;

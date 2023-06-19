@@ -5,6 +5,8 @@ main {
     width: auto;
     align-items: center;
     background-color: #eee;
+/*     background-image: url("../images/signUpBg3.jpg");
+    background-size: 100% 100%; */
 
 }
 
@@ -13,7 +15,7 @@ body {
     margin: 0;
     padding: 0;
     font-size: 20px;
-   
+
 
 }
 
@@ -123,7 +125,7 @@ body {
     background-color: rgba(255, 255, 255);
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    height: 300px;
+    height: 340px;
     display: flex;
     width: 1600px;
     padding: 20px;

@@ -7,8 +7,8 @@ body {
     height: auto;
     margin: 0;
    /*  margin-top: 120px */
-/*     background-image: url('../images/test1.jpg'); 
-     background-size: 100% 100%;  */
+   background-image: url("../images/signUpBg3.jpg");
+   background-size: 100% 100%;
 }
 
 main {
@@ -17,7 +17,7 @@ main {
     align-items: center; */
     justify-content: center;
     width: 950px;
-    height: 900px;
+    height: 800px;
     margin: auto;
 }
 

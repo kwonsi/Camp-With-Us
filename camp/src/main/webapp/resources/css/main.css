@@ -209,12 +209,74 @@ main {
     margin: auto;
 }
 
+#middleLine{
+  width: 100%;
+  height: 350px;
+  background-color:#fef8f5;
+  display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#middleLineDiv{
+  width: 100%;
+  height: 300px;
+/*   border: 1px solid red; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#middleLineSpan{
+  font-size: 50px;
+  font-style: oblique;
+  text-align: center;
+  text-shadow: 6px 5px 6px rgba(0, 0, 0, 0.5);
+
+}
+.titleColor{
+  color: #02ff00;
+ /*  font-weight: bold; */
+}
+.titleCount{
+  color: #eb5d1e ;
+}
+#titleCount{
+    font-size: 50px;
+    font-weight: bold;
+    animation: countAnimation 2s ease-out forwards;
+  }
+  
+@keyframes countAnimation {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+
+
+#main-image{
+  width: 100%;
+  height: 100%;
+  background-image: url('../images/main-test3.jpg');
+  background-size: 100% 100%;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+/*   min-height: 100vh; /* 원하는 최소 높이 값으로 조정해주세요. */
+  
+}
+
 .content2{
     background-image: url('../images/testImage1.png');
     background-size: 100% 100%;
     width: 100%;
     height: 1000px;
-    border: 1px solid black;
+    background-attachment: fixed;
+    background-position: center;
+   
 }
 
 .backdrop {
@@ -229,15 +291,16 @@ main {
 
 .section-title {
   display: flex;
-  background-color: #eee;
-  height: 200px;
+/*   background-color: #eee; */
+  height: 150px;
   align-items: flex-end;
   justify-content: center;
+
 }
 #lastDiv{
   width: 100%;
   height: 100px;
-  background-color: #eee;
+/*   background-color: #eee; */
 }
 
 
@@ -417,36 +480,54 @@ main {
   color:  #eb5d1e;
 }
 
+#projectBy {
+  display: flex;
+  justify-content: center;
+  color: #686262;
+}
+#projectBySpan{
+ /*  display: flex; */
+}
 /*****************************************/
 
-
+.section-title > h1 {
+  margin-bottom: 30px;
+  color: white;
+}
 
 #divv{
     width: 100%;
     height: 800px;
     display: flex;
     position: relative;
-    background-color: #eee;
+/*     background-color: #eee; */
 }
 
 
 .ranBoard>div:nth-of-type(1) {
     height: 65%;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
 }
 .ranBoard>div:nth-of-type(2) {
-    margin-top: 10px;
+    /* margin-top: 10px; */
     height: 35%;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    background-color: #eee;
 }
 .ranBoard_1{
    /*  border: 1px solid green; */
    overflow: hidden;
-   border-radius: 20px;
+/*    border-radius: 20px; */
 }
 .ranBoard_1 > a > img {
     width: 100%;
     height: 100%;
-    border-radius: 20px;
+/*     border-radius: 20px; */
     transition: all 0.5s ease-in-out;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
 }
 .ranBoard_1 > a:hover img {
   transform: scale(1.2);
@@ -487,6 +568,8 @@ main {
     align-content: space-around;
     width: 1400px;
     height: 700px;
+    background-color: #15151566;
+    border-radius: 20px;
 }
 .slider > div {
     display: flex;
@@ -494,7 +577,7 @@ main {
     left: 5px;
     top: 5px;
     padding: 5px 10px;
-    width: 33%;
+    width: 33.3%;
     padding: 30px;
     border-radius: 20px;
 }
@@ -512,7 +595,7 @@ main {
     transform: translateY(-50%);
     width: 50px;
     height: 50px;
-    background: black;
+    background: #2ec724;
     opacity: 0.8;
     text-align: center;
     line-height: 50px;
@@ -522,7 +605,7 @@ main {
     border-radius: 50%;
 }
 .slider__btn a:hover {
-    background: #22c730;
+    background: #146e1b;
 }
 .slider__btn a.prev {
     font-size: 20px;
@@ -545,16 +628,18 @@ main {
 .slider__dot .dot {
     width: 20px;
     height: 20px;
-    background: rgba(0,0,0,0.4);
+    background: #2ec724;
     display: inline-block;
     border-radius: 50%;
-    /* text-indent: 들여쓰기 속성. 여기에선 blind 역할 */
     text-indent: -9999px;
     transition: all 0.3s;
-    margin: 2px;
+    margin: 4px;
+}
+.slider__dot .dot:hover {
+  background: #146e1b;
 }
 .slider__dot .dot.active {
-    background: rgba(118, 153, 90, 0.4);
+    background: #146e1b;
 }
 
 
