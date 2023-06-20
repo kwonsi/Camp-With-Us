@@ -16,8 +16,8 @@ main {
   flex-direction: column;
   align-items: center; */
   justify-content: center;
-  width: 950px;
-  height: 900px;
+  width: 95%;
+  height: 90%;
   margin: auto;
 }
 
@@ -229,12 +229,7 @@ display: flex;
 }
 .select{
 margin-top: 200px;
-margin-left: 500px;
-/* display: flex;
-border-bottom: #474747 solid 1.5px;
-position: relative;
-top: 20px;
-left: 800px; */
+margin-left: 415px;
 }
 .selectfind{
 display: flex;
@@ -300,8 +295,8 @@ margin-right: 100px;
 }
 .idLeft{
 /* z-index: 10000; */
-width: 650px;
-height: 510px;
+/* width: 650px;
+height: 510px; */
 display: flex;
 justify-content: center;
 align-items: center;
@@ -311,28 +306,17 @@ background-image: url('../images/findIdPw7.png');
 background-size: 100%; 
 /* background-position: 60% 1%;  */
 padding: 0 !important;
-/* background-color: rgb(255 255 255 / 16%) !important;  */
-/* box-shadow: 2px 7px 15px 8px rgba(0,0,0,0.3); */
-/* backdrop-filter: blur(5px) !important; */
-/* background-color: #000000 !important; */
-/* background-size: 650px 1130px; */
+
 }
 .pwLeft{
-width: 650px;
-height: 550px;
+/* width: 650px;
+height: 550px; */
 display: flex;
 justify-content: center;
 align-items: center;
 background-image: url('../images/findIdPw8.png'); 
-background-size: 100%;
-
+background-size: 100% 100%;
 padding: 0 !important;
-/* background-color: rgb(255 255 255 / 16%) !important;  */
-/* box-shadow: 2px 7px 15px 8px rgba(0,0,0,0.3); */
-/* backdrop-filter: blur(5px) !important; */
-/* background-color: #000000 !important; */
-/* background-size: 650px 1130px; */
-
 }
 
 .msg {
@@ -415,17 +399,9 @@ padding: 0 !important;
 .mb-3 {
   margin-bottom: 1rem !important;
 }
-
-
 .col {
 flex: 1 0 0%;
 }
-
-
-
-
-
-
 
 
 
@@ -510,7 +486,7 @@ flex: 1 0 0%;
 
 .form-control {
   display: block;
-  width: 100%;
+  width: 85%;
   padding: 0.375rem 0.75rem;
   font-size: 1.5rem;
   font-weight: 400;
@@ -703,7 +679,7 @@ textarea.form-control-lg {
 
 .btn-primary1 {
   margin-top: 50px;
-  margin-left: 230px;
+  margin-left: 180px;
   --bs-btn-color: #fff;
   --bs-btn-bg: #5b5b5c;
   --bs-btn-border-color: #5b5b5c;
@@ -721,7 +697,7 @@ textarea.form-control-lg {
 }
 .btn-primary2 {
   margin-top: 30px;
-  margin-left: 285px;
+  margin-left: 230px;
   --bs-btn-color: #fff;
   --bs-btn-bg: #5b5b5c;
   --bs-btn-border-color: #5b5b5c;
@@ -754,12 +730,11 @@ textarea.form-control-lg {
 .col-xl-auto, .col-xxl-1, .col-xxl-2, .col-xxl-3, .col-xxl-4, .col-xxl-5, .col-xxl-6, .col-xxl-7, .col-xxl-8, .col-xxl-9, .col-xxl-10, .col-xxl-11, .col-xxl-12, .col-xxl,
 .col-xxl-auto {
 position: relative;
-width: 100%;
+width: 110%;
 min-height: 1px;
 padding-right: 15px;
 padding-left: 0;
 }
-
 
 
 
@@ -868,6 +843,8 @@ padding: 0 0 20px 0;
 color: #212529;
 font-size: 18px;
 background: #fef8f5;
+position: relative;
+top: 1100px;
 }
 
 
@@ -1062,8 +1039,8 @@ margin-top: var(--bs-gutter-y);
 --yellow: #ff5514;
 }
 main .pages {
-  width: calc(65% - var(--margin));
-  height: calc(70% - var(--margin));
+  width: calc(95% - var(--margin));
+  height: calc(100% - var(--margin));
   position: absolute;
   left: 0;
   right: 0;
@@ -1072,8 +1049,8 @@ main .pages {
   transform: translateY(-50%);
   perspective: var(--perspective);
   box-shadow: 0 41px 38px -20px #0a3150;
-  max-width: 1300px;
-  max-height: 650px;
+  max-width: 1000px;
+  max-height: 600px;
 }
 main .pages_page {
 width: 50%;
@@ -1733,23 +1710,23 @@ border: 1px solid var(--yellow);
 border-radius: 100px;
 top: 162px;
 transform: translateY(-50%);
-left: 20px;
+/* left: 410px !important; */
 cursor: pointer;
 transition: all 0.23s;
 box-shadow: 0 0 0 0px #ff5514;
 }
 main .pages_page__inner .control:hover {
 box-shadow: 0 0 0 10px rgba(191, 151, 38, 0.3);
-left: 34px;
+/* left: 34px; */ /*비번찾기페이지 화살표 hover시 화살표이동 */
 }
 main .pages_page__inner .control:hover:before {
 width: 40px;
-left: -40px;
+left: -50px;
 }
 main .pages_page__inner .control.next {
   position: relative;
   top: -100px;
-  left: 447px;
+  left: 410px;
 }
 main .pages_page__inner .control.next:hover {
 right: 34px;
@@ -1799,17 +1776,7 @@ transform: translateY(-50%);
 left: -32px;
 transition: all 0.2s;
 }
-main .pages_page__inner .footer {
-position: absolute;
-bottom: 26px;
-z-index: 2;
-color: var(--yellow);
-right: 30px;
-font-size: 12px;
-}
-main .pages_page__inner .footer i {
-margin: 0 10px;
-}
+
 main .pages_page__inner .content {
 transform-style: preserve-3d;
 position: absolute;
