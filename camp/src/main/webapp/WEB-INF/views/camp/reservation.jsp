@@ -100,7 +100,8 @@
                         </div>
                     </div>
                      
-                        <div class="peopleNumber card-2">인원선택 
+                        <div class="peopleNumber card-2">
+                            <span id = "peopleNo">인원선택</span> 
                 
                             <div class="popleNumberch">
                                 <div class="count">
@@ -143,11 +144,39 @@
                             </div>
                            
                         </div>
-                        <div class="priceInformation card-2">성수기 정보
-                            <br>
+                        <div class="priceInformation card-2">
+                            <table class = "priceTable">
+                                <caption>
+                                    가격 정보
+                                </caption>
+                                <tbody>
+                                    <tr>
+                                        <th></th>
+                                        <th >성수기 <br>(6월~8월)</th>
+                                        <th> 비성수기</th>
+                                    </tr>
+                                    <tr>
+                                        <th>성인</th>
+                                        <td>30,000</td>
+                                        <td>20,000</td>
+                                    </tr>
+                                    <tr>
+                                        <th>영유아</th>
+                                        <td>15,000</td>
+                                        <td>10,000</td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                            
+
+
+
+
+<!--                             <br>
                             <br>성수기(6~8월) 가격: 1인 기준 성인 30000, 아이 15000
-                            <br>비성수기(6~8월 제외한 달) 기본가격: 1인 기준 성인 20000, 아이 10000
-                            <br>총 숙박기간 : <span class="a"></span>
+                            <br>비성수기(6~8월 제외한 달) 기본가격: 1인 기준 성인 20000, 아이 10000 -->
+                           <!--  <br>총 숙박기간 : <span class="a"></span> -->
                         </div>
             </section>
             <section class="MemberInfo card-2">

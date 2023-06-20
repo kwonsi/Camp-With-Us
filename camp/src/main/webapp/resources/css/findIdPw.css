@@ -862,7 +862,7 @@ opacity: 0.25;
 # Footer
 --------------------------------------------------------------*/
 #footer {
-  background: #fff;
+/*   background: #fff; */
   padding: 0 0 20px 0;
   color: #212529;
   font-size: 16px;
@@ -875,7 +875,7 @@ opacity: 0.25;
 background: #fff;
 padding-top: 30px;
 padding-bottom: 20px;
-background-color: #eee !important;
+/* background-color: #eee !important; */
 }
 
 #footer .footer-top .footer-contact {
@@ -1004,12 +1004,12 @@ margin-top: 0px !important;
   padding: 24px 12px !important;
   padding-top: 4px !important;
 }
-#footer{
+/* #footer{
 background-color: #eee;
 }
 .footer-top{
 background-color: #eee;
-}
+} */
 
 #projectBy {
   display: flex;
