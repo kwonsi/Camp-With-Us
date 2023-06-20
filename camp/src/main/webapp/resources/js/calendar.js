@@ -293,6 +293,7 @@ reselect.addEventListener("click", function(){
     localStorage.clear();
     
     check.classList.remove("sel")
+    total_days.classList.remove("sel")
     
     
     console.log(count)
