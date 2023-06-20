@@ -201,6 +201,7 @@ body {
     height: auto;
     overflow: hidden;
     clear: both;
+    box-shadow: 0 0 20px 12px rgb(32 97 31 / 20%);
 }
 
 .camp_info_box .img_b {

@@ -151,19 +151,19 @@
                                 </caption>
                                 <tbody>
                                     <tr>
-                                        <th></th>
+                                        <th class="lineClear1"></th>
                                         <th >성수기 <br>(6월~8월)</th>
-                                        <th> 비성수기</th>
+                                        <th class="lineClear2">비성수기</th>
                                     </tr>
                                     <tr>
-                                        <th>성인</th>
+                                        <th class="lineClear1">성인</th>
                                         <td>30,000</td>
-                                        <td>20,000</td>
+                                        <td class="lineClear2">20,000</td>
                                     </tr>
                                     <tr>
-                                        <th>영유아</th>
+                                        <th class="lineClear1">영유아</th>
                                         <td>15,000</td>
-                                        <td>10,000</td>
+                                        <td class="lineClear2">10,000</td>
                                     </tr>
 
                                 </tbody>

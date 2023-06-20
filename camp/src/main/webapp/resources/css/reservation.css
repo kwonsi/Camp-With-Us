@@ -30,7 +30,12 @@ a{
     padding: 12px;
     text-align: center;
 }
-
+.lineClear1{
+    border-left: 0px;
+}
+.lineClear2{
+    border-right: 0px;
+}
 
 .priceTable > caption {
     font-weight: bold;
