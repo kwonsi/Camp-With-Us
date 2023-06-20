@@ -493,6 +493,7 @@ main {
 }
 #footer > .py-4 {
   padding-top: 4px !important;
+  display: flex;
 }
 
 /*****************************************/

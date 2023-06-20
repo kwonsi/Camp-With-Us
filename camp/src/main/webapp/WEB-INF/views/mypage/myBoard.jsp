@@ -50,8 +50,7 @@
 
                 </table>
 
-                <div id="pagination" class="pagination">
-                </div>
+                <div id="pagination" class="pagination"></div>
             </div>
 
             
@@ -70,119 +69,115 @@
         var itemsPerPage = 10;
         var myBoardList = document.getElementById("myBoardList");
 
-        if(document.getElementsByClassName("list-table")) {
+        function displayItems(page) {
+            var startIndex = (page - 1) * itemsPerPage;
+            var endIndex = startIndex + itemsPerPage;
+            // var filteredItems = ; // -> boardList
 
-            function displayItems(page) {
-                var startIndex = (page - 1) * itemsPerPage;
-                var endIndex = startIndex + itemsPerPage;
-                // var filteredItems = ; // -> boardList
+            //console.log(boardList);
+            var bList = JSON.parse(boardList);
+            // console.log("parse " + bList);
+            
+            var totalPages = Math.ceil(bList.length / itemsPerPage);
+            var paginatedItems = bList.slice(startIndex, endIndex);
 
-                //console.log(boardList);
-                var bList = JSON.parse(boardList);
-                // console.log("parse " + bList);
-                
-                var totalPages = Math.ceil(bList.length / itemsPerPage);
-                var paginatedItems = bList.slice(startIndex, endIndex);
+            myBoardList.innerHTML = "";
 
-                myBoardList.innerHTML = "";
-
-                if(paginatedItems.length == 0) {
-                    myBoardList.innerHTML = 
-                        "<tr>" +
-                            "<th colspan='5'>게시글이 존재하지 않습니다.</th>" +
-                        "</tr>";
-                } else {
-                    paginatedItems.forEach(item => {
-                        // console.log(item);
-                        
-                        if(item.thumbnail != null) {
-                            var htmlCode =
-                                // '<tbody>' + 
-                                    '<tr>' +
-                                        '<td>' + item.boardNo +'</td>' +
-                                        '<td>'+
-                                            "<img class='list-thumbnail' src='" + contextPath + item.thumbnail + "'>" + 
-                                            // http://localhost:8080/camp/board/detail/3/561?cp=1
-                                            "<a href='http://localhost:8080/camp/board/detail/" + item.boardCode + "/" + item.boardNo + "?cp=" + currentPage + "'>" + item.boardTitle + "</a>" +                                                             
-                                        '</td>' + 
-                                        '<td>' + item.memberNickname + '</td>' + 
-                                        '<td>' + item.createDate + '</td>' + 
-                                        '<td>' + item.readCount + '</td>' + 
-                                    '</tr>';
-                                // '</tbody>';
-                
-                            myBoardList.innerHTML += htmlCode;
-                        } else {
-                            var htmlCode =
-                                // '<tbody>' + 
-                                    '<tr>' +
-                                        '<td>' + item.boardNo +'</td>' +
-                                        '<td>'+
-                                            // http://localhost:8080/camp/board/detail/3/561?cp=1
-                                            "<a href='http://localhost:8080/camp/board/detail/" + item.boardCode + "/" + item.boardNo + "?cp=" + currentPage + "'>" + item.boardTitle + "</a>" +                                                             
-                                        '</td>' + 
-                                        '<td>' + item.memberNickname + '</td>' + 
-                                        '<td>' + item.createDate + '</td>' + 
-                                        '<td>' + item.readCount + '</td>' + 
-                                    '</tr>';
-                                // '</tbody>';
-                
-                            myBoardList.innerHTML += htmlCode;
-                        }
+            if(paginatedItems.length == 0) {
+                myBoardList.innerHTML = 
+                    "<tr>" +
+                        "<th colspan='5'>게시글이 존재하지 않습니다.</th>" +
+                    "</tr>";
+            } else {
+                paginatedItems.forEach(item => {
+                    // console.log(item);
+                    
+                    if(item.thumbnail != null) {
+                        var htmlCode =
+                            // '<tbody>' + 
+                                '<tr>' +
+                                    '<td>' + item.boardNo +'</td>' +
+                                    '<td>'+
+                                        "<img class='list-thumbnail' src='" + contextPath + item.thumbnail + "'>" + 
+                                        // http://localhost:8080/camp/board/detail/3/561?cp=1
+                                        "<a href='http://localhost:8080/camp/board/detail/" + item.boardCode + "/" + item.boardNo + "?cp=" + currentPage + "'>" + item.boardTitle + "</a>" +                                                             
+                                    '</td>' + 
+                                    '<td>' + item.memberNickname + '</td>' + 
+                                    '<td>' + item.createDate + '</td>' + 
+                                    '<td>' + item.readCount + '</td>' + 
+                                '</tr>';
+                            // '</tbody>';
             
-                    }); 
-                }
-                
+                        myBoardList.innerHTML += htmlCode;
+                    } else {
+                        var htmlCode =
+                            // '<tbody>' + 
+                                '<tr>' +
+                                    '<td>' + item.boardNo +'</td>' +
+                                    '<td>'+
+                                        // http://localhost:8080/camp/board/detail/3/561?cp=1
+                                        "<a href='http://localhost:8080/camp/board/detail/" + item.boardCode + "/" + item.boardNo + "?cp=" + currentPage + "'>" + item.boardTitle + "</a>" +                                                             
+                                    '</td>' + 
+                                    '<td>' + item.memberNickname + '</td>' + 
+                                    '<td>' + item.createDate + '</td>' + 
+                                    '<td>' + item.readCount + '</td>' + 
+                                '</tr>';
+                            // '</tbody>';
             
-                // 페이지네이션 부분 
-                var pagination = document.getElementById("pagination");
-                pagination.innerHTML = "";
-            
-                var startPage = Math.floor((currentPage - 1) / 5) * 5 + 1;
-                var endPage = Math.min(startPage + 4, totalPages);
-                
-                if (startPage > 1) {
-                var prevButton = document.createElement("button");
-                prevButton.textContent = "이전";
-                prevButton.classList.add("pagination-previous");
-                prevButton.addEventListener("click", function () {
-                    currentPage = startPage - 5;
-                    displayItems(currentPage);
-                    window.scrollTo(0, 0);
-            
-                });
-                pagination.appendChild(prevButton);
-                }
-                for (var i = startPage; i <= endPage; i++) {
-                var pageButton = document.createElement("button");
-                pageButton.textContent = i;
-                pageButton.classList.add("page-button");
-                if (i === currentPage) {
-                    pageButton.classList.add("active");
-                }
-                pageButton.addEventListener("click", function () {
-                    currentPage = parseInt(this.textContent);
-                    displayItems(currentPage);
-                    window.scrollTo(0, 0);
-                });
-                pagination.appendChild(pageButton);
-                }
-                if (endPage < totalPages) {
-                var nextButton = document.createElement("button");
-                nextButton.textContent = "다음";
-                nextButton.classList.add("pagination-next");
-                nextButton.addEventListener("click", function () {
-                    currentPage = endPage + 1;
-                    displayItems(currentPage);
-                    window.scrollTo(0, 0);
-                });
-                pagination.appendChild(nextButton);
-                }
+                        myBoardList.innerHTML += htmlCode;
+                    }
+        
+                }); 
             }
             
-            displayItems(currentPage);
-
+        
+            // 페이지네이션 부분 
+            var pagination = document.getElementById("pagination");
+            pagination.innerHTML = "";
+        
+            var startPage = Math.floor((currentPage - 1) / 5) * 5 + 1;
+            var endPage = Math.min(startPage + 4, totalPages);
+            
+            if (startPage > 1) {
+            var prevButton = document.createElement("button");
+            prevButton.textContent = "이전";
+            prevButton.classList.add("pagination-previous");
+            prevButton.addEventListener("click", function () {
+                currentPage = startPage - 5;
+                displayItems(currentPage);
+                window.scrollTo(0, 0);
+        
+            });
+            pagination.appendChild(prevButton);
+            }
+            for (var i = startPage; i <= endPage; i++) {
+            var pageButton = document.createElement("button");
+            pageButton.textContent = i;
+            pageButton.classList.add("page-button");
+            if (i === currentPage) {
+                pageButton.classList.add("active");
+            }
+            pageButton.addEventListener("click", function () {
+                currentPage = parseInt(this.textContent);
+                displayItems(currentPage);
+                window.scrollTo(0, 0);
+            });
+            pagination.appendChild(pageButton);
+            }
+            if (endPage < totalPages) {
+            var nextButton = document.createElement("button");
+            nextButton.textContent = "다음";
+            nextButton.classList.add("pagination-next");
+            nextButton.addEventListener("click", function () {
+                currentPage = endPage + 1;
+                displayItems(currentPage);
+                window.scrollTo(0, 0);
+            });
+            pagination.appendChild(nextButton);
+            }
         }
+        
+        displayItems(currentPage);
 
     </script>
 
