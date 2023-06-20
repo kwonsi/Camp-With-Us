@@ -17,8 +17,7 @@ function selectReplyList(){
             // rList : 반환 받은 리뷰 목록 
             console.log(rList);
 
-            // 화면에 출력되어 있는 리뷰 목록 삭제            
-           
+            
             var currentPage = 1;
             var itemsPerPage = 10;
             
@@ -31,11 +30,12 @@ function selectReplyList(){
                 
                 var totalPages = Math.ceil(rList.length / itemsPerPage);
                 var paginatedItems = rList.slice(startIndex, endIndex);
-
+                
+                // 화면에 출력되어 있는 리뷰 목록 삭제            
                 if ( replyList) { 
                     replyList.innerHTML = "";
                 }
-                
+
                 // rList에 저장된 요소를 하나씩 접근
                 for(let reply of paginatedItems){
     
