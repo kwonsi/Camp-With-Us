@@ -1,8 +1,9 @@
+
+
+
 // 회원 정보 변경 유효성 검사
 function infoValidate(){
-    const inputImage = document.getElementById("input-image");
-    const del = document.getElementById("delete"); // hidden 타입
-    const agree = document.getElementById("agree");
+
     const memberNickname = document.getElementById("memberNickname");
     const memberTel = document.getElementById("memberTel");
 
