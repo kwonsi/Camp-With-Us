@@ -82,13 +82,16 @@ a{
 .plus, .minus{
     width: 30px;
     height: 30px;
-    /* border-radius: 50%; */
+    border-radius: 5%;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: transparent;
     margin: 0 5px 0 5px;
     border: none;
+    outline: none;
     font-weight: lighter;
+    font-size: 39px;
     
 }
 .plus:hover, .minus:hover{
@@ -98,6 +101,7 @@ a{
     border: none;
     text-align: center;
     outline: none;
+    background-color: transparent;
 }
 .count{
     width: 200px;
