@@ -61,3 +61,22 @@ function findPwValidate() {
     });
 
 }
+
+
+// 아이디 찾기 버튼 클릭 시 이벤트 처리
+const findIdButton = document.querySelector('.selectId');
+const idContent = document.querySelector('.idLeft');
+const pwContent = document.querySelector('.pwLeft');
+
+findIdButton.addEventListener('click', () => {
+  idContent.classList.add('slideInRight');
+  pwContent.classList.add('slideOutLeft');
+});
+
+// 비밀번호 찾기 버튼 클릭 시 이벤트 처리
+const findPwButton = document.querySelector('.selectPw');
+
+findPwButton.addEventListener('click', () => {
+  pwContent.classList.add('slideInRight');
+  idContent.classList.add('slideOutLeft');
+});
