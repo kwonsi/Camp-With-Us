@@ -24,7 +24,6 @@
     <link rel="stylesheet" href="${contextPath}/resources/css/main.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/boardList-style2.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/boxicons.css">
-    <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap_main_header.css">
     
     <script src="https://kit.fontawesome.com/a2e8ca0ae3.js" crossorigin="anonymous"></script>
 
@@ -83,7 +82,7 @@
 
                                             <div class="list1-4">
                                                 <p>작성자 : ${board.memberNickname} &nbsp;|&nbsp; 작성일 : ${board.createDate} &nbsp;|&nbsp; 조회수 : ${board.readCount}</p>
-                                                <a href="../detail/${boardCode}/${board.boardNo}?cp=${pagination.currentPage}${sURL}" class="board_Content"><p class="boardContent">${board.boardContent.substring(0,20)}</p></a>                        
+                                                <a href="../detail/${boardCode}/${board.boardNo}?cp=${pagination.currentPage}${sURL}" class="board_Content"><p class="boardContent">${board.boardContent}</p></a>                        
                                                 <%-- detail?no=${board.boardNo}&cp=${pagination.currentPage}&type=${param.type}${sURL} --%>
                                                 <%-- 현재 페이지 주소 : /board/list/1?cp=1
                                                 상세 조회 주소   : /board/detail/1/300?cp= --%>
