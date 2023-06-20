@@ -278,6 +278,7 @@ main {
   color: #212529;
   font-size: 18px;
   background: #fef8f5;
+
 }
 
 
@@ -315,10 +316,10 @@ main {
   position: relative;
   padding-bottom: 12px;
 }
-
+/* 
 #footer .footer-top .footer-links {
   /* margin-bottom: 30px; */
-}
+
 
 #footer .footer-top .footer-links ul {
   list-style: none;
@@ -587,4 +588,51 @@ main {
   }
 .row{
   width: 700px !important;
+}
+
+.wrap-loading{
+ z-index: 9999;
+
+  position: fixed;
+
+  left: 0;
+
+  right:0;
+
+  top:0;
+
+  bottom:0;
+
+  background: rgba(0,0,0,0.2); /*not in ie */
+
+  filter: progid:DXImageTransform.Microsoft.Gradient(startColorstr='#20000000', endColorstr='#20000000');    /* ie */
+
+}
+.loading{
+  width: 700px;
+  height: 500px;
+}
+.wrap-loading div{ /*로딩 이미지*/
+
+  position: fixed;
+
+  top:20%;
+
+  left: 35%;
+
+  margin-left: 0;
+
+  margin-top: 0;
+
+  width: 400px;
+  height: 300px;
+
+  z-index: 9998;
+
+}
+
+.display-none{ /*감추기*/
+
+  display:none;
+
 }

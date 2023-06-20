@@ -29,8 +29,14 @@
         <body>
 
             <jsp:include page="/WEB-INF/views/common/header.jsp" />
+            
             <main>
+                <div class="wrap-loading display-none">
 
+                    <div><img src="${contextPath}/resources/images/loading.gif" class="loading"/></div>
+                
+                </div>
+                
                 <div id="detailMain">
 
                     <div id="sub_title_wrap2">
@@ -434,6 +440,8 @@
             <script src="${contextPath}/resources/js/review.js"></script>
             <script src="${contextPath}/resources/js/weather.js"></script>
             <script src="${contextPath}/resources/js/weather2.js"></script>
+            <script src="${contextPath}/resources/js/common.js"></script>
+            
 
         </body>
 

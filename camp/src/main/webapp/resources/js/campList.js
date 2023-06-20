@@ -253,7 +253,15 @@ selectCampBtn.addEventListener("click", function () {
       }
       displayItems(currentPage);
     },
-    error: function (error) {
+    beforeSend:function(){
+
+    $('.wrap-loading').removeClass('display-none');
+
+  }
+  ,complete:function(){
+    $('.wrap-loading').addClass('display-none');
+}
+    ,error: function (error) {
       console.log("API 호출 실패");
       console.log(error);
     }

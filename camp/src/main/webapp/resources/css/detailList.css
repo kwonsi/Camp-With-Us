@@ -25,6 +25,7 @@ body {
     margin-left: 70px;
     margin-top: 140px;
     text-shadow: 2px 2px 3px rgb(0, 0, 0);
+    z-index: 2;
 }
 
 #sub_title_wrap2>h1 {
@@ -581,7 +582,7 @@ border-bottom-right-radius: 10px;
 }
 
 .date{
-    background-color: rgb(255 165 0 / 14%) !important;
+    background-color: rgba(10, 10, 10, 0.33) !important;
 }
 .date2{
     background-color: rgb(255 165 0 / 14%) !important;
