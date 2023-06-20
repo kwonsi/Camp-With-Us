@@ -825,8 +825,6 @@ hr {
 
 
 
-
-
 /* ---------------------------------------------------------------------------------------- */
 
 /*--------------------------------------------------------------
@@ -836,7 +834,7 @@ hr {
   background: #fff;
   padding: 0 0 20px 0;
   color: #212529;
-  font-size: 18px;
+  font-size: 16px;
   background: #fef8f5;
 }
 
@@ -874,12 +872,12 @@ hr {
   font-weight: bold;
   color: #212529;
   position: relative;
-  padding-bottom: 12px;
+  padding-bottom: 6px;
 }
 
-/* #footer .footer-top .footer-links {
-   margin-bottom: 30px; 
-} */
+#footer .footer-top .footer-links {
+  /* margin-bottom: 30px; */
+}
 
 #footer .footer-top .footer-links ul {
   list-style: none;
@@ -895,7 +893,7 @@ hr {
 }
 
 #footer .footer-top .footer-links ul li {
-  padding: 10px 0;
+  padding: 7px 0;
   display: flex;
   align-items: center;
 }
@@ -973,7 +971,7 @@ hr {
 }
 #footer > .py-4 {
   padding: 24px 12px !important;
-  padding-top: 15px !important;
+  padding-top: 4px !important;
 }
 #footer{
   background-color: #eee;
@@ -987,10 +985,14 @@ hr {
   justify-content: center;
   color: #686262;
   font-size: 16px;
+  margin-top: 20px;
 }
 #projectBySpan{
   color: #212529;
   font-size: 17px;
+}
+.footer-top > .container > .row {
+  margin-left: 70px !important;
 }
 
 

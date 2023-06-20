@@ -1,10 +1,10 @@
 
 /* 마이페이지 영역 */
 .myPage-content{
-    width: 1650px;
+    width: 1850px;
     height: auto;
     margin: 25px;
-
+    margin-left: 0px;
     display: flex;
 }
 
@@ -12,8 +12,8 @@
 /* 왼쪽 사이드 메뉴 */
 .left-side{
     position: sticky;
-    top : 90px;
-    width: 15%;
+    top: 120px;
+    width: 12%;
     
     /* border-right : 2px solid gray; */
     text-align: center;

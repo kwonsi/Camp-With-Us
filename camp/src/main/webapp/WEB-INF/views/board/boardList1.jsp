@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 
-
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -27,7 +25,6 @@
 
     
     <title>${boardName}</title>
-    <link rel="stylesheet" href="${contextPath}/resources/css/boardSideMenu.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/boxicons.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/main.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/boardList-style1.css">
@@ -48,13 +45,18 @@
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v17.0&appId=804019604627586&autoLogAppEvents=1" nonce="tSPzCaKu"></script>
 
 
+<jsp:include page="/WEB-INF/views/common/header.jsp"/>
+
 
     <main>
-        <jsp:include page="/WEB-INF/views/common/header.jsp"/>
+      
+        <div class="myPage-content">
+            <jsp:include page="/WEB-INF/views/board/boardSideMenu.jsp"/>
+        
         
         <section class="contain">
             
-
+            
             <div class="board1">
                 
                 
@@ -141,8 +143,10 @@
                 
             </div>
             
-        </section>
 
+
+        </section>
+</div>
     </main>
     
     
