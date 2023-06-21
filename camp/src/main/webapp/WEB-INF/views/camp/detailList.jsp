@@ -60,7 +60,11 @@
 
                 <div class="cont_tb">
                     <table class="table">
-                        <caption class="lineIntro1">
+                        <caption class = "logoCaption">
+                            <div class ="lineIntro1"></div>
+                            <div class="logo">
+                                <a href="${contextPath}"><img src="${contextPath}/resources/images/CWUlogo.png" id="home-logo"></a>
+                            </div>
                         </caption>
                         <colgroup>
                             <col style="width: 25%;" />
@@ -154,7 +158,10 @@
                     <div class="table_w">
 
                         <table class="table_t4 camp_etc_tb">
-                            <caption> <i class="fa-solid fa-chevron-right"></i> &nbsp; 기타 주요시설
+                            <caption class="logoCaption"><span class = "table_t4_span"><i class="fa-solid fa-chevron-right"></i> &nbsp;  기타 주요시설 </span>
+                                <div class="logo">
+                                    <a href="${contextPath}"><img src="${contextPath}/resources/images/CWUlogo2.png" id="home-logo"></a>
+                                </div>
                             </caption>
                             <tbody class="t_c">
                                 <tr>
@@ -231,7 +238,12 @@
             </div>
 
 
-            <div class="div4_1"> <span> <i class="fa-solid fa-chevron-right"></i> &nbsp; 캠핑장 이미지 </span> </div>
+            <div class="div4_1"> <span> <i class="fa-solid fa-chevron-right"></i> &nbsp; 캠핑장 이미지 </span> 
+                <div class="logo">
+                    <a href="${contextPath}"><img src="${contextPath}/resources/images/CWUlogo2.png" id="home-logo"></a>
+                </div>
+
+            </div>
 
             <div class="div4">
 
@@ -244,7 +256,11 @@
 
 
 
-            <div class="div5"><span> <i class="fa-solid fa-chevron-right"></i> &nbsp; 캠핑장 소개글 </span></div>
+            <div class="div5"><span> <i class="fa-solid fa-chevron-right"></i> &nbsp; 캠핑장 소개글 </span>
+                <div class="logo">
+                    <a href="${contextPath}"><img src="${contextPath}/resources/images/CWUlogo2.png" id="home-logo"></a>
+                </div>
+            </div>
             <div class="div6" id="intro"></div>
 
         </c:if>
@@ -252,9 +268,9 @@
 
         <!-- viewType == 2 일때 -->
         <c:if test="${param.viewType == '2'}">
-
-            <div class="div7" id="campNamePrice">
+            <div class="div7">
                 <!-- ${campName} 이용 요금 -->
+                <div id = "campNamePrice"></div>
             </div>
             <div class="table_w2">
                 <table class="table camp_info_tb">

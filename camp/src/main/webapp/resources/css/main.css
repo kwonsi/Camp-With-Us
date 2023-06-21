@@ -40,6 +40,11 @@ transition: background-color 5000s;
 #header .logo {
   display: flex;
 }
+#header .logo img {
+  padding: 0;
+  margin: 0;
+  max-height: 90px;
+}
 
 #header .logo h1 {
   display: flex;
@@ -61,11 +66,7 @@ transition: background-color 5000s;
   margin-bottom: -9px;
 }
 
-#header .logo img {
-  padding: 0;
-  margin: 0;
-  max-height: 90px;
-}
+
 
 .navbar {
   padding: 0;

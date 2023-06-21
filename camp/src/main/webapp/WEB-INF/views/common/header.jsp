@@ -6,7 +6,7 @@
     <div class="header-container justify-content-between">
 
       <div class="logo">
-        <a href="${contextPath}"><img src="${contextPath}/resources/images/camp_logo.jpg" id="home-logo"></a>
+        <a href="${contextPath}"><img src="${contextPath}/resources/images/CWUlogo.png" id="home-logo"></a>
         &nbsp;<h1>C</h1><h4>amp</h4> <h1>&nbsp;W</h1><h4>ith</h4> <h1>&nbsp;U</h1><h4>s</h4>
       </div>
 
