@@ -132,7 +132,7 @@ function initCalendar(){
                 total_days.classList.add("sel");
                 
 
-                a.innerText = test + "박" + (test+1) + "일";
+               /*  a.innerText = test + "박" + (test+1) + "일"; */
                 localStorage.clear();
                 localStorage.setItem("totalDay", test);
                 localStorage.setItem("Month", selectMonth[0].value)

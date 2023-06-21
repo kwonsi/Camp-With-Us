@@ -221,10 +221,18 @@ body {
     
 }
 
-
 .logoCaption > div {
     display: inline-block;
 }
+
+.div7 > .logo img {
+    padding: 0px;
+    margin: 0px;
+    max-height: 60px;
+}
+
+
+
 /* .table_t4 > .logoCaption > .logo img {
     padding-top: 5px;
 } */

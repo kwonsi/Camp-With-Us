@@ -270,7 +270,10 @@
         <c:if test="${param.viewType == '2'}">
             <div class="div7">
                 <!-- ${campName} 이용 요금 -->
-                <div id = "campNamePrice"></div>
+                <div id = "campNamePrice"></div>&nbsp;
+                <div class="logo">
+                    <a href="${contextPath}"><img src="${contextPath}/resources/images/CWUlogo2.png" id="home-logo"></a>
+                </div>
             </div>
             <div class="table_w2">
                 <table class="table camp_info_tb">
@@ -328,8 +331,11 @@
         <!-- viewType == 4 일때 -->
         <c:if test="${param.viewType == '4'}">
 
-            <div class="div7" id="doNmVal">
-                <span> 지역 날씨 </span>
+            <div class="div7" >
+                <div id="doNmVal"> 지역 날씨 </div>&nbsp;
+                <div class="logo">
+                    <a href="${contextPath}"><img src="${contextPath}/resources/images/CWUlogo2.png" id="home-logo"></a>
+                </div>
             </div>
             <div class="table_w3">
                 <table class="table camp_info_tb">

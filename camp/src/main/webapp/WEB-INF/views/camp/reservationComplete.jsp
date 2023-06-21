@@ -16,7 +16,8 @@
     <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap-icons.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/reservComplete.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
+    <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap_main_header.css">
+
     
     <script src="https://kit.fontawesome.com/a2e8ca0ae3.js" crossorigin="anonymous"></script>
     
@@ -42,7 +43,7 @@
         <!-- <img src="${contextPath}/resources/images/reservComplete.jpg"> -->
         <div class="thanks">
             <div class="logo">
-                <img src ="${contextPath}/resources/images/camp_logo.jpg">
+                <img src ="${contextPath}/resources/images/CWUlogo.png">
             </div>
                 <h1>예약이 완료되었습니다.</h3>
             <div class="buttons2">
