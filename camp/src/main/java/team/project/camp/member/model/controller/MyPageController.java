@@ -148,7 +148,7 @@ public class MyPageController {
 		paramMap.put("memberAddress", memberAddress);
 
 		// 닉네임 중복 체크
-		int result = memberService.nicknameDupCheck(loginMember.getMemberNickname());
+		int result = memberService.nicknameDupCheck((String)paramMap.get("updateNickname"));
 		
 		// 회원 정보 수정 서비스 호출
 		if(result == 0) {
