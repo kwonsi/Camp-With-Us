@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="${contextPath}/resources/css/boardList-style3.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/boxicons.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap_main_header.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap-icons.css">
     
     <script src="https://kit.fontawesome.com/a2e8ca0ae3.js" crossorigin="anonymous"></script>
 
@@ -31,7 +32,8 @@
 <body>
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
     <main>
-        
+        <div class="myPage-content">
+        <jsp:include page="/WEB-INF/views/board/boardSideMenu.jsp"/>
         
         
         <%-- 검색을 진행한 경우 key, query를 쿼리스트링 형태로 저장한 변수 생성 --%>
@@ -171,6 +173,7 @@
             </form>
 
         </section>
+        </div>
     </main>
 
 

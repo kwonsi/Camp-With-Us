@@ -15,7 +15,6 @@
     <link rel="stylesheet" href="${contextPath}/resources/css/boardDetail-style.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/boxicons.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/reply-style.css">
-    <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap_main_header.css">
 
 
     <script src="https://kit.fontawesome.com/a2e8ca0ae3.js" crossorigin="anonymous"></script>

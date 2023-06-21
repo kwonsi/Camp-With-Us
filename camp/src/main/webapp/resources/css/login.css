@@ -6,7 +6,7 @@
 body {
   height: auto;
   margin: 0;
-  background-image: url("../images/signUpBg3.jpg");
+  background-image: url("../images/findIdPw6.jpg");
   background-size: 100% 100%;
 }
 
@@ -272,7 +272,7 @@ cursor: pointer;
 
   /* background-color: rgba(var(--bs-light-rgb), var(--bs-bg-opacity)) !important; */
   .bg-light {
-    --bs-bg-opacity: 1;
+    --bs-bg-opacity: 0.7;
     height: 85%;
     background-color:rgba(var(--bs-light-rgb), var(--bs-bg-opacity)) !important;
     margin-top: 12rem;
@@ -785,10 +785,10 @@ cursor: pointer;
 # Footer
 --------------------------------------------------------------*/
 #footer {
-  background: #fff;
+  /* background: #fff; */
   padding: 0 0 20px 0;
   color: #212529;
-  font-size: 18px;
+  font-size: 16px;
   background: #fef8f5;
 }
 
@@ -798,7 +798,7 @@ cursor: pointer;
   background: #fff;
   padding-top: 30px;
   padding-bottom: 20px;
-  background-color: #eee !important;
+/*   background-color: #eee !important; */
 }
 
 #footer .footer-top .footer-contact {
@@ -826,7 +826,7 @@ cursor: pointer;
   font-weight: bold;
   color: #212529;
   position: relative;
-  padding-bottom: 12px;
+  padding-bottom: 6px;
 }
 
 #footer .footer-top .footer-links {
@@ -847,7 +847,7 @@ cursor: pointer;
 }
 
 #footer .footer-top .footer-links ul li {
-  padding: 10px 0;
+  padding: 7px 0;
   display: flex;
   align-items: center;
 }
@@ -925,24 +925,28 @@ cursor: pointer;
 }
 #footer > .py-4 {
   padding: 24px 12px !important;
-  padding-top: 15px !important;
+  padding-top: 4px !important;
 }
-#footer{
+/* #footer{
   background-color: #eee;
 }
 .footer-top{
   background-color: #eee;
 }
-
+ */
 #projectBy {
   display: flex;
   justify-content: center;
   color: #686262;
   font-size: 16px;
+  margin-top: 20px;
 }
 #projectBySpan{
   color: #212529;
   font-size: 17px;
+}
+.footer-top > .container > .row {
+  margin-left: 70px !important;
 }
 
 

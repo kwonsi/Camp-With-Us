@@ -224,7 +224,15 @@ window.onload = function () {
                 }
             }); // 이미지 목록 ajax
         }, // 캠핑장 정보 ajax 성공 끝
-        error: function (error) {
+        beforeSend:function(){
+
+            $('.wrap-loading').removeClass('display-none');
+        
+          }
+          ,complete:function(){
+            $('.wrap-loading').addClass('display-none');
+        }
+        ,error: function (error) {
             console.log("API 호출 실패");
             console.log(error);
         }
