@@ -106,11 +106,11 @@
                             <div class="popleNumberch">
                                 <div class="count">
                                 성인
-                                <button type="button" onclick="countAdult('minus')" class="minus card-1"><i class="fa-regular fa-square-minus"></i></button>
+                                <input type="button" onclick="countAdult('minus')" value="-" class="minus card-1">
                                 <div class="adultSelectContain">
                                     <input type="text" id="adultSelect" class="adultSelect" value="0" readonly>
                                 </div>
-                                <button type="button" onclick="countAdult('plus')" class="plus card-1"><i class="fa-regular fa-square-plus"></i></button>
+                                <input type="button" onclick="countAdult('plus')" value="+" class="plus card-1">
                                 </div>
                                 <!-- <select class="adultSelect card-1">
                                     <option value="0">0</option>
@@ -125,11 +125,11 @@
                                 
                                 <div class="count">
                                 영/유아
-                                <button type="button" onclick="countChild('minus')" class="minus card-1"><i class="fa-regular fa-square-minus"></i></button>
+                                <input type="button" onclick="countChild('minus')" value="-" class="minus card-1">
                                 <div class="childSelectContain">
                                     <input type="text"  id="childSelect" class="childSelect" value="0" readonly>
                                 </div>
-                                <button type="button" onclick="countChild('plus')" class="plus card-1"><i class="fa-regular fa-square-plus"></i></button>
+                                <input type="button" onclick="countChild('plus')" value="+" class="plus card-1">
                                 </div>
                                 <!-- <select class="childrenSelect card-1">
                                     <option value="0">0</option>
@@ -169,10 +169,6 @@
                                 </tbody>
                             </table>
                             
-
-
-
-
 <!--                             <br>
                             <br>성수기(6~8월) 가격: 1인 기준 성인 30000, 아이 15000
                             <br>비성수기(6~8월 제외한 달) 기본가격: 1인 기준 성인 20000, 아이 10000 -->
@@ -219,7 +215,6 @@
             <br>
             <div class="buttons">
             <button class="btn btn-lg btn-primary">예약하기</button>
-            <button type="button" class="btn btn-lg btn-primary" onclick="historyBack()">돌아가기</button>
             </div>
         
         </form>
@@ -404,9 +399,6 @@ function Teltel() {
 window.onload = function () {
   Teltel(); // Teltel 함수 실행
 };
-function historyBack(){
-    history.back();
-}
 
 //  buyer_postcode: '123-456'
 </script>

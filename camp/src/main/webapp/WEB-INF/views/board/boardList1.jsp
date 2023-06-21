@@ -36,10 +36,6 @@
 </head>
 <body>
     <!-- JavaScript용 Facebook SDK 정규식 추가 -->
-    <!-- <div id="fb-root"></div>
-    <script async defer crossorigin="anonymous"
-    src="https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v17.0&appId=804019604627586&autoLogAppEvents=1"
-    nonce="g3I9sDPj"></script> -->
 
     <div id="fb-root"></div>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v17.0&appId=804019604627586&autoLogAppEvents=1" nonce="tSPzCaKu"></script>
@@ -50,6 +46,7 @@
 
     <main>
       
+        <!-- sideBar 넣기위한 div 추가 !!!  boardList 1,2,3,4,5 다들어가있습니다. -->
         <div class="myPage-content">
             <jsp:include page="/WEB-INF/views/board/boardSideMenu.jsp"/>
         
@@ -105,6 +102,11 @@
 
                         <!-- 고캠핑 플러그인 -->
                         <!-- 페이스북 개발자 로그인 된 상태에서만 화면이 제대로 나옴 -->
+                        <div class="fb-page" data-href="https://www.facebook.com/go2thecamping"
+                        data-tabs="timeline" data-width="450" data-height="400" data-small-header="true"
+                        data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="true">
+                        <blockquote cite="https://www.facebook.com/go2thecamping" class="fb-xfbml-parse-ignore">
+                        <a href="https://www.facebook.com/go2thecamping">한국관광공사 고캠핑</a></blockquote></div>
                         <!-- <div style="width: 450px;">
                             <div class="fb-page"
                             data-href="https://www.facebook.com/go2thecamping/"
@@ -120,8 +122,9 @@
                             <a href="https://www.facebook.com/go2thecamping/">한국관광공사 고캠핑</a>
                             </blockquote></div>
                         </div> -->
-
-                        <div class="fb-post" data-href="https://www.facebook.com/go2thecamping/" data-width="500" data-show-text="true"></div>
+                        
+                        <!-- 고캠핑 임베드 -->
+                   <!-- <div class="fb-post" data-href="https://www.facebook.com/go2thecamping/" data-width="500" data-show-text="true"></div> -->
                     </div>
 
                     <div class="multiple-items2 slide_div2">
@@ -146,7 +149,7 @@
 
 
         </section>
-</div>
+</div> <!-- sideBar 넣기위한 div 끝부분 !!!  -->
     </main>
     
     
