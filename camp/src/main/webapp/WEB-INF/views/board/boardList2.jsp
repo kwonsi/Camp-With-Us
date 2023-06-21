@@ -68,9 +68,9 @@
 
                                     <div class="list1">
                                         <div class="list1-1"> 
-                                            <c:if test="${!empty board.thumbnail}">
+                                            <!-- <c:if test="${!empty board.thumbnail}"> -->
                                                 <img class="list-thumbnail" src="${contextPath}${board.thumbnail}">
-                                            </c:if>
+                                            <!-- </c:if> -->
                                         </div>
 
                                         <div class="list1-2">

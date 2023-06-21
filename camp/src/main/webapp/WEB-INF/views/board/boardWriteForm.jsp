@@ -41,7 +41,7 @@
 
 
             <%-- imageList에 존재하는 이미지 레벨을 이용하여 변수 생성 --%>
-            <c:forEach items="${detail.imageList}" var="boardImage">
+            <!-- <c:forEach items="${detail.imageList}" var="boardImage">
 
                 <c:choose>
                     <c:when test="${boardImage.imageLevel == 0}">
@@ -65,9 +65,9 @@
                         <c:set var="img4"  value="${contextPath}${boardImage.imageReName}" />
                     </c:when>
                 </c:choose>
-            </c:forEach>
-
+            </c:forEach> -->
             
+
             <!-- 썸네일 -->
             <!-- <div class="img-box">
                 <div class="boardImg thumbnail">

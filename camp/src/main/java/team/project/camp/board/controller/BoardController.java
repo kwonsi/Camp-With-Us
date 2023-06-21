@@ -245,7 +245,8 @@ public class BoardController {
 	@RequestMapping(value="/upload", produces = "application/json; charset=utf8")
 	@ResponseBody  // ajax 응답 시 사용!
 	public String uploadSummernoteImageFile( @RequestParam("file") MultipartFile[] multipartFiles,
-												 HttpServletRequest req
+											HttpServletRequest req,
+											HttpSession session
 												 ) {
 		
 		System.out.println("summernote 컨트롤러 시작");
@@ -253,16 +254,20 @@ public class BoardController {
 		JsonArray jsonArray = new JsonArray();
 		JsonObject jsonObject = new JsonObject();
 		
-		// 내부경로로 저장
-//		String contextRoot = new HttpServletRequestWrapper(request).getSession().getServletContext().getRealPath("/");
-//			 	-> C:\workspace\Final_Camp_eunju3\Final_Camp\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\camp\
-//		String fileRoot = "C:\\workspace\\Final_Camp_eunju3\\Final_Camp\\camp\\src\\main\\webapp\\resources\\images\\summernote\\";
-//				-> camp 프로젝트 내 /images/summernote 폴더 경로
-//		String fileRoot = "C:/workspace/Final_Camp_eunju3/Final_Camp/camp/src/main/webapp/resources/images/summernote/";
+//		내부경로로 저장(metadata)
+//		String contextRoot = new HttpServletRequestWrapper(req).getSession().getServletContext().getRealPath("/");
+//			-> C:\workspace\Final_Camp_eunju\Final_Camp\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\camp\
+		
+//		절대경로로 저장(C드라이브 내 경로 : camp 프로젝트 내 /images/summernote 폴더 경로)
+//		String fileRoot = "C:\\workspace\\Final_Camp_eunju\\Final_Camp\\camp\\src\\main\\webapp\\resources\\images\\summernote\\";
+//		String fileRoot = "C:/workspace/Final_Camp_eunju/Final_Camp/camp/src/main/webapp/resources/images/summernote/";
 		
 		String webPath = "/resources/images/summernote/";
-		String folderPath = req.getSession().getServletContext().getRealPath(webPath); // -> "C:/workspace/Final_Camp_eunju3/Final_Camp/camp/src/main/webapp/resources/images/summernote/"
+		String folderPath = req.getSession().getServletContext().getRealPath(webPath);
+//			-> C:\workspace\Final_Camp_eunju\Final_Camp\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\camp\resources\images\summernote\ 일 경우(metadata 경로)
+//				서버 옵션 제일 처음꺼 체크여부 확인 하기(체크 안되있으면 이렇게 뜸)
 		
+		log.debug("folderPath : " + folderPath);
 		
 		for (MultipartFile multipartFile : multipartFiles) {
 			String originalFileName = multipartFile.getOriginalFilename();	//오리지날 파일명
@@ -271,9 +276,6 @@ public class BoardController {
 		
 			File targetFile = new File(folderPath + savedFileName);
 			
-//				log.debug("originalFileName : " + originalFileName);
-//				log.debug("savedFileName : " + savedFileName);
-//				log.debug("targetFile : " + targetFile);
 		
 			try {
 				InputStream fileStream = multipartFile.getInputStream();
@@ -286,13 +288,21 @@ public class BoardController {
 //					log.debug("req.getContextPath() : " + req.getContextPath());  -> /camp
 //					log.debug("jsonObject : " + jsonObject);  -> {"url":"/camp/resources/images/summernote/f794a7bc-7a9b-4111-b63b-6e46f79cbaa7.jpg"}
 				
+				log.debug("jsonObject : " + jsonObject);
 				
-				// jsp에서 사용하기 위해 req에 값을 세팅해준다
-				req.setAttribute("imgPath", webPath+savedFileName);
-				// req에 값이 잘 들어갔는지 확인해보기 -> /resources/images/summernote/dca7dbfb-d327-4077-905b-88c01a0c005e.jpg
-				log.debug("Controller req : " + req.getAttribute("imgPath"));
+//				jsp에서 사용하기 위해 req에 값을 세팅해준다
+//				req.setAttribute("imgPath", webPath+savedFileName);
+				
+				// jsp가 새로고침되서 request에 있는 값이 사라지니까 imgPath에 값이 안들어갔던것
+				// -> request 말고 session에 값을 올려주자
+				session.setAttribute("imgPath", webPath + savedFileName);
 				
 				
+//				req에 값이 잘 들어갔는지 확인해보기 -> /resources/images/summernote/dca7dbfb-d327-4077-905b-88c01a0c005e.jpg
+//				log.debug("Controller req : " + req.getAttribute("imgPath"));
+				
+//				session에 값이 잘 들어갔는지 확인해보기
+//				log.debug("Controller session : " + session.getAttribute("imgPath"));
 					
 			} catch (IOException e) {
 				FileUtils.deleteQuietly(targetFile);	//저장된 파일 삭제
@@ -306,6 +316,8 @@ public class BoardController {
 		String jsonResult = jsonArray.toString();
 		
 		log.debug("jsonResult(저장경로) : " + jsonResult);
+		
+		
 		
 		return jsonResult;
 	}
@@ -348,17 +360,18 @@ public class BoardController {
 	public String boardWrite( BoardDetail detail, // boardTitle, boardContent, boardNo(수정)
 							@RequestParam(value="images", required=false) List<MultipartFile> imageList, // 업로드 파일(이미지) 리스트
 							@PathVariable("boardCode") int boardCode,
-							String imgPath,
 							String mode,
 							@ModelAttribute("loginMember") Member loginMember,
 							RedirectAttributes ra,
 							HttpServletRequest req, // 이미지 저장 경로 얻어올때 씀
+							HttpSession session,
 							@RequestParam(value="cp", required=false, defaultValue="1") int cp,
 							@RequestParam(value="deleteList", required=false) String deleteList ) throws IOException {
 
 
-		log.debug("imgPath : " + req.getAttribute("imgPath"));
-		//String[] imgUrl;
+		log.debug("session에 올라간 imgPath : " + session.getAttribute("imgPath"));
+		
+//		String[] imgUrl;
 //		log.debug("imageList : " + imageList);  -> null
 
 		// 1) 로그인 한 회원번호 얻어와서 detail에 세팅해주기
