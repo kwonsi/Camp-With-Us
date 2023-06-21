@@ -101,13 +101,6 @@
                     <input type="text" name="updateAddress" id="detailAddress" class="form-control" value="${addr[2]}">
                 </div>
 
-
-
-                <div class="myPage-row">
-                    <label>가입일</label>
-                    <span>${loginMember.enrollDate}</span>
-                </div>
-
                 <button id="info-update-btn">수정하기</button>
 
             </form>

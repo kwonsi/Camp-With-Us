@@ -1,3 +1,4 @@
+
 //const selLoc = document.getElementById("selLoc");
 const login = document.getElementById("login");
 var selLoc = document.getElementById("loc");

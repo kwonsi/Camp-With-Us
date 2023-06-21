@@ -33,7 +33,7 @@
             <span class="myPage-explanation">현재 회원님이 작성한 게시글을 확인할 수 있습니다.</span>
             
             <div class="list-wrapper">
-                <table class="list-table">
+                <table class="list-table table table-hover">
                     
                     <thead>
                         <tr>
