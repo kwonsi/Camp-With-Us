@@ -155,15 +155,18 @@ form[name="myPage-form"]{
 
 /* 프로필 버튼 영역의 모든 자식 요소 */
 .profile-btn-area > *{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 110px;
-    height: 33px;
-
+    height: 40px;
     padding: 5px 10px;
     border: 1px solid black;
     background-color: white;
     font-size: 14px;
     cursor: pointer;
     text-align: center;
+    border-radius: var(--bs-border-radius);
 }
 
 /* 파일 선택 버튼 */
@@ -200,7 +203,7 @@ form[name="myPage-form"]{
 /* 검색버튼 */
 #info-address-btn{
     width: 20%;
-    height: 70%;
+    height: 100%;
     margin-left: 10px;
     font-size: 14px;
     font-weight: normal;
@@ -208,6 +211,7 @@ form[name="myPage-form"]{
     background-color: #eb5d1e;
     border : 1px solid gray;
     cursor: pointer;
+    border-radius: var(--bs-border-radius);
 }
 
 #info-update-btn {
@@ -220,6 +224,7 @@ form[name="myPage-form"]{
     background-color: #ee7843;
     color: white;
     cursor: pointer;
+    border-radius: var(--bs-border-radius);
 }
 
 #info-address-btn:hover {
