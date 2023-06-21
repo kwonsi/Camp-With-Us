@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap_main_header.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/main.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/boxicons.css">
+
     <script src="https://kit.fontawesome.com/a2e8ca0ae3.js" crossorigin="anonymous"></script>
 
 </head>
@@ -91,9 +92,21 @@
         </section>
 
 
+        <div id ="middleLine">
+
+            <div id ="middleLineDiv"><span id="middleLineSpan">There are a total of <span class ="titleCount" id="titleCount">0</span> campsites <br>
+                on <span class="titleColor">C</span>amp <span class="titleColor">W</span>ith <span class="titleColor">U</span>s.</span></div>
+
+
+        </div>
+
+
+        <div id = "main-image">
+
+
 
         <div class="section-title">
-            <h1>오늘의 추천 캠핑장!!</h1>
+            <h1>오늘의 추천 캠핑장</h1>
         </div>
 
         <div id="divv">
@@ -219,19 +232,20 @@
         <div id = "lastDiv">
         </div>
 
+    </div>
 
     </main>
 
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
-
-
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    
 
     <script src="${contextPath}/resources/js/main.js"></script>
 
 
+    
 </body>
 
 </html>

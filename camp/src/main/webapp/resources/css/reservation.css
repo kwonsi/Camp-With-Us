@@ -136,12 +136,20 @@ a{
     cursor: pointer;
 }
 .info{
+<<<<<<< HEAD
     width: 98%;
+=======
+    width: 100%;
+>>>>>>> 5a179c426abfb13dca7e8699b90596c8c667b9ab
     height: 600px;
     border: 1px solid black;
     display: flex;
     flex-wrap: nowrap;
     margin-top: 50px;
+<<<<<<< HEAD
+=======
+    justify-content: center;
+>>>>>>> 5a179c426abfb13dca7e8699b90596c8c667b9ab
     /* justify-content: space-between; */
 }
 .SELECTDATE{

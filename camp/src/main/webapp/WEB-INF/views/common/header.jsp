@@ -7,7 +7,7 @@
 
       <div class="logo">
         <a href="${contextPath}"><img src="${contextPath}/resources/images/camp_logo.jpg" id="home-logo"></a>
-        &nbsp;<h1>W</h1><h4>orld</h4> <h1>&nbsp;C</h1><h4>amp</h4> <h1>&nbsp;T</h1><h4>ogether</h4>
+        &nbsp;<h1>C</h1><h4>amp</h4> <h1>&nbsp;W</h1><h4>ith</h4> <h1>&nbsp;U</h1><h4>s</h4>
       </div>
 
       <nav id="navbar" class="navbar">
@@ -46,8 +46,8 @@
               <li class="dropdown"><a href="${contextPath}/member/login">로그인</a>
                 <ul>
                   <li><a href="${contextPath}/member/login">로그인</a></li>
-                  <li><a href="${contextPath}/member/signUp">회원가입</a></li>
-                  <li><a href="${contextPath}/member/findIdPw">아이디/비밀번호<br>찾기</a></li>
+                  <li><a href="${contextPath}/member/signUpCheck">회원가입</a></li>
+                  <li><a href="${contextPath}/member/findIdPw?findType=id">아이디/비밀번호<br>찾기</a></li>
                 </ul>
               </li>
             </c:when>

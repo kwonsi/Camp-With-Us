@@ -13,6 +13,11 @@
     <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap1.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/main.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/paymentInfo.css">
+<<<<<<< HEAD
+=======
+    <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap_main_header.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap-icons.css">
+>>>>>>> 5a179c426abfb13dca7e8699b90596c8c667b9ab
     <script src="https://kit.fontawesome.com/a2e8ca0ae3.js" crossorigin="anonymous"></script>
 </head>
 <body>

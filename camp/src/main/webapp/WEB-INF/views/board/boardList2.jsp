@@ -83,7 +83,11 @@
 
                                             <div class="list1-4">
                                                 <p>작성자 : ${board.memberNickname} &nbsp;|&nbsp; 작성일 : ${board.createDate} &nbsp;|&nbsp; 조회수 : ${board.readCount}</p>
+<<<<<<< HEAD
                                                 <a href="../detail/${boardCode}/${board.boardNo}?cp=${pagination.currentPage}${sURL}" class="board_Content"><p class="boardContent">${board.boardContent}</p></a>                        
+=======
+                                                <a href="../detail/${boardCode}/${board.boardNo}?cp=${pagination.currentPage}${sURL}" class="board_Content"><p class="boardContent">${board.boardContent.substring(0,20)}</p></a>                        
+>>>>>>> 5a179c426abfb13dca7e8699b90596c8c667b9ab
                                                 <%-- detail?no=${board.boardNo}&cp=${pagination.currentPage}&type=${param.type}${sURL} --%>
                                                 <%-- 현재 페이지 주소 : /board/list/1?cp=1
                                                 상세 조회 주소   : /board/detail/1/300?cp= --%>

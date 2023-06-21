@@ -43,45 +43,11 @@
         
         <ul id="reply-list">
 
-            <c:forEach var="review" items="${rList}">
-                <li class='reply-row'>
-                    <p class="reply-writer">
 
-                        <c:if test="${empty review.profileImage}">
-                            <!-- 프로필 이미지가 없을 경우 -->
-                            <img src="${contextPath}/resources/images/user.png">
-                        </c:if>
-
-                        <c:if test="${!empty review.profileImage}">
-                            <!-- 프로필 이미지가 있을 경우 -->
-                            <img src="${contextPath}${review.profileImage}">
-                        </c:if>
-
-                        <span>${review.memberNickname}</span>
-                        <span class="reviewListStar">★</span>
-                        <span class="reviewListStar">★</span>
-                        <span class="reviewListStar">★</span>
-                        <span class="reviewListStar">★</span>
-                        <span class="reviewListStar">★</span>
-                        <span class="reply-date">(${review.createDate})</span>
-                    </p>
-                    
-                    <p class="reply-content">${review.reviewContents}</p>
-
-                    <%-- 로그인한 회원의 댓글인 경우 수정, 삭제 가능--%>
-                    <c:if test="${!empty loginMember && !empty campName}">
-                        <div class="reply-btn-area">
-                            <c:if test="${loginMember.memberNo == review.memberNo}">
-                                <button onclick="showUpdateReply(${review.replyNo}, this);">수정</button>     
-                                <button onclick="deleteReply(${review.replyNo})">삭제</button>
-                            </c:if>
-
-                        </div>
-                    </c:if>
-                </li>
-            </c:forEach>
             
         </ul>
+
+        <div id="pagination" class="pagination"></div>
     </div>
     
 

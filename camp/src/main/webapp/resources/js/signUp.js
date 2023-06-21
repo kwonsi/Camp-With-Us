@@ -495,7 +495,23 @@ function signUpValidate(){
 }
 
 
+//회원가입 약관동의 체크 여부 확인
+function signUpCheck() {
 
+    var checkCount = 0;
+    const signUpCheckBox = document.getElementsByClassName("signUpCheckBox");
 
+    for(let i=0; i<signUpCheckBox.length; i++) {
+        if(signUpCheckBox[i].checked == true) {
+            checkCount++;
+        }
+    }
 
+    console.log(checkCount);
 
+    if(checkCount == 3) return true;
+    else {
+        alert("모든 약관에 동의해주세요.");
+        return false;
+    }
+}

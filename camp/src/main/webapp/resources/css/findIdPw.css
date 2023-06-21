@@ -220,6 +220,27 @@ z-index: 1030;
 
 
 /* -----------------content------------------- */
+.findAll{
+  width: 100%;
+  margin-top: 0;
+  display: flex;
+  /* justify-content: center;  */
+}
+.select{
+  margin-top: 200px;
+  margin-left: 500px;
+  /* display: flex;
+  border-bottom: #474747 solid 1.5px;
+  position: relative;
+  top: 20px;
+  left: 800px; */
+}
+.selectfind{
+  display: flex;
+  padding: 0;
+  margin: 0;
+  margin-top: 10px;
+}
 
 .findAll{
 width: 100%;

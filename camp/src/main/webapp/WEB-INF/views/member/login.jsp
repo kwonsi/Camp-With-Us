@@ -14,7 +14,11 @@
 
         <link rel="stylesheet" href="${contextPath}/resources/css/login.css">
         <link rel="stylesheet" href="${contextPath}/resources/css/boxicons.css">
+<<<<<<< HEAD
         <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap-icons.css">
+=======
+<!--         <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap-icons.css"> -->
+>>>>>>> 5a179c426abfb13dca7e8699b90596c8c667b9ab
         
 <!--         <link rel="stylesheet" href="${contextPath}/resources/css/main-bootstrap.css">
         <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap-icons.css">
@@ -72,7 +76,7 @@
                 <div class="findSignupBtn">
                     <a class="signUpBtn" href="${contextPath}/member/signUp">회원가입</a>
                     &ensp;|&ensp;
-                    <a class="findIdPwBtn" href="${contextPath}/member/findIdPw">아이디/비밀번호 찾기</a>
+                    <a class="findIdPwBtn" href="${contextPath}/member/findIdPw?findType=id">아이디/비밀번호 찾기</a>
                 </div>
 
 
@@ -193,17 +197,21 @@
                             alert("이미 가입된 아이디입니다.");
                             window.location.href = '${contextPath}/member/login';
                         } else {
-                            window.location.href = '${contextPath}';
+                            // window.location.href = history.back();
+                            location.href = document.referrer;
+                            //location.reload();
+                            
+                            
                         }
-
-
+                       
+                        
                     },
                     error: function () {
 
                     }
                 });
 
-                // location.reload();
+                
                 // location.reload();
                 // location.reload();
                 // location.reload();
@@ -214,7 +222,7 @@
                 // 1초(1000ms) 후에 location.reload() 실행
                 // setTimeout(function() {
                 // location.reload();
-                // }, 3000);
+                // }, 1000);
 
             }
 
@@ -266,8 +274,11 @@
                                             alert("이미 가입된 아이디입니다.");
                                             window.location.href = '${contextPath}/member/login';
                                         } else {
-                                            window.location.href = '${contextPath}';
+                                            // window.location.href = history.go(-1);
+                                            location.href = document.referrer;
+                                            //window.location.reload();
                                         }
+                                    
 
                                         if (Kakao.Auth.getAccessToken()) {
                                             Kakao.API.request({
