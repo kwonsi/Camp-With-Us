@@ -218,7 +218,13 @@ function getFormattedDate() {
   const year = date.getFullYear();
   let month = date.getMonth() + 1;
   let day = date.getDate();
-
+  
+  // 시간이 00시 부터 05시 사이일 경우, 전날의 날짜로 설정
+  if (date.getHours() >= 0 && date.getHours() < 7){
+    const previousDay = new Date(date.getTime() - 24 * 60 * 60 * 1000);
+    month = previousDay.getMonth() + 1;
+    day = previousDay.getDate();
+  }
   // 월과 일이 한 자리 수인 경우 앞에 0을 추가합니다.
   if (month < 10) {
     month = '0' + month;

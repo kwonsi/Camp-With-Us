@@ -13,7 +13,7 @@ function loc4(){
     locate = "11D20000"
     positionX = '37.8';
     positionY = '128.2';
-  }else if(loca2 == '서울시' || loca2 ==='경기도' || loca2 === '인천시' || loca2 == '서울시'){
+  }else if(loca2 == '서울시' || loca2 ==='경기도' || loca2 === '인천시'){
     locate = "11B00000"
     positionX = '37.5683';
     positionY = '126.9778';
@@ -82,7 +82,7 @@ function loc6(){
     
     positionNX = '73'
     positionNY = '134'
-  }else if(loca2 == '서울' || loca2 ==='경기도' || loca2 === '인천시'){
+  }else if(loca2 == '서울' || loca2 ==='경기도' || loca2 === '인천시' || loca2 === '서울시'){
     locate = "11B00000"
  
     positionNX = '60'
@@ -233,10 +233,11 @@ $.getJSON('http://api.openweathermap.org/data/2.5/forecast?lat='+loc5[0]+'&lon='
 
   }
 });
+const formattedDate2 = getFormattedDate2();
 
 // 다음날 다다음날 강수확률
 const rp2 = document.querySelectorAll(".rp");
-$.getJSON('https://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst?serviceKey=jsLvGH%2Bb1syQWRRY0c2N5F%2FcD%2FwCpP81UAeg5oSlnbCS53y8grp2iAkZRGCIRSajwn%2F%2FFIpN5BCIIbK1u8Jajw%3D%3D&pageNo=1&numOfRows=1000&dataType=JSON&base_date='+formattedDate+'&base_time=0500&nx='+loc7[0]+'&ny='+loc7[1],function(result){
+$.getJSON('https://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst?serviceKey=jsLvGH%2Bb1syQWRRY0c2N5F%2FcD%2FwCpP81UAeg5oSlnbCS53y8grp2iAkZRGCIRSajwn%2F%2FFIpN5BCIIbK1u8Jajw%3D%3D&pageNo=1&numOfRows=1000&dataType=JSON&base_date='+formattedDate2+'&base_time=0500&nx='+loc7[0]+'&ny='+loc7[1],function(result){
   let rpAM = [];
   let rpPM = [];
   let fcstValue = 'fcstValue'
@@ -266,32 +267,38 @@ $.getJSON('https://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFc
 
 
 
-// function getFormattedDate() {
-//   const date = new Date();
-//   const year = date.getFullYear();
-//   let month = date.getMonth() + 1;
-//   let day = date.getDate();
+function getFormattedDate2() {
+  const date = new Date();
+  const year = date.getFullYear();
+  let month = date.getMonth() + 1;
+  let day = date.getDate();
+  
+  // 시간이 00시 부터 05시 사이일 경우, 전날의 날짜로 설정
+  if (date.getHours() >= 0 && date.getHours() < 6){
+    const previousDay = new Date(date.getTime() - 24 * 60 * 60 * 1000);
+    month = previousDay.getMonth() + 1;
+    day = previousDay.getDate();
+  }
+  // 월과 일이 한 자리 수인 경우 앞에 0을 추가합니다.
+  if (month < 10) {
+    month = '0' + month;
+  }
 
-//   // 월과 일이 한 자리 수인 경우 앞에 0을 추가합니다.
-//   if (month < 10) {
-//     month = '0' + month;
-//   }
+  if (day < 10) {
+    day = '0' + day;
+  }
 
-//   if (day < 10) {
-//     day = '0' + day;
-//   }
+  return year + month + day;
+}
 
-//   return year + month + day;
-// }
-
-// day = getDates();
+// day = getDates2();
 //                   console.log(day);
                   
 //                   for(i = 0; i < 10; i++){
 //                     DATE[i].innerText = day[i]
-//                   }
+// }
 
-// function getDates() {
+// function getDates2() {
 //   var today = new Date(); // 현재 날짜를 가져옴
 //   var dates = [];
 
@@ -305,5 +312,5 @@ $.getJSON('https://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFc
 
 //   return dates;
 // }
-// const formattedDate = getFormattedDate();
-// console.log(formattedDate)
+
+console.log(formattedDate2)
