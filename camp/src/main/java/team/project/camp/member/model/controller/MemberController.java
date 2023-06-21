@@ -56,10 +56,20 @@ public class MemberController {
 	}
 
 	@GetMapping("/signUp")
-
 	public String signUpPage() {
 		return "member/signUp";
 	}
+	
+	@GetMapping("/signUpCheck")
+	public String signUpCheckPage() {
+		return "member/signUpCheck";
+	}
+	
+	@GetMapping("/doSignUp")
+	public String doSignUpPage() {
+		return "member/signUp";
+	}
+	
 	// 아이디/비밀번호 찾기
 	@GetMapping("/findIdPw")
 	public String findIdPw() {
