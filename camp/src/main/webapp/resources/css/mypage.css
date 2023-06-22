@@ -38,13 +38,14 @@
 .secessionContent{
   border: 1px solid black;
   border-radius: 5px;
-  width: 600px;
+  width: 500px;
   height: 600px;
   overflow: auto;
   font-size: 18px;
   padding: 30px;
   letter-spacing: 0.1mm;
   line-height: 9mm;
+  margin-bottom: 20px;
 }
 .secessionContent > h2 {
   text-decoration: underline;
@@ -144,13 +145,14 @@
 }
 
 .myPage-row > label{
-    width: 150px;
+    width: 200px;
     color : black;
     font-size: 22px;
 }
 
 .myPage-row > span{
     width : 70%;
+    font-size: 22px;
 }
 
 .myPage-row > input{
@@ -254,7 +256,7 @@ form[name="myPage-form"]{
 .info-title{
     color : black;
     border : 0;
-    justify-content: center;
+    /* justify-content: center; */
     margin-bottom: 20px;
     margin-top: 40px;
 }
