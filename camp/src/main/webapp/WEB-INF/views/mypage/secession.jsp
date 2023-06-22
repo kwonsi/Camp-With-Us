@@ -34,7 +34,7 @@
             <form action="secession" method="POST" name="myPage-form" onsubmit="return secessionValidate()" >
 
                 <div class="myPage-row">
-                    <label>비밀번호</label>
+                    <label id="secessionPw">비밀번호</label>
                     <input type="password" name="memberPw" id="memberPw" maxlength="30" class="form-control">              
                 </div>
                 <div class="campwithus"> ※소셜회원인 경우 '<span id="campwithus">campwithus</span>'를 입력하세요. </div>

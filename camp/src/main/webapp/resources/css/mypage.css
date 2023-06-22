@@ -150,6 +150,10 @@
     font-size: 22px;
 }
 
+.myPage-row > #secessionPw {
+  width: 150px;
+}
+
 .myPage-row > span{
     width : 70%;
     font-size: 22px;
@@ -191,7 +195,7 @@ form[name="myPage-form"]{
     align-items: center;
 
     position : relative;
-    margin-left: 70px;
+    margin-left: 25px;
 }
 
 /* 프로필 이미지 */
