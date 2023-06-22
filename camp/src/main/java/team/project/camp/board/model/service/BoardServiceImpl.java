@@ -53,15 +53,14 @@ public class BoardServiceImpl implements BoardService{
 
 		// 3) 게시글 목록 조회
 		List<Board> boardList = dao.selectBoardList(pagination, boardCode);
-//		List<>
 
 		// map 만들어서 담기
 		Map<String, Object> map = new HashMap<>();
 		map.put("pagination", pagination);
 		map.put("boardList", boardList);
 		map.put("boardCode", boardCode);
-		
-		
+
+
 		return map;
 	}
 
@@ -92,7 +91,7 @@ public class BoardServiceImpl implements BoardService{
 	// 게시글 상세 조회 서비스 구현
 	@Override
 	public BoardDetail selectBoardDetail(int boardNo) {
-		
+
 		return dao.selectBoardDetail(boardNo);
 	}
 
@@ -119,15 +118,18 @@ public class BoardServiceImpl implements BoardService{
 
 		int boardNo = dao.insertBoard(detail);
 
-		if(boardNo > 0) { // 성공
+
+//		summernote를 사용하면서 imageList를 사용하지 않기 때문에 값이 들어가지 않아서 오류가 생겼음
+//			-> && imageList != null 추가
+		if(boardNo > 0 && imageList != null) { // 성공
 			// 글만 있는걸 삽입하는데 성공했으니 이미지 삽입도 진행해라!
 
 			// imageList : 실제 이미지 파일이 담겨있는 리스트
 			// boardImageList : DB에 삽입할 이미지 정보만 담겨있는 리스트
 			// reNameList : 변경된 파일명이 담겨있는 리스트
-			
-			List<BoardImage> boardImageList = new ArrayList<BoardImage>();
-			List<String> reNameList = new ArrayList<String>();
+
+			List<BoardImage> boardImageList = new ArrayList<>();
+			List<String> reNameList = new ArrayList<>();
 
 
 			// imageList에 담겨있는 파일 정보 중 실제 업로드된 파일만 분류하는 작업
@@ -203,7 +205,10 @@ public class BoardServiceImpl implements BoardService{
 		// 2) 게시글( 제목, 내용, 마지막 수정일(sysdate) )만 수정하는 DAO 호출
 		int result = dao.updateBoard(detail);
 
-		if(result > 0) { // 성공
+
+//		summernote를 사용하면서 imageList를 사용하지 않기 때문에 값이 들어가지 않아서 오류가 생겼음
+//			-> && imageList != null 추가
+		if(result > 0 && imageList != null) { // 성공
 
 			// 3) 업로드 된 이미지만 분류하는 작업 수행
 
@@ -297,11 +302,11 @@ public class BoardServiceImpl implements BoardService{
 		return dao.updateReadCount(boardNo);
 	}
 
-	
+
 	// 여행지 추천 목록 조회 서비스 구현
 	@Override
 	public List<PlaceRecommend> selectrdList() {
-		
+
 		return dao.selectrdList();
 	}
 

@@ -829,28 +829,26 @@ opacity: 0.25;
 
 
 
-
-
 /* ---------------------------------------------------------------------------------------- */
 
 /*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/
 #footer {
-background: #fff;
-padding: 0 0 20px 0;
-color: #212529;
-font-size: 18px;
-background: #fef8f5;
+/*   background: #fff; */
+  padding: 0 0 20px 0;
+  color: #212529;
+  font-size: 16px;
+  background: #fef8f5;
 }
 
 
 #footer .footer-top {
-/*  padding: 60px 0 30px 0; */
-background: #fff;
-padding-top: 30px;
-padding-bottom: 20px;
-background-color: #eee !important;
+ /*  padding: 60px 0 30px 0; */
+  background: #fff;
+  padding-top: 30px;
+  padding-bottom: 20px;
+/*   background-color: #eee !important; */
 }
 
 #footer .footer-top .footer-contact {
@@ -874,15 +872,15 @@ color: #5c5c5c;
 }
 
 #footer .footer-top h4 {
-font-size: 16px;
-font-weight: bold;
-color: #212529;
-position: relative;
-padding-bottom: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #212529;
+  position: relative;
+  padding-bottom: 6px;
 }
 
 /* #footer .footer-top .footer-links {
- margin-bottom: 30px; 
+  margin-bottom: 30px;
 } */
 
 #footer .footer-top .footer-links ul {
@@ -899,9 +897,9 @@ line-height: 1;
 }
 
 #footer .footer-top .footer-links ul li {
-padding: 10px 0;
-display: flex;
-align-items: center;
+  padding: 7px 0;
+  display: flex;
+  align-items: center;
 }
 
 #footer .footer-top .footer-links ul li:first-child {
@@ -976,13 +974,29 @@ font-size: 25px;
 margin-top: 0px !important;
 }
 #footer > .py-4 {
-padding: 24px 12px !important;
+  padding: 24px 12px !important;
+  padding-top: 4px !important;
 }
-#footer{
-background-color: #eee;
+/* #footer{
+  background-color: #eee;
 }
 .footer-top{
-background-color: #eee;
+  background-color: #eee;
+} */
+
+#projectBy {
+  display: flex;
+  justify-content: center;
+  color: #686262;
+  font-size: 16px;
+  margin-top: 20px;
+}
+#projectBySpan{
+  color: #212529;
+  font-size: 17px;
+}
+.footer-top > .container > .row {
+  margin-left: 70px !important;
 }
 
 

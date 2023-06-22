@@ -1,12 +1,12 @@
+<<<<<<< HEAD
+# Final_Camp
+=======
 # Final_Camp
 
 # 집 테스트
 
-<<<<<<< HEAD
 ## TESTTEST2
 ## testtest
-=======
-## TESTTEST
 
-## eunju3 testtest
->>>>>>> 79de5cf598cb56bc0979ee1677a656c0dbabb00a
+## 06.21 test
+>>>>>>> 8db996b9cd54e2345d6bb3446f9b47ff3eb024d5

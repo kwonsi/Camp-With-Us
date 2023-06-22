@@ -10,6 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="${contextPath}/resources/css/main.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/detailList.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/reservation.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/calendarStyle.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap1.css">
@@ -17,6 +18,7 @@
     <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap_main_header.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="${contextPath}/resources/css/boxicons.css">
+    
     
     <script src="https://kit.fontawesome.com/a2e8ca0ae3.js" crossorigin="anonymous"></script>
 
@@ -26,13 +28,23 @@
     <jsp:include page="/WEB-INF/views/common/header.jsp" />
 
     <main>
-		
+        <video muted autoplay loop>
+            <source src="${contextPath}/resources/images/fire.mp4" type="video/mp4">
+          </video>
         <form class="formsize" action="payment/${campName}" method="post">            
-
-
-            <div>${campName}</div>
-
+            <div id="detailMainReserv">
+                <div id="sub_title_wrapReserv">
+                    <h1>
+                        <span class="lineIntro1">${campName}</span>
+                    </h1>
+                    
+                </div>
+            </div>
+            
+               
             <section class="info">
+            
+           
             <section class="calendar1">
                 <div class="containerCal card-1">
                         <div class="calendar">
@@ -53,18 +65,18 @@
                             <div class="days"> <!-- js 이용 달력 만들예정 -->
                                 
                             </div>
-                            <button class="reselect" type="button">다시 선택하기</button>
+                            <button class="reselect card-3" type="button">다시 선택하기</button>
                             <div class="goto-today">
-                                <div class="goto">
+                                <div class="goto card-3">
                                     <input type="text" placeholder="mm/yyyy" class="date-input">
-                                    <button class="goto-btn" type="button">go</button>
+                                    <button class="goto-btn card-3" type="button">go</button>
                                 </div>
-                                <button class="today-btn" type="button">today</button>
+                                <button class="today-btn card-3" type="button">today</button>
                             </div>
                         </div>
                 </div>
             </section>
-            
+       
             <section class="reverInfo">
                     <div class="SELECTDATE card-2">
                         <div class="today-date">
@@ -88,16 +100,16 @@
                         </div>
                     </div>
                      
-                        <div class="peopleNumber card-2">인원선택 
+                        <div class="peopleNumber card-2"> <div class="checkPeople">인원선택</div> 
                 
                             <div class="popleNumberch">
                                 <div class="count">
                                 성인
-                                <input type="button" onclick="countAdult('minus')" value="-" class="minus card-1">
+                                <button type="button" onclick="countAdult('minus')" class="minus card-1"><i class="fa-regular fa-square-minus"></i></button>
                                 <div class="adultSelectContain">
                                     <input type="text" id="adultSelect" class="adultSelect" value="0" readonly>
                                 </div>
-                                <input type="button" onclick="countAdult('plus')" value="+" class="plus card-1">
+                                <button type="button" onclick="countAdult('plus')" class="plus card-1"><i class="fa-regular fa-square-plus"></i></button>
                                 </div>
                                 <!-- <select class="adultSelect card-1">
                                     <option value="0">0</option>
@@ -112,11 +124,11 @@
                                 
                                 <div class="count">
                                 영/유아
-                                <input type="button" onclick="countChild('minus')" value="-" class="minus card-1">
+                                <button type="button" onclick="countChild('minus')" class="minus card-1"><i class="fa-regular fa-square-minus"></i></button>
                                 <div class="childSelectContain">
                                     <input type="text"  id="childSelect" class="childSelect" value="0" readonly>
                                 </div>
-                                <input type="button" onclick="countChild('plus')" value="+" class="plus card-1">
+                                <button type="button" onclick="countChild('plus')" class="plus card-1"><i class="fa-regular fa-square-plus"></i></button>
                                 </div>
                                 <!-- <select class="childrenSelect card-1">
                                     <option value="0">0</option>
@@ -131,59 +143,88 @@
                             </div>
                            
                         </div>
-                        <div class="priceInformation card-2">성수기 정보
-                            <br>
+<div class="priceInformation card-2">
+                            <table class = "priceTable">
+                                <caption>
+                                    가격 정보
+                                </caption>
+                                <tbody>
+                                    <tr>
+                                        <th class="lineClear1"></th>
+                                        <th >성수기 <br>(6월~8월)</th>
+                                        <th class="lineClear2">비성수기</th>
+                                    </tr>
+                                    <tr>
+                                        <th class="lineClear1">성인</th>
+                                        <td>30,000</td>
+                                        <td class="lineClear2">20,000</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="lineClear1">영유아</th>
+                                        <td>15,000</td>
+                                        <td class="lineClear2">10,000</td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                            
+<!--                             <br>
                             <br>성수기(6~8월) 가격: 1인 기준 성인 30000, 아이 15000
-                            <br>비성수기(6~8월 제외한 달) 기본가격: 1인 기준 성인 20000, 아이 10000
-                            <br>총 숙박기간 : <span class="a"></span>
-                            <br><br>	
-                                <div id="priceSum"></div>
+                            <br>비성수기(6~8월 제외한 달) 기본가격: 1인 기준 성인 20000, 아이 10000 -->
+                            <!-- <br>총 숙박기간 : <span class="a"></span> -->
                         </div>
             </section>
             <section class="MemberInfo card-2">
                 <div class="MemberInfoInput">
-                예약자 이름<br><br><input type="text" name="memberNickname" class="name card-1" value="${loginMember.memberNickname}">
+                예약자 이름<input type="text" name="memberNickname" class="name card-1" value="${loginMember.memberNickname}" >
                 </div>
                 <div class="MemberInfoInput">
-                예약자 이메일<br><br><input type="text" name="memberEmail" class="name card-1" value="${loginMember.memberEmail}">
+                예약자 이메일<input type="text" name="memberEmail" class="name card-1" value="${loginMember.memberEmail}" readonly>
                 </div>
                 <div class="MemberInfoInput">
-                예약자 전화번호<br><br><input type="tel" name="memberTel" class="name card-1" value="${loginMember.memberTel}">
+                예약자 전화번호<input type="tel" name="memberTel" id="memberTel" class="tel" value="${loginMember.memberTel}">
                 </div>
-                <div class="MemberInfoInput">
-                예약자 주소<br><br>
+                <div class="MemberInfoInputaddress">
+                <div class="search">
+                예약자 주소&nbsp;<button type="button" onclick="sample4_execDaumPostcode()" class="searchBtn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
                 <div class="signUp-input-area">
-                    <input type="text" id="sample4_postcode" name="memberAddress"
+                    <input type="text" id="sample4_postcode" class="sample4_postcode card-1" name="memberAddress"
                             placeholder="우편번호" maxlength="6">
                     
-                    <button type="button" onclick="sample4_execDaumPostcode()">검색</button>
+                    
                 </div>
 
                 <div class="signUp-input-area">
-                    <input type="text" id="sample4_roadAddress" name="memberAddress" placeholder="도로명주소">
+                    <input type="text" id="sample4_roadAddress" class="sample4_roadAddress card-1" name="memberAddress" placeholder="도로명주소">
                 </div>
 
                 <div class="signUp-input-area">
-                    <input type="text" id="sample4_detailAddress" name="memberAddress" placeholder="상세주소">
+                    <input type="text" id="sample4_detailAddress" class="sample4_detailAddress card-1" name="memberAddress" placeholder="상세주소">
                 </div>
                 </div>
                 
             </section>
+        
             </section>
-
+     
 
     
             
             <br>
             <div class="buttons">
             <button class="btn btn-lg btn-primary">예약하기</button>
+            <button type="button" class="btn btn-lg btn-primary" onclick="historyBack()">돌아가기</button>
             </div>
+        
         </form>
-
+    
+    
         
     </main>
-<jsp:include page="/WEB-INF/views/common/footer.jsp" />
-
+    <div class="footer-wrapper">
+    <jsp:include page="/WEB-INF/views/common/footer.jsp" />
+    </div>
 <script>
 function sample4_execDaumPostcode() {
     new daum.Postcode({
@@ -323,6 +364,44 @@ document.addEventListener("DOMContentLoaded", function() {
     
 });
 
+function Teltel() {
+  const memberTel = document.getElementById("memberTel");
+  // 입력 이벤트 핸들러 정의
+  function handleInput() {
+    // 입력이 되지 않은 경우
+    if (memberTel.value.length == 0) {
+      memberTel.placeholder = "전화번호를 입력해주세요.(- 제외)";
+      memberTel.classList.add("error");
+      memberTel.classList.add("is-invalid");
+      return;
+    }
+
+    // 전화번호 정규식
+    const regExp = /^0(1[01679]|2|[3-6][1-5]|70)\d{3,4}\d{4}$/;
+
+    if (regExp.test(memberTel.value)) { // 유효한 경우
+      memberTel.classList.add("is-valid");
+      memberTel.classList.remove("is-invalid");
+      memberTel.classList.remove("error");
+      memberTel.classList.add("confirm");
+    } else { // 유효하지 않은 경우
+      memberTel.classList.add("is-invalid");
+      memberTel.classList.add("error");
+      memberTel.classList.remove("is-valid");
+      memberTel.classList.remove("confirm");
+    }
+  }
+
+  memberTel.addEventListener("input", handleInput); // 입력 이벤트 핸들러 등록
+  handleInput(); // 초기 상태에서도 handleInput 실행
+}
+
+window.onload = function () {
+  Teltel(); // Teltel 함수 실행
+};
+function historyBack(){
+    history.back();
+}
 
 //  buyer_postcode: '123-456'
 </script>

@@ -220,27 +220,6 @@ z-index: 1030;
 
 
 /* -----------------content------------------- */
-.findAll{
-  width: 100%;
-  margin-top: 0;
-  display: flex;
-  /* justify-content: center;  */
-}
-.select{
-  margin-top: 200px;
-  margin-left: 500px;
-  /* display: flex;
-  border-bottom: #474747 solid 1.5px;
-  position: relative;
-  top: 20px;
-  left: 800px; */
-}
-.selectfind{
-  display: flex;
-  padding: 0;
-  margin: 0;
-  margin-top: 10px;
-}
 
 .findAll{
 width: 100%;
@@ -852,7 +831,6 @@ opacity: 0.25;
 }
 
 
-
 /* ---------------------------------------------------------------------------------------- */
 
 /*--------------------------------------------------------------
@@ -874,7 +852,7 @@ top: 1100px;
 background: #fff;
 padding-top: 30px;
 padding-bottom: 20px;
-background-color: #eee !important;
+/* background-color: #eee !important; */
 }
 
 #footer .footer-top .footer-contact {
@@ -898,17 +876,16 @@ color: #5c5c5c;
 }
 
 #footer .footer-top h4 {
-font-size: 16px;
-font-weight: bold;
-color: #212529;
-position: relative;
-padding-bottom: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #212529;
+  position: relative;
+  padding-bottom: 6px;
 }
 
 /* #footer .footer-top .footer-links {
- margin-bottom: 30px;
-} 
-*/
+  margin-bottom: 30px;
+} */
 
 #footer .footer-top .footer-links ul {
 list-style: none;
@@ -924,9 +901,9 @@ line-height: 1;
 }
 
 #footer .footer-top .footer-links ul li {
-padding: 10px 0;
-display: flex;
-align-items: center;
+  padding: 7px 0;
+  display: flex;
+  align-items: center;
 }
 
 #footer .footer-top .footer-links ul li:first-child {
@@ -1001,17 +978,34 @@ font-size: 25px;
 margin-top: 0px !important;
 }
 #footer > .py-4 {
-padding: 24px 12px !important;
+  padding: 24px 12px !important;
+  padding-top: 4px !important;
 }
-#footer{
+/* #footer{
 background-color: #eee;
 }
 .footer-top{
 background-color: #eee;
+} */
+
+#projectBy {
+  display: flex;
+  justify-content: center;
+  color: #686262;
+  font-size: 16px;
+  margin-top: 20px;
+}
+#projectBySpan{
+  color: #212529;
+  font-size: 17px;
+}
+.footer-top > .container > .row {
+  margin-left: 70px !important;
 }
 
 
 /*    footer 끝   */
+
 
 .row {
 --bs-gutter-x: 1.5rem;
@@ -1066,7 +1060,7 @@ main .pages {
   left: 0;
   right: 0;
   margin: auto;
-  top: 50%;
+  top: 55%;
   transform: translateY(-50%);
   perspective: var(--perspective);
   box-shadow: 0 41px 38px -20px #0a3150;

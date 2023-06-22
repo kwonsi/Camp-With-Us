@@ -45,7 +45,7 @@ public class NaverLoginController {
           Member naverMember = service.naverMember(loginMember);
 
           String prevPage = (String) request.getSession().getAttribute("prevPage");
-			 
+
 	      if (prevPage != null) {
 	    	  request.getSession().removeAttribute("prevPage");
 	      }
@@ -55,7 +55,7 @@ public class NaverLoginController {
           System.out.println("-------------------- naverLogin - end --------------------");
 
           return "redirect:" + prevPage;
-          
+
        } catch(Exception e){
           e.printStackTrace();
           throw e;

@@ -76,6 +76,6 @@ public class MyPageDAO {
 	public List<Board> selectMyBoard(int memberNo) {
 		return sqlSession.selectList("myPageMapper.selectMyBoard", memberNo);
 	}
-	
+
 
 }
