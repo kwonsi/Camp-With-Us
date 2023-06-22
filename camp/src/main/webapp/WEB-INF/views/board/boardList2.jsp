@@ -93,7 +93,7 @@
                                                 ${board.createDate} &nbsp;|&nbsp; 조회수 : ${board.readCount}</p>
                                             <a href="../detail/${boardCode}/${board.boardNo}?cp=${pagination.currentPage}${sURL}"
                                                 class="board_Content">
-                                                <p class="boardContent">${board.boardContent.substring(0,20)}
+                                                <p class="boardContent">${board.boardContent}
                                                 </p>
                                             </a>
                                             <%-- detail?no=${board.boardNo}&cp=${pagination.currentPage}&type=${param.type}${sURL}

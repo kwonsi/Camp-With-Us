@@ -36,6 +36,7 @@ public class CampDetailController {
 		model.addAttribute("campName", campName);
 		return "camp/reservation";
 	}
+	
 	// 결제페이지
 	@PostMapping("/payment/{campName}")
 	public String PaymentInfo( @PathVariable("campName") String campName,

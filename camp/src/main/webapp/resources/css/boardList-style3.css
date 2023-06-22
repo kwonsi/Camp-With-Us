@@ -15,7 +15,7 @@
 .left-side{
     position: sticky;
     top: 120px;
-    width: 12%;
+    width: 200px;
     
     /* border-right : 2px solid gray; */
     text-align: center;
@@ -64,7 +64,7 @@
 
 /* 게시판 목록 화면 전체 영역 설정 */
 .board-list{
-   margin: 50px auto;
+ /*   margin: 50px auto; */
    margin-top: 0px;
    display: flex;
    justify-content: center;

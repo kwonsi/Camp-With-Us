@@ -8,12 +8,39 @@
     display: flex;
 }
 
+.campwithus{
+  padding-top: 15px;
+    padding-left: 150px;
+    color: #495057;
+}
+#campwithus{
+  color: red;
+}
+
+.secessionContent{
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 600px;
+  height: 600px;
+  overflow: auto;
+  font-size: 18px;
+  padding: 30px;
+  letter-spacing: 0.1mm;
+  line-height: 9mm;
+}
+.secessionContent > h2 {
+  text-decoration: underline;
+}
+
+
+
+
 
 /* 왼쪽 사이드 메뉴 */
 .left-side{
     position: sticky;
     top: 120px;
-    width: 12%;
+    width: 200px;
     
     /* border-right : 2px solid gray; */
     text-align: center;

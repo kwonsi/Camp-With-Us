@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -35,8 +36,10 @@ public class ReviewController {
 
 	// 리뷰 작성
 	@PostMapping("/insert")
-	public int insertReview(Review review) {
+	public int insertReview(Review review
+			) {
 		log.info("별점 " + review.getCampRate());
+		
 		return service.insetReview(review);
 	}
 
