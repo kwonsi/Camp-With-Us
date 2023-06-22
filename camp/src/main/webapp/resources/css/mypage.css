@@ -267,9 +267,10 @@ form[name="myPage-form"]{
 .info-title{
     color : black;
     border : 0;
-    /* justify-content: center; */
+    
     margin-bottom: 20px;
     margin-top: 40px;
+    justify-content: center;
 }
 
 .info-address{ margin : 0 0 5px 0; }
