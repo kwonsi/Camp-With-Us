@@ -48,16 +48,13 @@ public class CampDetailController {
 							   Member member,
 //							   int memberNo,
 							   Model model) {
-		
-		
-		
 		model.addAttribute("campName", campName);
 		log.info("캠핌장 " + campName);
 		log.info("예약정보 " + member);
 //		member.setMemberNo(loginMember.getMemberNo());
 		model.addAttribute("member", member);
-		
-		
+
+
 		return "camp/payment";
 	}
 
@@ -89,7 +86,7 @@ public class CampDetailController {
 	public int reservationInfo(Reservation reservation) {
 
 		log.info("예약 DB 삽입 " + reservation);
-		
+
 		int result = service.reservationInfo(reservation);
 
 		if(result>0) {

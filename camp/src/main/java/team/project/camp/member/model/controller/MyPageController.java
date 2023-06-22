@@ -44,7 +44,7 @@ public class MyPageController {
 
 	@Autowired
 	private MyPageService myPageService;
-	
+
 	@Autowired
 	private MemberService memberService;
 
@@ -77,11 +77,11 @@ public class MyPageController {
 	@GetMapping("/myBoard")
 	public String myBoard(Model model,
 						  @ModelAttribute("loginMember") Member loginMember) {
-		
+
 		List<Board> boardList = myPageService.selectMyBoard(loginMember.getMemberNo());
-		
+
 		model.addAttribute("boardList", new Gson().toJson(boardList));
-		
+
 		return "mypage/myBoard";
 	}
 
@@ -138,7 +138,7 @@ public class MyPageController {
 							 RedirectAttributes ra) {
 
 		String message = null;
-		
+
 		// 파라미터를 저장한 paramMap 에 회원 번호, 주소를 추가
 		String memberAddress = String.join(",,", updateAddress);
 
@@ -150,7 +150,7 @@ public class MyPageController {
 
 		// 닉네임 중복 체크
 		int result = memberService.nicknameDupCheck((String)paramMap.get("updateNickname"));
-		
+
 		// 회원 정보 수정 서비스 호출
 		if(result == 0) {
 			result = myPageService.updateInfo(paramMap);

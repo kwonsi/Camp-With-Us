@@ -227,7 +227,6 @@ window.onload = function () {
         success: function (result) {
             console.log("API 호출 성공");
 
-
             var items = result.response.body.items.item;
 
             var randomIndexes = [];
