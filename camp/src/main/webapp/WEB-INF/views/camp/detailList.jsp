@@ -61,10 +61,11 @@
                 <div class="cont_tb">
                     <table class="table">
                         <caption class = "logoCaption">
-                            <div class ="lineIntro1"></div>
                             <div class="logo">
                                 <a href="${contextPath}"><img src="${contextPath}/resources/images/CWUlogo.png" id="home-logo"></a>
                             </div>
+                            <div class ="lineIntro1"></div>
+
                         </caption>
                         <colgroup>
                             <col style="width: 25%;" />

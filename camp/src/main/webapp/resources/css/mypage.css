@@ -146,6 +146,7 @@
 .myPage-row > label{
     width: 150px;
     color : black;
+    font-size: 22px;
 }
 
 .myPage-row > span{
@@ -170,6 +171,7 @@ form[name="myPage-form"]{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top:40px;
 }
 /************************************/
 
@@ -252,6 +254,9 @@ form[name="myPage-form"]{
 .info-title{
     color : black;
     border : 0;
+    justify-content: center;
+    margin-bottom: 20px;
+    margin-top: 40px;
 }
 
 .info-address{ margin : 0 0 5px 0; }
