@@ -43,8 +43,8 @@
 }
 
 .list-table > thead{
-    /* background-color: #455ba8; */
-    color : black;
+    background-color: #343a40;
+    color : white;
 }
 
 .list-table tr{
@@ -89,7 +89,7 @@ thead tr:nth-child(1) {
 }
 .list-table tr:nth-child(2n) {
     --bs-table-color-state: var(--bs-table-active-color);
-    --bs-table-bg-state: var(--bs-table-active-bg);
+    --bs-table-bg-state:rgb(0 0 0 / 5%);
 }
 
 /* 버튼 영역 */

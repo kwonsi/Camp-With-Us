@@ -27,11 +27,13 @@
         <jsp:include page="/WEB-INF/views/mypage/sideMenu.jsp"/>
 
         <section class="myPage-main">
-
+            <div class = "myPageHeadFlex">
+                <div class = "myPageHead">
             <h1 class="myPage-title">회원 정보 수정</h1>
             
             <span class="myPage-explanation">현재 회원님의 프로필을 변경할 수 있습니다.</span>
-            
+        </div>
+    </div>
 
             <form action="profileImage" method="POST" name="myPage-form" id="form-profileImage"
                     enctype="multipart/form-data" onsubmit="return profileValidate()">

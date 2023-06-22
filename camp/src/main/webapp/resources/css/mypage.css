@@ -16,6 +16,24 @@
 #campwithus{
   color: red;
 }
+.myPageHead{
+  width: 500px;
+  height: 120px;
+  margin-top: 50px;
+  margin-left: 50px;
+}
+.myPageHeadFlex{
+  color: white;
+  display: flex;
+  background-image: url(../images/main4.gif);
+  background-size: 100% 100%;
+  margin-top: 30px;
+}
+#reserveBtn{
+  height: 30px;
+  cursor: pointer;
+}
+
 
 .secessionContent{
   border: 1px solid black;
@@ -360,7 +378,7 @@ form[name="myPage-form"]{
   }
 
   .table > :not(caption) > * > * {
-    padding: 0.5rem 0.5rem;
+/*     padding: 0.5rem 0.5rem; */
     color: var(--bs-table-color-state, var(--bs-table-color-type, var(--bs-table-color)));
     background-color: var(--bs-table-bg);
     border-bottom-width: var(--bs-border-width);

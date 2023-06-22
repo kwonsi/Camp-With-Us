@@ -24,11 +24,13 @@
         <jsp:include page="/WEB-INF/views/mypage/sideMenu.jsp"/>
 
         <section class="myPage-main">
-
+            <div class = "myPageHeadFlex">
+                <div class = "myPageHead">
             <h1 class="myPage-title">회원 탈퇴</h1>
             
             <span class="myPage-explanation">현재 비밀번호가 일치하는 경우 회원 탈퇴할 수 있습니다.</span>
-            
+        </div>
+    </div>
             <form action="secession" method="POST" name="myPage-form" onsubmit="return secessionValidate()" >
 
                 <div class="myPage-row">

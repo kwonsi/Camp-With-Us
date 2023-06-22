@@ -50,6 +50,13 @@ hr{
     text-align: center;
     height: 300px;
 }
+.left-side > h3 {
+    background-color: #343a40;
+    margin-left: 5px;
+    margin-right: 5px;
+    padding: 15px;
+    color: white;
+}
 
 .list-group{
     width: 100%;

@@ -24,11 +24,13 @@
         <jsp:include page="/WEB-INF/views/mypage/sideMenu.jsp"/>
 
         <section class="myPage-main">
-
+            <div class = "myPageHeadFlex">
+                <div class = "myPageHead">
             <h1 class="myPage-title">비밀번호 변경</h1>
             
             <span class="myPage-explanation">현재 회원님의 비밀번호를 변경할 수 있습니다.</span>
-            
+        </div>
+    </div>
             <form action="changePw" method="POST" name="myPage-form" onsubmit="return changePwValidate()">
 
                 <div class="myPage-row">

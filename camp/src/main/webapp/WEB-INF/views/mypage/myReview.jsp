@@ -25,11 +25,13 @@
         <jsp:include page="/WEB-INF/views/mypage/sideMenu.jsp"/>
 
         <section class="myPage-main">
-
+            <div class = "myPageHeadFlex">
+                <div class = "myPageHead">
             <h1 class="myPage-title">내 리뷰 조회</h1>
             
             <span class="myPage-explanation">현재 회원님이 작성한 리뷰를 볼 수 있습니다.</span>
-            
+        </div>
+    </div>
             <div class="reply-list-area">
         
                 <ul id="reply-list">
