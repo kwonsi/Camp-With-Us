@@ -27,6 +27,8 @@
                   <li><a href="${contextPath}/member/myPage/myReservation">예약 확인</a></li>
                   <li><a href="${contextPath}/member/myPage/myBoard">내 게시글</a></li>
                   <li><a href="${contextPath}/member/myPage/myReview">내 리뷰</a></li>
+                  <li><a href="${contextPath}/member/myPage/profile">회원 정보 변경</a></li>
+                  <li><a href="${contextPath}/member/myPage/secession">회원 탈퇴</a></li>
                 </c:when>
                 <c:otherwise>
                   <li><a href="${contextPath}/member/myPage/myReservation">예약 확인</a></li>
@@ -46,8 +48,8 @@
               <li class="dropdown"><a href="${contextPath}/member/login">로그인</a>
                 <ul>
                   <li><a href="${contextPath}/member/login">로그인</a></li>
-                  <li><a href="${contextPath}/member/signUp">회원가입</a></li>
-                  <li><a href="${contextPath}/member/findIdPw">아이디/비밀번호<br>찾기</a></li>
+                  <li><a href="${contextPath}/member/signUpCheck">회원가입</a></li>
+                  <li><a href="${contextPath}/member/findIdPw?findType=id">아이디/비밀번호<br>찾기</a></li>
                 </ul>
               </li>
             </c:when>
