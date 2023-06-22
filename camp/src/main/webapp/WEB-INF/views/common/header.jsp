@@ -6,7 +6,7 @@
     <div class="header-container justify-content-between">
 
       <div class="logo">
-        <a href="${contextPath}"><img src="${contextPath}/resources/images/camp_logo.jpg" id="home-logo"></a>
+        <a href="${contextPath}"><img src="${contextPath}/resources/images/CWUlogo.png" id="home-logo"></a>
         &nbsp;<h1>C</h1><h4>amp</h4> <h1>&nbsp;W</h1><h4>ith</h4> <h1>&nbsp;U</h1><h4>s</h4>
       </div>
 
@@ -27,6 +27,8 @@
                   <li><a href="${contextPath}/member/myPage/myReservation">예약 확인</a></li>
                   <li><a href="${contextPath}/member/myPage/myBoard">내 게시글</a></li>
                   <li><a href="${contextPath}/member/myPage/myReview">내 리뷰</a></li>
+                  <li><a href="${contextPath}/member/myPage/profile">회원 정보 변경</a></li>
+                  <li><a href="${contextPath}/member/myPage/secession">회원 탈퇴</a></li>
                 </c:when>
                 <c:otherwise>
                   <li><a href="${contextPath}/member/myPage/myReservation">예약 확인</a></li>
@@ -46,7 +48,7 @@
               <li class="dropdown"><a href="${contextPath}/member/login">로그인</a>
                 <ul>
                   <li><a href="${contextPath}/member/login">로그인</a></li>
-                  <li><a href="${contextPath}/member/signUp">회원가입</a></li>
+                  <li><a href="${contextPath}/member/signUpCheck">회원가입</a></li>
                   <li><a href="${contextPath}/member/findIdPw?findType=id">아이디/비밀번호<br>찾기</a></li>
                 </ul>
               </li>

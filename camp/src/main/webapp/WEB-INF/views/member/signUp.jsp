@@ -28,8 +28,6 @@
 
             <div class="signUpLeft bg-light px-md-5">
                 
-                    <h1>회원가입</h1>
-                
             </div>
 
              <!-- 회원가입  -->

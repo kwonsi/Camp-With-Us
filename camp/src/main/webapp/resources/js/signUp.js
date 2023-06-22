@@ -493,3 +493,24 @@ function signUpValidate(){
     return true; // form태그 기본 이벤트 수행
 
 }
+
+
+function signUpCheck() {
+
+    var checkCount = 0;
+    const signUpCheckBox = document.getElementsByClassName("signUpCheckBox");
+
+    for(let i=0; i<signUpCheckBox.length; i++) {
+        if(signUpCheckBox[i].checked == true) {
+            checkCount++;
+        }
+    }
+
+    console.log(checkCount);
+
+    if(checkCount == 3) return true;
+    else {
+        alert("모든 약관에 동의해주세요.");
+        return false;
+    }
+}

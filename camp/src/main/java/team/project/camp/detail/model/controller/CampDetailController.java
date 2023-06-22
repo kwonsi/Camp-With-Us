@@ -44,6 +44,8 @@ public class CampDetailController {
 //							   int memberNo,
 							   Model model) {
 		
+		
+		
 		model.addAttribute("campName", campName);
 		log.info("캠핌장 " + campName);
 		log.info("예약정보 " + member);

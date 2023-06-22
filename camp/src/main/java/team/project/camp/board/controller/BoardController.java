@@ -3,6 +3,7 @@ package team.project.camp.board.controller;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -10,7 +11,6 @@ import java.util.UUID;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletRequestWrapper;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -30,6 +30,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
@@ -244,7 +245,8 @@ public class BoardController {
 	// summernote 업로드 이미지 저장을 위한 컨트롤러
 	@RequestMapping(value="/upload", produces = "application/json; charset=utf8")
 	@ResponseBody  // ajax 응답 시 사용!
-	public String uploadSummernoteImageFile( @RequestParam("file") MultipartFile[] multipartFiles,
+	public String uploadSummernoteImageFile( @RequestParam("thumbnail") MultipartFile thumbnail,
+											 @RequestParam("file") MultipartFile[] multipartFiles,
 											HttpServletRequest req,
 											HttpSession session
 												 ) {
@@ -254,21 +256,64 @@ public class BoardController {
 		JsonArray jsonArray = new JsonArray();
 		JsonObject jsonObject = new JsonObject();
 		
-//		내부경로로 저장(metadata)
-//		String contextRoot = new HttpServletRequestWrapper(req).getSession().getServletContext().getRealPath("/");
-//			-> C:\workspace\Final_Camp_eunju\Final_Camp\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\camp\
+		
 		
 //		절대경로로 저장(C드라이브 내 경로 : camp 프로젝트 내 /images/summernote 폴더 경로)
 //		String fileRoot = "C:\\workspace\\Final_Camp_eunju\\Final_Camp\\camp\\src\\main\\webapp\\resources\\images\\summernote\\";
 //		String fileRoot = "C:/workspace/Final_Camp_eunju/Final_Camp/camp/src/main/webapp/resources/images/summernote/";
 		
+//		내부경로로 저장
+//		String contextRoot = new HttpServletRequestWrapper(req).getSession().getServletContext().getRealPath("/");
+//			-> C:\workspace\Final_Camp_eunju\Final_Camp\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\camp\
 		String webPath = "/resources/images/summernote/";
 		String folderPath = req.getSession().getServletContext().getRealPath(webPath);
-//			-> C:\workspace\Final_Camp_eunju\Final_Camp\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\camp\resources\images\summernote\ 일 경우(metadata 경로)
-//				서버 옵션 제일 처음꺼 체크여부 확인 하기(체크 안되있으면 이렇게 뜸)
+//			-> C:\workspace\Final_Camp_eunju\Final_Camp\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\camp\resources\images\summernote\
+//				일 경우(metadata 경로로 뜸) 서버 옵션 제일 처음꺼 체크여부 확인 하기(체크 안되있으면 이렇게 뜸)
 		
-		log.debug("folderPath : " + folderPath);
+//		log.debug("folderPath : " + folderPath);
 		
+		
+		
+		// thumbnail 사진
+		String thumbnailOriginalFileName = thumbnail.getOriginalFilename();	//오리지날 파일명
+		String thumbnailExtension = thumbnailOriginalFileName.substring(thumbnailOriginalFileName.lastIndexOf("."));	//파일 확장자
+		String thumbnailSavedFileName = UUID.randomUUID() + thumbnailExtension;	//저장될 파일 명
+	
+		File thumbnailFile = new File(folderPath + thumbnailSavedFileName);
+		
+		ArrayList<String> imgPaths = new ArrayList<>(); // 이미지 경로를 담을 ArrayList 생성
+		
+		try {
+			 jsonObject= new JsonObject();
+			
+			InputStream fileStream = thumbnail.getInputStream();
+			FileUtils.copyInputStreamToFile(fileStream, thumbnailFile);	//파일 저장
+			jsonObject.addProperty("url", req.getContextPath() + webPath + thumbnailSavedFileName);
+		
+			log.debug("jsonObject : " + jsonObject);
+	
+			
+			String imagePath = webPath + thumbnailSavedFileName; // 이미지 경로 변수에 담기
+			
+		    imgPaths.add(imagePath); // 변수에 담은 이미지 경로를 ArrayList에 추가
+			
+			
+		    log.debug("ArrayList imgPaths : " + imgPaths);
+		    
+		   	    
+		} catch (IOException e) {
+			FileUtils.deleteQuietly(thumbnailFile);	//저장된 파일 삭제
+			jsonObject.addProperty("responseCode", "error");
+			e.printStackTrace();
+		}
+			
+		jsonArray.add(jsonObject);
+			
+		
+		
+
+		
+		// 나머지 사진
 		for (MultipartFile multipartFile : multipartFiles) {
 			String originalFileName = multipartFile.getOriginalFilename();	//오리지날 파일명
 			String extension = originalFileName.substring(originalFileName.lastIndexOf("."));	//파일 확장자
@@ -293,9 +338,9 @@ public class BoardController {
 //				jsp에서 사용하기 위해 req에 값을 세팅해준다
 //				req.setAttribute("imgPath", webPath+savedFileName);
 				
-				// jsp가 새로고침되서 request에 있는 값이 사라지니까 imgPath에 값이 안들어갔던것
-				// -> request 말고 session에 값을 올려주자
-				session.setAttribute("imgPath", webPath + savedFileName);
+//				jsp가 새로고침되서 request에 있는 값이 사라지니까 imgPath에 값이 안들어갔던것
+//				-> request 말고 session에 값을 올려주자
+//				session.setAttribute("imgPath", webPath + savedFileName);
 				
 				
 //				req에 값이 잘 들어갔는지 확인해보기 -> /resources/images/summernote/dca7dbfb-d327-4077-905b-88c01a0c005e.jpg
@@ -303,23 +348,34 @@ public class BoardController {
 				
 //				session에 값이 잘 들어갔는지 확인해보기
 //				log.debug("Controller session : " + session.getAttribute("imgPath"));
-					
+				
+				String imagePath = webPath + savedFileName; // 이미지 경로 변수에 담기
+				
+			    imgPaths.add(imagePath); // 변수에 담은 이미지 경로를 ArrayList에 추가
+				
+				
+			    log.debug("ArrayList imgPaths : " + imgPaths);
+			    
+			    
+			    
 			} catch (IOException e) {
 				FileUtils.deleteQuietly(targetFile);	//저장된 파일 삭제
 				jsonObject.addProperty("responseCode", "error");
 				e.printStackTrace();
 			}
-			
-	         jsonArray.add(jsonObject);
+   
+			jsonArray.add(jsonObject);
 	      }
 		
 		String jsonResult = jsonArray.toString();
+		// jsonObject에 addProperties 하면서 덮어씌워지는 것 같은데
+		// 제이슨도 중복키 허용 안 해서 마지막 값으로 덮어씌워져
 		
 		log.debug("jsonResult(저장경로) : " + jsonResult);
+		log.debug("imgPaths(저장경로) : " + imgPaths);
 		
 		
-		
-		return jsonResult;
+		return new Gson().toJson(imgPaths);
 	}
 	
 	
@@ -370,6 +426,7 @@ public class BoardController {
 
 
 		log.debug("session에 올라간 imgPath : " + session.getAttribute("imgPath"));
+		log.debug("session에 올라간 imgPaths : " + session.getAttribute("imgPaths"));
 		
 //		String[] imgUrl;
 //		log.debug("imageList : " + imageList);  -> null

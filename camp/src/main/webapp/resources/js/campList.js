@@ -256,7 +256,15 @@ selectCampBtn.addEventListener("click", function () {
       }
       displayItems(currentPage);
     },
-    error: function (error) {
+    beforeSend:function(){
+
+    $('.wrap-loading').removeClass('display-none');
+
+  }
+  ,complete:function(){
+    $('.wrap-loading').addClass('display-none');
+}
+    ,error: function (error) {
       console.log("API 호출 실패");
       console.log(error);
     }
@@ -372,10 +380,6 @@ window.onload = function() {
         });
 
  
-
-
-        console.log("캠핑장 : " + filteredItems);
-
         if ( searchVal2.value==""){
           campResult.innerHTML= "캠핑장 총 <span style='color:#22c730;'>" + filteredItems.length + "</span>개 검색 되었습니다.<hr>";
           }else {
@@ -390,7 +394,7 @@ window.onload = function() {
 
         paginatedItems.forEach(item => {
 
-          console.log(item);
+          // console.log(item);
           // 전체데이터 뽑는대신, 이미지없으면 기본이미지 넣어주기.
   /*         if ( item.firstImageUrl == "" || item.firstImageUrl==null){
             item.firstImageUrl = contextPath+"/resources/images/cloud.jpg";

@@ -19,4 +19,5 @@ public class Review {
 	private String memberNickname;
 	private String profileImage;
 	private int campRate;
+	private String campName;
 }

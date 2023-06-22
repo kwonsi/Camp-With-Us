@@ -101,6 +101,84 @@ function writeValidate(){
 
 
 // 서머노트
+// $(document).ready(function() {
+
+//     var toolbar = [
+//             // 글꼴 설정
+//             ['fontname', ['fontname']]
+//             // 글자 크기 설정
+//             ['fontsize', ['fontsize']],
+//             // 굵기, 기울임꼴, 밑줄,취소 선, 서식지우기
+//             ['style', ['bold', 'italic', 'underline','strikethrough', 'clear']],
+//             // 글자색
+//             ['color', ['forecolor','color']],
+//             // 글머리 기호, 번호매기기, 문단정렬
+//             ['para', ['ul', 'ol', 'paragraph']],
+//             // 줄간격
+//             ['height', ['height']],
+//             // 그림첨부, 링크만들기, 동영상첨부
+//             ['insert',['picture','link','video']],
+//             // 코드보기, 확대해서보기('fullscreen'), 도움말
+//             ['view', ['codeview', 'help']]
+//         ];
+
+//     var setting = {
+//             placeholder: '내용을 작성해주세요!',
+//             disableResizeEditor: true,
+//             // height : 300,
+//             minHeight : 300,
+//             maxHeight : null,
+//             lang : 'ko-KR',
+//             toolbar : toolbar,
+//             callbacks : { //여기 부분이 이미지를 첨부하는 부분
+
+//                 onImageUpload : function(files, editor, welEditable) {
+//                 // 파일 업로드(다중업로드를 위해 반복문 사용)
+//                 for (var i = 0; i < files.length; i++) {
+//                     uploadSummernoteImageFile(files[i], this);
+//                 }
+//             }
+//         }                 
+//     }; 
+
+//     $('.summernote').summernote(setting);
+    
+//     const jsonArray = [];
+    
+//     function uploadSummernoteImageFile(file, el) {
+//         var data = new FormData();
+//         data.append("file", file);
+//         $.ajax({
+//             data : data,
+//             type : "POST",
+//             url : contextPath + '/board/upload',
+//             contentType : false,
+//             enctype : 'multipart/form-data',
+//             processData : false,
+//             dataType : "JSON",
+//             success : function(data) {
+
+//                 for(let i=0; i<data.length; i++) {
+
+//                     $(el).summernote('editor.insertImage', data[i]["url"]);
+//                     jsonArray.push(data[i]["url"]);
+                   
+//                 }
+
+//             },
+//             error : function(){
+//                 // 비동기 통신(ajax) 중 오류가 발생한 경우
+//                 console.log("에러 발생");
+//             }
+//         });
+
+//     }   
+//     console.log(jsonArray);
+    
+    
+// });
+
+
 $(document).ready(function() {
 
     var toolbar = [
@@ -127,17 +205,25 @@ $(document).ready(function() {
             disableResizeEditor: true,
             // height : 300,
             minHeight : 300,
-           maxHeight : null,
+            maxHeight : null,
             lang : 'ko-KR',
             toolbar : toolbar,
             callbacks : { //여기 부분이 이미지를 첨부하는 부분
 
-                onImageUpload : function(files, editor, welEditable) {
-                // 파일 업로드(다중업로드를 위해 반복문 사용)
-                for (var i = 0; i < files.length; i++) {
-                    uploadSummernoteImageFile(files[i], this);
+                onImageUpload: function(files, editor, welEditable) {
+                    // 이미지 파일을 담을 배열
+                    var imageFiles = [];
+                
+                    // 파일 업로드(다중 업로드를 위해 반복문 사용)
+                    for (var i = 0; i < files.length; i++) {
+                        imageFiles.push(files[i]);
+                    }
+                    
+                    console.log(imageFiles);
+
+                    // 이미지 업로드 함수 호출
+                    uploadSummernoteImageFile(imageFiles, this);
                 }
-            }
         }                 
     }; 
 
@@ -145,32 +231,51 @@ $(document).ready(function() {
     
     const jsonArray = [];
     
-    function uploadSummernoteImageFile(file, el) {
-        var data = new FormData();
-        data.append("file", file);
-        $.ajax({
-            data : data,
-            type : "POST",
-            url : contextPath + '/board/upload',
-            contentType : false,
-            enctype : 'multipart/form-data',
-            processData : false,
-            dataType : "JSON",
-            success : function(data) {
+    function uploadSummernoteImageFile(imageFiles, el) {
+        var formData = new FormData();
+        
+        // 이미지 파일들을 formData에 추가
+        for (var i = 0; i < imageFiles.length; i++) {
 
-                for(let i=0; i<data.length; i++) {
-
-                    $(el).summernote('editor.insertImage', data[i]["url"]);
-                    jsonArray.push(data[i]["url"]);
-                   
-                }
-
-            },
-            error : function(){
-                // 비동기 통신(ajax) 중 오류가 발생한 경우
-                console.log("에러 발생");
+            if(i == 0) {
+                formData.append('thumbnail', imageFiles[i]);
+            } else {
+                formData.append('file', imageFiles[i]);
             }
-        });
+            
+            console.log(formData.get("file0"));
+        }
+
+
+        var once = true;
+
+        // Ajax를 통해 서버로 이미지 업로드
+
+            $.ajax({
+                data : formData,
+                type : "POST",
+                url : contextPath + '/board/upload',
+                contentType : false,
+                enctype : 'multipart/form-data',
+                processData : false,
+                dataType : "JSON",
+                success : function(data) {
+        
+                    console.log(data);
+
+                    for(let i=0; i<data.length; i++) {
+                        //data[0]["url"]
+                        $(el).summernote('editor.insertImage', data[i]);
+                        jsonArray.push(data[i]["url"]);
+                        
+                    }
+
+                },
+                error : function(){
+                    // 비동기 통신(ajax) 중 오류가 발생한 경우
+                    console.log("에러 발생");
+                }
+            });
 
     }   
     console.log(jsonArray);

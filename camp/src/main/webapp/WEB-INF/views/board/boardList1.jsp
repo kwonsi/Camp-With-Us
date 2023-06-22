@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 
-
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -27,26 +25,37 @@
 
     
     <title>${boardName}</title>
-    
     <link rel="stylesheet" href="${contextPath}/resources/css/boxicons.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/main.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/boardList-style1.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap-icons.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap_main_header.css">
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
 
 </head>
 <body>
     <!-- JavaScript용 Facebook SDK 정규식 추가 -->
+
     <div id="fb-root"></div>
-    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v17.0&appId=804019604627586&autoLogAppEvents=1" nonce="4AqwcVJ1"></script>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v17.0&appId=804019604627586&autoLogAppEvents=1" nonce="tSPzCaKu"></script>
+
+
+<jsp:include page="/WEB-INF/views/common/header.jsp"/>
+
 
     <main>
-        <jsp:include page="/WEB-INF/views/common/header.jsp"/>
+      
+        <!-- sideBar 넣기위한 div 추가 !!!  boardList 1,2,3,4,5 다들어가있습니다. -->
+        <div class="myPage-content">
+            <jsp:include page="/WEB-INF/views/board/boardSideMenu.jsp"/>
+        
         
         <section class="contain">
-
+            
+            
             <div class="board1">
+                
                 
                 <div class="headline">
                     <h3>${boardName}</h3>
@@ -99,8 +108,6 @@
                         <blockquote cite="https://www.facebook.com/go2thecamping" class="fb-xfbml-parse-ignore">
                         <a href="https://www.facebook.com/go2thecamping">한국관광공사 고캠핑</a></blockquote></div>
                         <!-- <div style="width: 450px;">
-                            <input type="hidden" name="facebookToken" value="804019604627586">
-                            <input type="hidden" name="facebookPw" value="7b0c874eb272247e5e1440e4ac89d4d0">
                             <div class="fb-page"
                             data-href="https://www.facebook.com/go2thecamping/"
                             data-tabs="timeline"
@@ -115,8 +122,9 @@
                             <a href="https://www.facebook.com/go2thecamping/">한국관광공사 고캠핑</a>
                             </blockquote></div>
                         </div> -->
+                        
                         <!-- 고캠핑 임베드 -->
-                        <!-- <div class="fb-post" data-href="https://www.facebook.com/go2thecamping/" data-width="500" data-show-text="true"></div> -->
+                   <!-- <div class="fb-post" data-href="https://www.facebook.com/go2thecamping/" data-width="500" data-show-text="true"></div> -->
                     </div>
 
                     <div class="multiple-items2 slide_div2">
@@ -138,8 +146,10 @@
                 
             </div>
             
-        </section>
 
+
+        </section>
+</div> <!-- sideBar 넣기위한 div 끝부분 !!!  -->
     </main>
     
     

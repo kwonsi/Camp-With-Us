@@ -65,7 +65,7 @@ function initCalendar(){
 
     // 다음 월
     for ( let x = day; x > 0; x-- ){
-        days += `<div class="day prev-date">${prevDays - x + 1}</div>`;
+        days += `<div class="day prev-date" style="pointer-events: none;">${prevDays - x + 1}</div>`;
     }
     
     // 현재 월 일 생성
@@ -87,7 +87,7 @@ function initCalendar(){
     // 다음 월 일
     
     for (let j = 1; j <= nextDays -3; j++){
-        days += `<div class="day next-date">${j}</div>`;
+        days += `<div class="day next-date" style="pointer-events: none;">${j}</div>`;
     }
     
     daysContainer.innerHTML = days;
@@ -110,6 +110,14 @@ function initCalendar(){
             } else if(count == 1) {
                 selectMonth[1].value = (month+1);
                 selectDay[1].value = e.target.innerText;
+                if(Number(selectDay[0].value) > Number(selectDay[1].value)){
+                    alert("올바른 날짜를 입력해 주세요.")
+                    
+                    count == 0;
+
+                    reselect1();
+                    
+                }
                 mon[1].value ="월";
                 dat[1].value ="일";
                 const selectedDayOfWeek2 = getSelectedDayOfWeek2();
@@ -124,7 +132,7 @@ function initCalendar(){
                 total_days.classList.add("sel");
                 
 
-                a.innerText = test + "박" + (test+1) + "일";
+               /*  a.innerText = test + "박" + (test+1) + "일"; */
                 localStorage.clear();
                 localStorage.setItem("totalDay", test);
                 localStorage.setItem("Month", selectMonth[0].value)
@@ -293,6 +301,7 @@ reselect.addEventListener("click", function(){
     localStorage.clear();
     
     check.classList.remove("sel")
+    total_days.classList.remove("sel")
     
     
     console.log(count)
@@ -300,6 +309,38 @@ reselect.addEventListener("click", function(){
     priceElement.textContent = "총 가격 : 0원"
     initCalendar();
 });
+
+function reselect1(){
+    selectMonth[0].value ="";
+    selectDay[0].value ="";
+    selectMonth[1].value ="";
+    selectDay[1].value ="";
+    dayBetween[0].innerText = "";
+    dayBetween[1].innerText = "";
+    mon[0].value ="";
+    mon[1].value ="";
+    dat[0].value="";
+    dat[1].value="";
+    dat2[0].value ="";
+    dat2[1].value ="";
+    wave.value="";
+    count = 0;
+    today = new Date();
+    month = today.getMonth();
+    year = today.getFullYear();
+    
+    dateInput.value ="";
+    localStorage.clear();
+    
+    check.classList.remove("sel")
+    total_days.classList.remove("sel")
+    
+    
+    console.log(count)
+    console.log(localStorage.getItem("totalDay"))
+    priceElement.textContent = "총 가격 : 0원"
+    initCalendar();
+}
 var totalDay = calculateDays();
 function calculateDays() {
     const startDate = new Date(year, selectMonth[0].value, selectDay[0].value);
