@@ -33,5 +33,8 @@ public interface CampDetailService {
 
 	// 리뷰 수정
 	int updateReview(Map<String, Object> map);
+	
+	// 리뷰 작성을 위한 예약 내역 조회
+	int memberReservList(Map<String, Object> map);
 
 }

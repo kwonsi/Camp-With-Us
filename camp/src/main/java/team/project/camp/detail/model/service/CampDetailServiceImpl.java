@@ -79,5 +79,11 @@ public class CampDetailServiceImpl implements CampDetailService {
 	public int updateReview(Map<String, Object> map) {
 		return dao.updateReview(map);
 	}
+	
+	// 리뷰 작성을 위한 예약 내역 조회
+	@Override
+	public int memberReservList(Map<String, Object> map) {
+		return dao.memberReservList(map);
+	}
 
 }

@@ -37,7 +37,22 @@ public class ReviewController {
 	@PostMapping("/insert")
 	public int insertReview(Review review) {
 		log.info("별점 " + review.getCampRate());
-		return service.insetReview(review);
+		
+		String message = "";
+		
+		Map<String, Object> map = new HashMap<>();
+		map.put("memberNo", review.getMemberNo());
+		map.put("campName", review.getCampName());
+		
+		int result = service.memberReservList(map);
+		
+		if(result > 0) {
+			return service.insetReview(review);
+		} else {
+			return result;
+		}
+		
+		
 	}
 
 	// 리뷰 삭제

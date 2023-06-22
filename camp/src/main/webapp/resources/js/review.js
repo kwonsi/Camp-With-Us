@@ -15,8 +15,6 @@ function selectReplyList(){
         dataType : "JSON", // JSON 형태의 문자열 응답 데이터를 JS 객체로 자동 변환
         success : function(rList){
             // rList : 반환 받은 리뷰 목록 
-            console.log(rList);
-
             
             var currentPage = 1;
             var itemsPerPage = 10;
@@ -260,15 +258,13 @@ addReply.addEventListener("click", function(){ // 리뷰 등록 버튼이 클릭
                     reviewStar[i].checked = false;
                 }
 
-
-
                 reviewContents.value = ""; // 작성했던 리뷰 삭제
 
                 selectReplyList(); // 비동기 리뷰 목록 조회 함수 호출
                 // -> 새로운 리뷰이 추가되어짐
 
             } else { // 실패
-                alert("리뷰 등록에 실패했습니다...");
+                alert("예약 내역이 존재하지 않아 리뷰를 작성하실 수 없습니다.");
             }
 
         },

@@ -92,4 +92,10 @@
 		WHERE REPLY_NO = #{replyNo}
 	</update>
 	
+	<select id="memberReservList" resultType="_int">
+		SELECT COUNT(*) FROM RESERVATION
+		WHERE MEMBER_NO = #{memberNo} AND
+		CAMPING_NM = #{campName}
+	</select>
+	
 </mapper>
