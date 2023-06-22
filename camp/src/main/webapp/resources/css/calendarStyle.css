@@ -79,11 +79,13 @@ body{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 25px;
-    font-size: 10px;
+    padding: 0 33px;
+    font-size: 14px;
     font-weight: 500;
     text-transform: capitalize;
 }
+
+
 .calendar .weekdays div {
     width: 14.28%;
     height: 100%;
@@ -98,7 +100,7 @@ body{
     flex-wrap: wrap;
     /* justify-content: space-between; */
     padding: 0 50px 0 30px;
-    font-size: 8px;
+    font-size: 10px;
     font-weight: 500;
     margin: 0 10px 20px 10px;
 
@@ -146,6 +148,8 @@ body{
 .calendar .days .today {
     font-size: 30px;
     font-weight: bold;
+    justify-content: flex-start;
+    align-items: flex-start;
    
 }
 .calendar .days .event{
@@ -527,6 +531,7 @@ body{
     font-weight: bold;
     margin-top: 9px;
     margin-left: 9px;
+    color: red;
     
 }
 .first-day{

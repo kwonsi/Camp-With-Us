@@ -320,6 +320,13 @@
 
         <!-- viewType == 3 일때 -->
         <c:if test="${param.viewType == '3'}">
+            <div class="div7">
+                <!-- ${campName} 지역정보 -->
+                <div id = "campNameMap"></div>&nbsp;
+                <div class="logo">
+                    <a href="${contextPath}"><img src="${contextPath}/resources/images/CWUlogo2.png" id="home-logo"></a>
+                </div>
+            </div>
             <div class="kakaoMap">
                 <div id="map" style="width:auto; height:600px;"></div>
             </div>
@@ -417,6 +424,13 @@
         <c:if test="${param.viewType == '5'}">
 
 
+        <div class="div7">
+            <!-- ${campName} 리뷰 -->
+            <div id = "campNameReview"></div>&nbsp;
+            <div class="logo">
+                <a href="${contextPath}"><img src="${contextPath}/resources/images/CWUlogo2.png" id="home-logo"></a>
+            </div>
+        </div>
             <div class="div8">
 
                 <jsp:include page="/WEB-INF/views/camp/campReview.jsp" />
@@ -464,6 +478,18 @@
     <script src="${contextPath}/resources/js/weather2.js"></script>
     <script src="${contextPath}/resources/js/common.js"></script>
 
+
+    <div class="modal">
+        <img id="modal-image" src="${contextPath}/resources/images/user.png">
+    </div>
+
+
+
 </body>
+
+<script>
+
+
+</script>
 
 </html>

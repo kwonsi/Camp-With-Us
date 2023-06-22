@@ -718,16 +718,16 @@ main {
 
 }
 .loading{
-  width: 700px;
+  width: 800px;
   height: 500px;
 }
 .wrap-loading div{ /*로딩 이미지*/
 
   position: fixed;
 
-  top:20%;
+  top:15%;
 
-  left: 35%;
+  left:31%;
 
   margin-left: 0;
 

@@ -3,16 +3,20 @@ body{
     margin: 0;
     padding: 0;
 }
-h1{
+.paymentInfo > h1{
     text-align: center;
-    margin-bottom: 30px;
-    margin-top: 15px;
+    margin-bottom: 20px;
+    padding-top: 20px;
+  
 }
 .payment{
     width: 1000px;
-    height: 1000px;
+    height: 1050px;
     margin: auto;
     z-index: 999;
+}
+.datePick{
+    font-size: 22px;
 }
 .campN{
     font-size: 15px;
@@ -53,6 +57,7 @@ input{
     border-radius: 10px;
     border: none;
     outline: none;
+    padding-left: 20px;
 }
 input#address, #postcode, #detailAddress{
     margin: 10px 0 5px 0 ;
@@ -65,18 +70,19 @@ input#address, #postcode, #detailAddress{
     border: none;
     outline: none;
     text-align: center;
-    font-size: 14px;
+    font-size: 20px;
 }
 .reverName, .reverEmail, .reverTel, .reverAddress{
-    margin-left: 20px;
+    margin-left: 50px;
 }
 .reverDate{
-    margin: 30px 0 30px 20px;
+    margin: 20px 0 30px 50px;
 }
 .reverPeople{
    text-align: center;
-   margin-top: 40px;
+   margin-top: 20px;
    z-index: 99;
+   font-size: 20px;
 }
 .peopleSum{
     display: flex;
@@ -106,8 +112,8 @@ input#address, #postcode, #detailAddress{
     margin: 0;
     border: none;
     outline: none;
-    font-size: 20px;
-    font-weight: 200;
+    font-size: 21px;
+    font-weight: 600;
 }
 .buttons{
     display: flex;
@@ -116,7 +122,7 @@ input#address, #postcode, #detailAddress{
 }
 .video-container {
     width: 100%;/* 원하는 가로 크기 */
-    height: 1150px; /* 원하는 세로 크기 */
+    height: 1200px; /* 원하는 세로 크기 */
     overflow: hidden;
     position:absolute;
     top: 0;
