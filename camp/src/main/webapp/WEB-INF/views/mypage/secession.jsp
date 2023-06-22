@@ -67,14 +67,16 @@
 
                 </div>
 
-                <div>
+
+               
+                <div id = "checkBoxdiv">
                     <input type="checkbox" name="agree" id="agree">
-                    <label for="agree">위 약관에 동의합니다.</label>
+                    <label for="agree" ><div> 위 약관에 동의합니다.</div></label>
                 </div>
 
 
                 <button id="info-update-btn">탈퇴</button>
-
+                
             </form>
 
         </section>

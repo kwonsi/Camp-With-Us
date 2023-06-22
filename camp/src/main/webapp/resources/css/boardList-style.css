@@ -89,6 +89,10 @@ thead tr:nth-child(1) {
 }
 .list-table tr:nth-child(2n) {
     --bs-table-color-state: var(--bs-table-active-color);
+    --bs-table-bg-state:rgb(200, 200, 200,0.45);
+}
+.list-table tr:nth-child(2n-1) {
+    --bs-table-color-state: var(--bs-table-active-color);
     --bs-table-bg-state:rgb(0 0 0 / 5%);
 }
 

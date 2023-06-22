@@ -196,3 +196,21 @@ window.onload = function() {
     }
 
 }
+
+
+const myPageList = document.getElementsByClassName("myPage-list");
+
+if(myPageList.length == 5) {
+    
+    if(window.location.href == "http://localhost:8080/camp/board/list/1") {
+        myPageList[0].style.backgroundColor = "#e9ecef";
+    } else if(window.location.href == "http://localhost:8080/camp/board/list/2") {
+        myPageList[1].style.backgroundColor = "#e9ecef";
+    } else if(window.location.href == "http://localhost:8080/camp/board/list/3") {
+        myPageList[2].style.backgroundColor = "#e9ecef";
+    } else if(window.location.href == "http://localhost:8080/camp/board/list/4") {
+        myPageList[3].style.backgroundColor = "#e9ecef";
+    } else if(window.location.href == "http://localhost:8080/camp/board/list/5") {
+        myPageList[4].style.backgroundColor = "#e9ecef";
+    } 
+} 

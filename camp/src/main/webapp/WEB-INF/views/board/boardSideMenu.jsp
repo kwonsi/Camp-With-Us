@@ -8,7 +8,7 @@
     <h3>MENU</h3>
     <ul class="list-group">
         <c:forEach var="boardType" items="${boardTypeList}">
-            <li><a href="${contextPath}/board/list/${boardType.boardCode}">${boardType.boardName}</a></li>
+            <li><a class="myPage-list" href="${contextPath}/board/list/${boardType.boardCode}">${boardType.boardName}</a></li>
          </c:forEach>	
         </ul>
 
