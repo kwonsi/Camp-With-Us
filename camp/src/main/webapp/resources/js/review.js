@@ -252,10 +252,14 @@ addReply.addEventListener("click", function(){ // 리뷰 등록 버튼이 클릭
         success : function(result){
 
             if(result > 0){ // 등록 성공
+                campRate = 0;
+
                 alert("리뷰가 등록되었습니다.");
 
                 for(let i=0; i<reviewStar.length; i++) {
-                    reviewStar[i].checked = false;
+                    if(reviewStar[i].checked) {
+                        reviewStar[i].checked = false;
+                    }
                 }
 
                 reviewContents.value = ""; // 작성했던 리뷰 삭제

@@ -1,4 +1,34 @@
+const listGroup = document.getElementsByClassName("list-group")[0];
+const myPageList = document.getElementsByClassName("myPage-list");
 
+if(myPageList.length == 6) {
+    
+    if(window.location.href == "http://localhost:8080/camp/member/myPage/myReservation") {
+        myPageList[0].style.backgroundColor = "#e9ecef";
+    } else if(window.location.href == "http://localhost:8080/camp/member/myPage/myBoard") {
+        myPageList[1].style.backgroundColor = "#e9ecef";
+    } else if(window.location.href == "http://localhost:8080/camp/member/myPage/myReview") {
+        myPageList[2].style.backgroundColor = "#e9ecef";
+    } else if(window.location.href == "http://localhost:8080/camp/member/myPage/profile") {
+        myPageList[3].style.backgroundColor = "#e9ecef";
+    } else if(window.location.href == "http://localhost:8080/camp/member/myPage/changePw") {
+        myPageList[4].style.backgroundColor = "#e9ecef";
+    }  else if(window.location.href == "http://localhost:8080/camp/member/myPage/secession") {
+        myPageList[5].style.backgroundColor = "#e9ecef";
+    }
+} else {
+    if(window.location.href == "http://localhost:8080/camp/member/myPage/myReservation") {
+        myPageList[0].style.backgroundColor = "#e9ecef";
+    } else if(window.location.href == "http://localhost:8080/camp/member/myPage/myBoard") {
+        myPageList[1].style.backgroundColor = "#e9ecef";
+    } else if(window.location.href == "http://localhost:8080/camp/member/myPage/myReview") {
+        myPageList[2].style.backgroundColor = "#e9ecef";
+    } else if(window.location.href == "http://localhost:8080/camp/member/myPage/profile") {
+        myPageList[3].style.backgroundColor = "#e9ecef";
+    } else if(window.location.href == "http://localhost:8080/camp/member/myPage/secession") {
+        myPageList[4].style.backgroundColor = "#e9ecef";
+    }
+}
 
 
 // 회원 정보 변경 유효성 검사
