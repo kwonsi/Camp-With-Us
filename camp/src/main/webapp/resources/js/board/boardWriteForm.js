@@ -233,22 +233,21 @@ $(document).ready(function() {
     
     function uploadSummernoteImageFile(imageFiles, el) {
         var formData = new FormData();
-        
+
         // 이미지 파일들을 formData에 추가
         for (var i = 0; i < imageFiles.length; i++) {
 
             if(i == 0) {
                 formData.append('thumbnail', imageFiles[i]);
-            } else {
+            } else if(i != 0) {
                 formData.append('file', imageFiles[i]);
             }
-            
-            console.log(formData.get("file0"));
+  
         }
+        console.log(formData.get("thumbnail"));
 
-
-        var once = true;
-
+        console.log(formData.get("file.index[0]"));
+        console.log(formData.get("file.index[1]"));
         // Ajax를 통해 서버로 이미지 업로드
 
             $.ajax({
@@ -264,21 +263,20 @@ $(document).ready(function() {
                     console.log(data);
 
                     for(let i=0; i<data.length; i++) {
-                        //data[0]["url"]
                         $(el).summernote('editor.insertImage', data[i]);
                         jsonArray.push(data[i]["url"]);
                         
                     }
-
+                    
                 },
                 error : function(){
                     // 비동기 통신(ajax) 중 오류가 발생한 경우
                     console.log("에러 발생");
                 }
             });
-
-    }   
-    console.log(jsonArray);
+            
+        }   
+        console.log(jsonArray.length);
     
     
 });

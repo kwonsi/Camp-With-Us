@@ -8,6 +8,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -31,9 +33,6 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
-
 import lombok.extern.slf4j.Slf4j;
 import team.project.camp.board.model.service.BoardService;
 import team.project.camp.board.model.service.ReplyService;
@@ -242,145 +241,6 @@ public class BoardController {
 
 	
 	
-	// summernote 업로드 이미지 저장을 위한 컨트롤러
-	@RequestMapping(value="/upload", produces = "application/json; charset=utf8")
-	@ResponseBody  // ajax 응답 시 사용!
-	public String uploadSummernoteImageFile( @RequestParam("thumbnail") MultipartFile thumbnail,
-											 @RequestParam("file") MultipartFile[] multipartFiles,
-											HttpServletRequest req,
-											HttpSession session
-												 ) {
-		
-		System.out.println("summernote 컨트롤러 시작");
-		
-		JsonArray jsonArray = new JsonArray();
-		JsonObject jsonObject = new JsonObject();
-		
-		
-		
-//		절대경로로 저장(C드라이브 내 경로 : camp 프로젝트 내 /images/summernote 폴더 경로)
-//		String fileRoot = "C:\\workspace\\Final_Camp_eunju\\Final_Camp\\camp\\src\\main\\webapp\\resources\\images\\summernote\\";
-//		String fileRoot = "C:/workspace/Final_Camp_eunju/Final_Camp/camp/src/main/webapp/resources/images/summernote/";
-		
-//		내부경로로 저장
-//		String contextRoot = new HttpServletRequestWrapper(req).getSession().getServletContext().getRealPath("/");
-//			-> C:\workspace\Final_Camp_eunju\Final_Camp\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\camp\
-		String webPath = "/resources/images/summernote/";
-		String folderPath = req.getSession().getServletContext().getRealPath(webPath);
-//			-> C:\workspace\Final_Camp_eunju\Final_Camp\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\camp\resources\images\summernote\
-//				일 경우(metadata 경로로 뜸) 서버 옵션 제일 처음꺼 체크여부 확인 하기(체크 안되있으면 이렇게 뜸)
-		
-//		log.debug("folderPath : " + folderPath);
-		
-		
-		
-		// thumbnail 사진
-		String thumbnailOriginalFileName = thumbnail.getOriginalFilename();	//오리지날 파일명
-		String thumbnailExtension = thumbnailOriginalFileName.substring(thumbnailOriginalFileName.lastIndexOf("."));	//파일 확장자
-		String thumbnailSavedFileName = UUID.randomUUID() + thumbnailExtension;	//저장될 파일 명
-	
-		File thumbnailFile = new File(folderPath + thumbnailSavedFileName);
-		
-		ArrayList<String> imgPaths = new ArrayList<>(); // 이미지 경로를 담을 ArrayList 생성
-		
-		try {
-			 jsonObject= new JsonObject();
-			
-			InputStream fileStream = thumbnail.getInputStream();
-			FileUtils.copyInputStreamToFile(fileStream, thumbnailFile);	//파일 저장
-			jsonObject.addProperty("url", req.getContextPath() + webPath + thumbnailSavedFileName);
-		
-			log.debug("jsonObject : " + jsonObject);
-	
-			
-			String imagePath = webPath + thumbnailSavedFileName; // 이미지 경로 변수에 담기
-			
-		    imgPaths.add(imagePath); // 변수에 담은 이미지 경로를 ArrayList에 추가
-			
-			
-		    log.debug("ArrayList imgPaths : " + imgPaths);
-		    
-		   	    
-		} catch (IOException e) {
-			FileUtils.deleteQuietly(thumbnailFile);	//저장된 파일 삭제
-			jsonObject.addProperty("responseCode", "error");
-			e.printStackTrace();
-		}
-			
-		jsonArray.add(jsonObject);
-			
-		
-		
-
-		
-		// 나머지 사진
-		for (MultipartFile multipartFile : multipartFiles) {
-			String originalFileName = multipartFile.getOriginalFilename();	//오리지날 파일명
-			String extension = originalFileName.substring(originalFileName.lastIndexOf("."));	//파일 확장자
-			String savedFileName = UUID.randomUUID() + extension;	//저장될 파일 명
-		
-			File targetFile = new File(folderPath + savedFileName);
-			
-		
-			try {
-				InputStream fileStream = multipartFile.getInputStream();
-				FileUtils.copyInputStreamToFile(fileStream, targetFile);	//파일 저장
-				jsonObject.addProperty("url", req.getContextPath() + webPath + savedFileName);
-				
-//					jsonObject.addProperty("url", "/resources/images/summernote/"+savedFileName);
-//						-> contextroot + resources + 저장할 내부 폴더명
-				
-//					log.debug("req.getContextPath() : " + req.getContextPath());  -> /camp
-//					log.debug("jsonObject : " + jsonObject);  -> {"url":"/camp/resources/images/summernote/f794a7bc-7a9b-4111-b63b-6e46f79cbaa7.jpg"}
-				
-				log.debug("jsonObject : " + jsonObject);
-				
-//				jsp에서 사용하기 위해 req에 값을 세팅해준다
-//				req.setAttribute("imgPath", webPath+savedFileName);
-				
-//				jsp가 새로고침되서 request에 있는 값이 사라지니까 imgPath에 값이 안들어갔던것
-//				-> request 말고 session에 값을 올려주자
-//				session.setAttribute("imgPath", webPath + savedFileName);
-				
-				
-//				req에 값이 잘 들어갔는지 확인해보기 -> /resources/images/summernote/dca7dbfb-d327-4077-905b-88c01a0c005e.jpg
-//				log.debug("Controller req : " + req.getAttribute("imgPath"));
-				
-//				session에 값이 잘 들어갔는지 확인해보기
-//				log.debug("Controller session : " + session.getAttribute("imgPath"));
-				
-				String imagePath = webPath + savedFileName; // 이미지 경로 변수에 담기
-				
-			    imgPaths.add(imagePath); // 변수에 담은 이미지 경로를 ArrayList에 추가
-				
-				
-			    log.debug("ArrayList imgPaths : " + imgPaths);
-			    
-			    
-			    
-			} catch (IOException e) {
-				FileUtils.deleteQuietly(targetFile);	//저장된 파일 삭제
-				jsonObject.addProperty("responseCode", "error");
-				e.printStackTrace();
-			}
-   
-			jsonArray.add(jsonObject);
-	      }
-		
-		String jsonResult = jsonArray.toString();
-		// jsonObject에 addProperties 하면서 덮어씌워지는 것 같은데
-		// 제이슨도 중복키 허용 안 해서 마지막 값으로 덮어씌워져
-		
-		log.debug("jsonResult(저장경로) : " + jsonResult);
-		log.debug("imgPaths(저장경로) : " + imgPaths);
-		
-		
-		return new Gson().toJson(imgPaths);
-	}
-	
-	
-	
-	
 
 
 	// 게시글 작성 화면 전환
@@ -410,11 +270,92 @@ public class BoardController {
 
 
 
+	
+	
+	// summernote 업로드 이미지 저장을 위한 컨트롤러
+	@RequestMapping(value="/upload", produces = "application/json; charset=utf8")
+	@ResponseBody  // ajax 응답 시 사용!
+	public String uploadSummernoteImageFile( @RequestParam("thumbnail") MultipartFile thumbnail,
+			@RequestParam(value = "file", required= false) MultipartFile[] multipartFiles,
+			HttpServletRequest req,
+			HttpSession session
+			) {
+		
+		System.out.println("summernote 컨트롤러 시작");
+		
+		String webPath = "/resources/images/summernote/";
+		String folderPath = req.getSession().getServletContext().getRealPath(webPath);
+		
+		
+		// thumbnail 사진(제일 처음 업로드 되는 사진)
+		String thumbnailOriginalFileName = thumbnail.getOriginalFilename();	//오리지날 파일명
+		String thumbnailExtension = thumbnailOriginalFileName.substring(thumbnailOriginalFileName.lastIndexOf("."));	//파일 확장자
+		String thumbnailSavedFileName = UUID.randomUUID() + thumbnailExtension;	//저장될 파일 명
+		
+		File thumbnailFile = new File(folderPath + thumbnailSavedFileName);
+		
+		log.debug("thumbnailFile : " + thumbnailFile);
+		
+		ArrayList<String> ajaxImgPaths = new ArrayList<>(); // ajax에 보내 줄 이미지 경로를 담을 ArrayList 생성
+		
+		try {
+			
+			InputStream fileStream = thumbnail.getInputStream();
+			FileUtils.copyInputStreamToFile(fileStream, thumbnailFile);	//파일 저장
+			
+			String imagePath = req.getContextPath() + webPath + thumbnailSavedFileName; // 이미지 경로 변수에 담기
+			
+			ajaxImgPaths.add(imagePath); // 변수에 담은 이미지 경로를 ArrayList에 추가
+			
+			
+		} catch (IOException e) {
+			FileUtils.deleteQuietly(thumbnailFile);	//저장된 파일 삭제
+			e.printStackTrace();
+		}
+		
+		
+		// 나머지 사진
+		if(multipartFiles != null) {
+			for (MultipartFile multipartFile : multipartFiles) {
+				String originalFileName = multipartFile.getOriginalFilename();	//오리지날 파일명
+				String extension = originalFileName.substring(originalFileName.lastIndexOf("."));	//파일 확장자
+				String savedFileName = UUID.randomUUID() + extension;	//저장될 파일 명
+				
+				File targetFile = new File(folderPath + savedFileName);
+				
+				
+				try {
+					InputStream fileStream = multipartFile.getInputStream();
+					FileUtils.copyInputStreamToFile(fileStream, targetFile);	//파일 저장
+					
+					String imagePath = req.getContextPath() + webPath + savedFileName; // 이미지 경로 변수에 담기
+					
+					ajaxImgPaths.add(imagePath); // 변수에 담은 이미지 경로를 ArrayList에 추가
+					
+				} catch (IOException e) {
+					FileUtils.deleteQuietly(targetFile); //저장된 파일 삭제
+					e.printStackTrace();
+				}
+				
+			}
+		}
+		
+		
+		log.debug("imgPaths(ajax 저장경로) : " + ajaxImgPaths);
+		
+		
+		return new Gson().toJson(ajaxImgPaths);
+	}
+	
+	
+	
+	
+	
 	// 게시글 작성 (삽입/수정을 한 함수에 같이 하기)
 	// "/board/write/{boardCode}" -> 서비스 요청 url 주소가 동일함
 	@PostMapping("/write/{boardCode}")
-	public String boardWrite( BoardDetail detail, // boardTitle, boardContent, boardNo(수정)
-							@RequestParam(value="images", required=false) List<MultipartFile> imageList, // 업로드 파일(이미지) 리스트
+	public String boardWrite( BoardDetail detail, // boardTitle, boardContent, boardNo, imgPath(수정)
+//							@RequestParam(value="images", required=false) List<MultipartFile> imageList, // 업로드 파일(이미지) 리스트
 							@PathVariable("boardCode") int boardCode,
 							String mode,
 							@ModelAttribute("loginMember") Member loginMember,
@@ -424,24 +365,8 @@ public class BoardController {
 							@RequestParam(value="cp", required=false, defaultValue="1") int cp,
 							@RequestParam(value="deleteList", required=false) String deleteList ) throws IOException {
 
-
-		log.debug("session에 올라간 imgPath : " + session.getAttribute("imgPath"));
-		log.debug("session에 올라간 imgPaths : " + session.getAttribute("imgPaths"));
-		
-//		String[] imgUrl;
-//		log.debug("imageList : " + imageList);  -> null
-
 		// 1) 로그인 한 회원번호 얻어와서 detail에 세팅해주기
 		detail.setMemberNo( loginMember.getMemberNo() );
-
-		// 2) 이미지 저장 경로 얻어오기 ( webPath, folderPath )
-		String webPath = "/resources/images/summernote/";
-		String folderPath = req.getSession().getServletContext().getRealPath(webPath);
-		
-		
-//		log.debug("folderPath : " + folderPath); // -> C:\workspace\Final_Camp_eunju3\Final_Camp\camp\src\main\webapp\resources\images\summernote\
-//		log.info("Controller mode : "+ mode);
-//		log.debug("Controller boardContent : " + detail.getBoardContent());
 		
 		
 		// 3) 삽입인지 수정인지 나눠주기
@@ -449,6 +374,29 @@ public class BoardController {
 			
 			// BoardContent만 XSS 방지 처리 해제
 			detail.setBoardContent(Util.XSSClear( detail.getBoardContent() ));
+			
+			// BoardContent에서 정규식을 이용한 이미지 태그 추출
+			String thumbnailImgPaths = "";
+			
+			if(detail.getBoardContent() != null) {				   
+			   // 이미지 태그를 추출하기 위한 정규식.
+			   Pattern pattern  =  Pattern.compile("<img[^>]*src=[\"']?([^>\"']+)[\"']?[^>]*>");
+			    
+			   // 내용 중에서 이미지 태그를 찾아라!
+			   Matcher match = pattern.matcher((detail.getBoardContent()));
+			    
+			   String imgTag = null;
+			    
+			   if(match.find()){ // 이미지 태그를 찾았다면,,
+			       imgTag = match.group(0); // 글 내용 중에 첫번째 이미지 태그를 뽑아옴.
+			   }
+			   
+				   log.debug("imgTag(삽입시) : " + imgTag);
+				  
+				   thumbnailImgPaths = imgTag;
+			   
+			   }
+			   
 			
 			// 게시글 부분 삽입 (이미지가 없을때) 제목, 내용, 회원번호, 게시판코드
 			// -> 삽입 된 게시글의 번호(boardNo) 반환 (왜? 삽입이 끝나면 게시글 상세조회로 리다이렉트할거라서)
@@ -458,10 +406,7 @@ public class BoardController {
 
 			// 두번의 insert중 한번이라도 실패하면 전체 rollback (트랜잭션 처리)
 
-			int boardNo = service.insertBoard(detail, imageList, webPath, folderPath);
-			
-//			log.info("Controller imageList : "+imageList);
-			
+			int boardNo = service.insertBoard(detail, thumbnailImgPaths);
 			
 			
 			String path = null;
@@ -487,9 +432,31 @@ public class BoardController {
 			// BoardContent만 XSS 방지 처리 해제
 			detail.setBoardContent(Util.XSSClear( detail.getBoardContent() ));
 			
+			// BoardContent에서 정규식을 이용한 이미지 태그 추출
+			String thumbnailImgPaths = "";
+			
+			if(detail.getBoardContent() != null) {				   
+			   // 이미지 태그를 추출하기 위한 정규식.
+			   Pattern pattern  =  Pattern.compile("<img[^>]*src=[\"']?([^>\"']+)[\"']?[^>]*>");
+			    
+			   // 내용 중에서 이미지 태그를 찾아라!
+			   Matcher match = pattern.matcher((detail.getBoardContent()));
+			    
+			   String imgTag = null;
+			    
+			   if(match.find()){ // 이미지 태그를 찾았다면,,
+			       imgTag = match.group(0); // 글 내용 중에 첫번째 이미지 태그를 뽑아옴.
+			   }
+			   
+				   log.debug("imgTag(수정시) : " + imgTag);
+				  
+				   thumbnailImgPaths = imgTag;
+			   
+			   }
+			
 			// 게시글 수정 서비스 호출
 			// 게시글 번호를 알고있기 때문에 수정 결과만 반환받으면 된다.
-			int result = service.updateBoard(detail, imageList, webPath, folderPath, deleteList);
+			int result = service.updateBoard(detail);
 
 
 			String path = null;

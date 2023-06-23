@@ -17,5 +17,6 @@ public class Board {
 	private String thumbnail;
 	private String boardContent;
 	private int boardCode;
+	private String thumbnailImg;
 
 }

@@ -107,26 +107,9 @@
                         data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="true">
                         <blockquote cite="https://www.facebook.com/go2thecamping" class="fb-xfbml-parse-ignore">
                         <a href="https://www.facebook.com/go2thecamping">한국관광공사 고캠핑</a></blockquote></div>
-                        <!-- <div style="width: 450px;">
-                            <div class="fb-page"
-                            data-href="https://www.facebook.com/go2thecamping/"
-                            data-tabs="timeline"
-                            data-width="450"
-                            data-height="400"
-                            data-small-header="true"
-                            data-adapt-container-width="true"
-                            data-hide-cover="true"
-                            data-show-facepile="true">
-                            <blockquote cite="https://www.facebook.com/go2thecamping/"
-                            class="fb-xfbml-parse-ignore">
-                            <a href="https://www.facebook.com/go2thecamping/">한국관광공사 고캠핑</a>
-                            </blockquote></div>
-                        </div> -->
-                        
-                        <!-- 고캠핑 임베드 -->
-                   <!-- <div class="fb-post" data-href="https://www.facebook.com/go2thecamping/" data-width="500" data-show-text="true"></div> -->
                     </div>
 
+                    <!-- 슬라이드 광고 링크 -->
                     <div class="multiple-items2 slide_div2">
                         <div class="slide-content2">
                             <a><img src="${contextPath}/resources/images/board/ohcamall.png" onclick="window.open('https://www.ocamall.com/')"></a>

@@ -36,22 +36,7 @@
 		<result property="profileImage" column="PROFILE_IMG" />
 		<result property="boardName" column="BOARD_NM" />
 		
-		<collection property="imageList" column="BOARD_NO"
-			javaType="java.util.ArrayList" ofType="boardImage" select="selectImageList"/>
-	
-		<!-- selectImageList의 조회 결과를
-			BoardDetail VO의 imageList 필드에 담겠다.
-			
-			-> imageList에 담기 위한 ArrayList<BoardImage> 객체를 생성
-			( javaType="java.util.ArrayList" ofType="boardImage" )
-			
-			-> selectImageList 태그 수행 시 필요한 파라미터
-				현재 resultMap (detail_rm)의 BOARD_NO 컬럼에 저장된 값을 전달하겠다.
-				
-			게시글 상세 조회 후 detail_rm resultMap 이 호출되었을 때
-			상세 조회 결과 중 BOARD_NO를 이용해서 selectImageList를 수행하고
-			결과를 imageList 필드에 세팅한다.
-		 -->
+		
 	
 	</resultMap>
 
@@ -246,19 +231,17 @@
 	
 	
 	<!-- 게시글 이미지 삽입(리스트) -->
-	<insert id="insertBoardImageList" parameterType="list">
+	<!-- <insert id="insertBoardImageList" parameterType="list">
 		INSERT INTO BOARD_IMG 
 		SELECT SEQ_IMG_NO.NEXTVAL IMG_NO,  A.* FROM(
 		
 			<foreach collection="list"  item="img" separator="UNION ALL" >
 			    SELECT  #{img.imageReName}     IMG_RENAME, 
-			    		#{img.imageOriginal}   IMG_ORIGINAL,
-			        	#{img.imageLevel}      IMG_LEVEL, 
 			        	#{img.boardNo}         BOARD_NO
 			    FROM DUAL
 			</foreach>
 		) A
-	</insert>
+	</insert> -->
 	
 	
 	<!-- 게시글 수정 -->
@@ -272,11 +255,11 @@
 	
 	
 	<!-- 게시글 이미지 삭제 (IN 구문 작성 시 삭제되는 deleteList에 '' 가 없도록 주의해야 한다)-->
-	<delete id="deleteBoardImage">
+	<!--<delete id="deleteBoardImage">
 		DELETE FROM BOARD_IMG 
         WHERE BOARD_NO = ${boardNo} 
         AND IMG_LEVEL IN ( ${deleteList} )
-	</delete>
+	</delete>-->
 
 
 	<!-- 게시글 이미지 1개 수정 -->
@@ -295,9 +278,7 @@
 		INSERT INTO BOARD_IMG VALUES(
 		
 			SEQ_IMG_NO.NEXTVAL, 
-			#{imageReName}, 
-			#{imageOriginal},
-			#{imageLevel}, 
+			#{imageReName},
 			#{boardNo}
 		)
 	</insert>

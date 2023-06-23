@@ -107,15 +107,17 @@ public class BoardDAO {
 
 		return result;
 	}
+	
+	
 
 	/** 게시글 이미지 삽입(리스트) DAO
 	 * @param boardImageList
 	 * @return result
 	 */
-	public int insertBoardImageList(List<BoardImage> boardImageList) {
-
-		return sqlSession.insert("boardMapper.insertBoardImageList", boardImageList);
-	}
+//	public int insertBoardImageList(List<BoardImage> boardImageList) {
+//
+//		return sqlSession.insert("boardMapper.insertBoardImageList", boardImageList);
+//	}
 
 	/** 게시글 수정 DAO
 	 * @param detail
@@ -130,10 +132,10 @@ public class BoardDAO {
 	 * @param map
 	 * @return result
 	 */
-	public int deleteBoardImage(Map<String, Object> map) {
-
-		return sqlSession.delete("boardMapper.deleteBoardImage", map);
-	}
+//	public int deleteBoardImage(Map<String, Object> map) {
+//
+//		return sqlSession.delete("boardMapper.deleteBoardImage", map);
+//	}
 
 	/** 게시글 이미지 1개 수정 DAO
 	 * @param img
@@ -180,6 +182,8 @@ public class BoardDAO {
 		
 		return sqlSession.selectList("boardMapper.selectrdList");
 	}
+
+
 
 
 }

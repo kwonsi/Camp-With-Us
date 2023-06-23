@@ -46,8 +46,16 @@ public interface BoardService {
 	 * @return boardNo
 	 * @throws IOException
 	 */
-	int insertBoard(BoardDetail detail, List<MultipartFile> imageList, String webPath, String folderPath) throws IOException;
-
+//	int insertBoard(BoardDetail detail, List<MultipartFile> imageList, String webPath, String folderPath) throws IOException;
+	
+	/** 게시글 삽입 + 이미지 경로 저장
+	 * @param detail
+	 * @param thumbnailImgPaths
+	 * @return boardNo
+	 * @throws IOException
+	 */
+	int insertBoard(BoardDetail detail, String thumbnailImgPaths) throws IOException;
+	
 	/** 게시글 수정 서비스
 	 * @param detail
 	 * @param imageList
@@ -57,8 +65,16 @@ public interface BoardService {
 	 * @return result
 	 * @throws IOException
 	 */
-	int updateBoard(BoardDetail detail, List<MultipartFile> imageList, String webPath, String folderPath,
-			String deleteList) throws IOException;
+//	int updateBoard(BoardDetail detail, List<MultipartFile> imageList, String webPath, String folderPath,
+//			String deleteList) throws IOException;
+	
+	/** 게시글 수정 서비스
+	 * @param detail
+	 * @param thumbnailImgPaths
+	 * @param deleteList
+	 * @return result
+	 */
+	int updateBoard(BoardDetail detail);
 
 	/** 게시글 삭제 서비스
 	 * @param boardNo
@@ -78,5 +94,7 @@ public interface BoardService {
 	 * @return rdList
 	 */
 	List<PlaceRecommend> selectrdList();
+
+
 
 }
