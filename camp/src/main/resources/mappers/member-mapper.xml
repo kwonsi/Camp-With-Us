@@ -90,13 +90,10 @@
 	</select>
 	
 	
-	
-	
-	
 	<!-- 구글, 카카오 첫 로그인 시 DB 삽입 -->
 	<insert id="googleKakaoInsert">
 		INSERT INTO MEMBER_S(MEMBER_NO, MEMBER_NICK, MEMBER_EMAIL,MEMBER_PW , SECESSION_FL, LOGIN_ST) VALUES
-		(SEQ_MEMBER_NO_S.NEXTVAL, #{memberNickname}, #{memberEmail},#{memberPw} , DEFAULT, 'Y')
+		(SEQ_MEMBER_NO_S.NEXTVAL, #{memberNickname}, #{memberEmail}, #{memberPw} , DEFAULT, 'Y')
 	</insert>
 	
 	<!-- 구글, 카카오 로그인 회원정보 조회 -->

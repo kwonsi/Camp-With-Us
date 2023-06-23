@@ -30,9 +30,10 @@ section.myPage-main > .reply-list-area > #reply-list > li {
 .myPageHeadFlex{
   color: white;
   display: flex;
-  background-image: url(../images/main4.gif);
+  background-image: url(../images/yj11.png);
   background-size: 100% 100%;
   margin-top: 30px;
+  height: 200px;
 }
 #reserveBtn{
   height: 30px;

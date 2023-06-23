@@ -106,6 +106,7 @@ public class MemberServiceImpl implements MemberService {
 	public int naverEmailDupCheck(String memberEmail) {
 		return dao.naverEmailDupCheck(memberEmail);
 	}
+	
 	// 네이버 로그인정보 저장 서비스
 	@Override
 	public int naverLoginInsert(Member loginMember) {
@@ -114,6 +115,7 @@ public class MemberServiceImpl implements MemberService {
 		
 		return dao.naverLoginInsert(loginMember);
 	}
+	
 	// 네이버 회원정보 뽑아오기
 	@Override
 	public Member naverMember(Member loginMember) {
@@ -132,8 +134,9 @@ public class MemberServiceImpl implements MemberService {
 	//구글 첫 로그인 시 DB 삽입
 	@Override
 	public int googleKakaoInsert(Member member) {
+		
 		member.setMemberPw(bcrypt.encode("campwithus"));
-
+		
 		return dao.googleKakaoInsert(member);
 	}
 

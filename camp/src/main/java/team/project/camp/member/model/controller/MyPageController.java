@@ -154,8 +154,13 @@ public class MyPageController {
 		// 회원 정보 수정 서비스 호출
 		if(result == 0) {
 			result = myPageService.updateInfo(paramMap);
+		} else if(result > 0) { 
+			
+			if( (loginMember.getMemberNickname()).equals((String)paramMap.get("updateNickname")) ) {
+				result = myPageService.updateInfo(paramMap);
+			} else result = -1;
+			
 		}
-		else result = -1;
 
 		if(result > 0) {
 			message = "회원 정보가 수정되었습니다.";
