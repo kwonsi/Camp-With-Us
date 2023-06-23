@@ -14,11 +14,12 @@
 		<result property="enrollDate" 		column="ENROLL_DT"/>
 		<result property="secessionFlag" 	column="SECESSION_FL"/>
 		<result property="loginST"          column="LOGIN_ST"/>
+		<result property="manager"			column="MANAGER"/>
 	</resultMap>
 	
 	<select id="login" parameterType="member" resultMap="member_rm">
 		SELECT MEMBER_NO, MEMBER_EMAIL, MEMBER_NICK , MEMBER_TEL,
-    	MEMBER_ADDR, PROFILE_IMG, 
+    	MEMBER_ADDR, PROFILE_IMG, MANAGER,
     	TO_CHAR( ENROLL_DT, 'YYYY-MM-DD') AS ENROLL_DT, MEMBER_PW
 		FROM MEMBER_S
 		WHERE MEMBER_EMAIL = #{memberEmail}
@@ -44,7 +45,7 @@
 	<insert id="signUp" parameterType="member">
 		INSERT INTO MEMBER_S VALUES (SEQ_MEMBER_NO_S.NEXTVAL, #{memberEmail}, #{memberPw},
 			#{memberNickname}, #{memberTel}, #{memberAddress},
-			DEFAULT, DEFAULT, DEFAULT, DEFAULT)	
+			DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT )	
 	</insert>
 	
 	<!-- 아이디 찾기 -->
@@ -77,12 +78,12 @@
 		INSERT INTO MEMBER_S VALUES 
 		(SEQ_MEMBER_NO_S.NEXTVAL, #{memberEmail}, #{memberPw} ,
 			#{memberNickname}, #{memberTel}, NULL,
-			DEFAULT, DEFAULT, DEFAULT , 'Y')	
+			DEFAULT, DEFAULT, DEFAULT , 'Y', DEFAULT)	
 	</insert>
 	
 	<!-- 네이버 로그인 회원정보 조회 -->
 	<select id="naverMember" parameterType="member" resultMap="member_rm">
-		SELECT MEMBER_NO, MEMBER_EMAIL, MEMBER_NICK, LOGIN_ST,PROFILE_IMG
+		SELECT MEMBER_NO, MEMBER_EMAIL, MEMBER_NICK, LOGIN_ST,PROFILE_IMG, MANAGER
 		FROM MEMBER_S
 		WHERE MEMBER_EMAIL = #{memberEmail}
 		AND SECESSION_FL = 'N'
@@ -92,13 +93,13 @@
 	
 	<!-- 구글, 카카오 첫 로그인 시 DB 삽입 -->
 	<insert id="googleKakaoInsert">
-		INSERT INTO MEMBER_S(MEMBER_NO, MEMBER_NICK, MEMBER_EMAIL,MEMBER_PW , SECESSION_FL, LOGIN_ST) VALUES
-		(SEQ_MEMBER_NO_S.NEXTVAL, #{memberNickname}, #{memberEmail}, #{memberPw} , DEFAULT, 'Y')
+		INSERT INTO MEMBER_S(MEMBER_NO, MEMBER_NICK,PROFILE_IMG, MEMBER_EMAIL,MEMBER_PW , SECESSION_FL, LOGIN_ST, MANAGER) VALUES
+		(SEQ_MEMBER_NO_S.NEXTVAL, #{memberNickname}, NULL, #{memberEmail}, #{memberPw} , DEFAULT, 'Y', DEFAULT)
 	</insert>
 	
 	<!-- 구글, 카카오 로그인 회원정보 조회 -->
 	<select id="googleKakaoLogin" parameterType="member" resultMap="member_rm">
-		SELECT MEMBER_NO, MEMBER_EMAIL, MEMBER_NICK, LOGIN_ST,PROFILE_IMG
+		SELECT MEMBER_NO, MEMBER_EMAIL, MEMBER_NICK, LOGIN_ST,PROFILE_IMG, MANAGER
 		FROM MEMBER_S
 		WHERE MEMBER_EMAIL = #{memberEmail}
 		AND SECESSION_FL = 'N'

@@ -28,21 +28,37 @@ public class CampDetailDAO {
 	}
 
 
-	//예약정보 삽입
-	public int reservationInfo(Reservation reservation) {
-		return sqlSession.insert("campDetailMapper.reservationInfo", reservation);
+	//예약정보 삽입(무통장 입금)
+	public int reservationInfoCash(Reservation reservation) {
+		return sqlSession.insert("campDetailMapper.reservationInfoCash", reservation);
+	}
+	
+	// 예약정보 삽입(카드결제)
+	public int reservationInfoCard(Reservation reservation) {
+		
+		return sqlSession.insert("campDetailMapper.reservationInfoCard", reservation);
 	}
 
 	//예약 조회
 	public List<Reservation> reservationSelect(int memberNo) {
 		return sqlSession.selectList("campDetailMapper.reservationSelect",memberNo);
 	}
+	// 관리자용 예약 조회
+	public List<Reservation> AllreservationSelect(){
+		return sqlSession.selectList("campDetailMapper.AllreservationSelect");
+	}
 
 	//예약취소
 	public int reservationState(int reservNo) {
 		return sqlSession.update("campDetailMapper.reservationState", reservNo);
 	}
-
+	
+	// 매니저용 예약확정
+	public int reservationConfirm(int reservNo) {
+		
+		return sqlSession.update("campDetailMapper.reservationConfirm", reservNo);
+	}
+	
 	// 리뷰 목록 조회
 	public List<Review> selectReplyList(int campNo) {
 		return sqlSession.selectList("campDetailMapper.selectReplyList", campNo);

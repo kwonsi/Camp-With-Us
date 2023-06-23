@@ -67,10 +67,26 @@
                     </div>
                 </div>
             </div>
+            
+            <div class="PayMethod">
+                <h3>결제 방식</h3>
+                    <div class="methodSelect">
+                    <div class="cashMethod">
+                        <label for="cash">무통장 입금</label>
+                        <input type="checkbox" name="paymethod" id="cash" value="cash">
+                    </div>
+                    <div class="cardMethod">
+                        <label for="card">카드 결제</label>
+                        <input type="checkbox" name="paymethod" id="card" value="card">
+                    </div>
+                </div>
+            </div>
         </div>
+        
         <div class="price">
             결제할 금액&nbsp;:&nbsp;<input type="text" id="price2" class="price2" readonly>
         </div>
+        
         <div class="buttons">
         <button type="button" class="btn btn-lg btn-primary" onclick="requestPay()">결제하기</button>
         <button type="button" class="btn btn-lg btn-primary" onclick="historyBack()">돌아가기</button>
@@ -80,6 +96,24 @@
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
     <script>
+    
+    const checkboxes = document.querySelectorAll('input[name="paymethod"]');
+    let checkedValue;
+checkboxes.forEach(checkbox => {
+  checkbox.addEventListener('change', function() {
+    if (this.checked) {
+      checkboxes.forEach(otherCheckbox => {
+        if (otherCheckbox !== this) {
+          otherCheckbox.checked = false;
+        }
+      });
+    
+        checkedValue = this.value;
+        
+    }
+  });
+});
+
 let priceValue
 let price = JSON.parse(localStorage.getItem("totalPrice"));
 let priceFormat = price.toLocaleString();   // 000,000 원 형식주기.
@@ -123,9 +157,48 @@ var memberEmail = document.querySelector(".email").value;
 var memberNo = "${loginMember.memberNo}";
 var memberTel = document.querySelector(".tel").value;
 
-        function requestPay() {
-            console.log("requestPay함수 실행");
-            
+function requestPay() {
+    
+    console.log("requestPay함수 실행");
+        if(checkedValue === "cash"){
+            console.log("성공");
+                let cf = window.confirm("정말로 예약을 진행하시겠습니까?"+
+                                    "무통장 입금의 경우 입금 확인 후 예악이 확정됩니다.");
+                if(cf){
+                let selectDate = document.querySelector(".datePick").textContent;
+                let people = JSON.parse(localStorage.getItem("totalPeople"))
+                 $.ajax({
+                    url: "reservationInfoCash", 
+                    type: "POST",
+                    data: { "campingName" : campName,
+                            "reservSelDate" : selectDate,
+                            "buyerName" : name,
+                            "amount" : priceValue,
+                            "people" : people,
+                            "memberNo" : memberNo },
+
+                    success: function(result) {
+                       console.log(campName, selectDate, name, priceValue, people,memberNo)
+                        if(result > 0) {
+                            console.log("예약정보 전송완료");
+                            // window.location.href = '${contextPath}/member/myPage/myReservation';
+                            window.location.href = '${contextPath}/reservationComplete';
+                            localStorage.clear();
+
+                        }else {
+                            console.log("예약정보 전송실패");
+                            console.log(result);
+                        }
+
+                    },
+                    error: function(request, status, error) {
+                        console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error )
+                        console.log("예약정보전송 ajax 에러발생");
+                    }
+                }); //무통장 입금인경우
+                }
+        }else if(checkedValue === "card"){
+                
                 var IMP = window.IMP;
                 IMP.init("imp66352643");
                 IMP.request_pay({
@@ -150,7 +223,7 @@ var memberTel = document.querySelector(".tel").value;
                   let selectDate = document.querySelector(".datePick").textContent;
                   let people = JSON.parse(localStorage.getItem("totalPeople"))
                  $.ajax({
-                    url: "reservationInfo", 
+                    url: "reservationInfoCard", 
                     type: "POST",
                     data: { "campingName" : campName,
                             "reservSelDate" : selectDate,
@@ -183,8 +256,14 @@ var memberTel = document.querySelector(".tel").value;
                 console.log("실패");
                 alert("결제가 취소되었습니다.");
               }
+          
             });
+        
+        }
+            
 }
+
+
 function historyBack(){
     history.back();
 }
