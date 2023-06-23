@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 
 <c:set var="reservationList" value="${reservationList}" />
@@ -75,7 +76,8 @@
                                         <td>${reservation.buyerName}</td>
                                         <td>${reservation.reservDate}</td>
                                         <td>${reservation.people}</td>
-                                        <td>${reservation.amount}</td>
+                                       
+                                        <td><fmt:formatNumber value="${reservation.amount}" pattern="###,###" /></td>
                                         <td>${reservation.reservSelDate}</td>
                                         <c:choose>
                                             <c:when test="${reservation.reservSt == '89'}">

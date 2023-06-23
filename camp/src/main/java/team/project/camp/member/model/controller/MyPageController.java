@@ -247,7 +247,6 @@ public class MyPageController {
 								RedirectAttributes ra) throws IOException {
 
 		// 경로 작성하기
-
 		// 1) 웹 접근 경로 ( /comm/resources/images/memberProfile/ )
 		String webPath = "/resources/images/memberProfile/";
 

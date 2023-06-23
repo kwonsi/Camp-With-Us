@@ -75,14 +75,14 @@
 	<!-- 네이버 회원정보 저장 -->
 	<insert id="naverLoginInsert" parameterType="member">
 		INSERT INTO MEMBER_S VALUES 
-		(SEQ_MEMBER_NO_S.NEXTVAL, #{memberEmail}, '$2a$10$0oaFGldTT5UWgnrUCkevUeuMMKmoBZWd//0nzW3mocXLaw728IXjO' ,
+		(SEQ_MEMBER_NO_S.NEXTVAL, #{memberEmail}, #{memberPw} ,
 			#{memberNickname}, #{memberTel}, NULL,
 			DEFAULT, DEFAULT, DEFAULT , 'Y')	
 	</insert>
 	
 	<!-- 네이버 로그인 회원정보 조회 -->
 	<select id="naverMember" parameterType="member" resultMap="member_rm">
-		SELECT MEMBER_NO, MEMBER_EMAIL, MEMBER_NICK, LOGIN_ST
+		SELECT MEMBER_NO, MEMBER_EMAIL, MEMBER_NICK, LOGIN_ST,PROFILE_IMG
 		FROM MEMBER_S
 		WHERE MEMBER_EMAIL = #{memberEmail}
 		AND SECESSION_FL = 'N'
@@ -96,12 +96,12 @@
 	<!-- 구글, 카카오 첫 로그인 시 DB 삽입 -->
 	<insert id="googleKakaoInsert">
 		INSERT INTO MEMBER_S(MEMBER_NO, MEMBER_NICK, MEMBER_EMAIL,MEMBER_PW , SECESSION_FL, LOGIN_ST) VALUES
-		(SEQ_MEMBER_NO_S.NEXTVAL, #{memberNickname}, #{memberEmail},'$2a$10$0oaFGldTT5UWgnrUCkevUeuMMKmoBZWd//0nzW3mocXLaw728IXjO' , DEFAULT, 'Y')
+		(SEQ_MEMBER_NO_S.NEXTVAL, #{memberNickname}, #{memberEmail},#{memberPw} , DEFAULT, 'Y')
 	</insert>
 	
 	<!-- 구글, 카카오 로그인 회원정보 조회 -->
 	<select id="googleKakaoLogin" parameterType="member" resultMap="member_rm">
-		SELECT MEMBER_NO, MEMBER_EMAIL, MEMBER_NICK, LOGIN_ST
+		SELECT MEMBER_NO, MEMBER_EMAIL, MEMBER_NICK, LOGIN_ST,PROFILE_IMG
 		FROM MEMBER_S
 		WHERE MEMBER_EMAIL = #{memberEmail}
 		AND SECESSION_FL = 'N'

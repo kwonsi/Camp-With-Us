@@ -178,22 +178,6 @@ a{
     cursor: pointer;
 }
 .info{
-<<<<<<< HEAD
-<<<<<<< HEAD
-    width: 98%;
-=======
-    width: 100%;
->>>>>>> 5a179c426abfb13dca7e8699b90596c8c667b9ab
-    height: 600px;
-    border: 1px solid black;
-    display: flex;
-    flex-wrap: nowrap;
-    margin-top: 50px;
-<<<<<<< HEAD
-=======
-    justify-content: center;
->>>>>>> 5a179c426abfb13dca7e8699b90596c8c667b9ab
-=======
     
     z-index: 99;
     width: 90%;
@@ -209,13 +193,14 @@ a{
     -ms-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
     -o-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.999), 0 6px 6px rgb(0, 0, 0);
->>>>>>> aafb601723d8e9299f5e2f0acf1205c880aef685
     /* justify-content: space-between; */
     /* opacity: 0.5; */
     border-radius: 15px;
     background-color: #ffffff;
     background-color: rgba(0, 0, 0, 0.6);
 }
+
+
 .SELECTDATE{
     width: 90%;
     height: 170px;

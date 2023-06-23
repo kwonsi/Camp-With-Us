@@ -7,6 +7,11 @@
     margin-left: 0px;
     display: flex;
 }
+section.myPage-main > .reply-list-area > #reply-list > li {
+  margin-left: 15px;
+  margin-right: 15px;
+
+}
 
 .campwithus{
   padding-top: 15px;
@@ -57,7 +62,7 @@
   line-height: 9mm;
   margin-bottom: 20px;
 }
-.secessionContent > h2 {
+.secessionContent > h3 {
   text-decoration: underline;
 }
 
@@ -158,7 +163,7 @@
 .myPage-row > label{
     width: 200px;
     color : black;
-    font-size: 22px;
+    font-size: 20px;
 }
 
 .myPage-row > #secessionPw {

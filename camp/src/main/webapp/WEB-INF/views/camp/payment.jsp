@@ -86,6 +86,8 @@
 
     <script>
 let priceValue
+let price = JSON.parse(localStorage.getItem("totalPrice"));
+let priceFormat = price.toLocaleString();   // 000,000 원 형식주기.
         function datePicker(){
             let Picker = localStorage.getItem('datePicker');
             let parsedPicker = JSON.parse(Picker);
@@ -99,9 +101,8 @@ let priceValue
             const datepick = document.querySelector(".datePick")
             datepick.innerHTML = concatenatedValue;
 
-            let price = JSON.parse(localStorage.getItem("totalPrice"));
             const price2 = document.querySelector(".price2");
-            price2.value = price + " 원";
+            price2.value = priceFormat + " 원";
             priceValue = price;
 
             let totalPeopleValue = JSON.parse(localStorage.getItem("totalPeopleValue"))
