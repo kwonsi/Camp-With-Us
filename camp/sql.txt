@@ -324,5 +324,9 @@ ALTER TABLE REPLY_C ADD "CAMP_NAME" VARCHAR(100);
 
 
 
+------------------------------------ 관리자 컬럼 , 결제방식 ( 카드,계좌이체 ) 추가 . ------------ MEMBER_S. MANAGER = 'Y'  로 바꾸셔야 관리자입니다.
+ALTER TABLE RESERVATION ADD PAYMETHOD VARCHAR2(50);      
+ALTER TABLE MEMBER_S ADD MANAGER CHAR(1) DEFAULT 'N';
+
 
 

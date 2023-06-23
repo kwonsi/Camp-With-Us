@@ -238,13 +238,13 @@ addReply.addEventListener("click", function(){ // 리뷰 등록 버튼이 클릭
             campRate = Number(reviewStar[i].value);
             console.log(campRate);
         }
-
-        if(campRate == null || campRate == 0) {
-            alert("별점을 선택해주세요.");
-            return;
-        }
     }
 
+    if(campRate == null || campRate == 0) {
+        alert("별점을 선택해주세요.");
+        return;
+    }
+    
     // 3) AJAX를 이용해서 리뷰 내용 DB에 저장(INSERT)
     $.ajax({
         url : contextPath + "/review/insert",

@@ -108,7 +108,6 @@
 
                                         </c:when>
 
-
                                         <c:when test="${!empty AllreservationList}">
 
                                             <c:forEach var="Allreservation" items="${AllreservationList}">
@@ -120,9 +119,6 @@
                                                     <td>${Allreservation.people}</td>
                                                     <td>${Allreservation.amount}</td>
                                                     <td>${Allreservation.reservSelDate}</td>
-                                                    <td>
-                                                        <c:out value="${loginMember.manager}" />
-                                                    </td>
                                                     <c:choose>
 
                                                         <c:when test="${Allreservation.reservSt == '87'}">
@@ -139,6 +135,7 @@
                                                         </c:when>
                                                         <c:when test="${Allreservation.reservSt == '78'}">
                                                             <td style="color: red;">취소</td>
+                                                            <td></td>
                                                         </c:when>
                                                     </c:choose>
                                                 </tr>
