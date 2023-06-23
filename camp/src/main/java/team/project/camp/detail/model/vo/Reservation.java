@@ -24,4 +24,5 @@ public class Reservation {
 	private char reservSt;
 	private String month;
 	private int memberNo;
+	private String paymethod;
 }

@@ -31,7 +31,7 @@
         <video muted autoplay loop>
             <source src="${contextPath}/resources/images/fire.mp4" type="video/mp4">
           </video>
-        <form class="formsize" action="payment/${campName}" method="post">            
+        <form class="formsize" action="payment/${campName}" method="post" onsubmit="return test()">            
             <div id="detailMainReserv">
                 <div id="sub_title_wrapReserv">
                     <h1>
@@ -226,6 +226,38 @@
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
     </div>
 <script>
+
+
+
+function test (){
+               var memberTel = document.getElementById("memberTel");
+               var dayBetween = document.getElementsByClassName("dayBetween")[0];
+               var childSelect = document.getElementsByClassName("childSelect")[0];
+               var adultSelect = document.getElementsByClassName("adultSelect")[0];
+
+               const regExp = /^0(1[01679]|2|[3-6][1-5]|70)\d{3,4}\d{4}$/;
+               
+
+               if ( memberTel.value == null || memberTel.value == "" || !regExp.test(memberTel.value) ){
+                alert("전화번호를 확인하세요");
+                return false;
+                }
+                if (dayBetween.textContent == null || dayBetween.textContent == "" ){
+                    alert("날짜를 지정하세요");
+                    return false;
+                }
+                if ( (childSelect.value== null || childSelect.value== "" ||childSelect.value== 0 ) && 
+                (adultSelect.value== null || adultSelect.value== "" ||adultSelect.value== 0 )
+                ){
+                    alert("인원수를 체크하세요");
+                    return false;
+                }
+                return true;
+
+            }
+            
+
+
 function sample4_execDaumPostcode() {
     new daum.Postcode({
         oncomplete: function(data) {

@@ -25,7 +25,7 @@ h1{
 }
 .paymentInfo{
     width: 600px;
-    height: 850px;
+    height: 900px;
     border: none;
     margin: auto;
     margin-top: 120px;
@@ -75,7 +75,7 @@ input#address, #postcode, #detailAddress{
 }
 .reverPeople{
    text-align: center;
-   margin-top: 40px;
+   margin-top: 20px;
    z-index: 99;
 }
 .peopleSum{
@@ -133,3 +133,34 @@ input#address, #postcode, #detailAddress{
     z-index: -99;
     
   }
+  .PayMethod{
+    width: 500px;
+    height: 100px;
+    text-align: center;
+    margin: auto;
+
+}
+.methodSelect{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 20px;
+    
+}
+  #cash, #card{
+    width: 20px;
+    height: 20px;
+    margin: 0;
+  }
+.pay{
+    margin: auto;
+    font-size: 14px;
+}
+.cashMethod{
+    padding: 0 20px 0 20px; 
+    font-size: 20px;
+}
+.cardMethod{
+    padding: 0 20px 0 20px;
+    font-size: 20px;
+}

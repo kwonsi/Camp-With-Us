@@ -1,8 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 
-
+<c:set var="combinedCondition" value="${empty reservationList && empty AllreservationList}" />
 <c:set var="reservationList" value="${reservationList}" />
+<c:set var="AllreservationList" value="${AllreservationList}" />
+<c:set var="MANAGER" value="${loginMember.manager}"/>
+<c:set var="paymethod_Cash" value="${Allreservation.paymethod == 'cash'}"/>
+<!-- 현재 c:set으로는 paymethod가 나오지 않아 false반환중 -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -28,13 +32,12 @@
         <jsp:include page="/WEB-INF/views/mypage/sideMenu.jsp"/>
 
         <section class="myPage-main">
-
             <h1 class="myPage-title">예약 확인</h1>
             
             <span class="myPage-explanation">현재 회원님의 예약 정보를 확인할 수 있습니다.</span>
 
             <div class="list-wrapper">
-                <table class="list-table">
+                <table class="list-table table table-hover">
                     
                     <thead>
                         <tr>
@@ -53,14 +56,9 @@
                     <tbody>
 
                         <c:choose>
-                            <c:when test="${empty reservationList}">
-                                <!-- 게시글 목록 조회 결과가 비어있다면 -->
-                                <tr>
-                                    <th colspan="6">예약 내역이 존재하지 않습니다.</th>
-                                </tr>
-                            </c:when>
+                            
 
-                            <c:otherwise>
+                            <c:when test="${!empty reservationList}">
                                 <!-- 게시글 목록 조회 결과가 비어있지 않다면 -->
 
                                 <!-- 향상된 for문처럼 사용 -->
@@ -73,22 +71,64 @@
                                         <td>${reservation.people}</td>
                                         <td>${reservation.amount}</td>
                                         <td>${reservation.reservSelDate}</td>
+                                        
                                         <c:choose>
+                                            <c:when test="${reservation.reservSt == '87'}">
+                                                <td style="color: green;">예약대기</td>
+                                                <td><button type="button" onclick="reservCancel('${reservation.reservNo}')">예약취소</button></td>
+                                            </c:when>
                                             <c:when test="${reservation.reservSt == '89'}">
                                                 <td style="color: blue;">예약</td>
                                                 <td><button type="button" onclick="reservCancel('${reservation.reservNo}')">예약취소</button></td>
                                             </c:when>
-                                            <c:otherwise>
+                                            <c:when test="${reservation.reservSt == '78'}">
                                                 <td style="color: red;">취소</td>
                                                 <td></td>
-                                            </c:otherwise>
+                                            </c:when>
                                         </c:choose>
                                     </tr>
 
                                 </c:forEach>
 
-                            </c:otherwise>
+                            </c:when>
                             
+                            
+                            <c:when test="${!empty AllreservationList}">
+                            
+                                <c:forEach var="Allreservation" items="${AllreservationList}">
+                                    <tr>
+                                        <td>${Allreservation.reservNo}</td>
+                                        <td>${Allreservation.campingName}</td>
+                                        <td>${Allreservation.buyerName}</td>
+                                        <td>${Allreservation.reservDate}</td>
+                                        <td>${Allreservation.people}</td>
+                                        <td>${Allreservation.amount}</td>
+                                        <td>${Allreservation.reservSelDate}</td>
+                                        <c:choose>
+                                            
+                                            <c:when test="${Allreservation.reservSt == '87'}">
+                                                <td style="color: green;">예약대기</td>
+                                                <td><button type="button" onclick="reservConfirm('${Allreservation.reservNo}')">예약확정</button></td>
+                                            </c:when>
+                                            <c:when test="${Allreservation.reservSt == '89'}">
+                                                <td style="color: blue;">예약</td>
+                                                <td><button type="button" onclick="reservCancel('${Allreservation.reservNo}')">예약취소</button></td>
+                                            </c:when>
+                                            <c:when test="${Allreservation.reservSt == '78'}">
+                                                <td style="color: red;">취소</td>
+                                            </c:when>
+                                        </c:choose>
+                                    </tr>
+
+                                </c:forEach>
+                        
+                            </c:when>
+                            <c:when test="${combinedCondition}">
+                                <!-- 게시글 목록 조회 결과가 비어있다면 -->
+                                <tr>
+                                    <th colspan="6">예약 내역이 존재하지 않습니다.</th>
+                                </tr>
+                            </c:when>
 
                         </c:choose>
 
@@ -98,7 +138,7 @@
             </div>
 
         </section>
-
+ 
     </main>
 
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />

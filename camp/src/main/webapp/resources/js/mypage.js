@@ -238,4 +238,39 @@ function reservCancel(reservNo) {
                             
 }
 
+// 예약 확정
+function reservConfirm(reservNo){
 
+    console.log("예약번호 : " + reservNo);
+    console.log("예약취소(reservCancel) 함수 실행");
+
+    let cf = window.confirm("예약을 확정하겠습니까?");
+
+    if(cf) {
+
+        $.ajax({
+            url: "reservationConfirm", 
+            type: "POST",
+            data: {"reservNo" : reservNo},
+        
+            success: function(result) {
+               
+                if(result > 0) {
+                    console.log("예약확정완료");
+                    alert("예약이 확정되었습니다..");
+                    location.reload();
+                }else {
+                    console.log("예약확정 실패");
+                    alert("예약 확정에 실패하였습니다.");
+                }
+            },
+            error: function() {
+                console.log("예약취소 ajax 에러발생");
+            }
+        });
+        
+        
+    } else {
+        console.log("예약취소 기능 취소");
+    }
+}

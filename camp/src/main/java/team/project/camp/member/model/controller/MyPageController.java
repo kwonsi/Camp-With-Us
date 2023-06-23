@@ -57,16 +57,26 @@ public class MyPageController {
 				@ModelAttribute("loginMember") Member loginMember ,
 				RedirectAttributes ra
 			) {
-
-		if ( loginMember != null ) {   // 로그인이 됐을때. 목록뽑기  .
+			String Manager = loginMember.getManager();
+		if ( loginMember != null && Manager.equals("N")) {   // 로그인이 됐을때. 목록뽑기  .
 			int memberNo = loginMember.getMemberNo();
 			List<Reservation> reservationList = service.reservationSelect(memberNo);
-
-		model.addAttribute("reservationList", reservationList);
+			
+			model.addAttribute("reservationList", reservationList);
 
 		return "mypage/myReservation";
 
-		}else { 		// 로그인이 안됐을때 .
+		}else if(loginMember != null && Manager.equals("Y")){
+			
+			List<Reservation> AllreservationList = service.AllreservationSelect();
+			System.out.println(AllreservationList);
+			model.addAttribute("AllreservationList", AllreservationList);
+		
+		return "mypage/myReservation";
+			
+		} 
+		
+		else { 		// 로그인이 안됐을때 .
 
 			ra.addFlashAttribute("message","로그인을 해주세요. ");
 			return "redirect:/";
@@ -126,6 +136,19 @@ public class MyPageController {
 		int result = service.reservationState(reservNo);
 
 		return result;
+	}
+	
+	//매니저용 예약확정
+	@ResponseBody
+	@PostMapping("/reservationConfirm")
+	public int reservationConfirm(int reservNo) {
+		
+		System.out.println("예약확정할 예약번호 : " + reservNo);
+		
+		int result = service.reservationConfirm(reservNo);
+		
+		return result;
+		
 	}
 
 	// 회원 정보 수정

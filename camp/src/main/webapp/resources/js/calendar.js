@@ -110,7 +110,7 @@ function initCalendar(){
             } else if(count == 1) {
                 selectMonth[1].value = (month+1);
                 selectDay[1].value = e.target.innerText;
-                if(selectDay[0].value > selectDay[1].value){
+                if(Number(selectDay[0].value) > Number(selectDay[1].value)){
                     alert("올바른 날짜를 입력해 주세요.")
                     
                     count == 0;

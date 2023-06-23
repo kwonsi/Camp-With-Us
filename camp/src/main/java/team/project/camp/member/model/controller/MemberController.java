@@ -221,7 +221,7 @@ public class MemberController {
 						, @RequestParam(value="saveId", required = false) String saveId ) {
 
 		logger.info("로그인 기능 수행됨");
-
+		
 
 		// 아이디, 비밀번호가 일치하는 회원 정보를 조회하는 Service 호출 후 결과 반환 받기
 		Member loginMember = service.login(inputMember);
@@ -229,7 +229,9 @@ public class MemberController {
 
 		if(loginMember != null) { // 로그인 성공 시
 			model.addAttribute("loginMember", loginMember); // == req.setAttribute("loginMember", loginMember);
-
+			
+			String manage = loginMember.getManager();
+			logger.info(manage);
 			String prevPage = (String) req.getSession().getAttribute("prevPage");
 			 
 	        if (prevPage != null) {
