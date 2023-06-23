@@ -14,21 +14,8 @@
 
         <link rel="stylesheet" href="${contextPath}/resources/css/login.css">
         <link rel="stylesheet" href="${contextPath}/resources/css/boxicons.css">
-<<<<<<< HEAD
-<<<<<<< HEAD
-        <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap-icons.css">
-=======
-<!--         <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap-icons.css"> -->
->>>>>>> 5a179c426abfb13dca7e8699b90596c8c667b9ab
-=======
-<!--         <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap-icons.css"> -->
->>>>>>> aafb601723d8e9299f5e2f0acf1205c880aef685
-        
-<!--         <link rel="stylesheet" href="${contextPath}/resources/css/main-bootstrap.css">
-        <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap-icons.css">
-        <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap_main_header.css"> -->
-        <!-- <link rel="stylesheet" href="${contextPath}/resources/css/signUpPage.css"> -->
 
+        <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap-icons.css">
     </head>
 
     <body>
@@ -44,7 +31,10 @@
             <div class="signUp-content bg-light px-md-5">
 
 
-                <div class="mb-5">                    
+                <div class="mb-5"> 
+                    <div class="logo">
+                        <a href="${contextPath}"><img src="${contextPath}/resources/images/CWUlogo2.png" id="home-logo"></a>
+                    </div>                   
                     <h1 class="fw-bolder">LOGIN</h1>
                 </div>
 
