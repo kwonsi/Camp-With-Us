@@ -13,7 +13,10 @@
     <link rel="stylesheet" href="${contextPath}/resources/css/boxicons.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/main.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/boardWriteForm-style.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap-icons.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap_main_header.css">
+
+
     <script src="https://kit.fontawesome.com/a2e8ca0ae3.js" crossorigin="anonymous"></script>
 
 
@@ -21,6 +24,9 @@
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/summernote/summernote-lite.css">	
 
+
+    <c:set var="boardCode" value="${boardCode}" />
+    <c:set var="cp" value="${cp}" />
 
 </head>
 <body>
@@ -65,15 +71,9 @@
                 </c:choose>
             </c:forEach>
 
-
-
-            
-            
-
             
             <!-- 썸네일 -->
-            <h5>썸네일</h5>
-            <div class="img-box">
+            <!-- <div class="img-box">
                 <div class="boardImg thumbnail">
                     <label for="img0">
                         <img class="preview" src="${img0}">
@@ -81,11 +81,10 @@
                     <input type="file" class="inputImage" id="img0" name="images" accept="image/*">
                     <span class="delete-image">&times;</span>
                 </div>
-            </div>
+            </div> -->
 
             <!-- 업로드 이미지 -->
-            <h5>업로드 이미지</h5>
-            <div class="img-box">
+            <!-- <div class="img-box">
 
                 <div class="boardImg">
                     <label for="img1">
@@ -118,8 +117,7 @@
                     <input type="file" class="inputImage" id="img4" name="images" accept="image/*">
                     <span class="delete-image">&times;</span>
                 </div>
-            
-            </div>
+            </div> -->
 
             <!-- 내용 -->
             <div class="container board-content">
@@ -134,15 +132,13 @@
                 <div id="att_zone"
                   data-placeholder="사진을 첨부 하려면 파일 선택 버튼을 클릭하거나 파일을 드래그앤드롭 하세요"></div>
             </div> -->
-            <div class="img-box" id="image_preview">
+            <!-- <div class="img-box" id="image_preview">
                 <button id="btn-upload" type="button" style="border: 1px solid #ddd; outline: none; margin-bottom: 2px;">파일 선택</button>
                 <input type="file" id="btnAtt" multiple="multiple" name="images" style="display:none;" />
                 <div id="att_zone"
                   data-placeholder="사진을 첨부 하려면 파일 선택 버튼을 클릭하거나 파일을 드래그앤드롭 하세요"></div>
-            </div>
+            </div> -->
 
-           
-            
 
             <!-- 버튼 영역 -->
             <div class="board-btn-area">
@@ -158,7 +154,6 @@
                     <button type="button" onclick="location.href='${header.referer}'">이전으로</button>                           
                 </c:if>
 
-
             </div>
 
 
@@ -171,19 +166,23 @@
             
             <!-- 현재 페이지 -->
             <input type="hidden" name="cp" value="${param.cp}">
+
+            <!-- summernote 이미지 경로 받아오기-->
+            <input type="hidden" name="imgPath" value="${param.imgPath}">
             
             <!-- 존재하던 이미지가 제거되었음을 기록하여 전달하는 input -->
             <!-- value에 제거된 이미지의 레벨을 기록 (X버튼 클릭 시)-->
             <!-- DELETE FROM BOARD_IMG 
                  WHERE BOARD_NO = 1000 
                  AND IMG_LEVEL IN (0,3,1,2) -->
-            <input type="hidden" name="deleteList" id="deleteList" value="">
+            <!-- <input type="hidden" name="deleteList" id="deleteList" value=""> -->
 
         </form>
 
         
     </main>
 
+        <!-- <script src="http://code.jquery.com/jquery-3.5.1.min.js"></script> -->
 
         <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 
@@ -194,6 +193,8 @@
 
         <script>
             const boardCode = "${boardCode}"; // 게시판코드를 전역변수로 생성해주기
+            const cp = "${cp}";
+            const contextPath = "${contextPath}";
         </script>
     
      

@@ -21,7 +21,11 @@
 
     <jsp:include page="/WEB-INF/views/common/header.jsp" />
     <main>
-       
+        <div class="wrap-loading display-none">
+
+            <div><img src="${contextPath}/resources/images/loading.gif" class="loading"/></div>
+        
+        </div>    
 
         <div class="search">
 
@@ -101,7 +105,7 @@
 
 
            <div id="pagination" class="pagination">
-          </div>
+           </div>
         </div>
     
     </main>
@@ -118,6 +122,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="${contextPath}/resources/js/main.js"></script>
     <script src="${contextPath}/resources/js/campList.js"></script>
+    <script src="${contextPath}/resources/js/common.js"></script>
 </body>
 
 </html>

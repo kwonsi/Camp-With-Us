@@ -13,12 +13,21 @@
     <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap1.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/main.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/paymentInfo.css">
+
+    <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap_main_header.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/boxicons.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap-icons.css">
+
     <script src="https://kit.fontawesome.com/a2e8ca0ae3.js" crossorigin="anonymous"></script>
 </head>
 <body>
     
     <jsp:include page="/WEB-INF/views/common/header.jsp" />
-
+    <div class="video-container">
+        <video muted autoplay loop>
+            <source src="${contextPath}/resources/images/nature.mp4" type="video/mp4">
+        </video>
+    </div>
     <form class="payment">
         <div class="paymentInfo">
             <h1>예약 정보</h1>
@@ -65,7 +74,7 @@
             </div>
         </div>
         <div class="price">
-            결제할 금액&nbsp;:&nbsp;<input type="text" id="price2" class="price2">
+            결제할 금액&nbsp;:&nbsp;<input type="text" id="price2" class="price2" readonly>
         </div>
         <div class="buttons">
         <button type="button" class="btn btn-lg btn-primary" onclick="requestPay()">결제하기</button>

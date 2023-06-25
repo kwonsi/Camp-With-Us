@@ -28,13 +28,15 @@
         <jsp:include page="/WEB-INF/views/mypage/sideMenu.jsp"/>
 
         <section class="myPage-main">
-
+            <div class = "myPageHeadFlex">
+                <div class = "myPageHead">
             <h1 class="myPage-title">예약 확인</h1>
             
             <span class="myPage-explanation">현재 회원님의 예약 정보를 확인할 수 있습니다.</span>
-
+        </div>
+    </div>
             <div class="list-wrapper">
-                <table class="list-table">
+                <table class="list-table table table-hover">
                     
                     <thead>
                         <tr>
@@ -56,7 +58,7 @@
                             <c:when test="${empty reservationList}">
                                 <!-- 게시글 목록 조회 결과가 비어있다면 -->
                                 <tr>
-                                    <th colspan="6">예약 내역이 존재하지 않습니다.</th>
+                                    <th colspan="8">예약 내역이 존재하지 않습니다.</th>
                                 </tr>
                             </c:when>
 
@@ -67,7 +69,9 @@
                                 <c:forEach var="reservation" items="${reservationList}">
                                     <tr>
                                         <td>${reservation.reservNo}</td>
-                                        <td>${reservation.campingName}</td>
+                                        
+                                        <td><a href="${contextPath}/campList/detailList?campName=${reservation.campingName}&viewType=1">${reservation.campingName}</a></td>
+                                        
                                         <td>${reservation.buyerName}</td>
                                         <td>${reservation.reservDate}</td>
                                         <td>${reservation.people}</td>
@@ -76,7 +80,7 @@
                                         <c:choose>
                                             <c:when test="${reservation.reservSt == '89'}">
                                                 <td style="color: blue;">예약</td>
-                                                <td><button type="button" onclick="reservCancel('${reservation.reservNo}')">예약취소</button></td>
+                                                <td><button type="button" id = "reserveBtn" onclick="reservCancel('${reservation.reservNo}')">예약취소</button></td>
                                             </c:when>
                                             <c:otherwise>
                                                 <td style="color: red;">취소</td>

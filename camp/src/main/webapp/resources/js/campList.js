@@ -91,7 +91,7 @@ selectCampBtn.addEventListener("click", function () {
       pageNo: 1,
       MobileOS: "ETC",
       MobileApp: "AppTest",
-      serviceKey: "I9du70n72b4HG+Y4EFuyTYoNlJ3tOZycxGZluxxxoKxLFP4nPc5cjB4iha+XbuTyZ2Krp2X/cqRs22JpoB3dnw==",
+      serviceKey: "4k7REi0gs6TKyjakIRV6zHIg3a1NcXwJPRTezijLCYvx0leNrqvtRwayHuc1AslN9pksU9rGRorGGOTZwMEu9Q==",
       _type: "json"
     },
     dataType: "json",
@@ -161,6 +161,7 @@ selectCampBtn.addEventListener("click", function () {
         }); 
 
         console.log("캠핑장수 : " + filteredItems.length);
+        console.log("필터링" + filteredItems);
 
         if ( searchVal2.value==""){
           campResult.innerHTML= "캠핑장 총 <span style='color:#22c730;'>" + filteredItems.length + "</span>개 검색 되었습니다.<hr>";
@@ -176,6 +177,8 @@ selectCampBtn.addEventListener("click", function () {
         searchBox2.innerHTML = "";
 
         paginatedItems.forEach(item => {
+          console.log("아이템" + item);
+
           var htmlCode =
             '<ul>' +
             '<li>' +
@@ -253,7 +256,15 @@ selectCampBtn.addEventListener("click", function () {
       }
       displayItems(currentPage);
     },
-    error: function (error) {
+    beforeSend:function(){
+
+    $('.wrap-loading').removeClass('display-none');
+
+  }
+  ,complete:function(){
+    $('.wrap-loading').addClass('display-none');
+}
+    ,error: function (error) {
       console.log("API 호출 실패");
       console.log(error);
     }
@@ -300,7 +311,7 @@ window.onload = function() {
       pageNo: 1,
       MobileOS: "ETC",
       MobileApp: "AppTest",
-      serviceKey: "I9du70n72b4HG+Y4EFuyTYoNlJ3tOZycxGZluxxxoKxLFP4nPc5cjB4iha+XbuTyZ2Krp2X/cqRs22JpoB3dnw==",
+      serviceKey: "4k7REi0gs6TKyjakIRV6zHIg3a1NcXwJPRTezijLCYvx0leNrqvtRwayHuc1AslN9pksU9rGRorGGOTZwMEu9Q==",
       _type: "json"
     },
     dataType: "json",
@@ -308,7 +319,7 @@ window.onload = function() {
     
     success: function (result) {
       console.log("API 호출 성공");
-      console.log(result);
+      // console.log(result);
       
       var items = result.response.body.items.item;
       var searchVal2_1 = "";
@@ -369,10 +380,6 @@ window.onload = function() {
         });
 
  
-
-
-        console.log("캠핑장수 : " + filteredItems.length);
-
         if ( searchVal2.value==""){
           campResult.innerHTML= "캠핑장 총 <span style='color:#22c730;'>" + filteredItems.length + "</span>개 검색 되었습니다.<hr>";
           }else {
@@ -387,6 +394,7 @@ window.onload = function() {
 
         paginatedItems.forEach(item => {
 
+          // console.log(item);
           // 전체데이터 뽑는대신, 이미지없으면 기본이미지 넣어주기.
   /*         if ( item.firstImageUrl == "" || item.firstImageUrl==null){
             item.firstImageUrl = contextPath+"/resources/images/cloud.jpg";

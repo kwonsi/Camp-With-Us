@@ -27,11 +27,13 @@
         <jsp:include page="/WEB-INF/views/mypage/sideMenu.jsp"/>
 
         <section class="myPage-main">
-
+            <div class = "myPageHeadFlex">
+                <div class = "myPageHead">
             <h1 class="myPage-title">회원 정보 수정</h1>
             
             <span class="myPage-explanation">현재 회원님의 프로필을 변경할 수 있습니다.</span>
-            
+        </div>
+    </div>
 
             <form action="profileImage" method="POST" name="myPage-form" id="form-profileImage"
                     enctype="multipart/form-data" onsubmit="return profileValidate()">
@@ -72,12 +74,12 @@
 
                 <div class="myPage-row">
                     <label>닉네임</label>
-                    <input type="text" name="updateNickname"  id="memberNickname"  value="${loginMember.memberNickname}" maxlength="10">              
+                    <input type="text" name="updateNickname" class="form-control" id="memberNickname"  value="${loginMember.memberNickname}" maxlength="10">              
                 </div>
 
                 <div class="myPage-row">
                     <label>전화번호</label>
-                    <input type="text" name="updateTel"  id="updateTel" value="${loginMember.memberTel}" maxlength="11"/>
+                    <input type="text" name="updateTel" class="form-control" id="updateTel" value="${loginMember.memberTel}" maxlength="11"/>
                 </div>
                 
                 <c:set var="addr"  value="${fn:split(loginMember.memberAddress, ',,')}"  />                    
@@ -88,24 +90,17 @@
                 </div>
 
                 <div class="myPage-row info-address">
-                    <input type="text" name="updateAddress" id="postcode" value="${addr[0]}"  maxlength="6">
+                    <input type="text" name="updateAddress" id="postcode" value="${addr[0]}" class="form-control" maxlength="6">
 
                     <button type="button" id="info-address-btn" onclick="return execDaumPostcode()">검색</button>
                 </div>
 
                 <div class="myPage-row info-address">
-                    <input type="text" name="updateAddress" id="address" value="${addr[1]}">
+                    <input type="text" name="updateAddress" id="address" class="form-control" value="${addr[1]}">
                 </div>
                 
                 <div class="myPage-row info-address">
-                    <input type="text" name="updateAddress" id="detailAddress" value="${addr[2]}">
-                </div>
-
-
-
-                <div class="myPage-row">
-                    <label>가입일</label>
-                    <span>${loginMember.enrollDate}</span>
+                    <input type="text" name="updateAddress" id="detailAddress" class="form-control" value="${addr[2]}">
                 </div>
 
                 <button id="info-update-btn">수정하기</button>

@@ -30,6 +30,7 @@ import team.project.camp.board.model.vo.Board;
 import team.project.camp.detail.model.service.CampDetailService;
 import team.project.camp.detail.model.vo.Reservation;
 import team.project.camp.detail.model.vo.Review;
+import team.project.camp.member.model.service.MemberService;
 import team.project.camp.member.model.service.MyPageService;
 import team.project.camp.member.model.vo.Member;
 @Slf4j
@@ -45,6 +46,9 @@ public class MyPageController {
 	private MyPageService myPageService;
 
 	@Autowired
+	private MemberService memberService;
+
+	@Autowired
 	private BCryptPasswordEncoder bcrypt;
 
 	//예약조회
@@ -55,14 +59,15 @@ public class MyPageController {
 			) {
 
 		if ( loginMember != null ) {   // 로그인이 됐을때. 목록뽑기  .
+			
 			int memberNo = loginMember.getMemberNo();
 			List<Reservation> reservationList = service.reservationSelect(memberNo);
 
-		model.addAttribute("reservationList", reservationList);
+			model.addAttribute("reservationList", reservationList);
 
-		return "mypage/myReservation";
+			return "mypage/myReservation";
 
-		}else { 		// 로그인이 안됐을때 .
+		} else { 		// 로그인이 안됐을때 .
 
 			ra.addFlashAttribute("message","로그인을 해주세요. ");
 			return "redirect:/";
@@ -72,11 +77,11 @@ public class MyPageController {
 	@GetMapping("/myBoard")
 	public String myBoard(Model model,
 						  @ModelAttribute("loginMember") Member loginMember) {
-		
+
 		List<Board> boardList = myPageService.selectMyBoard(loginMember.getMemberNo());
-		
-		model.addAttribute("boardList", boardList);
-		
+
+		model.addAttribute("boardList", new Gson().toJson(boardList));
+
 		return "mypage/myBoard";
 	}
 
@@ -132,6 +137,7 @@ public class MyPageController {
 							 String[] updateAddress,
 							 RedirectAttributes ra) {
 
+		String message = null;
 
 		// 파라미터를 저장한 paramMap 에 회원 번호, 주소를 추가
 		String memberAddress = String.join(",,", updateAddress);
@@ -142,10 +148,19 @@ public class MyPageController {
 		paramMap.put("memberNo", loginMember.getMemberNo());
 		paramMap.put("memberAddress", memberAddress);
 
-		// 회원 정보 수정 서비스 호출
-		int result = myPageService.updateInfo(paramMap);
+		// 닉네임 중복 체크
+		int result = memberService.nicknameDupCheck((String)paramMap.get("updateNickname"));
 
-		String message = null;
+		// 회원 정보 수정 서비스 호출
+		if(result == 0) {
+			result = myPageService.updateInfo(paramMap);
+		} else if(result > 0) { 
+			
+			if( (loginMember.getMemberNickname()).equals((String)paramMap.get("updateNickname")) ) {
+				result = myPageService.updateInfo(paramMap);
+			} else result = -1;
+			
+		}
 
 		if(result > 0) {
 			message = "회원 정보가 수정되었습니다.";
@@ -155,9 +170,8 @@ public class MyPageController {
 			loginMember.setMemberTel( (String)paramMap.get("updateTel") );
 			loginMember.setMemberAddress( (String)paramMap.get("memberAddress") );
 
-		} else {
-			message = "회원 정보 수정 실패";
-		}
+		} else if(result == -1) message = "중복된 닉네임입니다.";
+		else message = "회원 정보 수정 실패";
 
 		ra.addFlashAttribute("message", message);
 

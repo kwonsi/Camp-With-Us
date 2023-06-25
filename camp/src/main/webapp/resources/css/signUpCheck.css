@@ -1,0 +1,95 @@
+/* body{
+    background-image: url('../images/findIdPw6.jpg'); 
+    background-size: 100% 1800px;
+} */
+.signUpCheckAll{
+    margin-top: 150px;
+    margin-bottom: 50px;
+    /* background-color: #ffff; */
+    opacity: 0.8;
+}
+.signUpCheckForm{
+    width: 900px;
+    height: auto;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    flex-direction: column;
+}
+.contentCheck{
+    width: 1000px;
+    height: 2000px;
+    border: 1px solid #212529;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+}
+.signUpCheckBox{
+    display: flex;
+    /* align-items: start; */
+    justify-content: center;
+    width: 27px;
+}
+.allsignUpCheckBox{
+    width: 27px;
+}
+.subject{
+    display: flex;
+    font-size: 22px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.logoSize{
+    width: 200px;
+    height: 130px;
+}
+.check1{
+    border: 1px solid black;
+    width: 90%;
+    height: 400px;
+    overflow: auto;
+    font-size: 20px;
+    background-color: #ffff;
+    /* margin: auto; */
+}
+
+.agreement{
+    display: flex;
+    margin-top: 15px;
+    margin-bottom: 30px;
+    font-size: 23px;
+    font-weight: bold;
+    justify-content: end;
+}
+.signUpMoveBtn{
+    margin-top: 50px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.Allagreement{
+    display: flex;
+    justify-content: center;
+    font-size: 27px;
+    font-weight: bold;
+}
+#signUpCheckBtn{
+    width: 400px;
+    height: 60px;
+    font-size: 25px;
+    border: 1px solid rgb(71, 71, 71);
+    border-radius: 0.38rem;
+    background-color: #5b5b5c;
+    color: #ffff;
+    cursor: pointer;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+#signUpCheckBtn:hover{
+    background-color: #212529;
+    border-color: black;
+    color: #23f135;
+}

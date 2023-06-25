@@ -1,6 +1,11 @@
+// 리뷰 페이지네이션
+// 내 게시글 조회 + 페이지네이션
+const replyList = document.getElementById("reply-list"); // ul태그
 
 // 리뷰 목록 조회(AJAX)
 function selectReplyList(){
+    
+
     console.log("목록 조회 ajax");
     // contextPath, boardNo, memberNo 전역 변수 사용
     $.ajax({
@@ -10,124 +15,186 @@ function selectReplyList(){
         dataType : "JSON", // JSON 형태의 문자열 응답 데이터를 JS 객체로 자동 변환
         success : function(rList){
             // rList : 반환 받은 리뷰 목록 
-            console.log(rList);
-
-            // 화면에 출력되어 있는 리뷰 목록 삭제
-            const replyList = document.getElementById("reply-list"); // ul태그
-            if ( replyList) { 
-            replyList.innerHTML = "";
-            }
-            // rList에 저장된 요소를 하나씩 접근
-            for(let reply of rList){
-
-                // 행
-                const replyRow = document.createElement("li");
-                replyRow.classList.add("reply-row");
+            
+            var currentPage = 1;
+            var itemsPerPage = 10;
+            
+            function displayItems(page) {
+                var startIndex = (page - 1) * itemsPerPage;
+                var endIndex = startIndex + itemsPerPage;
+    
+                //var reviewList = JSON.parse(rList);
+                //console.log("parse " + rList);
                 
-                // 작성자
-                const replyWriter = document.createElement("p");
-                replyWriter.classList.add("reply-writer");
-
-                // 프로필 이미지
-                const profileImage = document.createElement("img");
-
-                if( reply.profileImage != null ){ // 프로필 이미지가 있을 경우
-                    profileImage.setAttribute("src", contextPath + reply.profileImage);
-                }else{ // 없을 경우 == 기본이미지
-                    profileImage.setAttribute("src", contextPath + "/resources/images/user.png");
+                var totalPages = Math.ceil(rList.length / itemsPerPage);
+                var paginatedItems = rList.slice(startIndex, endIndex);
+                
+                // 화면에 출력되어 있는 리뷰 목록 삭제            
+                if ( replyList) { 
+                    replyList.innerHTML = "";
                 }
+
+                // rList에 저장된 요소를 하나씩 접근
+                for(let reply of paginatedItems){
     
-                // 작성자 닉네임
-                const memberNickname = document.createElement("span");
-                memberNickname.innerText = reply.memberNickname;
-                
-                // 별점 불러오기
-                //const reviewStar = document.querySelector('input[name="reviewStar"]:checked');
-                //$("input:radio[name=reviewStar][value=" + reply.campRate + "]").attr("checked", true);
-
-                // 작성일
-                const replyDate = document.createElement("span");
-                replyDate.classList.add("reply-date");
-                replyDate.innerText =  "(" + reply.createDate + ")";
-
-                const reviewListStar = document.createElement("span");
-                reviewListStar.classList.add("reviewListStar" + reply.campRate);
-                
-                
-                // for(let i=0; i<star.length; i++) {
-                //     star[i].style.color = "transparent";
-                //     star[i].style.textShadow = "0 0 0 #f0f0f0";
-                // }
-
-                if(reviewListStar.classList.contains('reviewListStar1')) {
-                    reviewListStar.innerHTML = "<span class='rate-in'>★</span>" +
-                    "<span class='rate-out'>★★★★</span>";
-                } else if(reviewListStar.classList.contains('reviewListStar2')) {
-                    reviewListStar.innerHTML = "<span class='rate-in'>★★</span>" +
-                    "<span class='rate-out'>★★★</span>";
-                } else if(reviewListStar.classList.contains('reviewListStar3')) {
-                    reviewListStar.innerHTML = "<span class='rate-in'>★★★</span>" +
-                    "<span class='rate-out'>★★</span>";
-                } else if(reviewListStar.classList.contains('reviewListStar4')) {
-                    reviewListStar.innerHTML = "<span class='rate-in'>★★★★</span>" +
-                    "<span class='rate-out'>★</span>";
-                } else if(reviewListStar.classList.contains('reviewListStar5')) {
-                    reviewListStar.innerHTML = "<span class='rate-in'>★★★★★</span>";
-                }
-                
-
-                // 작성자 영역(p)에 프로필,닉네임,작성일 마지막 자식으로(append) 추가
-                replyWriter.append(profileImage , memberNickname , replyDate, reviewListStar);
-
-                
-
-                // 리뷰 내용
-                const reviewContents = document.createElement("p");
-                reviewContents.classList.add("reply-content");
-
-                // 왜 innerHTML?  <br> 태그 인식을 위해서
-                reviewContents.innerHTML = reply.reviewContents;
-
-                // 행에 작성자, 내용 추가
-                replyRow.append(replyWriter, reviewContents);
-
-
-
-                // 로그인이 되어있는 경우 수정, 삭제 버튼 추가
-                if(loginMemberNo != ""){
-                    // 버튼 영역
-                    const replyBtnArea = document.createElement("div");
-                    replyBtnArea.classList.add("reply-btn-area");
-
-                    // 로그인한 회원번호와 리뷰 작성자의 회원번호가 같을 때만 버튼 추가
-                    if( loginMemberNo == reply.memberNo   ){
-
-                        // 수정 버튼
-                        const updateBtn = document.createElement("button");
-                        updateBtn.innerText = "수정";
-    
-                        // 수정 버튼에 onclick 이벤트 속성 추가
-                        updateBtn.setAttribute("onclick", "showUpdateReply("+reply.replyNo+", this)");                        
-    
-                        // 삭제 버튼
-                        const deleteBtn = document.createElement("button");
-                        deleteBtn.innerText = "삭제";
-                        // 삭제 버튼에 onclick 이벤트 속성 추가
-                        deleteBtn.setAttribute("onclick", "deleteReply("+reply.replyNo+")");                       
-    
-                        // 버튼 영역 마지막 자식으로 수정/삭제 버튼 추가
-                        replyBtnArea.append(updateBtn, deleteBtn);
-
-                    } // if 끝
+                    // 행
+                    const replyRow = document.createElement("li");
+                    replyRow.classList.add("reply-row");
                     
-                    // 행에 버튼영역 추가
-                    replyRow.append(replyBtnArea); 
+                    // 작성자
+                    const replyWriter = document.createElement("p");
+                    replyWriter.classList.add("reply-writer");
+    
+                    // 프로필 이미지
+                    const profileImage = document.createElement("img");
+    
+                    if( reply.profileImage != null ){ // 프로필 이미지가 있을 경우
+                        profileImage.setAttribute("src", contextPath + reply.profileImage);
+                    }else{ // 없을 경우 == 기본이미지
+                        profileImage.setAttribute("src", contextPath + "/resources/images/user.png");
+                    }
+        
+                    // 작성자 닉네임
+                    const memberNickname = document.createElement("span");
+                    memberNickname.innerText = reply.memberNickname;
+                    
+                    // 별점 불러오기
+                    //const reviewStar = document.querySelector('input[name="reviewStar"]:checked');
+                    //$("input:radio[name=reviewStar][value=" + reply.campRate + "]").attr("checked", true);
+    
+                    // 작성일
+                    const replyDate = document.createElement("span");
+                    replyDate.classList.add("reply-date");
+                    replyDate.innerText =  "(" + reply.createDate + ")";
+    
+                    const reviewListStar = document.createElement("span");
+                    reviewListStar.classList.add("reviewListStar" + reply.campRate);
+                    
+                    
+                    // for(let i=0; i<star.length; i++) {
+                    //     star[i].style.color = "transparent";
+                    //     star[i].style.textShadow = "0 0 0 #f0f0f0";
+                    // }
+    
+                    if(reviewListStar.classList.contains('reviewListStar1')) {
+                        reviewListStar.innerHTML = "<span class='rate-in'>★</span>" +
+                        "<span class='rate-out'>★★★★</span>";
+                    } else if(reviewListStar.classList.contains('reviewListStar2')) {
+                        reviewListStar.innerHTML = "<span class='rate-in'>★★</span>" +
+                        "<span class='rate-out'>★★★</span>";
+                    } else if(reviewListStar.classList.contains('reviewListStar3')) {
+                        reviewListStar.innerHTML = "<span class='rate-in'>★★★</span>" +
+                        "<span class='rate-out'>★★</span>";
+                    } else if(reviewListStar.classList.contains('reviewListStar4')) {
+                        reviewListStar.innerHTML = "<span class='rate-in'>★★★★</span>" +
+                        "<span class='rate-out'>★</span>";
+                    } else if(reviewListStar.classList.contains('reviewListStar5')) {
+                        reviewListStar.innerHTML = "<span class='rate-in'>★★★★★</span>";
+                    }
+                    
+    
+                    // 작성자 영역(p)에 프로필,닉네임,작성일 마지막 자식으로(append) 추가
+                    replyWriter.append(profileImage , memberNickname , replyDate, reviewListStar);
+    
+                    
+    
+                    // 리뷰 내용
+                    const reviewContents = document.createElement("p");
+                    reviewContents.classList.add("reply-content");
+    
+                    // 왜 innerHTML?  <br> 태그 인식을 위해서
+                    reviewContents.innerHTML = reply.reviewContents;
+    
+                    // 행에 작성자, 내용 추가
+                    replyRow.append(replyWriter, reviewContents);
+    
+    
+    
+                    // 로그인이 되어있는 경우 수정, 삭제 버튼 추가
+                    if(loginMemberNo != ""){
+                        // 버튼 영역
+                        const replyBtnArea = document.createElement("div");
+                        replyBtnArea.classList.add("reply-btn-area");
+    
+                        // 로그인한 회원번호와 리뷰 작성자의 회원번호가 같을 때만 버튼 추가
+                        if( loginMemberNo == reply.memberNo   ){
+    
+                            // 수정 버튼
+                            const updateBtn = document.createElement("button");
+                            updateBtn.innerText = "수정";
+        
+                            // 수정 버튼에 onclick 이벤트 속성 추가
+                            updateBtn.setAttribute("onclick", "showUpdateReply("+reply.replyNo+", this)");                        
+        
+                            // 삭제 버튼
+                            const deleteBtn = document.createElement("button");
+                            deleteBtn.innerText = "삭제";
+                            // 삭제 버튼에 onclick 이벤트 속성 추가
+                            deleteBtn.setAttribute("onclick", "deleteReply("+reply.replyNo+")");                       
+        
+                            // 버튼 영역 마지막 자식으로 수정/삭제 버튼 추가
+                            replyBtnArea.append(updateBtn, deleteBtn);
+    
+                        } // if 끝
+                        
+                        // 행에 버튼영역 추가
+                        replyRow.append(replyBtnArea); 
+                    }
+    
+                    // 리뷰 목록(ul)에 행(li)추가
+                    replyList.append(replyRow);
+                    
+                }
+            
+
+                // 페이지네이션 부분 
+                var pagination = document.getElementById("pagination");
+                pagination.innerHTML = "";
+
+                var startPage = Math.floor((currentPage - 1) / 5) * 5 + 1;
+                var endPage = Math.min(startPage + 4, totalPages);
+                
+                if (startPage > 1) {
+                    var prevButton = document.createElement("button");
+                    prevButton.textContent = "이전";
+                    prevButton.classList.add("pagination-previous");
+                    prevButton.addEventListener("click", function () {
+                        currentPage = startPage - 5;
+                        displayItems(currentPage);
+                        window.scrollTo(0, 0);
+
+                    });
+                    pagination.appendChild(prevButton);
+                }
+                for (var i = startPage; i <= endPage; i++) {
+                    var pageButton = document.createElement("button");
+                    pageButton.textContent = i;
+                    pageButton.classList.add("page-button");
+                    if (i === currentPage) {
+                        pageButton.classList.add("active");
+                    }
+                    pageButton.addEventListener("click", function () {
+                        currentPage = parseInt(this.textContent);
+                        displayItems(currentPage);
+                        window.scrollTo(0, 0);
+                    });
+                    pagination.appendChild(pageButton);
                 }
 
-                // 리뷰 목록(ul)에 행(li)추가
-                replyList.append(replyRow);
-                
-            }
+                if (endPage < totalPages) {
+                    var nextButton = document.createElement("button");
+                    nextButton.textContent = "다음";
+                    nextButton.classList.add("pagination-next");
+                    nextButton.addEventListener("click", function () {
+                        currentPage = endPage + 1;
+                        displayItems(currentPage);
+                        window.scrollTo(0, 0);
+                    });
+                    pagination.appendChild(nextButton);
+                }
+            } // function displayItems
+
+            displayItems(currentPage);
         },
         error : function(req, status, error){
             console.log("에러 발생");
@@ -135,6 +202,7 @@ function selectReplyList(){
         }
     });
 }
+
 selectReplyList();
 
 //-------------------------------------------------------------------------------------------------
@@ -170,26 +238,36 @@ addReply.addEventListener("click", function(){ // 리뷰 등록 버튼이 클릭
             campRate = Number(reviewStar[i].value);
             console.log(campRate);
         }
-    }
 
+    }
+    
+    if(campRate == null || campRate == 0) {
+        alert("별점을 선택해주세요.");
+        return;
+    }
+    
     // 3) AJAX를 이용해서 리뷰 내용 DB에 저장(INSERT)
     $.ajax({
         url : contextPath + "/review/insert",
         data : {"reviewContents" : reviewContents.value,
                 "memberNo" : loginMemberNo,
                 "campNo" : campNo,
-                "campRate" : campRate},
+                "campRate" : campRate,
+                "campName" : campName},
         type : "POST",
         success : function(result){
 
             if(result > 0){ // 등록 성공
+                campRate = 0;
+
                 alert("리뷰가 등록되었습니다.");
 
                 for(let i=0; i<reviewStar.length; i++) {
-                    reviewStar[i].checked = false;
+                    if(reviewStar[i].checked) {
+                        reviewStar[i].checked = false;
+                    }
                 }
-
-
+                campRate = 0;
 
                 reviewContents.value = ""; // 작성했던 리뷰 삭제
 
@@ -197,7 +275,7 @@ addReply.addEventListener("click", function(){ // 리뷰 등록 버튼이 클릭
                 // -> 새로운 리뷰이 추가되어짐
 
             } else { // 실패
-                alert("리뷰 등록에 실패했습니다...");
+                alert("해당 캠핑장의 예약 내역이 존재하지 않아 리뷰를 작성하실 수 없습니다.");
             }
 
         },

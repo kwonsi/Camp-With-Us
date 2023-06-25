@@ -62,6 +62,11 @@ public class CampDetailDAO {
 	public int updateReview(Map<String, Object> map) {
 		return sqlSession.update("campDetailMapper.updateReview", map);
 	}
+	
+	// 리뷰 작성을 위한 예약 내역 조회
+	public int memberReservList(Map<String, Object> map) {
+		return sqlSession.selectOne("campDetailMapper.memberReservList", map);
+	}
 
 
 }

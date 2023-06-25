@@ -43,8 +43,8 @@ public class BoardDAO {
 	 * @param pagination
 	 * @param boardCode
 	 * @param boardMap
-	 * @param boardMap 
-	 * @param boardNo 
+	 * @param boardMap
+	 * @param boardNo
 	 * @return boardList
 	 */
 	public List<Board> selectBoardList(Pagination pagination, int boardCode) {
@@ -172,12 +172,12 @@ public class BoardDAO {
 		return sqlSession.update("boardMapper.updateReadCount", boardNo);
 	}
 
-	
+
 	/** 여행지 추천 목록 조회 DAO
 	 * @return result
 	 */
 	public List<PlaceRecommend> selectrdList() {
-		
+
 		return sqlSession.selectList("boardMapper.selectrdList");
 	}
 
