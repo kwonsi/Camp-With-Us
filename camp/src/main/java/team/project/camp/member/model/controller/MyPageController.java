@@ -57,17 +57,27 @@ public class MyPageController {
 				@ModelAttribute("loginMember") Member loginMember ,
 				RedirectAttributes ra
 			) {
-
-		if ( loginMember != null ) {   // 로그인이 됐을때. 목록뽑기  .
-			
+			String Manager = loginMember.getManager();
+		if ( loginMember != null && Manager.equals("N")) {   // 로그인이 됐을때. 목록뽑기  .
 			int memberNo = loginMember.getMemberNo();
 			List<Reservation> reservationList = service.reservationSelect(memberNo);
-
+			
 			model.addAttribute("reservationList", reservationList);
 
 			return "mypage/myReservation";
 
-		} else { 		// 로그인이 안됐을때 .
+		}else if(loginMember != null && Manager.equals("Y")){
+			
+			List<Reservation> AllreservationList = service.AllreservationSelect();
+			System.out.println(AllreservationList+"zzzzzzzzzzzzz");
+			log.info(AllreservationList + "zzzzzzzzzzz");
+			model.addAttribute("AllreservationList", AllreservationList);
+		
+		return "mypage/myReservation";
+			
+		} 
+		
+		else { 		// 로그인이 안됐을때 .
 
 			ra.addFlashAttribute("message","로그인을 해주세요. ");
 			return "redirect:/";
@@ -128,6 +138,19 @@ public class MyPageController {
 
 		return result;
 	}
+	
+	//매니저용 예약확정
+	@ResponseBody
+	@PostMapping("/reservationConfirm")
+	public int reservationConfirm(int reservNo) {
+		
+		System.out.println("예약확정할 예약번호 : " + reservNo);
+		
+		int result = service.reservationConfirm(reservNo);
+		
+		return result;
+		
+	}
 
 	// 회원 정보 수정
 	@PostMapping("/info")
@@ -154,8 +177,13 @@ public class MyPageController {
 		// 회원 정보 수정 서비스 호출
 		if(result == 0) {
 			result = myPageService.updateInfo(paramMap);
+		} else if(result > 0) { 
+			
+			if( (loginMember.getMemberNickname()).equals((String)paramMap.get("updateNickname")) ) {
+				result = myPageService.updateInfo(paramMap);
+			} else result = -1;
+			
 		}
-		else result = -1;
 
 		if(result > 0) {
 			message = "회원 정보가 수정되었습니다.";
@@ -247,7 +275,6 @@ public class MyPageController {
 								RedirectAttributes ra) throws IOException {
 
 		// 경로 작성하기
-
 		// 1) 웹 접근 경로 ( /comm/resources/images/memberProfile/ )
 		String webPath = "/resources/images/memberProfile/";
 

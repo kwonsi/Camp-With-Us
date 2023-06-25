@@ -34,7 +34,7 @@
             <form action="secession" method="POST" name="myPage-form" onsubmit="return secessionValidate()" >
 
                 <div class="myPage-row">
-                    <label>비밀번호</label>
+                    <label id="secessionPw">비밀번호</label>
                     <input type="password" name="memberPw" id="memberPw" maxlength="30" class="form-control">              
                 </div>
                 <div class="campwithus"> ※소셜회원인 경우 '<span id="campwithus">campwithus</span>'를 입력하세요. </div>
@@ -45,12 +45,12 @@
                 </div>
 
                 <div class = "secessionContent">
-                    <h2>제1조(목적)</h2> 
+                    <h3>제1조(목적)</h3> 
                     이 약관은 캠핑보내조가 운영하는 Camp With Us(이하 "CWU”라 한다)에서 제공하는 인터넷 관련 서비스(이하 “서비스”라 한다)를 이용함에 있어 사이버 CWU과 이용자의 권리․의무 및 책임사항을 규정함을 목적으로 합니다.
                     <br>
                     ※「PC통신, 무선 등을 이용하는 전자상거래에 대해서도 그 성질에 반하지 않는 한 이 약관을 준용합니다.」<br>
 
-                    <h2>제7조(회원 탈퇴 및 자격 상실 등)</h2>
+                    <h3>제7조(회원 탈퇴 및 자격 상실 등)</h3>
 
                     ① 회원은 “CWU”에 언제든지 탈퇴를 요청할 수 있으며 “CWU”은 즉시 회원탈퇴를 처리합니다. <br>
                   
@@ -67,14 +67,16 @@
 
                 </div>
 
-                <div>
+
+               
+                <div id = "checkBoxdiv">
                     <input type="checkbox" name="agree" id="agree">
-                    <label for="agree">위 약관에 동의합니다.</label>
+                    <label for="agree" ><div> 위 약관에 동의합니다.</div></label>
                 </div>
 
 
                 <button id="info-update-btn">탈퇴</button>
-
+                
             </form>
 
         </section>

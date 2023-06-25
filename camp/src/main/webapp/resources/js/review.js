@@ -240,6 +240,11 @@ addReply.addEventListener("click", function(){ // 리뷰 등록 버튼이 클릭
         }
     }
 
+    if(campRate == null || campRate == 0) {
+        alert("별점을 선택해주세요.");
+        return;
+    }
+    
     // 3) AJAX를 이용해서 리뷰 내용 DB에 저장(INSERT)
     $.ajax({
         url : contextPath + "/review/insert",
@@ -252,10 +257,14 @@ addReply.addEventListener("click", function(){ // 리뷰 등록 버튼이 클릭
         success : function(result){
 
             if(result > 0){ // 등록 성공
+                campRate = 0;
+
                 alert("리뷰가 등록되었습니다.");
 
                 for(let i=0; i<reviewStar.length; i++) {
-                    reviewStar[i].checked = false;
+                    if(reviewStar[i].checked) {
+                        reviewStar[i].checked = false;
+                    }
                 }
                 campRate = 0;
 

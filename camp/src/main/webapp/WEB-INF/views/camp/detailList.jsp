@@ -65,7 +65,6 @@
                                 <a href="${contextPath}"><img src="${contextPath}/resources/images/CWUlogo.png" id="home-logo"></a>
                             </div>
                             <div class ="lineIntro1"></div>
- 
                         </caption>
                         <colgroup>
                             <col style="width: 25%;" />

@@ -4944,9 +4944,11 @@ textarea.form-control-lg {
 
 .alert-light {
   --bs-alert-color: var(--bs-light-text-emphasis);
-  --bs-alert-bg: var(--bs-light-bg-subtle);
+  --bs-alert-bg: rgb(0 0 0 / 5%);
   --bs-alert-border-color: var(--bs-light-border-subtle);
   --bs-alert-link-color: var(--bs-light-text-emphasis);
+  text-align: center;
+  font-size: 20px;
 }
 
 .alert-dark {

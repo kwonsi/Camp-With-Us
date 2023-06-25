@@ -38,6 +38,7 @@
     list-style: none;
     height: 50px;
     font-size: 18px;
+    padding: 30px;
 }
 
 .list-group  li > a{
@@ -129,14 +130,15 @@
 .list-table tr > td:nth-of-type(2){ 
     width: 50%;
     text-align: left;
-    padding-left : 50px;
 }
 
 .list-table tr > *:nth-of-type(3){ width: 15%;}
 .list-table tr > *:nth-of-type(4){ width: 15%;}
 .list-table tr > *:nth-of-type(5){ width: 10%;}
 
-
+#boardListP  {
+    margin : 0px 
+}
 /* 버튼 영역 */
 .btn-area{
     height: 50px;
