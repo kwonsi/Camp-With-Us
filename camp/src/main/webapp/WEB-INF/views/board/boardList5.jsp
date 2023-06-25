@@ -88,13 +88,21 @@
                                         <td> 
                                             <c:if test="${!empty board.thumbnail}">
                                                 <img class="list-thumbnail" src="${contextPath}${board.thumbnail}">
-                                            </c:if>  
-
-                                            <a href="../detail/${boardCode}/${board.boardNo}?cp=${pagination.currentPage}${sURL}">${board.boardTitle}</a>                           
-                                       		<%-- detail?no=${board.boardNo}&cp=${pagination.currentPage}&type=${param.type}${sURL} --%>
-                                       		<%-- 현재 페이지 주소 : /board/list/1?cp=1
+                                            </c:if>     
+                                            <c:choose>
+                                                <c:when test="${loginMember.manager == 'Y'}">
+                                                    <a href="../detail/${boardCode}/${board.boardNo}?cp=${pagination.currentPage}${sURL}">${board.boardTitle}</a>
+                                                </c:when>
+                                                <c:when test="${loginMember.memberNickname == board.memberNickname}">
+                                                    <a href="../detail/${boardCode}/${board.boardNo}?cp=${pagination.currentPage}${sURL}">${board.boardTitle}</a>
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <p> <i class="fa-solid fa-lock"></i> 비밀글 입니다.</p>
+                                                </c:otherwise>
+                                            </c:choose>  
+                                                <%-- detail?no=${board.boardNo}&cp=${pagination.currentPage}&type=${param.type}${sURL} --%>
+                                       		    <%-- 현재 페이지 주소 : /board/list/1?cp=1
                                         		상세 조회 주소   : /board/detail/1/300?cp= --%>
-                                        
                                         </td>
                                         <td>${board.memberNickname}</td>
                                         <td>${board.createDate}</td>

@@ -18,7 +18,7 @@
 	
 	<select id="login" parameterType="member" resultMap="member_rm">
 		SELECT MEMBER_NO, MEMBER_EMAIL, MEMBER_NICK , MEMBER_TEL,
-    	MEMBER_ADDR, PROFILE_IMG, 
+    	MEMBER_ADDR, PROFILE_IMG, MANAGER,
     	TO_CHAR( ENROLL_DT, 'YYYY-MM-DD') AS ENROLL_DT, MEMBER_PW
 		FROM MEMBER_S
 		WHERE MEMBER_EMAIL = #{memberEmail}
@@ -44,7 +44,7 @@
 	<insert id="signUp" parameterType="member">
 		INSERT INTO MEMBER_S VALUES (SEQ_MEMBER_NO_S.NEXTVAL, #{memberEmail}, #{memberPw},
 			#{memberNickname}, #{memberTel}, #{memberAddress},
-			DEFAULT, DEFAULT, DEFAULT, DEFAULT)	
+			DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT)	
 	</insert>
 	
 	<!-- 아이디 찾기 -->
