@@ -329,7 +329,7 @@ form[name="myPage-form"]{
     border: none;
     font-size: 20px;
     font-weight: bold;
-    background-color: #ee7843;
+    background-color: #f1520b;
     color: white;
     cursor: pointer;
     border-radius: var(--bs-border-radius);
