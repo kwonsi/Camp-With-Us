@@ -110,8 +110,8 @@
                                                 </c:otherwise>
                                             </c:choose>  
                                                 <%-- detail?no=${board.boardNo}&cp=${pagination.currentPage}&type=${param.type}${sURL} --%>
-                                                 <%-- 현재 페이지 주소 : /board/list/1?cp=1
-                                              상세 조회 주소   : /board/detail/1/300?cp= --%>
+                                       		    <%-- 현재 페이지 주소 : /board/list/1?cp=1
+                                        		상세 조회 주소   : /board/detail/1/300?cp= --%>
                                         </td>
                                         <td>${board.memberNickname}</td>
                                         <td>${board.createDate}</td>

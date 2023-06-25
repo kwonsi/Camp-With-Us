@@ -10,7 +10,6 @@
 section.myPage-main > .reply-list-area > #reply-list > li {
   margin-left: 15px;
   margin-right: 15px;
-
 }
 
 .campwithus{
@@ -33,6 +32,7 @@ section.myPage-main > .reply-list-area > #reply-list > li {
   background-image: url(../images/10.png);
   background-size: 100% 100%;
   margin-top: 30px;
+  width: 100%;
   height: 200px;
 }
 #reserveBtn{
@@ -136,6 +136,9 @@ section.myPage-main > .reply-list-area > #reply-list > li {
     padding: 0 50px;
     border-left : 2px solid #ddd;
     min-height: 670px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .myPage-title{
@@ -155,8 +158,8 @@ section.myPage-main > .reply-list-area > #reply-list > li {
     width: 500px;
     height: 50px;
     margin-top: 20px;
-
     display: flex;
+    justify-content: center;
     align-items: center;
     /* border-bottom : 2px solid #ddd; */
 }
@@ -164,7 +167,11 @@ section.myPage-main > .reply-list-area > #reply-list > li {
 #form-profileImage .myPage-row {
     height: 200px;
 }
-
+#form-profileImage > label {
+  margin-left: 10px;
+  font-size: 20px;
+  font-weight: bold;
+}
 .myPage-row > *{
     font-size: 18px;
     font-weight: bold;
@@ -210,6 +217,14 @@ form[name="myPage-form"]{
 
 /* 회원 정보 수정 */
 /* 프로필 이미지 영역 */
+.infoborder{
+  margin-top: 50px;
+  width: 80%;
+  display: flex;
+  border: 4px solid #e9480885;
+  box-shadow: 5px 5px 10px 5px #ed946fb5;
+  border-radius: 2rem;
+}
 .profile-image-area{
     width: 150px;
     height: 150px;
@@ -240,7 +255,7 @@ form[name="myPage-form"]{
     display: flex;
     align-items: center;
     justify-content: space-around;
-    margin-left: 135px;
+    margin-left: 80px;
 }
 
 /* 프로필 버튼 영역의 모든 자식 요소 */
@@ -286,10 +301,9 @@ form[name="myPage-form"]{
 .info-title{
     color : black;
     border : 0;
-    
     margin-bottom: 20px;
     margin-top: 40px;
-    justify-content: center;
+    justify-content: start;
 }
 
 .info-address{ margin : 0 0 5px 0; }
