@@ -87,13 +87,13 @@
                                                     <c:choose>
                                                         <c:when test="${reservation.reservSt == '87'}">
                                                             <td style="color: green;">예약대기</td>
-                                                            <td><button type="button"
+                                                            <td><button type="button" class = "reserveCheckBtn"
                                                                     onclick="reservCancel('${reservation.reservNo}')">예약취소</button>
                                                             </td>
                                                         </c:when>
                                                         <c:when test="${reservation.reservSt == '89'}">
                                                             <td style="color: blue;">예약</td>
-                                                            <td><button type="button" id="reserveBtn"
+                                                            <td><button type="button" id="reserveBtn" class = "reserveCheckBtn"
                                                                     onclick="reservCancel('${reservation.reservNo}')">예약취소</button>
                                                             </td>
                                                         </c:when>
@@ -113,7 +113,9 @@
                                             <c:forEach var="Allreservation" items="${AllreservationList}">
                                                 <tr>
                                                     <td>${Allreservation.reservNo}</td>
-                                                    <td>${Allreservation.campingName}</td>
+                                                    <td><a
+                                                        href="${contextPath}/campList/detailList?campName=${reservation.campingName}&viewType=1">${Allreservation.campingName}</a>
+                                                </td>
                                                     <td>${Allreservation.buyerName}</td>
                                                     <td>${Allreservation.reservDate}</td>
                                                     <td>${Allreservation.people}</td>
@@ -123,13 +125,13 @@
 
                                                         <c:when test="${Allreservation.reservSt == '87'}">
                                                             <td style="color: green;">예약대기</td>
-                                                            <td><button type="button"
+                                                            <td><button type="button" class = "reserveCheckBtn"
                                                                     onclick="reservConfirm('${Allreservation.reservNo}')">예약확정</button>
                                                             </td>
                                                         </c:when>
                                                         <c:when test="${Allreservation.reservSt == '89'}">
                                                             <td style="color: blue;">예약</td>
-                                                            <td><button type="button"
+                                                            <td><button type="button" class = "reserveCheckBtn"
                                                                     onclick="reservCancel('${Allreservation.reservNo}')">예약취소</button>
                                                             </td>
                                                         </c:when>

@@ -1,5 +1,7 @@
 
 
+
+
 // 상세조회, 게시글 작성 - 목록으로 버튼
 
 // 즉시 실행 함수
@@ -185,6 +187,8 @@ function searchValidate(){
 
 
 // 2번 게시판에서 서머노트로 쓴 게시글 조회 시 html 태그 제거(정규식 이용)
+
+if ( document.getElementsByClassName("boardContent") ) {
 const boardContent = document.getElementsByClassName("boardContent");
 
 window.onload = function() {
@@ -196,9 +200,10 @@ window.onload = function() {
     }
 
 }
+}
 
 
-const myPageList = document.getElementsByClassName("myPage-list");
+const myPageList = document.getElementsByClassName("myPage-listBoard");
 
 if(myPageList.length == 5) {
     

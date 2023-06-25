@@ -30,6 +30,9 @@
     <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap_main_header.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap-icons.css">
 
+    <!-- 게시판Table 공통화를위해 CSS 추가 . -->
+    <link rel="stylesheet" href="${contextPath}/resources/css/mypage.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/boardList-style.css">
     <script src="https://kit.fontawesome.com/a2e8ca0ae3.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -56,7 +59,7 @@
 
 
             <div class="list-wrapper">
-                <table class="list-table">
+                <table class="list-table table table-hover">
                     
                     <thead>
                         <tr>
@@ -68,7 +71,7 @@
                         </tr>
                     </thead>
 
-                    <tbody>
+                    <tbody id="myBoardList">
 
                         <c:choose>
                             <c:when test="${empty boardList}">
@@ -88,13 +91,21 @@
                                         <td> 
                                             <c:if test="${!empty board.thumbnail}">
                                                 <img class="list-thumbnail" src="${contextPath}${board.thumbnail}">
-                                            </c:if>  
-
-                                            <a href="../detail/${boardCode}/${board.boardNo}?cp=${pagination.currentPage}${sURL}">${board.boardTitle}</a>                           
-                                       		<%-- detail?no=${board.boardNo}&cp=${pagination.currentPage}&type=${param.type}${sURL} --%>
-                                       		<%-- 현재 페이지 주소 : /board/list/1?cp=1
-                                        		상세 조회 주소   : /board/detail/1/300?cp= --%>
-                                        
+                                            </c:if>     
+                                            <c:choose>
+                                                <c:when test="${loginMember.manager == 'Y'}">
+                                                    <a href="../detail/${boardCode}/${board.boardNo}?cp=${pagination.currentPage}${sURL}">${board.boardTitle}</a>
+                                                </c:when>
+                                                <c:when test="${loginMember.memberNickname == board.memberNickname}">
+                                                    <a href="../detail/${boardCode}/${board.boardNo}?cp=${pagination.currentPage}${sURL}">${board.boardTitle}</a>
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <p> <i class="fa-solid fa-lock"></i> 비밀글 입니다.</p>
+                                                </c:otherwise>
+                                            </c:choose>  
+                                                <%-- detail?no=${board.boardNo}&cp=${pagination.currentPage}&type=${param.type}${sURL} --%>
+                                                 <%-- 현재 페이지 주소 : /board/list/1?cp=1
+                                              상세 조회 주소   : /board/detail/1/300?cp= --%>
                                         </td>
                                         <td>${board.memberNickname}</td>
                                         <td>${board.createDate}</td>
