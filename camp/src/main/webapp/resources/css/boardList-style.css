@@ -14,7 +14,7 @@
 
 /* 게시판 목록 화면 전체 영역 설정 */
 .board-list{
-    width: 85%;
+    width: 100%;
     /* margin: 50px auto; */
     padding: 0 50px;
     border-left: 2px solid #ddd;

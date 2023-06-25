@@ -18,7 +18,7 @@
         <nav id="navbar" class="navbar">
           <ul>
             <li><a href="/camp/campList/?loc=&theme=&campName=">캠핑장조회</a></li>
-            <li class="dropdown"><a href="#">게시판</a>
+            <li class="dropdown"><a href="${contextPath}/board/list/1">게시판</a>
               <ul>
                 <c:forEach var="boardType" items="${boardTypeList}">
                   <li><a href="${contextPath}/board/list/${boardType.boardCode}">${boardType.boardName}</a></li>

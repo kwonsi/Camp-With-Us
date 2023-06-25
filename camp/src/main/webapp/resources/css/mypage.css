@@ -1,7 +1,7 @@
 
 /* 마이페이지 영역 */
 .myPage-content{
-    width: 1850px;
+    width: 100%;
     height: auto;
     margin: 25px;
     margin-left: 0px;
@@ -30,7 +30,7 @@ section.myPage-main > .reply-list-area > #reply-list > li {
 .myPageHeadFlex{
   color: white;
   display: flex;
-  background-image: url(../images/yj11.png);
+  background-image: url(../images/10.png);
   background-size: 100% 100%;
   margin-top: 30px;
   height: 200px;
@@ -132,7 +132,7 @@ section.myPage-main > .reply-list-area > #reply-list > li {
 
 /* 마이페이지 공통 부분 */
 .myPage-main{
-    width: 85%;
+    width: 100%;
     padding: 0 50px;
     border-left : 2px solid #ddd;
     min-height: 670px;
