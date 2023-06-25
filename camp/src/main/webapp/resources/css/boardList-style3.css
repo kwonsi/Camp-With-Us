@@ -60,6 +60,7 @@
 /* 사이드메뉴 끝  */
 
 /* a태그 공통 설정 */
+
 .board-list a{
     text-decoration: none;
     color : black;
@@ -139,6 +140,14 @@
 #boardListP  {
     margin : 0px 
 }
+
+.CWUspan{
+    font-size: 17px;
+}
+#myPageHeadFlexImg{
+    background-image: url(../images/12.png);
+}
+
 /* 버튼 영역 */
 .btn-area{
     height: 50px;

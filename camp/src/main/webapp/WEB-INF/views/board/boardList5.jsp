@@ -50,12 +50,18 @@
 
         <section class="board-list">
 
-            <h1 class="board-name">${boardName}</h1>
+         
 
-            <c:if test="${!empty param.key}">
+<!--             <c:if test="${!empty param.key}">
                 <h3 style="margin-left:30px;"> "${param.query}" 검색 결과  </h3>
-            </c:if>
-
+            </c:if> -->
+            <div class = "myPageHeadFlex" id="myPageHeadFlexImg">
+                <div class = "myPageHead">
+                    <h1 class="myPage-title">${boardName}</h1>
+                
+                <span class="myPage-explanation"><span class="CWUspan">Camp With Us</span> 의 문의사항을 확인할 수 있습니다.</span>
+                </div>
+            </div>
 
 
             <div class="list-wrapper">
@@ -100,7 +106,7 @@
                                                     <a href="../detail/${boardCode}/${board.boardNo}?cp=${pagination.currentPage}${sURL}">${board.boardTitle}</a>
                                                 </c:when>
                                                 <c:otherwise>
-                                                    <p id="boardListP"> <i class="fa-solid fa-lock"></i> 비밀글 입니다.</p>
+                                                    <p id ="boardListP"> <i class="fa-solid fa-lock"></i> 비밀글 입니다.</p>
                                                 </c:otherwise>
                                             </c:choose>  
                                                 <%-- detail?no=${board.boardNo}&cp=${pagination.currentPage}&type=${param.type}${sURL} --%>
