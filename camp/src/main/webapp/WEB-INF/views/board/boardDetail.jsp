@@ -32,7 +32,7 @@
         <section class="board-detail">  
 
             <!-- 제목 -->
-            <h1 class="board-title">${detail.boardTitle}  <span> - ${detail.boardName}</span>    </h1>
+            <h1 class="board-title">${detail.boardTitle}  <span> - ${detail.boardName}</span></h1>
 
             <!-- 프로필 + 닉네임 + 작성일 + 조회수 -->
             <div class="board-header">
@@ -67,66 +67,7 @@
 
             
             <!-- 내용 -->
-            <div class="board-content">
-                ${detail.boardContent}
-            </div>
-            <!-- <div class="container board-content">
-                <div id="summernote" name="boardContent">${detail.boardContent}</div>
-            </div> -->
-
-
-
-            <!-- 이미지가 있을 경우 -->
-            <c:if test="${!empty detail.imageList}">
-                
-                <!-- 썸네일이 있을 경우 변수 생성 -->
-                <c:if test="${detail.imageList[0].imageLevel == 0}">
-                    <c:set var="thumbnail" value="${detail.imageList[0]}" />
-                    <!-- page scope (페이지 어디서든 사용 가능) -->
-                </c:if>
-
-
-                <!-- 썸네일 영역(썸네일이 있을 경우) -->
-                <c:if test="${!empty thumbnail}">
-                    <h5>썸네일</h5>
-                    <div class="img-box">
-                        <div class="boardImg thumbnail">
-                            <img src="${contextPath}${thumbnail.imageReName}">
-                            <a href="${contextPath}${thumbnail.imageReName}" download="${thumbnail.imageOriginal}">다운로드</a>         
-                        </div>
-                    </div>
-                </c:if>
-
-
-
-                <c:if test="${empty thumbnail}"> <!-- 썸네일 X -->
-                    <c:set var="start" value="0"/>
-                </c:if>
-                
-                <c:if test="${!empty thumbnail}"> <!-- 썸네일 O -->
-                    <c:set var="start" value="1"/>
-                </c:if>
-
-
-                <!-- 업로드 이미지가 있는 경우 -->
-                <c:if test="${fn:length(detail.imageList) > start}">
-
-                    <!-- 업로드 이미지 영역 -->
-                    <h5>업로드 이미지</h5>
-                    <div class="img-box">
-                        <c:forEach var="i" begin="${start}" end="${fn:length(detail.imageList) -1 }">
-                        
-                            <div class="boardImg">
-                                <img src="${contextPath}${detail.imageList[i].imageReName}">
-                                <a href="${contextPath}${detail.imageList[i].imageReName}" download="${detail.imageList[i].imageOriginal}">다운로드</a>                
-                            </div>
-
-                        </c:forEach>
-                    </div>
-
-                </c:if>        
-
-            </c:if>
+            <div class="board-content">${detail.boardContent}</div>
 
 
             <!-- 버튼 영역-->

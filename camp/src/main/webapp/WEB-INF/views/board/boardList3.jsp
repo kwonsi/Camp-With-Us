@@ -91,7 +91,7 @@
                                         <td>${board.boardNo}</td>
                                         <td> 
                                             <c:if test="${!empty board.thumbnail}">
-                                                <img class="list-thumbnail" src="${contextPath}${board.thumbnail}">
+                                                <img class="list-thumbnail" src="${board.thumbnailImg}">
                                             </c:if>  
 
                                             <a href="../detail/${boardCode}/${board.boardNo}?cp=${pagination.currentPage}${sURL}">${board.boardTitle}</a>                           

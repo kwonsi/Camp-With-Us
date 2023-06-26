@@ -70,35 +70,27 @@
                             <!-- 향상된 for문처럼 사용 -->
                             <c:forEach var="board" items="${boardList}">
 
-                                <div class="list1">
-                                    <div class="list1-1">
-                                        <c:if test="${!empty board.thumbnail}">
-                                            <img class="list-thumbnail" src="${contextPath}${board.thumbnail}">
-                                        </c:if>
-                                    </div>
+                                    <div class="list1">
+                                        <div class="list1-1"> 
+                                            <c:if test="${!empty board.thumbnailImg}">
+                                                <img class="list-thumbnail" src="${board.thumbnailImg}">
+                                            </c:if>
+                                        </div>
 
                                     <div class="list1-2">
                                         <div class="list1-3">
-                                            <p>${board.boardNo} &nbsp;|&nbsp; </p><a
-                                                href="../detail/${boardCode}/${board.boardNo}?cp=${pagination.currentPage}${sURL}"
-                                                class="boardTitle">
+                                            <p>${board.boardNo} &nbsp;|&nbsp; </p>
+                                            <a href="../detail/${boardCode}/${board.boardNo}?cp=${pagination.currentPage}${sURL}" class="boardTitle">
                                                 <p>${board.boardTitle}</p>
                                             </a>
                                         </div>
 
                                         <hr>
 
-                                        <div class="list1-4">
-                                            <p>작성자 : ${board.memberNickname} &nbsp;|&nbsp; 작성일 :
-                                                ${board.createDate} &nbsp;|&nbsp; 조회수 : ${board.readCount}</p>
-                                            <a href="../detail/${boardCode}/${board.boardNo}?cp=${pagination.currentPage}${sURL}"
-                                                class="board_Content">
-                                                <p class="boardContent">${board.boardContent}
-                                                </p>
-                                            </a>
-                                     
-                                        </div>
-
+                                            <div class="list1-4">
+                                                <p>작성자 : ${board.memberNickname} &nbsp;|&nbsp; 작성일 : ${board.createDate} &nbsp;|&nbsp; 조회수 : ${board.readCount}</p>
+                                                <a href="../detail/${boardCode}/${board.boardNo}?cp=${pagination.currentPage}${sURL}" class="board_Content"><p class="boardContent">${board.boardContent}</p></a>                        
+                                            </div>
                                     </div>
 
 
@@ -161,8 +153,6 @@
                 <!-- /board/list?type=1&cp=3 -->
 
                 <!-- /board/list?type=1&cp=10 &key=t&query=안녕 -->
-
-                <!-- <form action="list" method="get" id="boardSearch" onsubmit="return searchValidate()"> -->
                 <form action="${boardCode}" method="get" id="boardSearch" onsubmit="return searchValidate()">
                     <input type="hidden" name="type" value="${param.type}">
 

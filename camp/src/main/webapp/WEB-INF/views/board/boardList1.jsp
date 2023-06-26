@@ -38,118 +38,89 @@
     <!-- JavaScript용 Facebook SDK 정규식 추가 -->
 
     <div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v17.0&appId=804019604627586&autoLogAppEvents=1" nonce="tSPzCaKu"></script>
-
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v17.0&appId=804019604627586&autoLogAppEvents=1" nonce="Ch1e3BJs"></script>
 
 <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
 
-    <main>
-      
+    <main>     
         <!-- sideBar 넣기위한 div 추가 !!!  boardList 1,2,3,4,5 다들어가있습니다. -->
         <div class="myPage-content">
             <jsp:include page="/WEB-INF/views/board/boardSideMenu.jsp"/>
         
-        
-        <section class="contain">
-            
-            
-            <div class="board1">
-                
-                
-                <div class="headline">
-                    <h3>${boardName}</h3>
-                </div>
+            <section class="contain">
 
-                <div class="multiple-items">
-
-                    <!-- 향상된 for문처럼 사용 -->
-                    <c:forEach var="rdList" items="${placeRecommendList}">
-                        <div class="slide-content">
-                            <a><img src="${contextPath}${rdList.recommendImg}"></a>
-                            <!-- <a><img src="${contextPath}/resources/images/board/semiwon.jpg"></a> -->
-                        
-                            <div class="slide-text">
-                                <p class="slide-title">${rdList.recommendTitle}</p>
-                                <hr>
-                                <div class="slide-content">
-                                    ${rdList.recommendContent}
-                                </div>
-                            </div>
-                            <div>
-                                <button class="slide-btn" style="margin-top: 15px;" onclick="window.open('${rdList.recommendHomepg}')">
-                                    자세히보기<i class="xi-marker-plus xi-x xi-fw"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </c:forEach>
-                </div>
-
-            </div>
-
-            <div class="board-empty">
-            
-            </div>
-
-            <div class="board2">
-                <span>
-                    <h3>캠핑 소식</h3>
-                </span>
-                
-                <div class="board-list">
-                    <div class="board2-1">
-                        <div class="headline2">한국 관광공사 facebook 참고</div>
-
-                        <!-- 고캠핑 플러그인 -->
-                        <!-- 페이스북 개발자 로그인 된 상태에서만 화면이 제대로 나옴 -->
-                        <div class="fb-page" data-href="https://www.facebook.com/go2thecamping"
-                        data-tabs="timeline" data-width="450" data-height="400" data-small-header="true"
-                        data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="true">
-                        <blockquote cite="https://www.facebook.com/go2thecamping" class="fb-xfbml-parse-ignore">
-                        <a href="https://www.facebook.com/go2thecamping">한국관광공사 고캠핑</a></blockquote></div>
-                        <!-- <div style="width: 450px;">
-                            <div class="fb-page"
-                            data-href="https://www.facebook.com/go2thecamping/"
-                            data-tabs="timeline"
-                            data-width="450"
-                            data-height="400"
-                            data-small-header="true"
-                            data-adapt-container-width="true"
-                            data-hide-cover="true"
-                            data-show-facepile="true">
-                            <blockquote cite="https://www.facebook.com/go2thecamping/"
-                            class="fb-xfbml-parse-ignore">
-                            <a href="https://www.facebook.com/go2thecamping/">한국관광공사 고캠핑</a>
-                            </blockquote></div>
-                        </div> -->
-                        
-                        <!-- 고캠핑 임베드 -->
-                   <!-- <div class="fb-post" data-href="https://www.facebook.com/go2thecamping/" data-width="500" data-show-text="true"></div> -->
+                <div class="board1">
+                    
+                    <div class="headline">
+                        <h1>Camp With Us 7월 PICK</h1>
+                        <h2>${boardName}</h2>
                     </div>
 
-                    <div class="multiple-items2 slide_div2">
-                        <div class="slide-content2">
-                            <a><img src="${contextPath}/resources/images/board/ohcamall.png" onclick="window.open('https://www.ocamall.com/')"></a>
+                    <div class="multiple-items">
+
+                        <!-- 향상된 for문처럼 사용 -->
+                        <c:forEach var="rdList" items="${placeRecommendList}">
+                            <div class="slide-content">
+                                <a><img src="${contextPath}${rdList.recommendImg}"></a>
+                                <!-- <a><img src="${contextPath}/resources/images/board/semiwon.jpg"></a> -->
+                            
+                                <div class="slide-text">
+                                    <p class="slide-title">${rdList.recommendTitle}</p>
+                                    <hr>
+                                    <div class="slide-content">
+                                        ${rdList.recommendContent}
+                                    </div>
+                                </div>
+                                <div>
+                                    <button class="slide-btn" style="margin-top: 15px;" onclick="window.open('${rdList.recommendHomepg}')">
+                                        자세히보기<i class="xi-marker-plus xi-x xi-fw"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </c:forEach>
+                    </div>
+
+                </div>
+
+                <div class="board-empty"></div>
+
+                <div class="board2">
+                    <span class="headline2">
+                        <h3>캠핑 소식</h3>
+                    </span>
+                    
+                    <div class="board-list">
+                        <div class="board2-1">
+                            <!-- <div class="headline2">한국 관광공사 facebook 참고</div> -->
+
+                            <!-- 고캠핑 플러그인 -->
+                            <!-- 페이스북 개발자 로그인 된 상태에서만 화면이 제대로 나옴 -->
+                            <div class="fb-page" data-href="https://www.facebook.com/go2thecamping/" data-tabs="timeline" data-width="500" data-height="400" data-small-header="true" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="true"><blockquote cite="https://www.facebook.com/go2thecamping/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/go2thecamping/">한국관광공사 고캠핑</a></blockquote></div>
                         </div>
-                        <div class="slide-content2">
-                            <a><img src="${contextPath}/resources/images/board/goossteoee.png" onclick="window.open('https://smartstore.naver.com/goossmall')"></a>
+
+                        <!-- 슬라이드 광고 링크 -->
+                        <div class="multiple-items2 slide_div2">
+                            <div class="slide-content2">
+                                <a><img src="${contextPath}/resources/images/board/ohcamall.png" onclick="window.open('https://www.ocamall.com/')"></a>
+                            </div>
+                            <div class="slide-content2">
+                                <a><img src="${contextPath}/resources/images/board/goossteoee.png" onclick="window.open('https://smartstore.naver.com/goossmall')"></a>
+                            </div>
+                            <div class="slide-content2">
+                                <a><img src="${contextPath}/resources/images/board/funshop.jpg" onclick="window.open('https://www.funshop.co.kr/goods/category/5716')"></a>
+                            </div>
+                            <div class="slide-content2">
+                                <a><img src="${contextPath}/resources/images/board/idoogen.jpg" onclick="window.open('https://idoogen.com/')"></a>
+                            </div>
                         </div>
-                        <div class="slide-content2">
-                            <a><img src="${contextPath}/resources/images/board/funshop.jpg" onclick="window.open('https://www.funshop.co.kr/goods/category/5716')"></a>
-                        </div>
-                        <div class="slide-content2">
-                            <a><img src="${contextPath}/resources/images/board/idoogen.jpg" onclick="window.open('https://idoogen.com/')"></a>
-                        </div>
+                        
                     </div>
                     
                 </div>
                 
-            </div>
-            
-
-
-        </section>
-</div> <!-- sideBar 넣기위한 div 끝부분 !!!  -->
+            </section>
+        </div> <!-- sideBar 넣기위한 div 끝부분 !!!  -->
     </main>
     
     
@@ -175,8 +146,8 @@
         // appendDots : $('.target_dots'),
         adaptiveHeight: 300,
         focusOnSelect: true,
-        slidesToShow: 3,
-        slidesToScroll: 3,
+        slidesToShow: 5,
+        slidesToScroll: 5,
         autoplay: true,
         autoplaySpeed: 3000,
         arrows: false

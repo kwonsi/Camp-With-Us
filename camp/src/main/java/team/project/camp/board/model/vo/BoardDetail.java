@@ -21,8 +21,8 @@ public class BoardDetail {
 	private int memberNo;
 	private String boardName;
 
-	private List<BoardImage> imageList;
-
+	private String imagePath;
+	
 	private int boardCode;
 
 

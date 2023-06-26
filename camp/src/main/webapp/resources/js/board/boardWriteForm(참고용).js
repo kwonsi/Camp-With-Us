@@ -1,3 +1,6 @@
+// summernote 참고용 js
+// -> 참고용으로 보기위해 만들었음(캠핑프로젝트에 포함되지 않는 개인적인 참고용 파일)
+
 $(document).ready(function () {
     $('#summernote').summernote({
         toolbar: [
