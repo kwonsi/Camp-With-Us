@@ -86,7 +86,8 @@ public class BoardServiceImpl implements BoardService{
 		map.put("pagination", pagination);
 		map.put("boardList", boardList);
 		map.put("boardCode", boardCode);
-		
+
+
 		return map;
 	}
 
@@ -141,7 +142,7 @@ public class BoardServiceImpl implements BoardService{
 	// 게시글 상세 조회 서비스 구현
 	@Override
 	public BoardDetail selectBoardDetail(int boardNo) {
-		
+
 		return dao.selectBoardDetail(boardNo);
 	}
 
@@ -214,11 +215,11 @@ public class BoardServiceImpl implements BoardService{
 		return dao.updateReadCount(boardNo);
 	}
 
-	
+
 	// 여행지 추천 목록 조회 서비스 구현
 	@Override
 	public List<PlaceRecommend> selectrdList() {
-		
+
 		return dao.selectrdList();
 	}
 

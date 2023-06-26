@@ -32,6 +32,8 @@
     <link rel="stylesheet" href="${contextPath}/resources/css/boardList-style3.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap_main_header.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap-icons.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/mypage.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/boardList-style.css">
 
     <script src="https://kit.fontawesome.com/a2e8ca0ae3.js" crossorigin="anonymous"></script>
 </head>
@@ -49,20 +51,24 @@
 
         <section class="board-list">
 
-            <h1 class="board-name">${boardName}</h1>
 
-
-            <c:if test="${!empty param.key}">
+<!--             <c:if test="${!empty param.key}">
                 <h3 style="margin-left:30px;"> "${param.query}" 검색 결과  </h3>
-            </c:if>
-
+            </c:if> -->
+            <div class = "myPageHeadFlex" id="myPageHeadFlexImg">
+                <div class = "myPageHead">
+                    <h1 class="myPage-title">${boardName}</h1>
+                
+                <span class="myPage-explanation"><span class="CWUspan">Camp With Us</span> 의 공지사항을 확인할 수 있습니다.</span>
+                </div>
+            </div>
 
 
             <div class="list-wrapper">
 
                 
 
-                <table class="list-table">
+                <table class="list-table table table-hover">
                     
                     <thead>
                         <tr>

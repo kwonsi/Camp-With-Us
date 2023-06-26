@@ -32,16 +32,29 @@ public class CampDetailServiceImpl implements CampDetailService {
 		return dao.selectPriceNp(month);
 	}
 
-	//예약정보 삽입
+	//예약정보 삽입(무통장입금)
 	@Override
-	public int reservationInfo(Reservation reservation) {
-		return dao.reservationInfo(reservation);
+	public int reservationInfoCash(Reservation reservation) {
+		return dao.reservationInfoCash(reservation);
 	}
+	
+	// 카드결제
+	@Override
+	public int reservationInfoCard(Reservation reservation) {
+		return dao.reservationInfoCard(reservation);
+	}
+	
 
 	//예약조회
 	@Override
 	public List<Reservation> reservationSelect(int memberNo) {
 		return dao.reservationSelect(memberNo);
+	}
+	
+	// 모든 예약 조회(매니저)
+	@Override
+	public List<Reservation> AllreservationSelect(){
+		return dao.AllreservationSelect();
 	}
 
 	//예약취소
@@ -49,6 +62,12 @@ public class CampDetailServiceImpl implements CampDetailService {
 	public int reservationState(int reservNo) {
 		return dao.reservationState(reservNo);
 	}
+	//매니저용 예약확정
+	@Override
+	public int reservationConfirm(int reservNo) {
+		return dao.reservationConfirm(reservNo);
+	}
+
 
 
 	// 리뷰 목록 조회
@@ -56,6 +75,7 @@ public class CampDetailServiceImpl implements CampDetailService {
 	public List<Review> selectReplyList(int campNo) {
 		return dao.selectReplyList(campNo);
 	}
+
 
 	// 리뷰 작성
 	@Override
@@ -78,6 +98,12 @@ public class CampDetailServiceImpl implements CampDetailService {
 	@Override
 	public int updateReview(Map<String, Object> map) {
 		return dao.updateReview(map);
+	}
+	
+	// 리뷰 작성을 위한 예약 내역 조회
+	@Override
+	public int memberReservList(Map<String, Object> map) {
+		return dao.memberReservList(map);
 	}
 
 }

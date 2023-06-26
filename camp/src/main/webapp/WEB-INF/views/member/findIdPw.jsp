@@ -61,8 +61,8 @@
                             
                             <div class="idPw-input-area1 form-floating mb-3">
                                 <input type="text" class="form-control" id="memberTel" name="memberTel" type="text"
-                                maxlength="11">
-                                <label for="memberTel">Tel</label>
+                                 placeholder="전화번호" maxlength="11">
+                                <label for="memberTel">Telephone</label>
                             </div>
 
                             <button type="submit" id="findId-btn" class="btn btn-primary1 btn-lg">아이디(이메일) 찾기</button>
@@ -106,7 +106,7 @@
                         
                             <div class="idPw-input-area2 form-floating mb-3">
                                 <input type="text" class="form-control" id="memberEmail" name="memberEmail"
-                                maxlength="50">
+                                placeholder="아아디(이메일)" maxlength="50">
                                 <label for="memberEmail">Id(Email)</label>
                             </div>
                         
@@ -114,8 +114,8 @@
                         
                             <div class="idPw-input-area2 form-floating mb-3">
                                 <input type="text" class="form-control" id="memberTel" name="memberTel"
-                                maxlength="11"autocomplete="off">
-                                <label for="memberTel">Tel</label>
+                                placeholder="전화번호" maxlength="11"autocomplete="off">
+                                <label for="memberTel">Telephone</label>
                             </div>
                             
 

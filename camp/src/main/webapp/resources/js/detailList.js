@@ -8,13 +8,13 @@ var reservationBtn = document.getElementById("reservationBtn");
 
 reservationBtn.addEventListener("click", function (e) {
 
-    if (loginMember == null || loginMember=="" ) {
+    if (loginMember == null || loginMember == "") {
         alert("먼저 로그인을 해주세요");
         window.location.href = '/camp/member/login';
         e.preventDefault();
-        
+
     } else {
-        location.href = "/camp/campDetail/reservation?campName="+campName;
+        location.href = "/camp/campDetail/reservation?campName=" + campName;
     }
 });
 
@@ -51,7 +51,7 @@ var sobangli = document.getElementsByClassName("table_ul05")[6];  // 안전시�
 var sbrsClli = document.getElementsByClassName("table_ul05")[7]; // 부가정보
 
 // 캠핑장 가격테이블에 캠핑장이름 넣어주기
-var campNamePrice = document.getElementById("campNamePrice"); 
+var campNamePrice = document.getElementById("campNamePrice");
 var campNameMap = document.getElementById("campNameMap");
 var campNameReview = document.getElementById("campNameReview");
 
@@ -102,14 +102,14 @@ window.onload = function () {
             introCampName.innerText = items.facltNm;
             introLine.innerText = items.lineIntro;
             introLine2.innerText = items.facltNm;
-            if(campNamePrice){
-            campNamePrice.innerText = items.facltNm+" 이용 요금";
+            if (campNamePrice) {
+                campNamePrice.innerText = items.facltNm + " 이용 요금";
             }
-            if(campNameMap){
-            campNameMap.innerText = items.facltNm+" 위치 정보";
+            if (campNameMap) {
+                campNameMap.innerText = items.facltNm + " 위치 정보";
             }
-            if(campNameReview){
-                campNameReview.innerText = items.facltNm+" 리뷰";
+            if (campNameReview) {
+                campNameReview.innerText = items.facltNm + " 리뷰";
             }
             /* ************** 캠핑장 정보 출력 ************** */
             addr.innerText = items.addr1;               // 주소
@@ -125,7 +125,7 @@ window.onload = function () {
                 '<a href="' + items.homepage + '" target="_blank" >홈페이지 바로가기</a>';
 
 
-            
+
 
 
             if (intro) {   ///  viewType =1,2,3 넘어갈때 오류방지 if조건문 
@@ -174,10 +174,10 @@ window.onload = function () {
                         '<li>' + sbrsCl[i] + '</li>';
                 }
                 // 소개글
-                if ( items.intro == null || items.intro ==""){
+                if (items.intro == null || items.intro == "") {
                     intro.innerText = "정보가 없습니다.";
-                }else{
-                intro.innerText = items.intro;
+                } else {
+                    intro.innerText = items.intro;
                 }
             }
 
@@ -198,7 +198,7 @@ window.onload = function () {
                     console.log("이미지정보 ajax->ajax 성공");
                     imageUrlItem = result.response.body.items.item;
 
-                    
+
 
                     if (postWrapper) {
                         for (let i = 0; i < imageUrlItem.length; i++) {
@@ -208,61 +208,61 @@ window.onload = function () {
                                 + "</div>";
                         }
 
-                        $(document).ready(function() {
+                        $(document).ready(function () {
                             // 슬라이더 초기화 코드
                             $('.post-wrapper').slick({
                                 arrows: true,
                                 // prevArrow: '<button class="slide-arrow prev-arrow"><</button>',
                                 // nextArrow: '<button class="slide-arrow next-arrow">></button>',
-                              slidesToShow: 4,
-                              slidesToScroll: 4,
-                              autoplay: true,
-                              autoplaySpeed: 3000,
-                              draggable : true,
-                              dots:true,
-                              
-                              
+                                slidesToShow: 4,
+                                slidesToScroll: 4,
+                                autoplay: true,
+                                autoplaySpeed: 3000,
+                                draggable: true,
+                                dots: true,
+
+
                             });
-                          });
+                        });
                     }
 
 
 
                     // 즉시 실행 함수 이미지눌렀을때 모달창 띄웁니다. 
-(function(){
-    const modalTest = document.getElementsByClassName("modalTest");
+                    (function () {
+                        const modalTest = document.getElementsByClassName("modalTest");
 
-    if(modalTest.length > 0){ // 목록에 썸네일 이미지가 있을 경우에만 이벤트 추가
-      
-        const modal = document.querySelector('.modal');
-        const modalImage = document.getElementById("modal-image");
+                        if (modalTest.length > 0) { // 목록에 썸네일 이미지가 있을 경우에만 이벤트 추가
 
-        for(let th of modalTest){
-            th.addEventListener("click", function(){
-                modalImage.setAttribute("src", th.getAttribute("src") );
-               
-                /* on/off 스위치 */
-                // classList.toggle("클래스명") : 클래스가 없으면 추가(add) 
-                //                                클래스가 있으면 제거(remove)
-                
-                modal.classList.toggle('show'); // add
-            });
-        }
-        // X버튼
-        modalImage.addEventListener("click", function(){
-            
-            modal.classList.toggle('hide'); // hide 클래스 추가
+                            const modal = document.querySelector('.modal');
+                            const modalImage = document.getElementById("modal-image");
 
-            setTimeout(function(){ // 0.45초 후 동작
-                modal.classList.toggle('hide'); // hide 클래스 제거
+                            for (let th of modalTest) {
+                                th.addEventListener("click", function () {
+                                    modalImage.setAttribute("src", th.getAttribute("src"));
 
-                modal.classList.toggle('show'); // remove
-            },450);
-        });
+                                    /* on/off 스위치 */
+                                    // classList.toggle("클래스명") : 클래스가 없으면 추가(add) 
+                                    //                                클래스가 있으면 제거(remove)
 
-    }
+                                    modal.classList.toggle('show'); // add
+                                });
+                            }
+                            // X버튼
+                            modalImage.addEventListener("click", function () {
 
-})();
+                                modal.classList.toggle('hide'); // hide 클래스 추가
+
+                                setTimeout(function () { // 0.45초 후 동작
+                                    modal.classList.toggle('hide'); // hide 클래스 제거
+
+                                    modal.classList.toggle('show'); // remove
+                                }, 450);
+                            });
+
+                        }
+
+                    })();
                 },
                 error: function (error) {
                     console.log("API 호출 실패");
@@ -270,15 +270,15 @@ window.onload = function () {
                 }
             }); // 이미지 목록 ajax
         }, // 캠핑장 정보 ajax 성공 끝
-        beforeSend:function(){
+        beforeSend: function () {
 
             $('.wrap-loading').removeClass('display-none');
-        
-          }
-          ,complete:function(){
+
+        }
+        , complete: function () {
             $('.wrap-loading').addClass('display-none');
         }
-        ,error: function (error) {
+        , error: function (error) {
             console.log("API 호출 실패");
             console.log(error);
         }
@@ -287,7 +287,7 @@ window.onload = function () {
 };
 
 
-  
+
 
 
 /// 카카오 맵
@@ -344,14 +344,14 @@ if (mapContainer) {
 }
 
 
- 
+
 
 
 var doNmVal = document.getElementById("doNmVal");  // 날씨제목
-if(doNmVal){
+if (doNmVal) {
     var doNm = items.doNm;
     localStorage.setItem("loca", JSON.stringify(doNm))
-doNmVal.innerText = doNm+" 지역 날씨";
+    doNmVal.innerText = doNm + " 지역 날씨";
 };
 
 
@@ -375,7 +375,7 @@ function changeBackgroundColor(event) {
 
 }
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     // 현재 페이지 URL에서 viewType 파라미터 값 추출
     var viewType = getParameterByName("viewType");
 
@@ -387,7 +387,7 @@ document.addEventListener("DOMContentLoaded", function() {
         if (linkViewType === viewType) {
             liElements[i].classList.remove("campListA");
             liElements[i].classList.add("selected");
-           
+
             break;
         }
     }

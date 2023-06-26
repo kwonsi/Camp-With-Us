@@ -43,33 +43,30 @@ public class MemberController {
 
 	@GetMapping("/login")
 	public String loginPage(HttpServletRequest req) {
-		
+
 		/**
-	     * 이전 페이지로 되돌아가기 위한 Referer 헤더값을 세션의 prevPage attribute로 저장 
+	     * 이전 페이지로 되돌아가기 위한 Referer 헤더값을 세션의 prevPage attribute로 저장
 	     */
 	    String uri = req.getHeader("Referer");
 	    if (uri != null && !uri.contains("/login")) {
 	    	req.getSession().setAttribute("prevPage", uri);
 	    }
-		
+
 		return "member/login";
 	}
 
-	@GetMapping("/signUp")
-	public String signUpPage() {
-		return "member/signUp";
-	}
-	
+	//회원가입 약관 동의 페이지 이동
 	@GetMapping("/signUpCheck")
 	public String signUpCheckPage() {
 		return "member/signUpCheck";
 	}
-	
+
+	//약관 동의 후 회원가입 페이지 이동
 	@GetMapping("/doSignUp")
 	public String doSignUpPage() {
 		return "member/signUp";
 	}
-	
+
 	// 아이디/비밀번호 찾기
 	@GetMapping("/findIdPw")
 	public String findIdPw() {
@@ -231,7 +228,7 @@ public class MemberController {
 						, @RequestParam(value="saveId", required = false) String saveId ) {
 
 		logger.info("로그인 기능 수행됨");
-
+		
 
 		// 아이디, 비밀번호가 일치하는 회원 정보를 조회하는 Service 호출 후 결과 반환 받기
 		Member loginMember = service.login(inputMember);
@@ -239,13 +236,15 @@ public class MemberController {
 
 		if(loginMember != null) { // 로그인 성공 시
 			model.addAttribute("loginMember", loginMember); // == req.setAttribute("loginMember", loginMember);
-
+			
+			String manage = loginMember.getManager();
+			logger.info(manage);
 			String prevPage = (String) req.getSession().getAttribute("prevPage");
-			 
+
 	        if (prevPage != null) {
 	            req.getSession().removeAttribute("prevPage");
 	        }
-			
+
 			// 로그인 성공 시 무조건 쿠키 생성
 			// 단, 아이디 저장 체크 여부에 따라서 쿠기의 유지 시간을 조정
 			Cookie cookie = new Cookie("saveId", loginMember.getMemberEmail());
@@ -280,18 +279,15 @@ public class MemberController {
 	// 로그아웃
 	@GetMapping("/logout")
 	public String logout(SessionStatus status,
-			RedirectAttributes ra,
-			HttpServletRequest req
+			RedirectAttributes ra
 			) {
 
 		logger.info("로그아웃 수행됨");
 
 		ra.addFlashAttribute("message","로그아웃 되었습니다.");
 		status.setComplete(); // 세센이 할 일이 완료됨 -> 없앰
-		
-		String prevPage = req.getHeader("Referer");
 
-		return "redirect:" + prevPage; // 메인페이지 리다이렉트
+		return "redirect:/"; // 메인페이지 리다이렉트
 
 	}
 
@@ -302,16 +298,16 @@ public class MemberController {
 		List<String> idList = service.findId(memberTel);
 
 		logger.info("id : " + idList);
-		
+
 		String id = "";
-		
+
 		for(int i=0; i<idList.size(); i++) {
-			
+
 			if( i == idList.size() - 1 ) id += idList.get(i);
 			else id += idList.get(i) + " / ";
-			
+
 		}
-		
+
 		ra.addFlashAttribute("message", "회원님의 ID는 " + id + " 입니다");
 
 		return "redirect:/member/login";

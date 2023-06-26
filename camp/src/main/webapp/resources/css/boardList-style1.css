@@ -2,10 +2,6 @@
     border : 1px solid black;
 } */
 
-hr{
-    width: 90%;
-}
-
 /* a태그 공통 설정 */
 .board a{
     text-decoration: none;
@@ -15,54 +11,51 @@ hr{
     text-decoration: underline;
 }
 
+/* body */
+body{
+    margin: 0px;
+}
 
-
-/* section */
-.contain{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    height: auto;
-    background-color: rgb(240, 244, 241);
-    width: 85%;
-    padding: 0 50px;
-    border-left : 2px solid #ddd;
-    min-height: 670px;
-    padding-top: 50px;
+/* main */
+main{
+    width: 1850px;
 }
 
 /* 왼쪽 사이드 메뉴 */
 .myPage-content{
-    width: 1850px;
+    width: auto;
     height: auto;
     margin: 25px;
     margin-left: 0px;
     display: flex;
 }
-
-
 .left-side{
     position: sticky;
     top: 120px;
-    width: 12%;
+    width: 200px;
     
     /* border-right : 2px solid gray; */
     text-align: center;
     height: 300px;
 }
-
+.left-side > h3 {
+    background-color: #343a40;
+    margin-left: 5px;
+    margin-right: 5px;
+    padding: 15px;
+    color: white;
+}
 .list-group{
     width: 100%;
     padding: 0 5px 0 5;
            /*상 우  하 좌  */
 }
-
 .list-group  li{
     list-style: none;
     height: 50px;
     font-size: 18px;
+    padding: 30px;
 }
-
 .list-group  li > a{
     text-decoration: none;
     color : black;
@@ -75,16 +68,24 @@ hr{
 
     /* border-bottom : 2px solid #ddd; */
 }
-
 .list-group  li:hover{
     background-color: #f2f2f2;
 }
-
-
-
 /* 사이드메뉴 끝  */
 
-
+/* section */
+.contain{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 1850px;
+    background-color: rgb(240, 244, 241);
+    width: 1850px;
+    padding: 0 50px;
+    /* border-left : 2px solid #ddd; */
+    min-height: 670px;
+    /* padding-top: 50px; */
+}
 
 /* span */
 span{
@@ -95,35 +96,36 @@ span{
 .board1{
     margin-left: 35px;
     margin-right: 35px;
-    height: 550px;
-    /* width: 1000px; */
+    height: 40%;
+    /* width: 95%; */
     background-color: rgb(237, 235, 235);
     /* border : 1px solid black; */
 }
 .board2{
     margin-left: 35px;
     margin-right: 35px;
-    height: 500px;
-    /* width: 1000px; */
+    height: 30%;
+    /* width: 95%; */
     background-color: rgb(237, 235, 235);
     /* border : 1px solid black; */
 }
 
 
-/* board 아래 영역 설정 */
+/* board2 관련 영역 설정 */
 .board-list{
     display: flex;
-    /* width: 1200px; */
+    width: 100%;
     /* margin-left: 30px; */
+    margin-top: 30px;
     margin-bottom: 10px;
     justify-content: space-evenly;
     /* border : 1px solid green; */
 }
 
 
-/* board 위 아래를 나누는 빈공간 */
+/* board 위1 아래2 를 나누는 빈공간 */
 .board-empty{
-    height: 100px;
+    height: 10%;
     /* border : 1px solid black; */
 }
 
@@ -131,16 +133,31 @@ span{
 /* div headline 관련 */
 .headline{
     text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    /* display: inline-block; */
+    /* color: #000; */
+    /* vertical-align: middle; */
+    line-height: 45px;
+}
+.headline h1{
+    font-size: 30px;
+    margin: 0px;
+}
+.headline h2{
+    margin-top: 15px;
 }
 .headline2{
     text-align: center;
     width: 450px;
     margin-bottom: 5px;
+    font-size: 25px;
+    font-weight: 800;
 }
 
 
 /* 여행지 추천 */
-.recommend-img{
+/* .recommend-img{
     width: 90%;
     height: 200px;
 }
@@ -148,7 +165,7 @@ span{
     margin: auto;
     width: 90%;
     height: 10%;
-    /* border : 1px solid black; */
+    border : 1px solid black;
 }
 .recommend-content{
     margin: auto;
@@ -156,12 +173,14 @@ span{
     height: 90%;
     overflow: auto;
     border : 1px solid black;
-}
+} */
 
 
 /* 페이스북 */
 .board2-1{
-    border: 1px solid black;
+    /* border: 1px solid black; */
+    width: 550px;
+    height: 450px;
 }
 
 
@@ -171,7 +190,8 @@ span{
     background: #e6e9f6;
 }
 .multiple-items img{
-    border-radius: 5%;
+    border-radius: 70%;
+    object-fit: cover;
 	max-width: 80%;
     height: 250px;
     display: block;

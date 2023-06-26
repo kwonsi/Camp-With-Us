@@ -15,8 +15,6 @@ function selectReplyList(){
         dataType : "JSON", // JSON 형태의 문자열 응답 데이터를 JS 객체로 자동 변환
         success : function(rList){
             // rList : 반환 받은 리뷰 목록 
-            console.log(rList);
-
             
             var currentPage = 1;
             var itemsPerPage = 10;
@@ -242,6 +240,11 @@ addReply.addEventListener("click", function(){ // 리뷰 등록 버튼이 클릭
         }
     }
 
+    if(campRate == null || campRate == 0) {
+        alert("별점을 선택해주세요.");
+        return;
+    }
+    
     // 3) AJAX를 이용해서 리뷰 내용 DB에 저장(INSERT)
     $.ajax({
         url : contextPath + "/review/insert",
@@ -254,13 +257,16 @@ addReply.addEventListener("click", function(){ // 리뷰 등록 버튼이 클릭
         success : function(result){
 
             if(result > 0){ // 등록 성공
+                campRate = 0;
+
                 alert("리뷰가 등록되었습니다.");
 
                 for(let i=0; i<reviewStar.length; i++) {
-                    reviewStar[i].checked = false;
+                    if(reviewStar[i].checked) {
+                        reviewStar[i].checked = false;
+                    }
                 }
-
-
+                campRate = 0;
 
                 reviewContents.value = ""; // 작성했던 리뷰 삭제
 
@@ -268,7 +274,7 @@ addReply.addEventListener("click", function(){ // 리뷰 등록 버튼이 클릭
                 // -> 새로운 리뷰이 추가되어짐
 
             } else { // 실패
-                alert("리뷰 등록에 실패했습니다...");
+                alert("해당 캠핑장의 예약 내역이 존재하지 않아 리뷰를 작성하실 수 없습니다.");
             }
 
         },

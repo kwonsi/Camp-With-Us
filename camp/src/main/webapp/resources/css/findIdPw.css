@@ -75,9 +75,10 @@ margin-bottom: -9px;
 }
 
 #header .logo img {
-padding: 0;
-margin: 0;
-max-height: 90px;
+  padding: 5px;
+  margin: 0;
+  max-height: 90px;
+  margin-left: 20px;
 }
 
 .navbar {
@@ -303,7 +304,7 @@ align-items: center;
 opacity: 0.3;
 border: 1px solid black !important;
 background-image: url('../images/findIdPw7.png'); 
-background-size: 100%; 
+background-size: 100% 100%; 
 /* background-position: 60% 1%;  */
 padding: 0 !important;
 
@@ -883,9 +884,9 @@ color: #5c5c5c;
   padding-bottom: 6px;
 }
 
-#footer .footer-top .footer-links {
-  /* margin-bottom: 30px; */
-}
+/* #footer .footer-top .footer-links {
+  margin-bottom: 30px;
+} */
 
 #footer .footer-top .footer-links ul {
 list-style: none;

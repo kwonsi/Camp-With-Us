@@ -11,7 +11,7 @@ body{
 }
 .payment{
     width: 1000px;
-    height: 1050px;
+    height: 1200px;
     margin: auto;
     z-index: 999;
 }
@@ -29,7 +29,7 @@ body{
 }
 .paymentInfo{
     width: 600px;
-    height: 850px;
+    height: 950px;
     border: none;
     margin: auto;
     margin-top: 120px;
@@ -122,7 +122,7 @@ input#address, #postcode, #detailAddress{
 }
 .video-container {
     width: 100%;/* 원하는 가로 크기 */
-    height: 1200px; /* 원하는 세로 크기 */
+    height: 1350px; /* 원하는 세로 크기 */
     overflow: hidden;
     position:absolute;
     top: 0;
@@ -139,3 +139,34 @@ input#address, #postcode, #detailAddress{
     z-index: -99;
     
   }
+  .PayMethod{
+    width: 500px;
+    height: 100px;
+    text-align: center;
+    margin: auto;
+
+}
+.methodSelect{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 20px;
+    
+}
+  #cash, #card{
+    width: 20px;
+    height: 20px;
+    margin: 0;
+  }
+.pay{
+    margin: auto;
+    font-size: 14px;
+}
+.cashMethod{
+    padding: 0 20px 0 20px; 
+    font-size: 20px;
+}
+.cardMethod{
+    padding: 0 20px 0 20px;
+    font-size: 20px;
+}

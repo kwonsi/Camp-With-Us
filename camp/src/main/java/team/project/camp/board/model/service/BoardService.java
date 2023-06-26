@@ -6,7 +6,6 @@ import java.util.Map;
 
 import org.springframework.web.multipart.MultipartFile;
 
-import team.project.camp.board.model.vo.Board;
 import team.project.camp.board.model.vo.BoardDetail;
 import team.project.camp.board.model.vo.BoardType;
 import team.project.camp.board.model.vo.PlaceRecommend;

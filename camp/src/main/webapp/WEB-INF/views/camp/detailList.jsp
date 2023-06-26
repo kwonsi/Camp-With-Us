@@ -61,10 +61,10 @@
                 <div class="cont_tb">
                     <table class="table">
                         <caption class = "logoCaption">
-                            <div class ="lineIntro1"></div>
                             <div class="logo">
                                 <a href="${contextPath}"><img src="${contextPath}/resources/images/CWUlogo.png" id="home-logo"></a>
                             </div>
+                            <div class ="lineIntro1"></div>
                         </caption>
                         <colgroup>
                             <col style="width: 25%;" />
@@ -454,6 +454,7 @@
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
     <script>
+        // 캠핑장 이름
         const campName = "${campName}";
         // 로그인한 회원 번호
         const loginMemberNo = "${loginMember.memberNo}";
@@ -461,7 +462,7 @@
         const contextPath = "${contextPath}";
         // 캠핑장 번호
         var campItem = JSON.parse(localStorage.getItem("item"));
-        var campNo = parseInt(campItem.contentId);
+        const campNo = parseInt(campItem.contentId);
     </script>
 
 

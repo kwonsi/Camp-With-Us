@@ -1,4 +1,3 @@
-
 main{
     width: 100%;
 }
@@ -199,6 +198,8 @@ a{
     background-color: #ffffff;
     background-color: rgba(0, 0, 0, 0.6);
 }
+
+
 .SELECTDATE{
     width: 90%;
     height: 170px;
@@ -383,7 +384,7 @@ a{
 .buttons{
     display: flex;
     justify-content: center;
-    margin-top: 30px;
+    margin-top: 20px;
     z-index: 2;
     margin-bottom: 60px;
 }

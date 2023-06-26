@@ -16,13 +16,19 @@
 .left-side{
     position: sticky;
     top: 120px;
-    width: 12%;
+    width: 200px;
     
     /* border-right : 2px solid gray; */
     text-align: center;
     height: 300px;
 }
-
+.left-side > h3 {
+    background-color: #343a40;
+    margin-left: 5px;
+    margin-right: 5px;
+    padding: 15px;
+    color: white;
+}
 .list-group{
     width: 100%;
     padding: 0 5px 0 5;
@@ -33,6 +39,7 @@
     list-style: none;
     height: 50px;
     font-size: 18px;
+    padding: 30px;
 }
 
 .list-group  li > a{
@@ -71,7 +78,7 @@
 /* 게시판 목록 화면 전체 영역 설정 */
 .board-list{
    /*  width: 1000px; */
-    margin: 50px auto;
+  /*   margin: 50px auto; */
     margin-top: 0px;
     display: flex;
     justify-content: center;

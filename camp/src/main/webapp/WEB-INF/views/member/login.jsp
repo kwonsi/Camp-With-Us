@@ -14,13 +14,8 @@
 
         <link rel="stylesheet" href="${contextPath}/resources/css/login.css">
         <link rel="stylesheet" href="${contextPath}/resources/css/boxicons.css">
-<!--         <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap-icons.css"> -->
-        
-<!--         <link rel="stylesheet" href="${contextPath}/resources/css/main-bootstrap.css">
-        <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap-icons.css">
-        <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap_main_header.css"> -->
-        <!-- <link rel="stylesheet" href="${contextPath}/resources/css/signUpPage.css"> -->
 
+        <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap-icons.css">
     </head>
 
     <body>
@@ -36,7 +31,10 @@
             <div class="signUp-content bg-light px-md-5">
 
 
-                <div class="mb-5">                    
+                <div class="mb-5"> 
+                    <div class="logo">
+                        <a href="${contextPath}"><img src="${contextPath}/resources/images/CWUlogo2.png" id="home-logo"></a>
+                    </div>                   
                     <h1 class="fw-bolder">LOGIN</h1>
                 </div>
 
@@ -47,8 +45,8 @@
 
                                 <!-- id input-->
                                 <div class="signUp-input-area form-floating mb-3">
-                                    <input class="form-control" id="memberEmail" type="email" name="memberEmail" 
-                                     maxlength="50" autocomplete="off" />
+                                    <input class="form-control" id="memberEmail" type="text" name="memberEmail" 
+                                     placeholder="아이디(이메일)" maxlength="50"/>
                                     <label for="memberEmail">ID(Email)</label>
                                 </div>
 
@@ -56,7 +54,7 @@
                                 <!-- password input-->
                                 <div class="signUp-input-area form-floating mb-3">
                                     <input class="form-control" id="memberPw" type="password" name="memberPw"
-                                   maxlength="30"/>
+                                    placeholder="비밀번호" maxlength="30"/>
                                     <label for="memberPw">PassWord</label>
                                 </div>
                                 

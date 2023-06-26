@@ -15,13 +15,19 @@
 .left-side{
     position: sticky;
     top: 120px;
-    width: 12%;
+    width: 200px;
     
     /* border-right : 2px solid gray; */
     text-align: center;
     height: 300px;
 }
-
+.left-side > h3 {
+    background-color: #343a40;
+    margin-left: 5px;
+    margin-right: 5px;
+    padding: 15px;
+    color: white;
+}
 .list-group{
     width: 100%;
     padding: 0 5px 0 5;
@@ -32,6 +38,7 @@
     list-style: none;
     height: 50px;
     font-size: 18px;
+    padding: 30px;
 }
 
 .list-group  li > a{
@@ -53,6 +60,7 @@
 /* 사이드메뉴 끝  */
 
 /* a태그 공통 설정 */
+
 .board-list a{
     text-decoration: none;
     color : black;
@@ -64,7 +72,7 @@
 
 /* 게시판 목록 화면 전체 영역 설정 */
 .board-list{
-   margin: 50px auto;
+ /*   margin: 50px auto; */
    margin-top: 0px;
    display: flex;
    justify-content: center;
@@ -123,13 +131,22 @@
 .list-table tr > td:nth-of-type(2){ 
     width: 50%;
     text-align: left;
-    padding-left : 50px;
 }
 
 .list-table tr > *:nth-of-type(3){ width: 15%;}
 .list-table tr > *:nth-of-type(4){ width: 15%;}
 .list-table tr > *:nth-of-type(5){ width: 10%;}
 
+#boardListP  {
+    margin : 0px 
+}
+
+.CWUspan{
+    font-size: 17px;
+}
+#myPageHeadFlexImg{
+    background-image: url(../images/12.png);
+}
 
 /* 버튼 영역 */
 .btn-area{
