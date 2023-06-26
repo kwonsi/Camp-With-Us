@@ -119,7 +119,10 @@
                                                     <td>${Allreservation.buyerName}</td>
                                                     <td>${Allreservation.reservDate}</td>
                                                     <td>${Allreservation.people}</td>
-                                                    <td>${Allreservation.amount}</td>
+                                                    <td>
+                                                        <fmt:formatNumber value="${Allreservation.amount}"
+                                                            pattern="###,###" />
+                                                    </td>
                                                     <td>${Allreservation.reservSelDate}</td>
                                                     <c:choose>
 

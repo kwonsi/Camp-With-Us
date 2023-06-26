@@ -31,6 +31,9 @@
             <span class="myPage-explanation">현재 회원님의 비밀번호를 변경할 수 있습니다.</span>
         </div>
     </div>
+
+
+    <div class="changePwborder">
             <form action="changePw" method="POST" name="myPage-form" onsubmit="return changePwValidate()">
 
                 <div class="myPage-row">
@@ -51,7 +54,7 @@
                 <button id="info-update-btn" type="submit">변경하기</button>
 
             </form>
-
+        </div>
         </section>
 
     </main>

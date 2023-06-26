@@ -29,6 +29,7 @@ transition: background-color 5000s;
     
     box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
 }
+  
 
 .header-container {
   width: 95%;
@@ -41,10 +42,10 @@ transition: background-color 5000s;
   display: flex;
 }
 #header .logo img {
-  padding: 0;
+  padding: 5px;
   margin: 0;
   max-height: 90px;
-  width: 200px;
+  margin-left: 20px;
 }
 
 #header .logo h1 {

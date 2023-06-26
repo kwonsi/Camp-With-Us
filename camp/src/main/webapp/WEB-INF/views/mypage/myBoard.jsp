@@ -52,11 +52,11 @@
 
                 </table>
 
-                <div id="pagination" class="pagination"></div>
+                
                 
             </div>
 
-            
+            <div id="pagination" class="pagination"></div>
         </section>
 
     </main>

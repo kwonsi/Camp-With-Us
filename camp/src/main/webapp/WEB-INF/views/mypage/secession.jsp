@@ -31,6 +31,9 @@
             <span class="myPage-explanation">현재 비밀번호가 일치하는 경우 회원 탈퇴할 수 있습니다.</span>
         </div>
     </div>
+
+
+    <div class="secessionborder">
             <form action="secession" method="POST" name="myPage-form" onsubmit="return secessionValidate()" >
 
                 <div class="myPage-row">
@@ -78,7 +81,7 @@
                 <button id="info-update-btn">탈퇴</button>
                 
             </form>
-
+        </div>
         </section>
 
     </main>
