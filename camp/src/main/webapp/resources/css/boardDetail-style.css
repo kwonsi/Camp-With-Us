@@ -134,7 +134,7 @@
     border: 0;
     background-color: #ee7843;
     color : white;
-
+    border-radius: 3px;
     cursor: pointer;
 }
 

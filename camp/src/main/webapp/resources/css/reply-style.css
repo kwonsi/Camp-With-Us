@@ -94,6 +94,7 @@
     color: white;
     border: 0;
     cursor: pointer;
+    border-radius: 5px;
 }
 
 #addReply:hover{
