@@ -51,7 +51,7 @@
 
     <!-- 댓글 작성 부분 -->
     <div class="reply-write-area">
-        <textarea id="replyContent"></textarea>
+        <textarea id="replyContent" class="form-control"></textarea>
         <button id="addReply">
             댓글<br>
             등록
