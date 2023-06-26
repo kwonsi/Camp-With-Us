@@ -5,7 +5,7 @@
 
 /* 왼쪽 사이드 메뉴 */
 .myPage-content{
-    width: 1850px;
+    width: 100%;
     height: auto;
     margin: 25px;
     margin-left: 0px;
@@ -85,7 +85,7 @@
     flex-direction: column;
     height: auto;
     background-color: rgb(240, 244, 241);
-    width: 85%;
+    width: 100%;
     padding: 0 50px;
     border-left : 2px solid #ddd;
     min-height: 670px;

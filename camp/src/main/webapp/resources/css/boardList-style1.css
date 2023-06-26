@@ -18,7 +18,7 @@ body{
 
 /* main */
 main{
-    width: 1850px;
+    width: 100%;
 }
 
 /* 왼쪽 사이드 메뉴 */
@@ -80,7 +80,7 @@ main{
     flex-direction: column;
     height: 1850px;
     background-color: rgb(240, 244, 241);
-    width: 1850px;
+    width: 100%;
     padding: 0 50px;
     /* border-left : 2px solid #ddd; */
     min-height: 670px;
