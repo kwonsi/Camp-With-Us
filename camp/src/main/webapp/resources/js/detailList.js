@@ -77,7 +77,7 @@ window.onload = function () {
             pageNo: 1,
             MobileOS: "ETC",
             MobileApp: "AppTest",
-            serviceKey: "4k7REi0gs6TKyjakIRV6zHIg3a1NcXwJPRTezijLCYvx0leNrqvtRwayHuc1AslN9pksU9rGRorGGOTZwMEu9Q==",
+            serviceKey: "I9du70n72b4HG+Y4EFuyTYoNlJ3tOZycxGZluxxxoKxLFP4nPc5cjB4iha+XbuTyZ2Krp2X/cqRs22JpoB3dnw==",
             _type: "json"
         },
         dataType: "json",
@@ -189,7 +189,7 @@ window.onload = function () {
                     pageNo: 1,
                     MobileOS: "ETC",
                     MobileApp: "AppTest",
-                    serviceKey: "4k7REi0gs6TKyjakIRV6zHIg3a1NcXwJPRTezijLCYvx0leNrqvtRwayHuc1AslN9pksU9rGRorGGOTZwMEu9Q==",
+                    serviceKey: "I9du70n72b4HG+Y4EFuyTYoNlJ3tOZycxGZluxxxoKxLFP4nPc5cjB4iha+XbuTyZ2Krp2X/cqRs22JpoB3dnw==",
                     _type: "json",
                     contentId: contentId
                 },
