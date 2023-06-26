@@ -60,14 +60,8 @@ public class BoardController {
 	@GetMapping("/list/{boardCode}")
 	public String boardList( @PathVariable("boardCode") int boardCode,
 							@RequestParam(value="cp", required= false, defaultValue="1") int cp,
-//							@RequestParam(value="boardContent", required= false) String boardContent,
-							Model model, // -> 세션에 값을 올려주는 model! 값 올리라고 호출하는 방법 -> model.addAttribute();
+							Model model,
 							@RequestParam Map<String, Object> paramMap,
-//							PlaceRecommend placeRecommend,
-//							=> 이걸 쓰면 model에
-//							placeRecommend=team.project.camp.board.model.vo.PlaceRecommend@736da7e8, org.springframework.validation.BindingResult.placeRecommend=org.springframework.validation.BeanPropertyBindingResult: 0 errors
-//							가 담김
-//							=> 여기에 적는 의미가 뭐지? 무조건 model에 값을 담는건가? -> 그건 아님! 그치만 저렇게 뜨는 이유는 모르겠군,, 땃쉬..
 							Board board) {
 							// 검색 요청인 경우 : key, query, cp(있거나 없거나)
 
@@ -137,7 +131,6 @@ public class BoardController {
 		// BoardContent만 XSS 방지 처리 해제
 		detail.setBoardContent(Util.XSSClear( detail.getBoardContent() ));
 		
-//		log.info("Controller detail.getBoardContent : " + detail.getBoardContent());
 		
 		// @ModelAttribute("loginMember") Member loginMember  (사용불가)
 		// @ModelAttribute는 별도의 required 속성이 없어서 무조건 필수 조건임!
@@ -250,7 +243,7 @@ public class BoardController {
 	public String boardWriteForm(@PathVariable("boardCode") int boardCode,
 								String mode,
 								@RequestParam(value="no", required=false, defaultValue="0") int boardNo,
-								/* insert의 경우 파라미터에 no가 없을 수 있음*/
+								/* insert의 경우 파라미터에 no가 없을 수 있음 */
 								Model model ) {
 
 		if(mode.equals("update")) {
@@ -287,7 +280,7 @@ public class BoardController {
 		String folderPath = req.getSession().getServletContext().getRealPath(webPath);
 		
 		
-		// thumbnail 사진(제일 처음 업로드 되는 사진)
+		// thumbnail 사진( = 제일 처음 업로드 되는 사진으로 지정됨)
 		String thumbnailOriginalFileName = thumbnail.getOriginalFilename();	//오리지날 파일명
 		String thumbnailExtension = thumbnailOriginalFileName.substring(thumbnailOriginalFileName.lastIndexOf("."));	//파일 확장자
 		String thumbnailSavedFileName = UUID.randomUUID() + thumbnailExtension;	//저장될 파일 명
@@ -303,7 +296,7 @@ public class BoardController {
 			InputStream fileStream = thumbnail.getInputStream();
 			FileUtils.copyInputStreamToFile(fileStream, thumbnailFile);	//파일 저장
 			
-			String imagePath = req.getContextPath() + webPath + thumbnailSavedFileName; // 이미지 경로 변수에 담기
+			String imagePath = req.getContextPath() + webPath + thumbnailSavedFileName; // 이미지 경로를 imagePath에 담기
 			
 			ajaxImgPaths.add(imagePath); // 변수에 담은 이미지 경로를 ArrayList에 추가
 			
@@ -314,7 +307,7 @@ public class BoardController {
 		}
 		
 		
-		// 나머지 사진
+		// 나머지 사진들
 		if(multipartFiles != null) {
 			for (MultipartFile multipartFile : multipartFiles) {
 				String originalFileName = multipartFile.getOriginalFilename();	//오리지날 파일명
@@ -328,7 +321,7 @@ public class BoardController {
 					InputStream fileStream = multipartFile.getInputStream();
 					FileUtils.copyInputStreamToFile(fileStream, targetFile);	//파일 저장
 					
-					String imagePath = req.getContextPath() + webPath + savedFileName; // 이미지 경로 변수에 담기
+					String imagePath = req.getContextPath() + webPath + savedFileName; // 이미지 경로 imagePath에 담기
 					
 					ajaxImgPaths.add(imagePath); // 변수에 담은 이미지 경로를 ArrayList에 추가
 					
@@ -344,7 +337,7 @@ public class BoardController {
 		log.debug("imgPaths(ajax 저장경로) : " + ajaxImgPaths);
 		
 		
-		return new Gson().toJson(ajaxImgPaths);
+		return new Gson().toJson(ajaxImgPaths); // jsp의 ajax로 ArrayList에 담은 값들 리턴
 	}
 	
 	
@@ -355,7 +348,6 @@ public class BoardController {
 	// "/board/write/{boardCode}" -> 서비스 요청 url 주소가 동일함
 	@PostMapping("/write/{boardCode}")
 	public String boardWrite( BoardDetail detail, // boardTitle, boardContent, boardNo, imgPath(수정)
-//							@RequestParam(value="images", required=false) List<MultipartFile> imageList, // 업로드 파일(이미지) 리스트
 							@PathVariable("boardCode") int boardCode,
 							String mode,
 							@ModelAttribute("loginMember") Member loginMember,
@@ -387,7 +379,7 @@ public class BoardController {
 			    
 			   String imgTag = null;
 			    
-			   if(match.find()){ // 이미지 태그를 찾았다면,,
+			   if(match.find()){ // 이미지 태그를 찾았다면
 			       imgTag = match.group(0); // 글 내용 중에 첫번째 이미지 태그를 뽑아옴.
 			   }
 			   
@@ -401,12 +393,12 @@ public class BoardController {
 			// 게시글 부분 삽입 (이미지가 없을때) 제목, 내용, 회원번호, 게시판코드
 			// -> 삽입 된 게시글의 번호(boardNo) 반환 (왜? 삽입이 끝나면 게시글 상세조회로 리다이렉트할거라서)
 
-			// 게시글에 포함된 이미지 정보 삽입 (0 ~ 5개, 게시글 번호 필요)
+			// 게시글에 포함된 이미지 정보 삽입 (게시글 번호 필요)
 			// -> 실제 파일로 변환해서 서버에 저장 ( transFer() )
 
 			// 두번의 insert중 한번이라도 실패하면 전체 rollback (트랜잭션 처리)
 
-			int boardNo = service.insertBoard(detail, thumbnailImgPaths);
+			int boardNo = service.insertBoard(detail, thumbnailImgPaths); // BoardDetail과 thumbnailImgPaths(썸네일 이미지 저장경로)
 			
 			
 			String path = null;
@@ -444,7 +436,7 @@ public class BoardController {
 			    
 			   String imgTag = null;
 			    
-			   if(match.find()){ // 이미지 태그를 찾았다면,,
+			   if(match.find()){ // 이미지 태그를 찾았다면
 			       imgTag = match.group(0); // 글 내용 중에 첫번째 이미지 태그를 뽑아옴.
 			   }
 			   

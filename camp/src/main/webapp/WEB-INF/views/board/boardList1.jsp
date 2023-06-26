@@ -158,8 +158,8 @@
         // appendDots : $('.target_dots'),
         adaptiveHeight: 300,
         focusOnSelect: true,
-        slidesToShow: 3,
-        slidesToScroll: 3,
+        slidesToShow: 5,
+        slidesToScroll: 5,
         autoplay: true,
         autoplaySpeed: 3000,
         arrows: false
