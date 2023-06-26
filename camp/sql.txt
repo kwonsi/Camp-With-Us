@@ -319,21 +319,23 @@ END;
 -- 실행하세요 , MEMBER_S 테이블의 NO 와 MEMBER 테이블의 NO 가 외래키로 중복됩니다.   YJdawn.
 
 
-
-------------------------------------------------------------------------------
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-
-
-=======
 리뷰 테이블 수정 (캠핑장 이름 컬럼 추가)
+<<<<<<< HEAD
 ALTER TABLE REPLY_C ADD "CAMP_NAME" VARCHAR2(100);
 >>>>>>> 5a179c426abfb13dca7e8699b90596c8c667b9ab
 =======
 리뷰 테이블 수정 (캠핑장 이름 컬럼 추가)
 ALTER TABLE REPLY_C ADD "CAMP_NAME" VARCHAR(100);
 >>>>>>> aafb601723d8e9299f5e2f0acf1205c880aef685
+=======
+ALTER TABLE REPLY_C ADD "CAMP_NAME" VARCHAR(100);
+
+
+
+------------------------------------ 관리자 컬럼 , 결제방식 ( 카드,계좌이체 ) 추가 . ------------ MEMBER_S. MANAGER = 'Y'  로 바꾸셔야 관리자입니다.
+ALTER TABLE RESERVATION ADD PAYMETHOD VARCHAR2(50);      
+ALTER TABLE MEMBER_S ADD MANAGER CHAR(1) DEFAULT 'N';
+>>>>>>> 9457d60187987eeeeac4f2001fcbe1c89d809c85
 
 
 

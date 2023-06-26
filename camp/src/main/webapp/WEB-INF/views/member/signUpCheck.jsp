@@ -29,7 +29,7 @@
         <form action="doSignUp" method="get" class="signUpCheckForm" onsubmit="return signUpCheck()">
             <div class="contentCheck">
                 <div class="subject">
-                    <img class="logoSize" src="../resources/images/CWUlogo.png"><h1>회원가입 약관 동의</h1>
+                    <img class="logoSize" src="../resources/images/campLogoNew.png"><h1>회원가입 약관 동의</h1>
                 </div>
                 
                 <div class="check1">

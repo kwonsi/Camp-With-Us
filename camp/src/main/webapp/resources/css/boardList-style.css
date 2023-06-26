@@ -14,8 +14,11 @@
 
 /* 게시판 목록 화면 전체 영역 설정 */
 .board-list{
-    width: 1000px;
-    margin: 50px auto;
+    width: 100%;
+    /* margin: 50px auto; */
+    padding: 0 50px;
+    border-left: 2px solid #ddd;
+    min-height: 670px;
 }
 
 /* 게시판 이름 */
@@ -62,7 +65,7 @@
 
 .list-table tr > *:nth-of-type(1){ width: 7%;}
 .list-table tr > td:nth-of-type(2){ 
-    width: 15%;
+    width: 25%;
     text-align: center;
 }
 
@@ -89,6 +92,10 @@ thead tr:nth-child(1) {
 }
 .list-table tr:nth-child(2n) {
     --bs-table-color-state: var(--bs-table-active-color);
+    --bs-table-bg-state:rgb(200, 200, 200,0.45);
+}
+.list-table tr:nth-child(2n-1) {
+    --bs-table-color-state: var(--bs-table-active-color);
     --bs-table-bg-state:rgb(0 0 0 / 5%);
 }
 
@@ -108,8 +115,8 @@ thead tr:nth-child(1) {
     height: 40px;
 
     background-color: white;
-    border: 2px solid #455ba8;
-    color:#455ba8;
+    border: 2px solid #eb5d1e;
+    color:#212529;
 
     border-radius: 5px;
 
@@ -142,7 +149,7 @@ thead tr:nth-child(1) {
 
 /* 현재 페이지 번호 */
 .pagination .current{
-    background-color: #455ba8;
+    background-color: #495057;
     border-radius: 50%;
     color: white;
     font-weight: bold;
@@ -180,12 +187,15 @@ thead tr:nth-child(1) {
 #boardSearch button{
     width: 100px;
 
-    background-color: #455ba8;
+    background-color: #34373b;
     color: white;
     border : 0;
 
     font-weight: bold;
     cursor: pointer;
+}
+#boardSearch button:hover {
+    background-color: #6d6c6c;
 }
 
 
@@ -274,7 +284,7 @@ CSS 애니메이션 과정의 중간 절차를 제어할 수 있게 합니다.  
     to {opacity: 0;}
 }
 
-.container,
+/* .container,
 .container-fluid,
 .container-xxl,
 .container-xl,
@@ -304,4 +314,4 @@ CSS 애니메이션 과정의 중간 절차를 제어할 수 있게 합니다.  
 	min-height: 1px;
 	padding-right: 15px;
 	padding-left: 15px;
-}
+} */

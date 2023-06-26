@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="${contextPath}/resources/css/mypage.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap-icons.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap_main_header.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/boxicons.css">
     
     <script src="https://kit.fontawesome.com/a2e8ca0ae3.js" crossorigin="anonymous"></script>
 
@@ -32,80 +33,87 @@
             <h1 class="myPage-title">회원 정보 수정</h1>
             
             <span class="myPage-explanation">현재 회원님의 프로필을 변경할 수 있습니다.</span>
-        </div>
-    </div>
+                </div>
+            </div>
+
+        <div class="infoborder">
+
 
             <form action="profileImage" method="POST" name="myPage-form" id="form-profileImage"
-                    enctype="multipart/form-data" onsubmit="return profileValidate()">
-                <div class="myPage-row">
-                    <label>프로필 이미지</label>
-                    
-                    <div class="profile-image-area">
+                        enctype="multipart/form-data" onsubmit="return profileValidate()">
+                        <label>프로필 이미지</label>
+                        <div class="myPage-row">
+                        
+                        <div class="profile-image-area">
 
-                        <c:if test="${empty loginMember.profileImage}">
-                            <img src="${contextPath}/resources/images/user.png" id="profile-image">
-                        </c:if>
+                            <c:if test="${empty loginMember.profileImage}">
+                                <img src="${contextPath}/resources/images/user.png" id="profile-image">
+                            </c:if>
 
-                        <c:if test="${!empty loginMember.profileImage}">
-                            <img src="${contextPath}${loginMember.profileImage}" id="profile-image">
-                        </c:if>
+                            <c:if test="${!empty loginMember.profileImage}">
+                                <img src="${contextPath}${loginMember.profileImage}" id="profile-image">
+                            </c:if>
 
-                        <!-- 프로필 이미지 삭제 버튼 -->
-                        <span id="delete-image">x</span>
+                            <!-- 프로필 이미지 삭제 버튼 -->
+                            <span id="delete-image">x</span>
 
+                        </div>
                     </div>
-                </div>
-                <div class="profile-btn-area">
-                    <label for="input-image">이미지 선택</label>
-                    <input type="file" name="uploadImage" id="input-image" accept="image/*">
-                    <button type="submit">변경하기</button>
-                </div>
+                    <div class="profile-btn-area">
+                        <label for="input-image">이미지 선택</label>
+                        <input type="file" name="uploadImage" id="input-image" accept="image/*">
+                        <button type="submit">변경하기</button>
+                    </div>
 
-                <!-- 삭제버튼(x)이 눌러짐을 기록하는 숨겨진 input 태그 -->
-                <!-- 0 : 안눌러짐   /   1: 눌러짐 -->
-                <input type="hidden" name="delete" id="delete" value="0">
-            </form>
+                    <!-- 삭제버튼(x)이 눌러짐을 기록하는 숨겨진 input 태그 -->
+                    <!-- 0 : 안눌러짐   /   1: 눌러짐 -->
+                    <input type="hidden" name="delete" id="delete" value="0">
+                </form>
 
-            <form action="info" method="POST" name="myPage-form" onsubmit="return infoValidate()">
-                <div class="myPage-row">
-                    <label>이메일</label>
-                    <span>${loginMember.memberEmail}</span>
-                </div>
+                <form action="info" method="POST" name="myPage-form" onsubmit="return infoValidate()">
+                    
 
-                <div class="myPage-row">
-                    <label>닉네임</label>
-                    <input type="text" name="updateNickname" class="form-control" id="memberNickname"  value="${loginMember.memberNickname}" maxlength="10">              
-                </div>
+                        <div class="myPage-row">
+                            <label>이메일</label>
+                            <span>${loginMember.memberEmail}</span>
+                        </div>
 
-                <div class="myPage-row">
-                    <label>전화번호</label>
-                    <input type="text" name="updateTel" class="form-control" id="updateTel" value="${loginMember.memberTel}" maxlength="11"/>
-                </div>
-                
-                <c:set var="addr"  value="${fn:split(loginMember.memberAddress, ',,')}"  />                    
-                
-                
-                <div class="myPage-row info-title">
-                    <span>주소</span>
-                </div>
+                        <div class="myPage-row">
+                            <label>닉네임</label>
+                            <input type="text" name="updateNickname" class="form-control" id="memberNickname"  value="${loginMember.memberNickname}" maxlength="10">              
+                        </div>
 
-                <div class="myPage-row info-address">
-                    <input type="text" name="updateAddress" id="postcode" value="${addr[0]}" class="form-control" maxlength="6">
+                        <div class="myPage-row">
+                            <label>전화번호</label>
+                            <input type="text" name="updateTel" class="form-control" id="updateTel" value="${loginMember.memberTel}" maxlength="11"/>
+                        </div>
+                        
+                        <c:set var="addr"  value="${fn:split(loginMember.memberAddress, ',,')}"  />                    
+                        
+                        
+                        <div class="myPage-row info-title">
+                            <span>주소</span>
+                        </div>
 
-                    <button type="button" id="info-address-btn" onclick="return execDaumPostcode()">검색</button>
-                </div>
+                        <div class="myPage-row info-address">
+                            <input type="text" name="updateAddress" id="postcode" value="${addr[0]}" class="form-control" maxlength="6">
 
-                <div class="myPage-row info-address">
-                    <input type="text" name="updateAddress" id="address" class="form-control" value="${addr[1]}">
-                </div>
-                
-                <div class="myPage-row info-address">
-                    <input type="text" name="updateAddress" id="detailAddress" class="form-control" value="${addr[2]}">
-                </div>
+                            <button type="button" id="info-address-btn" onclick="return execDaumPostcode()">검색</button>
+                        </div>
 
-                <button id="info-update-btn">수정하기</button>
+                        <div class="myPage-row info-address">
+                            <input type="text" name="updateAddress" id="address" class="form-control" value="${addr[1]}">
+                        </div>
+                        
+                        <div class="myPage-row info-address">
+                            <input type="text" name="updateAddress" id="detailAddress" class="form-control" value="${addr[2]}">
+                        </div>
 
-            </form>
+                        <button id="info-update-btn">수정하기</button>
+
+                </form>
+
+        </div>
 
         </section>
 

@@ -40,8 +40,9 @@
 
                 </ul>
 
-                <div id="pagination" class="pagination"></div>
+              
             </div>
+            <div id="pagination" class="pagination"></div>
         </section>
 
     </main>
@@ -123,10 +124,16 @@
                                     replyDate.classList.add("reply-date");
                                     replyDate.innerText =  "(" + reply.createDate + ")";
     
-                                    const replyCamp = document.createElement("span");
-                                    replyCamp.classList.add("reply-camp");
-                                    replyCamp.innerText = reply.campName;
+                                    const replyCampA = document.createElement("a");
+                                    replyCampA.href = "${contextPath}/campList/detailList?campName="+reply.campName+"&viewType=1";
+                                    
+                   /*                  const replyCamp = document.createElement("span");
+                                    replyCamp.classList.add("reply-camp"); */
+
+                                    replyCampA.innerText = reply.campName;
     
+                        /*             const replyCampValue = replyCampA.appendChild(replyCamp); */
+
                                     const reviewListStar = document.createElement("span");
                                     reviewListStar.classList.add("reviewListStar" + reply.campRate);
                                     
@@ -154,7 +161,7 @@
                                     
     
                                     // 작성자 영역(p)에 프로필,닉네임,작성일 마지막 자식으로(append) 추가
-                                    replyWriter.append(profileImage , memberNickname , replyDate, replyCamp, reviewListStar);
+                                    replyWriter.append(profileImage , memberNickname , replyDate, replyCampA, reviewListStar);
     
                                     
     

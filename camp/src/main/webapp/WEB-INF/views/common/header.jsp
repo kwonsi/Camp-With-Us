@@ -6,19 +6,19 @@
       <div class="header-container justify-content-between">
 
         <div class="logo">
-          <a href="${contextPath}"><img src="${contextPath}/resources/images/CWUlogo.png" id="home-logo"></a>
+          <a href="${contextPath}"><img src="${contextPath}/resources/images/CWUlogo2.png" id="home-logo"></a>
           &nbsp;<h1>C</h1>
           <h4>amp</h4>
           <h1>&nbsp;W</h1>
           <h4>ith</h4>
-          <h1>&nbsp;U</h1>
+          <h1>&nbsp;U</h1>  
           <h4>s</h4>
         </div>
 
         <nav id="navbar" class="navbar">
           <ul>
             <li><a href="/camp/campList/?loc=&theme=&campName=">캠핑장조회</a></li>
-            <li class="dropdown"><a href="#">게시판</a>
+            <li class="dropdown"><a href="${contextPath}/board/list/1">게시판</a>
               <ul>
                 <c:forEach var="boardType" items="${boardTypeList}">
                   <li><a href="${contextPath}/board/list/${boardType.boardCode}">${boardType.boardName}</a></li>

@@ -31,6 +31,8 @@
 
                     <section class="section-transform-top">
                         <div class="container">
+
+
                             <div class="box-booking">
                                 <form class="rd-form rd-mailform booking-form">
                                     <div>

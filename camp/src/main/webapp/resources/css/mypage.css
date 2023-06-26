@@ -1,11 +1,15 @@
 
 /* 마이페이지 영역 */
 .myPage-content{
-    width: 1850px;
+    width: 100%;
     height: auto;
     margin: 25px;
     margin-left: 0px;
     display: flex;
+}
+section.myPage-main > .reply-list-area > #reply-list > li {
+  margin-left: 15px;
+  margin-right: 15px;
 }
 
 .campwithus{
@@ -25,15 +29,56 @@
 .myPageHeadFlex{
   color: white;
   display: flex;
-  background-image: url(../images/main4.gif);
+  background-image: url(../images/10.png);
   background-size: 100% 100%;
   margin-top: 30px;
+  width: 100%;
+  height: 200px;
 }
 #reserveBtn{
   height: 30px;
   cursor: pointer;
 }
+#checkBoxdiv{
+  margin-top: 20px;
+  font-size: 17px;
+  display: flex;
+  align-items: center;
+}
+#agree{
+  width: 20px;
+  height: 20px;
+}
 
+.reserveCheckBtn{
+  border-radius: 5px;
+  height: 30px;
+  cursor: pointer;
+}
+
+
+.secessionborder{
+  margin-top: 50px;
+  width: 1000px;
+  display: flex;
+  border: 4px solid #e9480885;
+  box-shadow: 5px 5px 10px 5px #ed946fb5;
+  border-radius: 2rem;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+.changePwborder{
+  margin-top: 50px;
+  width: 800  px;
+  display: flex;
+  border: 4px solid #e9480885;
+  box-shadow: 5px 5px 10px 5px #ed946fb5;
+  border-radius: 2rem;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 .secessionContent{
   border: 1px solid black;
@@ -47,7 +92,7 @@
   line-height: 9mm;
   margin-bottom: 20px;
 }
-.secessionContent > h2 {
+.secessionContent > h3 {
   text-decoration: underline;
 }
 
@@ -85,6 +130,7 @@
     list-style: none;
     height: 50px;
     font-size: 18px;
+    padding: 30px;
 }
 
 .list-group  li > a{
@@ -106,15 +152,19 @@
 
 /* 마이페이지 공통 부분 */
 .myPage-main{
-    width: 85%;
+    width: 100%;
     padding: 0 50px;
     border-left : 2px solid #ddd;
     min-height: 670px;
+    display: flex;
+    flex-direction: column;
+  /*   align-items: center; */
+  padding-bottom: 100px;
 }
 
 .myPage-title{
     margin : 20px 0 20px 0;
-    font-size: 30px;
+    font-size: 40px;
 }
 
 .myPage-explanation{
@@ -129,16 +179,22 @@
     width: 500px;
     height: 50px;
     margin-top: 20px;
-
     display: flex;
+    justify-content: center;
     align-items: center;
     /* border-bottom : 2px solid #ddd; */
 }
-
+#form-profileImage{
+  width: 400px;
+}
 #form-profileImage .myPage-row {
     height: 200px;
 }
+#form-profileImage > label {
 
+  font-size: 20px;
+  font-weight: bold;
+}
 .myPage-row > *{
     font-size: 18px;
     font-weight: bold;
@@ -147,7 +203,7 @@
 .myPage-row > label{
     width: 200px;
     color : black;
-    font-size: 22px;
+    font-size: 20px;
 }
 
 .myPage-row > #secessionPw {
@@ -178,12 +234,29 @@ form[name="myPage-form"]{
     justify-content: center;
     align-items: center;
     margin-top:40px;
+    width: 750px;
 }
 /************************************/
 
 
 /* 회원 정보 수정 */
 /* 프로필 이미지 영역 */
+.infoborder{
+  margin-top: 50px;
+  width: 1100px;
+  display: flex;
+  justify-content: center;
+  border: 4px solid #e9480885;
+  box-shadow: 5px 5px 10px 5px #ed946fb5;
+  border-radius: 2rem;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  padding-right: 140px;
+}
+#form-profileImage{
+  margin-top: 0px;
+}
 .profile-image-area{
     width: 150px;
     height: 150px;
@@ -195,7 +268,7 @@ form[name="myPage-form"]{
     align-items: center;
 
     position : relative;
-    margin-left: 25px;
+
 }
 
 /* 프로필 이미지 */
@@ -209,12 +282,12 @@ form[name="myPage-form"]{
 .profile-btn-area{
     width: 230px;
     position: relative;
-    left: -20px;
+
     margin: 10px 0;
     display: flex;
     align-items: center;
     justify-content: space-around;
-    margin-left: 135px;
+
 }
 
 /* 프로필 버튼 영역의 모든 자식 요소 */
@@ -225,8 +298,8 @@ form[name="myPage-form"]{
     width: 110px;
     height: 40px;
     padding: 5px 10px;
-    border: 1px solid black;
-    background-color: white;
+    background-color: #ee7843;
+    color: white;
     font-size: 14px;
     cursor: pointer;
     text-align: center;
@@ -248,6 +321,9 @@ form[name="myPage-form"]{
 .profile-btn-area > button:hover{
     background-color: #ef7f4d;
 }
+.profile-btn-area > label:hover{
+  background-color: #ef7f4d;
+}
 
 /* 프로필 이미지 삭제 버튼 */
 #delete-image{
@@ -260,9 +336,9 @@ form[name="myPage-form"]{
 .info-title{
     color : black;
     border : 0;
-    /* justify-content: center; */
     margin-bottom: 20px;
     margin-top: 40px;
+    justify-content: start;
 }
 
 .info-address{ margin : 0 0 5px 0; }
@@ -288,7 +364,7 @@ form[name="myPage-form"]{
     border: none;
     font-size: 20px;
     font-weight: bold;
-    background-color: #ee7843;
+    background-color: #f1520b;
     color: white;
     cursor: pointer;
     border-radius: var(--bs-border-radius);
@@ -377,7 +453,7 @@ form[name="myPage-form"]{
     --bs-table-active-color: var(--bs-body-color);
     --bs-table-active-bg: rgba(0, 0, 0, 0.1);
     --bs-table-hover-color: var(--bs-body-color);
-    --bs-table-hover-bg: rgba(0, 0, 0, 0.075);
+    --bs-table-hover-bg: rgb(0 0 0 / 24%);
     width: 100%;
     margin-bottom: 1rem;
     vertical-align: top;

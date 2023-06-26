@@ -238,9 +238,8 @@ addReply.addEventListener("click", function(){ // 리뷰 등록 버튼이 클릭
             campRate = Number(reviewStar[i].value);
             console.log(campRate);
         }
-
     }
-    
+
     if(campRate == null || campRate == 0) {
         alert("별점을 선택해주세요.");
         return;

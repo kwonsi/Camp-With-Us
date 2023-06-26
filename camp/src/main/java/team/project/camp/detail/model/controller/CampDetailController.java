@@ -80,14 +80,32 @@ public class CampDetailController {
 	}
 
 
-	//예약정보 삽입
+	//예약정보 삽입(Cash)
 	@ResponseBody
-	@PostMapping("/payment/reservationInfo")
+	@PostMapping("/payment/reservationInfoCash")
 	public int reservationInfo(Reservation reservation) {
 
 		log.info("예약 DB 삽입 " + reservation);
+		
+		int result = service.reservationInfoCash(reservation);
 
-		int result = service.reservationInfo(reservation);
+		if(result>0) {
+			log.info("ajax로 result값 전송 성공");
+		}else {
+			log.info("ajax로 result값 전송 실패");
+		}
+
+		return result;
+	}
+	
+	// 예약정보 삽입(Card)
+	@ResponseBody
+	@PostMapping("/payment/reservationInfoCard")
+	public int reservationInfo2(Reservation reservation) {
+
+		log.info("예약 DB 삽입 " + reservation);
+		
+		int result = service.reservationInfoCard(reservation);
 
 		if(result>0) {
 			log.info("ajax로 result값 전송 성공");

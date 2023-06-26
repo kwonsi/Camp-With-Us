@@ -68,6 +68,7 @@ hr{
     list-style: none;
     height: 50px;
     font-size: 18px;
+    padding: 30px;
 }
 
 .list-group  li > a{
