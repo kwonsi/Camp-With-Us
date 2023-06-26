@@ -21,7 +21,7 @@
 		SELECT MEMBER_NO, MEMBER_EMAIL, MEMBER_NICK , MEMBER_TEL,
     	MEMBER_ADDR, PROFILE_IMG, MANAGER,
     	TO_CHAR( ENROLL_DT, 'YYYY-MM-DD') AS ENROLL_DT, MEMBER_PW
-		FROM MEMBER_S
+		FROM MEMBER
 		WHERE MEMBER_EMAIL = #{memberEmail}
 		<!-- AND MEMBER_PW = #{memberPw} -->
 		AND SECESSION_FL = 'N' 
@@ -29,32 +29,32 @@
 	
 	<!-- 이메일 중복 검사 -->
 	<select id="emailDupCheck" parameterType="string" resultType="_int">
-		SELECT COUNT(*) FROM MEMBER_S
+		SELECT COUNT(*) FROM MEMBER
 		WHERE MEMBER_EMAIL = #{memberEmail}
 		AND SECESSION_FL = 'N'
 	</select>
 	
 	<!-- 닉네임 중복 검사 -->
 	<select id="nicknameDupCheck" parameterType="string" resultType="_int">
-		SELECT COUNT(*) FROM MEMBER_S
+		SELECT COUNT(*) FROM MEMBER
 		WHERE MEMBER_NICK = #{memberNickname}
 		AND SECESSION_FL = 'N'
 	</select>
 	
 	<!-- 회원 가입 -->
 	<insert id="signUp" parameterType="member">
-		INSERT INTO MEMBER_S VALUES (SEQ_MEMBER_NO_S.NEXTVAL, #{memberEmail}, #{memberPw},
+		INSERT INTO MEMBER VALUES (SEQ_MEMBER_NO_S.NEXTVAL, #{memberEmail}, #{memberPw},
 			#{memberNickname}, #{memberTel}, #{memberAddress},
 			DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT)	
 	</insert>
 	
 	<!-- 아이디 찾기 -->
 	<select id="findId" parameterType="string" resultType="string">
-		SELECT MEMBER_EMAIL FROM MEMBER_S WHERE MEMBER_TEL = #{memberTel}
+		SELECT MEMBER_EMAIL FROM MEMBER WHERE MEMBER_TEL = #{memberTel}
 	</select>
 	
 	<update id="setTempPassword" parameterType="member">
-		UPDATE MEMBER_S SET MEMBER_PW = #{memberPw} WHERE MEMBER_EMAIL = #{memberEmail}
+		UPDATE MEMBER SET MEMBER_PW = #{memberPw} WHERE MEMBER_EMAIL = #{memberEmail}
 	</update>
 	
 	
@@ -67,7 +67,7 @@
 	
 	<!-- 네이버 이메일 중복 검사 -->
 	<select id="naverEmailDupCheck" parameterType="string" resultType="_int">
-		SELECT COUNT(*) FROM MEMBER_S
+		SELECT COUNT(*) FROM MEMBER
 		WHERE MEMBER_EMAIL = #{memberEmail}
 		AND SECESSION_FL = 'N'
 		AND LOGIN_ST = 'Y'
@@ -75,7 +75,7 @@
 	
 	<!-- 네이버 회원정보 저장 -->
 	<insert id="naverLoginInsert" parameterType="member">
-		INSERT INTO MEMBER_S VALUES 
+		INSERT INTO MEMBER VALUES 
 		(SEQ_MEMBER_NO_S.NEXTVAL, #{memberEmail}, #{memberPw} ,
 			#{memberNickname}, #{memberTel}, NULL,
 			DEFAULT, DEFAULT, DEFAULT , 'Y', DEFAULT)	

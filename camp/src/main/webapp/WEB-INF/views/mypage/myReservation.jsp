@@ -114,7 +114,7 @@
                                                 <tr>
                                                     <td>${Allreservation.reservNo}</td>
                                                     <td><a
-                                                        href="${contextPath}/campList/detailList?campName=${reservation.campingName}&viewType=1">${Allreservation.campingName}</a>
+                                                        href="${contextPath}/campList/detailList?campName=${Allreservation.campingName}&viewType=1">${Allreservation.campingName}</a>
                                                 </td>
                                                     <td>${Allreservation.buyerName}</td>
                                                     <td>${Allreservation.reservDate}</td>

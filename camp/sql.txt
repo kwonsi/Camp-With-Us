@@ -48,7 +48,7 @@ CREATE TABLE "MEMBER_S" (                           -- 기존 MEMBER_S 테이블
 
 ALTER TABLE MEMBER_S ADD LOGIN_ST CHAR(1) DEFAULT 'N' NOT NULL;   --- LOGIN_ST 가 없다면  ALTER문 추가해주세요.
 
-
+CREATE SEQUENCE SEQ_RESERVATION_NO_S NOCACHE;  -- 예약 시퀀스 
 
 
 --DROP TABLE "RESERVATION";                                --<< 예약정보 테이블입니다.  DROP 하시고 새로 CREATE 하세요.
