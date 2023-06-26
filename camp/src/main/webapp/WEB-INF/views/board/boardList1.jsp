@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        
+
         <!-- 파비콘 오류 해결 : GET http://localhost:8080/favicon.ico 404 -->
         <link rel="icon" href="data:;base64,iVBORw0KGgo=">
         
@@ -25,6 +25,7 @@
 
     
     <title>${boardName}</title>
+
     <link rel="stylesheet" href="${contextPath}/resources/css/boxicons.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/main.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/boardList-style1.css">
@@ -63,7 +64,6 @@
                         <c:forEach var="rdList" items="${placeRecommendList}">
                             <div class="slide-content">
                                 <a><img src="${contextPath}${rdList.recommendImg}"></a>
-                                <!-- <a><img src="${contextPath}/resources/images/board/semiwon.jpg"></a> -->
                             
                                 <div class="slide-text">
                                     <p class="slide-title">${rdList.recommendTitle}</p>
@@ -92,8 +92,6 @@
                     
                     <div class="board-list">
                         <div class="board2-1">
-                            <!-- <div class="headline2">한국 관광공사 facebook 참고</div> -->
-
                             <!-- 고캠핑 플러그인 -->
                             <!-- 페이스북 개발자 로그인 된 상태에서만 화면이 제대로 나옴 -->
                             <div class="fb-page" data-href="https://www.facebook.com/go2thecamping/" data-tabs="timeline" data-width="500" data-height="400" data-small-header="true" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="true"><blockquote cite="https://www.facebook.com/go2thecamping/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/go2thecamping/">한국관광공사 고캠핑</a></blockquote></div>
@@ -143,16 +141,19 @@
         $('.multiple-items').slick({
         infinite: true,
         dots: true,
-        // appendDots : $('.target_dots'),
+        dotsClass: 'custom-dots',
         adaptiveHeight: 300,
         focusOnSelect: true,
-        slidesToShow: 5,
-        slidesToScroll: 5,
+        slidesToShow: 4,
+        slidesToScroll: 4,
         autoplay: true,
         autoplaySpeed: 3000,
         arrows: false
-        });
+    });
+
     </script>
+
+
 
     <!-- 광고 슬라이더를 초기화 -->
     <script type="text/javascript">
@@ -169,12 +170,12 @@
         slidesToScroll: 2,
         autoplay: true,
         autoplaySpeed: 2000,
-        arrows: true
+        arrows: false
         });
     </script>
     
     <!-- 슬라이더를 초기화 -->
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
         $(document).ready(function(){
             $(".slide").slick();
         });
@@ -190,7 +191,7 @@
         autoplaySpeed: 3000,
         arrows: false
         });
-      </script>
+    </script> -->
 
 
 </body>
