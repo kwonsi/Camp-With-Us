@@ -27,9 +27,20 @@
         <section class="myPage-main">
             <div class = "myPageHeadFlex">
                 <div class = "myPageHead">
-            <h1 class="myPage-title">내 리뷰 조회</h1>
+
+                    <c:choose>
+                        <c:when test="${loginMember.manager == 'Y'}">
+                            <h1 class="myPage-title">전체 리뷰 조회</h1>
+                            <span class="myPage-explanation">전체 리뷰를 볼 수 있습니다.</span>
+                        </c:when>
+                        <c:otherwise>
+                    <h1 class="myPage-title">내 리뷰 조회</h1>
+                    <span class="myPage-explanation">현재 회원님이 작성한 리뷰를 볼 수 있습니다.</span>
+                    </c:otherwise>
+                </c:choose>
+     
             
-            <span class="myPage-explanation">현재 회원님이 작성한 리뷰를 볼 수 있습니다.</span>
+
         </div>
     </div>
             <div class="reply-list-area">
@@ -192,13 +203,13 @@
                                             updateBtn.innerText = "수정";
     
                                             // 수정 버튼에 onclick 이벤트 속성 추가
-                                            updateBtn.setAttribute("onclick", "showUpdateReply("+reply.replyNo+", this)");                        
+                                            updateBtn.setAttribute("onclick", "showUpdateReply("+reply.reviewNo+", this)");                        
     
                                             // 삭제 버튼
                                             const deleteBtn = document.createElement("button");
                                             deleteBtn.innerText = "삭제";
                                             // 삭제 버튼에 onclick 이벤트 속성 추가
-                                            deleteBtn.setAttribute("onclick", "deleteReply("+reply.replyNo+")");                       
+                                            deleteBtn.setAttribute("onclick", "deleteReply("+reply.reviewNo+")");                       
     
                                             // 버튼 영역 마지막 자식으로 수정/삭제 버튼 추가
                                             replyBtnArea.append(updateBtn, deleteBtn);
@@ -278,7 +289,7 @@
         }
 
         // 리뷰 삭제
-        function deleteReply(replyNo){
+        function deleteReply(reviewNo){
 
         if( confirm("정말로 삭제 하시겠습니까?") ){
 
@@ -296,7 +307,7 @@
 
             $.ajax({
                 url : contextPath + "/review/delete",
-                data : {"replyNo" : replyNo},
+                data : {"reviewNo" : reviewNo},
                 type : "GET",
                 success: function(result){
                     if(result > 0){
@@ -316,14 +327,14 @@
         }
         }
 
-
+        
         // ------------------------------------------------------------------------------------------
         // 리뷰 수정 화면 전환 
 
         var beforeReplyRow; // 수정 전 원래 행의 상태를 저장할 변수
 
 
-        function showUpdateReply(replyNo, btn){
+        function showUpdateReply(reviewNo, btn){
                         // 리뷰번호, 이벤트발생요소(수정버튼)
 
         // ** 리뷰 수정이 한 개만 열릴 수 있도록 만들기 **
@@ -419,7 +430,7 @@
         // 리뷰 수정 AJAX 실행( updateReply() )
         const updateBtn = document.createElement("button");
         updateBtn.innerText = "수정";
-        updateBtn.setAttribute("onclick", "updateReply("+replyNo+", this)");
+        updateBtn.setAttribute("onclick", "updateReply("+reviewNo+", this)");
 
 
         const cancelBtn = document.createElement("button");
@@ -450,7 +461,7 @@
 
 
         // 리뷰 수정(AJAX)
-        function updateReply(replyNo, btn){
+        function updateReply(reviewNo, btn){
 
         const updateStar = document.getElementsByName("updateStar");
         var updateStarRate = 0; // 리뷰 수정 할 때 별점 저장용 변수
@@ -466,7 +477,7 @@
 
         $.ajax({
             url : contextPath + "/review/update",
-            data : {"replyNo" : replyNo,
+            data : {"reviewNo" : reviewNo,
                     "reviewContents" : replyContent,
                     "campRate" : updateStarRate},
             type : "POST",

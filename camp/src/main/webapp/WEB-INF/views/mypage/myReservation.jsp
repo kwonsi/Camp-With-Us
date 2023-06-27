@@ -37,9 +37,16 @@
                     <section class="myPage-main">
                         <div class="myPageHeadFlex">
                             <div class="myPageHead">
+                                <c:choose>
+                                    <c:when test="${loginMember.manager == 'Y'}">
+                                        <h1 class="myPage-title">전체 예약 확인</h1>
+                                        <span class="myPage-explanation">전체 예약현황을 볼 수 있습니다.</span>
+                                    </c:when>
+                                    <c:otherwise>
                                 <h1 class="myPage-title">예약 확인</h1>
-
                                 <span class="myPage-explanation">현재 회원님의 예약 정보를 확인할 수 있습니다.</span>
+                                </c:otherwise>
+                            </c:choose>
                             </div>
                         </div>
                         <div class="list-wrapper">

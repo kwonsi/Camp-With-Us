@@ -70,8 +70,8 @@ public class CampDetailDAO {
 	}
 
 	// 리뷰 삭제
-	public int deleteReview(int replyNo) {
-		return sqlSession.update("campDetailMapper.deleteReview", replyNo);
+	public int deleteReview(int reviewNo) {
+		return sqlSession.update("campDetailMapper.deleteReview", reviewNo);
 	}
 
 	// 리뷰 수정

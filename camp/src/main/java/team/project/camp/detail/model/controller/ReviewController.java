@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.google.gson.Gson;
@@ -58,16 +59,16 @@ public class ReviewController {
 
 	// 리뷰 삭제
 	@GetMapping("/delete")
-	public int deleteReview(int replyNo) {
-		return service.deleteReview(replyNo);
+	public int deleteReview( int reviewNo) {
+		return service.deleteReview(reviewNo);
 	}
 
 	// 리뷰 수정
 	@PostMapping("/update")
-	public int updateReview(int replyNo, String reviewContents, int campRate) {
+	public int updateReview(int reviewNo, String reviewContents, int campRate) {
 
 		Map<String, Object> map = new HashMap<>();
-		map.put("replyNo", replyNo);
+		map.put("reviewNo", reviewNo);
 		map.put("reviewContents", reviewContents);
 		map.put("campRate", campRate);
 
