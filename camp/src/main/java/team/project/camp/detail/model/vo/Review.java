@@ -11,7 +11,7 @@ import lombok.ToString;
 @ToString
 public class Review {
 
-	private int replyNo;
+	private int reviewNo;
 	private String reviewContents;
 	private String createDate;
 	private int campNo;

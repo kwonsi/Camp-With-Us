@@ -121,4 +121,16 @@ public class MyPageServiceImpl implements MyPageService {
 	public List<Board> selectMyBoard(int memberNo) {
 		return dao.selectMyBoard(memberNo);
 	}
+	
+	// (관리자용) 전체 게시글 조회
+	@Override
+	public List<Board> selectAllBoard() {
+		return dao.selectAllBoard();
+	}
+	
+	// (관리자용) 전체 리뷰 조회
+	@Override
+	public List<Review> selectAllReview() {
+		return dao.selectAllReview();
+	}
 }

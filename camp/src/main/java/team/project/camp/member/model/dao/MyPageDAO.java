@@ -78,4 +78,20 @@ public class MyPageDAO {
 	}
 
 
+	/** (관리자용) 전체 게시글 조회 DAO
+	 * @return
+	 */
+	public List<Board> selectAllBoard() {
+		return sqlSession.selectList("myPageMapper.selectAllBoard");
+	}
+
+
+	/** (관리자용) 전체 리뷰 조회 DAO
+	 * @return
+	 */
+	public List<Review> selectAllReview() {
+		return sqlSession.selectList("myPageMapper.selectAllReview");
+	}
+
+
 }

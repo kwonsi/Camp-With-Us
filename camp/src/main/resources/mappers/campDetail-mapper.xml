@@ -18,7 +18,7 @@
 
 	<!-- 리뷰 result map -->
 	<resultMap type="review" id="review_rm">
-		<id property="replyNo" column="REVIEW_NO" />
+		<id property="reviewNo" column="REVIEW_NO" />
 		<result property="reviewContents" column="REVIEW_CONTENT" />
 		<result property="createDate" column="CREATE_DT" />
 		<result property="campNo" column="CAMP_NO" />
@@ -97,20 +97,20 @@
 	<!-- 리뷰 작성 -->
 	<insert id="insertReview" parameterType="review">
 		INSERT INTO REVIEW(REVIEW_NO, REVIEW_CONTENT, MEMBER_NO, CAMP_NO, CAMP_RATE,CAMP_NAME)
-		VALUES(SEQ_REVIEW_NO.NEXTVAL, #{reviewContents}, #{memberNo}, #{campNo}, #{campRate},#{campName} )
+		VALUES(SEQ_REVIEW_NO.NEXTVAL, #{reviewContents}, #{memberNo}, #{campNo}, #{campRate}, #{campName} )
 	</insert>
 	
 	
 	<!-- 리뷰 삭제 -->
 	<update id="deleteReview" parameterType="_int">
-		UPDATE REVIEW SET REVIEW_ST = 'Y' WHERE REVIEW_NO = #{replyNo}
+		UPDATE REVIEW SET REVIEW_ST = 'Y' WHERE REVIEW_NO = #{reviewNo}
 	</update>
 	
 	<!-- 리뷰 수정 -->
 	<update id="updateReview">
 		UPDATE REVIEW SET REVIEW_CONTENT = #{reviewContents},
 		CAMP_RATE = #{campRate}
-		WHERE REVIEW_NO = #{replyNo}
+		WHERE REVIEW_NO = #{reviewNo}
 	</update>
 	
 	<select id="memberReservList" resultType="_int">
