@@ -91,13 +91,13 @@
                                         <td>${board.boardNo}</td>
                                         <td> 
                                             <c:if test="${!empty board.thumbnail}">
-                                                <img class="list-thumbnail" src="${board.thumbnailImg}">
+                                                <img class="list-thumbnail" src="${contextPath}${board.thumbnail}">
                                             </c:if>  
 
                                             <a href="../detail/${boardCode}/${board.boardNo}?cp=${pagination.currentPage}${sURL}">${board.boardTitle}</a>                           
-                                       		<%-- detail?no=${board.boardNo}&cp=${pagination.currentPage}&type=${param.type}${sURL} --%>
-                                       		<%-- 현재 페이지 주소 : /board/list/1?cp=1
-                                        		상세 조회 주소   : /board/detail/1/300?cp= --%>
+                                             <%-- detail?no=${board.boardNo}&cp=${pagination.currentPage}&type=${param.type}${sURL} --%>
+                                             <%-- 현재 페이지 주소 : /board/list/1?cp=1
+                                              상세 조회 주소   : /board/detail/1/300?cp= --%>
                                         
                                         </td>
                                         <td>${board.memberNickname}</td>
@@ -130,10 +130,10 @@
 
                 <ul class="pagination">
                     <!-- 첫 페이지로 이동 -->
-                    <li><a href="${url}1${sURL}">&lt;&lt;</a></li>
+                    <li><a href="${url}1${sURL}"><i class="fa-solid fa-angles-left"></i></a></li>
 
                     <!-- 이전 목록 마지막 번호로 이동 -->
-                    <li><a href="${url}${pagination.prevPage}${sURL}">&lt;</a></li>
+                    <li><a href="${url}${pagination.prevPage}${sURL}"><i class="fa-solid fa-angle-left"></i></a></li>
 
                     <!-- 범위가 정해진 일반 for문 사용 -->
                     <c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}" step="1">
@@ -151,10 +151,10 @@
                     </c:forEach>
                     
                     <!-- 다음 목록 시작 번호로 이동 -->
-                    <li><a href="${url}${pagination.nextPage}${sURL}">&gt;</a></li>
+                    <li><a href="${url}${pagination.nextPage}${sURL}"><i class="fa-solid fa-angle-right"></i></a></li>
 
                     <!-- 끝 페이지로 이동 -->
-                    <li><a href="${url}${pagination.maxPage}${sURL}">&gt;&gt;</a></li>
+                    <li><a href="${url}${pagination.maxPage}${sURL}"><i class="fa-solid fa-angles-right"></i></a></li>
 
                 </ul>
             </div>
@@ -169,14 +169,14 @@
 
                 <select name="key" id="search-key">
                     <option value="t">제목</option>
-                 	<option value="c">내용</option>
+                    <option value="c">내용</option>
                     <option value="tc">제목+내용</option>
                     <option value="w">작성자</option>
                 </select>
 
                 <input type="text" name="query"  id="search-query" placeholder="검색어를 입력해주세요.">
 
-                <button>검색</button>
+                <button><i class="fa-solid fa-magnifying-glass"></i></button>
             </form>
 
         </section>

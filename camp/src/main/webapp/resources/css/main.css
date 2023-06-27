@@ -713,29 +713,29 @@ main {
 
   bottom:0;
 
-  background: rgba(0,0,0,0.2); /*not in ie */
+  background: rgba(0,0,0,0.6); /*not in ie */
 
   filter: progid:DXImageTransform.Microsoft.Gradient(startColorstr='#20000000', endColorstr='#20000000');    /* ie */
 
 }
 .loading{
-  width: 800px;
-  height: 500px;
+  width: 400px;
+  height: 400px;
 }
 .wrap-loading div{ /*로딩 이미지*/
 
   position: fixed;
 
-  top:15%;
+  top:25%;
 
-  left:31%;
+  left:40%;
 
   margin-left: 0;
 
   margin-top: 0;
 
-  width: 400px;
-  height: 300px;
+  width: 600px;
+  height: 600px;
 
   z-index: 9998;
 

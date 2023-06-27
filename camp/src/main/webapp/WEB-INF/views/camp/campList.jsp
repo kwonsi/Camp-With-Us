@@ -23,7 +23,7 @@
     <main>
         <div class="wrap-loading display-none">
 
-            <div><img src="${contextPath}/resources/images/loading.gif" class="loading"/></div>
+            <div><img src="${contextPath}/resources/images/loadingNew2.gif" class="loading"/></div>
         
         </div>    
 

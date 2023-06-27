@@ -37,7 +37,7 @@
 	<!-- <select id="selectAll" resultMap="reply_rm">
 		SELECT REPLY_NO, REPLY_CONTENT,PARENT_REPLY_NO,
 		 CREATE_DT
-		FROM REPLY_S
+		FROM REPLY
 		WHERE REPLY_ST = 'N'
 		AND BOARD_NO = ${boardNo}
 
@@ -46,8 +46,8 @@
 
 	<!-- 댓글 등록 -->
 	<!-- <insert id="insertrList" parameterType="reply">
-		INSERT INTO REPLY_S values(
-		SEQ_REPLY_NO_S.NEXTVAL , 
+		INSERT INTO REPLY values(
+		SEQ_RNO , 
 		#{replyContent},
 		DEFAULT , 
 		DEFAULT , 

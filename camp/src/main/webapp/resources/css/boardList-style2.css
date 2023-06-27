@@ -1,11 +1,75 @@
-/* section, div, form{
-    border : 1px solid black;
-} */
+
+
+#myPageHeadFlexImg{
+    background-image: url(../images/12.png);
+}
+
+.myPageHead{
+    width: 500px;
+    height: 120px;
+    margin-top: 50px;
+    margin-left: 50px;
+  }
+  .myPageHeadFlex{
+    color: white;
+    display: flex;
+/*     background-image: url(../images/10.png); */
+    background-size: 100% 100%;
+    margin-top: 30px;
+    width: 100%;
+    height: 200px;
+  }
+  .myPage-title{
+    margin : 20px 0 20px 0;
+    font-size: 40px;
+}
+
+.myPage-explanation{
+    display: block;
+    margin-bottom: 20px;   
+    font-size: 14px;
+    letter-spacing: -1px;
+}
+/* 페이지네이션(Pagination) */
+.pagination{
+    padding: 0;
+    list-style: none;
+    font-size: 22px;
+    display: flex;
+    justify-content: center;
+}
+
+.pagination > li{
+    width: 20px;
+    margin: 0 10px;
+    text-align: center;
+}
+
+.pagination a{
+    width: 100%;
+    height: 100%;
+    display: block;
+    color: #4d5053;
+    font-size: 25px;
+    /* letter-spacing : -2px; */
+}
+.pagination a :hover{
+    color: #ef7b3a;
+}
+
+/* 현재 페이지 번호 */
+.pagination .current{
+    width: 24px;
+    background-color: #4d5053;
+    border-radius: 30%;
+    color: white;
+    font-weight: bold;
+}
 
 
 /* 왼쪽 사이드 메뉴 */
 .myPage-content{
-    width: 1850px;
+    width: 100%;
     height: auto;
     margin: 25px;
     margin-left: 0px;
@@ -71,7 +135,8 @@
 }
 
 .board_Content{
-    color: #acacaf;
+    color: #212529;
+    font-size: 20px;
 }
 
 
@@ -84,12 +149,12 @@
     justify-content: center;
     flex-direction: column;
     height: auto;
-    background-color: rgb(240, 244, 241);
-    width: 85%;
+/*     background-color: rgb(240, 244, 241); */
+    width: 100%;
     padding: 0 50px;
     border-left : 2px solid #ddd;
     min-height: 670px;
-    padding-top: 50px;
+/*     padding-top: 50px; */
 }
 
 
@@ -98,7 +163,14 @@
     font-size: 2.5em;
     margin-left: 30px;
 }
-
+#boardTitleP{
+    font-size: 23px;
+    margin-left: 15px;
+}
+#memberInfo{
+    margin-left: 58%;
+    color: #3a3a3a;
+}
 
 /* 게시글 목록 영역 */
 .list-wrapper{
@@ -108,30 +180,43 @@
 
 .list1{
     display: flex;
-    width: 100%;
+    /* width: 100%; */
     height: 300px;
-    border : 1px solid black;
+    border: 1px solid #00000057;
+    margin: 50px;
+    border-radius: 15px;
+    margin-left: 100px;
+    margin-right: 100px;
+    background-color: #f4f4f4;
+    box-shadow: 5px 5px 10px 5px rgb(43 128 42 / 33%);
 }
 
 .list1-1{
-    width: 30%;
-    border-right : 1px solid black;
+    width: 300px;
+   padding: 30px;
+/*     border-right : 1px solid black; */
+padding-left: 50px;
 }
 
 .list1-2{
     flex-direction: row;
-    width: 70%;
+    width: 100%;
     margin-left: 30px;
+    padding: 20px;
 }
 
 .list1-3{
-    height: 30%;
+  /*   height: 30%; */
     margin: auto;
+    display: flex;
     /* border : 1px solid black; */
+    align-items: center;
 }
 
 .list1-4{
-    height: 70%;
+    height: 120px;
+    padding-left: 20px;
+
     /* border : 1px solid black; */
 }
 
@@ -210,45 +295,18 @@
     height: 40px;
 
     background-color: white;
-    border: 2px solid #455ba8;
-    color:#455ba8;
+    border: 2px solid #eb5d1e;
+    color:#212529;
 
     border-radius: 5px;
 
     font-weight: bold;
     cursor: pointer;
 }
-
-
-/* 페이지네이션(Pagination) */
-.pagination{
-    padding: 0;
-    list-style: none;
-
-    display: flex;
-    justify-content: center;
-}
-
-.pagination > li{
-    width: 20px;
-    margin: 0 5px;
-    text-align: center;
-}
-
-.pagination a{
-    width: 100%;
-    height: 100%;
-    display: block;
-    /* letter-spacing : -2px; */
-}
-
-
-/* 현재 페이지 번호 */
-.pagination .current{
-    background-color: #455ba8;
-    border-radius: 50%;
+#insertBtn:hover {
     color: white;
-    font-weight: bold;
+    background-color: orange;
+    transition: 0.3s;
 }
 
 
@@ -256,13 +314,10 @@
 #boardSearch{
     width: 500px;
     height: 30px;
-
     display: flex;
     justify-content: space-between;
-
     margin: 30px auto;
 }
-
 
 /* 검색 영역 공통 스타일 */
 #boardSearch *{
@@ -270,26 +325,35 @@
     padding : 0;
     margin : 0;
 }
-
 #boardSearch select{
     width: 100px;
+    height: 35px;
+    border-radius: 7px;
+    text-align: center;
 }
 
 #boardSearch input{
+    height: 35px;
     flex-grow: 1;
     margin: 0 10px;
     padding-left: 10px;
+    border-radius: 7px;
+}
+#boardSearch input:focus{
+    outline: none;
+    border: 3px solid rgba(235, 145, 29) !important;
 }
 
+
 #boardSearch button{
-    width: 100px;
-
-    background-color: #455ba8;
-    color: white;
+    width: 30px !important;
+    color: rgb(12, 12, 12);
     border : 0;
-
-    font-weight: bold;
     cursor: pointer;
+    font-size: 25px;
+}
+#boardSearch button:hover {
+    color: #f09226;
 }
 
 
@@ -301,12 +365,11 @@
 .list-thumbnail{ /* 썸네일 이미지 */
     /* max-width: 50px;
     max-height: 30px; */
-    width: 290px;
-    height: 297px;
+    width: 240px;
+    height: 240px;
     cursor: pointer;
-    /* position: absolute; */
-    left : -15px;
-    top : 17px;
+
+    border-radius: 10px;
 }
 
 

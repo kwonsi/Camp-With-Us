@@ -15,6 +15,8 @@
         <link rel="stylesheet" href="${contextPath}/resources/css/login.css">
         <link rel="stylesheet" href="${contextPath}/resources/css/boxicons.css">
 
+      <!--   <link rel="stylesheet" href="${contextPath}/resources/css/main.css"> -->
+
         <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap-icons.css">
     </head>
 
