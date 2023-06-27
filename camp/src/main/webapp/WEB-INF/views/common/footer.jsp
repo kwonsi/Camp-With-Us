@@ -24,15 +24,8 @@
                 <h4>CampWithUs</h4>
                 <ul>
                     <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+                    <li><i class="bx bx-chevron-right"></i> <a href="https://github.com/jbjeon2/Final_Camp">github</a></li>
                 </ul>
-                </div>
-
-
-            <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Our Links</h4>
-            <ul>
-                <li><i class="bx bx-chevron-right"></i> <a href="https://github.com/jbjeon2/Final_Camp">github</a></li>
-            </ul>
             </div>
 
             <div class="col-lg-3 col-md-6 footer-links">
@@ -50,13 +43,22 @@
                 <li><i class="bx bx-chevron-right"></i> <a href="${contextPath}/member/signUpCheck">회원가입</a></li>
             </ul>
             </div>
+            
+            <div class="col-lg-3 col-md-6 footer-links">
+                <h4>Our Bank </h4>
+                <ul>
+                    <li><i class="bx bx-chevron-right"></i> <a href="" onclick="return false;">국민 659402-01-442603</a></li>
+                    <li><i class="bx bx-chevron-right"></i> <a href="" onclick="return false;">신한 110-396-554220</a></li>
+                </ul>
+                </div>
+            
 
             </div>
         </div>
     </div>
 
 
-    <div id = "projectBy"> <span id="projectBySpan">Project By </span>&nbsp; 순일ㅣ진복ㅣ은주ㅣ규동ㅣ영진</div>
+    <div id = "projectBy"> <span id="projectBySpan">Project By </span>&nbsp; 순일ㅣ진복ㅣ은주ㅣ규동ㅣ영진 &nbsp;&nbsp;&nbsp;&nbsp;예금주 : (주)캠프위드어스</div>
     <div class="container py-4">
         
         <div class="copyright">
