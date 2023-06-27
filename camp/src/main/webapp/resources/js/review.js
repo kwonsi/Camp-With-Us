@@ -117,7 +117,7 @@ function selectReplyList(){
                         replyBtnArea.classList.add("reply-btn-area");
     
                         // 로그인한 회원번호와 리뷰 작성자의 회원번호가 같을 때만 버튼 추가
-                        if( loginMemberNo == reply.memberNo   ){
+                        if( loginMemberNo == reply.memberNo || loginManager == 'Y' ){
     
                             // 수정 버튼
                             const updateBtn = document.createElement("button");

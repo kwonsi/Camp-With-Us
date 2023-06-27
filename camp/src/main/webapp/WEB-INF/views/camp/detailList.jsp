@@ -458,6 +458,7 @@
         const campName = "${campName}";
         // 로그인한 회원 번호
         const loginMemberNo = "${loginMember.memberNo}";
+        const loginManager = "${loginMember.manager}";
         // 최상위 주소
         const contextPath = "${contextPath}";
         // 캠핑장 번호

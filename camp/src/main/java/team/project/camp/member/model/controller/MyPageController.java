@@ -1,7 +1,6 @@
 package team.project.camp.member.model.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -89,13 +88,7 @@ public class MyPageController {
 	public String myBoard(Model model,
 						  @ModelAttribute("loginMember") Member loginMember) {
 
-		List<Board> boardList = new ArrayList<>();
-		
-		if((loginMember.getManager()).equals("Y")) {
-			boardList = myPageService.selectAllBoard();
-		} else {
-			boardList = myPageService.selectMyBoard(loginMember.getMemberNo());	
-		}
+		List<Board> boardList = myPageService.selectMyBoard(loginMember.getMemberNo());
 
 		model.addAttribute("boardList", new Gson().toJson(boardList));
 
@@ -129,14 +122,7 @@ public class MyPageController {
 	public String myReview(Model model,
 							@ModelAttribute("loginMember") Member loginMember) {
 
-		List<Review> rList = new ArrayList<>(); 
-		
-		if( (loginMember.getManager()).equals("Y") ) {
-			rList = myPageService.selectAllReview();
-		} else {
-			rList = myPageService.selectMyReplyList(loginMember.getMemberNo());	
-		}
-		
+		List<Review> rList = myPageService.selectMyReplyList(loginMember.getMemberNo());
 
 		return new Gson().toJson(rList);
 	}

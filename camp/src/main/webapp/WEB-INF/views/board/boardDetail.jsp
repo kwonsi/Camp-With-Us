@@ -75,7 +75,7 @@
                 <!-- 버튼 영역-->
                 <div class="board-btn-area">
 
-                    <c:if test="${loginMember.memberNo == detail.memberNo}">
+                    <c:if test="${loginMember.memberNo == detail.memberNo || loginMember.manager == 'Y'}" >
                         <!-- detail?type=1&cp=3&no=100 -->
                         <!-- detail?no=1522&type=2 -->
                         <%-- cp가 없을 경우에 대한 처리 --%>
