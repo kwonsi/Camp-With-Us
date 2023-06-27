@@ -35,7 +35,7 @@
 		<result property="memberNo" column="MEMBER_NO" />
 		<result property="profileImage" column="PROFILE_IMG" />
 		<result property="boardName" column="BOARD_NM" />
-	
+		
 	</resultMap>
 
 
@@ -47,7 +47,6 @@
 		<result property="recommendImg" column="RECOMMEND_IMG" />
 		<result property="recommendHomepg" column="RECOMMEND_HOMEPG" />
 	</resultMap>
-
 	
 	
 	
@@ -74,7 +73,6 @@
 		THEN TO_CHAR(CREATE_DT, 'HH:MI')
 		ELSE TO_CHAR(CREATE_DT, 'YYYY-MM-DD')
 		END CREATE_DT
-
 		FROM BOARD
 		JOIN BOARD_TYPE USING(BOARD_CD)
 		JOIN MEMBER USING(MEMBER_NO)
@@ -197,6 +195,7 @@
 		)
 		
 	</insert>
+	
 	
 	
 	<!-- 게시글 수정 -->

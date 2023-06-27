@@ -78,7 +78,7 @@
    justify-content: center;
    flex-direction: column;
    height: auto;
-   background-color: rgb(240, 244, 241);
+/*    background-color: rgb(240, 244, 241); */
    width: 85%;
    padding: 0 50px;
    border-left : 2px solid #ddd;

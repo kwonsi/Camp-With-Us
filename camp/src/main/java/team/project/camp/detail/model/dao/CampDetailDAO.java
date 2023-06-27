@@ -32,10 +32,10 @@ public class CampDetailDAO {
 	public int reservationInfoCash(Reservation reservation) {
 		return sqlSession.insert("campDetailMapper.reservationInfoCash", reservation);
 	}
-	
+
 	// 예약정보 삽입(카드결제)
 	public int reservationInfoCard(Reservation reservation) {
-		
+
 		return sqlSession.insert("campDetailMapper.reservationInfoCard", reservation);
 	}
 
@@ -52,13 +52,13 @@ public class CampDetailDAO {
 	public int reservationState(int reservNo) {
 		return sqlSession.update("campDetailMapper.reservationState", reservNo);
 	}
-	
+
 	// 매니저용 예약확정
 	public int reservationConfirm(int reservNo) {
-		
+
 		return sqlSession.update("campDetailMapper.reservationConfirm", reservNo);
 	}
-	
+
 	// 리뷰 목록 조회
 	public List<Review> selectReplyList(int campNo) {
 		return sqlSession.selectList("campDetailMapper.selectReplyList", campNo);
@@ -78,7 +78,7 @@ public class CampDetailDAO {
 	public int updateReview(Map<String, Object> map) {
 		return sqlSession.update("campDetailMapper.updateReview", map);
 	}
-	
+
 	// 리뷰 작성을 위한 예약 내역 조회
 	public int memberReservList(Map<String, Object> map) {
 		return sqlSession.selectOne("campDetailMapper.memberReservList", map);

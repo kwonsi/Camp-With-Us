@@ -123,20 +123,25 @@ thead tr:nth-child(1) {
     font-weight: bold;
     cursor: pointer;
 }
+#insertBtn:hover {
+    color: white;
+    background-color: orange;
+    transition: 0.3s;
+}
 
 
 /* 페이지네이션(Pagination) */
 .pagination{
     padding: 0;
     list-style: none;
-
+    font-size: 22px;
     display: flex;
     justify-content: center;
 }
 
 .pagination > li{
     width: 20px;
-    margin: 0 5px;
+    margin: 0 10px;
     text-align: center;
 }
 
@@ -144,21 +149,21 @@ thead tr:nth-child(1) {
     width: 100%;
     height: 100%;
     display: block;
-    border-radius: 5px;
+    color: #4d5053;
+    font-size: 25px;
     /* letter-spacing : -2px; */
 }
-
-.pagination a:hover {
-    background-color: #eb5d1e;
+.pagination a :hover{
+    color: #ef7b3a;
 }
 
 /* 현재 페이지 번호 */
 .pagination .current{
-    background-color: #eb5d1e;
+    width: 24px;
+    background-color: #4d5053;
+    border-radius: 30%;
     color: white;
     font-weight: bold;
-    width: 23px;
-    border-radius: 5px;
 }
 
 
