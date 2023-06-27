@@ -171,10 +171,8 @@ thead tr:nth-child(1) {
 #boardSearch{
     width: 500px;
     height: 30px;
-
     display: flex;
     justify-content: space-between;
-
     margin: 30px auto;
 }
 
@@ -187,26 +185,31 @@ thead tr:nth-child(1) {
 
 #boardSearch select{
     width: 100px;
+    height: 35px;
+    border-radius: 7px;
+    text-align: center;
 }
 
 #boardSearch input{
+    height: 35px;
     flex-grow: 1;
     margin: 0 10px;
     padding-left: 10px;
+    border-radius: 7px;
 }
-
+#boardSearch input:focus{
+    outline: none;
+    border: 3px solid rgba(235, 145, 29) !important;
+}
 #boardSearch button{
-    width: 100px;
-
-    background-color: #34373b;
-    color: white;
+    width: 30px !important;
+    color: rgb(12, 12, 12);
     border : 0;
-
-    font-weight: bold;
     cursor: pointer;
+    font-size: 25px;
 }
 #boardSearch button:hover {
-    background-color: #6d6c6c;
+    color: #f09226;
 }
 
 
