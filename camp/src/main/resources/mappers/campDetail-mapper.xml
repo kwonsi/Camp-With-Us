@@ -47,14 +47,14 @@
 	<insert id="reservationInfoCash" parameterType="reservation">
 		INSERT INTO RESERVATION(
 		RESERVATION_NO, CAMPING_NM, RESERVATION_P, RESERVATION_DT, RESERVATION_NP, PAYMENT, RESERVATION_ST, SELECTDATE, MEMBER_NO, PAYMETHOD) 
-		VALUES(SEQ_RESERVATION_NO_S.NEXTVAL,
+		VALUES(SEQ_REVIEW_NO.NEXTVAL,
 		#{campingName}, #{buyerName}, SYSDATE, #{people}, #{amount}, 'W',  #{reservSelDate}, #{memberNo}, 'CASH')
 	</insert>
 	
 	<insert id="reservationInfoCard" parameterType="reservation">
 		INSERT INTO RESERVATION(
 		RESERVATION_NO, CAMPING_NM, RESERVATION_P, RESERVATION_DT, RESERVATION_NP, PAYMENT, RESERVATION_ST, SELECTDATE, MEMBER_NO, PAYMETHOD) 
-		VALUES(SEQ_RESERVATION_NO_S.NEXTVAL,
+		VALUES(SEQ_REVIEW_NO.NEXTVAL,
 		#{campingName}, #{buyerName}, SYSDATE, #{people}, #{amount}, 'Y',  #{reservSelDate}, #{memberNo}, 'CARD')
 	</insert>
 
@@ -97,7 +97,7 @@
 	<!-- 리뷰 작성 -->
 	<insert id="insertReview" parameterType="review">
 		INSERT INTO REPLY_C(REPLY_NO, REPLY_CONTENT, MEMBER_NO, BOARD_NO, CAMP_RATE, CAMP_NAME)
-		VALUES(SEQ_REPLY_NO_C.NEXTVAL, #{reviewContents}, #{memberNo}, #{campNo}, #{campRate}, #{campName} )
+		VALUES(SEQ_REVIEW_NO.NEXTVAL, #{reviewContents}, #{memberNo}, #{campNo}, #{campRate}, #{campName} )
 	</insert>
 	
 	<!-- 리뷰 삭제 -->

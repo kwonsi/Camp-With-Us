@@ -22,8 +22,8 @@
 			(SELECT REPLY_NO, REPLY_CONTENT,
 	        	TO_CHAR(CREATE_DT, 'YYYY"년" MM"월" DD"일" HH24"시" MI"분" SS"초"') CREATE_DT,
 	        	BOARD_NO, MEMBER_NO, MEMBER_NICK, PROFILE_IMG, PARENT_REPLY_NO, REPLY_ST
-		    FROM REPLY_S
-		    JOIN MEMBER_S USING(MEMBER_NO)
+		    FROM REPLY
+		    JOIN MEMBER USING(MEMBER_NO)
 		    WHERE BOARD_NO = #{boardNo}) R
 		    
 		WHERE REPLY_ST = 'N'
@@ -37,7 +37,7 @@
 	<!-- <select id="selectAll" resultMap="reply_rm">
 		SELECT REPLY_NO, REPLY_CONTENT,PARENT_REPLY_NO,
 		 CREATE_DT
-		FROM REPLY_S
+		FROM REPLY
 		WHERE REPLY_ST = 'N'
 		AND BOARD_NO = ${boardNo}
 
@@ -46,8 +46,8 @@
 
 	<!-- 댓글 등록 -->
 	<!-- <insert id="insertrList" parameterType="reply">
-		INSERT INTO REPLY_S values(
-		SEQ_REPLY_NO_S.NEXTVAL , 
+		INSERT INTO REPLY values(
+		SEQ_RNO , 
 		#{replyContent},
 		DEFAULT , 
 		DEFAULT , 
@@ -59,8 +59,8 @@
 	
 	<!-- 댓글 등록 -->
 	<insert id="insertReply">
-		INSERT INTO REPLY_S VALUES(
-			SEQ_REPLY_NO_S.NEXTVAL, #{replyContent}, DEFAULT, DEFAULT, #{memberNo}, #{boardNo}, 
+		INSERT INTO REPLY VALUES(
+			SEQ_RNO.NEXTVAL, #{replyContent}, DEFAULT, DEFAULT, #{memberNo}, #{boardNo}, 
 			
 			<!-- 일반 댓글인 경우-->
 			<if test="parentReplyNo == 0">
@@ -77,7 +77,7 @@
 	
 	<!-- 댓글 삭제 -->
 	<update id="deleteReply">
-		UPDATE REPLY_S SET
+		UPDATE REPLY SET
 		REPLY_ST = 'Y'
 		WHERE REPLY_NO = #{replyNo}
 	</update>
@@ -85,7 +85,7 @@
 	
 	<!-- 댓글 수정 -->
 	<update id="updateReply">
-		UPDATE REPLY_S SET
+		UPDATE REPLY SET
 		REPLY_CONTENT = #{replyContent},
 		CREATE_DT = SYSDATE
 		WHERE REPLY_NO = #{replyNo}

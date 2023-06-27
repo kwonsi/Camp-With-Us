@@ -8,7 +8,7 @@
 	<bean id="realDataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
 		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
 		<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
-		<property name="username" value="community"/>
+		<property name="username" value="campwithus"/>
 		<property name="password" value="1234"/>
 		
 		<!-- SQL이 수행된 후 자동으로 Commit 되는것을 지정 -->
