@@ -224,9 +224,6 @@ span{
     display: block;
 	margin: auto;
 }
-.slide-content2{
-    /* border : 1px solid black; */
-}
 
 
 
@@ -275,4 +272,9 @@ CSS 애니메이션 과정의 중간 절차를 제어할 수 있게 합니다.  
 	min-height: 1px;
 	padding-right: 15px;
 	padding-left: 15px;
+}
+
+#boardSearch input:focus{
+    outline: none;
+    border: 3px solid rgba(235, 145, 29) !important;
 }

@@ -175,7 +175,7 @@
 
                     <input type="text" name="query" id="search-query" placeholder="검색어를 입력해주세요.">
 
-                    <button>검색</button>
+                    <button><i class="fa-solid fa-magnifying-glass"></i></button>
                 </form>
 
             </section>
