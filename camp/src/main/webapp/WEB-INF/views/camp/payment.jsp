@@ -104,8 +104,8 @@
     
     const checkboxes = document.querySelectorAll('input[name="paymethod"]');
     let checkedValue;
-checkboxes.forEach(checkbox => {
-  checkbox.addEventListener('change', function() {
+    checkboxes.forEach(checkbox => {
+    checkbox.addEventListener('change', function() {
     if (this.checked) {
       checkboxes.forEach(otherCheckbox => {
         if (otherCheckbox !== this) {
@@ -114,7 +114,7 @@ checkboxes.forEach(checkbox => {
       });
     
         checkedValue = this.value;
-        
+        console.log(checkedValue);
     }
   });
 });
@@ -163,7 +163,15 @@ var memberNo = "${loginMember.memberNo}";
 var memberTel = document.querySelector(".tel").value;
 
 function requestPay() {
-    
+    if (checkedValue == null) {
+        alert("결제 방식을 선택해주세요.");
+        return false;
+    }
+
+    if (!document.querySelector('input[name="paymethod"]:checked')) {
+        alert("결제 방식을 선택해주세요.");
+        return false;
+    }
     console.log("requestPay함수 실행");
         if(checkedValue === "cash"){
             console.log("성공");
