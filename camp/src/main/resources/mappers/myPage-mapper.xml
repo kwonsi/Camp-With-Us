@@ -4,7 +4,7 @@
 	
 	<!-- 리뷰 조회용 맵 -->
 	<resultMap type="review" id="myReview_rm">
-		<id property="replyNo" column="REVIEW_NO" />
+		<id property="reviewNo" column="REVIEW_NO" />
 		<result property="reviewContents" column="REVIEW_CONTENT" />
 		<result property="createDate" column="CREATE_DT" />
 		<result property="campNo" column="CAMP_NO" />
