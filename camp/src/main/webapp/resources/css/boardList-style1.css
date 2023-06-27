@@ -2,6 +2,11 @@
     border : 1px solid black;
 } */
 
+/* * {
+    box-sizing: border-box;
+} */
+
+
 /* a태그 공통 설정 */
 .board a{
     text-decoration: none;
@@ -11,21 +16,24 @@
     text-decoration: underline;
 }
 
+
 /* body */
 body{
     margin: 0px;
 }
+
 
 /* main */
 main{
     width: 100%;
 }
 
+
 /* 왼쪽 사이드 메뉴 */
 .myPage-content{
     width: auto;
     height: auto;
-    margin: 25px;
+/*     margin: 25px; */
     margin-left: 0px;
     display: flex;
 }
@@ -73,6 +81,7 @@ main{
 }
 /* 사이드메뉴 끝  */
 
+
 /* section */
 .contain{
     display: flex;
@@ -80,23 +89,26 @@ main{
     flex-direction: column;
     height: 1850px;
     background-color: rgb(240, 244, 241);
-    width: 100%;
-    padding: 0 50px;
+    width: 90%;
+    padding: 30px 50px 0;
+    /* padding: [padding-top] [padding-left = padding-right] [padding-bottom]; */
     /* border-left : 2px solid #ddd; */
     min-height: 670px;
-    /* padding-top: 50px; */
+    padding-top: 30px;
 }
+
 
 /* span */
 span{
     text-align: center;
 }
 
+
 /* board 위, 아래 */
 .board1{
     margin-left: 35px;
     margin-right: 35px;
-    height: 40%;
+    height: 45%;
     /* width: 95%; */
     background-color: rgb(237, 235, 235);
     /* border : 1px solid black; */
@@ -156,46 +168,37 @@ span{
 }
 
 
-/* 여행지 추천 */
-/* .recommend-img{
-    width: 90%;
-    height: 200px;
-}
-.recommend-title{
-    margin: auto;
-    width: 90%;
-    height: 10%;
-    border : 1px solid black;
-}
-.recommend-content{
-    margin: auto;
-    width: 90%;
-    height: 90%;
-    overflow: auto;
-    border : 1px solid black;
-} */
-
-
 /* 페이스북 */
 .board2-1{
     /* border: 1px solid black; */
     width: 550px;
     height: 450px;
 }
+._10b4 {
+    overflow-y: auto;
+    ::-webkit-scrollbar{
+        display: none;
+    }
+    position: relative;
+    width: 100%;
+}
 
 
 /* 슬라이드박스(여행지 추천) */
-.slide_div{
-	padding: 20px 0 20px 0;
-    background: #e6e9f6;
-}
-.multiple-items img{
+/* .slide_div{
     border-radius: 70%;
+    overflow: hidden;
+   padding: 20px 0 20px 0;
+    background: #e6e9f6;
+} */
+.multiple-items img{
+    border-radius: 50%;
     object-fit: cover;
-	max-width: 80%;
-    height: 250px;
+   max-width: 80%;
+    width: 280px;
+    height: 280px;
     display: block;
-	margin: auto;
+   margin: auto;
 }
 .slide-text{
     text-align: center;
@@ -208,10 +211,13 @@ span{
     width: 100%;
     height: 100px;
     overflow: auto;
+    ::-webkit-scrollbar{
+        display: none;
+    }
     /* border : 1px solid black; */
 }
 .slide-btn{
-    width: 25%;
+    width: 30%;
     height: 30px;
     margin-left: 160px;
     justify-content: center;
@@ -230,14 +236,104 @@ span{
 }
 .multiple-items2 img{
     border-radius: 5%;
-	width: 350px;
+   width: 350px;
     height: 400px;
     /* margin-left: 40px; */
     display: block;
-	margin: auto;
+   margin: auto;
 }
 .slide-content2{
     /* border : 1px solid black; */
+}
+
+
+/* custom slick dots */
+.slick-dotted.slick-slider
+{
+    margin-bottom: 30px;
+}
+.custom-dots
+{
+    position: absolute;
+    bottom: -45px;
+
+    display: block;
+
+    width: 100%;
+    padding: 0;
+    margin: 0;
+
+    list-style: none;
+
+    text-align: center;
+}
+.custom-dots li
+{
+    position: relative;
+
+    display: inline-block;
+
+    width: 20px;
+    height: 20px;
+    margin: 0 5px;
+    padding: 0;
+
+    cursor: pointer;
+}
+.custom-dots li button
+{
+    font-size: 0;
+    line-height: 0;
+
+    display: block;
+
+    width: 20px;
+    height: 20px;
+    padding: 5px;
+
+    cursor: pointer;
+
+    color: transparent;
+    border: 0;
+    outline: none;
+    background: transparent;
+}
+.custom-dots li button:hover,
+.custom-dots li button:focus
+{
+    outline: none;
+}
+.custom-dots li button:hover:before,
+.custom-dots li button:focus:before
+{
+    opacity: 1;
+}
+.custom-dots li button:before
+{
+    font-family: 'slick';
+    font-size: 6px;
+    line-height: 20px;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 20px;
+    height: 20px;
+
+    content: '•';
+    text-align: center;
+
+    opacity: .25;
+    color: black;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.custom-dots li.slick-active button:before
+{
+    opacity: .75;
+    color: black;
 }
 
 
@@ -282,9 +378,9 @@ CSS 애니메이션 과정의 중간 절차를 제어할 수 있게 합니다.  
 .col-lg-auto, .col-xl-1, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl,
 .col-xl-auto, .col-xxl-1, .col-xxl-2, .col-xxl-3, .col-xxl-4, .col-xxl-5, .col-xxl-6, .col-xxl-7, .col-xxl-8, .col-xxl-9, .col-xxl-10, .col-xxl-11, .col-xxl-12, .col-xxl,
 .col-xxl-auto {
-	position: relative;
-	width: 100%;
-	min-height: 1px;
-	padding-right: 15px;
-	padding-left: 15px;
+   position: relative;
+   width: 100%;
+   min-height: 1px;
+   padding-right: 15px;
+   padding-left: 15px;
 }

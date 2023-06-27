@@ -133,6 +133,42 @@ margin-bottom: -9px;
 padding: 0;
 }
 
+.back-to-top {
+  position: fixed;
+  opacity: 1;
+  right: 15px;
+  bottom: 15px;
+  z-index: 99999;
+  background: #eb5d1e;
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+  transition: all 0.4s;
+  
+}
+
+.back-to-top i {
+  font-size: 24px;
+  color: #fff;
+  line-height: 0;
+}
+
+.back-to-top:hover {
+  background: #22c730;
+  color: #fff;
+}
+
+.back-to-top.active {
+  visibility: visible;
+  opacity: 1;
+  
+}
+
+.back-to-top{
+  display: flex;
+  justify-content: center !important;
+  align-items: center !important;
+}
 .navbar ul {
 margin: 0;
 padding: 0;
