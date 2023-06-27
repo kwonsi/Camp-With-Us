@@ -47,7 +47,7 @@
             <h4>Our Social </h4>
             <ul>
                 <li><i class="bx bx-chevron-right"></i> <a href="${contextPath}/member/login">로그인</a></li>
-                <li><i class="bx bx-chevron-right"></i> <a href="${contextPath}/member/signUp">회원가입</a></li>
+                <li><i class="bx bx-chevron-right"></i> <a href="${contextPath}/member/signUpCheck">회원가입</a></li>
             </ul>
             </div>
 
