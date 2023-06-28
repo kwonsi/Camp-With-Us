@@ -1,8 +1,6 @@
 package team.project.camp.board.model.service;
 
-import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -12,14 +10,11 @@ import java.util.regex.Pattern;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.multipart.MultipartFile;
 
 import lombok.extern.slf4j.Slf4j;
 import team.project.camp.board.model.dao.BoardDAO;
-import team.project.camp.board.model.exception.InsertFailException;
 import team.project.camp.board.model.vo.Board;
 import team.project.camp.board.model.vo.BoardDetail;
-import team.project.camp.board.model.vo.BoardImage;
 import team.project.camp.board.model.vo.BoardType;
 import team.project.camp.board.model.vo.Pagination;
 import team.project.camp.board.model.vo.PlaceRecommend;
@@ -56,31 +51,31 @@ public class BoardServiceImpl implements BoardService{
 		// 3) 게시글 목록 조회
 		List<Board> boardList = dao.selectBoardList(pagination, boardCode);
 
-		for(int i=0; i<boardList.size(); i++) {
+		for (Board element : boardList) {
 //			log.info(Util.XSSClear(boardList.get(i).getBoardContent()));
-			
-			String str = boardList.get(i).getBoardContent();
-			
+
+			String str = element.getBoardContent();
+
 			// BoardContent에서 정규식을 이용한 이미지 태그 추출
 			str = Util.XSSClear(str);
-			
+
 			// 이미지 태그를 추출하기 위한 정규식.
 			Pattern pattern  =  Pattern.compile("<img[^>]*src=[\"']?([^>\"']+)[\"']?[^>]*>");
-			
+
 			// 내용 중에서 이미지 태그를 찾기
 			Matcher match = pattern.matcher( str );
-			
+
 			String[] imgTag = new String[10];
-			
+
 			if(match.find()){ // 이미지 태그를 찾았다면
 				for(int j=0; j<imgTag.length; j++) {
 					imgTag[j] = match.group(1); // 글 내용 중에 첫번째 이미지 태그를 뽑아옴.
 //					log.info(imgTag[j]);
-					boardList.get(i).setThumbnailImg(imgTag[j]);
+					element.setThumbnailImg(imgTag[j]);
 				}
 			}
 		} // for(int i=0; i<boardList.size(); i++)
-		
+
 		// map 만들어서 담기
 		Map<String, Object> map = new HashMap<>();
 		map.put("pagination", pagination);
@@ -105,30 +100,30 @@ public class BoardServiceImpl implements BoardService{
 		// 검색 조건에 맞는 게시글 목록 조회(페이징 처리 적용)
 		List<Board> boardList = dao.searchBoardList(paramMap, pagination);
 
-		for(int i=0; i<boardList.size(); i++) {
+		for (Board element : boardList) {
 //		log.info(Util.XSSClear(boardList.get(i).getBoardContent()));
-			
-			String str = boardList.get(i).getBoardContent();
-			
+
+			String str = element.getBoardContent();
+
 			// BoardContent에서 정규식을 이용한 이미지 태그 추출
 			str = Util.XSSClear(str);
-			
+
 			// 이미지 태그를 추출하기 위한 정규식.
 			Pattern pattern  =  Pattern.compile("<img[^>]*src=[\"']?([^>\"']+)[\"']?[^>]*>");
-			
+
 			// 내용 중에서 이미지 태그를 찾아라!
 			Matcher match = pattern.matcher( str );
-			
-			String[] imgTag = new String[10]; 
+
+			String[] imgTag = new String[10];
 			if(match.find()){ // 이미지 태그를 찾았다면
 				for(int j=0; j<imgTag.length; j++) {
 					imgTag[j] = match.group(1); // 글 내용 중에 첫번째 이미지 태그를 뽑아옴.
 //					log.info(imgTag[j]);
-					boardList.get(i).setThumbnailImg(imgTag[j]);
+					element.setThumbnailImg(imgTag[j]);
 				}
 			}
 		} // for(int i=0; i<boardList.size(); i++)
-		
+
 		// map 만들어 담기
 		Map<String, Object> map = new HashMap<>();
 		map.put("pagination", pagination);
@@ -146,9 +141,9 @@ public class BoardServiceImpl implements BoardService{
 		return dao.selectBoardDetail(boardNo);
 	}
 
-	
-	
-	
+
+
+
 	// 게시글 삽입 + 이미지 경로 저장 서비스 구현
 	@Transactional(rollbackFor= { Exception.class })
 	@Override
@@ -177,13 +172,13 @@ public class BoardServiceImpl implements BoardService{
 
 
 
-	
+
 	// 게시글 수정
 	// 선언적 트랜잭션 처리 방법(unchecked Exception 처리가 기본)
 	@Transactional(rollbackFor = {Exception.class}) // 모든 종류의 예외 발생시 rollback
 	@Override
 	public int updateBoard(BoardDetail detail) {
-		
+
 		// 1) XSS 방지 처리 + 개행문자 처리
 		detail.setBoardTitle( Util.XSSHandling( detail.getBoardTitle()) ); // XSS 방지 처리
 		detail.setBoardContent( Util.XSSHandling( detail.getBoardContent()) ); // XSS 방지 처리

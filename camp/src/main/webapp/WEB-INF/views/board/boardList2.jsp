@@ -100,7 +100,10 @@
                                                 <a href="../detail/${boardCode}/${board.boardNo}?cp=${pagination.currentPage}${sURL}" class="board_Content">
                                                     <p class="boardContent">${board.boardContent}</p></a>   
                                             </div>
-                                            <p id="memberInfo">작성자 : ${board.memberNickname} &nbsp;|&nbsp; 작성일 : ${board.createDate} &nbsp;|&nbsp; 조회수 : ${board.readCount}</p>                     
+                                            <div class="memberInfoBox">
+                                                <p id="memberInfo">작성자 : ${board.memberNickname} &nbsp;|&nbsp; 작성일 : ${board.createDate} &nbsp;|&nbsp; 조회수 : ${board.readCount}</p>
+                                            </div>
+                                                                 
                                     </div>
 
 
