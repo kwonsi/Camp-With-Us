@@ -70,6 +70,11 @@
         <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
         <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a> 
         </div>
+        
+    </div>
+
+    <div class="account">
+        무통장 입금 신한은행 110-484-348262 예금주 : 정규동
     </div>
 
 </footer><!-- End Footer -->

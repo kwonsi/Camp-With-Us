@@ -45,6 +45,10 @@ const months = [
     "December",
 ];
 
+let currentDate = new Date(); // 현재 날짜와 시간을 가지는 Date 객체 생성
+let currentDay = currentDate.getDate(); // 현재 일(day)을 가져옴
+
+console.log(currentDay); // 현재 일(day)을 숫자로 출력
 
 // ----------------------------------------------달력 생성 ------------------------------------------------------------------
 function initCalendar(){
@@ -98,6 +102,11 @@ function initCalendar(){
                 
                 selectMonth[0].value = (month+1);
                 selectDay[0].value = e.target.innerText;
+                if(Number(selectDay[0].value) <= currentDay){
+                    alert("올바른 날짜를 입력하세요.")
+
+                    reselect1();
+                }
                 mon[0].value ="월";
                 dat[0].value ="일";
                 const selectedDayOfWeek = getSelectedDayOfWeek();
