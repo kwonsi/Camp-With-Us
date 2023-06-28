@@ -470,6 +470,10 @@ main {
   font-size: 18px;
   color: #212529;
 }
+#footer .account{
+  text-align: center;
+  font-size: 18px;
+}
 
 #footer > a {
   color : #eb5d1e !important;
