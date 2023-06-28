@@ -18,6 +18,10 @@
 
     <script src="https://kit.fontawesome.com/a2e8ca0ae3.js" crossorigin="anonymous"></script>
 
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Gaegu:wght@700&family=Gowun+Batang&display=swap');
+    </style>
 </head>
 
 <body>

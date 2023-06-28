@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Gaegu:wght@700&family=Gowun+Batang&display=swap');
+
 @charset "UTF-8";
 * {
   box-sizing: border-box;
@@ -105,21 +107,23 @@ display: flex;
 #header .logo h1 {
 display: flex;
 align-items: center;
-font-size: 33px;
+font-size: 45px;
 margin: 0;
 font-weight: 400;
 letter-spacing: 2px;
 color: #02ff00;
+font-family: 'Gaegu', cursive;
 }
 #header .logo h4 {
 display: flex;
 align-items: center;
-font-size: 20px;
+font-size: 32px;
 margin: 0;
 font-weight: 400;
 letter-spacing: 2px;
 color: #ffffff;
 margin-bottom: -9px;
+font-family: 'Gaegu', cursive;
 }
 
 #header .logo img {
