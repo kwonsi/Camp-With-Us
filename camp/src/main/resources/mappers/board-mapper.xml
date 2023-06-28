@@ -46,6 +46,7 @@
 		<result property="recommendContent" column="RECOMMEND_CONTENT" />
 		<result property="recommendImg" column="RECOMMEND_IMG" />
 		<result property="recommendHomepg" column="RECOMMEND_HOMEPG" />
+		<result property="recommendDetailpg" column="RECOMMEND_DETAILPG" />
 	</resultMap>
 	
 	
@@ -85,7 +86,7 @@
 	<!-- 여행지 추천 목록 조회 -->
 	<select id="selectrdList" resultMap="placeRecommend_rm">
 		SELECT RECOMMEND_NO, RECOMMEND_TITLE,
-		RECOMMEND_CONTENT, RECOMMEND_IMG, RECOMMEND_HOMEPG
+		RECOMMEND_CONTENT, RECOMMEND_IMG, RECOMMEND_HOMEPG, RECOMMEND_DETAILPG
 		FROM PLACE_RECOMMEND
 	</select>
 

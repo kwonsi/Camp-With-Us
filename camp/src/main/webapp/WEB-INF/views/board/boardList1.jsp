@@ -56,7 +56,7 @@
 
                 <div class="board1">
                     
-                    <div class="headline">
+                    <div class="headline1">
                         <h1>Camp With Us 7월 PICK</h1>
                         <h2>여행지 추천</h2>
                     </div>
@@ -68,7 +68,7 @@
                             <div class="slide-content">
                                 <div class="slide-img">
                                     <a><img src="${contextPath}${rdList.recommendImg}"></a>
-                                    <div class="hover-text" onclick="window.open('${rdList.recommendHomepg}')">자세히 보기</div>
+                                    <div class="hover-text" onclick="window.open('${rdList.recommendDetailpg}')">자세히 보기</div>
                                 </div>
                                 <div class="slide-text">
                                     <div>
@@ -91,9 +91,11 @@
                 <div class="board-empty"></div>
 
                 <div class="board2">
-                    <span class="headline2">
-                        <h3>캠핑 소식</h3>
-                    </span>
+
+                    <div class="headline2">
+                        <h1>캠핑 소식</h1>
+                        <h2>캠핑 이모저모, 유익한 정보를 한눈에!</h2>
+                    </div>
                     
                     <div class="board-list">
                         
