@@ -48,4 +48,15 @@ public interface MyPageService {
 	 */
 	List<Board> selectMyBoard(int memberNo);
 
+	
+	/** (관리자용) 전체 게시글 조회
+	 * @return
+	 */
+	List<Board> selectAllBoard();
+
+	/** (관리자용) 전체 리뷰 조회
+	 * @return
+	 */
+	List<Review> selectAllReview();
+
 }

@@ -241,6 +241,7 @@ hr {
     padding: 15px;
     border-radius: 10px;
     padding-left: 30px;
+    box-shadow: 0 0 20px 12px rgb(32 97 31 / 20%);
     
 }
 
@@ -290,12 +291,12 @@ hr {
 }
 
 .page-button.active {
-  background-color: #555;
+  background-color: #eb5d1e ;
   color: #fff;
 }
 
 .page-button:hover {
-  background-color: #555;
+  background-color: #eb5d1e ;
   color: #fff;
 }
 
@@ -314,7 +315,7 @@ hr {
 
 .pagination-previous:hover,
 .pagination-next:hover {
-  background-color: #333;
+  background-color: #eb5d1e ;
 }
 .pagination-previous {
   order: -1;

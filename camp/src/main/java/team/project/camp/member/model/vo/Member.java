@@ -21,4 +21,5 @@ public class Member {
 	private String enrollDate;
 	private String secessionFlag;
 	private String loginST;
+	private String manager;
 }

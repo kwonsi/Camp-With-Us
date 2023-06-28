@@ -1,7 +1,5 @@
 package team.project.camp.board.model.vo;
 
-import java.util.List;
-
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -21,7 +19,7 @@ public class BoardDetail {
 	private int memberNo;
 	private String boardName;
 
-	private List<BoardImage> imageList;
+	private String imagePath;
 
 	private int boardCode;
 

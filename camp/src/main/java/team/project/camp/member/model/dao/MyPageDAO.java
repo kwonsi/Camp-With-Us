@@ -76,6 +76,22 @@ public class MyPageDAO {
 	public List<Board> selectMyBoard(int memberNo) {
 		return sqlSession.selectList("myPageMapper.selectMyBoard", memberNo);
 	}
-	
+
+
+	/** (관리자용) 전체 게시글 조회 DAO
+	 * @return
+	 */
+	public List<Board> selectAllBoard() {
+		return sqlSession.selectList("myPageMapper.selectAllBoard");
+	}
+
+
+	/** (관리자용) 전체 리뷰 조회 DAO
+	 * @return
+	 */
+	public List<Review> selectAllReview() {
+		return sqlSession.selectList("myPageMapper.selectAllReview");
+	}
+
 
 }

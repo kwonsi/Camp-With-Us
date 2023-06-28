@@ -5,7 +5,7 @@
 body {
     height: auto;
     margin: 0;
-   /*  margin-top: 90px; */
+    margin-top: 90px;
 /*     background-image: url('../images/test1.jpg'); 
      background-size: 100% 100%;  */
 }
@@ -30,6 +30,7 @@ transition: background-color 5000s;
     box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
 }
 
+
 .header-container {
   width: 95%;
   display: flex;
@@ -39,6 +40,12 @@ transition: background-color 5000s;
 
 #header .logo {
   display: flex;
+}
+#header .logo img {
+  padding: 5px;
+  margin: 0;
+  max-height: 90px;
+  margin-left: 20px;
 }
 
 #header .logo h1 {
@@ -61,11 +68,7 @@ transition: background-color 5000s;
   margin-bottom: -9px;
 }
 
-#header .logo img {
-  padding: 0;
-  margin: 0;
-  max-height: 90px;
-}
+
 
 .navbar {
   padding: 0;
@@ -181,13 +184,13 @@ a:hover {
     text-decoration: none;
 }
 
-#member-profile {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
+#member-profile1 {
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 50% !important;
 }
 
-#memberId {
+ #memberId {
   padding: 10px 0 10px 10px !important;
 }
 
@@ -295,13 +298,18 @@ main {
   height: 150px;
   align-items: flex-end;
   justify-content: center;
-
 }
 #lastDiv{
   width: 100%;
   height: 100px;
 /*   background-color: #eee; */
 }
+
+
+
+
+
+
 
 
 /* -------------- ajax Table  --------------      */
@@ -345,11 +353,12 @@ main {
 # Footer
 --------------------------------------------------------------*/
 #footer {
-  background: #fff;
+/*   background: #fff; */
   padding: 0 0 20px 0;
   color: #212529;
-  font-size: 18px;
+  font-size: 16px;
   background: #fef8f5;
+
 }
 
 
@@ -385,11 +394,11 @@ main {
   font-weight: bold;
   color: #212529;
   position: relative;
-  padding-bottom: 12px;
+  padding-bottom: 6px;
 }
 
-#footer .footer-top .footer-links {
-  /* margin-bottom: 30px; */
+.footer-top > .container > .row {
+/*   margin-left: 70px !important; */
 }
 
 #footer .footer-top .footer-links ul {
@@ -406,9 +415,10 @@ main {
 }
 
 #footer .footer-top .footer-links ul li {
-  padding: 10px 0;
+  padding: 7px 0;
   display: flex;
   align-items: center;
+  width: 200px;
 }
 
 #footer .footer-top .footer-links ul li:first-child {
@@ -460,6 +470,10 @@ main {
   font-size: 18px;
   color: #212529;
 }
+#footer .account{
+  text-align: center;
+  font-size: 18px;
+}
 
 #footer > a {
   color : #eb5d1e !important;
@@ -485,13 +499,15 @@ main {
   justify-content: center;
   color: #686262;
   font-size: 16px;
+  margin-top: 20px;
 }
 #projectBySpan{
   color: #212529;
   font-size: 17px;
 }
 #footer > .py-4 {
-  padding-top: 15px !important;
+  padding-top: 4px !important;
+  display: flex;
 }
 
 /*****************************************/
@@ -687,4 +703,51 @@ main {
   }
 .row{
   width: 700px !important;
+}
+
+.wrap-loading{
+ z-index: 9999;
+
+  position: fixed;
+
+  left: 0;
+
+  right:0;
+
+  top:0;
+
+  bottom:0;
+
+  background: rgba(0,0,0,0.6); /*not in ie */
+
+  filter: progid:DXImageTransform.Microsoft.Gradient(startColorstr='#20000000', endColorstr='#20000000');    /* ie */
+
+}
+.loading{
+  width: 400px;
+  height: 400px;
+}
+.wrap-loading div{ /*로딩 이미지*/
+
+  position: fixed;
+
+  top:25%;
+
+  left:40%;
+
+  margin-left: 0;
+
+  margin-top: 0;
+
+  width: 600px;
+  height: 600px;
+
+  z-index: 9998;
+
+}
+
+.display-none{ /*감추기*/
+
+  display:none;
+
 }

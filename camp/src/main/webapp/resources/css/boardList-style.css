@@ -14,8 +14,11 @@
 
 /* 게시판 목록 화면 전체 영역 설정 */
 .board-list{
-    width: 1000px;
-    margin: 50px auto;
+    width: 100%;
+    /* margin: 50px auto; */
+    padding: 0 50px;
+/*     border-left: 2px solid #ddd; */
+    min-height: 670px;
 }
 
 /* 게시판 이름 */
@@ -43,27 +46,27 @@
 }
 
 .list-table > thead{
-    /* background-color: #455ba8; */
-    color : black;
+    background-color: #343a40;
+    color : white;
 }
 
 .list-table tr{
     height: 60px;
 }
 
-.list-table > tbody > tr{
+/* .list-table > tbody > tr{
     border-bottom : 1px solid gray;
-}
+} */
 
 .list-table tr > *{
     text-align: center;
+    line-height: 60px;
 }
 
 .list-table tr > *:nth-of-type(1){ width: 7%;}
 .list-table tr > td:nth-of-type(2){ 
     width: 25%;
     text-align: center;
-
 }
 
 .list-table tr > *:nth-of-type(3){ width: 10%;}
@@ -73,6 +76,28 @@
 .list-table tr > *:nth-of-type(7){ width: 15%;}
 .list-table tr > *:nth-of-type(8){ width: 10%;}
 
+
+thead tr:nth-child(1) {
+    --bs-table-color: #fff;
+    --bs-table-bg: #343a40;
+    --bs-table-border-color: #484e53;
+    --bs-table-striped-bg: #3e444a;
+    --bs-table-striped-color: #fff;
+    --bs-table-active-bg: #484e53;
+    --bs-table-active-color: #fff;
+    --bs-table-hover-bg: #43494e;
+    --bs-table-hover-color: #fff;
+    color: var(--bs-table-color);
+    border-color: var(--bs-table-border-color);
+}
+.list-table tr:nth-child(2n) {
+    --bs-table-color-state: var(--bs-table-active-color);
+    --bs-table-bg-state:rgb(200, 200, 200,0.45);
+}
+.list-table tr:nth-child(2n-1) {
+    --bs-table-color-state: var(--bs-table-active-color);
+    --bs-table-bg-state:rgb(0 0 0 / 5%);
+}
 
 /* 버튼 영역 */
 .btn-area{
@@ -90,13 +115,18 @@
     height: 40px;
 
     background-color: white;
-    border: 2px solid #455ba8;
-    color:#455ba8;
+    border: 2px solid #eb5d1e;
+    color:#212529;
 
     border-radius: 5px;
 
     font-weight: bold;
     cursor: pointer;
+}
+#insertBtn:hover {
+    color: white;
+    background-color: orange;
+    transition: 0.3s;
 }
 
 
@@ -104,14 +134,14 @@
 .pagination{
     padding: 0;
     list-style: none;
-
+    font-size: 22px;
     display: flex;
     justify-content: center;
 }
 
 .pagination > li{
     width: 20px;
-    margin: 0 5px;
+    margin: 0 10px;
     text-align: center;
 }
 
@@ -119,13 +149,19 @@
     width: 100%;
     height: 100%;
     display: block;
+    color: #4d5053;
+    font-size: 25px;
     /* letter-spacing : -2px; */
+}
+.pagination a :hover{
+    color: #ef7b3a;
 }
 
 /* 현재 페이지 번호 */
 .pagination .current{
-    background-color: #455ba8;
-    border-radius: 50%;
+    width: 24px;
+    background-color: #4d5053;
+    border-radius: 30%;
     color: white;
     font-weight: bold;
 }
@@ -135,10 +171,8 @@
 #boardSearch{
     width: 500px;
     height: 30px;
-
     display: flex;
     justify-content: space-between;
-
     margin: 30px auto;
 }
 
@@ -151,23 +185,32 @@
 
 #boardSearch select{
     width: 100px;
+    height: 35px;
+    border-radius: 7px;
+    text-align: center;
 }
 
 #boardSearch input{
+    height: 35px;
     flex-grow: 1;
     margin: 0 10px;
     padding-left: 10px;
+    border-radius: 7px;
 }
-
+#boardSearch input:focus{
+    outline: none;
+    border: 3px solid rgba(235, 145, 29) !important;
+}
 #boardSearch button{
-    width: 100px;
-
-    background-color: #455ba8;
-    color: white;
+    width: 30px !important;
+    color: rgb(12, 12, 12);
     border : 0;
-
-    font-weight: bold;
     cursor: pointer;
+    font-size: 25px;
+    background-color: transparent;
+}
+#boardSearch button:hover {
+    color: #f09226;
 }
 
 
@@ -182,7 +225,7 @@
 
     position: absolute;
     left : -15px;
-    top : 17px;
+    top : 25px;
 }
 
 
@@ -256,7 +299,7 @@ CSS 애니메이션 과정의 중간 절차를 제어할 수 있게 합니다.  
     to {opacity: 0;}
 }
 
-.container,
+/* .container,
 .container-fluid,
 .container-xxl,
 .container-xl,
@@ -286,4 +329,4 @@ CSS 애니메이션 과정의 중간 절차를 제어할 수 있게 합니다.  
 	min-height: 1px;
 	padding-right: 15px;
 	padding-left: 15px;
-}
+} */

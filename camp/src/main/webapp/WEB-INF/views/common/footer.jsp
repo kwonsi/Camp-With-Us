@@ -24,23 +24,8 @@
                 <h4>CampWithUs</h4>
                 <ul>
                     <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-                    <!-- <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li> -->
-<!--                     <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
-                    <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
-                    <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li> -->
+                    <li><i class="bx bx-chevron-right"></i> <a href="https://github.com/jbjeon2/Final_Camp">github</a></li>
                 </ul>
-                </div>
-
-
-            <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Our Links</h4>
-            <ul>
-                <li><i class="bx bx-chevron-right"></i> <a href="https://github.com/jbjeon2/Final_Camp">github</a></li>
-             <!--    <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li> -->
-<!--                 <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
-                <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
-                <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li> -->
-            </ul>
             </div>
 
             <div class="col-lg-3 col-md-6 footer-links">
@@ -48,9 +33,6 @@
             <ul>
                 <li><i class="bx bx-chevron-right"></i> <a href="${contextPath}/campList/?loc=&theme=&campName=">캠핑장 조회</a></li>
                 <li><i class="bx bx-chevron-right"></i> <a href="${contextPath}/board/list/1">여행지 추천</a></li>
-<!--                 <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
-                <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
-                <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li> -->
             </ul>
             </div>
 
@@ -58,19 +40,25 @@
             <h4>Our Social </h4>
             <ul>
                 <li><i class="bx bx-chevron-right"></i> <a href="${contextPath}/member/login">로그인</a></li>
-                <li><i class="bx bx-chevron-right"></i> <a href="${contextPath}/member/signUp">회원가입</a></li>
-<!--                 <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
-                <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
-                <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li> -->
+                <li><i class="bx bx-chevron-right"></i> <a href="${contextPath}/member/signUpCheck">회원가입</a></li>
             </ul>
             </div>
+            
+            <div class="col-lg-3 col-md-6 footer-links">
+                <h4>Our Bank </h4>
+                <ul>
+                    <li><i class="bx bx-chevron-right"></i> <a href="" onclick="return false;">국민 659402-01-442603</a></li>
+                    <li><i class="bx bx-chevron-right"></i> <a href="" onclick="return false;">신한 110-396-554220</a></li>
+                </ul>
+                </div>
+            
 
             </div>
         </div>
     </div>
 
 
-    <div id = "projectBy"> <span id="projectBySpan">Project By </span>&nbsp; 순일ㅣ진복ㅣ은주ㅣ규동ㅣ영진</div>
+    <div id = "projectBy"> <span id="projectBySpan">Project By </span>&nbsp; 순일ㅣ진복ㅣ은주ㅣ규동ㅣ영진 &nbsp;&nbsp;&nbsp;&nbsp;예금주 : (주)캠프위드어스</div>
     <div class="container py-4">
         
         <div class="copyright">
@@ -78,19 +66,15 @@
         &nbsp; &nbsp;
         </div>
         <div class="credits">
-<!--         All the links in the footer should remain intact.
-        You can delete the links only if you purchased the pro version.
-        Licensing information: https://bootstrapmade.com/license/
-        Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/ninestars-free-bootstrap-3-theme-for-creative/
-        Designed by <a href="https://bootstrapmade.com/"> BootstrapMade</a>
-        &nbsp; &nbsp; -->
         <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
         <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
         <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
         <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
         <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a> 
         </div>
+        
     </div>
+
 
 </footer><!-- End Footer -->
 

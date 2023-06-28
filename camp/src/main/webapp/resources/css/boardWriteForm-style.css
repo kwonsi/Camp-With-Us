@@ -1,16 +1,16 @@
 /* 게시글 작성 전체 영역 */
 .board-write{
-    width: 1000px;
+    width: 1500px;
     min-height: 700px;
     border:  1px solid #ccc;
-    margin: 50px auto;
+    margin: 150px auto 50px auto;
     padding: 20px;
-    margin-top: 150px;
 }
 
 /* 게시글 제목 */
 .board-title{
-    margin : 0;
+    width: 1320px;
+    margin : 0 auto 0 auto;
     padding: 20px 0;
     border-bottom : 3px solid #ccc;
 }
@@ -27,7 +27,7 @@
 /* 게시글 제목 input에 포커스가 맞춰 졌을 때 */
 /* :focus-within  : 자식 input요소에 포커스가 맞춰 졌을 때 */
 .board-title:focus-within{
-    border-bottom-color : #455ba8;
+    border-bottom-color : #ef7f4d;
 }
 
 
@@ -44,7 +44,6 @@
     height: 230px;
     display: inline-block;
     text-align: center;
-
     position : relative;
 }
 
@@ -110,24 +109,30 @@
 
 /* 버튼 */
 .board-btn-area button{
-    width: 80px;
-    height: 30px;
+    width: 100px;
+    height: 40px;
 
     font-weight: bold;
     border: 0;
-    background-color: #455ba8;
+    background-color: #ee7843;
     color : white;
 
     cursor: pointer;
+    border-radius: 3px;
 }
 
 .board-btn-area button:hover{
-    background-color: white;
-    color : #455ba8;
-    border: 2px solid #455ba8;
+    background-color: #ef7f4d;
+    color : white;
+    border: 2px solid #fff;
 }
 
-
+.board-btn-area button:nth-child(1) {
+    margin-right: 10px;
+}
+.board-btn-area button:nth-child(2) {
+    margin-right: 90px;
+}
 
 
 #att_zone {

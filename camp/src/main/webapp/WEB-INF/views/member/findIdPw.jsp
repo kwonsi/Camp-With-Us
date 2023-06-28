@@ -13,7 +13,9 @@
      
 <!--      <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap-icons.css">
      <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap_main_header.css"> -->
-     <!-- <link rel="stylesheet" href="${contextPath}/resources/css/signUpPage.css"> -->
+     <!-- <link rel="stylesheet" href="${contextPath}/resources/css/signUpPage.css">
+     -->
+     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css'>
      <link rel="stylesheet" href="${contextPath}/resources/css/findIdPw.css">
      <link rel="stylesheet" href="${contextPath}/resources/css/boxicons.css">
  </head>
@@ -22,127 +24,111 @@
     <!-- hedaer include -->
     <jsp:include page="/WEB-INF/views/common/header.jsp" />
 
-     <main>
+    <main>
+        <div class="pages">
+
+            <input id='one' name='trigger' type='radio'>
+            <input id='two' name='trigger' type='radio'>
+            <input id='three' name='trigger' type='radio'>
+            <input id='four' name='trigger' type='radio'>
         
 
-        <!-- 아이디 찾기  -->
-        <c:if test="${param.findType == 'id'}">
+            <!-- 아이디 찾기  -->
 
-
-            <div class="select">
-                <ul class="selectfind">
-                    <li class="selectId libtn1" style="width: 120px; height: 50px; background-color: black;">
-                        <a class="li-a" href="${contextPath}/member/findIdPw?findType=id">아이디 찾기</a>
-                    </li>
-        
-                    <li class="selectPw libtn2" style="margin-top: 10px;">
-                        <a class="li-a" href="${contextPath}/member/findIdPw?findType=pw">비밀번호 찾기</a>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="findAll">
-
-
-                <div class="idLeft bg-light px-md-5">
-                    
+                <div class="idLeft bg-light px-md-5 pages_page">
+                    <div class="select content pages_page__inner">
+                     
+                    </div>
                 </div>
+
+
                 
 
-                <div class="find-content bg-light px-md-5">
+                <div class="find-content1 bg-light px-md-5 pages_page">
 
                     <div class="mb-5">                    
                         <h1 class="fw-bolder">아이디(이메일) 찾기</h1>
                     </div>
                     
+
+                    <div class="idDiv pages_page__inner">
+
                         <form class="col-lg-8 col-xl-6" action="findId" method="POST" name="findId-form" onsubmit="return findIdValidate()">
-        
 
                             
                             <span class="msg">해당 아이디에 등록된 전화번호를 입력해 주세요.<br>(' - ' 없이 숫자만 입력)</span> 
                             
                             
-                            <div class="idPw-input-area form-floating mb-3">
+                            <div class="idPw-input-area1 form-floating mb-3">
                                 <input type="text" class="form-control" id="memberTel" name="memberTel" type="text"
-                                maxlength="11">
-                                <label for="memberTel">Tel</label>
+                                 placeholder="전화번호" maxlength="11">
+                                <label for="memberTel">Telephone</label>
                             </div>
-            
+
                             <button type="submit" id="findId-btn" class="btn btn-primary1 btn-lg">아이디(이메일) 찾기</button>
-            
+
                         </form>
-    
+                            <div class='control next'>
+                                <label for='two'></label>
+                            </div>
                     </div>
 
                 </div>
                 
-            </div>
-
-        </c:if>  
 
 
-        <!-- 비밀번호 찾기  -->
-        <c:if test="${param.findType == 'pw'}">
 
+            <!-- 비밀번호 찾기  -->
+            
 
-            <div class="select">
-                <ul class="selectfind">
-                    <li class="selectId libtn1" style="margin-top: 10px;">
-                        <a class="li-a" href="${contextPath}/member/findIdPw?findType=id">아이디 찾기</a>
-                    </li>
-        
-                    <li class="selectPw libtn2" style="width: 120px; height: 50px; background-color: black;">
-                        <a class="li-a" href="${contextPath}/member/findIdPw?findType=pw">비밀번호 찾기</a>
-                    </li>
-                </ul>
-            </div>
+                <div class="pwLeft bg-light px-md-5 pages_page">
+                    <div class="select pages_page__inner">
+                     
+                        <div class='control'>
+                            <label for='one'></label>
+                          </div>
 
-
-            <div class="findAll">
-
-                <div class="pwLeft bg-light px-md-5">
-                  
-                </div>
-        
-                <div class="find-content bg-light px-md-5">
-
-                    <div class="mb-5">                    
-                        <h1 class="fw-bolder">비밀번호 찾기</h1>
                     </div>
+                </div>
 
-                    <div class="pwDiv">
+                <div class="find-content2 bg-light px-md-5 pages_page">
+
+                    <div class="pwDiv pages_page__inner">
+                        <div class="mb-5">                    
+                            <h1 class="fw-bolder">비밀번호 찾기</h1>
+                        </div>
+
 
                         <form class="col-lg-8 col-xl-6" action="findPw" method="POST" name="findPw-form" onsubmit="return findPwInvalidate()">
-        
+
                             
                             <span class="msg">가입된 아이디(이메일)를 입력해 주세요.</span> 
                         
-                            <div class="idPw-input-area form-floating mb-3">
+                            <div class="idPw-input-area2 form-floating mb-3">
                                 <input type="text" class="form-control" id="memberEmail" name="memberEmail"
-                                maxlength="50">
+                                placeholder="아아디(이메일)" maxlength="50">
                                 <label for="memberEmail">Id(Email)</label>
                             </div>
                         
                             <span class="msg">해당 아이디에 등록된 전화번호를 입력해 주세요.<br>(' - ' 없이 숫자만 입력)</span> 
                         
-                            <div class="idPw-input-area form-floating mb-3">
+                            <div class="idPw-input-area2 form-floating mb-3">
                                 <input type="text" class="form-control" id="memberTel" name="memberTel"
-                                maxlength="11"autocomplete="off">
-                                <label for="memberTel">Tel</label>
+                                placeholder="전화번호" maxlength="11"autocomplete="off">
+                                <label for="memberTel">Telephone</label>
                             </div>
                             
-            
-                            <button type="submit" id="findPw-btn" class="btn btn-primary2 btn-lg">비밀번호 찾기</button>
-            
-                        </form>
 
+                            <button type="submit" id="findPw-btn" class="btn btn-primary2 btn-lg">비밀번호 찾기</button>
+
+                        </form>
                     </div>
                 </div>
-                
-            </div> 
+          
 
-        </c:if>
 
+
+        </div>
 
      </main>
  
@@ -153,6 +139,34 @@
 
     <!-- signUp.js 연결 -->
     <script src="${contextPath}/resources/js/findIdPw.js"></script>
+
+    <script>
+    //     function toggleFindContent(contentId) {
+    //       const content = document.getElementById(contentId);
+    //       content.
+    //       content
+    //   classList.toggle('flipped');
+    //       content.style.display = content.style.display === 'none' ? 'block' : 'none';
+    //     };
+
+
+   
+
+            // $(document).ready(function() {
+
+            //     const ab = document.querySelector("main .pages_page:nth-of-type(3) .pages_page__inner .content");
+            //     if(ab.css('transform') === 'rotate(-180deg)') {
+            //         findContent.style.display = 'none';
+            //     };
+
+            // });
+  
+
+
+    </script>
+     
+
+    
 
     
  </body>

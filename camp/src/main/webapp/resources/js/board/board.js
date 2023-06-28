@@ -1,5 +1,7 @@
 
 
+
+
 // 상세조회, 게시글 작성 - 목록으로 버튼
 
 // 즉시 실행 함수
@@ -185,6 +187,8 @@ function searchValidate(){
 
 
 // 2번 게시판에서 서머노트로 쓴 게시글 조회 시 html 태그 제거(정규식 이용)
+
+if ( document.getElementsByClassName("boardContent") ) {
 const boardContent = document.getElementsByClassName("boardContent");
 
 window.onload = function() {
@@ -195,4 +199,33 @@ window.onload = function() {
         boardContent[i].innerText = boardContent[i].innerText.replace(/\&nbsp;/g, " ");
     }
 
+    for(let i=0; i<boardContent.length; i++) {
+        if(boardContent[i].innerText.length > 60) {
+            boardContent[i].innerText = boardContent[i].innerText.substring(0, 60)+".....더보기";
+        }
+    }
+
 }
+}
+
+
+const myPageList = document.getElementsByClassName("myPage-listBoard");
+
+if(myPageList.length == 5) {
+    
+    if(window.location.href == "http://localhost:8080/camp/board/list/1") {
+        myPageList[0].style.backgroundColor = "#e9ecef";
+    } else if(window.location.href == "http://localhost:8080/camp/board/list/2") {
+        myPageList[1].style.backgroundColor = "#e9ecef";
+    } else if(window.location.href == "http://localhost:8080/camp/board/list/3") {
+        myPageList[2].style.backgroundColor = "#e9ecef";
+    } else if(window.location.href == "http://localhost:8080/camp/board/list/4") {
+        myPageList[3].style.backgroundColor = "#e9ecef";
+    } else if(window.location.href == "http://localhost:8080/camp/board/list/5") {
+        myPageList[4].style.backgroundColor = "#e9ecef";
+    } 
+} 
+
+
+
+

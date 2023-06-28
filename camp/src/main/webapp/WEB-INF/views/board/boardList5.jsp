@@ -28,15 +28,19 @@
     <link rel="stylesheet" href="${contextPath}/resources/css/main.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/boardList-style3.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap_main_header.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap-icons.css">
 
+    <!-- 게시판Table 공통화를위해 CSS 추가 . -->
+    <link rel="stylesheet" href="${contextPath}/resources/css/mypage.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/boardList-style.css">
     <script src="https://kit.fontawesome.com/a2e8ca0ae3.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
     <main>
-        
-        
+        <div class="myPage-content">
+        <jsp:include page="/WEB-INF/views/board/boardSideMenu.jsp"/>
         
         <%-- 검색을 진행한 경우 key, query를 쿼리스트링 형태로 저장한 변수 생성 --%>
         <c:if test="${!empty param.key}">
@@ -46,16 +50,22 @@
 
         <section class="board-list">
 
-            <h1 class="board-name">${boardName}</h1>
+         
 
-            <c:if test="${!empty param.key}">
+<!--             <c:if test="${!empty param.key}">
                 <h3 style="margin-left:30px;"> "${param.query}" 검색 결과  </h3>
-            </c:if>
-
+            </c:if> -->
+            <div class = "myPageHeadFlex" id="myPageHeadFlexImg">
+                <div class = "myPageHead">
+                    <h1 class="myPage-title">${boardName}</h1>
+                
+                <span class="myPage-explanation"><span class="CWUspan">Camp With Us</span> 의 문의사항을 확인할 수 있습니다.</span>
+                </div>
+            </div>
 
 
             <div class="list-wrapper">
-                <table class="list-table">
+                <table class="list-table table table-hover">
                     
                     <thead>
                         <tr>
@@ -67,7 +77,7 @@
                         </tr>
                     </thead>
 
-                    <tbody>
+                    <tbody id="myBoardList">
 
                         <c:choose>
                             <c:when test="${empty boardList}">
@@ -87,13 +97,21 @@
                                         <td> 
                                             <c:if test="${!empty board.thumbnail}">
                                                 <img class="list-thumbnail" src="${contextPath}${board.thumbnail}">
-                                            </c:if>  
-
-                                            <a href="../detail/${boardCode}/${board.boardNo}?cp=${pagination.currentPage}${sURL}">${board.boardTitle}</a>                           
-                                       		<%-- detail?no=${board.boardNo}&cp=${pagination.currentPage}&type=${param.type}${sURL} --%>
-                                       		<%-- 현재 페이지 주소 : /board/list/1?cp=1
+                                            </c:if>     
+                                            <c:choose>
+                                                <c:when test="${loginMember.manager == 'Y'}">
+                                                    <a href="../detail/${boardCode}/${board.boardNo}?cp=${pagination.currentPage}${sURL}">${board.boardTitle}</a>
+                                                </c:when>
+                                                <c:when test="${loginMember.memberNickname == board.memberNickname}">
+                                                    <a href="../detail/${boardCode}/${board.boardNo}?cp=${pagination.currentPage}${sURL}">${board.boardTitle}</a>
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <p id ="boardListP"> <i class="fa-solid fa-lock"></i> 비밀글 입니다.</p>
+                                                </c:otherwise>
+                                            </c:choose>  
+                                                <%-- detail?no=${board.boardNo}&cp=${pagination.currentPage}&type=${param.type}${sURL} --%>
+                                       		    <%-- 현재 페이지 주소 : /board/list/1?cp=1
                                         		상세 조회 주소   : /board/detail/1/300?cp= --%>
-                                        
                                         </td>
                                         <td>${board.memberNickname}</td>
                                         <td>${board.createDate}</td>
@@ -125,10 +143,10 @@
 
                 <ul class="pagination">
                     <!-- 첫 페이지로 이동 -->
-                    <li><a href="${url}1${sURL}">&lt;&lt;</a></li>
+                    <li><a href="${url}1${sURL}"><i class="fa-solid fa-angles-left"></i></a></li>
 
                     <!-- 이전 목록 마지막 번호로 이동 -->
-                    <li><a href="${url}${pagination.prevPage}${sURL}">&lt;</a></li>
+                    <li><a href="${url}${pagination.prevPage}${sURL}"><i class="fa-solid fa-angle-left"></i></a></li>
 
                     <!-- 범위가 정해진 일반 for문 사용 -->
                     <c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}" step="1">
@@ -146,10 +164,10 @@
                     </c:forEach>
                     
                     <!-- 다음 목록 시작 번호로 이동 -->
-                    <li><a href="${url}${pagination.nextPage}${sURL}">&gt;</a></li>
+                    <li><a href="${url}${pagination.nextPage}${sURL}"><i class="fa-solid fa-angle-right"></i></a></li>
 
                     <!-- 끝 페이지로 이동 -->
-                    <li><a href="${url}${pagination.maxPage}${sURL}">&gt;&gt;</a></li>
+                    <li><a href="${url}${pagination.maxPage}${sURL}"><i class="fa-solid fa-angles-right"></i></a></li>
 
                 </ul>
             </div>
@@ -171,10 +189,11 @@
 
                 <input type="text" name="query"  id="search-query" placeholder="검색어를 입력해주세요.">
 
-                <button>검색</button>
+                <button><i class="fa-solid fa-magnifying-glass"></i></button>
             </form>
 
         </section>
+        </div>
     </main>
 
 

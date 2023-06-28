@@ -11,7 +11,7 @@ import lombok.ToString;
 @ToString
 public class Review {
 
-	private int replyNo;
+	private int reviewNo;
 	private String reviewContents;
 	private String createDate;
 	private int campNo;
@@ -19,4 +19,5 @@ public class Review {
 	private String memberNickname;
 	private String profileImage;
 	private int campRate;
+	private String campName;
 }

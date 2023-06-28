@@ -10,7 +10,6 @@ import org.springframework.stereotype.Repository;
 
 import team.project.camp.board.model.vo.Board;
 import team.project.camp.board.model.vo.BoardDetail;
-import team.project.camp.board.model.vo.BoardImage;
 import team.project.camp.board.model.vo.BoardType;
 import team.project.camp.board.model.vo.Pagination;
 import team.project.camp.board.model.vo.PlaceRecommend;
@@ -43,8 +42,8 @@ public class BoardDAO {
 	 * @param pagination
 	 * @param boardCode
 	 * @param boardMap
-	 * @param boardMap 
-	 * @param boardNo 
+	 * @param boardMap
+	 * @param boardNo
 	 * @return boardList
 	 */
 	public List<Board> selectBoardList(Pagination pagination, int boardCode) {
@@ -108,15 +107,6 @@ public class BoardDAO {
 		return result;
 	}
 
-	/** 게시글 이미지 삽입(리스트) DAO
-	 * @param boardImageList
-	 * @return result
-	 */
-	public int insertBoardImageList(List<BoardImage> boardImageList) {
-
-		return sqlSession.insert("boardMapper.insertBoardImageList", boardImageList);
-	}
-
 	/** 게시글 수정 DAO
 	 * @param detail
 	 * @return result
@@ -125,34 +115,6 @@ public class BoardDAO {
 
 		return sqlSession.update("boardMapper.updateBoard", detail);
 	}
-
-	/** 게시글 이미지 삭제 DAO
-	 * @param map
-	 * @return result
-	 */
-	public int deleteBoardImage(Map<String, Object> map) {
-
-		return sqlSession.delete("boardMapper.deleteBoardImage", map);
-	}
-
-	/** 게시글 이미지 1개 수정 DAO
-	 * @param img
-	 * @return result
-	 */
-	public int updateBoardImage(BoardImage img) {
-
-		return sqlSession.update("boardMapper.updateBoardImage", img);
-	}
-
-	/** 게시글 이미지 1개 삽입 DAO
-	 * @param img
-	 * @return result
-	 */
-	public int insertBoardImage(BoardImage img) {
-
-		return sqlSession.insert("boardMapper.insertBoardImage", img);
-	}
-
 
 	/** 게시글 삭제 DAO
 	 * @param boardNo
@@ -172,14 +134,16 @@ public class BoardDAO {
 		return sqlSession.update("boardMapper.updateReadCount", boardNo);
 	}
 
-	
+
 	/** 여행지 추천 목록 조회 DAO
 	 * @return result
 	 */
 	public List<PlaceRecommend> selectrdList() {
-		
+
 		return sqlSession.selectList("boardMapper.selectrdList");
 	}
+
+
 
 
 }

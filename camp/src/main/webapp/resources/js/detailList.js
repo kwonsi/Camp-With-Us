@@ -8,13 +8,13 @@ var reservationBtn = document.getElementById("reservationBtn");
 
 reservationBtn.addEventListener("click", function (e) {
 
-    if (loginMember == null || loginMember=="" ) {
+    if (loginMember == null || loginMember == "") {
         alert("먼저 로그인을 해주세요");
         window.location.href = '/camp/member/login';
         e.preventDefault();
-        
+
     } else {
-        location.href = "/camp/campDetail/reservation?campName="+campName;
+        location.href = "/camp/campDetail/reservation?campName=" + campName;
     }
 });
 
@@ -51,7 +51,9 @@ var sobangli = document.getElementsByClassName("table_ul05")[6];  // 안전시�
 var sbrsClli = document.getElementsByClassName("table_ul05")[7]; // 부가정보
 
 // 캠핑장 가격테이블에 캠핑장이름 넣어주기
-var campNamePrice = document.getElementById("campNamePrice"); 
+var campNamePrice = document.getElementById("campNamePrice");
+var campNameMap = document.getElementById("campNameMap");
+var campNameReview = document.getElementById("campNameReview");
 
 // 캠핑장 정보 저장용 변수 ( json데이터 item[]에 복사 )
 let item = {};
@@ -75,7 +77,7 @@ window.onload = function () {
             pageNo: 1,
             MobileOS: "ETC",
             MobileApp: "AppTest",
-            serviceKey: "4k7REi0gs6TKyjakIRV6zHIg3a1NcXwJPRTezijLCYvx0leNrqvtRwayHuc1AslN9pksU9rGRorGGOTZwMEu9Q==",
+            serviceKey: "I9du70n72b4HG+Y4EFuyTYoNlJ3tOZycxGZluxxxoKxLFP4nPc5cjB4iha+XbuTyZ2Krp2X/cqRs22JpoB3dnw==",
             _type: "json"
         },
         dataType: "json",
@@ -85,7 +87,9 @@ window.onload = function () {
             var items = result.response.body.items.item;
 
             for (let i = 0; i < items.length; i++) {
-                if (campName == items[i].facltNm.replaceAll(" ", "")) {
+
+                // 쿼리스트링 '&' 읽지못해서 앞글자만 짤라서 비교.
+                if ( campName.substring(0,5) == (items[i].facltNm.replaceAll(" ", "")).substring(0,5) ) {
 
                     Object.assign(item, items[i]);
                     // item 에 캠핑장 정보 복사
@@ -96,12 +100,17 @@ window.onload = function () {
             contentId = items.contentId;
 
 
-
             introCampName.innerText = items.facltNm;
             introLine.innerText = items.lineIntro;
             introLine2.innerText = items.facltNm;
-            if(campNamePrice){
-            campNamePrice.innerText = items.facltNm+" 이용 요금";
+            if (campNamePrice) {
+                campNamePrice.innerText = items.facltNm + " 이용 요금";
+            }
+            if (campNameMap) {
+                campNameMap.innerText = items.facltNm + " 위치 정보";
+            }
+            if (campNameReview) {
+                campNameReview.innerText = items.facltNm + " 리뷰";
             }
             /* ************** 캠핑장 정보 출력 ************** */
             addr.innerText = items.addr1;               // 주소
@@ -117,7 +126,7 @@ window.onload = function () {
                 '<a href="' + items.homepage + '" target="_blank" >홈페이지 바로가기</a>';
 
 
-            
+
 
 
             if (intro) {   ///  viewType =1,2,3 넘어갈때 오류방지 if조건문 
@@ -145,31 +154,44 @@ window.onload = function () {
                     '<li>방화사 (' + items.frprvtSandCo + ')</li>' +
                     '<li>화재감지기 (' + items.fireSensorCo + ')</li>';
 
-                // 배열로 따로저장 ( , ) 
-                caravInnerFclty = (items.caravInnerFclty).split(",");
-                glampInnerFclty = (items.glampInnerFclty).split(",");
-                sbrsCl = (items.sbrsCl).split(",");
+                console.log(items.caravInnerFclty);
+                console.log(items.glampInnerFclty);
+                console.log(items.sbrsCl);
+                console.log(items);
 
-                // 글램핑 내부시설
-                for (let i = 0; i < glampInnerFclty.length; i++) {
-                    glampInnerFcltyli.innerHTML +=
-                        '<li>' + glampInnerFclty[i] + '</li>';
+                // 배열로 따로저장 ( , ) 
+                if ( items.caravInnerFclty != null){
+                    caravInnerFclty = ( items.caravInnerFclty).split(",");
+                    // 카라반 내부시설
+                    for (let i = 0; i < caravInnerFclty.length; i++) {
+                        caravInnerFcltyli.innerHTML +=
+                            '<li>' + caravInnerFclty[i] + '</li>';
+                    }
                 }
-                // 카라반 내부시설
-                for (let i = 0; i < caravInnerFclty.length; i++) {
-                    caravInnerFcltyli.innerHTML +=
-                        '<li>' + caravInnerFclty[i] + '</li>';
+
+                if ( items.glampInnerFclty != null){
+                    glampInnerFclty = (items.glampInnerFclty).split(",");
+                    // 글램핑 내부시설
+                    for (let i = 0; i < glampInnerFclty.length; i++) {
+                        glampInnerFcltyli.innerHTML +=
+                            '<li>' + glampInnerFclty[i] + '</li>';
+                    }
                 }
-                // 부가 정보
-                for (let i = 0; i < sbrsCl.length; i++) {
-                    sbrsClli.innerHTML +=
-                        '<li>' + sbrsCl[i] + '</li>';
+                if ( items.sbrsCl != null ){
+                    sbrsCl = (items.sbrsCl).split(",");
+                    // 카라반 내부시설
+
+                    // 부가 정보
+                    for (let i = 0; i < sbrsCl.length; i++) {
+                        sbrsClli.innerHTML +=
+                            '<li>' + sbrsCl[i] + '</li>';
+                    }
                 }
                 // 소개글
-                if ( items.intro == null || items.intro ==""){
+                if (items.intro == null || items.intro == "") {
                     intro.innerText = "정보가 없습니다.";
-                }else{
-                intro.innerText = items.intro;
+                } else {
+                    intro.innerText = items.intro;
                 }
             }
 
@@ -181,42 +203,84 @@ window.onload = function () {
                     pageNo: 1,
                     MobileOS: "ETC",
                     MobileApp: "AppTest",
-                    serviceKey: "4k7REi0gs6TKyjakIRV6zHIg3a1NcXwJPRTezijLCYvx0leNrqvtRwayHuc1AslN9pksU9rGRorGGOTZwMEu9Q==",
+                    serviceKey: "I9du70n72b4HG+Y4EFuyTYoNlJ3tOZycxGZluxxxoKxLFP4nPc5cjB4iha+XbuTyZ2Krp2X/cqRs22JpoB3dnw==",
                     _type: "json",
                     contentId: contentId
                 },
                 dataType: "json",
                 success: function (result) {
+
+
                     console.log("이미지정보 ajax->ajax 성공");
+                    console.log(result);
+
                     imageUrlItem = result.response.body.items.item;
 
-                    
+
 
                     if (postWrapper) {
                         for (let i = 0; i < imageUrlItem.length; i++) {
                             postWrapper.innerHTML +=
                                 '<div class="post">' +
-                                "<img src=" + imageUrlItem[i].imageUrl + ">"
+                                "<img src=" + imageUrlItem[i].imageUrl + " class='modalTest'>"
                                 + "</div>";
                         }
 
-                        $(document).ready(function() {
+                        $(document).ready(function () {
                             // 슬라이더 초기화 코드
                             $('.post-wrapper').slick({
                                 arrows: true,
                                 // prevArrow: '<button class="slide-arrow prev-arrow"><</button>',
                                 // nextArrow: '<button class="slide-arrow next-arrow">></button>',
-                              slidesToShow: 4,
-                              slidesToScroll: 4,
-                              autoplay: true,
-                              autoplaySpeed: 3000,
-                              draggable : true,
-                              dots:true,
-                              
-                              
+                                slidesToShow: 4,
+                                slidesToScroll: 4,
+                                autoplay: true,
+                                autoplaySpeed: 3000,
+                                draggable: true,
+                                dots: true,
+
+
                             });
-                          });
+                        });
                     }
+
+
+
+                    // 즉시 실행 함수 이미지눌렀을때 모달창 띄웁니다. 
+                    (function () {
+                        const modalTest = document.getElementsByClassName("modalTest");
+
+                        if (modalTest.length > 0) { // 목록에 썸네일 이미지가 있을 경우에만 이벤트 추가
+
+                            const modal = document.querySelector('.modal');
+                            const modalImage = document.getElementById("modal-image");
+
+                            for (let th of modalTest) {
+                                th.addEventListener("click", function () {
+                                    modalImage.setAttribute("src", th.getAttribute("src"));
+
+                                    /* on/off 스위치 */
+                                    // classList.toggle("클래스명") : 클래스가 없으면 추가(add) 
+                                    //                                클래스가 있으면 제거(remove)
+
+                                    modal.classList.toggle('show'); // add
+                                });
+                            }
+                            // X버튼
+                            modalImage.addEventListener("click", function () {
+
+                                modal.classList.toggle('hide'); // hide 클래스 추가
+
+                                setTimeout(function () { // 0.45초 후 동작
+                                    modal.classList.toggle('hide'); // hide 클래스 제거
+
+                                    modal.classList.toggle('show'); // remove
+                                }, 450);
+                            });
+
+                        }
+
+                    })();
                 },
                 error: function (error) {
                     console.log("API 호출 실패");
@@ -224,7 +288,15 @@ window.onload = function () {
                 }
             }); // 이미지 목록 ajax
         }, // 캠핑장 정보 ajax 성공 끝
-        error: function (error) {
+        beforeSend: function () {
+
+            $('.wrap-loading').removeClass('display-none');
+
+        }
+        , complete: function () {
+            $('.wrap-loading').addClass('display-none');
+        }
+        , error: function (error) {
             console.log("API 호출 실패");
             console.log(error);
         }
@@ -233,7 +305,7 @@ window.onload = function () {
 };
 
 
-  
+
 
 
 /// 카카오 맵
@@ -290,14 +362,14 @@ if (mapContainer) {
 }
 
 
- 
+
 
 
 var doNmVal = document.getElementById("doNmVal");  // 날씨제목
-if(doNmVal){
+if (doNmVal) {
     var doNm = items.doNm;
     localStorage.setItem("loca", JSON.stringify(doNm))
-doNmVal.innerText = doNm+" 지역 날씨";
+    doNmVal.innerText = doNm + " 지역 날씨";
 };
 
 
@@ -321,7 +393,7 @@ function changeBackgroundColor(event) {
 
 }
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     // 현재 페이지 URL에서 viewType 파라미터 값 추출
     var viewType = getParameterByName("viewType");
 
@@ -333,7 +405,7 @@ document.addEventListener("DOMContentLoaded", function() {
         if (linkViewType === viewType) {
             liElements[i].classList.remove("campListA");
             liElements[i].classList.add("selected");
-           
+
             break;
         }
     }
@@ -350,3 +422,10 @@ function getParameterByName(name, url) {
     if (!results[2]) return "";
     return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
+
+
+
+
+
+
+

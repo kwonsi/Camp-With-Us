@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap_main_header.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/main.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/boxicons.css">
+
     <script src="https://kit.fontawesome.com/a2e8ca0ae3.js" crossorigin="anonymous"></script>
 
 </head>
@@ -30,6 +31,8 @@
 
                     <section class="section-transform-top">
                         <div class="container">
+
+
                             <div class="box-booking">
                                 <form class="rd-form rd-mailform booking-form">
                                     <div>
@@ -237,14 +240,14 @@
 
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
-
-
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    
 
     <script src="${contextPath}/resources/js/main.js"></script>
 
 
+    
 </body>
 
 </html>
