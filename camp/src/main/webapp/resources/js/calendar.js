@@ -48,7 +48,9 @@ const months = [
 let currentDate = new Date(); // 현재 날짜와 시간을 가지는 Date 객체 생성
 let currentDay = currentDate.getDate(); // 현재 일(day)을 가져옴
 
+let currentMonth = new Date().getMonth() + 1;
 console.log(currentDay); // 현재 일(day)을 숫자로 출력
+console.log(currentMonth);
 
 // ----------------------------------------------달력 생성 ------------------------------------------------------------------
 function initCalendar(){
@@ -102,10 +104,10 @@ function initCalendar(){
                 
                 selectMonth[0].value = (month+1);
                 selectDay[0].value = e.target.innerText;
-                if(Number(selectDay[0].value) <= currentDay){
+                if(Number(selectDay[0].value) <= currentDay && Number(selectMonth[0].value) <= currentMonth){
                     alert("올바른 날짜를 입력하세요.")
-
                     reselect1();
+                    return false;
                 }
                 mon[0].value ="월";
                 dat[0].value ="일";
@@ -119,13 +121,23 @@ function initCalendar(){
             } else if(count == 1) {
                 selectMonth[1].value = (month+1);
                 selectDay[1].value = e.target.innerText;
-                if(Number(selectDay[0].value) > Number(selectDay[1].value)){
+                if(Number(selectDay[0].value) > Number(selectDay[1].value) && Number(selectMonth[1].value) <= currentMonth ){
                     alert("올바른 날짜를 입력해 주세요.")
                     
                     count == 0;
 
                     reselect1();
+
+                    return false;
                     
+                }else if(Number(selectDay[0].value) > Number(selectDay[1].value) && Number(selectMonth[1].value) > currentMonth){
+                    alert("올바른 날짜를 입력해 주세요.")
+                    
+                    count == 0;
+
+                    reselect1();
+
+                    return false;
                 }
                 mon[1].value ="월";
                 dat[1].value ="일";
@@ -284,7 +296,7 @@ todayBtn.addEventListener("click", () => {
    
 });
 
-var count = 0;
+let count = 0;
 
 reselect.addEventListener("click", function(){
 
@@ -315,30 +327,30 @@ reselect.addEventListener("click", function(){
     
     console.log(count)
     console.log(localStorage.getItem("totalDay"))
-    priceElement.textContent = "총 가격 : 0원"
+    
     initCalendar();
 });
 
 function reselect1(){
-    selectMonth[0].value ="";
-    selectDay[0].value ="";
-    selectMonth[1].value ="";
-    selectDay[1].value ="";
-    dayBetween[0].innerText = "";
-    dayBetween[1].innerText = "";
-    mon[0].value ="";
-    mon[1].value ="";
-    dat[0].value="";
-    dat[1].value="";
-    dat2[0].value ="";
-    dat2[1].value ="";
-    wave.value="";
+    selectMonth[0].value =null;
+    selectDay[0].value =null;
+    selectMonth[1].value =null;
+    selectDay[1].value =null;
+    dayBetween[0].innerText = null;
+    dayBetween[1].innerText = null;
+    mon[0].value =null;
+    mon[1].value =null;
+    dat[0].value=null;
+    dat[1].value=null;
+    dat2[0].value =null;
+    dat2[1].value =null;
+    wave.value=null;
     count = 0;
     today = new Date();
     month = today.getMonth();
     year = today.getFullYear();
     
-    dateInput.value ="";
+    dateInput.value =null;
     localStorage.clear();
     
     check.classList.remove("sel")
@@ -347,7 +359,7 @@ function reselect1(){
     
     console.log(count)
     console.log(localStorage.getItem("totalDay"))
-    priceElement.textContent = "총 가격 : 0원"
+    
     initCalendar();
 }
 var totalDay = calculateDays();
@@ -401,7 +413,6 @@ function getSelectedDayOfWeek() {
 //   var daysBetween = calculateDays();
 //   console.log(daysBetween);  // 예상 결과: 21
   
-
 
 
 

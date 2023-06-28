@@ -25,7 +25,14 @@
                 </c:forEach>
               </ul>
             </li>
-            <li class="dropdown myPage1"><a id="myPage" href="#">마이페이지</a>
+            <c:choose>
+              <c:when test="${loginMember.manager =='Y'}">
+                <li class="dropdown myPage1"><a id="myPage" href="#">관리 페이지</a>
+              </c:when>
+              <c:otherwise>
+                <li class="dropdown myPage1"><a id="myPage" href="#">마이페이지</a>
+              </c:otherwise>
+            </c:choose>
               <ul>
                 <c:choose>
                   <c:when test="${loginMember.loginST=='Y'}">
