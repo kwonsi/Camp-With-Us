@@ -15,6 +15,11 @@
                     <li class="myPage-list"><a href="${contextPath}/member/myPage/profile">회원 정보 변경</a></li>
                     <li class="myPage-list"><a href="${contextPath}/member/myPage/secession">회원 탈퇴</a></li>
                 </c:when>
+                <c:when test="${loginMember.manager=='Y'}">
+                    <li class="myPage-list"><a href="${contextPath}/member/myPage/myReservation">전체 예약 확인</a></li>
+                    <li class="myPage-list"><a href="${contextPath}/member/myPage/myBoard">전체 게시글</a></li>
+                    <li class="myPage-list"><a href="${contextPath}/member/myPage/myReview">전체 리뷰</a></li>
+                </c:when>
                 <c:otherwise>
                     <li class="myPage-list"><a href="${contextPath}/member/myPage/myReservation">예약 확인</a></li>
                     <li class="myPage-list"><a href="${contextPath}/member/myPage/myBoard">내 게시글</a></li>

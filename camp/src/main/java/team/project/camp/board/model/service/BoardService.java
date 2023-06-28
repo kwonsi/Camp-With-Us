@@ -4,8 +4,6 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
-import org.springframework.web.multipart.MultipartFile;
-
 import team.project.camp.board.model.vo.BoardDetail;
 import team.project.camp.board.model.vo.BoardType;
 import team.project.camp.board.model.vo.PlaceRecommend;
@@ -36,7 +34,7 @@ public interface BoardService {
 	 * @return detail
 	 */
 	BoardDetail selectBoardDetail(int boardNo);
-	
+
 	/** 게시글 삽입 + 이미지 경로 저장
 	 * @param detail
 	 * @param thumbnailImgPaths
@@ -44,7 +42,7 @@ public interface BoardService {
 	 * @throws IOException
 	 */
 	int insertBoard(BoardDetail detail, String thumbnailImgPaths) throws IOException;
-	
+
 	/** 게시글 수정 서비스
 	 * @param detail
 	 * @param thumbnailImgPaths
@@ -64,7 +62,7 @@ public interface BoardService {
 	 * @return result
 	 */
 	int updateReadCount(int boardNo);
-	
+
 	/** 여행지 추천 목록 조회 서비스
 	 * @return rdList
 	 */

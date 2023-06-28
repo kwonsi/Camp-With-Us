@@ -6,9 +6,9 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.google.gson.Gson;
@@ -39,36 +39,36 @@ public class ReviewController {
 	public int insertReview(Review review
 			) {
 		log.info("별점 " + review.getCampRate());
-		
+
 		String message = "";
-		
+
 		Map<String, Object> map = new HashMap<>();
 		map.put("memberNo", review.getMemberNo());
 		map.put("campName", review.getCampName());
-		
+
 		int result = service.memberReservList(map);
-		
+
 		if(result > 0) {
 			return service.insetReview(review);
 		} else {
 			return result;
 		}
-		
-		
+
+
 	}
 
 	// 리뷰 삭제
 	@GetMapping("/delete")
-	public int deleteReview(int replyNo) {
-		return service.deleteReview(replyNo);
+	public int deleteReview( int reviewNo) {
+		return service.deleteReview(reviewNo);
 	}
 
 	// 리뷰 수정
 	@PostMapping("/update")
-	public int updateReview(int replyNo, String reviewContents, int campRate) {
+	public int updateReview(int reviewNo, String reviewContents, int campRate) {
 
 		Map<String, Object> map = new HashMap<>();
-		map.put("replyNo", replyNo);
+		map.put("reviewNo", reviewNo);
 		map.put("reviewContents", reviewContents);
 		map.put("campRate", campRate);
 

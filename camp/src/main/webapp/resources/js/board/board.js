@@ -199,6 +199,12 @@ window.onload = function() {
         boardContent[i].innerText = boardContent[i].innerText.replace(/\&nbsp;/g, " ");
     }
 
+    for(let i=0; i<boardContent.length; i++) {
+        if(boardContent[i].innerText.length > 60) {
+            boardContent[i].innerText = boardContent[i].innerText.substring(0, 60)+".....더보기";
+        }
+    }
+
 }
 }
 
@@ -219,3 +225,7 @@ if(myPageList.length == 5) {
         myPageList[4].style.backgroundColor = "#e9ecef";
     } 
 } 
+
+
+
+

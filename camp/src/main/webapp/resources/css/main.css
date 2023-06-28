@@ -31,7 +31,7 @@ transition: background-color 5000s;
     
     box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
 }
-  
+
 
 .header-container {
   width: 95%;
@@ -402,7 +402,7 @@ main {
 }
 
 .footer-top > .container > .row {
-  margin-left: 70px !important;
+/*   margin-left: 70px !important; */
 }
 
 #footer .footer-top .footer-links ul {
@@ -422,6 +422,7 @@ main {
   padding: 7px 0;
   display: flex;
   align-items: center;
+  width: 200px;
 }
 
 #footer .footer-top .footer-links ul li:first-child {
@@ -472,6 +473,10 @@ main {
   text-align: center;
   font-size: 18px;
   color: #212529;
+}
+#footer .account{
+  text-align: center;
+  font-size: 18px;
 }
 
 #footer > a {
@@ -722,29 +727,29 @@ main {
 
   bottom:0;
 
-  background: rgba(0,0,0,0.2); /*not in ie */
+  background: rgba(0,0,0,0.6); /*not in ie */
 
   filter: progid:DXImageTransform.Microsoft.Gradient(startColorstr='#20000000', endColorstr='#20000000');    /* ie */
 
 }
 .loading{
-  width: 800px;
-  height: 500px;
+  width: 400px;
+  height: 400px;
 }
 .wrap-loading div{ /*로딩 이미지*/
 
   position: fixed;
 
-  top:15%;
+  top:25%;
 
-  left:31%;
+  left:40%;
 
   margin-left: 0;
 
   margin-top: 0;
 
-  width: 400px;
-  height: 300px;
+  width: 600px;
+  height: 600px;
 
   z-index: 9998;
 

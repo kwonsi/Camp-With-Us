@@ -1,6 +1,7 @@
 package team.project.camp.member.model.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -61,22 +62,22 @@ public class MyPageController {
 		if ( loginMember != null && Manager.equals("N")) {   // 로그인이 됐을때. 목록뽑기  .
 			int memberNo = loginMember.getMemberNo();
 			List<Reservation> reservationList = service.reservationSelect(memberNo);
-			
+
 			model.addAttribute("reservationList", reservationList);
 
 			return "mypage/myReservation";
 
 		}else if(loginMember != null && Manager.equals("Y")){
-			
+
 			List<Reservation> AllreservationList = service.AllreservationSelect();
 			System.out.println(AllreservationList+"zzzzzzzzzzzzz");
 			log.info(AllreservationList + "zzzzzzzzzzz");
 			model.addAttribute("AllreservationList", AllreservationList);
-		
+
 		return "mypage/myReservation";
-			
-		} 
-		
+
+		}
+
 		else { 		// 로그인이 안됐을때 .
 
 			ra.addFlashAttribute("message","로그인을 해주세요. ");
@@ -88,7 +89,13 @@ public class MyPageController {
 	public String myBoard(Model model,
 						  @ModelAttribute("loginMember") Member loginMember) {
 
-		List<Board> boardList = myPageService.selectMyBoard(loginMember.getMemberNo());
+		List<Board> boardList = new ArrayList<>();
+		
+		if((loginMember.getManager()).equals("Y")) {
+			boardList = myPageService.selectAllBoard();
+		} else {
+			boardList = myPageService.selectMyBoard(loginMember.getMemberNo());	
+		}
 
 		model.addAttribute("boardList", new Gson().toJson(boardList));
 
@@ -122,7 +129,13 @@ public class MyPageController {
 	public String myReview(Model model,
 							@ModelAttribute("loginMember") Member loginMember) {
 
-		List<Review> rList = myPageService.selectMyReplyList(loginMember.getMemberNo());
+		List<Review> rList = new ArrayList<>();
+		
+		if( (loginMember.getManager()).equals("Y") ) {
+			rList = myPageService.selectAllReview();
+		} else {
+			rList = myPageService.selectMyReplyList(loginMember.getMemberNo());	
+		}
 
 		return new Gson().toJson(rList);
 	}
@@ -138,18 +151,18 @@ public class MyPageController {
 
 		return result;
 	}
-	
+
 	//매니저용 예약확정
 	@ResponseBody
 	@PostMapping("/reservationConfirm")
 	public int reservationConfirm(int reservNo) {
-		
+
 		System.out.println("예약확정할 예약번호 : " + reservNo);
-		
+
 		int result = service.reservationConfirm(reservNo);
-		
+
 		return result;
-		
+
 	}
 
 	// 회원 정보 수정
@@ -177,12 +190,12 @@ public class MyPageController {
 		// 회원 정보 수정 서비스 호출
 		if(result == 0) {
 			result = myPageService.updateInfo(paramMap);
-		} else if(result > 0) { 
-			
-			if( (loginMember.getMemberNickname()).equals((String)paramMap.get("updateNickname")) ) {
+		} else if(result > 0) {
+
+			if( (loginMember.getMemberNickname()).equals(paramMap.get("updateNickname")) ) {
 				result = myPageService.updateInfo(paramMap);
 			} else result = -1;
-			
+
 		}
 
 		if(result > 0) {

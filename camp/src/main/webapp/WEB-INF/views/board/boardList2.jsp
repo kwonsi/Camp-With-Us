@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 <c:forEach var="boardTypeList" items="${boardTypeList}">
     <c:if test="${boardCode == boardTypeList.boardCode}">
@@ -47,13 +47,18 @@
 
             <section class="board-list">
 
-                <h1 class="board-name">${boardName}</h1>
-
-                <c:if test="${!empty param.key}">
+                <div class = "myPageHeadFlex" id="myPageHeadFlexImg">
+                    <div class = "myPageHead">
+                        <h1 class="myPage-title">${boardName}</h1>
+                    
+                    <span class="myPage-explanation"><span class="CWUspan">Camp With Us</span> 에서 캠핑용품을 나눠보세요!</span>
+                    </div>
+                </div>
+<!--                 <c:if test="${!empty param.key}">
                     <div class="list1-5">
                         <h3 style="margin-left:30px;"> "${param.query}" 검색 결과 </h3>
                     </div>
-                </c:if>
+                </c:if> -->
 
 
 
@@ -75,22 +80,30 @@
                                             <c:if test="${!empty board.thumbnailImg}">
                                                 <img class="list-thumbnail" src="${board.thumbnailImg}">
                                             </c:if>
+                                            <c:if test="${empty board.thumbnailImg}">
+                                                <img class="list-thumbnail" src="${contextPath}/resources/images/CWUlogo3.png">
+                                            </c:if>
                                         </div>
 
                                     <div class="list1-2">
                                         <div class="list1-3">
-                                            <p>${board.boardNo} &nbsp;|&nbsp; </p>
+                                            <p> No.${board.boardNo} &nbsp;|&nbsp; </p>
                                             <a href="../detail/${boardCode}/${board.boardNo}?cp=${pagination.currentPage}${sURL}" class="boardTitle">
-                                                <p>${board.boardTitle}</p>
+                                                <p id = "boardTitleP">${board.boardTitle}</p>
                                             </a>
                                         </div>
 
                                         <hr>
 
                                             <div class="list1-4">
-                                                <p>작성자 : ${board.memberNickname} &nbsp;|&nbsp; 작성일 : ${board.createDate} &nbsp;|&nbsp; 조회수 : ${board.readCount}</p>
-                                                <a href="../detail/${boardCode}/${board.boardNo}?cp=${pagination.currentPage}${sURL}" class="board_Content"><p class="boardContent">${board.boardContent}</p></a>                        
+                                                
+                                                <a href="../detail/${boardCode}/${board.boardNo}?cp=${pagination.currentPage}${sURL}" class="board_Content">
+                                                    <p class="boardContent">${board.boardContent}</p></a>   
                                             </div>
+                                            <div class="memberInfoBox">
+                                                <p id="memberInfo">작성자 : ${board.memberNickname} &nbsp;|&nbsp; 작성일 : ${board.createDate} &nbsp;|&nbsp; 조회수 : ${board.readCount}</p>
+                                            </div>
+                                                                 
                                     </div>
 
 
@@ -121,10 +134,10 @@
 
                     <ul class="pagination">
                         <!-- 첫 페이지로 이동 -->
-                        <li><a href="${url}1${sURL}">&lt;&lt;</a></li>
+                        <li><a href="${url}1${sURL}"><i class="fa-solid fa-angles-left"></i></a></li>
 
                         <!-- 이전 목록 마지막 번호로 이동 -->
-                        <li><a href="${url}${pagination.prevPage}${sURL}">&lt;</a></li>
+                        <li><a href="${url}${pagination.prevPage}${sURL}"><i class="fa-solid fa-angle-left"></i></a></li>
 
                         <!-- 범위가 정해진 일반 for문 사용 -->
                         <c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}" step="1">
@@ -142,10 +155,10 @@
                         </c:forEach>
 
                         <!-- 다음 목록 시작 번호로 이동 -->
-                        <li><a href="${url}${pagination.nextPage}${sURL}">&gt;</a></li>
+                        <li><a href="${url}${pagination.nextPage}${sURL}"><i class="fa-solid fa-angle-right"></i></a></li>
 
                         <!-- 끝 페이지로 이동 -->
-                        <li><a href="${url}${pagination.maxPage}${sURL}">&gt;&gt;</a></li>
+                        <li><a href="${url}${pagination.maxPage}${sURL}"><i class="fa-solid fa-angles-right"></i></a></li>
 
                     </ul>
                 </div>
@@ -165,7 +178,7 @@
 
                     <input type="text" name="query" id="search-query" placeholder="검색어를 입력해주세요.">
 
-                    <button>검색</button>
+                    <button><i class="fa-solid fa-magnifying-glass"></i></button>
                 </form>
 
             </section>

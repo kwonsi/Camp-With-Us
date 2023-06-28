@@ -18,7 +18,7 @@
 
 	<!-- 리뷰 result map -->
 	<resultMap type="review" id="review_rm">
-		<id property="replyNo" column="REVIEW_NO" />
+		<id property="reviewNo" column="REVIEW_NO" />
 		<result property="reviewContents" column="REVIEW_CONTENT" />
 		<result property="createDate" column="CREATE_DT" />
 		<result property="campNo" column="CAMP_NO" />
@@ -47,14 +47,14 @@
 	<insert id="reservationInfoCash" parameterType="reservation">
 		INSERT INTO RESERVATION(
 		RESERVATION_NO, CAMPING_NM, RESERVATION_P, RESERVATION_DT, RESERVATION_NP, PAYMENT, RESERVATION_ST, SELECTDATE, MEMBER_NO, PAYMETHOD) 
-		VALUES(SEQ_RESERVATION_NO_S.NEXTVAL,
+		VALUES(SEQ_REVIEW_NO.NEXTVAL,
 		#{campingName}, #{buyerName}, SYSDATE, #{people}, #{amount}, 'W',  #{reservSelDate}, #{memberNo}, 'CASH')
 	</insert>
 	
 	<insert id="reservationInfoCard" parameterType="reservation">
 		INSERT INTO RESERVATION(
 		RESERVATION_NO, CAMPING_NM, RESERVATION_P, RESERVATION_DT, RESERVATION_NP, PAYMENT, RESERVATION_ST, SELECTDATE, MEMBER_NO, PAYMETHOD) 
-		VALUES(SEQ_RESERVATION_NO_S.NEXTVAL,
+		VALUES(SEQ_REVIEW_NO.NEXTVAL,
 		#{campingName}, #{buyerName}, SYSDATE, #{people}, #{amount}, 'Y',  #{reservSelDate}, #{memberNo}, 'CARD')
 	</insert>
 
@@ -87,7 +87,7 @@
 
 		SELECT REVIEW_NO, REVIEW_CONTENT,
 	    TO_CHAR(CREATE_DT, 'YYYY"년" MM"월" DD"일" HH24"시" MI"분" SS"초"') CREATE_DT,
-	    CAMP_NO, MEMBER_NO, MEMBER_NICK, PROFILE_IMG, REVIEW_ST, CAMP_RATE
+	    CAMP_NO, MEMBER_NO, MEMBER_NICK, PROFILE_IMG, REVIEW_ST, CAMP_RATE, CAMP_NAME
 		FROM REVIEW JOIN MEMBER USING(MEMBER_NO)
 		WHERE CAMP_NO = #{campNo} AND REVIEW_ST = 'N'
 		ORDER BY CREATE_DT DESC
@@ -97,20 +97,20 @@
 	<!-- 리뷰 작성 -->
 	<insert id="insertReview" parameterType="review">
 		INSERT INTO REVIEW(REVIEW_NO, REVIEW_CONTENT, MEMBER_NO, CAMP_NO, CAMP_RATE,CAMP_NAME)
-		VALUES(SEQ_REVIEW_NO.NEXTVAL, #{reviewContents}, #{memberNo}, #{campNo}, #{campRate},#{campName} )
+		VALUES(SEQ_REVIEW_NO.NEXTVAL, #{reviewContents}, #{memberNo}, #{campNo}, #{campRate}, #{campName} )
 	</insert>
 	
 	
 	<!-- 리뷰 삭제 -->
 	<update id="deleteReview" parameterType="_int">
-		UPDATE REVIEW SET REVIEW_ST = 'Y' WHERE REVIEW_NO = #{replyNo}
+		UPDATE REVIEW SET REVIEW_ST = 'Y' WHERE REVIEW_NO = #{reviewNo}
 	</update>
 	
 	<!-- 리뷰 수정 -->
 	<update id="updateReview">
 		UPDATE REVIEW SET REVIEW_CONTENT = #{reviewContents},
 		CAMP_RATE = #{campRate}
-		WHERE REVIEW_NO = #{replyNo}
+		WHERE REVIEW_NO = #{reviewNo}
 	</update>
 	
 	<select id="memberReservList" resultType="_int">

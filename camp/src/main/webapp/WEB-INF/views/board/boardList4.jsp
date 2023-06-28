@@ -122,7 +122,7 @@
 
             <div class="btn-area">
 
-                <c:if test="${!empty loginMember}">
+                <c:if test="${loginMember.manager == 'Y'}">
                     <!-- /camp/board/write -->
                     <button id="insertBtn" onclick="location.href='../write/${boardCode}?mode=insert&cp=${pagination.currentPage}'">글쓰기</button>                     
                 </c:if>
@@ -138,10 +138,10 @@
 
                 <ul class="pagination">
                     <!-- 첫 페이지로 이동 -->
-                    <li><a href="${url}1${sURL}">&lt;&lt;</a></li>
+                    <li><a href="${url}1${sURL}"><i class="fa-solid fa-angles-left"></i></a></li>
 
                     <!-- 이전 목록 마지막 번호로 이동 -->
-                    <li><a href="${url}${pagination.prevPage}${sURL}">&lt;</a></li>
+                    <li><a class="arrow" href="${url}${pagination.prevPage}${sURL}"><i class="fa-solid fa-angle-left"></i></a></li>
 
                     <!-- 범위가 정해진 일반 for문 사용 -->
                     <c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}" step="1">
@@ -159,10 +159,10 @@
                     </c:forEach>
                     
                     <!-- 다음 목록 시작 번호로 이동 -->
-                    <li><a href="${url}${pagination.nextPage}${sURL}">&gt;</a></li>
+                    <li><a class="arrow" href="${url}${pagination.nextPage}${sURL}"><i class="fa-solid fa-angle-right"></i></a></li>
 
                     <!-- 끝 페이지로 이동 -->
-                    <li><a href="${url}${pagination.maxPage}${sURL}">&gt;&gt;</a></li>
+                    <li><a href="${url}${pagination.maxPage}${sURL}"><i class="fa-solid fa-angles-right"></i></a></li>
 
                 </ul>
             </div>
@@ -184,7 +184,7 @@
 
                 <input type="text" name="query"  id="search-query" placeholder="검색어를 입력해주세요.">
 
-                <button>검색</button>
+                <button><i class="fa-solid fa-magnifying-glass"></i></button>
             </form>
 
         </section>

@@ -180,9 +180,9 @@
                                         <td>15,000</td>
                                         <td class="lineClear2">10,000</td>
                                     </tr>
-
                                 </tbody>
                             </table>
+                            
 
                             <!--                             <br>
                         <br>성수기(6~8월) 가격: 1인 기준 성인 30000, 아이 15000
@@ -225,7 +225,8 @@
                                     name="memberAddress" placeholder="상세주소">
                             </div>
                         </div>
-
+                        <span class="Notice"><i class="fa-solid fa-triangle-exclamation"></i>무통장 입금 시</span>
+                        <span class="accountInfo">하단에 있는 계좌번호를 참고해 주세요.</span>
                     </section>
 
                 </section>

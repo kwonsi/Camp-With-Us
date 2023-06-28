@@ -10,7 +10,6 @@ import org.springframework.stereotype.Repository;
 
 import team.project.camp.board.model.vo.Board;
 import team.project.camp.board.model.vo.BoardDetail;
-import team.project.camp.board.model.vo.BoardImage;
 import team.project.camp.board.model.vo.BoardType;
 import team.project.camp.board.model.vo.Pagination;
 import team.project.camp.board.model.vo.PlaceRecommend;

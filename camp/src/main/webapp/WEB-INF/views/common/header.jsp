@@ -25,7 +25,14 @@
                 </c:forEach>
               </ul>
             </li>
-            <li class="dropdown myPage1"><a id="myPage" href="#">마이페이지</a>
+            <c:choose>
+              <c:when test="${loginMember.manager =='Y'}">
+                <li class="dropdown myPage1"><a id="myPage" href="#">관리 페이지</a>
+              </c:when>
+              <c:otherwise>
+                <li class="dropdown myPage1"><a id="myPage" href="#">마이페이지</a>
+              </c:otherwise>
+            </c:choose>
               <ul>
                 <c:choose>
                   <c:when test="${loginMember.loginST=='Y'}">
@@ -34,6 +41,11 @@
                     <li><a href="${contextPath}/member/myPage/myReview">내 리뷰</a></li>
                     <li><a href="${contextPath}/member/myPage/profile">회원 정보 변경</a></li>
                     <li><a href="${contextPath}/member/myPage/secession">회원 탈퇴</a></li>
+                  </c:when>
+                  <c:when test="${loginMember.manager == 'Y'}">
+                    <li><a href="${contextPath}/member/myPage/myReservation">전체 예약 확인</a></li>
+                    <li><a href="${contextPath}/member/myPage/myBoard">전체 게시글</a></li>
+                    <li><a href="${contextPath}/member/myPage/myReview">전체 리뷰</a></li>
                   </c:when>
                   <c:otherwise>
                     <li><a href="${contextPath}/member/myPage/myReservation">예약 확인</a></li>

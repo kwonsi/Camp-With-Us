@@ -1,13 +1,9 @@
 package team.project.camp.detail.model.controller;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,16 +27,16 @@ public class CampDetailController {
 	// 예약하기 페이지 조회  detailList--> reservation
 	// href='${contextPath}/campDetail/reservation?campName=${campName}'>예약페이지</a></button>
 	@GetMapping("/reservation")
-	public String ReservationSelect( 
+	public String ReservationSelect(
 									@RequestParam(value = "campName", required = false, defaultValue = "") String campName,
 									RedirectAttributes ra,
 									Model model) {
 
 		model.addAttribute("campName", campName);
-		
+
 		return "camp/reservation";
 	}
-	
+
 	// 결제페이지
 	@PostMapping("/payment/{campName}")
 	public String PaymentInfo( @PathVariable("campName") String campName,
@@ -86,7 +82,7 @@ public class CampDetailController {
 	public int reservationInfo(Reservation reservation) {
 
 		log.info("예약 DB 삽입 " + reservation);
-		
+
 		int result = service.reservationInfoCash(reservation);
 
 		if(result>0) {
@@ -97,14 +93,14 @@ public class CampDetailController {
 
 		return result;
 	}
-	
+
 	// 예약정보 삽입(Card)
 	@ResponseBody
 	@PostMapping("/payment/reservationInfoCard")
 	public int reservationInfo2(Reservation reservation) {
 
 		log.info("예약 DB 삽입 " + reservation);
-		
+
 		int result = service.reservationInfoCard(reservation);
 
 		if(result>0) {

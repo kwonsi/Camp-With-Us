@@ -33,7 +33,7 @@
             <main>
                 <div class="wrap-loading display-none">
 
-                    <div><img src="${contextPath}/resources/images/loading.gif" class="loading"/></div>
+                    <div><img src="${contextPath}/resources/images/loadingNew2.gif" class="loading"/></div>
                 
                 </div>
                 
@@ -458,6 +458,7 @@
         const campName = "${campName}";
         // 로그인한 회원 번호
         const loginMemberNo = "${loginMember.memberNo}";
+        const loginManager = "${loginMember.manager}";
         // 최상위 주소
         const contextPath = "${contextPath}";
         // 캠핑장 번호
