@@ -87,7 +87,9 @@ window.onload = function () {
             var items = result.response.body.items.item;
 
             for (let i = 0; i < items.length; i++) {
-                if (campName == items[i].facltNm.replaceAll(" ", "")) {
+
+                // 쿼리스트링 '&' 읽지못해서 앞글자만 짤라서 비교.
+                if ( campName.substring(0,5) == (items[i].facltNm.replaceAll(" ", "")).substring(0,5) ) {
 
                     Object.assign(item, items[i]);
                     // item 에 캠핑장 정보 복사
@@ -96,7 +98,6 @@ window.onload = function () {
             localStorage.setItem("item", JSON.stringify(item)); // 캠핑장 정보 페이지 로컬에 저장
             items = JSON.parse(localStorage.getItem("item"));
             contentId = items.contentId;
-
 
 
             introCampName.innerText = items.facltNm;
@@ -153,25 +154,38 @@ window.onload = function () {
                     '<li>방화사 (' + items.frprvtSandCo + ')</li>' +
                     '<li>화재감지기 (' + items.fireSensorCo + ')</li>';
 
-                // 배열로 따로저장 ( , ) 
-                caravInnerFclty = (items.caravInnerFclty).split(",");
-                glampInnerFclty = (items.glampInnerFclty).split(",");
-                sbrsCl = (items.sbrsCl).split(",");
+                console.log(items.caravInnerFclty);
+                console.log(items.glampInnerFclty);
+                console.log(items.sbrsCl);
+                console.log(items);
 
-                // 글램핑 내부시설
-                for (let i = 0; i < glampInnerFclty.length; i++) {
-                    glampInnerFcltyli.innerHTML +=
-                        '<li>' + glampInnerFclty[i] + '</li>';
+                // 배열로 따로저장 ( , ) 
+                if ( items.caravInnerFclty != null){
+                    caravInnerFclty = ( items.caravInnerFclty).split(",");
+                    // 카라반 내부시설
+                    for (let i = 0; i < caravInnerFclty.length; i++) {
+                        caravInnerFcltyli.innerHTML +=
+                            '<li>' + caravInnerFclty[i] + '</li>';
+                    }
                 }
-                // 카라반 내부시설
-                for (let i = 0; i < caravInnerFclty.length; i++) {
-                    caravInnerFcltyli.innerHTML +=
-                        '<li>' + caravInnerFclty[i] + '</li>';
+
+                if ( items.glampInnerFclty != null){
+                    glampInnerFclty = (items.glampInnerFclty).split(",");
+                    // 글램핑 내부시설
+                    for (let i = 0; i < glampInnerFclty.length; i++) {
+                        glampInnerFcltyli.innerHTML +=
+                            '<li>' + glampInnerFclty[i] + '</li>';
+                    }
                 }
-                // 부가 정보
-                for (let i = 0; i < sbrsCl.length; i++) {
-                    sbrsClli.innerHTML +=
-                        '<li>' + sbrsCl[i] + '</li>';
+                if ( items.sbrsCl != null ){
+                    sbrsCl = (items.sbrsCl).split(",");
+                    // 카라반 내부시설
+
+                    // 부가 정보
+                    for (let i = 0; i < sbrsCl.length; i++) {
+                        sbrsClli.innerHTML +=
+                            '<li>' + sbrsCl[i] + '</li>';
+                    }
                 }
                 // 소개글
                 if (items.intro == null || items.intro == "") {
@@ -195,7 +209,11 @@ window.onload = function () {
                 },
                 dataType: "json",
                 success: function (result) {
+
+
                     console.log("이미지정보 ajax->ajax 성공");
+                    console.log(result);
+
                     imageUrlItem = result.response.body.items.item;
 
 
