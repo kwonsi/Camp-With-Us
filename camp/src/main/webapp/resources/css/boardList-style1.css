@@ -7,6 +7,12 @@
 } */
 
 
+/* 글씨체 */
+@import url('https://fonts.googleapis.com/css2?family=Gaegu:wght@700&family=Gowun+Batang&display=swap');
+
+/* font-family: 'Gaegu', cursive;
+font-family: 'Gowun Batang', serif; */
+
 /* a태그 공통 설정 */
 .board a{
     text-decoration: none;
@@ -112,16 +118,24 @@ span{
     /* width: 95%; */
     background-color: #f0f1f5;
     border : 1px solid #dedede;
-    box-shadow: 5px 5px 10px 10px #dedede;
+    box-shadow: 0 0 20px #dedede;
+    /* box-shadow: 5px 5px 10px 10px #dedede; */
 }
 .board2{
     margin-left: 35px;
     margin-right: 35px;
-    height: 30%;
+    height: 35%;
     /* width: 95%; */
     background-color: #f0f1f5;
     border: 1px solid #dedede;
     box-shadow: 0 0 20px #dedede;
+}
+
+
+/* board 위1 아래2 를 나누는 빈공간 */
+.board-empty{
+    height: 7%;
+    /* border : 1px solid black; */
 }
 
 
@@ -138,34 +152,46 @@ span{
 }
 
 
-/* board 위1 아래2 를 나누는 빈공간 */
-.board-empty{
-    height: 10%;
-    /* border : 1px solid black; */
-}
-
-
 /* div headline 관련 */
-.headline{
+/* .headline1 .headline2{
     text-align: center;
     margin-top: 50px;
     margin-bottom: 50px;
-    line-height: 45px;
-}
-.headline h1{
-    font-size: 35px;
-    margin: 0px;
-}
-.headline h2{
-    font-size: 30px;
-    margin-top: 15px;
-}
-.headline2{
+    line-height: 45px;   
+} */
+.headline1 h1{
     text-align: center;
-    width: 450px;
+    font-size: 50px;
+    font-weight: 700;
+    font-family: 'Gaegu', cursive;
+    /* font-family: 'Gowun Batang', serif; */
+    margin-top: 20px;
     margin-bottom: 5px;
-    font-size: 28px;
-    font-weight: 800;
+}
+.headline1 h2{
+    text-align: center;
+    font-size: 40px;
+    font-weight: 300;
+    font-family: 'Gaegu', cursive;
+    /* font-family: 'Gowun Batang', serif; */
+    margin-top: 20px;
+}
+.headline2 h1{
+    text-align: center;
+    font-size: 50px;
+    font-weight: 700;
+    font-family: 'Gaegu', cursive;
+    /* font-family: 'Gowun Batang', serif; */
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+.headline2 h2{
+    text-align: center;
+    font-size: 40px;
+    font-weight: 300;
+    font-family: 'Gaegu', cursive;
+    /* font-family: 'Gowun Batang', serif; */
+    margin-top: 20px;
 }
 
 
@@ -221,11 +247,13 @@ span{
     margin-top: 0px;
     padding-bottom: 15px;
     border-bottom: 1px solid #dedede;
+    font-family: 'Gowun Batang', serif;
 }
 .slide-content{
     width: 100%;
     height: 100px;
     overflow: auto;
+    font-family: 'Gowun Batang', serif;
     ::-webkit-scrollbar{
         display: none;
     }
@@ -239,6 +267,7 @@ span{
     align-items: center;
     background: #f9ba76;
     border-style: none;
+    font-family: 'Gowun Batang', serif;
 }
 
 
