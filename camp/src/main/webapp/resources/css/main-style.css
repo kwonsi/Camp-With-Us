@@ -3748,14 +3748,16 @@ textarea.form-input {
 .booking-form .button {
 	min-height: auto;
 	padding: 14px 15px;
-	font-size: 17px;
+	/* font-size: 30px; */
 	line-height: 1.5;
+	font-family: 'Gaegu', cursive;
 }
 
 .booking-title {
-	font-size: 20px;
+	font-size: 35px;
 	font-weight: 400;
 	text-transform: uppercase;
+	font-family: 'Gaegu', cursive;
 }
 
 @media (min-width: 576px) {
@@ -3875,7 +3877,7 @@ textarea.form-input {
 	}
 	.booking-form .button {
 		padding: 30px 45px;
-		font-size: 21px;
+		font-size: 30px;
 	}
 	.booking-title {
 		letter-spacing: 0.05em;
