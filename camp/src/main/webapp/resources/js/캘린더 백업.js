@@ -28,9 +28,10 @@ const check = document.querySelector(".check")
 const total_days = document.querySelector(".total-days");
 var datePick = document.getElementsByClassName("day");
 var dayBetween = document.getElementsByClassName("dayBetween");
-let firstDateString
 
-let todayYear = new Date().getFullYear();
+const firstSelectDate = new Date(selectMonth[0].value + "-" + selectDay[0].value);
+const secondSelectDate = new Date(selectMonth[1].value + "-" + selectDay[1].value);
+
 
 const months = [
     "January",
@@ -47,12 +48,12 @@ const months = [
     "December",
 ];
 
-const currentDate = new Date(); // 현재 날짜와 시간을 가지는 Date 객체 생성
-const currentDateString = currentDate.toLocaleDateString('ko-KR', { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric'});
+let currentDate = new Date(); // 현재 날짜와 시간을 가지는 Date 객체 생성
+let currentDay = currentDate.getDate(); // 현재 일(day)을 가져옴
 
 let currentMonth = new Date().getMonth() + 1;
-
-console.log(currentDateString);
+console.log(currentDay); // 현재 일(day)을 숫자로 출력
+console.log(currentMonth);
 
 // ----------------------------------------------달력 생성 ------------------------------------------------------------------
 function initCalendar(){
@@ -106,9 +107,7 @@ function initCalendar(){
                 
                 selectMonth[0].value = (month+1);
                 selectDay[0].value = e.target.innerText;
-                let firstSelectDate = new Date(todayYear + "-" + selectMonth[0].value + "-" + selectDay[0].value);
-                firstDateString = firstSelectDate.toLocaleDateString('ko-KR', { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric'});
-                if(firstDateString <= currentDateString){
+                if(Number(selectDay[0].value) <= currentDay && Number(selectMonth[0].value) < currentMonth){
                     alert("올바른 날짜를 입력하세요.")
                     reselect1();
                     return false;
@@ -119,17 +118,22 @@ function initCalendar(){
                 console.log("요일"+selectedDayOfWeek)
                 dat2[0].value = '\u00A0'+"("+selectedDayOfWeek+")"
                 
-                console.log(firstDateString)
 
                 wave.value = "~"
                 count++;
             } else if(count == 1) {
                 selectMonth[1].value = (month+1);
                 selectDay[1].value = e.target.innerText;
-                let secondSelectDate = new Date(todayYear + "-" + selectMonth[1].value + "-" + selectDay[1].value);
-                let secondDateString = secondSelectDate.toLocaleDateString('ko-KR', { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric'});
-                console.log(secondDateString);
-                if(secondDateString < firstDateString){
+                if(Number(selectDay[0].value) > Number(selectDay[1].value) && Number(selectMonth[1].value) >= currentMonth ){
+                    alert("올바른 날짜를 입력해 주세요.")
+                    
+                    count == 0;
+
+                    reselect1();
+
+                    return false;
+                    
+                }else if(Number(selectDay[0].value) > Number(selectDay[1].value) && Number(selectMonth[0].value) > currentMonth){
                     alert("올바른 날짜를 입력해 주세요.")
                     
                     count == 0;
@@ -412,6 +416,7 @@ function getSelectedDayOfWeek() {
 //   var daysBetween = calculateDays();
 //   console.log(daysBetween);  // 예상 결과: 21
   
+
 
 
 
