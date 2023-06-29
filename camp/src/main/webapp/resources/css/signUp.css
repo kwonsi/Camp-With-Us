@@ -19,8 +19,20 @@ main {
   background-size: 100% 1400px;
 }
 
-
-
+#member-profile1 {
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 50% !important;
+}
+.navbar li {
+  position: relative;
+  display: flex;
+  font-size: 18px;
+  color: white;
+}
+a#memberId {
+  padding: 10px 0 10px 10px;
+}
 /* -----------------header------------------- */
 
 #header {
