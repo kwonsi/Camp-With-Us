@@ -245,6 +245,7 @@
     border : 0;
     cursor: pointer;
     font-size: 25px;
+    background-color: transparent;
 }
 #boardSearch button:hover {
     color: #f09226;

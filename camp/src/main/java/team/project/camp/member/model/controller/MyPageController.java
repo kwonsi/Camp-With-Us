@@ -129,14 +129,13 @@ public class MyPageController {
 	public String myReview(Model model,
 							@ModelAttribute("loginMember") Member loginMember) {
 
-		List<Review> rList = new ArrayList<>(); 
+		List<Review> rList = new ArrayList<>();
 		
 		if( (loginMember.getManager()).equals("Y") ) {
 			rList = myPageService.selectAllReview();
 		} else {
 			rList = myPageService.selectMyReplyList(loginMember.getMemberNo());	
 		}
-		
 
 		return new Gson().toJson(rList);
 	}

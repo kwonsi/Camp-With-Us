@@ -14,5 +14,5 @@ public class PlaceRecommend {
 	private String recommendContent;
 	private String recommendImg;
 	private String recommendHomepg;
-
+	private String recommendDetailpg;
 }

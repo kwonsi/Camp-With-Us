@@ -175,7 +175,7 @@ function requestPay() {
     console.log("requestPay함수 실행");
         if(checkedValue === "cash"){
             console.log("성공");
-                let cf = window.confirm("정말로 예약을 진행하시겠습니까?\n무통장 입금의 경우 입금 확인 후 예약이 확정됩니다.");
+                let cf = window.confirm("정말로 예약을 진행하시겠습니까?\n무통장 입금의 경우 입금 확인 후 예약이 확정됩니다.\n하단의 계좌번호를 참고하세요.");
                 if(cf){
                 let selectDate = document.querySelector(".datePick").textContent;
                 let people = JSON.parse(localStorage.getItem("totalPeople"))

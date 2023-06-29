@@ -485,3 +485,15 @@ video {
     flex-direction: column;
     align-items: flex-start;
 }
+.Notice{
+    text-align: center;
+   margin: 20px auto 10px auto;
+    font-size: 22px;
+    font-weight: bold;
+    
+}
+.accountInfo{
+    text-align: center;
+    margin: 0 auto 0 auto;
+    font-weight: 500;
+}

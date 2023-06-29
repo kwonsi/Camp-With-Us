@@ -36,7 +36,7 @@
                     <form class="col-lg-8 col-xl-6" action="signUp" method="POST" name="signUp-form" onsubmit="return signUpValidate()">
         
                         
-                            <div class="signName">*아이디(이메일)</div>
+                            <div class="signName">* 아이디(이메일)</div>
                        
                             <div class="signUp-input-area form-floating mb-3">
 
@@ -53,7 +53,7 @@
                         
 
                         
-                        <div class="signName">*인증번호</div>
+                        <div class="signName">* 인증번호</div>
                         <div class="signUp-input-area form-floating mb-3">
                             <!-- cNumber -->
                             <input type="text" class="form-control" id="cNumber"  
@@ -69,7 +69,7 @@
                         
 
 
-                        <div class="signName">*비밀번호</div>
+                        <div class="signName">* 비밀번호</div>
                         <div class="signUp-input-area form-floating mb-3">
                             <input  type="text" class="form-control" id="memberPw" name="memberPw"
                                     placeholder="비밀번호" maxlength="30">
@@ -86,7 +86,7 @@
         
                         
         
-                        <div class="signName">*닉네임</div>
+                        <div class="signName">* 닉네임</div>
                         <div class="signUp-input-area form-floating mb-3">
                             <input type="text" class="form-control" id="memberNickname" name="memberNickname"
                                     placeholder="닉네임" maxlength="10">
@@ -99,7 +99,7 @@
         
                         
                          
-                        <div class="signName">*전화번호</div>
+                        <div class="signName">* 전화번호</div>
                         <div class="signUp-input-area form-floating mb-3">
                             <input type="text" class="form-control" id="memberTel" name="memberTel"
                                     placeholder="(- 없이 숫자만 입력)" maxlength="11">
@@ -111,7 +111,7 @@
                         
                     
                         
-                        <div class="signName">*주소</div>
+                        <div class="signName">* 주소</div>
                         <div class="signUp-input-area form-floating mb-3">
                             <input type="text" class="form-control" id="sample4_postcode" name="memberAddress"
                                     placeholder="우편번호" maxlength="6">

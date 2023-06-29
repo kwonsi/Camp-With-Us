@@ -38,7 +38,7 @@ public interface CampDetailService {
 	int insetReview(Review review);
 
 	// 리뷰 삭제
-	int deleteReview(int replyNo);
+	int deleteReview(int reviewNo);
 
 
 	// 리뷰 수정

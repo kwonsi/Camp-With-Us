@@ -10,7 +10,6 @@ import org.springframework.stereotype.Repository;
 
 import team.project.camp.board.model.vo.Board;
 import team.project.camp.board.model.vo.BoardDetail;
-import team.project.camp.board.model.vo.BoardImage;
 import team.project.camp.board.model.vo.BoardType;
 import team.project.camp.board.model.vo.Pagination;
 import team.project.camp.board.model.vo.PlaceRecommend;
@@ -116,26 +115,6 @@ public class BoardDAO {
 
 		return sqlSession.update("boardMapper.updateBoard", detail);
 	}
-
-
-//	/** 게시글 이미지 1개 수정 DAO
-//	 * @param img
-//	 * @return result
-//	 */
-//	public int updateBoardImage(BoardImage img) {
-//
-//		return sqlSession.update("boardMapper.updateBoardImage", img);
-//	}
-//
-//	/** 게시글 이미지 1개 삽입 DAO
-//	 * @param img
-//	 * @return result
-//	 */
-//	public int insertBoardImage(BoardImage img) {
-//
-//		return sqlSession.insert("boardMapper.insertBoardImage", img);
-//	}
-
 
 	/** 게시글 삭제 DAO
 	 * @param boardNo

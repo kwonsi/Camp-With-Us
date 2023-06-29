@@ -90,8 +90,8 @@ public class CampDetailServiceImpl implements CampDetailService {
 
 	// 리뷰 삭제
 	@Override
-	public int deleteReview(int replyNo) {
-		return dao.deleteReview(replyNo);
+	public int deleteReview(int reviewNo) {
+		return dao.deleteReview(reviewNo);
 	}
 
 	// 리뷰 수정

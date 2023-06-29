@@ -29,9 +29,17 @@
         <section class="myPage-main">
         <div class = "myPageHeadFlex">
             <div class = "myPageHead">
-            <h1 class="myPage-title">내 게시글</h1>
-            
-            <span class="myPage-explanation">현재 회원님이 작성한 게시글을 확인할 수 있습니다.</span>
+                <c:choose>
+                    <c:when test="${loginMember.manager == 'Y'}">
+                        <h1 class="myPage-title">전체 게시글 조회</h1>
+                        <span class="myPage-explanation">전체 게시글을 볼 수 있습니다.</span>
+                    </c:when>
+                    <c:otherwise>
+                <h1 class="myPage-title">내 게시글</h1>
+                <span class="myPage-explanation">현재 회원님이 작성한 게시글을 확인할 수 있습니다.</span>
+                </c:otherwise>
+            </c:choose>
+
             </div>
         </div>
             <div class="list-wrapper">

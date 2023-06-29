@@ -56,9 +56,9 @@
 
                 <div class="board1">
                     
-                    <div class="headline">
+                    <div class="headline1">
                         <h1>Camp With Us 7월 PICK</h1>
-                        <h2>${boardName}</h2>
+                        <h2>여행지 추천</h2>
                     </div>
 
                     <div class="multiple-items">
@@ -66,18 +66,20 @@
                         <!-- 향상된 for문처럼 사용 -->
                         <c:forEach var="rdList" items="${placeRecommendList}">
                             <div class="slide-content">
-                                <a><img src="${contextPath}${rdList.recommendImg}"></a>
-                            
+                                <div class="slide-img">
+                                    <a><img src="${contextPath}${rdList.recommendImg}"></a>
+                                    <div class="hover-text" onclick="window.open('${rdList.recommendDetailpg}')">자세히 보기</div>
+                                </div>
                                 <div class="slide-text">
+                                    <div>
                                     <p class="slide-title">${rdList.recommendTitle}</p>
-                                    <hr>
+                                    </div>
+                                    <!-- <hr> -->
                                     <div class="slide-content">
                                         ${rdList.recommendContent}
                                     </div>
-                                </div>
-                                <div>
-                                    <button class="slide-btn" style="margin-top: 15px;" onclick="window.open('${rdList.recommendHomepg}')">
-                                        자세히보기<i class="xi-marker-plus xi-x xi-fw"></i>
+                                    <button class="slide-btn" style="margin-top: 15px; cursor: pointer;" onclick="window.open('${rdList.recommendHomepg}')">
+                                        홈페이지로 이동&nbsp;<i class="xi-home-o xi-x xi-fw"></i>
                                     </button>
                                 </div>
                             </div>
@@ -89,15 +91,18 @@
                 <div class="board-empty"></div>
 
                 <div class="board2">
-                    <span class="headline2">
-                        <h3>캠핑 소식</h3>
-                    </span>
+
+                    <div class="headline2">
+                        <h1>캠핑 소식</h1>
+                        <h2>캠핑 이모저모, 유익한 정보를 한눈에!</h2>
+                    </div>
                     
                     <div class="board-list">
+                        
                         <div class="board2-1">
                             <!-- 고캠핑 플러그인 -->
                             <!-- 페이스북 개발자 로그인 된 상태에서만 화면이 제대로 나옴 -->
-                            <div class="fb-page" data-href="https://www.facebook.com/go2thecamping/" data-tabs="timeline" data-width="500" data-height="400" data-small-header="true" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="true"><blockquote cite="https://www.facebook.com/go2thecamping/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/go2thecamping/">한국관광공사 고캠핑</a></blockquote></div>
+                            <div class="fb-page" data-href="https://www.facebook.com/go2thecamping/" data-tabs="timeline" data-width="500" data-height="380" data-small-header="true" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="true"><blockquote cite="https://www.facebook.com/go2thecamping/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/go2thecamping/">한국관광공사 고캠핑</a></blockquote></div>
                         </div>
 
                         <!-- 슬라이드 광고 링크 -->
@@ -169,8 +174,8 @@
         dots: false,
         adaptiveHeight: 300,
         focusOnSelect: true,
-        slidesToShow: 2,
-        slidesToScroll: 2,
+        slidesToShow: 3,
+        slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 2000,
         arrows: false

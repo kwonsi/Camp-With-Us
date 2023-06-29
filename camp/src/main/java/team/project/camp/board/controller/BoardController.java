@@ -33,6 +33,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.google.gson.Gson;
+
 import lombok.extern.slf4j.Slf4j;
 import team.project.camp.board.model.service.BoardService;
 import team.project.camp.board.model.service.ReplyService;
@@ -55,7 +56,7 @@ public class BoardController {
 	@Autowired
 	private ReplyService replyservice;
 
-	
+
 	// 게시글 목록 조회용 컨트롤러
 	@GetMapping("/list/{boardCode}")
 	public String boardList( @PathVariable("boardCode") int boardCode,
@@ -69,24 +70,24 @@ public class BoardController {
 		// 1) 게시판 이름 조회 -> 인터셉터로 application에 올려둔 boardTypeList 쓸 수 있을듯?
 		// 2) 페이지네이션 객체 생성(listCount)
 		// 3) 게시글 목록 조회
-		
-		
+
+
 		Map<String, Object> map = null;
-		
+
 		List<PlaceRecommend> list =null;
-		
+
 		if(paramMap.get("key") == null) { // 검색이 아닌 경우의 게시글 목록조회
-			
+
 			map = service.selectBoardList(cp, boardCode);
 
 			list = service.selectrdList();
-			
+
 			model.addAttribute(list);
-			
-			
+
+
 			log.info("Controller list : " +  list);
-			
-			
+
+
 		}else { // 검색인 경우
 
 			// 검색에 필요한 데이터를 paramMap에 모두 담아서 서비스 호출
@@ -99,15 +100,15 @@ public class BoardController {
 
 
 		}
-		
-	
+
+
 		model.addAttribute("map", map);
-		
-		
+
+
 		log.info("Controller map :" +  map);
 		log.info("Controller model :" +  model);
 
-		
+
 		return "board/boardList"+ boardCode;
 	}
 
@@ -127,11 +128,11 @@ public class BoardController {
 
 		// 게시글 상세 조회 서비스 호출
 		BoardDetail detail = service.selectBoardDetail(boardNo);
-		
+
 		// BoardContent만 XSS 방지 처리 해제
 		detail.setBoardContent(Util.XSSClear( detail.getBoardContent() ));
-		
-		
+
+
 		// @ModelAttribute("loginMember") Member loginMember  (사용불가)
 		// @ModelAttribute는 별도의 required 속성이 없어서 무조건 필수 조건임!
 		// -> 세션에 loginMember가 없으면 예외가 발생됨
@@ -232,8 +233,8 @@ public class BoardController {
 
 	}
 
-	
-	
+
+
 
 
 	// 게시글 작성 화면 전환
@@ -253,8 +254,8 @@ public class BoardController {
 
 			// -> 개행문자가 <br> 태그로 되어있는 상태임 -> textarea 출력 예정이기 때문에  \n으로 변경해야함
 			detail.setBoardContent( Util.newLineClear( detail.getBoardContent() ) );
-			
-			
+
+
 			model.addAttribute("detail", detail);
 		}
 
@@ -263,8 +264,8 @@ public class BoardController {
 
 
 
-	
-	
+
+
 	// summernote 업로드 이미지 저장을 위한 컨트롤러
 	@RequestMapping(value="/upload", produces = "application/json; charset=utf8")
 	@ResponseBody  // ajax 응답 시 사용!
@@ -273,77 +274,77 @@ public class BoardController {
 			HttpServletRequest req,
 			HttpSession session
 			) {
-		
+
 		System.out.println("summernote 컨트롤러 시작");
-		
+
 		String webPath = "/resources/images/summernote/";
 		String folderPath = req.getSession().getServletContext().getRealPath(webPath);
-		
-		
+
+
 		// thumbnail 사진( = 제일 처음 업로드 되는 사진으로 지정됨)
 		String thumbnailOriginalFileName = thumbnail.getOriginalFilename();	//오리지날 파일명
 		String thumbnailExtension = thumbnailOriginalFileName.substring(thumbnailOriginalFileName.lastIndexOf("."));	//파일 확장자
 		String thumbnailSavedFileName = UUID.randomUUID() + thumbnailExtension;	//저장될 파일 명
-		
+
 		File thumbnailFile = new File(folderPath + thumbnailSavedFileName);
-		
+
 		log.debug("thumbnailFile : " + thumbnailFile);
-		
+
 		ArrayList<String> ajaxImgPaths = new ArrayList<>(); // ajax에 보내 줄 이미지 경로를 담을 ArrayList 생성
-		
+
 		try {
-			
+
 			InputStream fileStream = thumbnail.getInputStream();
 			FileUtils.copyInputStreamToFile(fileStream, thumbnailFile);	//파일 저장
-			
+
 			String imagePath = req.getContextPath() + webPath + thumbnailSavedFileName; // 이미지 경로를 imagePath에 담기
-			
+
 			ajaxImgPaths.add(imagePath); // 변수에 담은 이미지 경로를 ArrayList에 추가
-			
-			
+
+
 		} catch (IOException e) {
 			FileUtils.deleteQuietly(thumbnailFile);	//저장된 파일 삭제
 			e.printStackTrace();
 		}
-		
-		
+
+
 		// 나머지 사진들
 		if(multipartFiles != null) {
 			for (MultipartFile multipartFile : multipartFiles) {
 				String originalFileName = multipartFile.getOriginalFilename();	//오리지날 파일명
 				String extension = originalFileName.substring(originalFileName.lastIndexOf("."));	//파일 확장자
 				String savedFileName = UUID.randomUUID() + extension;	//저장될 파일 명
-				
+
 				File targetFile = new File(folderPath + savedFileName);
-				
-				
+
+
 				try {
 					InputStream fileStream = multipartFile.getInputStream();
 					FileUtils.copyInputStreamToFile(fileStream, targetFile);	//파일 저장
-					
+
 					String imagePath = req.getContextPath() + webPath + savedFileName; // 이미지 경로 imagePath에 담기
-					
+
 					ajaxImgPaths.add(imagePath); // 변수에 담은 이미지 경로를 ArrayList에 추가
-					
+
 				} catch (IOException e) {
 					FileUtils.deleteQuietly(targetFile); //저장된 파일 삭제
 					e.printStackTrace();
 				}
-				
+
 			}
 		}
-		
-		
+
+
 		log.debug("imgPaths(ajax 저장경로) : " + ajaxImgPaths);
-		
-		
+
+
 		return new Gson().toJson(ajaxImgPaths); // jsp의 ajax로 ArrayList에 담은 값들 리턴
 	}
-	
-	
-	
-	
-	
+
+
+
+
+
 	// 게시글 작성 (삽입/수정을 한 함수에 같이 하기)
 	// "/board/write/{boardCode}" -> 서비스 요청 url 주소가 동일함
 	@PostMapping("/write/{boardCode}")
@@ -359,37 +360,37 @@ public class BoardController {
 
 		// 1) 로그인 한 회원번호 얻어와서 detail에 세팅해주기
 		detail.setMemberNo( loginMember.getMemberNo() );
-		
-		
+
+
 		// 3) 삽입인지 수정인지 나눠주기
 		if(mode.equals("insert")) { // 삽입
-			
+
 			// BoardContent만 XSS 방지 처리 해제
 			detail.setBoardContent(Util.XSSClear( detail.getBoardContent() ));
-			
+
 			// BoardContent에서 정규식을 이용한 이미지 태그 추출
 			String thumbnailImgPaths = "";
-			
-			if(detail.getBoardContent() != null) {				   
+
+			if(detail.getBoardContent() != null) {
 			   // 이미지 태그를 추출하기 위한 정규식.
 			   Pattern pattern  =  Pattern.compile("<img[^>]*src=[\"']?([^>\"']+)[\"']?[^>]*>");
-			    
+
 			   // 내용 중에서 이미지 태그를 찾아라!
 			   Matcher match = pattern.matcher((detail.getBoardContent()));
-			    
+
 			   String imgTag = null;
-			    
+
 			   if(match.find()){ // 이미지 태그를 찾았다면
 			       imgTag = match.group(0); // 글 내용 중에 첫번째 이미지 태그를 뽑아옴.
 			   }
-			   
+
 				   log.debug("imgTag(삽입시) : " + imgTag);
-				  
+
 				   thumbnailImgPaths = imgTag;
-			   
+
 			   }
-			   
-			
+
+
 			// 게시글 부분 삽입 (이미지가 없을때) 제목, 내용, 회원번호, 게시판코드
 			// -> 삽입 된 게시글의 번호(boardNo) 반환 (왜? 삽입이 끝나면 게시글 상세조회로 리다이렉트할거라서)
 
@@ -399,8 +400,8 @@ public class BoardController {
 			// 두번의 insert중 한번이라도 실패하면 전체 rollback (트랜잭션 처리)
 
 			int boardNo = service.insertBoard(detail, thumbnailImgPaths); // BoardDetail과 thumbnailImgPaths(썸네일 이미지 저장경로)
-			
-			
+
+
 			String path = null;
 			String message = null;
 
@@ -420,32 +421,32 @@ public class BoardController {
 			return "redirect:" + path;
 
 		} else { // 수정
-			
+
 			// BoardContent만 XSS 방지 처리 해제
 			detail.setBoardContent(Util.XSSClear( detail.getBoardContent() ));
-			
+
 			// BoardContent에서 정규식을 이용한 이미지 태그 추출
 			String thumbnailImgPaths = "";
-			
-			if(detail.getBoardContent() != null) {				   
+
+			if(detail.getBoardContent() != null) {
 			   // 이미지 태그를 추출하기 위한 정규식.
 			   Pattern pattern  =  Pattern.compile("<img[^>]*src=[\"']?([^>\"']+)[\"']?[^>]*>");
-			    
+
 			   // 내용 중에서 이미지 태그를 찾아라!
 			   Matcher match = pattern.matcher((detail.getBoardContent()));
-			    
+
 			   String imgTag = null;
-			    
+
 			   if(match.find()){ // 이미지 태그를 찾았다면
 			       imgTag = match.group(0); // 글 내용 중에 첫번째 이미지 태그를 뽑아옴.
 			   }
-			   
+
 				   log.debug("imgTag(수정시) : " + imgTag);
-				  
+
 				   thumbnailImgPaths = imgTag;
-			   
+
 			   }
-			
+
 			// 게시글 수정 서비스 호출
 			// 게시글 번호를 알고있기 때문에 수정 결과만 반환받으면 된다.
 			int result = service.updateBoard(detail);
@@ -503,7 +504,7 @@ public class BoardController {
 
 		return "redirect:" + path;
 	}
-	
-	
-	
+
+
+
 }
