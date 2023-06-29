@@ -310,6 +310,9 @@ sendBtn.addEventListener("click", function(){
             data : { "inputEmail" : memberEmail.value },
             type : "GET",
             success : function(result){
+
+                alert("인증번호가 발송되었습니다. 이메일을 확인해주세요.");
+
                 console.log("이메일 발송 성공");
                 console.log(result);
                 sendNumber = result;
@@ -317,6 +320,45 @@ sendBtn.addEventListener("click", function(){
                 // 인증 버튼이 클릭되어 정상적으로 메일이 보내졌음을 checkObj에 기록
                 checkObj.sendEmail = true;
 
+                cMessage.innerText = "인증번호 유효시간: " + "5:00"; // 초기값 5분
+                min = 5;
+                sec = 0; // 분, 초 초기화
+
+                cMessage.classList.remove("confirm");
+                cMessage.classList.remove("error");
+
+                // 변수에 저장해야지 멈출 수 있음
+                checkInterval = setInterval(function(){
+                    
+
+                    if(Number(sec) === 0){
+                        min--;
+                        sec = 59;
+                    } else{
+                        sec--;
+                    }
+
+                    if(min === -1){ // 만료
+                        min = 0;
+                        sec = 0;
+                        cMessage.classList.add("error");
+                        cMessage.classList.remove("confirm");
+                        cNumber.classList.add("is-invalid");
+                        cNumber.classList.remove("is-valid");
+                        cMessage.innerText = "인증번호가 만료되었습니다.";
+                        clearInterval(checkInterval); // checkInterval 반복을 지움
+                    }
+
+                    if(sec < 10) {
+                        cMessage.innerText ="인증번호 유효시간: " + min + ":0" + sec;
+                    } else {
+                        cMessage.innerText ="인증번호 유효시간: " + min + ":" + sec;
+                    }
+                    
+                }, 1000); // 1초 지연 후 수행
+
+                
+                
             },
             error : function(){
                 console.log("이메일 발송 실패")
@@ -332,28 +374,7 @@ sendBtn.addEventListener("click", function(){
         // 5분 타이머
         // setInerval(함수, 지연시간) : 지연시간이 지난 후 함수를 수행 (반복)
 
-        cMessage.innerText = "인증번호 유효시간: " + "5:00"; // 초기값 5분
-        min = 4;
-        sec = 59; // 분, 초 초기화
-
-        cMessage.classList.remove("confirm");
-        cMessage.classList.remove("error");
-
-        // 변수에 저장해야지 멈출 수 있음
-        checkInterval = setInterval(function(){
-            if(sec < 10) sec = "0" + sec;
-            cMessage.innerText ="인증번호 유효시간: " + min + ":" + sec;
-
-            if(Number(sec) === 0){
-                min--;
-                sec = 59;
-            }else{
-                sec--;
-            }
-        }, 1000); // 1초 지연 후 수행
-
         
-        alert("인증번호가 발송되었습니다. 이메일을 확인해주세요.");
     }else {
         alert("아이디(이메일)을 먼저 입력해 주세요");
     }
@@ -370,55 +391,32 @@ cBtn.addEventListener("click", function(){
         // 2. 입력된 인증번호가 6자리가 맞는지 확인
         if( cNumber.value.length == 6 ){ // 6자리 맞음
 
-                var result = 0;
-
-                if(cNumber.value == sendNumber) { 
-                result = 1;
                 
-                console.log("인증완료");
-                clearInterval(checkInterval); // 타이머 멈춤
 
-                cMessage.innerText = "인증이 완료되었습니다.";
-                cMessage.classList.add("confirm");
-                cMessage.classList.remove("error");
-                cNumber.classList.add("is-valid");
-                cNumber.classList.remove("is-invalid");
+                if(cNumber.value == sendNumber && (min + sec)>0) { 
+                    console.log("인증완료");
+                    clearInterval(checkInterval); // 타이머 멈춤
 
-                } else{ 
-                    result = 3;
-                    alert("인증 번호가 일치하지 않습니다.");
-                    cMessage.classList.remove("confirm, error");
-                    cNumber.classList.add("is-invalid");
-                    cNumber.classList.remove("is-valid");        
-                }
-
-
-                if(min === -1){ // 만료
-                    result = 2;
-                    cMessage.innerText = "인증번호가 만료되었습니다.";
-                    cMessage.classList.add("error");
-                    cMessage.classList.remove("confirm");
-                    cNumber.classList.add("is-invalid");
-                    cNumber.classList.remove("is-valid");
-                    clearInterval(checkInterval); // checkInterval 반복을 지움
-                }
-    
-
-                if(result == 1){
-                    alert("인증이 완료되었습니다.");
+                    cMessage.innerText = "인증이 완료되었습니다.";
                     cMessage.classList.add("confirm");
                     cMessage.classList.remove("error");
                     cNumber.classList.add("is-valid");
-                    cNumber.classList.remove("is-invalid");           
-                } else if(result == 2){
+                    cNumber.classList.remove("is-invalid");
+
+                } else if(min === 0 && sec === 0){ // 만료
                     alert("만료된 인증 번호 입니다.");
                     cMessage.classList.add("error");
                     cMessage.classList.remove("confirm");
                     cNumber.classList.add("is-invalid");
                     cNumber.classList.remove("is-valid"); 
+                } else{ 
+                    alert("인증 번호가 일치하지 않습니다.");
+                    cMessage.classList.remove("confirm, error");
+                    cNumber.classList.add("is-invalid");
+                    cNumber.classList.remove("is-valid");        
                 }
-    
-        } else { // 6자리 아님
+                    
+        } else { // 6자리 아님 / if( cNumber.value.length == 6 )
             alert("인증번호가 일치하지 않습니다.");
             cMessage.innerText = "인증 번호가 일치하지 않습니다.";
             cMessage.classList.add("error");
@@ -428,7 +426,7 @@ cBtn.addEventListener("click", function(){
             cNumber.focus();
         }
 
-    }else{ // 인증번호를 안받은 경우
+    } else{ // 인증번호를 안받은 경우 / if(checkObj.sendEmail)
         alert("인증번호 먼저 받아 주세요.");
         cMessage.classList.add("error");
         cMessage.classList.remove("confirm");
