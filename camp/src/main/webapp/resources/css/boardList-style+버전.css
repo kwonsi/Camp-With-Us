@@ -2,7 +2,66 @@
     border : 1px solid black;
 } */
 
+/* 왼쪽 사이드 메뉴 */
+.myPage-content{
+    width: 1850px;
+    height: auto;
+    margin: 25px;
+    margin-left: 0px;
+    display: flex;
+}
+
+
+.left-side{
+    position: sticky;
+    top: 120px;
+    width: 200px;
+    
+    /* border-right : 2px solid gray; */
+    text-align: center;
+    height: 300px;
+}
+.left-side > h3 {
+    background-color: #343a40;
+    margin-left: 5px;
+    margin-right: 5px;
+    padding: 15px;
+    color: white;
+}
+.list-group{
+    min-width: 157px;
+    width: 100%;
+    padding: 0 5px 0 5;
+           /*상 우  하 좌  */
+}
+
+.list-group  li{
+    list-style: none;
+    height: 50px;
+    font-size: 18px;
+    padding: 30px;
+}
+
+.list-group  li > a{
+    text-decoration: none;
+    color : black;
+    height: 100%;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    /* border-bottom : 2px solid #ddd; */
+}
+
+.list-group  li:hover{
+    background-color: #f2f2f2;
+}
+/* 사이드메뉴 끝  */
+
 /* a태그 공통 설정 */
+
 .board-list a{
     text-decoration: none;
     color : black;
@@ -17,7 +76,7 @@
     width: 100%;
     /* margin: 50px auto; */
     padding: 0 50px;
-/*     border-left: 2px solid #ddd; */
+    border-left: 2px solid #ddd;
     min-height: 670px;
 }
 
@@ -60,7 +119,8 @@
 
 .list-table tr > *{
     text-align: center;
-    line-height: 60px;
+    /* line-height: 60px; */
+    vertical-align : middle;
 }
 
 .list-table tr > *:nth-of-type(1){ width: 7%;}
@@ -157,6 +217,7 @@ thead tr:nth-child(1) {
     color: #ef7b3a;
 }
 
+
 /* 현재 페이지 번호 */
 .pagination .current{
     width: 24px;
@@ -214,18 +275,21 @@ thead tr:nth-child(1) {
 }
 
 
+
 /* 썸네일 관련 스타일 */
 .list-table tr > td:nth-of-type(2){ /* 2번째 td(제목) */
     position: relative;
 }
 
 .list-thumbnail{ /* 썸네일 이미지 */
-    max-width: 50px;
-    max-height: 30px;
-
+    opacity: 0.95;
+    max-width: 60px;
+    max-height: 40px;
     position: absolute;
-    left: 0px;
-    top: 19px;
+    left: 70px;
+    top: 15px;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 
@@ -241,7 +305,7 @@ thead tr:nth-child(1) {
     width: 100%;
     height: 100%;
 
-    z-index: 50;
+    z-index: 9999;
 
     display: none;
 }

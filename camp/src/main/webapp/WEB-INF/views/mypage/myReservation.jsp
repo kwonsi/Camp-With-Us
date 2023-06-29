@@ -62,7 +62,6 @@
                                         <th>결제 금액</th>
                                         <th>예약일</th>
                                         <th>예약상태</th>
-                                        <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>

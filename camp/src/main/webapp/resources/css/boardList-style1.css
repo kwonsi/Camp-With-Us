@@ -33,19 +33,22 @@ main{
 
 /* 왼쪽 사이드 메뉴 */
 .myPage-content{
-    width: auto;
+    width: 1850px;
     height: auto;
-    margin: 0px;
+    margin: 25px;
     margin-left: 0px;
     display: flex;
 }
+
+
 .left-side{
     position: sticky;
     top: 120px;
     width: 200px;
+    
+    /* border-right : 2px solid gray; */
     text-align: center;
     height: 300px;
-    /* border-right : 2px solid gray; */
 }
 .left-side > h3 {
     background-color: #343a40;
@@ -55,25 +58,32 @@ main{
     color: white;
 }
 .list-group{
+    min-width: 157px;
     width: 100%;
     padding: 0 5px 0 5;
            /*상 우  하 좌  */
 }
+
 .list-group  li{
     list-style: none;
     height: 50px;
     font-size: 18px;
     padding: 30px;
 }
+
 .list-group  li > a{
     text-decoration: none;
     color : black;
     height: 100%;
+
     display: flex;
+
     justify-content: center;
     align-items: center;
+
     /* border-bottom : 2px solid #ddd; */
 }
+
 .list-group  li:hover{
     background-color: #f2f2f2;
 }
@@ -86,7 +96,8 @@ main{
     justify-content: center;
     flex-direction: column;
     height: 1850px;
-    width: 1850px;
+    /* width: 1850px; */
+    width: 100%;
     padding: 30px 50px 0;
     /* padding: [padding-top] [padding-left = padding-right] [padding-bottom]; */
     border-left : 2px solid #ddd;
@@ -105,7 +116,7 @@ span{
 .board1{
     margin-left: 35px;
     margin-right: 35px;
-    height: 42%;
+    height: 43%;
     background-color: #f0f1f5;
     border : 1px solid #dedede;
     box-shadow: 0 0 20px #dedede;
@@ -162,7 +173,7 @@ span{
 .headline1-2{
     display: flex;
     justify-content: center;
-    margin-bottom: -40px;
+    margin-bottom: -20px;
 }
 .headline1-2 h2{
     font-size: 40px;
@@ -206,8 +217,8 @@ span{
     /* text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3); */
 }
 .color1-2{
-    /* color: #f57f00; */
-    color: #02ff00;
+    color: #f57f00;
+    /* color: #5ef65e; */
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
 }
 .color2{
@@ -222,6 +233,7 @@ span{
     height: 300px;
 }
 .hover-text{
+    border-radius: 50%;
     width: 282px;
     height: 282px;
     position: absolute;
@@ -242,7 +254,7 @@ span{
     background-color: #434a51;
 }
 .multiple-items img{
-    opacity: 0.95;
+    opacity: 0.9;
     border-radius: 50%;
     width: 280px;
     height: 280px;
@@ -320,17 +332,19 @@ span{
     /* text-align: center; */
     /* flex-direction: row; */
     /* margin-left: 70px; */
-    width: 66.5%;
+    width: 63%;
     height: 400px;
     /* border : 1px solid red; */
 }
 .multiple-items2 img{
+    opacity: 0.9;
     border-radius: 5%;
     width: 350px;
     height: 400px;
     /* margin-left: 40px; */
     display: block;
     margin: auto;
+    cursor: pointer;
 }
 
 
@@ -530,7 +544,7 @@ CSS 애니메이션 과정의 중간 절차를 제어할 수 있게 합니다.  
 }
 
 
-.container,
+/* .container,
 .container-fluid,
 .container-xxl,
 .container-xl,
@@ -565,4 +579,4 @@ CSS 애니메이션 과정의 중간 절차를 제어할 수 있게 합니다.  
 #boardSearch input:focus{
     outline: none;
     border: 3px solid rgba(235, 145, 29) !important;
-}
+} */
