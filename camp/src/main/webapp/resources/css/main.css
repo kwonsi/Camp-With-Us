@@ -352,6 +352,10 @@ main {
     line-height: 25px;
 }
 
+.hiddenTH{
+  visibility: hidden;
+}
+
 
 /*--------------------------------------------------------------
 # Footer
