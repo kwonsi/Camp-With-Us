@@ -338,7 +338,7 @@ CSS 애니메이션 과정의 중간 절차를 제어할 수 있게 합니다.  
     to {opacity: 0;}
 }
 
-.container,
+/* .container,
 .container-fluid,
 .container-xxl,
 .container-xl,
@@ -368,4 +368,4 @@ CSS 애니메이션 과정의 중간 절차를 제어할 수 있게 합니다.  
 	min-height: 1px;
 	padding-right: 15px;
 	padding-left: 15px;
-}
+} */

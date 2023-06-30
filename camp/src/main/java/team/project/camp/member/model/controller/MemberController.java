@@ -40,7 +40,7 @@ public class MemberController {
 	@Autowired // bean으로 등록된 객체 중 타입이 같거나, 상속 관계인 bean을 주입 해주는 역할
 	private MemberService service;   // -> 의존성 주입(DI, Dependency Injection)
 
-
+	
 	@GetMapping("/login")
 	public String loginPage(HttpServletRequest req) {
 

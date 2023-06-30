@@ -26,13 +26,15 @@
     
     <title>${boardName}</title>
     
-    <link rel="stylesheet" href="${contextPath}/resources/css/mypage.css">
-    <link rel="stylesheet" href="${contextPath}/resources/css/boardList-style.css">
-    <link rel="stylesheet" href="${contextPath}/resources/css/boxicons.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/main.css">
-    <link rel="stylesheet" href="${contextPath}/resources/css/boardList-style1.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/boxicons.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap-icons.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap_main_header.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/mypage.css">
+
+    <link rel="stylesheet" href="${contextPath}/resources/css/boardList-style1.css">
+    <!-- <link rel="stylesheet" href="${contextPath}/resources/css/boardList-style.css"> -->
+    
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
 
@@ -57,8 +59,20 @@
                 <div class="board1">
                     
                     <div class="headline1">
-                        <h1>Camp With Us 7월 PICK</h1>
-                        <h2>여행지 추천</h2>
+                        <div class="headline1-1">
+                            <h1 class="color1-1">C</h1>
+                            <h1 class="color1-11">amp</h1>&nbsp;&nbsp;
+                            <h1 class="color1-1">W</h1>
+                            <h1 class="color1-11">ith</h1>&nbsp;&nbsp;
+                            <h1 class="color1-1">U</h1>
+                            <h1 class="color1-11">s</h1>&nbsp;&nbsp;&nbsp;
+                            <h1 class="color1-12">7월</h1>&nbsp;&nbsp;
+                            <h1 class="color1-2">PICK</h1>
+                        </div>
+                        <div class="headline1-2">
+                            <h2>여행지 </h2>&nbsp;
+                            <h2 >추천</h2>
+                        </div>
                     </div>
 
                     <div class="multiple-items">
@@ -94,7 +108,13 @@
 
                     <div class="headline2">
                         <h1>캠핑 소식</h1>
-                        <h2>캠핑 이모저모, 유익한 정보를 한눈에!</h2>
+                        <div class="headline2-1">
+                            <h2>캠핑 </h2>&nbsp;
+                            <h2 class="color2"> 이모저모</h2>
+                            <h2>,  유익한  </h2>&nbsp;&nbsp;
+                            <h2 class="color2"> 정보 </h2>
+                            <h2>를 한눈에!</h2>
+                        </div>
                     </div>
                     
                     <div class="board-list">
