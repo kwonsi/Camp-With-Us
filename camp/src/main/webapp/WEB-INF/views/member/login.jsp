@@ -90,7 +90,7 @@
                     <div id="g_id_onload"
                         data-client_id="286178066358-saj0enkggrgfqm5mafdipok8ml0te2o1.apps.googleusercontent.com"
                         data-callback="handleCredentialResponse" data-context="signin" data-ux_mode="popup"
-                        data-login_uri="http://localhost:8080/camp/member/login" data-auto_prompt="false">
+                        data-login_uri="http://3.37.254.218:8080/camp/member/login" data-auto_prompt="false">
                     </div>
                     
                     <div class="g_id_signin" data-type="standard" data-shape="rectangular" data-theme="outline"
