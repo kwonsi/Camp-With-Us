@@ -25,14 +25,18 @@
     <title>${boardName}</title>
 
     <link rel="stylesheet" href="${contextPath}/resources/css/boxicons.css">
-    <link rel="stylesheet" href="${contextPath}/resources/css/main.css">
-    <link rel="stylesheet" href="${contextPath}/resources/css/boardList-style3.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap_main_header.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap-icons.css">
 
-    <!-- 게시판Table 공통화를위해 CSS 추가 . -->
+    <link rel="stylesheet" href="${contextPath}/resources/css/boardList-style+버전.css">
+    <!-- <link rel="stylesheet" href="${contextPath}/resources/css/boardList-style3.css"> -->
+    <!-- <link rel="stylesheet" href="${contextPath}/resources/css/boardList-style.css"> -->
+    
+    <link rel="stylesheet" href="${contextPath}/resources/css/main.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/mypage.css">
-    <link rel="stylesheet" href="${contextPath}/resources/css/boardList-style.css">
+    
+
+    <!-- 게시판Table 공통화를위해 CSS 추가 . -->
     <script src="https://kit.fontawesome.com/a2e8ca0ae3.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -95,8 +99,11 @@
                                     <tr>
                                         <td>${board.boardNo}</td>
                                         <td> 
-                                            <c:if test="${!empty board.thumbnail}">
-                                                <img class="list-thumbnail" src="${contextPath}${board.thumbnail}">
+                                            <c:if test="${!empty board.thumbnailImg}">
+                                                <img class="list-thumbnail" src="${board.thumbnailImg}">
+                                            </c:if>
+                                            <c:if test="${empty board.thumbnailImg}">
+                                                <img class="list-thumbnail" src="${contextPath}/resources/images/CWUlogo3.png">
                                             </c:if>     
                                             <c:choose>
                                                 <c:when test="${loginMember.manager == 'Y'}">

@@ -21,12 +21,15 @@
     <title>${boardName}</title>
 
     <link rel="stylesheet" href="${contextPath}/resources/css/main.css">
-    <link rel="stylesheet" href="${contextPath}/resources/css/boardList-style3.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/boxicons.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap_main_header.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap-icons.css">
+
+    <link rel="stylesheet" href="${contextPath}/resources/css/boardList-style+버전.css">
+    <!-- <link rel="stylesheet" href="${contextPath}/resources/css/boardList-style3.css"> -->
+    <!-- <link rel="stylesheet" href="${contextPath}/resources/css/boardList-style.css"> -->
+    
     <link rel="stylesheet" href="${contextPath}/resources/css/mypage.css">
-    <link rel="stylesheet" href="${contextPath}/resources/css/boardList-style.css">
     
     <script src="https://kit.fontawesome.com/a2e8ca0ae3.js" crossorigin="anonymous"></script>
 
@@ -90,9 +93,12 @@
                                     <tr>
                                         <td>${board.boardNo}</td>
                                         <td> 
-                                            <c:if test="${!empty board.thumbnail}">
-                                                <img class="list-thumbnail" src="${contextPath}${board.thumbnail}">
-                                            </c:if>  
+                                            <c:if test="${!empty board.thumbnailImg}">
+                                                <img class="list-thumbnail" src="${board.thumbnailImg}">
+                                            </c:if>
+                                            <c:if test="${empty board.thumbnailImg}">
+                                                <img class="list-thumbnail" src="${contextPath}/resources/images/CWUlogo3.png">
+                                            </c:if>
 
                                             <a href="../detail/${boardCode}/${board.boardNo}?cp=${pagination.currentPage}${sURL}">${board.boardTitle}</a>                           
                                              <%-- detail?no=${board.boardNo}&cp=${pagination.currentPage}&type=${param.type}${sURL} --%>
