@@ -62,7 +62,9 @@
                                         <th>결제 금액</th>
                                         <th>예약일</th>
                                         <th>예약상태</th>
+                                       
                                         <th></th>
+
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -158,7 +160,7 @@
                                         <c:when test="${combinedCondition}">
                                             <!-- 게시글 목록 조회 결과가 비어있다면 -->
                                             <tr>
-                                                <th colspan="8">예약 내역이 존재하지 않습니다.</th>
+                                                <th colspan="9">예약 내역이 존재하지 않습니다.</th>
                                             </tr>
                                         </c:when>
 
