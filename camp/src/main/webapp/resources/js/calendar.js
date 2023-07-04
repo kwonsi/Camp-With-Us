@@ -108,6 +108,7 @@ function initCalendar(){
                 selectDay[0].value = e.target.innerText;
                 let firstSelectDate = new Date(todayYear + "-" + selectMonth[0].value + "-" + selectDay[0].value);
                 firstDateString = firstSelectDate.toLocaleDateString('ko-KR', { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric'});
+        
                 if(firstDateString <= currentDateString){
                     alert("올바른 날짜를 입력하세요.")
                     reselect1();
@@ -129,6 +130,9 @@ function initCalendar(){
                 let secondSelectDate = new Date(todayYear + "-" + selectMonth[1].value + "-" + selectDay[1].value);
                 let secondDateString = secondSelectDate.toLocaleDateString('ko-KR', { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric'});
                 console.log(secondDateString);
+
+
+
                 if(secondDateString < firstDateString){
                     alert("올바른 날짜를 입력해 주세요.")
                     
@@ -210,8 +214,8 @@ function initCalendar(){
                    
                     selmon2 : selectMonth[1].value + mon[1].value + selectDay[1].value + dat[1].value
                     }
-                localStorage.setItem('datePicker', JSON.stringify(datePicker))
-                console.log(localStorage.getItem('datePicker'))
+                localStorage.setItem('datePicker', JSON.stringify(datePicker));
+                console.log(localStorage.getItem('datePicker'));
            }
 
         });

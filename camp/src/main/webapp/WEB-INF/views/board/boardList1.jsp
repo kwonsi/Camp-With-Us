@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-
+        
         <!-- 파비콘 오류 해결 : GET http://localhost:8080/favicon.ico 404 -->
         <link rel="icon" href="data:;base64,iVBORw0KGgo=">
         
@@ -149,10 +149,14 @@
         </div> <!-- sideBar 넣기위한 div 끝부분 !!!  -->
     </main>
     
-    
+ 
     
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 
+
+    <script>
+        const contextPath="${contextPath}";
+    </script>
     <script src="https://kit.fontawesome.com/a2e8ca0ae3.js" crossorigin="anonymous"></script>
 
     <script src="${contextPath}/resources/js/board/board.js"></script>
@@ -221,7 +225,7 @@
         });
     </script> -->
 
-
+    
 </body>
 
 
