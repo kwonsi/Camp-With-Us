@@ -9,7 +9,6 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-
         <title>로그인</title>
 
         <link rel="stylesheet" href="${contextPath}/resources/css/login.css">
@@ -70,7 +69,7 @@
 
 
                 <div class="findSignupBtn">
-                    <a class="signUpBtn" href="${contextPath}/member/signUp">회원가입</a>
+                    <a class="signUpBtn" href="${contextPath}/member/signUpCheck">회원가입</a>
                     &ensp;|&ensp;
                     <a class="findIdPwBtn" href="${contextPath}/member/findIdPw">아이디/비밀번호 찾기</a>
                 </div>
@@ -90,7 +89,8 @@
                     <div id="g_id_onload"
                         data-client_id="286178066358-saj0enkggrgfqm5mafdipok8ml0te2o1.apps.googleusercontent.com"
                         data-callback="handleCredentialResponse" data-context="signin" data-ux_mode="popup"
-                        data-login_uri="http://3.37.254.218:8080/camp/member/login" data-auto_prompt="false">
+                        data-login_uri="${contextPath}/member/login"
+                        data-auto_prompt="false">
                     </div>
                     
                     <div class="g_id_signin" data-type="standard" data-shape="rectangular" data-theme="outline"
@@ -148,7 +148,7 @@
                     'response_type=code' +                  // 인증과정에 대한 내부 구분값 code 로 전공 (고정값)
                     '&client_id=olUvYEgXTwnvQN94ySBM' +     // 발급받은 client_id 를 입력  ( 개인이 직접받아야해요 )
                     '&state=NAVER_LOGIN_TEST' +             // CORS 를 방지하기 위한 특정 토큰값(임의값 사용)
-                    '&redirect_uri=http://localhost:8080/camp/login/naverLoginSuccess';   // 어플케이션에서 등록했던 CallBack URL를 입력
+                    '&redirect_uri=http://3.37.254.218:8080/camp/login/naverLoginSuccess';   // 어플케이션에서 등록했던 CallBack URL를 입력
 
                 // 사용자가 사용하기 편하게끔 팝업창으로 띄어준다.
                 window.open(uri, "_self", "Naver Login Test PopupScreen", "width=450, height=600");
