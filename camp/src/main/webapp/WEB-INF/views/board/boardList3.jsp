@@ -57,7 +57,7 @@
                 <div class = "myPageHead">
                     <h1 class="myPage-title">${boardName}</h1>
                 
-                <span class="myPage-explanation"><span class="CWUspan">Camp With Us</span> 의 캠핑꿀팁을 확인할 수 있습니다.</span>
+                <span class="myPage-explanation"><span class="CWUspan">Camp With Us</span> 에서 자유롭게 글을 작성하세요!</span>
                 </div>
             </div>
 

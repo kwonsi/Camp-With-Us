@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Gaegu:wght@700&family=Gowun+Batang&display=swap');
+
 * {
   box-sizing: border-box;
 }
+
 
 body {
   width: auto;
@@ -19,8 +22,20 @@ main {
   background-size: 100% 1400px;
 }
 
-
-
+#member-profile1 {
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 50% !important;
+}
+.navbar li {
+  position: relative;
+  display: flex;
+  font-size: 18px;
+  color: white;
+}
+a#memberId {
+  padding: 10px 0 10px 10px;
+}
 /* -----------------header------------------- */
 
 #header {
@@ -47,30 +62,33 @@ display: flex;
 }
 
 #header .logo h1 {
-display: flex;
-align-items: center;
-font-size: 33px;
-margin: 0;
-font-weight: 400;
-letter-spacing: 2px;
-color: #02ff00;
+  display: flex;
+  align-items: center;
+  font-size: 45px;
+  margin: 0;
+  font-weight: 400;
+  letter-spacing: 2px;
+  color: #02ff00;
+  font-family: 'Gaegu', cursive;
 }
 #header .logo h4 {
-display: flex;
-align-items: center;
-font-size: 20px;
-margin: 0;
-font-weight: 400;
-letter-spacing: 2px;
-color: #ffffff;
-margin-bottom: -9px;
+  display: flex;
+  align-items: center;
+  font-size: 32px;
+  margin: 0;
+  font-weight: 400;
+  letter-spacing: 2px;
+  color: #ffffff;
+  margin-bottom: -9px;
+  font-family: 'Gaegu', cursive;
 }
 
+
 #header .logo img {
-padding: 0;
-margin: 0;
-max-height: 90px;
-width: 200px;
+  padding: 5px;
+  margin: 0;
+  max-height: 90px;
+  margin-left: 20px;
 }
 
 .navbar {
@@ -901,6 +919,7 @@ line-height: 1;
   padding: 7px 0;
   display: flex;
   align-items: center;
+  width: 200px;
 }
 
 #footer .footer-top .footer-links ul li:first-child {
@@ -997,7 +1016,7 @@ margin-top: 0px !important;
   font-size: 17px;
 }
 .footer-top > .container > .row {
-  margin-left: 70px !important;
+/*   margin-left: 70px !important; */
 }
 
 
@@ -1015,7 +1034,7 @@ width: 700px !important;
 }
 .row > * {
 flex-shrink: 1;
-width: 100%;
+width: 25%;
 max-width: 100%;
 padding-right: calc(var(--bs-gutter-x) * 0.5);
 padding-left: calc(var(--bs-gutter-x) * 0.5);
