@@ -9,7 +9,6 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-
         <title>로그인</title>
 
         <link rel="stylesheet" href="${contextPath}/resources/css/login.css">
@@ -87,14 +86,8 @@
                     &ensp;&ensp;&ensp;&ensp;&ensp;
 
                     <!-- 구글 로그인 -->
-                    <div id="g_id_onload"
-                        data-client_id="286178066358-saj0enkggrgfqm5mafdipok8ml0te2o1.apps.googleusercontent.com"
-                        data-callback="handleCredentialResponse" data-context="signin" data-ux_mode="popup"
-                        data-login_uri="http://localhost:8080/camp/member/login" data-auto_prompt="false">
-                    </div>
-                    
-                    <div class="g_id_signin" data-type="standard" data-shape="rectangular" data-theme="outline"
-                        data-text="signin_with" data-size="large" data-logo_alignment="right">
+                    <div id="google_id_login" style="text-align:center">
+                        <a href="${contextPath}/member/login/getGoogleAuthUrl">구글 로그인</a>
                     </div>
 
 
@@ -154,82 +147,6 @@
                 window.open(uri, "_self", "Naver Login Test PopupScreen", "width=450, height=600");
             }
 
-
-
-            //구글로그인
-            function decodeJwtResponse(token) {
-                var base64Url = token.split('.')[1];
-                var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-                var jsonPayload = decodeURIComponent(atob(base64).split('').map(function (c) {
-                    return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-                }).join(''));
-
-                return JSON.parse(jsonPayload);
-            };
-
-            function handleCredentialResponse(response) {
-                // decodeJwtResponse() is a custom function defined by you
-                // to decode the credential response.
-                const responsePayload = decodeJwtResponse(response.credential);
-                console.log(responsePayload);
-                console.log("ID: " + responsePayload.sub);
-                console.log('Full Name: ' + responsePayload.name);
-                console.log('Given Name: ' + responsePayload.given_name);
-                console.log('Family Name: ' + responsePayload.family_name);
-                console.log("Image URL: " + responsePayload.picture);
-                console.log("Email: " + responsePayload.email);
-
-
-                $.ajax({
-                    url: "googleLoginInfo",
-                    type: "POST",
-                    data: {
-                        "memberNickname": responsePayload.name,
-                        "memberEmail": responsePayload.email
-                    },
-
-                    success: function (result) {
-                        if (result > 0) {
-                            alert("이미 가입된 아이디입니다.");
-                            window.location.href = '${contextPath}/member/login';
-                        } else {
-                            // window.location.href = history.back();
-                            location.href = document.referrer;
-                            //location.reload();
-                            
-                            
-                        }
-                       
-                        
-                    },
-                    error: function () {
-
-                    }
-                });
-
-                
-                // location.reload();
-                // location.reload();
-                // location.reload();
-                // location.reload();
-
-                // window.location.href = '${contextPath}';
-
-                // 1초(1000ms) 후에 location.reload() 실행
-                // setTimeout(function() {
-                // location.reload();
-                // }, 1000);
-
-            }
-
-            /*         구글로그아웃 -- 주석처리함.
-                    function signOut() {
-                        var auth2 = gapi.auth2.getAuthInstance();
-                        auth2.signOut().then(function () {
-                        console.log('User signed out.');
-                        });
-                        };
-                */
         </script>
 
         <!-- 카카오 로그인 -->
