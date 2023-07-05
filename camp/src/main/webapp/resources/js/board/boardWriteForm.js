@@ -123,7 +123,7 @@ $(document).ready(function() {
         ];
 
 
-    var filesLength = 0;  // summernote 위에 업로드 된 '모든' 이미지의 갯수를 담을 변수
+    var filesLength = null;  // summernote 위에 업로드 된 '모든' 이미지의 갯수를 담을 변수
 
     var setting = {
         placeholder: '내용을 작성해주세요!',
@@ -139,7 +139,6 @@ $(document).ready(function() {
                 
                 var imageFiles = []; // onImageUpload가 돌 때마다 업로드 할 이미지 파일을 담을 배열
                 var maxFiles = []; // 용량 제한에 걸린 파일이름을 담을 배열(alert 띄우려고 담음)
-                filesLength += files.length; // onImageUpload가 돌 때마다 업로드 된 이미지의 갯수를 filesLength에 누적함
 
                 var maxSize = 2 * 1024 * 1024; // limit = 2MB
                 var isMaxSize = false;
@@ -147,34 +146,46 @@ $(document).ready(function() {
 
                 if (filesLength > 5) { // 업로드 이미지 갯수 제한
                     alert('이미지는 최대 5개까지 등록할 수 있습니다.');
+                    console.log(filesLength);
+
                 } else { // 업로드 된 이미지가 5개 이하인 경우
                     for (var i = 0; i < files.length; i++) { // 업로드 된 이미지 파일의 수만큼 for문을 돌림
                         if (files[i].size > maxSize) { // 용량 제한에 걸린 파일 이름을 배열(maxFiles)에 담음
                             isMaxSize = true;
                             maxFile = files[i].name;
-                            maxFiles.push(maxFile);
+                            maxFiles.push(maxFile);                         
                         }
                     }
+                    // console.log(filesLength);
 
                     if (isMaxSize) { // 용량 제한에 걸렸을 때 (isMaxSize = true;)
                         for (var i = 0; i < maxFiles.length; i++){ // 용량 제한에 걸린 파일의 수만큼 for문을 돌려서 alert을 띄움
                             alert('[' + maxFiles[i] + '] 파일이 업로드 용량(2MB)을 초과하였습니다.');
-                            // console.log(maxFiles[i]);
+                            filesLength = filesLength; // filesLength의 값을 증가시키지 않는다
+                            // console.log(filesLength);
                         }
                     } else { // 용량 제한에 걸리지 않았을 때 (isMaxSize = false;)
                         for (var i = 0; i < files.length; i++) { // 업로드 된 이미지 파일의 수만큼 for문을 돌림
                             imageFiles.push(files[i]); // 이미지 파일을 배열(imageFiles)에 담음
-
                         }
+                        filesLength += files.length; // onImageUpload가 돌 때마다 업로드 된 이미지의 갯수를 filesLength에 누적함
+                        // console.log(filesLength);
 
-                        // 이미지 업로드 함수 호출
-                        uploadSummernoteImageFile(imageFiles, this);
+                        if (filesLength > 5) { // (ex)summernote 위에 이미 이미지 3개가 업로드 되있는 경우에 3개를 더 업로드하려고 시도하면
+                            alert('이미지는 최대 5개까지 등록할 수 있습니다.');
+                            filesLength -= files.length; // 결과적으론 이미지 업로드가 안됬으니 위에서 증가된 files.length(==3) 만큼 filesLength(==3) 을 차감함(원상복구시킴)
+                            // console.log(files.length);
+                            // console.log(filesLength);
+                        } else { // (ex)summernote 위에 이미 이미지 3개가 업로드 되있는 경우에 이미지를 최대 2개 업로드하려고 시도하면 filesLength가 딱 5개가 됨
 
+                            // 이미지 업로드 함수 호출
+                            uploadSummernoteImageFile(imageFiles, this);
+                        }                      
                     }
                 }
             } /* upload end */
         }                 
-    }; 
+    };
 
 
 
@@ -228,5 +239,5 @@ $(document).ready(function() {
         });
                 
     }   
-        console.log(jsonArray.length);  
+        // console.log(jsonArray.length);  
 });
