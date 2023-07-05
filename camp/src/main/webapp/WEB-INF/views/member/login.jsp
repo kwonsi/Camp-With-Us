@@ -141,7 +141,7 @@
                     'response_type=code' +                  // 인증과정에 대한 내부 구분값 code 로 전공 (고정값)
                     '&client_id=olUvYEgXTwnvQN94ySBM' +     // 발급받은 client_id 를 입력  ( 개인이 직접받아야해요 )
                     '&state=NAVER_LOGIN_TEST' +             // CORS 를 방지하기 위한 특정 토큰값(임의값 사용)
-                    '&redirect_uri=http://3.37.254.218:8080/camp/login/naverLoginSuccess';   // 어플케이션에서 등록했던 CallBack URL를 입력
+                    '&redirect_uri=http://ec2-3-37-254-218.ap-northeast-2.compute.amazonaws.com:8080/camp/login/naverLoginSuccess';   // 어플케이션에서 등록했던 CallBack URL를 입력
 
                 // 사용자가 사용하기 편하게끔 팝업창으로 띄어준다.
                 window.open(uri, "_self", "Naver Login Test PopupScreen", "width=450, height=600");

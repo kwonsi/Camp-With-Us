@@ -36,7 +36,7 @@ public class NaverLoginService implements CommonLoginService{
 	   // clientId , clientSecret 두개 .
 	   protected final String clientSecret = "bZcEd8S6uS";
 	   protected final String authUri = "https://nid.naver.com/oauth2.0/token?grant_type=authorization_code&client_id=%s&client_secret=%s&redirect_uri=%s&code=%s&state=%s";
-	   protected final String callbackUri = "http://3.37.254.218:8080/camp/login/naverLoginSuccess";
+	   protected final String callbackUri = "http://ec2-3-37-254-218.ap-northeast-2.compute.amazonaws.com:8080/camp/login/naverLoginSuccess";
 	   protected final String profileUri = "https://openapi.naver.com/v1/nid/me";
 
 	   public Member doAuth(HttpServletRequest request, HttpServletResponse response) throws Exception {
