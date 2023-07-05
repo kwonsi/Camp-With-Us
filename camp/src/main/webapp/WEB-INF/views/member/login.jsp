@@ -87,7 +87,9 @@
 
                     <!-- 구글 로그인 -->
                     <div id="google_id_login" style="text-align:center">
-                        <a href="${contextPath}/member/login/getGoogleAuthUrl">구글 로그인</a>
+                        <a href="${contextPath}/member/login/getGoogleAuthUrl">
+                            <img width="200" src="${contextPath}/resources/images/googleBtn.png">
+                        </a>
                     </div>
 
 
