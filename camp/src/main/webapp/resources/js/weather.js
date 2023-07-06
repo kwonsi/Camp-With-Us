@@ -203,7 +203,7 @@ $.getJSON(
                       break;
 
                       case "구름많고 비":
-                        info1[i+2].innerHTML = "<img src='"+ `${contextPath}` + "/resources/images/rain.jpg' width= '65px' height= '65px'>"
+                        info1[a].innerHTML = "<img src='"+ `${contextPath}` + "/resources/images/rain.jpg' width= '65px' height= '65px'>"
                         break;
 
                       case "구름많고 눈":

@@ -38,7 +38,7 @@
 
 
                             <div class="box-booking">
-                                <form class="rd-form rd-mailform booking-form">
+                                <form action="campList" class="rd-form rd-mailform booking-form">
                                     <div>
                                         <p class="booking-title">지역 선택</p>
                                         <div class="form-wrap">
@@ -84,8 +84,7 @@
                                         </div>
                                     </div>
                                     <div>
-                                        <button class="button button-lg button-gray-600" type="button"
-                                            onclick="searchCamp()">캠핑장 검색</button>
+                                        <button class="button button-lg button-gray-600">캠핑장 검색</button>
                                     </div>
                                 </form>
 
