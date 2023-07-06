@@ -219,7 +219,7 @@ window.onload = function () {
             pageNo: 1,
             MobileOS: "ETC",
             MobileApp: "AppTest",
-            serviceKey: "서비스키",
+            serviceKey: "",
             _type: "json"
         },
         dataType: "json",
