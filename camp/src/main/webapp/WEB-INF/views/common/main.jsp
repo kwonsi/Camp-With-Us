@@ -42,7 +42,7 @@
                                     <div>
                                         <p class="booking-title">지역 선택</p>
                                         <div class="form-wrap">
-                                            <select id="loc" class="form-select">
+                                            <select id="loc" class="form-select" name="loc">
                                                 <option label="지역"></option>
                                                 <option value="강원">강원</option>
                                                 <option value="서울">서울</option>
@@ -66,7 +66,7 @@
                                     <div>
                                         <p class="booking-title">테마 선택</p>
                                         <div class="form-wrap">
-                                            <select id="theme" class="form-select">
+                                            <select id="theme" class="form-select" name="theme">
                                                 <option label="테마"></option>
                                                 <option value="일반야영장">일반 야영장</option>
                                                 <option value="자동차야영장">자동차 야영장</option>
