@@ -158,7 +158,7 @@
                                         <c:when test="${combinedCondition}">
                                             <!-- 게시글 목록 조회 결과가 비어있다면 -->
                                             <tr>
-                                                <th colspan="8">예약 내역이 존재하지 않습니다.</th>
+                                                <th colspan="9">예약 내역이 존재하지 않습니다.</th>
                                             </tr>
                                         </c:when>
 
@@ -179,6 +179,10 @@
 
                 <script>
                     var reservNos = [];
+                 
+
+                    const contextPath = "${contextPath}";
+
 
                     <c:forEach var="reservation" items="${reservationList}">
                         reservNos.push("${reservation.reservNo}");
