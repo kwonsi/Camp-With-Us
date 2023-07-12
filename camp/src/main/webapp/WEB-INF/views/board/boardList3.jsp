@@ -21,12 +21,15 @@
     <title>${boardName}</title>
 
     <link rel="stylesheet" href="${contextPath}/resources/css/main.css">
-    <link rel="stylesheet" href="${contextPath}/resources/css/boardList-style3.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/boxicons.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap_main_header.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap-icons.css">
+
+    <link rel="stylesheet" href="${contextPath}/resources/css/boardList-style+버전.css">
+    <!-- <link rel="stylesheet" href="${contextPath}/resources/css/boardList-style3.css"> -->
+    <!-- <link rel="stylesheet" href="${contextPath}/resources/css/boardList-style.css"> -->
+    
     <link rel="stylesheet" href="${contextPath}/resources/css/mypage.css">
-    <link rel="stylesheet" href="${contextPath}/resources/css/boardList-style.css">
     
     <script src="https://kit.fontawesome.com/a2e8ca0ae3.js" crossorigin="anonymous"></script>
 
@@ -54,7 +57,7 @@
                 <div class = "myPageHead">
                     <h1 class="myPage-title">${boardName}</h1>
                 
-                <span class="myPage-explanation"><span class="CWUspan">Camp With Us</span> 의 캠핑꿀팁을 확인할 수 있습니다.</span>
+                <span class="myPage-explanation"><span class="CWUspan">Camp With Us</span> 에서 자유롭게 글을 작성하세요!</span>
                 </div>
             </div>
 
@@ -90,9 +93,12 @@
                                     <tr>
                                         <td>${board.boardNo}</td>
                                         <td> 
-                                            <c:if test="${!empty board.thumbnail}">
-                                                <img class="list-thumbnail" src="${contextPath}${board.thumbnail}">
-                                            </c:if>  
+                                            <c:if test="${!empty board.thumbnailImg}">
+                                                <img class="list-thumbnail" src="${board.thumbnailImg}">
+                                            </c:if>
+                                            <c:if test="${empty board.thumbnailImg}">
+                                                <img class="list-thumbnail" src="${contextPath}/resources/images/CWUlogo3.png">
+                                            </c:if>
 
                                             <a href="../detail/${boardCode}/${board.boardNo}?cp=${pagination.currentPage}${sURL}">${board.boardTitle}</a>                           
                                              <%-- detail?no=${board.boardNo}&cp=${pagination.currentPage}&type=${param.type}${sURL} --%>
@@ -190,7 +196,10 @@
     </div>
 
 
-    
+    <script>
+        const contextPath="${contextPath}";
+    </script>
+ 
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 
     <script src="${contextPath}/resources/js/board/board.js"></script>

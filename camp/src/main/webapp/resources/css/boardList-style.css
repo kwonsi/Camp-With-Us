@@ -224,8 +224,8 @@ thead tr:nth-child(1) {
     max-height: 30px;
 
     position: absolute;
-    left : -15px;
-    top : 25px;
+    left: 0px;
+    top: 19px;
 }
 
 

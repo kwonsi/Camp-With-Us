@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-
+        
         <!-- 파비콘 오류 해결 : GET http://localhost:8080/favicon.ico 404 -->
         <link rel="icon" href="data:;base64,iVBORw0KGgo=">
         
@@ -26,13 +26,15 @@
     
     <title>${boardName}</title>
     
-    <link rel="stylesheet" href="${contextPath}/resources/css/mypage.css">
-    <link rel="stylesheet" href="${contextPath}/resources/css/boardList-style.css">
-    <link rel="stylesheet" href="${contextPath}/resources/css/boxicons.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/main.css">
-    <link rel="stylesheet" href="${contextPath}/resources/css/boardList-style1.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/boxicons.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap-icons.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap_main_header.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/mypage.css">
+
+    <link rel="stylesheet" href="${contextPath}/resources/css/boardList-style1.css">
+    <!-- <link rel="stylesheet" href="${contextPath}/resources/css/boardList-style.css"> -->
+    
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
 
@@ -42,7 +44,7 @@
     <!-- JavaScript용 Facebook SDK 정규식 추가 -->
 
     <div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v17.0&appId=804019604627586&autoLogAppEvents=1" nonce="Ch1e3BJs"></script>
+<script async defer crossorigin="anonymous" src="" nonce="Ch1e3BJs"></script>
 
 <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
@@ -57,8 +59,20 @@
                 <div class="board1">
                     
                     <div class="headline1">
-                        <h1>Camp With Us 7월 PICK</h1>
-                        <h2>여행지 추천</h2>
+                        <div class="headline1-1">
+                            <h1 class="color1-1">C</h1>
+                            <h1 class="color1-11">amp</h1>&nbsp;&nbsp;
+                            <h1 class="color1-1">W</h1>
+                            <h1 class="color1-11">ith</h1>&nbsp;&nbsp;
+                            <h1 class="color1-1">U</h1>
+                            <h1 class="color1-11">s</h1>&nbsp;&nbsp;&nbsp;
+                            <h1 class="color1-12">7월</h1>&nbsp;&nbsp;
+                            <h1 class="color1-2">PICK</h1>
+                        </div>
+                        <div class="headline1-2">
+                            <h2>여행지 </h2>&nbsp;
+                            <h2 >추천</h2>
+                        </div>
                     </div>
 
                     <div class="multiple-items">
@@ -94,7 +108,13 @@
 
                     <div class="headline2">
                         <h1>캠핑 소식</h1>
-                        <h2>캠핑 이모저모, 유익한 정보를 한눈에!</h2>
+                        <div class="headline2-1">
+                            <h2>캠핑 </h2>&nbsp;
+                            <h2 class="color2"> 이모저모</h2>
+                            <h2>,  유익한  </h2>&nbsp;&nbsp;
+                            <h2 class="color2"> 정보 </h2>
+                            <h2>를 한눈에!</h2>
+                        </div>
                     </div>
                     
                     <div class="board-list">
@@ -129,10 +149,14 @@
         </div> <!-- sideBar 넣기위한 div 끝부분 !!!  -->
     </main>
     
-    
+ 
     
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 
+
+    <script>
+        const contextPath="${contextPath}";
+    </script>
     <script src="https://kit.fontawesome.com/a2e8ca0ae3.js" crossorigin="anonymous"></script>
 
     <script src="${contextPath}/resources/js/board/board.js"></script>
@@ -201,7 +225,7 @@
         });
     </script> -->
 
-
+    
 </body>
 
 

@@ -27,6 +27,7 @@ section.myPage-main > .reply-list-area > #reply-list > li {
   margin-left: 50px;
 }
 .myPageHeadFlex{
+  min-width: 1200px;
   color: white;
   display: flex;
   background-image: url(../images/10.png);
@@ -131,6 +132,7 @@ section.myPage-main > .reply-list-area > #reply-list > li {
     height: 50px;
     font-size: 18px;
     padding: 30px;
+    min-width: 181px;
 }
 
 .list-group  li > a{
@@ -455,6 +457,7 @@ form[name="myPage-form"]{
     --bs-table-hover-color: var(--bs-body-color);
     --bs-table-hover-bg: rgb(0 0 0 / 24%);
     width: 100%;
+    min-width: 1200px;
     margin-bottom: 1rem;
     vertical-align: top;
     border-color: var(--bs-table-border-color);

@@ -237,8 +237,8 @@ main {
   font-size: 50px;
   font-style: oblique;
   text-align: center;
-  text-shadow: 6px 5px 6px rgba(0, 0, 0, 0.5);
-
+  /* text-shadow: 6px 5px 6px rgba(0, 0, 0, 0.5); */
+  text-shadow: 2px 5px 6px rgba(0, 0, 0, 0.5);
 }
 .titleColor{
   color: #02ff00;
@@ -350,6 +350,10 @@ main {
     padding: 11px 10px;
     border-bottom: 1px solid #c8c8c8;
     line-height: 25px;
+}
+
+.hiddenTH{
+  visibility: hidden;
 }
 
 
@@ -520,6 +524,7 @@ main {
 .section-title > h1 {
   margin-bottom: 30px;
   color: white;
+  text-shadow: 2px 5px 6px rgba(0,0,0,0.5);
   font-size: 50px;
   font-family: 'Gaegu', cursive;
 }

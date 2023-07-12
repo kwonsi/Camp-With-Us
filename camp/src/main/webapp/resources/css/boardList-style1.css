@@ -2,16 +2,12 @@
     border : 1px solid black;
 } */
 
-/* * {
-    box-sizing: border-box;
-} */
-
 
 /* 글씨체 */
 @import url('https://fonts.googleapis.com/css2?family=Gaegu:wght@700&family=Gowun+Batang&display=swap');
-
 /* font-family: 'Gaegu', cursive;
 font-family: 'Gowun Batang', serif; */
+
 
 /* a태그 공통 설정 */
 .board a{
@@ -27,6 +23,7 @@ font-family: 'Gowun Batang', serif; */
 body{
     width: 2050px;
     margin: 0px;
+    width: 2050px;
 }
 
 
@@ -38,12 +35,14 @@ main{
 
 /* 왼쪽 사이드 메뉴 */
 .myPage-content{
-    width: auto;
+    width: 1850px;
     height: auto;
-    margin: 0px;
+    margin: 25px;
     margin-left: 0px;
     display: flex;
 }
+
+
 .left-side{
     position: sticky;
     top: 120px;
@@ -61,16 +60,19 @@ main{
     color: white;
 }
 .list-group{
+    min-width: 157px;
     width: 100%;
     padding: 0 5px 0 5;
            /*상 우  하 좌  */
 }
+
 .list-group  li{
     list-style: none;
     height: 50px;
     font-size: 18px;
     padding: 30px;
 }
+
 .list-group  li > a{
     text-decoration: none;
     color : black;
@@ -83,6 +85,7 @@ main{
 
     /* border-bottom : 2px solid #ddd; */
 }
+
 .list-group  li:hover{
     background-color: #f2f2f2;
 }
@@ -95,8 +98,8 @@ main{
     justify-content: center;
     flex-direction: column;
     height: 1850px;
- /*    background-color: rgb(240, 244, 241); */
-    width: 1850px;
+    /* width: 1850px; */
+    width: 100%;
     padding: 30px 50px 0;
     /* padding: [padding-top] [padding-left = padding-right] [padding-bottom]; */
     border-left : 2px solid #ddd;
@@ -115,18 +118,15 @@ span{
 .board1{
     margin-left: 35px;
     margin-right: 35px;
-    height: 45%;
-    /* width: 95%; */
+    height: 43%;
     background-color: #f0f1f5;
     border : 1px solid #dedede;
     box-shadow: 0 0 20px #dedede;
-    /* box-shadow: 5px 5px 10px 10px #dedede; */
 }
 .board2{
     margin-left: 35px;
     margin-right: 35px;
     height: 35%;
-    /* width: 95%; */
     background-color: #f0f1f5;
     border: 1px solid #dedede;
     box-shadow: 0 0 20px #dedede;
@@ -144,55 +144,88 @@ span{
 .board-list{
     display: flex;
     width: 100%;
-    /* margin-left: 30px; */
     margin-top: 30px;
     margin-bottom: 10px;
     justify-content: center;
-
     /* border : 1px solid green; */
 }
 
 
 /* div headline 관련 */
-/* .headline1 .headline2{
-    text-align: center;
-    margin-top: 50px;
-    margin-bottom: 50px;
-    line-height: 45px;   
-} */
 .headline1 h1{
-    text-align: center;
     font-size: 50px;
     font-weight: 700;
     font-family: 'Gaegu', cursive;
-    /* font-family: 'Gowun Batang', serif; */
     margin-top: 20px;
     margin-bottom: 5px;
 }
-.headline1 h2{
-    text-align: center;
+.headline1-1{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0px;
+}
+.headline1-1 h2{
     font-size: 40px;
     font-weight: 300;
     font-family: 'Gaegu', cursive;
-    /* font-family: 'Gowun Batang', serif; */
-    margin-top: 20px;
+    margin-top: 10px;
 }
+
+
+.headline1-2{
+    display: flex;
+    justify-content: center;
+    margin-bottom: -20px;
+}
+.headline1-2 h2{
+    font-size: 40px;
+    font-weight: 300;
+    font-family: 'Gaegu', cursive;
+    margin-top: 10px;
+}
+
+
 .headline2 h1{
     text-align: center;
     font-size: 50px;
     font-weight: 700;
     font-family: 'Gaegu', cursive;
-    /* font-family: 'Gowun Batang', serif; */
     margin-top: 20px;
     margin-bottom: 5px;
 }
-.headline2 h2{
-    text-align: center;
+.headline2-1{
+    display: flex;
+    justify-content: center;
+    margin-bottom: -40px;
+}
+.headline2-1 h2{
     font-size: 40px;
     font-weight: 300;
     font-family: 'Gaegu', cursive;
-    /* font-family: 'Gowun Batang', serif; */
-    margin-top: 20px;
+    margin-top: 10px;
+}
+
+
+.color1-1{
+    color: #02ff00;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+.color1-11{
+    color: white;
+    text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
+}
+.color1-12{
+    color: #27a044;
+    /* text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3); */
+}
+.color1-2{
+    color: #f57f00;
+    /* color: #5ef65e; */
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+.color2{
+    /* color: #5ba26d; */
+    color: #27a044;
 }
 
 
@@ -202,6 +235,7 @@ span{
     height: 300px;
 }
 .hover-text{
+    border-radius: 50%;
     width: 282px;
     height: 282px;
     position: absolute;
@@ -222,7 +256,7 @@ span{
     background-color: #434a51;
 }
 .multiple-items img{
-    opacity: 0.95;
+    opacity: 0.9;
     border-radius: 50%;
     width: 280px;
     height: 280px;
@@ -242,7 +276,7 @@ span{
     /* border : 1px solid black; */
 }
 .slide-title{
-    color: #f57f00;
+    color: #348b49;
     font-weight: bold;
     font-size: 20px;
     margin-top: 0px;
@@ -266,8 +300,11 @@ span{
     margin-top: -25px;
     justify-content: center;
     align-items: center;
-    background: #f9ba76;
+    background: #6fba82;
     border-style: none;
+    color: white;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+    font-weight: 700;
     font-family: 'Gowun Batang', serif;
 }
 
@@ -302,12 +339,14 @@ span{
     /* border : 1px solid red; */
 }
 .multiple-items2 img{
+    opacity: 0.9;
     border-radius: 5%;
     width: 350px;
     height: 400px;
     /* margin-left: 40px; */
     display: block;
     margin: auto;
+    cursor: pointer;
 }
 
 
@@ -507,7 +546,7 @@ CSS 애니메이션 과정의 중간 절차를 제어할 수 있게 합니다.  
 }
 
 
-.container,
+/* .container,
 .container-fluid,
 .container-xxl,
 .container-xl,
@@ -542,4 +581,4 @@ CSS 애니메이션 과정의 중간 절차를 제어할 수 있게 합니다.  
 #boardSearch input:focus{
     outline: none;
     border: 3px solid rgba(235, 145, 29) !important;
-}
+} */

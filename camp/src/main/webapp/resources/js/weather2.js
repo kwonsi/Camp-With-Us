@@ -137,7 +137,7 @@ function loc6(){
 }
 const loc7 = loc6();
 
-$.getJSON('http://api.openweathermap.org/data/2.5/forecast?lat='+loc5[0]+'&lon='+loc5[1]+'&appid=0c9dcdd64eb8f13b6843c1ec3e1ab4f5&units=metric', function(result){
+$.getJSON('http://api.openweathermap.org/data/2.5/forecast?lat='+loc5[0]+'&lon='+loc5[1]+'&appid=키&units=metric', function(result){
           
     //당일오전
 //   const firstAm = result.list[0].weather[0].id
@@ -237,7 +237,7 @@ const formattedDate2 = getFormattedDate2();
 
 // 다음날 다다음날 강수확률
 const rp2 = document.querySelectorAll(".rp");
-$.getJSON('https://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst?serviceKey=jsLvGH%2Bb1syQWRRY0c2N5F%2FcD%2FwCpP81UAeg5oSlnbCS53y8grp2iAkZRGCIRSajwn%2F%2FFIpN5BCIIbK1u8Jajw%3D%3D&pageNo=1&numOfRows=1000&dataType=JSON&base_date='+formattedDate2+'&base_time=0500&nx='+loc7[0]+'&ny='+loc7[1],function(result){
+$.getJSON('https://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst?serviceKey=키&pageNo=1&numOfRows=1000&dataType=JSON&base_date='+formattedDate2+'&base_time=0500&nx='+loc7[0]+'&ny='+loc7[1],function(result){
   let rpAM = [];
   let rpPM = [];
   let fcstValue = 'fcstValue'
