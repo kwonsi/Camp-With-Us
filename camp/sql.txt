@@ -1,0 +1,327 @@
+
+------------------0000 sys 에 가서 계정하나 만드세요  campwithus ----
+ALTER SESSION SET "_ORACLE_SCRIPT" = TRUE;
+CREATE USER campwithus IDENTIFIED BY 1234;
+GRANT CONNECT, RESOURCE TO campwithus;
+-- 객체가 생성될 수 있는 공간 할당량 지정
+ALTER USER campwithus DEFAULT TABLESPACE SYSTEM QUOTA UNLIMITED ON SYSTEM;
+
+
+---------------------------------------------------------1111111  MEMBER TABLE ----------
+CREATE TABLE "MEMBER" (                     
+"MEMBER_NO" NUMBER PRIMARY KEY ,
+"MEMBER_EMAIL" VARCHAR2(50) NOT NULL,
+"MEMBER_PW" VARCHAR2(1000),
+"MEMBER_NICK" VARCHAR2(30) NOT NULL,
+"MEMBER_TEL" CHAR(11),
+"MEMBER_ADDR" VARCHAR2(500),
+"PROFILE_IMG" VARCHAR2(200),
+"ENROLL_DT" DATE DEFAULT SYSDATE,
+"SECESSION_FL" CHAR(1) DEFAULT 'N' NOT NULL,
+"LOGIN_ST" CHAR(1) DEFAULT 'N' NOT NULL,
+"MANAGER" CHAR(1) DEFAULT 'N' NOT NULL
+);
+
+CREATE SEQUENCE SEQ_MEMBER_NO;   -- 시퀀스 생성
+
+INSERT INTO MEMBER VALUES (       -- 테스트 Insert
+ SEQ_MEMBER_NO.NEXTVAL , 'test@test.com' , 'test', '테스트', '01011111111','04540, 서울시 중구',
+ NULL , DEFAULT , DEFAULT , DEFAULT , DEFAULT
+);
+
+SELECT * FROM MEMBER;
+
+-----------------------------------------------------------22222222   리뷰 테이블------------------------------------------------------------           
+CREATE TABLE "REVIEW" (
+    "REVIEW_NO" NUMBER PRIMARY KEY,
+    "REVIEW_CONTENT" VARCHAR2(1000) NOT NULL,
+    "REVIEW_ST" CHAR(1) DEFAULT 'N' CHECK ("REVIEW_ST" IN ('Y','N')),
+    "CREATE_DT" DATE DEFAULT SYSDATE NOT NULL,
+    "MEMBER_NO" NUMBER REFERENCES MEMBER,
+    "CAMP_NO" NUMBER,
+    "CAMP_RATE" NUMBER NOT NULL,
+    "CAMP_NAME" VARCHAR2(100) NOT NULL
+);
+
+COMMENT ON COLUMN "REVIEW"."REVIEW_NO" IS '리뷰 번호';
+COMMENT ON COLUMN "REVIEW"."REVIEW_CONTENT" IS '리뷰 내용';
+COMMENT ON COLUMN "REVIEW"."REVIEW_ST" IS '리뷰 상태';   
+COMMENT ON COLUMN "REVIEW"."CREATE_DT" IS '리뷰 작성일';
+COMMENT ON COLUMN "REVIEW"."MEMBER_NO" IS '회원 번호';
+COMMENT ON COLUMN "REVIEW"."CAMP_NO" IS '캠핑장 번호';
+COMMENT ON COLUMN "REVIEW"."CAMP_RATE" IS '별점';
+
+DROP SEQUENCE SEQ_REVIEW_NO;  -- 기존 시퀀스 삭제
+
+CREATE SEQUENCE SEQ_REVIEW_NO; -- 댓글 번호 시퀀스
+
+INSERT INTO REVIEW VALUES(SEQ_REVIEW_NO.NEXTVAL, '리뷰1', DEFAULT, DEFAULT, 1, 10, 1,'(주)아웃오브파크');
+INSERT INTO REVIEW VALUES(SEQ_REVIEW_NO.NEXTVAL, '리뷰2', DEFAULT, DEFAULT, 1, 10, 2,'(주)아웃오브파크');
+INSERT INTO REVIEW VALUES(SEQ_REVIEW_NO.NEXTVAL, '리뷰3', DEFAULT, DEFAULT, 1, 10, 3,'(주)아웃오브파크');
+INSERT INTO REVIEW VALUES(SEQ_REVIEW_NO.NEXTVAL, '리뷰4', DEFAULT, DEFAULT, 1, 10, 4,'(주)아웃오브파크');
+INSERT INTO REVIEW VALUES(SEQ_REVIEW_NO.NEXTVAL, '리뷰5', DEFAULT, DEFAULT, 1, 10, 5,'(주)아웃오브파크');
+
+COMMIT;
+
+SELECT * FROM review;
+------------------------------------------------------------- 3333  RESERVATION 예약  TABLE -----------------------------------------------------------------------------------
+
+-- RESERVATION 시퀀스 생성
+CREATE SEQUENCE SEQ_RESERVATION_NO_S;
+
+CREATE TABLE "RESERVATION" (
+"RESERVATION_NO"  NUMBER PRIMARY KEY,
+"CAMPING_NM"      VARCHAR2(100) NOT NULL,
+"RESERVATION_P"   VARCHAR2(100) NOT NULL,
+"RESERVATION_DT"  DATE DEFAULT SYSDATE NOT NULL,
+"RESERVATION_NP"  NUMBER,
+"PAYMENT"         NUMBER NOT NULL,
+"SELECTDATE"      VARCHAR2(50) NOT NULL,
+"RESERVATION_ST"  CHAR(1) DEFAULT 'Y',
+"MEMBER_NO"       NUMBER REFERENCES MEMBER            --<< 추가
+);
+
+ALTER TABLE RESERVATION ADD PAYMETHOD VARCHAR2(50);  -- 결제방식 추가
+COMMIT;
+SELECT * FROM RESERVATION;
+-------------------------------------------------------------- 44444 캠핑장가격, PRICE 테이블 입니다. ------------------------------------------------------------
+
+-- PRICE테이블 시퀀스 생성
+CREATE SEQUENCE SEQ_CAMPING_CD_S NOCACHE;
+
+
+CREATE TABLE "PRICE" (
+"CAMPING_CD" NUMBER NOT NULL,
+"CAMPING_PR" NUMBER NOT NULL,
+"PEAK_SEASON" CHAR(1) NOT NULL
+)
+
+INSERT INTO PRICE VALUES(SEQ_CAMPING_CD_S.NEXTVAL,
+30000, 'Y');
+INSERT INTO PRICE VALUES(SEQ_CAMPING_CD_S.NEXTVAL,
+20000, 'N');
+
+-----------------------------------------------------------55555 게시판 테이블 입니다, 위에서부터 순서대로 진행하세요--------------------------------------------------------------------------------------------------
+
+
+-- 보드테이블 만들기
+CREATE TABLE "BOARD_TYPE" (
+   "BOARD_CD"   NUMBER   PRIMARY KEY,
+   "BOARD_NM"   VARCHAR2(50)   NOT NULL
+);
+
+COMMENT ON COLUMN "BOARD_TYPE"."BOARD_CD" IS '게시판 코드';
+COMMENT ON COLUMN "BOARD_TYPE"."BOARD_NM" IS '게시판 이름';
+
+
+-- 게시판(게시글 저장 테이블)
+CREATE TABLE "BOARD" (
+   "BOARD_NO"   NUMBER      NOT NULL,
+   "BOARD_TITLE"   VARCHAR2(150)      NOT NULL,
+   "BOARD_CONTENT"   VARCHAR2(4000)      NOT NULL,
+   "CREATE_DT"   DATE   DEFAULT SYSDATE   NOT NULL,
+   "UPDATE_DT"   DATE      NOT NULL,
+   "READ_COUNT"   NUMBER   DEFAULT 0   NOT NULL,
+   "BOARD_ST"   CHAR(1)   DEFAULT 'N'   NOT NULL,
+   "MEMBER_NO"   NUMBER      NOT NULL,
+   "BOARD_CD"   NUMBER      NOT NULL
+);
+
+COMMENT ON COLUMN "BOARD"."BOARD_NO" IS '게시글 번호(시퀀스)';
+COMMENT ON COLUMN "BOARD"."BOARD_TITLE" IS '게시글 제목';
+COMMENT ON COLUMN "BOARD"."BOARD_CONTENT" IS '게시글 내용';
+COMMENT ON COLUMN "BOARD"."CREATE_DT" IS '작성일';
+COMMENT ON COLUMN "BOARD"."UPDATE_DT" IS '마지막 수정일';
+COMMENT ON COLUMN "BOARD"."READ_COUNT" IS '조회수';
+COMMENT ON COLUMN "BOARD"."BOARD_ST" IS '게시글 상태(정상N, 삭제Y)';
+COMMENT ON COLUMN "BOARD"."MEMBER_NO" IS '작성자 회원 번호';
+COMMENT ON COLUMN "BOARD"."BOARD_CD" IS '게시판 코드';
+
+-- BOARD 테이블 제약조건 추가
+ALTER TABLE BOARD
+ADD PRIMARY KEY(BOARD_NO); -- 제약 조건명 생략(SYS_XXXXX)
+
+ALTER TABLE BOARD
+ADD CONSTRAINT "FK_BOARD_CD" -- 제약 조건명 지정
+FOREIGN KEY("BOARD_CD") -- BOARD의 BOARD_CODE 컬럼에 FK 지정
+REFERENCES "BOARD_TYPE"; -- 참조할 테이블
+
+ALTER TABLE BOARD
+ADD CONSTRAINT "CHK_BOARD_ST"
+CHECK ("BOARD_ST" IN ('N', 'Y'));
+
+-- UPDATE_DT  NULL 허용
+ALTER TABLE "BOARD"
+MODIFY "UPDATE_DT" NULL;
+
+
+-- BOARD_NO용 시퀀스
+CREATE SEQUENCE SEQ_BOARD_NO;
+
+-- 프로젝트용 BOARD_TYPE 데이터 삽입
+INSERT INTO BOARD_TYPE VALUES(1, '캠핑장 추천');
+INSERT INTO BOARD_TYPE VALUES(2, '캠핑 나눔');
+INSERT INTO BOARD_TYPE VALUES(3, '캠핑 꿀팁');
+INSERT INTO BOARD_TYPE VALUES(4, '공지사항');
+INSERT INTO BOARD_TYPE VALUES(5, '문의사항');
+
+SELECT * FROM BOARD_TYPE;
+
+-- BOARD 테이블 샘플 데이터 삽입(PL/SQL)
+BEGIN
+   FOR I IN 1..30 LOOP
+      INSERT INTO BOARD 
+      VALUES( SEQ_BOARD_NO.NEXTVAL,
+              SEQ_BOARD_NO.CURRVAL || '번째 게시글',
+              SEQ_BOARD_NO.CURRVAL || '번째 게시글 내용 입니다.',
+              DEFAULT, DEFAULT, DEFAULT, DEFAULT, 1, 3
+      );
+   END LOOP;
+END;
+
+SELECT * FROM BOARD;
+COMMIT;
+
+-- 제약조건 추가 (BOARD -> MEMBER)      ?? SKIP
+ALTER TABLE BOARD
+ADD CONSTRAINT FK_BOARD_MEMBER
+FOREIGN KEY(MEMBER_NO)
+REFERENCES MEMBER
+ON DELETE SET NULL;
+
+
+----------------------------------------- 666666 PLACE_RECOMMEND ---테이블(여행지 추천 테이블) 입니다.    ------------
+-- DROP TABLE PLACE_RECOMMEND;
+-- PLACE_RECOMMEND 테이블(여행지 추천 테이블)
+-- 여행지 번호, 제목, 내용, 이미지, 홈페이지링크
+CREATE TABLE "PLACE_RECOMMEND"(
+   "RECOMMEND_NO" NUMBER PRIMARY KEY,
+   "RECOMMEND_TITLE" VARCHAR2(150) NOT NULL,
+   "RECOMMEND_CONTENT" VARCHAR2(4000) NOT NULL,
+   "RECOMMEND_IMG" VARCHAR2(200) NOT NULL,
+   "RECOMMEND_HOMEPG" VARCHAR2(50) NOT NULL,
+   "RECOMMEND_DETAILPG" VARCHAR2(250) NOT NULL
+);
+
+
+COMMENT ON COLUMN "PLACE_RECOMMEND"."RECOMMEND_NO" IS '여행지 번호(시퀀스)';
+COMMENT ON COLUMN "PLACE_RECOMMEND"."RECOMMEND_TITLE" IS '제목';
+COMMENT ON COLUMN "PLACE_RECOMMEND"."RECOMMEND_CONTENT" IS '내용';
+COMMENT ON COLUMN "PLACE_RECOMMEND"."RECOMMEND_IMG" IS '이미지';
+COMMENT ON COLUMN "PLACE_RECOMMEND"."RECOMMEND_HOMEPG" IS '홈페이지';
+COMMENT ON COLUMN "PLACE_RECOMMEND"."RECOMMEND_DETAILPG" IS '상세페이지';
+
+
+-- RECOMMEND_NO용 시퀀스
+-- DROP SEQUENCE SEQ_RECOMMEND_NO;
+
+CREATE SEQUENCE SEQ_RECOMMEND_NO;
+
+
+-- PLACE_RECOMMEND 테이블 데이터 삽입
+INSERT INTO CAMPWITHUS.PLACE_RECOMMEND
+(RECOMMEND_NO, RECOMMEND_TITLE, RECOMMEND_CONTENT, RECOMMEND_IMG, RECOMMEND_HOMEPG, RECOMMEND_DETAILPG)
+VALUES(1, '세미원 연꽃문화제', '세미원은 맑고 풍요로운 한강을 만들기 위해 수생정화 능력이 뛰어난 연꽃을 주로 식재하여 여름이 되면 야외정원 가득 연꽃이 피어난다. 매혹적인 홍련과 단아한 백련, 세계적인 연꽃 연구가 페리 슬로컴이 개발·기증한 페리연꽃을 비롯해 빛의 화가 모네를 떠올리게 하는 수련, 사람이 탈 수 있을 정도의 큰 잎을 가진 빅토리아 수련, 국내에서 세미원만 보유하고 있는 희귀 수련 등 다양한 수생식물을 관람할 수 있다.
+양평 두물머리에 위치한 물과 꽃의 정원 세미원이 7월 1일부터 8월 15일까지 연꽃문화제를 개최한다.', '/resources/images/board/semiwon.jpg', 'http://www.semiwon.or.kr/', 'https://conlab.visitkorea.or.kr/conlab/search-result/formal?cid=mADJkA&defaultCid=mADJkA&keyword=%EC%84%B8%EB%AF%B8%EC%9B%90%EC%97%B0%EA%BD%83%EC%97%AC%ED%96%89&searchType=All&page=1&lang=%ED%95%9C%EA%B5%AD%EC%96%B4');
+INSERT INTO CAMPWITHUS.PLACE_RECOMMEND
+(RECOMMEND_NO, RECOMMEND_TITLE, RECOMMEND_CONTENT, RECOMMEND_IMG, RECOMMEND_HOMEPG, RECOMMEND_DETAILPG)
+VALUES(2, '군산시간여행축제', '민간주도형 축제인 군산시간여행축제는 매년 소주제를 정해(2023년도 근대 군산의 맛) 근대역사문화의 정체성을 보다 집중적으로 구현하고, 아울러, 시간여행 퍼레이드, 군산대한독립만세 미션게임, 군산공룡대탐험, 우리 모두 3.5만세, 모아모아 시간, 군산항 밤부두콩쿠르 등 과거와 미래까지 아우르는 다양한 컨텐츠의 프로그램 등을 통해 시간 여행의 묘미와 매력을 느낄 수 있는 축제이다.', '/resources/images/board/gunsan.jpg', 'http://festival.gunsan.go.kr', 'https://conlab.visitkorea.or.kr/conlab/search-result/formal?cid=BU8LgA&defaultCid=BU8LgA&keyword=%EC%97%AC%ED%96%89%EC%A7%80&searchType=Formal&page=3&lang=%ED%95%9C%EA%B5%AD%EC%96%B4&sortDirection=%EC%B5%9C%EC%8B%A0%EC%88%9C');
+INSERT INTO CAMPWITHUS.PLACE_RECOMMEND
+(RECOMMEND_NO, RECOMMEND_TITLE, RECOMMEND_CONTENT, RECOMMEND_IMG, RECOMMEND_HOMEPG, RECOMMEND_DETAILPG)
+VALUES(3, '대구 근대골목', '대구 근대골목은 대구의 골목을 걸으며 살아있는 역사를 만나는 체험여행이다. 대구는 한국전쟁 당시 다른 지역에 비해 피해가 크지 않았다. 덕분에 전시 전후의 생활상이 비교적 잘 유지된 편이다. 곳곳이 역사적으로 다뤄지는 중요한 장소이면서, 우리네 아버지와 어머니 그리고 할아버지와 할머니의 온기가 느껴지는 곳이기도 하다. ', '/resources/images/board/daegu.jpg', 'https://www.jung.daegu.kr', 'https://conlab.visitkorea.or.kr/conlab/search-result/formal?cid=yzeokA&defaultCid=yzeokA&keyword=%EB%8C%80%EA%B5%AC%EA%B7%BC%EB%8C%80%EA%B3%A8%EB%AA%A9&searchType=All&page=1&lang=%ED%95%9C%EA%B5%AD%EC%96%B4');
+INSERT INTO CAMPWITHUS.PLACE_RECOMMEND
+(RECOMMEND_NO, RECOMMEND_TITLE, RECOMMEND_CONTENT, RECOMMEND_IMG, RECOMMEND_HOMEPG, RECOMMEND_DETAILPG)
+VALUES(4, '울릉도 신비로여행', '울릉도는 천혜의 자연환경과 아름다운 풍광을 간직해 ‘대한민국 10대 생태관광특구’로 선정되었다. 섬쑥부쟁이, 섬시호, 섬개야광나무 등 특산·자생종을 포함한 동식물 800여 종이 있어 생태학적 보전 가치가 높다. ‘신비로여행’은 울릉도 현지 여행사 (주)굿투어가 만든 생태관광 상품으로, 울릉도의 경이로운 자연을 느끼며 체험할 수 있게 구성됐다. 태하전망대와 모노레일, 관음도, 예림원 등 생태관광 지역을 여럿 포함하며, 역사·지질·체험 여행까지 골고루 만끽할 수 있다. 향기가 좋은 섬백리향으로 비누를 만들고 족욕 체험을 즐기는 동안 산채주먹밥으로 점심을 해결한다. 총 6시간~6시간 30분이 소요되며, 10인 이상 출발한다. ', '/resources/images/board/shinbiro.jpg', 'http://www.good-tour.kr', 'https://conlab.visitkorea.or.kr/conlab/search-result/formal?cid=H9NLuA&defaultCid=H9NLuA&keyword=%EC%97%AC%ED%96%89%EC%A7%80&searchType=All&page=1&lang=%ED%95%9C%EA%B5%AD%EC%96%B4');
+INSERT INTO CAMPWITHUS.PLACE_RECOMMEND
+(RECOMMEND_NO, RECOMMEND_TITLE, RECOMMEND_CONTENT, RECOMMEND_IMG, RECOMMEND_HOMEPG, RECOMMEND_DETAILPG)
+VALUES(5, '낙동강 감동포구 생태여행', '화명생태공원을 중심으로 낙동강 일원의 생태환경과 문화를 관광 자원화하여 시민들의 생태 인식 조성을 돕고 지역문화 홍보 및 관광 활성화 도모와 힐링 그리고 재미가 더해진 경쟁력 있는 관광 콘텐츠를 발굴하여 지역경제 활성화에 기여하겠다.', '/resources/images/board/bukgutour.jpg', 'http://bukgutour.com', 'https://conlab.visitkorea.or.kr/conlab/search-result/formal?cid=NWaeEa&defaultCid=NWaeEa&keyword=%EC%97%AC%ED%96%89%EC%A7%80&searchType=Formal&page=1&lang=%ED%95%9C%EA%B5%AD%EC%96%B4&sortDirection=%EC%B5%9C%EC%8B%A0%EC%88%9C');
+INSERT INTO CAMPWITHUS.PLACE_RECOMMEND
+(RECOMMEND_NO, RECOMMEND_TITLE, RECOMMEND_CONTENT, RECOMMEND_IMG, RECOMMEND_HOMEPG, RECOMMEND_DETAILPG)
+VALUES(6, '원대리 자작나무 숲', '인제읍 인근의 자연 생태관광지인 원대리 자작나무 숲은 1974년부터 1995년까지 138ha에 자작나무 690,000본을 조림하여 만들어졌으며 현재는 그중 25ha를 유아 숲 체험원으로 운영하고 있다. 자작나무 숲의 탐방은 입구에서 입산 기록 후 도보로 이용할 수 있다. 입구인 자작나무 숲 안내소에서 시작되는 임도를 따라 걸어야 자작나무 숲에 닿을 수 있다. 임도는 두 가지 길인데, 도보로 80분 가량 소요되는 원정임도와 1시간 가량 걸리는 원대임도다. 등산로를 따라 오르면 수령이 20년 이상 되는 자작나무가 빽빽하게 찬 숲이 펼쳐진다. 하얀 수피에 하늘을 향해 뻗은 자작나무 숲은 이국적인 풍취를 돋운다.', '/resources/images/board/tree.jpg', 'https://www.forest.go.kr/', 'https://conlab.visitkorea.or.kr/conlab/search-result/formal?cid=x2PW9A&defaultCid=x2PW9A&keyword=%EC%9B%90%EB%8C%80%EB%A6%AC%EC%9E%90%EC%9E%91%EB%82%98%EB%AC%B4%EC%88%B2&searchType=All&page=1&lang=%ED%95%9C%EA%B5%AD%EC%96%B4');
+INSERT INTO CAMPWITHUS.PLACE_RECOMMEND
+(RECOMMEND_NO, RECOMMEND_TITLE, RECOMMEND_CONTENT, RECOMMEND_IMG, RECOMMEND_HOMEPG, RECOMMEND_DETAILPG)
+VALUES(7, '원주 소금산 출렁다리', '원주의 대표적 관광 콘텐츠인 소금산 출렁다리는 길이 200m, 높이100m, 폭 1.5m로 산악 보도교 중 국내 최장, 최고의 규모이다. 공중에서 느끼는 아찔함은 원주의 대표적인 관광지로 부족함이 없다. 출렁다리가 있는 소금산 암벽 봉우리 스카이워크 전망대에서는 섬강의 빼어난 풍광을 감상할 수 있다. 출렁다리 진입로는 데크로 조성해 어른, 아이 누구나 즐길 수 있도록 배려했다. 간현관광지에 위치한 출렁다리와 더불어 주변에 원주레일바이크와 뮤지엄산, 조엄 묘역 등 원주 문화를 향유하는 시간을 보내기에 좋다.', '/resources/images/board/bridge.jpg', 'https://www.wonju.go.kr/tour/index.do', 'https://conlab.visitkorea.or.kr/conlab/search-result/formal?cid=62El8A&defaultCid=62El8A&keyword=%EC%9B%90%EC%A3%BC%EC%86%8C%EA%B8%88%EC%82%B0%EC%B6%9C%EB%A0%81%EB%8B%A4%EB%A6%AC&searchType=All&page=1&lang=%ED%95%9C%EA%B5%AD%EC%96%B4');
+INSERT INTO CAMPWITHUS.PLACE_RECOMMEND
+(RECOMMEND_NO, RECOMMEND_TITLE, RECOMMEND_CONTENT, RECOMMEND_IMG, RECOMMEND_HOMEPG, RECOMMEND_DETAILPG)
+VALUES(8, '물의정원', '남양주 물의 정원은 국토교통부가 2012년 한강 살리기 사업으로 조성한 484,188㎡의 광대한 면적의 수변생태공원으로 조성되었다. 인근에 사는 주민들에게 물의 정원은 산책로와 자전거도로를 따라 조깅을 즐기고 라이딩을 즐기기 위해 방문하는 ‘동네공원이지만, 외부인들에게는 일부러 시간 내서 데이트하러 오는 관광지이기도 하다. 물의정원은 자연과 소통하여 몸과 마음을 정화하고 치유하는 자연친화적 휴식공간이다.', '/resources/images/board/water.jpg', 'https://www.nyj.go.kr/', 'https://conlab.visitkorea.or.kr/conlab/search-result/formal?cid=B0lNcA&defaultCid=B0lNcA&keyword=%EB%AC%BC%EC%9D%98%EC%A0%95%EC%9B%90&searchType=All&page=1&lang=%ED%95%9C%EA%B5%AD%EC%96%B4');
+INSERT INTO CAMPWITHUS.PLACE_RECOMMEND
+(RECOMMEND_NO, RECOMMEND_TITLE, RECOMMEND_CONTENT, RECOMMEND_IMG, RECOMMEND_HOMEPG, RECOMMEND_DETAILPG)
+VALUES(9, '경주 동궁과 월지', '경주 동궁과 월지는 신라 왕궁의 별궁터이다. 다른 부속건물들과 함께 왕자가 거처하는 동궁으로 사용되면서, 나라의 경사가 있을 때나 귀한 손님을 맞을 때 이곳에서 연회를 베풀었다고 한다. 신라 경순왕이 견훤의 침입을 받은 뒤, 931년에 고려 태조 왕건을 초청하여 위급한 상황을 호소하며 잔치를 베풀었던 곳이기도 하다. 신라는 삼국을 통일한 후 문무왕 14년(674)에 큰 연못을 파고 못 가운데에 3개의 섬과 못의 북동쪽으로 12봉우리의 산을 만들었으며, 여기에 아름다운 꽃과 나무를 심고 진귀한 새와 짐승을 길렀다고 전해진다.', '/resources/images/board/gyeongju.jpg', 'http://www.gyeongju.go.kr/tour', 'https://conlab.visitkorea.or.kr/conlab/search-result/formal?cid=aV991A&defaultCid=aV991A&keyword=%EA%B2%BD%EC%A3%BC%EB%8F%99%EA%B6%81%EA%B3%BC%EC%9B%94%EC%A7%80&searchType=All&page=1&lang=%ED%95%9C%EA%B5%AD%EC%96%B4');
+INSERT INTO CAMPWITHUS.PLACE_RECOMMEND
+(RECOMMEND_NO, RECOMMEND_TITLE, RECOMMEND_CONTENT, RECOMMEND_IMG, RECOMMEND_HOMEPG, RECOMMEND_DETAILPG)
+VALUES(10, '헤이리 예술마을', '헤이리 예술마을은 15만평 규모로 통일동산 관광특구내에 위치해 있다. 지상에서 가장 아름다운 마을을 꿈꾸며 일정한 자격 조건을 갖추고 심사에 통과한 다양한 분야의 창작자와 예술가 300여명이 공동체 마을을 이루며 거주하고 있다. 헤이리는 문화예술의 생산, 전시, 판매, 거주가 함께하는 통합적 개념의 특수한 공동체 마을이다. 수많은 갤러리, 박물관, 전시관, 공연장, 소극장, 카페, 레스토랑, 서점, 게스트하우스, 아트숍과 예술인들의 창작공간이 자리 잡고 있다.', '/resources/images/board/heyri.jpg', 'http://heyri.net', 'https://conlab.visitkorea.or.kr/conlab/search-result/formal?cid=il4LQA&defaultCid=il4LQA&keyword=%ED%97%A4%EC%9D%B4%EB%A6%AC%EC%98%88%EC%88%A0%EB%A7%88%EC%9D%84&searchType=All&page=1&lang=%ED%95%9C%EA%B5%AD%EC%96%B4');
+INSERT INTO CAMPWITHUS.PLACE_RECOMMEND
+(RECOMMEND_NO, RECOMMEND_TITLE, RECOMMEND_CONTENT, RECOMMEND_IMG, RECOMMEND_HOMEPG, RECOMMEND_DETAILPG)
+VALUES(11, '안성팜랜드', '안성팜랜드는 직접 만지고 먹이주며 즐거운 체험을 할 수 있는 곳으로, 소,양,거위,돼지,당나귀 등 다양한 가축들과 함께 즐거운 체험프로그램을 진행하고 있다. 온가족이 함께 즐길 수 있는 놀이시설과 우리나라 농축산업의 소중함을 몸과 마음으로 느낄 수 있는 교육시설 등 가족단위 관광객들에게 많은 인기를 받고 있는 곳이다.', '/resources/images/board/farmland.jpg', 'http://www.nhasfarmland.com/', 'https://conlab.visitkorea.or.kr/conlab/search-result/formal?cid=wO7NCA&defaultCid=wO7NCA&keyword=%EC%95%88%EC%84%B1%ED%8C%9C%EB%9E%9C%EB%93%9C&searchType=All&page=1&lang=%ED%95%9C%EA%B5%AD%EC%96%B4');
+INSERT INTO CAMPWITHUS.PLACE_RECOMMEND
+(RECOMMEND_NO, RECOMMEND_TITLE, RECOMMEND_CONTENT, RECOMMEND_IMG, RECOMMEND_HOMEPG, RECOMMEND_DETAILPG)
+VALUES(12, '선유도', '본래 군산도라 불렸으나 섬의 북단 해발 100여미터의 봉 정상의 형태가 마치 두 신선이 마주 앉아 바둑을 두고 있는 것처럼 보인다 하여 선유도라 불리게 되었다. 2.13km의 면적에 500 이상의 인구가 살고 있는 선유도는 신시도, 무녀도, 방축도, 말도 등과 더불어 고군산군도를 이루며 군도의 중심섬이다.', '/resources/images/board/gunsando.jpg', 'http://www.gunsan.go.kr/tour/', 'https://conlab.visitkorea.or.kr/conlab/search-result/formal?cid=iH8nqA&defaultCid=iH8nqA&keyword=%EC%84%A0%EC%9C%A0%EB%8F%84&searchType=All&page=1&lang=%ED%95%9C%EA%B5%AD%EC%96%B4');
+INSERT INTO CAMPWITHUS.PLACE_RECOMMEND
+(RECOMMEND_NO, RECOMMEND_TITLE, RECOMMEND_CONTENT, RECOMMEND_IMG, RECOMMEND_HOMEPG, RECOMMEND_DETAILPG)
+VALUES(13, '아침고요수목원', '아침 고요수목원은 축령산의 빼어난 자연경관을 배경으로 하여 한국의 미를 듬뿍 담은 정원들을 원예학적으로 조화시켜 설계한 원예 수목원이다. 여러 가지 특색 있는 정원을 갖추고 있고, 울창한 잣나무 숲 아래에서 삼림욕을 즐길 수도 있어 도시민들에게 쉼터를 제공한다. 설계자(한상경, 삼육대학교 원예학 교수)가 명명하였으며, 1996년 5월에 개원하였다. 20개의 주제를 가진 정원은 아름답게 가꾸어진 잔디밭과 화단, 자연스러운 산책로로 연결되어 있다. 특히, 아름다운 대한민국의 금수강산을 실제 한반도 지형 모양으로 조성하여 최고 절정의 꽃으로 표현한 하경정원(Sunken Garden)은 관광객들의 관심을 가장 많이 끄는 곳이다.', '/resources/images/board/morningcalm.jpg', 'http://www.morningcalm.co.kr', 'https://conlab.visitkorea.or.kr/conlab/search-result/formal?cid=rGdYTA&defaultCid=rGdYTA&keyword=%EC%95%84%EC%B9%A8%EA%B3%A0%EC%9A%94%EC%88%98%EB%AA%A9%EC%9B%90&searchType=All&page=1&lang=%ED%95%9C%EA%B5%AD%EC%96%B4');
+INSERT INTO CAMPWITHUS.PLACE_RECOMMEND
+(RECOMMEND_NO, RECOMMEND_TITLE, RECOMMEND_CONTENT, RECOMMEND_IMG, RECOMMEND_HOMEPG, RECOMMEND_DETAILPG)
+VALUES(14, '담양 메타세쿼이아길', '영화 ‘와니와 준하’에서 와니가 아버지와 함께 차를 타고 지나가는 장면이 촬영된 곳이 바로 순창에서 담양으로 이어지는 메타세쿼이아 가로수길이다. 원래는 24번 국도였는데 이 국도 바로 옆으로 새롭게 국도가 뚫리면서 이 길은 산책을 할 수 있도록 조성되었다.가로수길의 총 길이는 약 8.5km로 도로를 사이에 두고 양쪽 길가에 높이 10~20m의 메타세쿼이아가 심어져 있다. 이 길이 조성된 시기는 1970년대 초반으로 전국적인 가로수 조성사업 때 담양군이 3~4년생 메타세쿼이아 묘목을 심은 것이 현재의 울창한 가로수 터널길이 되었다.', '/resources/images/board/damyang.jpg', 'http://tour.damyang.go.kr', 'https://conlab.visitkorea.or.kr/conlab/search-result/formal?cid=dy5mhA&defaultCid=dy5mhA&keyword=%EB%8B%B4%EC%96%91%EB%A9%94%EC%82%AC%EC%84%B8%EC%BF%BC%EC%9D%B4%EC%95%84%EA%B8%B8&searchType=All&page=1&lang=%ED%95%9C%EA%B5%AD%EC%96%B4');
+INSERT INTO CAMPWITHUS.PLACE_RECOMMEND
+(RECOMMEND_NO, RECOMMEND_TITLE, RECOMMEND_CONTENT, RECOMMEND_IMG, RECOMMEND_HOMEPG, RECOMMEND_DETAILPG)
+VALUES(15, '만천하 스카이워크', '단양군 적성면에 위치한 만천하스카이워크에서는 남한강 절벽 위에서 80~90m 수면아래를 내려보며 하늘길을 걷는 스릴을 맛볼 수 있다. 전망대로 가는 나선형 구간에서는 다각도로 풍광을 감상할 수 있고, 전망대에 보이는 산등성이 너머 드넓게 흐르는 남한강 경치에 감탄사가 절로 나온다. 전망대에 올라서면 시내 전경과 멀리 소백산 연화봉을 볼 수 있다. 말굽형의 만학천봉 전망대에 쓰리핑거(세 손가락)형태의 길이 15m, 폭 2m의 고강도 삼중 유리를 통해 발밑에 흐르는 남한강을 내려다보며 절벽 끝에서 걷는 짜릿함을 경험해볼 수 있다. 전망대 옆으로 980m 길이의 짚와이어, 1,000m 거리의 알파인코스터, 슬라이드 등 체험 시설도 다양하다. 단양강 잔도와 만천하스카이워크를 두루 섭렵할 계획이라면 두 곳의 진입로가 연결된 3번 또는 6번 주차장을 이용하면 더욱 편리하다.', '/resources/images/board/dytc.jpg', 'https://www.dytc.or.kr/mancheonha/89', 'https://conlab.visitkorea.or.kr/conlab/search-result/formal?cid=D7TdiA&defaultCid=D7TdiA&keyword=%EB%A7%8C%EC%B2%9C%ED%95%98%EC%8A%A4%EC%B9%B4%EC%9D%B4%EC%9B%8C%ED%81%AC&searchType=All&page=1&lang=%ED%95%9C%EA%B5%AD%EC%96%B4');
+INSERT INTO CAMPWITHUS.PLACE_RECOMMEND
+(RECOMMEND_NO, RECOMMEND_TITLE, RECOMMEND_CONTENT, RECOMMEND_IMG, RECOMMEND_HOMEPG, RECOMMEND_DETAILPG)
+VALUES(16, '광양 매화마을', '지리산 자락을 수놓으며 굽이굽이 흘러가는 섬진강을 따라가면 매화나무가 지천으로 심어져 있는 섬진마을이 있다. 이 마을의 농가들은 산과 밭에 곡식 대신 모두 매화나무를 심어 매년 3월이 되면 하얗게 만개한 매화꽃이 마치 백설이 내린 듯, 또는 하얀 꽃구름이 골짜기에 내려앉은 듯 장관을 이룬다. 이곳의 맑고 온화한 강바람과 알맞게 피어오르는 물안개가 매실 농사에 적합해서 수확량도 한 부락에서 연간 100톤이 넘는다. 올매화인 이곳의 매화는 지리산 능선에 잔설이 희끗희끗하게 남아 있는 3월 초순 경부터 꽃망울을 터트리며, 매실 수확은 지리산 철쭉이 한창 피어나는 6월에 시작된다. 매실은 다른 꽃들이 겨울잠에서 깨어나기 전에 꽃이 피고, 여름 벌레들이 극성을 부리기 전에 수확이 되어 농약이 필요 없는 청정과일이다. 매화나무 집단재배를 전국에서 가장 먼저 시작한 청매실농원에는 1930년경 율산 김오천선생이 심은 70년생 고목 수백 그루를 포함하여 매화나무 단지가 잘 조성되어 있으며, 매실 식품을 만드는데 쓰이는 전통옹기 2,000 여기가 농원 뒷편 왕대숲과 함께 분위기를 돋운다. 또, 섬진마을에서는 매화꽃 피는 3월마다 ＂매화축제＂가 열린다.', '/resources/images/board/maehwa.jpg', 'http://maehwa.invil.org', 'https://conlab.visitkorea.or.kr/conlab/search-result/formal?cid=rGdYYA&defaultCid=rGdYYA&keyword=%EA%B4%91%EC%96%91%EB%A7%A4%ED%99%94%EB%A7%88%EC%9D%8C&searchType=All&page=1&lang=%ED%95%9C%EA%B5%AD%EC%96%B4');
+
+SELECT * FROM PLACE_RECOMMEND;
+
+COMMIT;
+
+
+
+----------------------------------------------------------777  REPLY 테이블 생성 ---------------------------------------------
+
+
+-- 댓글 테이블           
+CREATE TABLE "REPLY" (
+    "REPLY_NO"   NUMBER      PRIMARY KEY,
+    "REPLY_CONTENT"   VARCHAR2(1000)      NOT NULL,
+    "REPLY_ST"   CHAR(1) DEFAULT 'N' CHECK ("REPLY_ST" IN ('Y','N')),
+    "CREATE_DT"   DATE   DEFAULT SYSDATE   NOT NULL,
+    "MEMBER_NO"   NUMBER   REFERENCES MEMBER,
+    "BOARD_NO"   NUMBER   REFERENCES BOARD,
+    "PARENT_REPLY_NO" NUMBER REFERENCES REPLY
+);
+
+COMMENT ON COLUMN "REPLY"."REPLY_NO" IS '댓글 번호';
+COMMENT ON COLUMN "REPLY"."REPLY_CONTENT" IS '댓글 내용';
+COMMENT ON COLUMN "REPLY"."REPLY_ST" IS '댓글 상태';   
+COMMENT ON COLUMN "REPLY"."CREATE_DT" IS '댓글 작성일';
+COMMENT ON COLUMN "REPLY"."MEMBER_NO" IS '회원 번호';
+COMMENT ON COLUMN "REPLY"."BOARD_NO" IS '게시글 번호';
+COMMENT ON COLUMN "REPLY"."PARENT_REPLY_NO" IS '부모 댓글 번호';        
+
+
+CREATE SEQUENCE SEQ_RNO; -- 댓글 번호 시퀀스
+
+
+INSERT INTO REPLY VALUES(SEQ_RNO.NEXTVAL, '부모1', DEFAULT, DEFAULT, 1, 30, NULL);
+INSERT INTO REPLY VALUES(SEQ_RNO.NEXTVAL, '부모1-자식1', DEFAULT, DEFAULT, 1, 30, 1);
+INSERT INTO REPLY VALUES(SEQ_RNO.NEXTVAL, '부모1-자식2', DEFAULT, DEFAULT, 1, 30, 1);
+INSERT INTO REPLY VALUES(SEQ_RNO.NEXTVAL, '부모1-자식3', DEFAULT, DEFAULT, 1,30, 1);
+
+INSERT INTO REPLY VALUES(SEQ_RNO.NEXTVAL, '부모2', DEFAULT, DEFAULT, 1, 30, NULL);
+INSERT INTO REPLY VALUES(SEQ_RNO.NEXTVAL, '부모3', DEFAULT, DEFAULT, 1, 30, NULL);
+INSERT INTO REPLY VALUES(SEQ_RNO.NEXTVAL, '부모4', DEFAULT, DEFAULT, 1, 30, NULL);
+
+INSERT INTO REPLY VALUES(SEQ_RNO.NEXTVAL, '부모2-자식1', DEFAULT, DEFAULT, 1, 30, 5);
+INSERT INTO REPLY VALUES(SEQ_RNO.NEXTVAL, '부모2-자식2', DEFAULT, DEFAULT, 1, 30, 5);
+INSERT INTO REPLY VALUES(SEQ_RNO.NEXTVAL, '부모2-자식3', DEFAULT, DEFAULT, 1, 30, 5);
+
+INSERT INTO REPLY VALUES(SEQ_RNO.NEXTVAL, '부모1-자식3-손자1', DEFAULT, DEFAULT, 1, 30, 4);
+INSERT INTO REPLY VALUES(SEQ_RNO.NEXTVAL, '부모1-자식3-손자2', DEFAULT, DEFAULT, 1, 30, 4);
+INSERT INTO REPLY VALUES(SEQ_RNO.NEXTVAL, '부모1-자식3-손자3', DEFAULT, DEFAULT, 1, 30, 4);
+
+INSERT INTO REPLY VALUES(SEQ_RNO.NEXTVAL, '대댓글테스트', DEFAULT, DEFAULT, 1, 30, 14);
+COMMIT;
+
+SELECT * FROM reply;
+
+
+---------------------------------------------------------------------------

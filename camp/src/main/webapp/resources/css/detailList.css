@@ -1,0 +1,799 @@
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: auto;
+    align-items: center;
+    background-color: #eee;
+/*     background-image: url("../images/signUpBg3.jpg");
+    background-size: 100% 100%; */
+
+}
+
+/* image modal */
+
+ .modalTest:hover{
+    cursor: -webkit-zoom-in;
+}
+
+
+/**********************************************/
+/* modal : 화면내에 html 요소를 이용해서 만드는 분할 창 */
+.modal{
+    background-color: rgba(0, 0, 0, 0.4);
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: 50;
+
+    display: none;
+}
+
+.modal.show { /* 클래스로 modal, show를 동시에 가진 요소 선택 */
+    display: flex;
+
+    animation-name: show; /* @keyframes  show 적용 */
+    animation-duration: 0.5s;  /* 애니메이션 수행 시간 */
+}
+
+.modal.hide{
+    animation-name: hide; /* @keyframes  show 적용 */
+    animation-duration: 0.5s;  /* 애니메이션 수행 시간 */
+}
+
+#modal-image {
+    background-color: white;
+    margin: auto;
+    border-radius: 10px;
+    max-width: 80%;
+    max-height: 80%;
+    cursor: -webkit-zoom-out;
+}
+@keyframes show {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes hide {
+    from {opacity: 1;}
+    to {opacity: 0;}
+}
+/* 모달 끝 */
+
+
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+
+
+}
+
+
+
+#sub_title_wrap2 {
+    color: #fff;
+    padding: 30px;
+    margin-left: 70px;
+    margin-top: 140px;
+    text-shadow: 2px 2px 3px rgb(0, 0, 0);
+    z-index: 2;
+}
+
+#sub_title_wrap2>h1 {
+    font-size: 50px;
+    margin: 0px;
+}
+
+.s_title2 {
+    width: 100%;
+    margin-top: 40px;
+    text-align: left;
+    color: #fff;
+    /* text-shadow: 2px 2px 3px rgb(0,0,0); */
+}
+
+
+.s_title2 .camp_s_tt {
+    font-size: 20px;
+    margin: 0;
+    color: #fff;
+    padding: 5px 0 0 0;
+}
+
+
+
+
+#detailMain {
+    width: 100%;
+    height: 420px;
+    background-image: url('../images/main4.gif');
+    background-size: 100% 100%;
+}
+
+
+
+
+
+.div1 {
+    border: 2px solid rgb(3, 92, 18);
+    margin-top: 10px;
+    height: 500px;
+    width: 1600px;
+}
+
+.div2 {
+    border: 1px solid rgb(210, 210, 210);
+    background-color: white;
+    border-radius: 10px;
+    margin-top: 80px;
+    height: 550px;
+    display: flex;
+    width: 1600px;
+}
+
+.div3 {
+    border: 1px solid rgb(210, 210, 210);
+    border-bottom: 0px;
+    background-color: white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    
+    height: 520px;
+    margin-top: 0px;
+    width: 1600px;
+}
+
+.div4 {
+    border: 1px solid rgb(210, 210, 210);
+    border-top: 0px;
+    border-bottom: 0px;
+    background-color: white;
+    height: 450px;
+    width: 1600px;
+    /*     height: auto;
+    display: flex; */
+}
+
+.div5 {
+    border: 1px solid rgb(210, 210, 210);
+    background-color: white;
+    border-bottom: 0px;
+    height: 60px;
+    display: flex;
+    text-align: left;
+    /* justify-content: center; */
+    align-items: center;
+    padding: 20px;
+    font-size: 25px;
+    font-weight: bold;
+    width: 1600px;
+    color: #616161;
+    padding-top: 35px;
+    padding-bottom: 35px;
+}
+
+.div6 {
+    border: 1px solid rgb(210, 210, 210);
+    background-color: rgba(255, 255, 255);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    height: 340px;
+    display: flex;
+    width: 1600px;
+    padding: 20px;
+    letter-spacing: 0.1mm;
+    line-height: 9mm;
+    color: #333;
+    opacity: 0.75;
+}
+
+.div7 {
+    border: 1px solid rgb(210, 210, 210);
+    background-color: white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    height: 100px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding: auto;
+    font-size: 25px;
+    font-weight: bold;
+    width: 1600px;
+    color: #616161;
+}
+
+.div4_1 {
+    border: 1px solid rgb(210, 210, 210);
+    border-top: 0px;
+    height: 60px;
+    display: flex;
+    text-align: left;
+    /* justify-content: center; */
+    align-items: center;
+    padding: 20px;
+    font-size: 25px;
+    font-weight: bold;
+    width: 1600px;
+    background-color: white;
+    color: #616161;
+    padding-top: 35px;
+    padding-bottom: 35px;
+}
+
+.div8{
+    width: 1600px;
+    height: auto;
+    border: 1px solid #dedede;
+    background-color: white;
+    padding-bottom: 20px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+
+.kakaoMap {
+   
+    height: 600px;
+    width: 1600px;
+}
+
+.div4_1 > span {
+    margin-left: 30px;
+}
+.div5 > span {
+    margin-left: 30px;
+}
+
+
+
+/*00캠핑장 상세페이지 상단 공통*/
+
+
+ .logoCaption > .logo img {
+    padding: 0px;
+    margin: 0px;
+    max-height: 60px;
+    /* padding-bottom: 20px; */
+    margin-top: -10px;
+}
+.lineIntro1 {
+    padding-top: 20px;
+}
+
+.table_4 > .logoCaption > .logo img {
+        padding: 0px;
+        margin: 0px;
+        max-height: 60px;
+        padding-bottom: 20px;
+       /*  margin-top: -10px; */
+    
+}
+
+.logoCaption > div {
+    display: inline-block;
+}
+
+.div7 > .logo img {
+    padding: 0px;
+    margin: 0px;
+    max-height: 60px;
+}
+
+
+
+/* .table_t4 > .logoCaption > .logo img {
+    padding-top: 5px;
+} */
+.div4_1 > .logo img {
+    padding: 0px;
+    margin: 0px;
+    max-height: 60px;
+    margin-left: 10px;
+}
+.div5 > .logo img {
+    padding: 0px;
+    margin: 0px;
+    max-height: 60px;
+    margin-left: 10px;
+}
+#test2{
+    justify-content: center;
+}
+
+.table_t4 > .logoCaption > .table_t4_span {
+   /*  padding-top: 50px; */
+   margin-top: 50px;
+}
+
+
+
+.camp_info_box {
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    clear: both;
+    box-shadow: 0 0 20px 12px rgb(32 97 31 / 20%);
+}
+
+.camp_info_box .img_b {
+    width: 55%;
+    height: 550px;
+    float: left;
+    background: #eee;
+    border: 1px solid #dedede;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+
+
+.camp_info_box .img_b>img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.camp_info_box caption {
+    padding: 5px;
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+/*     margin-bottom: -15px; */
+}
+
+.camp_info_box .cont_tb {
+    width: 43%;
+    float: right;
+    height: auto;
+    overflow: hidden;
+}
+
+.camp_info_box .cont_tb table {
+    width: 100%;
+    font-size: 14px;
+}
+
+.camp_info_box .cont_tb tbody tr:nth-child(1) th {
+    border-top: 2px solid black;
+}
+
+.camp_info_box .cont_tb tbody tr:nth-child(1) td {
+    border-top: 2px solid orange;
+}
+
+
+.camp_info_box .cont_tb table tr th {
+    padding: 11px 20px;
+    border-bottom: 1px solid #c8c8c8;
+    text-align: left;
+    color: #000;
+    line-height: 25px;
+}
+
+.camp_info_box .cont_tb table tr td {
+    padding: 11px 10px;
+    border-bottom: 1px solid #c8c8c8;
+    line-height: 25px;
+}
+#homePage > a {
+    color: #eb5d1e;
+}
+
+#reservationBtn {
+    border: 1px solid #c8c8c8;
+    width: 280px;
+    margin-top: 80px;
+    height: 65px;
+    margin-bottom: 100px;
+    border-radius: 10px;
+    background-color: rgb(54 52 49);
+    transition: background-color 0.2s ease;
+    font-size: 25px;
+    letter-spacing: 2.0mm;
+}
+#reservationBtn:hover{
+    background-color: orange;
+
+}
+#reservationBtn > a {
+    color: white;
+}
+
+
+
+/***********************************************************************************************************************************************************************/
+/* 테이블디자인************************************************************************************************************************************************************/
+
+.camp_info_tb{
+    border-right-style:none ;
+}
+
+.table_t4 caption {
+    font-size: 25px;
+    font-weight: bold;
+    text-align: left;
+    padding: 20px;
+    color: #616161;
+    margin-left: 30px;
+    margin-bottom: -15px;
+    margin-top: -5px;
+}
+
+.table_w .table {
+    position: relative;
+    width: 100%;
+    letter-spacing: 0px;
+}
+
+.table_w .table th {
+    padding: 20px;
+    line-height: 18px;
+    font-weight: bold;
+    font-size: 14px;
+    color: #333;
+   
+    border-bottom: 1px solid #b3b3b3;
+    border-right: 1px solid #b3b3b3;
+    background-color: #f9f9fe;
+    word-break: break-all;
+}
+.table_w .table td {
+    padding: 15px 15px;
+    line-height: 18px;
+    font-weight: normal;
+    font-size: 14px;
+    color: #777;
+    border-bottom: 1px solid #b3b3b3;
+    border-right: 1px solid #b3b3b3;
+    word-break: break-all;
+    
+}
+
+
+.table_w2 {
+    position: relative;
+    width: 1600px;
+    margin-top: 0px;
+    
+    height: 350px;
+    background-color: white;
+    border: 1px solid #dedede;
+    border-top: 1px solid #b3b3b3;
+    text-align: center;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+
+.table_w2 .table {
+    position: relative;
+    width: 100%;
+    letter-spacing: 0px;
+}
+
+.table_w2 .table th {
+    padding: 20px;
+    font-weight: bold;
+    font-size: 17px;
+    color: #333;
+    border-bottom: 1px solid #b3b3b3;
+    border-right: 1px solid #b3b3b3;
+    background-color: #f9f9fe;
+    justify-content: center;
+    align-items: center;
+    
+}
+#last1{
+    border-right:0px;
+}
+#last2{
+    border-right:0px;
+}
+#last3{
+    border-right:0px;
+}
+#last4{
+    border-bottom:0px;
+}
+
+.table_w2 .table td {
+    padding: 15px 15px;
+    line-height: 18px;
+    font-weight: normal;
+    font-size: 20px;
+    color: #777;
+    border-bottom: 1px solid #b3b3b3;
+    border-right: 1px solid #b3b3b3;
+    word-break: break-all;
+}
+
+
+
+
+
+ul.table_ul05 {
+    display: flex;
+    position: relative;
+    margin: 0;
+    padding: 0;
+
+}
+
+ul.table_ul05 li {
+    font-size: 14px;
+    color: #777;
+    line-height: 20px;
+    font-weight: normal;
+    letter-spacing: -0.5px;
+    word-break: break-all;
+    margin-right: 10px;
+}
+
+ul.table_ul05 li {
+    margin-right: 35px;
+}
+
+ul.table_ul05 li:first-child {
+    list-style: none;
+}
+
+
+ul.table_ul05 li:first-child {
+    background: none;
+    padding-left: 0;
+}
+
+
+/*테이블타입 04*/
+.table_t4 tbody tr:nth-child(1) th {
+    border-top: 2px solid black;
+}
+
+.table_t4 tbody tr:nth-child(1) td {
+    border-top: 2px solid orange;
+}
+
+
+.table_w .table_t4 {
+    position: relative;
+    width: 100%;
+    letter-spacing: 0px;
+    border-bottom: 1px solid #b3b3b3;
+}
+
+.table_w .table_t4 th {
+    padding: 15px 20px;
+    line-height: 18px;
+    font-weight: bold;
+    font-size: 14px;
+    color: #333;
+    background-color: #fff;
+    word-break: break-all;
+    text-align: left;
+}
+
+.table_w .table_t4 td {
+    padding: 15px 15px;
+    line-height: 10px;
+    font-weight: normal;
+    font-size: 14px;
+    color: #777;
+    border-bottom: 1px solid #b3b3b3;
+    word-break: break-all;
+    text-align: left;
+}
+
+
+
+
+
+
+/* 목록  */
+
+.layout {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 75px;
+    margin: 0;
+    padding: 0;
+    width: 1600px;
+}
+
+.camp_tab05 {
+    list-style: none;
+
+    display: flex;
+    justify-content: center;
+/*     padding-left: 150px;
+    padding-right: 150px; */
+    margin: 23px;
+    padding: 0px;
+}
+
+.camp_tab05 li {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+
+
+
+.camp_cont_w {
+    width: 100%;
+    position: relative;
+    height: auto;
+    clear: both;
+}
+
+
+
+
+.camp_cont_w ul.camp_tab05 li {
+    float: left;
+    width: 13%;
+    height: 53px;
+   /*  background: #8d8d8d; */
+    text-align: center;
+    margin: 0px;
+
+
+}
+
+.camp_cont_w ul.camp_tab05 li a {
+    color: white;
+    line-height: 53px;
+    font-size: 15px;
+    letter-spacing: -0.08em;
+    text-decoration: none;
+    display: block;
+}
+
+.camp_cont_w ul.camp_tab05 li.on {
+    background: #fff;
+    border-top: 2px solid #000;
+    height: 51px;
+}
+
+.campListli{
+    border: 1px solid rgb(210, 210, 210);
+    border-bottom: white;
+
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+
+    background-color: rgb(249, 190, 81);
+    transition: background-color 0.3s ease;
+}
+.campListli:hover{
+    background-color: orange;
+}
+
+
+.selected a {
+    background-color: white; /* 흰색으로 변경하고자 하는 배경색 */
+    color:#6b6b6b !important;
+}
+
+
+
+
+
+
+.table_w3{
+
+width: 1600px;
+height: auto;
+border: 1px solid rgb(210, 210, 210);
+border-bottom-left-radius: 10px;
+border-bottom-right-radius: 10px;
+
+}
+
+.table_w3 > .table {
+    margin-bottom: 0px;
+    height: 400px;
+    text-align: center;
+    background-color: white;
+}
+.table_w3 > .table > thead {
+    height: 50px;
+    
+}
+
+.date{
+    background-color:rgb(255 165 0 / 14%) !important;
+}
+.date2{
+    background-color: rgb(255 165 0 / 14%) !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ----------- 이미지 슬라이더 ---------  */
+.post-slider {
+    border-top: 0px;
+    border-bottom: 0px;
+    height: 450px;
+    display: flex;
+    align-items: center;
+}
+
+.post-slider .post-wrapper {
+    width: 88%;
+    height: 400px;
+    margin: 0px auto;
+}
+
+.post-slider .post-wrapper .post {
+    width: 350px;
+    height: 350px;
+    display: inline-block;
+    background: gray;
+    margin: 10px;
+    border-radius: 5%;
+
+}
+
+.div4 img {
+    border-radius: 5%;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+.slick-prev:before {
+    margin-left: -45px;
+}
+
+
+
+.slick-prev:before,
+.slick-next:before {
+    color: orange !important;
+    opacity: 0.75;
+    font-size: 70px !important;
+}
+
+.slick-prev:hover:before,
+.slick-next:hover:before {
+    color: rgb(238, 190, 102) !important;
+    opacity: 0.75;
+}
+
+
+
+/* 화살표 위치 변경 */
+.slick-prev {
+    right: 0 !important;
+    z-index: 9;
+
+}
+.slick-next {
+
+  /*   right: 20px !important; */
+    z-index: 9;
+}

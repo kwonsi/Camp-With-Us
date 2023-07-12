@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="memberMapper">
+	
+	<resultMap type="member" id="member_rm">
+		<id property="memberNo" column="MEMBER_NO"/>
+		
+		<result property="memberEmail"      column="MEMBER_EMAIL"/>
+		<result property="memberPw" 		column="MEMBER_PW"/>
+		<result property="memberNickname" 	column="MEMBER_NICK"/>
+		<result property="memberTel" 		column="MEMBER_TEL"/>
+		<result property="memberAddress" 	column="MEMBER_ADDR"/>
+		<result property="profileImage" 	column="PROFILE_IMG"/>
+		<result property="enrollDate" 		column="ENROLL_DT"/>
+		<result property="secessionFlag" 	column="SECESSION_FL"/>
+		<result property="loginST"          column="LOGIN_ST"/>
+		<result property="manager"			column="MANAGER"/>
+	</resultMap>
+	
+	<select id="login" parameterType="member" resultMap="member_rm">
+		SELECT MEMBER_NO, MEMBER_EMAIL, MEMBER_NICK , MEMBER_TEL,
+    	MEMBER_ADDR, PROFILE_IMG, MANAGER,
+    	TO_CHAR( ENROLL_DT, 'YYYY-MM-DD') AS ENROLL_DT, MEMBER_PW
+		FROM MEMBER
+		WHERE MEMBER_EMAIL = #{memberEmail}
+		<!-- AND MEMBER_PW = #{memberPw} -->
+		AND SECESSION_FL = 'N' 
+	</select>
+	
+	<!-- 이메일 중복 검사 -->
+	<select id="emailDupCheck" parameterType="string" resultType="_int">
+		SELECT COUNT(*) FROM MEMBER
+		WHERE MEMBER_EMAIL = #{memberEmail}
+		AND SECESSION_FL = 'N'
+	</select>
+	
+	<!-- 닉네임 중복 검사 -->
+	<select id="nicknameDupCheck" parameterType="string" resultType="_int">
+		SELECT COUNT(*) FROM MEMBER
+		WHERE MEMBER_NICK = #{memberNickname}
+		AND SECESSION_FL = 'N'
+	</select>
+	
+	<!-- 회원 가입 -->
+	<insert id="signUp" parameterType="member">
+		INSERT INTO MEMBER VALUES (SEQ_MEMBER_NO.NEXTVAL, #{memberEmail}, #{memberPw},
+			#{memberNickname}, #{memberTel}, #{memberAddress},
+			DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT)	
+	</insert>
+	
+	<!-- 아이디 찾기 -->
+	<select id="findId" parameterType="string" resultType="string">
+		SELECT MEMBER_EMAIL FROM MEMBER WHERE MEMBER_TEL = #{memberTel}
+	</select>
+	
+	<update id="setTempPassword" parameterType="member">
+		UPDATE MEMBER SET MEMBER_PW = #{memberPw} WHERE MEMBER_EMAIL = #{memberEmail}
+	</update>
+	
+	<!-- 네이버 이메일 중복 검사 -->
+	<select id="naverEmailDupCheck" parameterType="string" resultType="_int">
+		SELECT COUNT(*) FROM MEMBER
+		WHERE MEMBER_EMAIL = #{memberEmail}
+		AND SECESSION_FL = 'N'
+		AND LOGIN_ST = 'Y'
+	</select>
+	
+	<!-- 네이버 회원정보 저장 -->
+	<insert id="naverLoginInsert" parameterType="member">
+		INSERT INTO MEMBER VALUES 
+		(SEQ_MEMBER_NO.NEXTVAL, #{memberEmail}, #{memberPw} ,
+			#{memberNickname}, #{memberTel}, NULL,
+			DEFAULT, DEFAULT, DEFAULT , 'Y', DEFAULT)	
+	</insert>
+	
+	<!-- 네이버 로그인 회원정보 조회 -->
+	<select id="naverMember" parameterType="member" resultMap="member_rm">
+		SELECT MEMBER_NO, MEMBER_EMAIL, MEMBER_NICK, LOGIN_ST,PROFILE_IMG, MANAGER
+		FROM MEMBER
+		WHERE MEMBER_EMAIL = #{memberEmail}
+		AND SECESSION_FL = 'N'
+		AND LOGIN_ST = 'Y'
+	</select>
+	
+	
+	<!-- 구글, 카카오 첫 로그인 시 DB 삽입 -->
+	<insert id="googleKakaoInsert">
+		INSERT INTO MEMBER(MEMBER_NO, MEMBER_NICK,PROFILE_IMG, MEMBER_EMAIL,MEMBER_PW , SECESSION_FL, LOGIN_ST, MANAGER) VALUES
+		(SEQ_MEMBER_NO.NEXTVAL, #{memberNickname}, NULL, #{memberEmail}, #{memberPw} , DEFAULT, 'Y', DEFAULT)
+	</insert>
+	
+	<!-- 구글, 카카오 로그인 회원정보 조회 -->
+	<select id="googleKakaoLogin" parameterType="member" resultMap="member_rm">
+		SELECT MEMBER_NO, MEMBER_EMAIL, MEMBER_NICK, LOGIN_ST,PROFILE_IMG, MANAGER
+		FROM MEMBER
+		WHERE MEMBER_EMAIL = #{memberEmail}
+		AND SECESSION_FL = 'N'
+		AND LOGIN_ST = 'Y'
+	</select>
+	
+	<!-- 카카오 이메일,닉네임 중복 검사 -->
+	<select id="googleKakaoEmailCheck" parameterType="member" resultType="_int">
+		SELECT COUNT(*) FROM MEMBER
+		WHERE MEMBER_EMAIL = #{memberEmail}
+		AND MEMBER_NICK = #{memberNickname}
+		AND SECESSION_FL = 'N'
+		AND LOGIN_ST = 'Y'
+	</select>
+	
+	
+</mapper>

@@ -1,0 +1,584 @@
+/* section, div, form{
+    border : 1px solid black;
+} */
+
+
+/* 글씨체 */
+@import url('https://fonts.googleapis.com/css2?family=Gaegu:wght@700&family=Gowun+Batang&display=swap');
+/* font-family: 'Gaegu', cursive;
+font-family: 'Gowun Batang', serif; */
+
+
+/* a태그 공통 설정 */
+.board a{
+    text-decoration: none;
+    color : black;  
+}
+.board a:hover{
+    text-decoration: underline;
+}
+
+
+/* body */
+body{
+    width: 2050px;
+    margin: 0px;
+    width: 2050px;
+}
+
+
+/* main */
+main{
+    width: 100%;
+}
+
+
+/* 왼쪽 사이드 메뉴 */
+.myPage-content{
+    width: 1850px;
+    height: auto;
+    margin: 25px;
+    margin-left: 0px;
+    display: flex;
+}
+
+
+.left-side{
+    position: sticky;
+    top: 120px;
+    width: 200px;
+    
+    /* border-right : 2px solid gray; */
+    text-align: center;
+    height: 300px;
+}
+.left-side > h3 {
+    background-color: #343a40;
+    margin-left: 5px;
+    margin-right: 5px;
+    padding: 15px;
+    color: white;
+}
+.list-group{
+    min-width: 157px;
+    width: 100%;
+    padding: 0 5px 0 5;
+           /*상 우  하 좌  */
+}
+
+.list-group  li{
+    list-style: none;
+    height: 50px;
+    font-size: 18px;
+    padding: 30px;
+}
+
+.list-group  li > a{
+    text-decoration: none;
+    color : black;
+    height: 100%;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    /* border-bottom : 2px solid #ddd; */
+}
+
+.list-group  li:hover{
+    background-color: #f2f2f2;
+}
+/* 사이드메뉴 끝  */
+
+
+/* section */
+.contain{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 1850px;
+    /* width: 1850px; */
+    width: 100%;
+    padding: 30px 50px 0;
+    /* padding: [padding-top] [padding-left = padding-right] [padding-bottom]; */
+    border-left : 2px solid #ddd;
+    min-height: 670px;
+    padding-top: 30px;
+}
+
+
+/* span */
+span{
+    text-align: center;
+}
+
+
+/* board 위, 아래 */
+.board1{
+    margin-left: 35px;
+    margin-right: 35px;
+    height: 43%;
+    background-color: #f0f1f5;
+    border : 1px solid #dedede;
+    box-shadow: 0 0 20px #dedede;
+}
+.board2{
+    margin-left: 35px;
+    margin-right: 35px;
+    height: 35%;
+    background-color: #f0f1f5;
+    border: 1px solid #dedede;
+    box-shadow: 0 0 20px #dedede;
+}
+
+
+/* board 위1 아래2 를 나누는 빈공간 */
+.board-empty{
+    height: 7%;
+    /* border : 1px solid black; */
+}
+
+
+/* board2 관련 영역 설정 */
+.board-list{
+    display: flex;
+    width: 100%;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    justify-content: center;
+    /* border : 1px solid green; */
+}
+
+
+/* div headline 관련 */
+.headline1 h1{
+    font-size: 50px;
+    font-weight: 700;
+    font-family: 'Gaegu', cursive;
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+.headline1-1{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0px;
+}
+.headline1-1 h2{
+    font-size: 40px;
+    font-weight: 300;
+    font-family: 'Gaegu', cursive;
+    margin-top: 10px;
+}
+
+
+.headline1-2{
+    display: flex;
+    justify-content: center;
+    margin-bottom: -20px;
+}
+.headline1-2 h2{
+    font-size: 40px;
+    font-weight: 300;
+    font-family: 'Gaegu', cursive;
+    margin-top: 10px;
+}
+
+
+.headline2 h1{
+    text-align: center;
+    font-size: 50px;
+    font-weight: 700;
+    font-family: 'Gaegu', cursive;
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+.headline2-1{
+    display: flex;
+    justify-content: center;
+    margin-bottom: -40px;
+}
+.headline2-1 h2{
+    font-size: 40px;
+    font-weight: 300;
+    font-family: 'Gaegu', cursive;
+    margin-top: 10px;
+}
+
+
+.color1-1{
+    color: #02ff00;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+.color1-11{
+    color: white;
+    text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
+}
+.color1-12{
+    color: #27a044;
+    /* text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3); */
+}
+.color1-2{
+    color: #f57f00;
+    /* color: #5ef65e; */
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+.color2{
+    /* color: #5ba26d; */
+    color: #27a044;
+}
+
+
+/* 슬라이드박스(여행지 추천) */
+.slide-img{
+    border-radius: 70%;
+    height: 300px;
+}
+.hover-text{
+    border-radius: 50%;
+    width: 282px;
+    height: 282px;
+    position: absolute;
+    opacity: 0;
+    margin: -282px 0 0 68px;
+            /*상 우  하 좌  */
+    padding-top: 130px;
+    font-size: 25px;
+    color: white;
+    cursor: pointer;
+}
+.hover-text:hover{
+    font-weight: bold;
+    text-align: center;
+    opacity: 0.8;
+    transition: opacity 0.2s linear;
+    border-radius: 50%;
+    background-color: #434a51;
+}
+.multiple-items img{
+    opacity: 0.9;
+    border-radius: 50%;
+    width: 280px;
+    height: 280px;
+    display: block;
+    margin: auto;
+    margin-top: 10px;
+}
+.slide-text{
+    text-align: center;
+    margin: auto;
+    width: 90%;
+    height: 12%;
+    background-color:white;
+    border: 1px solid #eaeaea;
+    padding: 14px;
+    border-radius: 5%;
+    /* border : 1px solid black; */
+}
+.slide-title{
+    color: #348b49;
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 0px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #dedede;
+    font-family: 'Gowun Batang', serif;
+}
+.slide-content{
+    width: 100%;
+    height: 100px;
+    overflow: auto;
+    font-family: 'Gowun Batang', serif;
+    ::-webkit-scrollbar{
+        display: none;
+    }
+    /* border : 1px solid red; */
+}
+.slide-btn{
+    width: 42%;
+    height: 30px;
+    margin-top: -25px;
+    justify-content: center;
+    align-items: center;
+    background: #6fba82;
+    border-style: none;
+    color: white;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+    font-weight: 700;
+    font-family: 'Gowun Batang', serif;
+}
+
+
+/* 페이스북 */
+.board2-1{
+    width: 515px;
+    height: 400px;
+    background-color: #f0f1f5;
+    padding-top: 10px;
+    padding-left: 6px;
+    border: 1px solid #dedede;
+    border-radius: 5%;
+}
+._10b4{
+    overflow-y: auto;
+    ::-webkit-scrollbar{
+        display: none;
+    }
+    position: relative;
+    width: 100%;
+}
+
+
+/* 슬라이드박스(광고) */
+.slide_div2{
+    /* text-align: center; */
+    /* flex-direction: row; */
+    /* margin-left: 70px; */
+    width: 63%;
+    height: 400px;
+    /* border : 1px solid red; */
+}
+.multiple-items2 img{
+    opacity: 0.9;
+    border-radius: 5%;
+    width: 350px;
+    height: 400px;
+    /* margin-left: 40px; */
+    display: block;
+    margin: auto;
+    cursor: pointer;
+}
+
+
+/* custom slick dots */
+.slick-dotted.slick-slider
+{
+    margin-bottom: 30px;
+}
+.custom-dots
+{
+    position: absolute;
+    bottom: -45px;
+
+    display: block;
+
+    width: 100%;
+    padding: 0;
+    margin: 0;
+
+    list-style: none;
+
+    text-align: center;
+}
+.custom-dots li
+{
+    position: relative;
+
+    display: inline-block;
+
+    width: 20px;
+    height: 20px;
+    margin: 0 5px;
+    padding: 0;
+
+    cursor: pointer;
+}
+.custom-dots li button
+{
+    font-size: 0;
+    line-height: 0;
+
+    display: block;
+
+    width: 20px;
+    height: 20px;
+    padding: 5px;
+
+    cursor: pointer;
+
+    color: transparent;
+    border: 0;
+    outline: none;
+    background: transparent;
+}
+.custom-dots li button:hover,
+.custom-dots li button:focus
+{
+    outline: none;
+}
+.custom-dots li button:hover:before,
+.custom-dots li button:focus:before
+{
+    opacity: 1;
+}
+.custom-dots li button:before
+{
+    font-family: 'slick';
+    font-size: 6px;
+    line-height: 20px;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 20px;
+    height: 20px;
+
+    content: '•';
+    text-align: center;
+
+    opacity: .25;
+    color: black;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.custom-dots li.slick-active button:before
+{
+    opacity: .75;
+    color: black;
+}
+
+
+/* custom slick dots */
+.slick-dotted.slick-slider
+{
+    margin-bottom: 30px;
+}
+.custom-dots
+{
+    position: absolute;
+    bottom: -45px;
+
+    display: block;
+
+    width: 100%;
+    padding: 0;
+    margin: 0;
+
+    list-style: none;
+
+    text-align: center;
+}
+.custom-dots li
+{
+    position: relative;
+
+    display: inline-block;
+
+    width: 20px;
+    height: 20px;
+    margin: 0 5px;
+    padding: 0;
+
+    cursor: pointer;
+}
+.custom-dots li button
+{
+    font-size: 0;
+    line-height: 0;
+
+    display: block;
+
+    width: 20px;
+    height: 20px;
+    padding: 5px;
+
+    cursor: pointer;
+
+    color: transparent;
+    border: 0;
+    outline: none;
+    background: transparent;
+}
+.custom-dots li button:hover,
+.custom-dots li button:focus
+{
+    outline: none;
+}
+.custom-dots li button:hover:before,
+.custom-dots li button:focus:before
+{
+    opacity: 1;
+}
+.custom-dots li button:before
+{
+    font-family: 'slick';
+    font-size: 6px;
+    line-height: 20px;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 20px;
+    height: 20px;
+
+    content: '•';
+    text-align: center;
+
+    opacity: .25;
+    color: black;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.custom-dots li.slick-active button:before
+{
+    opacity: .75;
+    color: black;
+}
+
+
+
+
+/* @keyframes : 
+애니메이션 중간중간의 특정 지점들을 거칠 수 있는 키프레임들을 설정함으로써
+CSS 애니메이션 과정의 중간 절차를 제어할 수 있게 합니다.  */
+@keyframes show {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes hide {
+    from {opacity: 1;}
+    to {opacity: 0;}
+}
+
+
+/* .container,
+.container-fluid,
+.container-xxl,
+.container-xl,
+.container-lg,
+.container-md,
+.container-sm {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  width: 100%;
+  padding-right: calc(var(--bs-gutter-x) * 0.5);
+  padding-left: calc(var(--bs-gutter-x) * 0.5);
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col,
+.col-auto, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm,
+.col-sm-auto, .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12, .col-md,
+.col-md-auto, .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg,
+.col-lg-auto, .col-xl-1, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl,
+.col-xl-auto, .col-xxl-1, .col-xxl-2, .col-xxl-3, .col-xxl-4, .col-xxl-5, .col-xxl-6, .col-xxl-7, .col-xxl-8, .col-xxl-9, .col-xxl-10, .col-xxl-11, .col-xxl-12, .col-xxl,
+.col-xxl-auto {
+	position: relative;
+	width: 100%;
+	min-height: 1px;
+	padding-right: 15px;
+	padding-left: 15px;
+}
+
+#boardSearch input:focus{
+    outline: none;
+    border: 3px solid rgba(235, 145, 29) !important;
+} */

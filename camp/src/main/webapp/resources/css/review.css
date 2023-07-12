@@ -1,0 +1,264 @@
+*, p {
+    font-family: "Malgun Gothic";
+}
+
+/* 리뷰 목록(ul) */
+#reply-list{
+    padding : 0;
+    list-style: none;
+}
+
+/* 리뷰 한 줄(리뷰 하나) */
+.reply-row{
+    padding: 15px 30px;
+    border-top : 1px solid #ccc;
+    margin-left: 150px;
+    margin-right: 150px;
+    padding-top: 0px;
+}
+.mypage-reply-row{
+    margin-left: 10px !important; 
+}
+.reply-content{
+    margin-left: 40px;
+    margin-bottom: 0px;
+}
+
+/* 리뷰 목록 - 작성자 영역*/
+.reply-writer{
+    display: flex;
+    align-items: center;
+}
+
+/* 리뷰 작성자 프로필 이미지 */
+.reply-writer > img{
+    width: 40px;
+    height: 40px;
+}
+
+/* 리뷰 작성자 닉네임, 작성일 */
+.reply-writer > span{
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+/* 리뷰 작성일 */
+.reply-date{
+    font-size : 0.8em;
+    color : #aaa;
+}
+
+.reply-campName {
+    display: flex;
+    flex-direction: row-reverse;
+    text-align: right;
+    font-weight: bold;
+}
+
+/* 버튼 영역 */
+.reply-btn-area{
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* 버튼 */
+.reply-btn-area > button{
+    width: 50px;
+    height: 30px;
+    margin-left: 10px;
+    color: white;
+    background-color: #ee7843;
+    border: 0;
+    border-radius: 3px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* 버튼 hover */
+.reply-btn-area > button:hover{
+    background-color: #eb5d1e;
+    border: 1px solid #eee;
+    color: #fff;
+}
+
+
+
+/* 리뷰 작성 영역 */
+.reply-write-area{
+    display: flex;
+    justify-content: center;
+    min-height: 85px;
+    margin: 30px 0;
+    text-align: left;
+}
+
+
+/* 리뷰 등록 버튼 */
+#addReply{
+    /* flex-basis: 15%; */
+    width: 100px;
+    color: white;
+    background-color: #ee7843;
+    border: 0;
+    cursor: pointer;
+}
+
+#addReply:hover{
+    background-color: #eb5d1e;
+    color: #fff;
+    border: 2px solid #eee;
+}
+
+/* 리뷰 수정 textarea */
+.update-textarea{
+    width: 100%;
+    height: 90px;
+    resize: none;
+}
+
+/* 리뷰 작성창 */
+
+#campReview_form fieldset{
+    display: inline-block;
+    justify-content: left;
+    direction: rtl;
+    border:0;
+    margin-left: 20px;
+    font-size: 17px;
+}
+#campReview_form fieldset legend{
+    text-align: right;
+}
+#campReview_form fieldset span{
+    font-weight: normal;
+    font-size: 17px;
+}
+
+#campReview_form div {
+    display: flex;
+    margin: 5px;
+}
+
+#campReview_form input[type=radio]{
+    display: none;
+}
+#campReview_form label{
+    font-size: 1.5em;
+    color: transparent;
+    text-shadow: 0 0 0 rgb(178, 176, 176);
+}
+#campReview_form label:hover{
+    text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
+}
+#campReview_form label:hover ~ label{
+    text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
+}
+#campReview_form input[type=radio]:checked ~ label{
+    text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
+}
+#reviewContents {
+    width: 700px;
+    height: 100px;
+    padding: 10px;
+    box-sizing: border-box;
+    border: solid 1.5px #D3D3D3;
+    border-radius: 5px;
+    font-size: 17px;
+    resize: none;
+    margin-right: 5px;
+}
+
+.rate-in {
+    color: transparent;
+    text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
+}
+#starspan{
+    color: #aaa;
+}
+
+
+.rate-out {
+    color: transparent;
+    text-shadow: 0 0 0 rgb(178, 176, 176);
+}
+
+.updateRate {
+    width: auto;
+    height: auto;
+    display: inline-block;
+    justify-content: left;
+    direction: rtl;
+}
+
+.updateRate input[type=radio]{
+    display: none;
+}
+
+.updateRate label{
+    font-size: 1.2em;
+    color: transparent;
+    text-shadow: 0 0 0 rgb(178, 176, 176);
+}
+.updateRate label:hover{
+    text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
+}
+.updateRate label:hover ~ label{
+    text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
+}
+.updateRate input[type=radio]:checked ~ label{
+    text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
+}
+
+
+
+/* 페이지네이션 */
+
+.pagination {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .page-button {
+    border: none;
+    background-color: transparent;
+    color: #555;
+    font-size: 16px;
+    padding: 8px 12px;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-radius: 5px;
+  }
+  
+  .page-button.active {
+    background-color: #555;
+    color: #fff;
+  }
+  
+  .page-button:hover {
+    background-color: #555;
+    color: #fff;
+  }
+  
+  .pagination-previous,
+  .pagination-next {
+    border: none;
+    background-color: #555;
+    color: #fff;
+    font-size: 16px;
+    padding: 8px 12px;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-radius: 5px;
+  }
+  
+  .pagination-previous:hover,
+  .pagination-next:hover {
+    background-color: #333;
+  }
+  .pagination-previous {
+    order: -1;
+  }

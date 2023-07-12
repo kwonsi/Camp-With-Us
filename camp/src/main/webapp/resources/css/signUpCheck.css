@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Gaegu:wght@700&family=Gowun+Batang&display=swap');
+
+body{
+    background-image: url('../images/findIdPw6.jpg'); 
+    background-size: 100% 100%;
+    background-attachment: fixed;
+    background-position: center;
+}
+.signUpCheckAll{
+    margin-top: 150px;
+    margin-bottom: 50px;
+    /* background-color: #ffff; */
+    /* background-image: url("../images/signUpCheckBg1.jpg");
+    background-size: 100% 100%; */
+    /* opacity: 0.9; */
+}
+
+.signUpCheckForm{
+    width: 900px;
+    height: 2100px;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    flex-direction: column;
+    justify-content: center;
+}
+.contentCheck{
+    width: 1000px;
+    height: 1950px;
+   /*  border: 1px solid #212529; */
+    border-radius: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    box-shadow: 5px 5px 10px #022b02;
+    background-color: rgba(238, 238, 238, 0.8);
+}
+.signUpCheckBox{
+    display: flex;
+    /* align-items: start; */
+    justify-content: center;
+    width: 27px;
+    accent-color: #022b02;
+}
+.allsignUpCheckBox{
+    width: 27px;
+    accent-color: #022b02;
+}
+.subject{
+    display: flex;
+    font-size: 22px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.logoSize{
+    width: 200px;
+    height: 130px;
+}
+
+.check1{
+    border: 1px solid black;
+    width: 90%;
+    height: 400px;
+    overflow: auto;
+    font-size: 20px;
+    background-color: #ffff;
+    padding: 10px;
+    /* margin: auto; */
+}
+
+.agreement{
+    width: 840px;
+    display: flex;
+    justify-content: end;
+    margin-top: 15px;
+    margin-bottom: 30px;
+    font-size: 23px;
+    font-weight: bold;
+}
+.signUpMoveBtn{
+    margin-top: 50px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.Allagreement{
+    display: flex;
+    justify-content: center;
+    font-size: 27px;
+    font-weight: bold;
+}
+#signUpCheckBtn{
+    width: 400px;
+    height: 60px;
+    font-size: 25px;
+    border: 1px solid rgb(71, 71, 71);
+    border-radius: 0.38rem;
+    background-color: #494949;
+    color: #ffff;
+    cursor: pointer;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+#signUpCheckBtn:hover{
+    background-color: #070707;
+    border-color: black;
+    color: #0b9d18;
+}
