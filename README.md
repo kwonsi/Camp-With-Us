@@ -7,51 +7,31 @@
 꾸준히 늘어나는 캠핑 수요에 따라 쉽고 빠른 캠핑장 검색 및 예약을 돕는 사이트 개발
 
 ### 전체 기능
-- 캠핑장 검색기능(고캠핑 Api이용)
-- 캠핑장 예약 및 결제
-- 회원 가입 및 로그인 기능(일반 및 소셜(구글, 네이버, 카카오)) - 일반회원, 관리자 회원
-- 회원정보 수정, 탈퇴
-- 게시글 작성, 수정, 삭제(여행지 추천 게시판, 캠핑 나눔 게시판, 자유게시판, 공지사항, 문의사항)
-- 리뷰 작성, 수정, 삭제
-- 캠핑장 정보조회(상세정보, 지도/위치, 날씨, 리뷰)
-- 캠핑장 예약정보 작성 페이지(달력, 인원선택, 예약자 정보작성)
-- 캠핑장 예약 결제(무통장, 카드결제 선택)
-- 캠핑장 예약확인(예약, 예약대기, 취소)
-- 추천 캠핑장
+- 회원가입
+- 로그인(일반, 네이버, 구글, 카카오)
+- 아이디/비밀번호 찾기
+- 캠핑장 검색(공공데이터 Api)
+- 캠핑장 상세조회(위치, 날씨Api, 리뷰)
+- 리뷰작성, 수정, 삭제
+- 예약, 결제(아임포트Api 이용한 카드결제, 무통장 입금)
+- 마이페이지(예약확인 조회, 내 게시글 조회, 내 리뷰 조회, 회원정보 변경, 회원탈퇴)
+- 게시판(여행지추천 게시판, 나눔게시판, 자유게시판, 공지사항, 문의사항) summerNote Api사용 
 
 
 ### 내가 맡은 역할
-- 메인페이지 <br>
-  캠핑장 지역, 카테고리 선택 후 검색 페이지 이동 <br>
-- 로그인, 회원가입 <br>
-  회원가입<br>
-    &nbsp;&nbsp;이메일 중복체크(AJAX), 이메일 인증(Java Mail Sender)<br>
-    &nbsp;&nbsp;닉네임 중복체크(AJAX), 비밀번호 체크, 주소 검색(DAUM 주소 찾기 API)
-  로그인 <br>
-    &nbsp;&nbsp;입력한 ID와 PW가 일치하는 회원을 DB에서 조회
-- ID / PW 찾기 <br>
-  ID 찾기 <br>
-    &nbsp;&nbsp;전화번호를 입력하여 ID 조회 <br>
-  PW 찾기 <br>
-    &nbsp;&nbsp;이메일, 전화번호를 입력 시 임시 비밀번호를 이메일로 발급 <br>
-- 마이페이지, 관리자페이지 <br>
-  &nbsp;&nbsp;DB 조회(예약내역, 게시글, 리뷰) 후 목록 출력 <br>
-  &nbsp;&nbsp;회원정보 수정 <br>
-  &nbsp;&nbsp;회원 탈퇴 <br>
-- 캠핑장 검색 페이지 <br>
-  &nbsp;&nbsp;캠핑장 검색(고캠핑 API 사용) <br>
-  &nbsp;&nbsp;메인페이지에서 선택한 값을 이용한 캠핑장 검색 <br>
-- 상세페이지(카카오맵 ,리뷰) <br>
-  &nbsp;&nbsp;고캠핑 API에서 가져온 정보를 통해 캠핑장 위치 표시(카카오맵 API) <br>
-  &nbsp;&nbsp;DB 리뷰 테이블 조회 후 해당 캠핑장의 리뷰 목록 출력 <br>
-  &nbsp;&nbsp;리뷰 CRUD <br>
-- 캠핑 나눔 게시판 썸네일 표시 <br>
-- 게시판 이미지 저장 및 표시 <br>
+- 예약확인(마이페이지) <br>
+- 구글 로그인 Api
+- 카카오 로그인 Api
+- 아이디/비밀번호 찾기
+- 아임포트 Api
+  
+
+&nbsp;
   
 
 <div align="center">
     <div align="center">
-    Tech Stack<br>
+    운영체제, 언어, DataBase<br>
 </div>
 	<img src="https://img.shields.io/badge/Java-007396?style=flat&logo=Java&logoColor=white" />
 	<img src="https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=HTML5&logoColor=white" />
@@ -63,7 +43,7 @@
 <br>
 <div align="center">
     <div align="center">
-    Tools & WAS <br>
+    Tools, WAS <br>
 </div>
 <div align="center">
     <img src="https://img.shields.io/badge/Spring-6DB33F?style=flat&logo=spring&logoColor=white" />
