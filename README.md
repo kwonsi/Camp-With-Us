@@ -47,7 +47,7 @@
 
 <div align="center">
     <div align="center">
-    운영체제, 언어, DataBase<br>
+    언어, DataBase<br>
 </div>
 	<img src="https://img.shields.io/badge/Java-007396?style=flat&logo=Java&logoColor=white" />
 	<img src="https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=HTML5&logoColor=white" />
