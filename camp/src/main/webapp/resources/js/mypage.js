@@ -16,7 +16,7 @@ if(myPageList.length == 6) {
     }  else if(window.location.href == "http://localhost:8080/camp/member/myPage/secession") {
         myPageList[5].style.backgroundColor = "#e9ecef";
     }
-} else {
+} else if(myPageList.length == 5) {
     if(window.location.href == "http://localhost:8080/camp/member/myPage/myReservation") {
         myPageList[0].style.backgroundColor = "#e9ecef";
     } else if(window.location.href == "http://localhost:8080/camp/member/myPage/myBoard") {
@@ -28,6 +28,14 @@ if(myPageList.length == 6) {
     } else if(window.location.href == "http://localhost:8080/camp/member/myPage/secession") {
         myPageList[4].style.backgroundColor = "#e9ecef";
     }
+} else {
+    if(window.location.href == "http://localhost:8080/camp/member/myPage/myReservation") {
+        myPageList[0].style.backgroundColor = "#e9ecef";
+    } else if(window.location.href == "http://localhost:8080/camp/member/myPage/myBoard") {
+        myPageList[1].style.backgroundColor = "#e9ecef";
+    } else if(window.location.href == "http://localhost:8080/camp/member/myPage/myReview") {
+        myPageList[2].style.backgroundColor = "#e9ecef";
+    }  
 }
 
 

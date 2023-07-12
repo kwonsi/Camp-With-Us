@@ -66,7 +66,7 @@ public class MemberController {
 	public String doSignUpPage() {
 		return "member/signUp";
 	}
-
+		
 	// 아이디/비밀번호 찾기
 	@GetMapping("/findIdPw")
 	public String findIdPw() {
@@ -341,7 +341,7 @@ public class MemberController {
 	        // html태그를 사용하려면 true
 	        mailSender.send(mail);
 
-	        result=1;
+	        result = 1;
 
 	    } catch(Exception e) {
 	        e.printStackTrace();
@@ -363,12 +363,13 @@ public class MemberController {
 //	    	else return "임시 비밀번호 설정 오류";
 //
 //	    } else return "메일 발송 오류";
-
-	    Member member = new Member();
-    	member.setMemberEmail(memberEmail);
-    	member.setMemberPw(randomPassword);
-
-    	result = service.setTempPassword(member);
+	    if(result == 1) { // 메일 발송 성공
+	    	Member member = new Member();
+	    	member.setMemberEmail(memberEmail);
+	    	member.setMemberPw(randomPassword);
+	    	
+	    	result = service.setTempPassword(member);	// 임시 비밀번호 설정   	
+	    }
 
     	if(result > 0) {
     		logger.info("임시 비밀번호 : " + randomPassword);
@@ -412,16 +413,16 @@ public class MemberController {
 		System.out.println("인증번호:" + num);
 
 		/* 이메일 보내기 */
-        String setFrom = "ilypsj@gmail.com"; //보내는 이메일
+        String setFrom = "campwithus@gmail.com"; //보내는 이메일
         String toMail = inputEmail; //받는 사람 이메일
-        String title = "캠핑보내조 회원가입 인증 이메일 입니다.";
+        String title = "Camp With Us 회원가입 인증 이메일 입니다.";
         String content =
-                "캠핑보내조 홈페이지를 방문해주셔서 감사합니다." +
+                "Camp With Us 홈페이지를 방문해주셔서 감사합니다." +
                 "<br><br>" +
-                "인증 번호는 " + num + "입니다." +
+                "회원 가입 인증 번호는 " + num + "입니다." +
                 "<br>" +
 
-                "해당 인증번호를 인증번호 확인란에 기입하여 주세요.";
+                "해당 번호를 인증번호 확인란에 기입하여 주세요.";
 
         try {
 
