@@ -42,7 +42,7 @@
   ![image](https://github.com/jbjeon2/Camp-With-Us/assets/125863816/62a54915-0403-4ba3-99be-6f7e324a176a)
 <br>
 
- -배포(AWS) <br>
+- 배포(AWS) <br>
  ![image](https://github.com/kwonsi/Camp-With-Us/assets/125863816/85abcc76-78de-455f-b181-3d044baa3110)
 ![image](https://github.com/kwonsi/Camp-With-Us/assets/125863816/2f85eb25-b821-4f16-835a-0771d279665b)
 ![image](https://github.com/kwonsi/Camp-With-Us/assets/125863816/9ccda234-ed96-4ee1-aacd-0dd8db68abc3)
